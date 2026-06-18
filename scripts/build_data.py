@@ -222,3 +222,349 @@ with open(OUT_DIR / 'completeness.json', 'w') as f:
 print('completeness.json written:', completeness)
 
 print("\nAll artifacts built in", OUT_DIR)
+
+# ════════════════════════════════════════════════════════════════════════
+# APPENDIX FIGURES — reproducing Appendix VI figures 1–23 as data for the
+# interactive site. Each block below corresponds to one numbered figure.
+# ════════════════════════════════════════════════════════════════════════
+studies_u = df.drop_duplicates(subset=['id']).copy()
+
+def clean_num(v):
+    if v is None: return None
+    try:
+        return float(v)
+    except (ValueError, TypeError):
+        return None
+
+# ── Fig 1. Publications by year ────────────────────────────────────────
+pubs_by_year = df.drop_duplicates(subset=['id-pub-id'])['pub-year'].value_counts().sort_index()
+fig1 = [{'year': int(y), 'count': int(c)} for y, c in pubs_by_year.items()]
+with open(OUT_DIR / 'fig01_pubs_by_year.json', 'w') as f:
+    json.dump({'data': fig1}, f, indent=2)
+print('fig01_pubs_by_year.json:', len(fig1), 'years')
+
+# ── Fig 2. Geographical distribution ───────────────────────────────────
+country_counts = studies_u['id-country'].value_counts()
+country_counts = country_counts[~country_counts.index.isin(CODES)]
+fig2 = [{'country': c, 'count': int(n)} for c, n in country_counts.items()]
+with open(OUT_DIR / 'fig02_geography.json', 'w') as f:
+    json.dump({'data': fig2}, f, indent=2)
+print('fig02_geography.json:', len(fig2), 'countries')
+
+# ── Fig 3 & 4. Session length / normalisation length histograms ───────
+def parse_minutes(v):
+    n = clean_num(v)
+    return n
+
+studies_u['session_min'] = studies_u['exp-session-length'].apply(parse_minutes)
+studies_u['norm_min'] = studies_u['exp-normalisation-length'].apply(parse_minutes)
+
+session_vals = studies_u['session_min'].dropna().tolist()
+norm_vals = studies_u['norm_min'].dropna().tolist()
+
+with open(OUT_DIR / 'fig03_session_length.json', 'w') as f:
+    json.dump({'values_minutes': session_vals}, f, indent=2)
+with open(OUT_DIR / 'fig04_normalisation_length.json', 'w') as f:
+    json.dump({'values_minutes': norm_vals}, f, indent=2)
+print(f'fig03/04: {len(session_vals)} session, {len(norm_vals)} normalisation values')
+
+# ── Fig 5. Time of day distribution ────────────────────────────────────
+def parse_time_ranges(v):
+    """Extract (start_hour, end_hour) tuples in decimal hours from exp-hours text."""
+    if v is None or str(v).strip() in CODES:
+        return []
+    ranges = []
+    matches = re.findall(r'(\d{1,2})[:.](\d{2})\s*[-–—]\s*(\d{1,2})[:.](\d{2})', str(v))
+    for sh, sm, eh, em in matches:
+        start = int(sh) + int(sm) / 60
+        end = int(eh) + int(em) / 60
+        ranges.append((round(start, 2), round(end, 2)))
+    return ranges
+
+studies_u['time_ranges'] = studies_u['exp-hours'].apply(parse_time_ranges)
+time_rows = []
+for _, row in studies_u.iterrows():
+    for start, end in row['time_ranges']:
+        time_rows.append({'id': row['id'], 'start': start, 'end': end})
+
+with open(OUT_DIR / 'fig05_time_of_day.json', 'w') as f:
+    json.dump({'sessions': time_rows, 'n_reporting': len(set(r['id'] for r in time_rows))}, f, indent=2)
+print(f'fig05_time_of_day.json: {len(time_rows)} session time blocks')
+
+# ── Fig 6. Experiment type × spatial typology sunburst ─────────────────
+typ = studies_u[['exp-type', 'exp-spatial-typology']].copy()
+typ = typ[~typ['exp-type'].isin(CODES) & typ['exp-type'].notna()]
+typ['exp-type'] = typ['exp-type'].astype(str).str.strip().replace({'Living lab': 'Living Lab'})
+typ['exp-spatial-typology'] = typ['exp-spatial-typology'].apply(
+    lambda v: 'NR' if v is None or str(v).strip() in CODES else str(v).strip())
+sunburst = typ.groupby(['exp-type', 'exp-spatial-typology']).size().reset_index(name='count')
+with open(OUT_DIR / 'fig06_setting_typology.json', 'w') as f:
+    json.dump({'data': sunburst.to_dict('records')}, f, indent=2, default=str)
+print('fig06_setting_typology.json:', len(sunburst), 'type-typology pairs')
+
+# ── Fig 7. Tested air temperature ranges ───────────────────────────────
+def parse_temp_steps(v):
+    if v is None or str(v).strip() in CODES:
+        return []
+    nums = re.findall(r'-?\d+\.?\d*', str(v))
+    return [float(n) for n in nums]
+
+studies_u['temp_steps'] = studies_u['exp-tested-target-temps'].apply(parse_temp_steps)
+temp_rows = []
+for _, row in studies_u.iterrows():
+    steps = row['temp_steps']
+    if steps:
+        temp_rows.append({'id': row['id'], 'min': min(steps), 'max': max(steps), 'steps': steps})
+
+with open(OUT_DIR / 'fig07_temperature_ranges.json', 'w') as f:
+    json.dump({'studies': temp_rows}, f, indent=2)
+print(f'fig07_temperature_ranges.json: {len(temp_rows)} studies with parseable temps')
+
+# ── Fig 8 & 9. Age and BMI mean±SD per study ───────────────────────────
+age_rows = []
+for _, row in studies_u.iterrows():
+    mean = clean_num(row['pop-age-mean'])
+    std_raw = clean_num(row['pop-age-std'])
+    if mean is not None:
+        age_rows.append({'id': row['id'], 'mean': mean, 'std': std_raw, 'std_reported': std_raw is not None})
+
+bmi_rows = []
+for _, row in studies_u.iterrows():
+    mean = clean_num(row['pop-bmi-mean'])
+    std_raw = clean_num(row['pop-bmi-std'])
+    if mean is not None:
+        bmi_rows.append({'id': row['id'], 'mean': mean, 'std': std_raw, 'std_reported': std_raw is not None})
+
+with open(OUT_DIR / 'fig08_age.json', 'w') as f:
+    json.dump({'studies': sorted(age_rows, key=lambda r: r['mean'])}, f, indent=2)
+with open(OUT_DIR / 'fig09_bmi.json', 'w') as f:
+    json.dump({'studies': sorted(bmi_rows, key=lambda r: r['mean'])}, f, indent=2)
+print(f'fig08/09: {len(age_rows)} age, {len(bmi_rows)} BMI studies')
+
+# ── Fig 10 & 11. Sex distribution and sample size ──────────────────────
+sex_rows = []
+for _, row in studies_u.iterrows():
+    m = clean_num(row['pop-male-no'])
+    fem = clean_num(row['pop-fem-no'])
+    if m is not None and fem is not None and (m + fem) > 0:
+        total = m + fem
+        sex_rows.append({
+            'id': row['id'], 'male': m, 'female': fem,
+            'male_pct': round(100 * m / total, 1),
+        })
+sex_rows.sort(key=lambda r: r['male_pct'])
+
+n_male_gt = sum(1 for r in sex_rows if r['male_pct'] > 55)
+n_equal = sum(1 for r in sex_rows if 45 <= r['male_pct'] <= 55)
+n_fem_gt = sum(1 for r in sex_rows if r['male_pct'] < 45)
+
+with open(OUT_DIR / 'fig10_sex_distribution.json', 'w') as f:
+    json.dump({
+        'studies': sex_rows,
+        'summary': {'male_gt': n_male_gt, 'equal': n_equal, 'female_gt': n_fem_gt},
+    }, f, indent=2)
+print(f'fig10_sex_distribution.json: {len(sex_rows)} studies')
+
+n_tot_rows = []
+for _, row in studies_u.iterrows():
+    n = clean_num(row['pop-no-tot'])
+    if n is not None and n > 0:
+        n_tot_rows.append({'id': row['id'], 'n': n})
+n_tot_rows.sort(key=lambda r: r['n'])
+with open(OUT_DIR / 'fig11_sample_size.json', 'w') as f:
+    json.dump({'studies': n_tot_rows}, f, indent=2)
+print(f'fig11_sample_size.json: {len(n_tot_rows)} studies')
+
+# ── Fig 12. Environmental variable co-occurrence ───────────────────────
+ENV_VARS = {
+    'env-tdb': 'Air temp.', 'env-rh': 'Relative humidity', 'env-v': 'Air velocity',
+    'env-tg': 'Globe temp.', 'env-tsurface': 'Surface temp.', 'env-twb': 'Wet bulb temp.',
+    'env-co2': 'CO2 concentration', 'env-illuminance': 'Illuminance levels',
+    'env-sound-level': 'Sound levels', 'env-tout': 'Outdoor temp.', 'env-rhout': 'Outdoor rel. humidity',
+    'env-voc': 'VOC levels', 'env-light-color': 'Light colour', 'env-solar-rad': 'Solar radiation',
+}
+env_reported = pd.DataFrame({
+    label: ~studies_u[col].isin(CODES) & studies_u[col].notna()
+    for col, label in ENV_VARS.items()
+})
+labels = list(ENV_VARS.values())
+cooc = pd.DataFrame(0, index=labels, columns=labels)
+for a in labels:
+    for b in labels:
+        cooc.loc[a, b] = int((env_reported[a] & env_reported[b]).sum())
+totals = {l: int(env_reported[l].sum()) for l in labels}
+
+with open(OUT_DIR / 'fig12_env_cooccurrence.json', 'w') as f:
+    json.dump({
+        'labels': labels,
+        'matrix': cooc.values.tolist(),
+        'totals': totals,
+    }, f, indent=2)
+print('fig12_env_cooccurrence.json written')
+
+# ── Fig 17 & 18. Physiological parameter frequency + co-occurrence ─────
+physio_clean = df[['id', 'physio-parameter']].copy()
+physio_clean = physio_clean[~physio_clean['physio-parameter'].isin(CODES)]
+physio_clean = physio_clean[physio_clean['physio-parameter'].notna()]
+physio_clean['physio-parameter'] = physio_clean['physio-parameter'].astype(str).str.strip()
+physio_clean['physio-parameter'] = physio_clean['physio-parameter'].replace({
+    'Body temperature': 'Core/Body temperature', 'Core temperature': 'Core/Body temperature',
+})
+physio_unique = physio_clean.drop_duplicates(subset=['id', 'physio-parameter'])
+
+param_counts = physio_unique['physio-parameter'].value_counts()
+fig17 = [{'parameter': p, 'count': int(c)} for p, c in param_counts.items()]
+with open(OUT_DIR / 'fig17_physio_params.json', 'w') as f:
+    json.dump({'data': fig17}, f, indent=2)
+print(f'fig17_physio_params.json: {len(fig17)} parameters')
+
+TOP_PARAMS = param_counts.head(11).index.tolist()
+param_presence = pd.DataFrame({
+    p: physio_unique['id'].isin(physio_unique[physio_unique['physio-parameter'] == p]['id'])
+    for p in TOP_PARAMS
+}).drop_duplicates()
+ids_with_any = physio_unique['id'].unique()
+presence_matrix = pd.DataFrame(False, index=ids_with_any, columns=TOP_PARAMS)
+for p in TOP_PARAMS:
+    matching_ids = set(physio_unique[physio_unique['physio-parameter'] == p]['id'])
+    presence_matrix[p] = presence_matrix.index.isin(matching_ids)
+
+param_cooc = pd.DataFrame(0, index=TOP_PARAMS, columns=TOP_PARAMS)
+for a in TOP_PARAMS:
+    for b in TOP_PARAMS:
+        param_cooc.loc[a, b] = int((presence_matrix[a] & presence_matrix[b]).sum())
+
+with open(OUT_DIR / 'fig18_physio_cooccurrence.json', 'w') as f:
+    json.dump({'labels': TOP_PARAMS, 'matrix': param_cooc.values.tolist()}, f, indent=2)
+print('fig18_physio_cooccurrence.json written')
+
+# ── Fig 15 & 16. Questionnaire scale heterogeneity ─────────────────────
+def parse_scale(text, kind):
+    """Parse 'points=N; range=(...); scale=(...)' strings into structured scale data."""
+    if text is None or str(text).strip() in CODES:
+        return None
+    text = str(text)
+    pts_m = re.search(r'points=(\d+)', text)
+    pts = int(pts_m.group(1)) if pts_m else None
+    range_m = re.search(r'range=\(([^)]*)\)', text)
+    labels_m = re.search(r'scale=\(([^)]*)\)', text)
+    if not range_m or not labels_m:
+        return None
+    try:
+        range_vals = [float(x.strip().replace('+', '')) for x in range_m.group(1).split(',')]
+    except ValueError:
+        return None
+    labels = [x.strip().strip('"').strip("'") for x in labels_m.group(1).split(',')]
+    if len(range_vals) != len(labels) or pts is None:
+        return None
+    return {'points': pts, 'range': range_vals, 'labels': labels}
+
+tsv_parsed, tcv_parsed = [], []
+for _, row in studies_u.iterrows():
+    p = parse_scale(row['ques-thermal-sensation'], 'tsv')
+    if p:
+        p['id'] = row['id']
+        tsv_parsed.append(p)
+    p2 = parse_scale(row['ques-thermal-comfort'], 'tcv')
+    if p2:
+        p2['id'] = row['id']
+        tcv_parsed.append(p2)
+
+tsv_pts_dist = pd.Series([p['points'] for p in tsv_parsed]).value_counts().sort_index()
+tcv_pts_dist = pd.Series([p['points'] for p in tcv_parsed]).value_counts().sort_index()
+
+with open(OUT_DIR / 'fig15_tsv_scales.json', 'w') as f:
+    json.dump({
+        'studies': tsv_parsed,
+        'points_distribution': [{'points': int(k), 'count': int(v)} for k, v in tsv_pts_dist.items()],
+        'n_total': len(tsv_parsed),
+    }, f, indent=2)
+with open(OUT_DIR / 'fig16_tcv_scales.json', 'w') as f:
+    json.dump({
+        'studies': tcv_parsed,
+        'points_distribution': [{'points': int(k), 'count': int(v)} for k, v in tcv_pts_dist.items()],
+        'n_total': len(tcv_parsed),
+    }, f, indent=2)
+print(f'fig15/16: {len(tsv_parsed)} TSV scales, {len(tcv_parsed)} TCV scales parsed')
+
+# ── Fig 14. Questionnaire usage grouped by domain ──────────────────────
+QUES_DOMAINS = {
+    'Thermal': ['ques-thermal-sensation','ques-thermal-comfort','ques-thermal-prefer','ques-thermal-accept',
+                'ques-thermal-satisfaction','ques-thermal-pleasure-pleasantness','ques-local-therm-sensation',
+                'ques-local-therm-comfort','ques-local-therm-satisfaction','ques-shivering','ques-sweating-sensation'],
+    'Overall': ['ques-overall-comfort','ques-overall-satisfaction'],
+    'Air movement': ['ques-airmove-sensation','ques-airmove-comfort','ques-local-airmove-sensation',
+                      'ques-airmove-perception','ques-airmove-prefer','ques-airmove-accept','ques-airmove-satisfaction'],
+    'Humidity': ['ques-humidity-sensation','ques-humidity-comfort','ques-humidity-prefer',
+                 'ques-humidity-accept','ques-humidity-satisfaction'],
+    'Light & Visual': ['ques-light-sensation','ques-light-comfort','ques-visual-prefer','ques-light-prefer',
+                        'ques-light-accept','ques-light-satisfaction'],
+    'IAQ': ['ques-iaq-sensation','ques-iaq-comfort','ques-iaq-prefer','ques-iaq-accept','ques-iaq-satisfaction',
+            'ques-odour-intensity','ques-sick-building-syndrome'],
+    'Acoustic': ['ques-acoustic-sensation','ques-acoustic-comfort','ques-acoustic-prefer',
+                 'ques-acoustic-accept','ques-acoustic-satisfaction'],
+}
+PRETTY_FIELD = {
+    'ques-thermal-sensation':'Thermal sensation','ques-thermal-comfort':'Thermal comfort',
+    'ques-thermal-prefer':'Thermal preference','ques-thermal-accept':'Thermal acceptance',
+    'ques-thermal-satisfaction':'Thermal satisfaction','ques-thermal-pleasure-pleasantness':'Thermal pleasure',
+    'ques-local-therm-sensation':'Local thermal sensation','ques-local-therm-comfort':'Local thermal comfort',
+    'ques-local-therm-satisfaction':'Local thermal satisfaction','ques-shivering':'Shivering sensation',
+    'ques-sweating-sensation':'Sweating sensation','ques-overall-comfort':'Overall comfort',
+    'ques-overall-satisfaction':'Overall satisfaction','ques-airmove-sensation':'Air movement sensation',
+    'ques-airmove-comfort':'Air movement comfort','ques-local-airmove-sensation':'Local air movement sensation',
+    'ques-airmove-perception':'Air movement perception','ques-airmove-prefer':'Air movement preference',
+    'ques-airmove-accept':'Air movement acceptability','ques-airmove-satisfaction':'Air movement satisfaction',
+    'ques-humidity-sensation':'Humidity sensation','ques-humidity-comfort':'Humidity comfort',
+    'ques-humidity-prefer':'Humidity preference','ques-humidity-accept':'Humidity acceptability',
+    'ques-humidity-satisfaction':'Humidity satisfaction','ques-light-sensation':'Light sensation',
+    'ques-light-comfort':'Light comfort','ques-visual-prefer':'Visual preference','ques-light-prefer':'Light preference',
+    'ques-light-accept':'Light acceptability','ques-light-satisfaction':'Light satisfaction',
+    'ques-iaq-sensation':'IAQ sensation','ques-iaq-comfort':'IAQ comfort','ques-iaq-prefer':'IAQ preference',
+    'ques-iaq-accept':'IAQ acceptability','ques-iaq-satisfaction':'IAQ satisfaction',
+    'ques-odour-intensity':'Odour intensity','ques-sick-building-syndrome':'Sick building syndrome',
+    'ques-acoustic-sensation':'Acoustic sensation','ques-acoustic-comfort':'Acoustic comfort',
+    'ques-acoustic-prefer':'Acoustic preference','ques-acoustic-accept':'Acoustic acceptability',
+    'ques-acoustic-satisfaction':'Acoustic satisfaction',
+}
+ques_domain_data = {}
+for domain, cols in QUES_DOMAINS.items():
+    cols_present = [c for c in cols if c in studies_u.columns]
+    reported = ~studies_u[cols_present].isin(CODES) & studies_u[cols_present].notna()
+    any_in_domain = reported.any(axis=1).sum()
+    field_counts = [{'field': PRETTY_FIELD.get(c, c), 'count': int(reported[c].sum())} for c in cols_present]
+    field_counts.sort(key=lambda r: -r['count'])
+    ques_domain_data[domain] = {'n_any': int(any_in_domain), 'fields': field_counts}
+
+with open(OUT_DIR / 'fig14_questionnaire_domains.json', 'w') as f:
+    json.dump(ques_domain_data, f, indent=2)
+print('fig14_questionnaire_domains.json written')
+
+# ── Fig 20, 21, 22. Protocol / participant metadata / selection criteria binary matrices ──
+def binary_matrix_block(prefix, pretty_map=None):
+    cols = [c for c in studies_u.columns if c.startswith(prefix)]
+    reported = ~studies_u[cols].isin(CODES) & studies_u[cols].notna()
+    pct = (reported.mean() * 100).round(1)
+    order = pct.sort_values(ascending=False).index.tolist()
+    pretty = pretty_map or {}
+    bar = [{'field': pretty.get(c, c.replace(prefix,'').replace('-',' ')), 'pct': float(pct[c]), 'count': int(reported[c].sum())} for c in order]
+    matrix = reported[order].astype(int).values.tolist()
+    return {'bar': bar, 'matrix': matrix, 'fields': [pretty.get(c, c.replace(prefix,'').replace('-',' ')) for c in order], 'n_studies': len(studies_u)}
+
+fig20 = binary_matrix_block('protocol-')
+with open(OUT_DIR / 'fig20_protocol.json', 'w') as f:
+    json.dump(fig20, f, indent=2)
+print('fig20_protocol.json written:', len(fig20['bar']), 'fields')
+
+fig21 = binary_matrix_block('part-')
+with open(OUT_DIR / 'fig21_participant_metadata.json', 'w') as f:
+    json.dump(fig21, f, indent=2)
+print('fig21_participant_metadata.json written:', len(fig21['bar']), 'fields')
+
+fig22 = binary_matrix_block('select-')
+with open(OUT_DIR / 'fig22_selection_criteria.json', 'w') as f:
+    json.dump(fig22, f, indent=2)
+print('fig22_selection_criteria.json written:', len(fig22['bar']), 'fields')
+
+print("\nAll appendix figure artifacts built.")
+

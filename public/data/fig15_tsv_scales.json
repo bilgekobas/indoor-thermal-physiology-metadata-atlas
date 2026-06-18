@@ -1,0 +1,4669 @@
+{
+  "studies": [
+    {
+      "points": 7,
+      "range": [
+        -3.0,
+        -2.0,
+        -1.0,
+        0.0,
+        1.0,
+        2.0,
+        3.0
+      ],
+      "labels": [
+        "cold",
+        "cool",
+        "slightly cool",
+        "neutral",
+        "slightly warm",
+        "warm",
+        "hot"
+      ],
+      "id": "1_1"
+    },
+    {
+      "points": 9,
+      "range": [
+        -4.0,
+        -3.0,
+        -2.0,
+        -1.0,
+        0.0,
+        1.0,
+        2.0,
+        3.0,
+        4.0
+      ],
+      "labels": [
+        "very cold",
+        "cold",
+        "cool",
+        "slightly cool",
+        "neutral",
+        "slightly warm",
+        "warm",
+        "hot",
+        "very hot"
+      ],
+      "id": "2_1"
+    },
+    {
+      "points": 9,
+      "range": [
+        -4.0,
+        -3.0,
+        -2.0,
+        -1.0,
+        0.0,
+        1.0,
+        2.0,
+        3.0,
+        4.0
+      ],
+      "labels": [
+        "very cold",
+        "cold",
+        "cool",
+        "slightly cool",
+        "neutral",
+        "slightly warm",
+        "warm",
+        "hot",
+        "very hot"
+      ],
+      "id": "2_2"
+    },
+    {
+      "points": 9,
+      "range": [
+        -4.0,
+        -3.0,
+        -2.0,
+        -1.0,
+        0.0,
+        1.0,
+        2.0,
+        3.0,
+        4.0
+      ],
+      "labels": [
+        "very cold",
+        "cold",
+        "cool",
+        "slightly cool",
+        "neutral",
+        "slightly warm",
+        "warm",
+        "hot",
+        "very hot"
+      ],
+      "id": "2_3"
+    },
+    {
+      "points": 7,
+      "range": [
+        -3.0,
+        -2.0,
+        -1.0,
+        0.0,
+        1.0,
+        2.0,
+        3.0
+      ],
+      "labels": [
+        "cold",
+        "cool",
+        "slightly cool",
+        "neutral",
+        "slightly warm",
+        "warm",
+        "hot"
+      ],
+      "id": "3_1"
+    },
+    {
+      "points": 7,
+      "range": [
+        -3.0,
+        -2.0,
+        -1.0,
+        0.0,
+        1.0,
+        2.0,
+        3.0
+      ],
+      "labels": [
+        "cold",
+        "cool",
+        "slightly cool",
+        "neutral",
+        "slightly warm",
+        "warm",
+        "hot"
+      ],
+      "id": "4_1"
+    },
+    {
+      "points": 7,
+      "range": [
+        -3.0,
+        -2.0,
+        -1.0,
+        0.0,
+        1.0,
+        2.0,
+        3.0
+      ],
+      "labels": [
+        "cold",
+        "cool",
+        "slightly cool",
+        "neutral",
+        "slightly warm",
+        "warm",
+        "hot"
+      ],
+      "id": "5_1"
+    },
+    {
+      "points": 7,
+      "range": [
+        -3.0,
+        -2.0,
+        -1.0,
+        0.0,
+        1.0,
+        2.0,
+        3.0
+      ],
+      "labels": [
+        "cold",
+        "cool",
+        "slightly cool",
+        "neutral",
+        "slightly warm",
+        "warm",
+        "hot"
+      ],
+      "id": "6_1"
+    },
+    {
+      "points": 7,
+      "range": [
+        -3.0,
+        -2.0,
+        -1.0,
+        0.0,
+        1.0,
+        2.0,
+        3.0
+      ],
+      "labels": [
+        "very cold",
+        "cold",
+        "cool",
+        "neutral",
+        "warm",
+        "hot",
+        "very hot"
+      ],
+      "id": "7_1"
+    },
+    {
+      "points": 7,
+      "range": [
+        -3.0,
+        -2.0,
+        -1.0,
+        0.0,
+        1.0,
+        2.0,
+        3.0
+      ],
+      "labels": [
+        "cold",
+        "cool",
+        "slightly cool",
+        "neutral",
+        "slightly warm",
+        "warm",
+        "hot"
+      ],
+      "id": "8_1"
+    },
+    {
+      "points": 9,
+      "range": [
+        -4.0,
+        -3.0,
+        -2.0,
+        -1.0,
+        0.0,
+        1.0,
+        2.0,
+        3.0,
+        4.0
+      ],
+      "labels": [
+        "very cold",
+        "cold",
+        "cool",
+        "slightly cool",
+        "neutral",
+        "slightly warm",
+        "warm",
+        "hot",
+        "very hot"
+      ],
+      "id": "9_1"
+    },
+    {
+      "points": 7,
+      "range": [
+        -3.0,
+        -2.0,
+        -1.0,
+        0.0,
+        1.0,
+        2.0,
+        3.0
+      ],
+      "labels": [
+        "cold",
+        "cool",
+        "slightly cool",
+        "neutral",
+        "slightly warm",
+        "warm",
+        "hot"
+      ],
+      "id": "10_1"
+    },
+    {
+      "points": 7,
+      "range": [
+        -3.0,
+        -2.0,
+        -1.0,
+        0.0,
+        1.0,
+        2.0,
+        3.0
+      ],
+      "labels": [
+        "cold",
+        "cool",
+        "slightly cool",
+        "neutral",
+        "slightly warm",
+        "warm",
+        "hot"
+      ],
+      "id": "11_1"
+    },
+    {
+      "points": 7,
+      "range": [
+        -3.0,
+        -2.0,
+        -1.0,
+        0.0,
+        1.0,
+        2.0,
+        3.0
+      ],
+      "labels": [
+        "cold",
+        "cool",
+        "slightly cool",
+        "neutral",
+        "slightly warm",
+        "warm",
+        "hot"
+      ],
+      "id": "12_1"
+    },
+    {
+      "points": 7,
+      "range": [
+        -3.0,
+        -2.0,
+        -1.0,
+        0.0,
+        1.0,
+        2.0,
+        3.0
+      ],
+      "labels": [
+        "cold",
+        "cool",
+        "slightly cool",
+        "neutral",
+        "slightly warm",
+        "warm",
+        "hot"
+      ],
+      "id": "13_1"
+    },
+    {
+      "points": 9,
+      "range": [
+        -4.0,
+        -3.0,
+        -2.0,
+        -1.0,
+        0.0,
+        1.0,
+        2.0,
+        3.0,
+        4.0
+      ],
+      "labels": [
+        "very cold",
+        "cold",
+        "cool",
+        "slightly cool",
+        "neutral",
+        "slightly warm",
+        "warm",
+        "hot",
+        "very hot"
+      ],
+      "id": "14_1"
+    },
+    {
+      "points": 7,
+      "range": [
+        -3.0,
+        -2.0,
+        -1.0,
+        0.0,
+        1.0,
+        2.0,
+        3.0
+      ],
+      "labels": [
+        "cold",
+        "cool",
+        "slightly cool",
+        "neutral",
+        "slightly warm",
+        "warm",
+        "hot"
+      ],
+      "id": "16_1"
+    },
+    {
+      "points": 7,
+      "range": [
+        -3.0,
+        -2.0,
+        -1.0,
+        0.0,
+        1.0,
+        2.0,
+        3.0
+      ],
+      "labels": [
+        "cold",
+        "cool",
+        "slightly cool",
+        "neutral",
+        "slightly warm",
+        "warm",
+        "hot"
+      ],
+      "id": "17_1"
+    },
+    {
+      "points": 7,
+      "range": [
+        -3.0,
+        -2.0,
+        -1.0,
+        0.0,
+        1.0,
+        2.0,
+        3.0
+      ],
+      "labels": [
+        "very cold",
+        "cold",
+        "cool",
+        "neutral",
+        "warm",
+        "hot",
+        "very hot"
+      ],
+      "id": "18_1"
+    },
+    {
+      "points": 7,
+      "range": [
+        -3.0,
+        -2.0,
+        -1.0,
+        0.0,
+        1.0,
+        2.0,
+        3.0
+      ],
+      "labels": [
+        "cold",
+        "cool",
+        "slightly cool",
+        "neutral",
+        "slightly warm",
+        "warm",
+        "hot"
+      ],
+      "id": "19_1"
+    },
+    {
+      "points": 7,
+      "range": [
+        -3.0,
+        -2.0,
+        -1.0,
+        0.0,
+        1.0,
+        2.0,
+        3.0
+      ],
+      "labels": [
+        "cold",
+        "cool",
+        "slightly cool",
+        "neutral",
+        "slightly warm",
+        "warm",
+        "hot"
+      ],
+      "id": "20_1"
+    },
+    {
+      "points": 7,
+      "range": [
+        -3.0,
+        -2.0,
+        -1.0,
+        0.0,
+        1.0,
+        2.0,
+        3.0
+      ],
+      "labels": [
+        "cold",
+        "cool",
+        "slightly cool",
+        "neutral",
+        "slightly warm",
+        "warm",
+        "hot"
+      ],
+      "id": "21_1"
+    },
+    {
+      "points": 7,
+      "range": [
+        -3.0,
+        -2.0,
+        -1.0,
+        0.0,
+        1.0,
+        2.0,
+        3.0
+      ],
+      "labels": [
+        "cold",
+        "cool",
+        "slightly cool",
+        "neutral",
+        "slightly warm",
+        "warm",
+        "hot"
+      ],
+      "id": "22_1"
+    },
+    {
+      "points": 7,
+      "range": [
+        -3.0,
+        -2.0,
+        -1.0,
+        0.0,
+        1.0,
+        2.0,
+        3.0
+      ],
+      "labels": [
+        "cold",
+        "cool",
+        "slightly cool",
+        "neutral",
+        "slightly warm",
+        "warm",
+        "hot"
+      ],
+      "id": "23_1"
+    },
+    {
+      "points": 7,
+      "range": [
+        -3.0,
+        -2.0,
+        -1.0,
+        0.0,
+        1.0,
+        2.0,
+        3.0
+      ],
+      "labels": [
+        "cold",
+        "cool",
+        "slightly cool",
+        "neutral",
+        "slightly warm",
+        "warm",
+        "hot"
+      ],
+      "id": "24_1"
+    },
+    {
+      "points": 7,
+      "range": [
+        -3.0,
+        -2.0,
+        -1.0,
+        0.0,
+        1.0,
+        2.0,
+        3.0
+      ],
+      "labels": [
+        "cold",
+        "cool",
+        "slightly cool",
+        "neutral",
+        "slightly warm",
+        "warm",
+        "hot"
+      ],
+      "id": "25_1"
+    },
+    {
+      "points": 9,
+      "range": [
+        -4.0,
+        -3.0,
+        -2.0,
+        -1.0,
+        0.0,
+        1.0,
+        2.0,
+        3.0,
+        4.0
+      ],
+      "labels": [
+        "very cold",
+        "cold",
+        "cool",
+        "slightly cool",
+        "neutral",
+        "slightly warm",
+        "warm",
+        "hot",
+        "very hot"
+      ],
+      "id": "26_1"
+    },
+    {
+      "points": 9,
+      "range": [
+        -4.0,
+        -3.0,
+        -2.0,
+        -1.0,
+        0.0,
+        1.0,
+        2.0,
+        3.0,
+        4.0
+      ],
+      "labels": [
+        "very cold",
+        "cold",
+        "cool",
+        "slightly cool",
+        "neutral",
+        "slightly warm",
+        "warm",
+        "hot",
+        "very hot"
+      ],
+      "id": "26_2"
+    },
+    {
+      "points": 7,
+      "range": [
+        -3.0,
+        -2.0,
+        -1.0,
+        0.0,
+        1.0,
+        2.0,
+        3.0
+      ],
+      "labels": [
+        "cold",
+        "cool",
+        "slightly cool",
+        "neutral",
+        "slightly warm",
+        "warm",
+        "hot"
+      ],
+      "id": "27_1"
+    },
+    {
+      "points": 5,
+      "range": [
+        -2.0,
+        -1.0,
+        0.0,
+        1.0,
+        2.0
+      ],
+      "labels": [
+        "cold",
+        "NR",
+        "neutral",
+        "NR",
+        "warm"
+      ],
+      "id": "28_1"
+    },
+    {
+      "points": 7,
+      "range": [
+        -3.0,
+        -2.0,
+        -1.0,
+        0.0,
+        1.0,
+        2.0,
+        3.0
+      ],
+      "labels": [
+        "cold",
+        "cool",
+        "slightly cool",
+        "neutral",
+        "slightly warm",
+        "warm",
+        "hot"
+      ],
+      "id": "29_1"
+    },
+    {
+      "points": 7,
+      "range": [
+        -3.0,
+        -2.0,
+        -1.0,
+        0.0,
+        1.0,
+        2.0,
+        3.0
+      ],
+      "labels": [
+        "cold",
+        "cool",
+        "slightly cool",
+        "neutral",
+        "slightly warm",
+        "warm",
+        "hot"
+      ],
+      "id": "30_1"
+    },
+    {
+      "points": 7,
+      "range": [
+        -3.0,
+        -2.0,
+        -1.0,
+        0.0,
+        1.0,
+        2.0,
+        3.0
+      ],
+      "labels": [
+        "cold",
+        "cool",
+        "slightly cool",
+        "neutral",
+        "slightly warm",
+        "warm",
+        "hot"
+      ],
+      "id": "31_1"
+    },
+    {
+      "points": 7,
+      "range": [
+        -3.0,
+        -2.0,
+        -1.0,
+        0.0,
+        1.0,
+        2.0,
+        3.0
+      ],
+      "labels": [
+        "cold",
+        "cool",
+        "slightly cool",
+        "neutral",
+        "slightly warm",
+        "warm",
+        "hot"
+      ],
+      "id": "32_1"
+    },
+    {
+      "points": 7,
+      "range": [
+        -3.0,
+        -2.0,
+        -1.0,
+        0.0,
+        1.0,
+        2.0,
+        3.0
+      ],
+      "labels": [
+        "cold",
+        "cool",
+        "slightly cool",
+        "neutral",
+        "slightly warm",
+        "warm",
+        "hot"
+      ],
+      "id": "33_1"
+    },
+    {
+      "points": 5,
+      "range": [
+        -2.0,
+        -1.0,
+        0.0,
+        1.0,
+        2.0
+      ],
+      "labels": [
+        "very cold",
+        "cold",
+        "neutral",
+        "hot",
+        "very hot"
+      ],
+      "id": "35_1"
+    },
+    {
+      "points": 7,
+      "range": [
+        -3.0,
+        -2.0,
+        -1.0,
+        0.0,
+        1.0,
+        2.0,
+        3.0
+      ],
+      "labels": [
+        "cold",
+        "cool",
+        "slightly cool",
+        "neutral",
+        "slightly warm",
+        "warm",
+        "hot"
+      ],
+      "id": "36_1"
+    },
+    {
+      "points": 7,
+      "range": [
+        -3.0,
+        -2.0,
+        -1.0,
+        0.0,
+        1.0,
+        2.0,
+        3.0
+      ],
+      "labels": [
+        "cold",
+        "cool",
+        "slightly cool",
+        "neutral",
+        "slightly warm",
+        "warm",
+        "hot"
+      ],
+      "id": "37_1"
+    },
+    {
+      "points": 7,
+      "range": [
+        -3.0,
+        -2.0,
+        -1.0,
+        0.0,
+        1.0,
+        2.0,
+        3.0
+      ],
+      "labels": [
+        "cold",
+        "cool",
+        "slightly cool",
+        "neutral",
+        "slightly warm",
+        "warm",
+        "hot"
+      ],
+      "id": "38_1"
+    },
+    {
+      "points": 7,
+      "range": [
+        -3.0,
+        -2.0,
+        -1.0,
+        0.0,
+        1.0,
+        2.0,
+        3.0
+      ],
+      "labels": [
+        "cold",
+        "cool",
+        "slightly cool",
+        "neutral",
+        "slightly warm",
+        "warm",
+        "hot"
+      ],
+      "id": "39_1"
+    },
+    {
+      "points": 7,
+      "range": [
+        -3.0,
+        -2.0,
+        -1.0,
+        0.0,
+        1.0,
+        2.0,
+        3.0
+      ],
+      "labels": [
+        "cold",
+        "cool",
+        "slightly cool",
+        "neutral",
+        "slightly warm",
+        "warm",
+        "hot"
+      ],
+      "id": "40_1"
+    },
+    {
+      "points": 7,
+      "range": [
+        -3.0,
+        -2.0,
+        -1.0,
+        0.0,
+        1.0,
+        2.0,
+        3.0
+      ],
+      "labels": [
+        "cold",
+        "cool",
+        "slightly cool",
+        "neutral",
+        "slightly warm",
+        "warm",
+        "hot"
+      ],
+      "id": "41_1"
+    },
+    {
+      "points": 7,
+      "range": [
+        -3.0,
+        -2.0,
+        -1.0,
+        0.0,
+        1.0,
+        2.0,
+        3.0
+      ],
+      "labels": [
+        "cold",
+        "cool",
+        "slightly cool",
+        "neutral",
+        "slightly warm",
+        "warm",
+        "hot"
+      ],
+      "id": "42_1"
+    },
+    {
+      "points": 7,
+      "range": [
+        -3.0,
+        -2.0,
+        -1.0,
+        0.0,
+        1.0,
+        2.0,
+        3.0
+      ],
+      "labels": [
+        "cold",
+        "cool",
+        "slightly cool",
+        "neutral",
+        "slightly warm",
+        "warm",
+        "hot"
+      ],
+      "id": "43_1"
+    },
+    {
+      "points": 9,
+      "range": [
+        -4.0,
+        -3.0,
+        -2.0,
+        -1.0,
+        0.0,
+        1.0,
+        2.0,
+        3.0,
+        4.0
+      ],
+      "labels": [
+        "very cold",
+        "cold",
+        "cool",
+        "slightly cool",
+        "neutral",
+        "slightly warm",
+        "warm",
+        "hot",
+        "very hot"
+      ],
+      "id": "45_1"
+    },
+    {
+      "points": 7,
+      "range": [
+        -3.0,
+        -2.0,
+        -1.0,
+        0.0,
+        1.0,
+        2.0,
+        3.0
+      ],
+      "labels": [
+        "cold",
+        "cool",
+        "slightly cool",
+        "neutral",
+        "slightly warm",
+        "warm",
+        "hot"
+      ],
+      "id": "46_1"
+    },
+    {
+      "points": 7,
+      "range": [
+        -3.0,
+        -2.0,
+        -1.0,
+        0.0,
+        1.0,
+        2.0,
+        3.0
+      ],
+      "labels": [
+        "cold",
+        "cool",
+        "slightly cool",
+        "neutral",
+        "slightly warm",
+        "warm",
+        "hot"
+      ],
+      "id": "47_1"
+    },
+    {
+      "points": 9,
+      "range": [
+        -4.0,
+        -3.0,
+        -2.0,
+        -1.0,
+        0.0,
+        1.0,
+        2.0,
+        3.0,
+        4.0
+      ],
+      "labels": [
+        "very cold",
+        "cold",
+        "cool",
+        "slightly cool",
+        "neutral",
+        "slightly warm",
+        "warm",
+        "hot",
+        "very hot"
+      ],
+      "id": "51_1"
+    },
+    {
+      "points": 7,
+      "range": [
+        -3.0,
+        -2.0,
+        -1.0,
+        0.0,
+        1.0,
+        2.0,
+        3.0
+      ],
+      "labels": [
+        "cold",
+        "cool",
+        "slightly cool",
+        "neutral",
+        "slightly warm",
+        "warm",
+        "hot"
+      ],
+      "id": "52_1"
+    },
+    {
+      "points": 7,
+      "range": [
+        -3.0,
+        -2.0,
+        -1.0,
+        0.0,
+        1.0,
+        2.0,
+        3.0
+      ],
+      "labels": [
+        "cold",
+        "cool",
+        "slightly cool",
+        "neutral",
+        "slightly warm",
+        "warm",
+        "hot"
+      ],
+      "id": "53_1"
+    },
+    {
+      "points": 7,
+      "range": [
+        -3.0,
+        -2.0,
+        -1.0,
+        0.0,
+        1.0,
+        2.0,
+        3.0
+      ],
+      "labels": [
+        "cold",
+        "cool",
+        "slightly cool",
+        "neutral",
+        "slightly warm",
+        "warm",
+        "hot"
+      ],
+      "id": "54_1"
+    },
+    {
+      "points": 7,
+      "range": [
+        1.0,
+        2.0,
+        3.0,
+        4.0,
+        5.0,
+        6.0,
+        7.0
+      ],
+      "labels": [
+        "very cold",
+        "NR",
+        "NR",
+        "NR",
+        "NR",
+        "NR",
+        "very hot"
+      ],
+      "id": "56_1"
+    },
+    {
+      "points": 7,
+      "range": [
+        -3.0,
+        -2.0,
+        -1.0,
+        0.0,
+        1.0,
+        2.0,
+        3.0
+      ],
+      "labels": [
+        "cold",
+        "cool",
+        "slightly cool",
+        "neutral",
+        "slightly warm",
+        "warm",
+        "hot"
+      ],
+      "id": "58_1"
+    },
+    {
+      "points": 7,
+      "range": [
+        -3.0,
+        -2.0,
+        -1.0,
+        0.0,
+        1.0,
+        2.0,
+        3.0
+      ],
+      "labels": [
+        "cold",
+        "cool",
+        "slightly cool",
+        "neutral",
+        "slightly warm",
+        "warm",
+        "hot"
+      ],
+      "id": "59_1"
+    },
+    {
+      "points": 7,
+      "range": [
+        -3.0,
+        -2.0,
+        -1.0,
+        0.0,
+        1.0,
+        2.0,
+        3.0
+      ],
+      "labels": [
+        "cold",
+        "cool",
+        "slightly cool",
+        "neutral",
+        "slightly warm",
+        "warm",
+        "hot"
+      ],
+      "id": "60_1"
+    },
+    {
+      "points": 7,
+      "range": [
+        -3.0,
+        -2.0,
+        -1.0,
+        0.0,
+        1.0,
+        2.0,
+        3.0
+      ],
+      "labels": [
+        "cold",
+        "cool",
+        "slightly cool",
+        "neutral",
+        "slightly warm",
+        "warm",
+        "hot"
+      ],
+      "id": "62_1"
+    },
+    {
+      "points": 5,
+      "range": [
+        -2.0,
+        -1.0,
+        0.0,
+        1.0,
+        2.0
+      ],
+      "labels": [
+        "very cold",
+        "a little cold",
+        "neutral",
+        "a little warm",
+        "very hot"
+      ],
+      "id": "63_1"
+    },
+    {
+      "points": 7,
+      "range": [
+        -3.0,
+        -2.0,
+        -1.0,
+        0.0,
+        1.0,
+        2.0,
+        3.0
+      ],
+      "labels": [
+        "cold",
+        "cool",
+        "slightly cool",
+        "neutral",
+        "slightly warm",
+        "warm",
+        "hot"
+      ],
+      "id": "64_1"
+    },
+    {
+      "points": 7,
+      "range": [
+        -3.0,
+        -2.0,
+        -1.0,
+        0.0,
+        1.0,
+        2.0,
+        3.0
+      ],
+      "labels": [
+        "cold",
+        "cool",
+        "slightly cool",
+        "neutral",
+        "slightly warm",
+        "warm",
+        "hot"
+      ],
+      "id": "65_1"
+    },
+    {
+      "points": 7,
+      "range": [
+        -3.0,
+        -2.0,
+        -1.0,
+        0.0,
+        1.0,
+        2.0,
+        3.0
+      ],
+      "labels": [
+        "cold",
+        "cool",
+        "slightly cool",
+        "neutral",
+        "slightly warm",
+        "warm",
+        "hot"
+      ],
+      "id": "66_1"
+    },
+    {
+      "points": 7,
+      "range": [
+        -3.0,
+        -2.0,
+        -1.0,
+        0.0,
+        1.0,
+        2.0,
+        3.0
+      ],
+      "labels": [
+        "cold",
+        "cool",
+        "slightly cool",
+        "neutral",
+        "slightly warm",
+        "warm",
+        "hot"
+      ],
+      "id": "67_1"
+    },
+    {
+      "points": 9,
+      "range": [
+        -4.0,
+        -3.0,
+        -2.0,
+        -1.0,
+        0.0,
+        1.0,
+        2.0,
+        3.0,
+        4.0
+      ],
+      "labels": [
+        "very cold",
+        "cold",
+        "cool",
+        "slightly cool",
+        "neutral",
+        "slightly warm",
+        "warm",
+        "hot",
+        "very hot"
+      ],
+      "id": "69_1"
+    },
+    {
+      "points": 7,
+      "range": [
+        -3.0,
+        -2.0,
+        -1.0,
+        0.0,
+        1.0,
+        2.0,
+        3.0
+      ],
+      "labels": [
+        "cold",
+        "cool",
+        "slightly cool",
+        "neutral",
+        "slightly warm",
+        "warm",
+        "hot"
+      ],
+      "id": "70_1"
+    },
+    {
+      "points": 7,
+      "range": [
+        -3.0,
+        -2.0,
+        -1.0,
+        0.0,
+        1.0,
+        2.0,
+        3.0
+      ],
+      "labels": [
+        "very cold",
+        "cold",
+        "cool",
+        "neutral",
+        "warm",
+        "hot",
+        "very hot"
+      ],
+      "id": "71_1"
+    },
+    {
+      "points": 7,
+      "range": [
+        -3.0,
+        -2.0,
+        -1.0,
+        0.0,
+        1.0,
+        2.0,
+        3.0
+      ],
+      "labels": [
+        "very cold",
+        "cold",
+        "cool",
+        "neutral",
+        "warm",
+        "hot",
+        "very hot"
+      ],
+      "id": "71_2"
+    },
+    {
+      "points": 7,
+      "range": [
+        -3.0,
+        -2.0,
+        -1.0,
+        0.0,
+        1.0,
+        2.0,
+        3.0
+      ],
+      "labels": [
+        "cold",
+        "cool",
+        "slightly cool",
+        "neutral",
+        "slightly warm",
+        "warm",
+        "hot"
+      ],
+      "id": "72_1"
+    },
+    {
+      "points": 9,
+      "range": [
+        -4.0,
+        -3.0,
+        -2.0,
+        -1.0,
+        0.0,
+        1.0,
+        2.0,
+        3.0,
+        4.0
+      ],
+      "labels": [
+        "very cold",
+        "cold",
+        "cool",
+        "slightly cool",
+        "neutral",
+        "slightly warm",
+        "warm",
+        "hot",
+        "very hot"
+      ],
+      "id": "73_1"
+    },
+    {
+      "points": 9,
+      "range": [
+        -4.0,
+        -3.0,
+        -2.0,
+        -1.0,
+        0.0,
+        1.0,
+        2.0,
+        3.0,
+        4.0
+      ],
+      "labels": [
+        "very cold",
+        "cold",
+        "cool",
+        "slightly cool",
+        "neutral",
+        "slightly warm",
+        "warm",
+        "hot",
+        "very hot"
+      ],
+      "id": "74_1"
+    },
+    {
+      "points": 9,
+      "range": [
+        -4.0,
+        -3.0,
+        -2.0,
+        -1.0,
+        0.0,
+        1.0,
+        2.0,
+        3.0,
+        4.0
+      ],
+      "labels": [
+        "very cold",
+        "cold",
+        "cool",
+        "slightly cool",
+        "neutral",
+        "slightly warm",
+        "warm",
+        "hot",
+        "very hot"
+      ],
+      "id": "74_2"
+    },
+    {
+      "points": 9,
+      "range": [
+        -4.0,
+        -3.0,
+        -2.0,
+        -1.0,
+        0.0,
+        1.0,
+        2.0,
+        3.0,
+        4.0
+      ],
+      "labels": [
+        "very cold",
+        "cold",
+        "cool",
+        "slightly cool",
+        "neutral",
+        "slightly warm",
+        "warm",
+        "hot",
+        "very hot"
+      ],
+      "id": "74_3"
+    },
+    {
+      "points": 9,
+      "range": [
+        -4.0,
+        -3.0,
+        -2.0,
+        -1.0,
+        0.0,
+        1.0,
+        2.0,
+        3.0,
+        4.0
+      ],
+      "labels": [
+        "very cold",
+        "cold",
+        "cool",
+        "slightly cool",
+        "neutral",
+        "slightly warm",
+        "warm",
+        "hot",
+        "very hot"
+      ],
+      "id": "74_4"
+    },
+    {
+      "points": 9,
+      "range": [
+        -4.0,
+        -3.0,
+        -2.0,
+        -1.0,
+        0.0,
+        1.0,
+        2.0,
+        3.0,
+        4.0
+      ],
+      "labels": [
+        "very cold",
+        "cold",
+        "cool",
+        "slightly cool",
+        "neutral",
+        "slightly warm",
+        "warm",
+        "hot",
+        "very hot"
+      ],
+      "id": "75_1"
+    },
+    {
+      "points": 7,
+      "range": [
+        -3.0,
+        -2.0,
+        -1.0,
+        0.0,
+        1.0,
+        2.0,
+        3.0
+      ],
+      "labels": [
+        "cold",
+        "cool",
+        "slightly cool",
+        "neutral",
+        "slightly warm",
+        "warm",
+        "hot"
+      ],
+      "id": "76_1"
+    },
+    {
+      "points": 7,
+      "range": [
+        -3.0,
+        -2.0,
+        -1.0,
+        0.0,
+        1.0,
+        2.0,
+        3.0
+      ],
+      "labels": [
+        "cold",
+        "cool",
+        "slightly cool",
+        "neutral",
+        "slightly warm",
+        "warm",
+        "hot"
+      ],
+      "id": "77_1"
+    },
+    {
+      "points": 7,
+      "range": [
+        -3.0,
+        -2.0,
+        -1.0,
+        0.0,
+        1.0,
+        2.0,
+        3.0
+      ],
+      "labels": [
+        "cold",
+        "cool",
+        "slightly cool",
+        "neutral",
+        "slightly warm",
+        "warm",
+        "hot"
+      ],
+      "id": "78_1"
+    },
+    {
+      "points": 7,
+      "range": [
+        -3.0,
+        -2.0,
+        -1.0,
+        0.0,
+        1.0,
+        2.0,
+        3.0
+      ],
+      "labels": [
+        "cold",
+        "cool",
+        "slightly cool",
+        "neutral",
+        "slightly warm",
+        "warm",
+        "hot"
+      ],
+      "id": "79_1"
+    },
+    {
+      "points": 7,
+      "range": [
+        -3.0,
+        -2.0,
+        -1.0,
+        0.0,
+        1.0,
+        2.0,
+        3.0
+      ],
+      "labels": [
+        "cold",
+        "cool",
+        "slightly cool",
+        "neutral",
+        "slightly warm",
+        "warm",
+        "hot"
+      ],
+      "id": "80_1"
+    },
+    {
+      "points": 7,
+      "range": [
+        -3.0,
+        -2.0,
+        -1.0,
+        0.0,
+        1.0,
+        2.0,
+        3.0
+      ],
+      "labels": [
+        "cold",
+        "cool",
+        "slightly cool",
+        "neutral",
+        "slightly warm",
+        "warm",
+        "hot"
+      ],
+      "id": "81_1"
+    },
+    {
+      "points": 7,
+      "range": [
+        -3.0,
+        -2.0,
+        -1.0,
+        0.0,
+        1.0,
+        2.0,
+        3.0
+      ],
+      "labels": [
+        "very cool",
+        "cool",
+        "slightly cool",
+        "neutral",
+        "slightly warm",
+        "warm",
+        "very warm"
+      ],
+      "id": "82_1"
+    },
+    {
+      "points": 7,
+      "range": [
+        -3.0,
+        -2.0,
+        -1.0,
+        0.0,
+        1.0,
+        2.0,
+        3.0
+      ],
+      "labels": [
+        "cold",
+        "cool",
+        "slightly cool",
+        "neutral",
+        "slightly warm",
+        "warm",
+        "hot"
+      ],
+      "id": "83_1"
+    },
+    {
+      "points": 7,
+      "range": [
+        1.0,
+        2.0,
+        3.0,
+        4.0,
+        5.0,
+        6.0,
+        7.0
+      ],
+      "labels": [
+        "very cold",
+        "NR",
+        "NR",
+        "NR",
+        "NR",
+        "NR",
+        "very hot"
+      ],
+      "id": "84_1"
+    },
+    {
+      "points": 7,
+      "range": [
+        -3.0,
+        -2.0,
+        -1.0,
+        0.0,
+        1.0,
+        2.0,
+        3.0
+      ],
+      "labels": [
+        "cold",
+        "cool",
+        "slightly cool",
+        "neutral",
+        "slightly warm",
+        "warm",
+        "hot"
+      ],
+      "id": "85_1"
+    },
+    {
+      "points": 7,
+      "range": [
+        -3.0,
+        -2.0,
+        -1.0,
+        0.0,
+        1.0,
+        2.0,
+        3.0
+      ],
+      "labels": [
+        "cold",
+        "cool",
+        "slightly cool",
+        "neutral",
+        "slightly warm",
+        "warm",
+        "hot"
+      ],
+      "id": "86_1"
+    },
+    {
+      "points": 7,
+      "range": [
+        -3.0,
+        -2.0,
+        -1.0,
+        0.0,
+        1.0,
+        2.0,
+        3.0
+      ],
+      "labels": [
+        "cold",
+        "cool",
+        "slightly cool",
+        "neutral",
+        "slightly warm",
+        "warm",
+        "hot"
+      ],
+      "id": "87_1"
+    },
+    {
+      "points": 7,
+      "range": [
+        -3.0,
+        -2.0,
+        -1.0,
+        0.0,
+        1.0,
+        2.0,
+        3.0
+      ],
+      "labels": [
+        "cold",
+        "cool",
+        "slightly cool",
+        "neutral",
+        "slightly warm",
+        "warm",
+        "hot"
+      ],
+      "id": "89_1"
+    },
+    {
+      "points": 9,
+      "range": [
+        -4.0,
+        -3.0,
+        -2.0,
+        -1.0,
+        0.0,
+        1.0,
+        2.0,
+        3.0,
+        4.0
+      ],
+      "labels": [
+        "very cold",
+        "cold",
+        "cool",
+        "slightly cool",
+        "neutral",
+        "slightly warm",
+        "warm",
+        "hot",
+        "very hot"
+      ],
+      "id": "90_1"
+    },
+    {
+      "points": 13,
+      "range": [
+        -3.0,
+        -2.5,
+        -2.0,
+        -1.5,
+        -1.0,
+        -0.5,
+        0.0,
+        0.5,
+        1.0,
+        1.5,
+        2.0,
+        2.5,
+        3.0
+      ],
+      "labels": [
+        "cold",
+        "NR",
+        "cool",
+        "NR",
+        "slightly cool",
+        "NR",
+        "neutral",
+        "NR",
+        "slightly warm",
+        "NR",
+        "warm",
+        "NR",
+        "hot"
+      ],
+      "id": "91_1"
+    },
+    {
+      "points": 5,
+      "range": [
+        1.0,
+        2.0,
+        3.0,
+        4.0,
+        5.0
+      ],
+      "labels": [
+        "cold",
+        "NR",
+        "neutral",
+        "NR",
+        "hot"
+      ],
+      "id": "92_1"
+    },
+    {
+      "points": 9,
+      "range": [
+        -4.0,
+        -3.0,
+        -2.0,
+        -1.0,
+        0.0,
+        1.0,
+        2.0,
+        3.0,
+        4.0
+      ],
+      "labels": [
+        "very cold",
+        "cold",
+        "cool",
+        "slightly cool",
+        "neutral",
+        "slightly warm",
+        "warm",
+        "hot",
+        "very hot"
+      ],
+      "id": "94_1"
+    },
+    {
+      "points": 7,
+      "range": [
+        -3.0,
+        -2.0,
+        -1.0,
+        0.0,
+        1.0,
+        2.0,
+        3.0
+      ],
+      "labels": [
+        "cold",
+        "cool",
+        "slightly cool",
+        "neutral",
+        "slightly warm",
+        "warm",
+        "hot"
+      ],
+      "id": "96_1"
+    },
+    {
+      "points": 7,
+      "range": [
+        -3.0,
+        -2.0,
+        -1.0,
+        0.0,
+        1.0,
+        2.0,
+        3.0
+      ],
+      "labels": [
+        "cold",
+        "cool",
+        "slightly cool",
+        "neutral",
+        "slightly warm",
+        "warm",
+        "hot"
+      ],
+      "id": "97_1"
+    },
+    {
+      "points": 7,
+      "range": [
+        -3.0,
+        -2.0,
+        -1.0,
+        0.0,
+        1.0,
+        2.0,
+        3.0
+      ],
+      "labels": [
+        "cold",
+        "cool",
+        "slightly cool",
+        "neutral",
+        "slightly warm",
+        "warm",
+        "hot"
+      ],
+      "id": "98_1"
+    },
+    {
+      "points": 7,
+      "range": [
+        -3.0,
+        -2.0,
+        -1.0,
+        0.0,
+        1.0,
+        2.0,
+        3.0
+      ],
+      "labels": [
+        "cold",
+        "cool",
+        "slightly cool",
+        "neutral",
+        "slightly warm",
+        "warm",
+        "hot"
+      ],
+      "id": "102_1"
+    },
+    {
+      "points": 7,
+      "range": [
+        -3.0,
+        -2.0,
+        -1.0,
+        0.0,
+        1.0,
+        2.0,
+        3.0
+      ],
+      "labels": [
+        "cold",
+        "cool",
+        "slightly cool",
+        "neutral",
+        "slightly warm",
+        "warm",
+        "hot"
+      ],
+      "id": "103_1"
+    },
+    {
+      "points": 7,
+      "range": [
+        -3.0,
+        -2.0,
+        -1.0,
+        0.0,
+        1.0,
+        2.0,
+        3.0
+      ],
+      "labels": [
+        "cold",
+        "cool",
+        "slightly cool",
+        "neutral",
+        "slightly warm",
+        "warm",
+        "hot"
+      ],
+      "id": "105_1"
+    },
+    {
+      "points": 7,
+      "range": [
+        -3.0,
+        -2.0,
+        -1.0,
+        0.0,
+        1.0,
+        2.0,
+        3.0
+      ],
+      "labels": [
+        "cold",
+        "cool",
+        "slightly cool",
+        "neutral",
+        "slightly warm",
+        "warm",
+        "hot"
+      ],
+      "id": "106_1"
+    },
+    {
+      "points": 7,
+      "range": [
+        -3.0,
+        -2.0,
+        -1.0,
+        0.0,
+        1.0,
+        2.0,
+        3.0
+      ],
+      "labels": [
+        "cold",
+        "cool",
+        "slightly cool",
+        "neutral",
+        "slightly warm",
+        "warm",
+        "hot"
+      ],
+      "id": "107_1"
+    },
+    {
+      "points": 7,
+      "range": [
+        -3.0,
+        -2.0,
+        -1.0,
+        0.0,
+        1.0,
+        2.0,
+        3.0
+      ],
+      "labels": [
+        "cold",
+        "cool",
+        "slightly cool",
+        "neutral",
+        "slightly warm",
+        "warm",
+        "hot"
+      ],
+      "id": "108_1"
+    },
+    {
+      "points": 7,
+      "range": [
+        -3.0,
+        -2.0,
+        -1.0,
+        0.0,
+        1.0,
+        2.0,
+        3.0
+      ],
+      "labels": [
+        "cold",
+        "cool",
+        "slightly cool",
+        "neutral",
+        "slightly warm",
+        "warm",
+        "hot"
+      ],
+      "id": "110_1"
+    },
+    {
+      "points": 7,
+      "range": [
+        -3.0,
+        -2.0,
+        -1.0,
+        0.0,
+        1.0,
+        2.0,
+        3.0
+      ],
+      "labels": [
+        "cold",
+        "cool",
+        "slightly cool",
+        "neutral",
+        "slightly warm",
+        "warm",
+        "hot"
+      ],
+      "id": "111_1"
+    },
+    {
+      "points": 7,
+      "range": [
+        -3.0,
+        -2.0,
+        -1.0,
+        0.0,
+        1.0,
+        2.0,
+        3.0
+      ],
+      "labels": [
+        "cold",
+        "cool",
+        "slightly cool",
+        "neutral",
+        "slightly warm",
+        "warm",
+        "hot"
+      ],
+      "id": "112_1"
+    },
+    {
+      "points": 9,
+      "range": [
+        -3.0,
+        -2.0,
+        -1.0,
+        -0.5,
+        0.0,
+        0.5,
+        1.0,
+        2.0,
+        3.0
+      ],
+      "labels": [
+        "cold and unbearable",
+        "cold but acceptable",
+        "a little cold",
+        "slightly cool but comfortable",
+        "neutral",
+        "slightly hot but comfortable",
+        "a little hot",
+        "hot but acceptable",
+        "hot and unbearable"
+      ],
+      "id": "113_1"
+    },
+    {
+      "points": 7,
+      "range": [
+        -3.0,
+        -2.0,
+        -1.0,
+        0.0,
+        1.0,
+        2.0,
+        3.0
+      ],
+      "labels": [
+        "cold",
+        "cool",
+        "slightly cool",
+        "neutral",
+        "slightly warm",
+        "warm",
+        "hot"
+      ],
+      "id": "114_1"
+    },
+    {
+      "points": 7,
+      "range": [
+        -3.0,
+        -2.0,
+        -1.0,
+        0.0,
+        1.0,
+        2.0,
+        3.0
+      ],
+      "labels": [
+        "cold",
+        "NR",
+        "NR",
+        "neutral",
+        "NR",
+        "NR",
+        "hot"
+      ],
+      "id": "115_1"
+    },
+    {
+      "points": 7,
+      "range": [
+        -3.0,
+        -2.0,
+        -1.0,
+        0.0,
+        1.0,
+        2.0,
+        3.0
+      ],
+      "labels": [
+        "cold",
+        "cool",
+        "slightly cool",
+        "neutral",
+        "slightly warm",
+        "warm",
+        "hot"
+      ],
+      "id": "116_1"
+    },
+    {
+      "points": 7,
+      "range": [
+        -3.0,
+        -2.0,
+        -1.0,
+        0.0,
+        1.0,
+        2.0,
+        3.0
+      ],
+      "labels": [
+        "cold",
+        "cool",
+        "slightly cool",
+        "neutral",
+        "slightly warm",
+        "warm",
+        "hot"
+      ],
+      "id": "119_1"
+    },
+    {
+      "points": 7,
+      "range": [
+        -3.0,
+        -2.0,
+        -1.0,
+        0.0,
+        1.0,
+        2.0,
+        3.0
+      ],
+      "labels": [
+        "cold",
+        "cool",
+        "slightly cool",
+        "neutral",
+        "slightly warm",
+        "warm",
+        "hot"
+      ],
+      "id": "120_1"
+    },
+    {
+      "points": 7,
+      "range": [
+        -3.0,
+        -2.0,
+        -1.0,
+        0.0,
+        1.0,
+        2.0,
+        3.0
+      ],
+      "labels": [
+        "cold",
+        "cool",
+        "slightly cool",
+        "neutral",
+        "slightly warm",
+        "warm",
+        "hot"
+      ],
+      "id": "122_1"
+    },
+    {
+      "points": 7,
+      "range": [
+        -3.0,
+        -2.0,
+        -1.0,
+        0.0,
+        1.0,
+        2.0,
+        3.0
+      ],
+      "labels": [
+        "cold",
+        "cool",
+        "slightly cool",
+        "neutral",
+        "slightly warm",
+        "warm",
+        "hot"
+      ],
+      "id": "124_1"
+    },
+    {
+      "points": 9,
+      "range": [
+        -4.0,
+        -3.0,
+        -2.0,
+        -1.0,
+        0.0,
+        1.0,
+        2.0,
+        3.0,
+        4.0
+      ],
+      "labels": [
+        "very cold",
+        "cold",
+        "cool",
+        "slightly cool",
+        "neutral",
+        "slightly warm",
+        "warm",
+        "hot",
+        "very hot"
+      ],
+      "id": "125_1"
+    },
+    {
+      "points": 7,
+      "range": [
+        -3.0,
+        -2.0,
+        -1.0,
+        0.0,
+        1.0,
+        2.0,
+        3.0
+      ],
+      "labels": [
+        "cold",
+        "cool",
+        "slightly cool",
+        "neutral",
+        "slightly warm",
+        "warm",
+        "hot"
+      ],
+      "id": "127_1"
+    },
+    {
+      "points": 7,
+      "range": [
+        -3.0,
+        -2.0,
+        -1.0,
+        0.0,
+        1.0,
+        2.0,
+        3.0
+      ],
+      "labels": [
+        "cold",
+        "cool",
+        "slightly cool",
+        "neutral",
+        "slightly warm",
+        "warm",
+        "hot"
+      ],
+      "id": "129_1"
+    },
+    {
+      "points": 9,
+      "range": [
+        -4.0,
+        -3.0,
+        -2.0,
+        -1.0,
+        0.0,
+        1.0,
+        2.0,
+        3.0,
+        4.0
+      ],
+      "labels": [
+        "very cold",
+        "cold",
+        "cool",
+        "slightly cool",
+        "neutral",
+        "slightly warm",
+        "warm",
+        "hot",
+        "very hot"
+      ],
+      "id": "130_1"
+    },
+    {
+      "points": 7,
+      "range": [
+        -3.0,
+        -2.0,
+        -1.0,
+        0.0,
+        1.0,
+        2.0,
+        3.0
+      ],
+      "labels": [
+        "cold",
+        "cool",
+        "slightly cool",
+        "neutral",
+        "slightly warm",
+        "warm",
+        "hot"
+      ],
+      "id": "131_1"
+    },
+    {
+      "points": 7,
+      "range": [
+        -3.0,
+        -2.0,
+        -1.0,
+        0.0,
+        1.0,
+        2.0,
+        3.0
+      ],
+      "labels": [
+        "cold",
+        "cool",
+        "slightly cool",
+        "neutral",
+        "slightly warm",
+        "warm",
+        "hot"
+      ],
+      "id": "131_2"
+    },
+    {
+      "points": 7,
+      "range": [
+        -3.0,
+        -2.0,
+        -1.0,
+        0.0,
+        1.0,
+        2.0,
+        3.0
+      ],
+      "labels": [
+        "cold",
+        "cool",
+        "slightly cool",
+        "neutral",
+        "slightly warm",
+        "warm",
+        "hot"
+      ],
+      "id": "132_1"
+    },
+    {
+      "points": 9,
+      "range": [
+        -4.0,
+        -3.0,
+        -2.0,
+        -1.0,
+        0.0,
+        1.0,
+        2.0,
+        3.0,
+        4.0
+      ],
+      "labels": [
+        "very cold",
+        "cold",
+        "cool",
+        "slightly cool",
+        "neutral",
+        "slightly warm",
+        "warm",
+        "hot",
+        "very hot"
+      ],
+      "id": "133_1"
+    },
+    {
+      "points": 7,
+      "range": [
+        -3.0,
+        -2.0,
+        -1.0,
+        0.0,
+        1.0,
+        2.0,
+        3.0
+      ],
+      "labels": [
+        "cold",
+        "cool",
+        "slightly cool",
+        "neutral",
+        "slightly warm",
+        "warm",
+        "hot"
+      ],
+      "id": "135_1"
+    },
+    {
+      "points": 7,
+      "range": [
+        -3.0,
+        -2.0,
+        -1.0,
+        0.0,
+        1.0,
+        2.0,
+        3.0
+      ],
+      "labels": [
+        "cold",
+        "cool",
+        "slightly cool",
+        "neutral",
+        "slightly warm",
+        "warm",
+        "hot"
+      ],
+      "id": "137_1"
+    },
+    {
+      "points": 7,
+      "range": [
+        -3.0,
+        -2.0,
+        -1.0,
+        0.0,
+        1.0,
+        2.0,
+        3.0
+      ],
+      "labels": [
+        "cold",
+        "cool",
+        "slightly cool",
+        "neutral",
+        "slightly warm",
+        "warm",
+        "hot"
+      ],
+      "id": "138_1"
+    },
+    {
+      "points": 7,
+      "range": [
+        -3.0,
+        -2.0,
+        -1.0,
+        0.0,
+        1.0,
+        2.0,
+        3.0
+      ],
+      "labels": [
+        "cold",
+        "cool",
+        "slightly cool",
+        "neutral",
+        "slightly warm",
+        "warm",
+        "hot"
+      ],
+      "id": "139_1"
+    },
+    {
+      "points": 7,
+      "range": [
+        -3.0,
+        -2.0,
+        -1.0,
+        0.0,
+        1.0,
+        2.0,
+        3.0
+      ],
+      "labels": [
+        "cold",
+        "cool",
+        "slightly cool",
+        "neutral",
+        "slightly warm",
+        "warm",
+        "hot"
+      ],
+      "id": "140_1"
+    },
+    {
+      "points": 7,
+      "range": [
+        -3.0,
+        -2.0,
+        -1.0,
+        0.0,
+        1.0,
+        2.0,
+        3.0
+      ],
+      "labels": [
+        "cold",
+        "cool",
+        "slightly cool",
+        "neutral",
+        "slightly warm",
+        "warm",
+        "hot"
+      ],
+      "id": "143_1"
+    },
+    {
+      "points": 7,
+      "range": [
+        1.0,
+        2.0,
+        3.0,
+        4.0,
+        5.0,
+        6.0,
+        7.0
+      ],
+      "labels": [
+        "cold",
+        "NR",
+        "NR",
+        "neutral",
+        "NR",
+        "NR",
+        "hot"
+      ],
+      "id": "145_1"
+    },
+    {
+      "points": 9,
+      "range": [
+        0.0,
+        1.0,
+        2.0,
+        3.0,
+        4.0,
+        5.0,
+        6.0,
+        7.0,
+        8.0
+      ],
+      "labels": [
+        "unbearably cold",
+        "very cold",
+        "cold",
+        "cool",
+        "comfortable",
+        "warm",
+        "hot",
+        "very hot",
+        "unbearably hot"
+      ],
+      "id": "149_1"
+    },
+    {
+      "points": 7,
+      "range": [
+        -3.0,
+        -2.0,
+        -1.0,
+        0.0,
+        1.0,
+        2.0,
+        3.0
+      ],
+      "labels": [
+        "cold",
+        "cool",
+        "slightly cool",
+        "neutral",
+        "slightly warm",
+        "warm",
+        "hot"
+      ],
+      "id": "154_1"
+    },
+    {
+      "points": 9,
+      "range": [
+        -4.0,
+        -3.0,
+        -2.0,
+        -1.0,
+        0.0,
+        1.0,
+        2.0,
+        3.0,
+        4.0
+      ],
+      "labels": [
+        "very cold",
+        "cold",
+        "cool",
+        "slightly cool",
+        "neutral",
+        "slightly warm",
+        "warm",
+        "hot",
+        "very hot"
+      ],
+      "id": "157_1"
+    },
+    {
+      "points": 7,
+      "range": [
+        -3.0,
+        -2.0,
+        -1.0,
+        0.0,
+        1.0,
+        2.0,
+        3.0
+      ],
+      "labels": [
+        "cold",
+        "cool",
+        "slightly cool",
+        "neutral",
+        "slightly warm",
+        "warm",
+        "hot"
+      ],
+      "id": "158_1"
+    },
+    {
+      "points": 7,
+      "range": [
+        -3.0,
+        -2.0,
+        -1.0,
+        0.0,
+        1.0,
+        2.0,
+        3.0
+      ],
+      "labels": [
+        "cold",
+        "cool",
+        "slightly cool",
+        "neutral",
+        "slightly warm",
+        "warm",
+        "hot"
+      ],
+      "id": "159_1"
+    },
+    {
+      "points": 9,
+      "range": [
+        -4.0,
+        -3.0,
+        -2.0,
+        -1.0,
+        0.0,
+        1.0,
+        2.0,
+        3.0,
+        4.0
+      ],
+      "labels": [
+        "very cold",
+        "cold",
+        "cool",
+        "slightly cool",
+        "neutral",
+        "slightly warm",
+        "warm",
+        "hot",
+        "very hot"
+      ],
+      "id": "160_1"
+    },
+    {
+      "points": 9,
+      "range": [
+        -4.0,
+        -3.0,
+        -2.0,
+        -1.0,
+        0.0,
+        1.0,
+        2.0,
+        3.0,
+        4.0
+      ],
+      "labels": [
+        "very cold",
+        "cold",
+        "cool",
+        "slightly cool",
+        "neutral",
+        "slightly warm",
+        "warm",
+        "hot",
+        "very hot"
+      ],
+      "id": "161_1"
+    },
+    {
+      "points": 7,
+      "range": [
+        -3.0,
+        -2.0,
+        -1.0,
+        0.0,
+        1.0,
+        2.0,
+        3.0
+      ],
+      "labels": [
+        "cold",
+        "cool",
+        "slightly cool",
+        "neutral",
+        "slightly warm",
+        "warm",
+        "hot"
+      ],
+      "id": "162_1"
+    },
+    {
+      "points": 7,
+      "range": [
+        -3.0,
+        -2.0,
+        -1.0,
+        0.0,
+        1.0,
+        2.0,
+        3.0
+      ],
+      "labels": [
+        "cold",
+        "cool",
+        "slightly cool",
+        "neutral",
+        "slightly warm",
+        "warm",
+        "hot"
+      ],
+      "id": "163_1"
+    },
+    {
+      "points": 7,
+      "range": [
+        -3.0,
+        -2.0,
+        -1.0,
+        0.0,
+        1.0,
+        2.0,
+        3.0
+      ],
+      "labels": [
+        "very cold",
+        "cold",
+        "cool",
+        "neutral",
+        "warm",
+        "hot",
+        "very hot"
+      ],
+      "id": "164_1"
+    },
+    {
+      "points": 7,
+      "range": [
+        -3.0,
+        -2.0,
+        -1.0,
+        0.0,
+        1.0,
+        2.0,
+        3.0
+      ],
+      "labels": [
+        "very cold",
+        "cold",
+        "cool",
+        "neutral",
+        "warm",
+        "hot",
+        "very hot"
+      ],
+      "id": "165_1"
+    },
+    {
+      "points": 7,
+      "range": [
+        -3.0,
+        -2.0,
+        -1.0,
+        0.0,
+        1.0,
+        2.0,
+        3.0
+      ],
+      "labels": [
+        "very cool",
+        "cool",
+        "slightly cool",
+        "neutral",
+        "slightly warm",
+        "warm",
+        "very warm"
+      ],
+      "id": "166_1"
+    },
+    {
+      "points": 7,
+      "range": [
+        -3.0,
+        -2.0,
+        -1.0,
+        0.0,
+        1.0,
+        2.0,
+        3.0
+      ],
+      "labels": [
+        "cold",
+        "cool",
+        "slightly cool",
+        "neutral",
+        "slightly warm",
+        "warm",
+        "hot"
+      ],
+      "id": "167_1"
+    },
+    {
+      "points": 7,
+      "range": [
+        -3.0,
+        -2.0,
+        -1.0,
+        0.0,
+        1.0,
+        2.0,
+        3.0
+      ],
+      "labels": [
+        "cold",
+        "cool",
+        "slightly cool",
+        "neutral",
+        "slightly warm",
+        "warm",
+        "hot"
+      ],
+      "id": "168_1"
+    },
+    {
+      "points": 7,
+      "range": [
+        -3.0,
+        -2.0,
+        -1.0,
+        0.0,
+        1.0,
+        2.0,
+        3.0
+      ],
+      "labels": [
+        "cold",
+        "cool",
+        "slightly cool",
+        "neutral",
+        "slightly warm",
+        "warm",
+        "hot"
+      ],
+      "id": "169_1"
+    },
+    {
+      "points": 9,
+      "range": [
+        -4.0,
+        -3.0,
+        -2.0,
+        -1.0,
+        0.0,
+        1.0,
+        2.0,
+        3.0,
+        4.0
+      ],
+      "labels": [
+        "very cold",
+        "cold",
+        "cool",
+        "slightly cool",
+        "neutral",
+        "slightly warm",
+        "warm",
+        "hot",
+        "very hot"
+      ],
+      "id": "170_1"
+    },
+    {
+      "points": 7,
+      "range": [
+        -3.0,
+        -2.0,
+        -1.0,
+        0.0,
+        1.0,
+        2.0,
+        3.0
+      ],
+      "labels": [
+        "cold",
+        "cool",
+        "slightly cool",
+        "neutral",
+        "slightly warm",
+        "warm",
+        "hot"
+      ],
+      "id": "171_1"
+    },
+    {
+      "points": 7,
+      "range": [
+        -3.0,
+        -2.0,
+        -1.0,
+        0.0,
+        1.0,
+        2.0,
+        3.0
+      ],
+      "labels": [
+        "cold",
+        "cool",
+        "slightly cool",
+        "neutral",
+        "slightly warm",
+        "warm",
+        "hot"
+      ],
+      "id": "172_1"
+    },
+    {
+      "points": 9,
+      "range": [
+        -4.0,
+        -3.0,
+        -2.0,
+        -1.0,
+        0.0,
+        1.0,
+        2.0,
+        3.0,
+        4.0
+      ],
+      "labels": [
+        "very cold",
+        "cold",
+        "cool",
+        "slightly cool",
+        "neutral",
+        "slightly warm",
+        "warm",
+        "hot",
+        "very hot"
+      ],
+      "id": "173_1"
+    },
+    {
+      "points": 7,
+      "range": [
+        -3.0,
+        -2.0,
+        -1.0,
+        0.0,
+        1.0,
+        2.0,
+        3.0
+      ],
+      "labels": [
+        "cold",
+        "cool",
+        "slightly cool",
+        "neutral",
+        "slightly warm",
+        "warm",
+        "hot"
+      ],
+      "id": "174_1"
+    },
+    {
+      "points": 7,
+      "range": [
+        -3.0,
+        -2.0,
+        -1.0,
+        0.0,
+        1.0,
+        2.0,
+        3.0
+      ],
+      "labels": [
+        "cold",
+        "cool",
+        "slightly cool",
+        "neutral",
+        "slightly warm",
+        "warm",
+        "hot"
+      ],
+      "id": "175_1"
+    },
+    {
+      "points": 7,
+      "range": [
+        -3.0,
+        -2.0,
+        -1.0,
+        0.0,
+        1.0,
+        2.0,
+        3.0
+      ],
+      "labels": [
+        "cold",
+        "cool",
+        "slightly cool",
+        "neutral",
+        "slightly warm",
+        "warm",
+        "hot"
+      ],
+      "id": "178_1"
+    },
+    {
+      "points": 9,
+      "range": [
+        -4.0,
+        -3.0,
+        -2.0,
+        -1.0,
+        0.0,
+        1.0,
+        2.0,
+        3.0,
+        4.0
+      ],
+      "labels": [
+        "very cold",
+        "cold",
+        "cool",
+        "slightly cool",
+        "neutral",
+        "slightly warm",
+        "warm",
+        "hot",
+        "very hot"
+      ],
+      "id": "179_1"
+    },
+    {
+      "points": 7,
+      "range": [
+        -3.0,
+        -2.0,
+        -1.0,
+        0.0,
+        1.0,
+        2.0,
+        3.0
+      ],
+      "labels": [
+        "cold",
+        "cool",
+        "slightly cool",
+        "neutral",
+        "slightly warm",
+        "warm",
+        "hot"
+      ],
+      "id": "180_1"
+    },
+    {
+      "points": 7,
+      "range": [
+        -3.0,
+        -2.0,
+        -1.0,
+        0.0,
+        1.0,
+        2.0,
+        3.0
+      ],
+      "labels": [
+        "cold",
+        "cool",
+        "slightly cool",
+        "neutral",
+        "slightly warm",
+        "warm",
+        "hot"
+      ],
+      "id": "181_1"
+    },
+    {
+      "points": 7,
+      "range": [
+        -3.0,
+        -2.0,
+        -1.0,
+        0.0,
+        1.0,
+        2.0,
+        3.0
+      ],
+      "labels": [
+        "cold",
+        "cool",
+        "slightly cool",
+        "neutral",
+        "slightly warm",
+        "warm",
+        "hot"
+      ],
+      "id": "183_1"
+    },
+    {
+      "points": 7,
+      "range": [
+        -3.0,
+        -2.0,
+        -1.0,
+        0.0,
+        1.0,
+        2.0,
+        3.0
+      ],
+      "labels": [
+        "cold",
+        "cool",
+        "slightly cool",
+        "neutral",
+        "slightly warm",
+        "warm",
+        "hot"
+      ],
+      "id": "184_1"
+    },
+    {
+      "points": 7,
+      "range": [
+        -3.0,
+        -2.0,
+        -1.0,
+        0.0,
+        1.0,
+        2.0,
+        3.0
+      ],
+      "labels": [
+        "cold",
+        "cool",
+        "slightly cool",
+        "neutral",
+        "slightly warm",
+        "warm",
+        "hot"
+      ],
+      "id": "186_1"
+    },
+    {
+      "points": 7,
+      "range": [
+        -3.0,
+        -2.0,
+        -1.0,
+        0.0,
+        1.0,
+        2.0,
+        3.0
+      ],
+      "labels": [
+        "cold",
+        "cool",
+        "slightly cool",
+        "neutral",
+        "slightly warm",
+        "warm",
+        "hot"
+      ],
+      "id": "187_1"
+    },
+    {
+      "points": 9,
+      "range": [
+        -4.0,
+        -3.0,
+        -2.0,
+        -1.0,
+        0.0,
+        1.0,
+        2.0,
+        3.0,
+        4.0
+      ],
+      "labels": [
+        "very cold",
+        "cold",
+        "cool",
+        "slightly cool",
+        "neutral",
+        "slightly warm",
+        "warm",
+        "hot",
+        "very hot"
+      ],
+      "id": "188_1"
+    },
+    {
+      "points": 7,
+      "range": [
+        -3.0,
+        -2.0,
+        -1.0,
+        0.0,
+        1.0,
+        2.0,
+        3.0
+      ],
+      "labels": [
+        "cold",
+        "cool",
+        "slightly cool",
+        "neutral",
+        "slightly warm",
+        "warm",
+        "hot"
+      ],
+      "id": "189_1"
+    },
+    {
+      "points": 7,
+      "range": [
+        -3.0,
+        -2.0,
+        -1.0,
+        0.0,
+        1.0,
+        2.0,
+        3.0
+      ],
+      "labels": [
+        "cold",
+        "cool",
+        "slightly cool",
+        "neutral",
+        "slightly warm",
+        "warm",
+        "hot"
+      ],
+      "id": "190_1"
+    },
+    {
+      "points": 7,
+      "range": [
+        -3.0,
+        -2.0,
+        -1.0,
+        0.0,
+        1.0,
+        2.0,
+        3.0
+      ],
+      "labels": [
+        "cold",
+        "cool",
+        "slightly cool",
+        "neutral",
+        "slightly warm",
+        "warm",
+        "hot"
+      ],
+      "id": "191_1"
+    },
+    {
+      "points": 7,
+      "range": [
+        -3.0,
+        -2.0,
+        -1.0,
+        0.0,
+        1.0,
+        2.0,
+        3.0
+      ],
+      "labels": [
+        "cold",
+        "cool",
+        "slightly cool",
+        "neutral",
+        "slightly warm",
+        "warm",
+        "hot"
+      ],
+      "id": "192_1"
+    },
+    {
+      "points": 7,
+      "range": [
+        -3.0,
+        -2.0,
+        -1.0,
+        0.0,
+        1.0,
+        2.0,
+        3.0
+      ],
+      "labels": [
+        "cold",
+        "cool",
+        "slightly cool",
+        "neutral",
+        "slightly warm",
+        "warm",
+        "hot"
+      ],
+      "id": "193_1"
+    },
+    {
+      "points": 7,
+      "range": [
+        -3.0,
+        -2.0,
+        -1.0,
+        0.0,
+        1.0,
+        2.0,
+        3.0
+      ],
+      "labels": [
+        "cold",
+        "cool",
+        "slightly cool",
+        "neutral",
+        "slightly warm",
+        "warm",
+        "hot"
+      ],
+      "id": "194_1"
+    },
+    {
+      "points": 7,
+      "range": [
+        -3.0,
+        -2.0,
+        -1.0,
+        0.0,
+        1.0,
+        2.0,
+        3.0
+      ],
+      "labels": [
+        "cold",
+        "cool",
+        "slightly cool",
+        "neutral",
+        "slightly warm",
+        "warm",
+        "hot"
+      ],
+      "id": "195_1"
+    },
+    {
+      "points": 7,
+      "range": [
+        -3.0,
+        -2.0,
+        -1.0,
+        0.0,
+        1.0,
+        2.0,
+        3.0
+      ],
+      "labels": [
+        "cold",
+        "cool",
+        "slightly cool",
+        "neutral",
+        "slightly warm",
+        "warm",
+        "hot"
+      ],
+      "id": "196_1"
+    },
+    {
+      "points": 7,
+      "range": [
+        -3.0,
+        -2.0,
+        -1.0,
+        0.0,
+        1.0,
+        2.0,
+        3.0
+      ],
+      "labels": [
+        "cold",
+        "cool",
+        "slightly cool",
+        "neutral",
+        "slightly warm",
+        "warm",
+        "hot"
+      ],
+      "id": "197_1"
+    },
+    {
+      "points": 7,
+      "range": [
+        -3.0,
+        -2.0,
+        -1.0,
+        0.0,
+        1.0,
+        2.0,
+        3.0
+      ],
+      "labels": [
+        "cold",
+        "cool",
+        "slightly cool",
+        "neutral",
+        "slightly warm",
+        "warm",
+        "hot"
+      ],
+      "id": "198_1"
+    },
+    {
+      "points": 7,
+      "range": [
+        -3.0,
+        -2.0,
+        -1.0,
+        0.0,
+        1.0,
+        2.0,
+        3.0
+      ],
+      "labels": [
+        "cold",
+        "cool",
+        "slightly cool",
+        "neutral",
+        "slightly warm",
+        "warm",
+        "hot"
+      ],
+      "id": "201_1"
+    },
+    {
+      "points": 7,
+      "range": [
+        -3.0,
+        -2.0,
+        -1.0,
+        0.0,
+        1.0,
+        2.0,
+        3.0
+      ],
+      "labels": [
+        "cold",
+        "cool",
+        "slightly cool",
+        "neutral",
+        "slightly warm",
+        "warm",
+        "hot"
+      ],
+      "id": "202_1"
+    },
+    {
+      "points": 7,
+      "range": [
+        -3.0,
+        -2.0,
+        -1.0,
+        0.0,
+        1.0,
+        2.0,
+        3.0
+      ],
+      "labels": [
+        "cold",
+        "cool",
+        "slightly cool",
+        "neutral",
+        "slightly warm",
+        "warm",
+        "hot"
+      ],
+      "id": "203_1"
+    },
+    {
+      "points": 5,
+      "range": [
+        -2.0,
+        -1.0,
+        0.0,
+        1.0,
+        2.0
+      ],
+      "labels": [
+        "hot",
+        "warm",
+        "neutral",
+        "cool",
+        "cold"
+      ],
+      "id": "205_1"
+    },
+    {
+      "points": 7,
+      "range": [
+        -3.0,
+        -2.0,
+        -1.0,
+        0.0,
+        1.0,
+        2.0,
+        3.0
+      ],
+      "labels": [
+        "cold",
+        "cool",
+        "slightly cool",
+        "neutral",
+        "slightly warm",
+        "warm",
+        "hot"
+      ],
+      "id": "206_1"
+    },
+    {
+      "points": 7,
+      "range": [
+        -3.0,
+        -2.0,
+        -1.0,
+        0.0,
+        1.0,
+        2.0,
+        3.0
+      ],
+      "labels": [
+        "cold",
+        "cool",
+        "slightly cool",
+        "neutral",
+        "slightly warm",
+        "warm",
+        "hot"
+      ],
+      "id": "207_1"
+    },
+    {
+      "points": 7,
+      "range": [
+        -3.0,
+        -2.0,
+        -1.0,
+        0.0,
+        1.0,
+        2.0,
+        3.0
+      ],
+      "labels": [
+        "cold",
+        "cool",
+        "slightly cool",
+        "neutral",
+        "slightly warm",
+        "warm",
+        "hot"
+      ],
+      "id": "208_1"
+    },
+    {
+      "points": 7,
+      "range": [
+        -3.0,
+        -2.0,
+        -1.0,
+        0.0,
+        1.0,
+        2.0,
+        3.0
+      ],
+      "labels": [
+        "cold",
+        "cool",
+        "slightly cool",
+        "neutral",
+        "slightly warm",
+        "warm",
+        "hot"
+      ],
+      "id": "210_1"
+    },
+    {
+      "points": 7,
+      "range": [
+        -3.0,
+        -2.0,
+        -1.0,
+        0.0,
+        1.0,
+        2.0,
+        3.0
+      ],
+      "labels": [
+        "cold",
+        "cool",
+        "slightly cool",
+        "neutral",
+        "slightly warm",
+        "warm",
+        "hot"
+      ],
+      "id": "211_1"
+    },
+    {
+      "points": 7,
+      "range": [
+        -3.0,
+        -2.0,
+        -1.0,
+        0.0,
+        1.0,
+        2.0,
+        3.0
+      ],
+      "labels": [
+        "cold",
+        "cool",
+        "slightly cool",
+        "neutral",
+        "slightly warm",
+        "warm",
+        "hot"
+      ],
+      "id": "213_1"
+    },
+    {
+      "points": 7,
+      "range": [
+        -3.0,
+        -2.0,
+        -1.0,
+        0.0,
+        1.0,
+        2.0,
+        3.0
+      ],
+      "labels": [
+        "cold",
+        "cool",
+        "slightly cool",
+        "neutral",
+        "slightly warm",
+        "warm",
+        "hot"
+      ],
+      "id": "214_1"
+    },
+    {
+      "points": 7,
+      "range": [
+        -3.0,
+        -2.0,
+        -1.0,
+        0.0,
+        1.0,
+        2.0,
+        3.0
+      ],
+      "labels": [
+        "cold",
+        "cool",
+        "slightly cool",
+        "neutral",
+        "slightly warm",
+        "warm",
+        "hot"
+      ],
+      "id": "215_1"
+    },
+    {
+      "points": 7,
+      "range": [
+        -3.0,
+        -2.0,
+        -1.0,
+        0.0,
+        1.0,
+        2.0,
+        3.0
+      ],
+      "labels": [
+        "cold",
+        "cool",
+        "slightly cool",
+        "neutral",
+        "slightly warm",
+        "warm",
+        "hot"
+      ],
+      "id": "219_1"
+    },
+    {
+      "points": 7,
+      "range": [
+        -3.0,
+        -2.0,
+        -1.0,
+        0.0,
+        1.0,
+        2.0,
+        3.0
+      ],
+      "labels": [
+        "cold",
+        "cool",
+        "slightly cool",
+        "neutral",
+        "slightly warm",
+        "warm",
+        "hot"
+      ],
+      "id": "220_1"
+    },
+    {
+      "points": 7,
+      "range": [
+        -3.0,
+        -2.0,
+        -1.0,
+        0.0,
+        1.0,
+        2.0,
+        3.0
+      ],
+      "labels": [
+        "cold",
+        "cool",
+        "slightly cool",
+        "neutral",
+        "slightly warm",
+        "warm",
+        "hot"
+      ],
+      "id": "221_1"
+    },
+    {
+      "points": 7,
+      "range": [
+        -3.0,
+        -2.0,
+        -1.0,
+        0.0,
+        1.0,
+        2.0,
+        3.0
+      ],
+      "labels": [
+        "cold",
+        "cool",
+        "slightly cool",
+        "neutral",
+        "slightly warm",
+        "warm",
+        "hot"
+      ],
+      "id": "222_1"
+    },
+    {
+      "points": 5,
+      "range": [
+        -2.0,
+        -1.0,
+        0.0,
+        1.0,
+        2.0
+      ],
+      "labels": [
+        "cold",
+        "slightly cold",
+        "neutral",
+        "slightly warm",
+        "warm"
+      ],
+      "id": "223_1"
+    },
+    {
+      "points": 7,
+      "range": [
+        -3.0,
+        -2.0,
+        -1.0,
+        0.0,
+        1.0,
+        2.0,
+        3.0
+      ],
+      "labels": [
+        "cold",
+        "cool",
+        "slightly cool",
+        "neutral",
+        "slightly warm",
+        "warm",
+        "hot"
+      ],
+      "id": "224_1"
+    },
+    {
+      "points": 7,
+      "range": [
+        -3.0,
+        -2.0,
+        -1.0,
+        0.0,
+        1.0,
+        2.0,
+        3.0
+      ],
+      "labels": [
+        "cold",
+        "cool",
+        "slightly cool",
+        "neutral",
+        "slightly warm",
+        "warm",
+        "hot"
+      ],
+      "id": "225_1"
+    },
+    {
+      "points": 7,
+      "range": [
+        -3.0,
+        -2.0,
+        -1.0,
+        0.0,
+        1.0,
+        2.0,
+        3.0
+      ],
+      "labels": [
+        "cold",
+        "cool",
+        "slightly cool",
+        "neutral",
+        "slightly warm",
+        "warm",
+        "hot"
+      ],
+      "id": "225_2"
+    },
+    {
+      "points": 9,
+      "range": [
+        -4.0,
+        -3.0,
+        -2.0,
+        -1.0,
+        0.0,
+        1.0,
+        2.0,
+        3.0,
+        4.0
+      ],
+      "labels": [
+        "very cold",
+        "cold",
+        "cool",
+        "slightly cool",
+        "neutral",
+        "slightly warm",
+        "warm",
+        "hot",
+        "very hot"
+      ],
+      "id": "226_1"
+    },
+    {
+      "points": 9,
+      "range": [
+        -4.0,
+        -3.0,
+        -2.0,
+        -1.0,
+        0.0,
+        1.0,
+        2.0,
+        3.0,
+        4.0
+      ],
+      "labels": [
+        "very cold",
+        "cold",
+        "cool",
+        "slightly cool",
+        "neutral",
+        "slightly warm",
+        "warm",
+        "hot",
+        "very hot"
+      ],
+      "id": "228_1"
+    },
+    {
+      "points": 7,
+      "range": [
+        -3.0,
+        -2.0,
+        -1.0,
+        0.0,
+        1.0,
+        2.0,
+        3.0
+      ],
+      "labels": [
+        "cold",
+        "cool",
+        "slightly cool",
+        "neutral",
+        "slightly warm",
+        "warm",
+        "hot"
+      ],
+      "id": "230_1"
+    },
+    {
+      "points": 7,
+      "range": [
+        -3.0,
+        -2.0,
+        -1.0,
+        0.0,
+        1.0,
+        2.0,
+        3.0
+      ],
+      "labels": [
+        "cold",
+        "cool",
+        "slightly cool",
+        "neutral",
+        "slightly warm",
+        "warm",
+        "hot"
+      ],
+      "id": "231_1"
+    },
+    {
+      "points": 7,
+      "range": [
+        -3.0,
+        -2.0,
+        -1.0,
+        0.0,
+        1.0,
+        2.0,
+        3.0
+      ],
+      "labels": [
+        "cold",
+        "cool",
+        "slightly cool",
+        "neutral",
+        "slightly warm",
+        "warm",
+        "hot"
+      ],
+      "id": "233_1"
+    },
+    {
+      "points": 7,
+      "range": [
+        -3.0,
+        -2.0,
+        -1.0,
+        0.0,
+        1.0,
+        2.0,
+        3.0
+      ],
+      "labels": [
+        "cold",
+        "cool",
+        "slightly cool",
+        "neutral",
+        "slightly warm",
+        "warm",
+        "hot"
+      ],
+      "id": "234_1"
+    },
+    {
+      "points": 9,
+      "range": [
+        -4.0,
+        -3.0,
+        -2.0,
+        -1.0,
+        0.0,
+        1.0,
+        2.0,
+        3.0,
+        4.0
+      ],
+      "labels": [
+        "very cold",
+        "cold",
+        "cool",
+        "slightly cool",
+        "neutral",
+        "slightly warm",
+        "warm",
+        "hot",
+        "very hot"
+      ],
+      "id": "235_1"
+    },
+    {
+      "points": 9,
+      "range": [
+        -4.0,
+        -3.0,
+        -2.0,
+        -1.0,
+        0.0,
+        1.0,
+        2.0,
+        3.0,
+        4.0
+      ],
+      "labels": [
+        "very cold",
+        "cold",
+        "cool",
+        "slightly cool",
+        "neutral",
+        "slightly warm",
+        "warm",
+        "hot",
+        "very hot"
+      ],
+      "id": "236_1"
+    },
+    {
+      "points": 9,
+      "range": [
+        -4.0,
+        -3.0,
+        -2.0,
+        -1.0,
+        0.0,
+        1.0,
+        2.0,
+        3.0,
+        4.0
+      ],
+      "labels": [
+        "very cold",
+        "cold",
+        "cool",
+        "slightly cool",
+        "neutral",
+        "slightly warm",
+        "warm",
+        "hot",
+        "very hot"
+      ],
+      "id": "236_2"
+    },
+    {
+      "points": 9,
+      "range": [
+        -4.0,
+        -3.0,
+        -2.0,
+        -1.0,
+        0.0,
+        1.0,
+        2.0,
+        3.0,
+        4.0
+      ],
+      "labels": [
+        "very cold",
+        "cold",
+        "cool",
+        "slightly cool",
+        "neutral",
+        "slightly warm",
+        "warm",
+        "hot",
+        "very hot"
+      ],
+      "id": "236_3"
+    },
+    {
+      "points": 7,
+      "range": [
+        -3.0,
+        -2.0,
+        -1.0,
+        0.0,
+        1.0,
+        2.0,
+        3.0
+      ],
+      "labels": [
+        "cold",
+        "cool",
+        "slightly cool",
+        "neutral",
+        "slightly warm",
+        "warm",
+        "hot"
+      ],
+      "id": "237_1"
+    },
+    {
+      "points": 7,
+      "range": [
+        -3.0,
+        -2.0,
+        -1.0,
+        0.0,
+        1.0,
+        2.0,
+        3.0
+      ],
+      "labels": [
+        "cold",
+        "cool",
+        "slightly cool",
+        "neutral",
+        "slightly warm",
+        "warm",
+        "hot"
+      ],
+      "id": "240_1"
+    },
+    {
+      "points": 7,
+      "range": [
+        -3.0,
+        -2.0,
+        -1.0,
+        0.0,
+        1.0,
+        2.0,
+        3.0
+      ],
+      "labels": [
+        "cold",
+        "cool",
+        "slightly cool",
+        "neutral",
+        "slightly warm",
+        "warm",
+        "hot"
+      ],
+      "id": "241_1"
+    },
+    {
+      "points": 9,
+      "range": [
+        -4.0,
+        -3.0,
+        -2.0,
+        -1.0,
+        0.0,
+        1.0,
+        2.0,
+        3.0,
+        4.0
+      ],
+      "labels": [
+        "very cold",
+        "cold",
+        "cool",
+        "slightly cool",
+        "neutral",
+        "slightly warm",
+        "warm",
+        "hot",
+        "very hot"
+      ],
+      "id": "242_1"
+    },
+    {
+      "points": 7,
+      "range": [
+        -3.0,
+        -2.0,
+        -1.0,
+        0.0,
+        1.0,
+        2.0,
+        3.0
+      ],
+      "labels": [
+        "cold",
+        "cool",
+        "slightly cool",
+        "neutral",
+        "slightly warm",
+        "warm",
+        "hot"
+      ],
+      "id": "243_1"
+    },
+    {
+      "points": 7,
+      "range": [
+        -3.0,
+        -2.0,
+        -1.0,
+        0.0,
+        1.0,
+        2.0,
+        3.0
+      ],
+      "labels": [
+        "cold",
+        "cool",
+        "slightly cool",
+        "neutral",
+        "slightly warm",
+        "warm",
+        "hot"
+      ],
+      "id": "244_1"
+    },
+    {
+      "points": 7,
+      "range": [
+        -3.0,
+        -2.0,
+        -1.0,
+        0.0,
+        1.0,
+        2.0,
+        3.0
+      ],
+      "labels": [
+        "cold",
+        "cool",
+        "slightly cool",
+        "neutral",
+        "slightly warm",
+        "warm",
+        "hot"
+      ],
+      "id": "245_1"
+    },
+    {
+      "points": 7,
+      "range": [
+        -3.0,
+        -2.0,
+        -1.0,
+        0.0,
+        1.0,
+        2.0,
+        3.0
+      ],
+      "labels": [
+        "cold",
+        "cool",
+        "slightly cool",
+        "neutral",
+        "slightly warm",
+        "warm",
+        "hot"
+      ],
+      "id": "246_1"
+    },
+    {
+      "points": 7,
+      "range": [
+        -3.0,
+        -2.0,
+        -1.0,
+        0.0,
+        1.0,
+        2.0,
+        3.0
+      ],
+      "labels": [
+        "cold",
+        "cool",
+        "slightly cool",
+        "neutral",
+        "slightly warm",
+        "warm",
+        "hot"
+      ],
+      "id": "248_1"
+    },
+    {
+      "points": 7,
+      "range": [
+        -3.0,
+        -2.0,
+        -1.0,
+        0.0,
+        1.0,
+        2.0,
+        3.0
+      ],
+      "labels": [
+        "cold",
+        "cool",
+        "slightly cool",
+        "neutral",
+        "slightly warm",
+        "warm",
+        "hot"
+      ],
+      "id": "249_1"
+    },
+    {
+      "points": 7,
+      "range": [
+        -3.0,
+        -2.0,
+        -1.0,
+        0.0,
+        1.0,
+        2.0,
+        3.0
+      ],
+      "labels": [
+        "cold",
+        "cool",
+        "slightly cool",
+        "neutral",
+        "slightly warm",
+        "warm",
+        "hot"
+      ],
+      "id": "250_1"
+    }
+  ],
+  "points_distribution": [
+    {
+      "points": 5,
+      "count": 6
+    },
+    {
+      "points": 7,
+      "count": 161
+    },
+    {
+      "points": 9,
+      "count": 37
+    },
+    {
+      "points": 13,
+      "count": 1
+    }
+  ],
+  "n_total": 205
+}

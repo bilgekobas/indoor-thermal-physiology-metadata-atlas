@@ -1,0 +1,52 @@
+{
+  "data": [
+    {
+      "year": 2013,
+      "count": 5
+    },
+    {
+      "year": 2014,
+      "count": 6
+    },
+    {
+      "year": 2015,
+      "count": 5
+    },
+    {
+      "year": 2016,
+      "count": 10
+    },
+    {
+      "year": 2017,
+      "count": 16
+    },
+    {
+      "year": 2018,
+      "count": 25
+    },
+    {
+      "year": 2019,
+      "count": 29
+    },
+    {
+      "year": 2020,
+      "count": 31
+    },
+    {
+      "year": 2021,
+      "count": 28
+    },
+    {
+      "year": 2022,
+      "count": 47
+    },
+    {
+      "year": 2023,
+      "count": 25
+    },
+    {
+      "year": 2024,
+      "count": 24
+    }
+  ]
+}

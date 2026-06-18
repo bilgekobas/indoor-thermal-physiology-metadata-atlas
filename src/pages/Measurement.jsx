@@ -1,5 +1,7 @@
 import { useMemo } from 'react'
 import PageHeader from '../components/PageHeader.jsx'
+import CooccurrenceMatrix from '../components/CooccurrenceMatrix.jsx'
+import InteractiveBarChart from '../components/InteractiveBarChart.jsx'
 
 const DOMAIN_COLORS = {
   'Skin temperature': '#D94F6E',
@@ -15,7 +17,7 @@ function colorFor(signal) {
 }
 
 export default function Measurement({ data }) {
-  const { physio_signal_sensor, skintemp_sites } = data
+  const { physio_signal_sensor, skintemp_sites, fig17_physio_params, fig18_physio_cooccurrence, fig12_env_cooccurrence, summary } = data
 
   const topSignals = useMemo(() => {
     const bySignal = {}
@@ -54,31 +56,41 @@ export default function Measurement({ data }) {
   return (
     <div>
       <PageHeader
-        eyebrow="Analysis"
+        eyebrow="Analysis · Appendix Fig. 12, 17–19"
         title="Measurement & sensors"
         description="Which physiological signals are measured, with which sensors, and at which body sites — and how that has shifted across the decade."
       />
 
-      {/* Signal frequency */}
+      {/* Signal frequency (Fig 17) */}
       <div className="px-10 py-8 border-b border-line">
         <h2 className="text-[16px] font-semibold mb-1">Most frequently measured signals</h2>
         <p className="text-[13px] text-inkmid mb-5">
-          Each study–signal–sensor combination counted once, regardless of body site.
+          Each study–signal–sensor combination counted once, regardless of body site. Hover for exact share.
         </p>
-        <div className="space-y-2 max-w-2xl">
-          {topSignals.map(([signal, count]) => (
-            <div key={signal} className="flex items-center gap-3">
-              <span className="text-[13px] w-44 shrink-0">{signal}</span>
-              <div className="flex-1 h-5 rounded bg-line/50 overflow-hidden">
-                <div
-                  className="h-full rounded flex items-center"
-                  style={{ width: `${(count / maxSignalCount) * 100}%`, background: colorFor(signal) }}
-                />
-              </div>
-              <span className="font-data text-[12px] w-10 text-right text-inkmid">{count}</span>
-            </div>
-          ))}
-        </div>
+        <InteractiveBarChart
+          data={fig17_physio_params.data.map((d) => ({ label: d.parameter, count: d.count }))}
+          total={summary.n_experiments}
+          color="#D94F6E"
+          maxBars={12}
+        />
+      </div>
+
+      {/* Co-occurrence (Fig 18) */}
+      <div className="px-10 py-8 border-b border-line">
+        <h2 className="text-[16px] font-semibold mb-1">Which signals get measured together</h2>
+        <p className="text-[13px] text-inkmid mb-5 max-w-2xl">
+          Diagonal = total studies measuring that signal; off-diagonal = studies measuring both. Hover any cell.
+        </p>
+        <CooccurrenceMatrix labels={fig18_physio_cooccurrence.labels} matrix={fig18_physio_cooccurrence.matrix} />
+      </div>
+
+      {/* Environmental co-occurrence (Fig 12) */}
+      <div className="px-10 py-8 border-b border-line">
+        <h2 className="text-[16px] font-semibold mb-1">Environmental variables measured together</h2>
+        <p className="text-[13px] text-inkmid mb-5 max-w-2xl">
+          Air temperature, humidity, air velocity, and globe temperature form the standard four-variable core.
+        </p>
+        <CooccurrenceMatrix labels={fig12_env_cooccurrence.labels} matrix={fig12_env_cooccurrence.matrix} cellSize={28} />
       </div>
 
       {/* Skin temp site prevalence heatmap */}
@@ -86,7 +98,7 @@ export default function Measurement({ data }) {
         <h2 className="text-[16px] font-semibold mb-1">Skin temperature: site prevalence by period</h2>
         <p className="text-[13px] text-inkmid mb-5 max-w-2xl">
           Percentage of studies in each two-year period measuring that site. Site labels
-          consolidated from {23} raw terminology variants (e.g. calf/shin → lower leg).
+          consolidated from 23 raw terminology variants (e.g. calf/shin → lower leg).
         </p>
 
         <div className="overflow-x-auto">
@@ -113,11 +125,12 @@ export default function Measurement({ data }) {
                     return (
                       <td key={p} className="p-0.5">
                         <div
-                          className="w-14 h-9 rounded-[3px] flex items-center justify-center font-data text-[11px]"
+                          className="w-14 h-9 rounded-[3px] flex items-center justify-center font-data text-[11px] cursor-default"
                           style={{
                             background: pct === 0 ? '#F1EDE6' : `rgba(217, 79, 110, ${0.12 + intensity * 0.78})`,
                             color: intensity > 0.55 ? 'white' : '#1A1A18',
                           }}
+                          title={`${s.site}, ${p}: ${n || 0} of ${periodN[p] || 0} studies (${pct}%)`}
                         >
                           {pct > 0 ? `${pct}%` : '–'}
                         </div>

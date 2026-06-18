@@ -1,0 +1,2253 @@
+{
+  "studies": [
+    {
+      "points": 6,
+      "range": [
+        -2.0,
+        -1.0,
+        -0.01,
+        0.01,
+        1.0,
+        2.0
+      ],
+      "labels": [
+        "very uncomfortable",
+        "uncomfortable",
+        "just uncomfortable",
+        "just comfortable",
+        "comfortable",
+        "very comfortable"
+      ],
+      "id": "2_1"
+    },
+    {
+      "points": 6,
+      "range": [
+        -2.0,
+        -1.0,
+        -0.01,
+        0.01,
+        1.0,
+        2.0
+      ],
+      "labels": [
+        "very uncomfortable",
+        "uncomfortable",
+        "just uncomfortable",
+        "just comfortable",
+        "comfortable",
+        "very comfortable"
+      ],
+      "id": "2_2"
+    },
+    {
+      "points": 6,
+      "range": [
+        -2.0,
+        -1.0,
+        -0.01,
+        0.01,
+        1.0,
+        2.0
+      ],
+      "labels": [
+        "very uncomfortable",
+        "uncomfortable",
+        "just uncomfortable",
+        "just comfortable",
+        "comfortable",
+        "very comfortable"
+      ],
+      "id": "2_3"
+    },
+    {
+      "points": 5,
+      "range": [
+        -4.0,
+        -3.0,
+        -2.0,
+        -1.0,
+        0.0
+      ],
+      "labels": [
+        "extremely uncomfortable",
+        "very uncomfortable",
+        "uncomfortable",
+        "slightly uncomfortable",
+        "comfortable"
+      ],
+      "id": "4_1"
+    },
+    {
+      "points": 6,
+      "range": [
+        -2.0,
+        -1.0,
+        -0.01,
+        0.01,
+        1.0,
+        2.0
+      ],
+      "labels": [
+        "very uncomfortable",
+        "uncomfortable",
+        "just uncomfortable",
+        "just comfortable",
+        "comfortable",
+        "very comfortable"
+      ],
+      "id": "7_1"
+    },
+    {
+      "points": 7,
+      "range": [
+        -3.0,
+        -2.0,
+        -1.0,
+        0.0,
+        1.0,
+        2.0,
+        3.0
+      ],
+      "labels": [
+        "very uncomfortable",
+        "uncomfortable",
+        "slightly uncomfortable",
+        "neutral",
+        "slightly comfortable",
+        "comfortable",
+        "very comfortable"
+      ],
+      "id": "8_1"
+    },
+    {
+      "points": 4,
+      "range": [
+        0.0,
+        1.0,
+        2.0,
+        3.0
+      ],
+      "labels": [
+        "comfortable",
+        "slightly uncomfortable",
+        "uncomfortable",
+        "very uncomfortable"
+      ],
+      "id": "9_1"
+    },
+    {
+      "points": 3,
+      "range": [
+        -1.0,
+        0.0,
+        1.0
+      ],
+      "labels": [
+        "cool discomfort",
+        "comfort",
+        "warm discomfort"
+      ],
+      "id": "11_1"
+    },
+    {
+      "points": 5,
+      "range": [
+        -3.0,
+        -2.0,
+        -1.0,
+        0.0,
+        1.0
+      ],
+      "labels": [
+        "very uncomfortable",
+        "uncomfortable",
+        "slightly uncomfortable",
+        "indifferent",
+        "comfortable"
+      ],
+      "id": "12_1"
+    },
+    {
+      "points": 7,
+      "range": [
+        -3.0,
+        -2.0,
+        -1.0,
+        0.0,
+        1.0,
+        2.0,
+        3.0
+      ],
+      "labels": [
+        "very uncomfortable",
+        "uncomfortable",
+        "slightly uncomfortable",
+        "neutral",
+        "slightly comfortable",
+        "comfortable",
+        "very comfortable"
+      ],
+      "id": "13_1"
+    },
+    {
+      "points": 6,
+      "range": [
+        -2.0,
+        -1.0,
+        -0.01,
+        0.01,
+        1.0,
+        2.0
+      ],
+      "labels": [
+        "very uncomfortable",
+        "uncomfortable",
+        "just uncomfortable",
+        "just comfortable",
+        "comfortable",
+        "very comfortable"
+      ],
+      "id": "14_1"
+    },
+    {
+      "points": 4,
+      "range": [
+        0.0,
+        1.0,
+        2.0,
+        3.0
+      ],
+      "labels": [
+        "comfortable",
+        "slightly comfortable",
+        "slightly uncomfortable",
+        "uncomfortable"
+      ],
+      "id": "20_1"
+    },
+    {
+      "points": 4,
+      "range": [
+        -3.0,
+        -2.0,
+        -1.0,
+        0.0
+      ],
+      "labels": [
+        "very discomfort",
+        "discomfort",
+        "slight discomfort",
+        "comfort"
+      ],
+      "id": "22_1"
+    },
+    {
+      "points": 4,
+      "range": [
+        -3.0,
+        -2.0,
+        -1.0,
+        0.0
+      ],
+      "labels": [
+        "high discomfort",
+        "discomfort",
+        "slight discomfort",
+        "comfort"
+      ],
+      "id": "23_1"
+    },
+    {
+      "points": 4,
+      "range": [
+        -3.0,
+        -2.0,
+        -1.0,
+        0.0
+      ],
+      "labels": [
+        "very discomfort",
+        "discomfort",
+        "slightly discomfort",
+        "comfort"
+      ],
+      "id": "24_1"
+    },
+    {
+      "points": 5,
+      "range": [
+        0.0,
+        1.0,
+        2.0,
+        3.0,
+        4.0
+      ],
+      "labels": [
+        "comfortable",
+        "slightly uncomfortable",
+        "uncomfortable",
+        "very uncomfortable",
+        "extremely uncomfortable"
+      ],
+      "id": "25_1"
+    },
+    {
+      "points": 5,
+      "range": [
+        1.0,
+        2.0,
+        3.0,
+        4.0,
+        5.0
+      ],
+      "labels": [
+        "comfortable",
+        "slightly uncomfortable",
+        "uncomfortable",
+        "very uncomfortable",
+        "intolerable"
+      ],
+      "id": "32_1"
+    },
+    {
+      "points": 5,
+      "range": [
+        -2.0,
+        -1.0,
+        0.0,
+        1.0,
+        2.0
+      ],
+      "labels": [
+        "very uncomfortable",
+        "uncomfortable",
+        "neutral",
+        "comfortable",
+        "very comfortable"
+      ],
+      "id": "35_1"
+    },
+    {
+      "points": 6,
+      "range": [
+        -3.0,
+        -2.0,
+        -1.0,
+        1.0,
+        2.0,
+        3.0
+      ],
+      "labels": [
+        "very uncomfortable",
+        "uncomfortable",
+        "slightly uncomfortable",
+        "slightly comfortable",
+        "comfortable",
+        "very comfortable"
+      ],
+      "id": "36_1"
+    },
+    {
+      "points": 4,
+      "range": [
+        -3.0,
+        -2.0
+      ],
+      "labels": [
+        "very uncomfortable",
+        "uncomfortable"
+      ],
+      "id": "38_1"
+    },
+    {
+      "points": 7,
+      "range": [
+        -3.0,
+        -2.0,
+        -1.0,
+        0.0,
+        1.0,
+        2.0,
+        3.0
+      ],
+      "labels": [
+        "very uncomfortable",
+        "uncomfortable",
+        "slightly uncomfortable",
+        "neutral",
+        "slightly comfortable",
+        "comfortable",
+        "very comfortable"
+      ],
+      "id": "41_1"
+    },
+    {
+      "points": 5,
+      "range": [
+        0.0,
+        1.0,
+        2.0,
+        3.0,
+        4.0
+      ],
+      "labels": [
+        "comfortable",
+        "slightly uncomfortable",
+        "uncomfortable",
+        "very uncomfortable",
+        "extremely uncomfortable"
+      ],
+      "id": "42_1"
+    },
+    {
+      "points": 6,
+      "range": [
+        -2.0,
+        -1.0,
+        -0.01,
+        0.01,
+        1.0,
+        2.0
+      ],
+      "labels": [
+        "very uncomfortable",
+        "uncomfortable",
+        "just uncomfortable",
+        "just comfortable",
+        "comfortable",
+        "very comfortable"
+      ],
+      "id": "45_1"
+    },
+    {
+      "points": 6,
+      "range": [
+        1.0,
+        2.0,
+        3.0,
+        4.0,
+        5.0,
+        6.0
+      ],
+      "labels": [
+        "very uncomfortable",
+        "uncomfortable",
+        "just uncomfortable",
+        "just comfortable",
+        "comfortable",
+        "very comfortable"
+      ],
+      "id": "47_1"
+    },
+    {
+      "points": 6,
+      "range": [
+        -2.0,
+        -1.0,
+        -0.01,
+        0.01,
+        1.0,
+        2.0
+      ],
+      "labels": [
+        "very uncomfortable",
+        "uncomfortable",
+        "just uncomfortable",
+        "just comfortable",
+        "comfortable",
+        "very comfortable"
+      ],
+      "id": "51_1"
+    },
+    {
+      "points": 5,
+      "range": [
+        0.0,
+        1.0,
+        2.0,
+        3.0,
+        4.0
+      ],
+      "labels": [
+        "comfortable",
+        "slightly uncomfortable",
+        "uncomfortable",
+        "very uncomfortable",
+        "unbearable"
+      ],
+      "id": "59_1"
+    },
+    {
+      "points": 7,
+      "range": [
+        -3.0,
+        -2.0,
+        -1.0,
+        0.0,
+        1.0,
+        2.0,
+        3.0
+      ],
+      "labels": [
+        "very uncomfortable",
+        "uncomfortable",
+        "slightly uncomfortable",
+        "neutral",
+        "slightly comfortable",
+        "comfortable",
+        "very comfortable"
+      ],
+      "id": "60_1"
+    },
+    {
+      "points": 6,
+      "range": [
+        1.0,
+        2.0,
+        3.0,
+        4.0,
+        5.0,
+        6.0
+      ],
+      "labels": [
+        "very uncomfortable",
+        "uncomfortable",
+        "slightly uncomfortable",
+        "slightly comfortable",
+        "comfortable",
+        "very comfortable"
+      ],
+      "id": "62_1"
+    },
+    {
+      "points": 5,
+      "range": [
+        -2.0,
+        -1.0,
+        0.0,
+        1.0,
+        2.0
+      ],
+      "labels": [
+        "very uncomfortable",
+        "uncomfortable",
+        "neutral",
+        "comfortable",
+        "very comfortable"
+      ],
+      "id": "63_1"
+    },
+    {
+      "points": 6,
+      "range": [
+        -3.0,
+        -2.0,
+        -1.0,
+        1.0,
+        2.0,
+        3.0
+      ],
+      "labels": [
+        "very uncomfortable",
+        "uncomfortable",
+        "slightly uncomfortable",
+        "slightly comfortable",
+        "comfortable",
+        "very comfortable"
+      ],
+      "id": "64_1"
+    },
+    {
+      "points": 5,
+      "range": [
+        1.0,
+        2.0,
+        3.0,
+        4.0,
+        5.0
+      ],
+      "labels": [
+        "comfortable",
+        "slightly uncomfortable",
+        "uncomfortable",
+        "very uncomfortable",
+        "unbearable"
+      ],
+      "id": "65_1"
+    },
+    {
+      "points": 6,
+      "range": [
+        -2.0,
+        -1.0,
+        -0.1,
+        0.1,
+        1.0,
+        2.0
+      ],
+      "labels": [
+        "very uncomfortable",
+        "uncomfortable",
+        "slightly uncomfortable",
+        "slightly comfortable",
+        "comfortable",
+        "very comfortable"
+      ],
+      "id": "67_1"
+    },
+    {
+      "points": 7,
+      "range": [
+        -3.0,
+        -2.0,
+        -1.0,
+        0.0,
+        1.0,
+        2.0,
+        3.0
+      ],
+      "labels": [
+        "very uncomfortable",
+        "uncomfortable",
+        "slightly uncomfortable",
+        "neutral",
+        "slightly comfortable",
+        "comfortable",
+        "very comfortable"
+      ],
+      "id": "69_1"
+    },
+    {
+      "points": 6,
+      "range": [
+        -2.0,
+        -1.0,
+        -0.01,
+        0.01,
+        1.0,
+        2.0
+      ],
+      "labels": [
+        "very uncomfortable",
+        "uncomfortable",
+        "just uncomfortable",
+        "just comfortable",
+        "comfortable",
+        "very comfortable"
+      ],
+      "id": "73_1"
+    },
+    {
+      "points": 6,
+      "range": [
+        -2.0,
+        -1.0,
+        -0.01,
+        0.01,
+        1.0,
+        2.0
+      ],
+      "labels": [
+        "very uncomfortable",
+        "uncomfortable",
+        "just uncomfortable",
+        "just comfortable",
+        "comfortable",
+        "very comfortable"
+      ],
+      "id": "74_1"
+    },
+    {
+      "points": 6,
+      "range": [
+        -2.0,
+        -1.0,
+        -0.01,
+        0.01,
+        1.0,
+        2.0
+      ],
+      "labels": [
+        "very uncomfortable",
+        "uncomfortable",
+        "just uncomfortable",
+        "just comfortable",
+        "comfortable",
+        "very comfortable"
+      ],
+      "id": "74_2"
+    },
+    {
+      "points": 6,
+      "range": [
+        -2.0,
+        -1.0,
+        -0.01,
+        0.01,
+        1.0,
+        2.0
+      ],
+      "labels": [
+        "very uncomfortable",
+        "uncomfortable",
+        "just uncomfortable",
+        "just comfortable",
+        "comfortable",
+        "very comfortable"
+      ],
+      "id": "74_3"
+    },
+    {
+      "points": 6,
+      "range": [
+        -2.0,
+        -1.0,
+        -0.01,
+        0.01,
+        1.0,
+        2.0
+      ],
+      "labels": [
+        "very uncomfortable",
+        "uncomfortable",
+        "just uncomfortable",
+        "just comfortable",
+        "comfortable",
+        "very comfortable"
+      ],
+      "id": "74_4"
+    },
+    {
+      "points": 10,
+      "range": [
+        -4.0,
+        -3.0,
+        -2.0,
+        -1.0,
+        0.01,
+        1.0,
+        2.0,
+        3.0,
+        4.0
+      ],
+      "labels": [
+        "very uncomfortable",
+        "NR",
+        "uncomfortable",
+        "NR",
+        "just comfortable",
+        "NR",
+        "comfortable",
+        "NR",
+        "very comfortable"
+      ],
+      "id": "75_1"
+    },
+    {
+      "points": 4,
+      "range": [
+        0.0,
+        1.0,
+        2.0,
+        3.0
+      ],
+      "labels": [
+        "comfortable",
+        "slightly uncomfortable",
+        "uncomfortable",
+        "very uncomfortable"
+      ],
+      "id": "77_1"
+    },
+    {
+      "points": 5,
+      "range": [
+        -2.0,
+        -1.0,
+        0.0,
+        1.0,
+        2.0
+      ],
+      "labels": [
+        "very uncomfortable",
+        "uncomfortable",
+        "neutral",
+        "comfortable",
+        "very comfortable"
+      ],
+      "id": "80_1"
+    },
+    {
+      "points": 4,
+      "range": [
+        -2.0,
+        -1.0,
+        1.0,
+        2.0
+      ],
+      "labels": [
+        "very uncomfortable",
+        "just uncomfortable",
+        "just comfortable",
+        "very comfortable"
+      ],
+      "id": "83_1"
+    },
+    {
+      "points": 7,
+      "range": [
+        -3.0,
+        -2.0,
+        1.0,
+        2.0,
+        3.0
+      ],
+      "labels": [
+        "high discomfort",
+        "discomfort",
+        "slight comfort",
+        "comfort",
+        "high comfort"
+      ],
+      "id": "85_1"
+    },
+    {
+      "points": 6,
+      "range": [
+        -2.0,
+        -1.0,
+        -0.01,
+        0.01,
+        1.0,
+        2.0
+      ],
+      "labels": [
+        "very uncomfortable",
+        "uncomfortable",
+        "just uncomfortable",
+        "just comfortable",
+        "comfortable",
+        "very comfortable"
+      ],
+      "id": "87_1"
+    },
+    {
+      "points": 5,
+      "range": [
+        0.0,
+        1.0,
+        2.0,
+        3.0,
+        4.0
+      ],
+      "labels": [
+        "comfortable",
+        "slightly uncomfortable",
+        "uncomfortable",
+        "very uncomfortable",
+        "limited tolerance"
+      ],
+      "id": "89_1"
+    },
+    {
+      "points": 5,
+      "range": [
+        0.0,
+        1.0,
+        2.0,
+        3.0,
+        4.0
+      ],
+      "labels": [
+        "comfortable",
+        "slightly uncomfortable",
+        "uncomfortable",
+        "very uncomfortable",
+        "limited tolerance"
+      ],
+      "id": "103_1"
+    },
+    {
+      "points": 7,
+      "range": [
+        -3.0,
+        -2.0,
+        -1.0,
+        0.0,
+        1.0,
+        2.0,
+        3.0
+      ],
+      "labels": [
+        "cold",
+        "cool",
+        "slight cool",
+        "neutral",
+        "slight warm",
+        "warm",
+        "hot"
+      ],
+      "id": "104_1"
+    },
+    {
+      "points": 5,
+      "range": [
+        -4.0,
+        -3.0,
+        -2.0,
+        -1.0,
+        0.0
+      ],
+      "labels": [
+        "intolerable",
+        "very uncomfortable",
+        "uncomfortable",
+        "slightly uncomfortable",
+        "comfortable"
+      ],
+      "id": "108_1"
+    },
+    {
+      "points": 6,
+      "range": [
+        -2.0,
+        -1.0,
+        -0.0,
+        0.0,
+        1.0,
+        2.0
+      ],
+      "labels": [
+        "very uncomfortable",
+        "uncomfortable",
+        "just uncomfortable",
+        "just comfortable",
+        "comfortable",
+        "very comfortable"
+      ],
+      "id": "111_1"
+    },
+    {
+      "points": 5,
+      "range": [
+        1.0,
+        2.0,
+        3.0,
+        4.0,
+        5.0
+      ],
+      "labels": [
+        "very uncomfortable",
+        "uncomfortable",
+        "slightly uncomfortable",
+        "comfortable",
+        "very comfortable"
+      ],
+      "id": "116_1"
+    },
+    {
+      "points": 6,
+      "range": [
+        0.0,
+        1.0,
+        2.0,
+        3.0,
+        4.0,
+        5.0
+      ],
+      "labels": [
+        "very comfortable",
+        "comfortable",
+        "uncomfortable but acceptable",
+        "uncomfortable and unsatisfied",
+        "very uncomfortable",
+        "unbearable"
+      ],
+      "id": "120_1"
+    },
+    {
+      "points": 6,
+      "range": [
+        -2.0,
+        -1.0,
+        -0.01,
+        0.01,
+        1.0,
+        2.0
+      ],
+      "labels": [
+        "very uncomfortable",
+        "uncomfortable",
+        "just uncomfortable",
+        "just comfortable",
+        "comfortable",
+        "very comfortable"
+      ],
+      "id": "125_1"
+    },
+    {
+      "points": 5,
+      "range": [
+        -2.0,
+        -1.0,
+        0.0,
+        1.0,
+        2.0
+      ],
+      "labels": [
+        "discomfort",
+        "NR",
+        "NR",
+        "NR",
+        "comfort"
+      ],
+      "id": "127_1"
+    },
+    {
+      "points": 4,
+      "range": [
+        1.0,
+        2.0,
+        3.0,
+        4.0
+      ],
+      "labels": [
+        "comfortable",
+        "slightly uncomfortable",
+        "uncomfortable",
+        "very uncomfortable"
+      ],
+      "id": "130_1"
+    },
+    {
+      "points": 4,
+      "range": [
+        -3.0,
+        -2.0,
+        -1.0,
+        0.0
+      ],
+      "labels": [
+        "very uncomfortable",
+        "uncomfortable",
+        "just uncomfortable",
+        "comfortable"
+      ],
+      "id": "131_1"
+    },
+    {
+      "points": 4,
+      "range": [
+        -3.0,
+        -2.0,
+        -1.0,
+        0.0
+      ],
+      "labels": [
+        "very uncomfortable",
+        "uncomfortable",
+        "just uncomfortable",
+        "comfortable"
+      ],
+      "id": "131_2"
+    },
+    {
+      "points": 10,
+      "range": [
+        -4.0,
+        -3.0,
+        -2.0,
+        -1.0,
+        0.01,
+        1.0,
+        2.0,
+        3.0,
+        4.0
+      ],
+      "labels": [
+        "very uncomfortable",
+        "NR",
+        "uncomfortable",
+        "NR",
+        "just comfortable",
+        "NR",
+        "comfortable",
+        "NR",
+        "very comfortable"
+      ],
+      "id": "133_1"
+    },
+    {
+      "points": 5,
+      "range": [
+        -2.0,
+        -1.0,
+        0.0,
+        1.0,
+        2.0
+      ],
+      "labels": [
+        "high cold discomfort",
+        "cold discomfort",
+        "comfortable",
+        "warm discomfort",
+        "high warm discomfort"
+      ],
+      "id": "134_1"
+    },
+    {
+      "points": 5,
+      "range": [
+        1.0,
+        2.0,
+        3.0,
+        4.0,
+        5.0
+      ],
+      "labels": [
+        "very uncomfortable",
+        "uncomfortable",
+        "slightly uncomfortable",
+        "comfortable",
+        "very comfortable"
+      ],
+      "id": "137_1"
+    },
+    {
+      "points": 5,
+      "range": [
+        -4.0,
+        -3.0,
+        -2.0,
+        -1.0,
+        0.0
+      ],
+      "labels": [
+        "extreme uncomfortable",
+        "very uncomfortable",
+        "NR",
+        "NR",
+        "comfortable"
+      ],
+      "id": "141_1"
+    },
+    {
+      "points": 7,
+      "range": [
+        -3.0,
+        -2.0,
+        -1.0,
+        0.0,
+        1.0,
+        2.0,
+        3.0
+      ],
+      "labels": [
+        "very uncomfortable",
+        "uncomfortable",
+        "slightly uncomfortable",
+        "neutral",
+        "slightly comfortable",
+        "comfortable",
+        "very comfortable"
+      ],
+      "id": "146_1"
+    },
+    {
+      "points": 7,
+      "range": [
+        -3.0,
+        -2.0,
+        -1.0,
+        0.0,
+        1.0,
+        2.0,
+        3.0
+      ],
+      "labels": [
+        "very uncomfortable",
+        "uncomfortable",
+        "slightly uncomfortable",
+        "neutral",
+        "slightly comfortable",
+        "comfortable",
+        "very comfortable"
+      ],
+      "id": "146_2"
+    },
+    {
+      "points": 7,
+      "range": [
+        -3.0,
+        -2.0,
+        -1.0,
+        0.0,
+        1.0,
+        2.0,
+        3.0
+      ],
+      "labels": [
+        "much too cool",
+        "too coold",
+        "comfortably cool",
+        "comfortable",
+        "comfortably warm",
+        "warm",
+        "much too wamr"
+      ],
+      "id": "151_1"
+    },
+    {
+      "points": 5,
+      "range": [
+        -2.0,
+        -1.0,
+        0.0,
+        1.0,
+        2.0
+      ],
+      "labels": [
+        "high cold discomfort",
+        "cold discomfort",
+        "comfortable",
+        "warm discomfort",
+        "high warm discomfort"
+      ],
+      "id": "154_1"
+    },
+    {
+      "points": 4,
+      "range": [
+        1.0,
+        2.0,
+        3.0,
+        4.0
+      ],
+      "labels": [
+        "comfortable",
+        "slightly uncomfortable",
+        "uncomfortable",
+        "very uncomfortable"
+      ],
+      "id": "157_1"
+    },
+    {
+      "points": 4,
+      "range": [
+        1.0,
+        2.0,
+        3.0,
+        4.0
+      ],
+      "labels": [
+        "comfortable",
+        "slightly uncomfortable",
+        "uncomfortable",
+        "very uncomfortable"
+      ],
+      "id": "160_1"
+    },
+    {
+      "points": 5,
+      "range": [
+        0.0,
+        1.0,
+        2.0,
+        3.0,
+        4.0
+      ],
+      "labels": [
+        "comfortable",
+        "slightly uncomfortable",
+        "uncomfortable",
+        "very uncomfortable",
+        "intolerable"
+      ],
+      "id": "161_1"
+    },
+    {
+      "points": 7,
+      "range": [
+        -3.0,
+        -2.0,
+        -1.0,
+        0.0,
+        1.0,
+        2.0,
+        3.0
+      ],
+      "labels": [
+        "very uncomfortable",
+        "uncomfortable",
+        "just uncomfortable",
+        "neutral",
+        "just comfortable",
+        "comfortable",
+        "very comfortable"
+      ],
+      "id": "162_1"
+    },
+    {
+      "points": 6,
+      "range": [
+        -2.0,
+        -1.0,
+        -0.01,
+        0.01,
+        1.0,
+        2.0
+      ],
+      "labels": [
+        "very uncomfortable",
+        "uncomfortable",
+        "just uncomfortable",
+        "just comfortable",
+        "comfortable",
+        "very comfortable"
+      ],
+      "id": "163_1"
+    },
+    {
+      "points": 4,
+      "range": [
+        -3.0,
+        -2.0,
+        -1.0,
+        0.0
+      ],
+      "labels": [
+        "very uncomfortable",
+        "uncomfortable",
+        "slightly uncomfortable",
+        "comfortable"
+      ],
+      "id": "165_1"
+    },
+    {
+      "points": 6,
+      "range": [
+        -3.0,
+        -2.0,
+        -1.0,
+        1.0,
+        2.0,
+        3.0
+      ],
+      "labels": [
+        "very uncomfortable",
+        "uncomfortable",
+        "just uncomfortable",
+        "just comfortable",
+        "comfortable",
+        "very comfortable"
+      ],
+      "id": "167_1"
+    },
+    {
+      "points": 5,
+      "range": [
+        0.0,
+        1.0,
+        2.0,
+        3.0,
+        4.0
+      ],
+      "labels": [
+        "comfortable",
+        "slightly uncomfortable",
+        "uncomfortable",
+        "very uncomfortable",
+        "intolerably uncomfortable"
+      ],
+      "id": "168_1"
+    },
+    {
+      "points": 4,
+      "range": [
+        1.0,
+        2.0,
+        3.0,
+        4.0
+      ],
+      "labels": [
+        "comfortable",
+        "slightly uncomfortable",
+        "uncomfortable",
+        "very uncomfortable"
+      ],
+      "id": "170_1"
+    },
+    {
+      "points": 7,
+      "range": [
+        -3.0,
+        -2.0,
+        -1.0,
+        0.0,
+        1.0,
+        2.0,
+        3.0
+      ],
+      "labels": [
+        "very uncomfortable",
+        "uncomfortable",
+        "slightly uncomfortable",
+        "neutral",
+        "slightly comfortable",
+        "comfortable",
+        "very comfortable"
+      ],
+      "id": "171_1"
+    },
+    {
+      "points": 6,
+      "range": [
+        -2.0,
+        -1.0,
+        -0.01,
+        0.01,
+        1.0,
+        2.0
+      ],
+      "labels": [
+        "very uncomfortable",
+        "uncomfortable",
+        "just uncomfortable",
+        "just comfortable",
+        "comfortable",
+        "very comfortable"
+      ],
+      "id": "172_1"
+    },
+    {
+      "points": 7,
+      "range": [
+        -3.0,
+        -2.0,
+        -1.0,
+        0.0,
+        1.0,
+        2.0,
+        3.0
+      ],
+      "labels": [
+        "very uncomfortable",
+        "uncomfortable",
+        "slightly uncomfortable",
+        "neutral",
+        "slightly comfortable",
+        "comfortable",
+        "very comfortable"
+      ],
+      "id": "175_1"
+    },
+    {
+      "points": 7,
+      "range": [
+        -3.0,
+        -2.0,
+        -1.0,
+        0.0,
+        1.0,
+        2.0,
+        3.0
+      ],
+      "labels": [
+        "very uncomfortable",
+        "uncomfortable",
+        "slightly uncomfortable",
+        "neutral",
+        "slightly comfortable",
+        "comfortable",
+        "very comfortable"
+      ],
+      "id": "178_1"
+    },
+    {
+      "points": 4,
+      "range": [
+        1.0,
+        2.0,
+        3.0,
+        4.0
+      ],
+      "labels": [
+        "comfortable",
+        "slightly uncomfortable",
+        "uncomfortable",
+        "very uncomfortable"
+      ],
+      "id": "179_1"
+    },
+    {
+      "points": 7,
+      "range": [
+        -3.0,
+        -2.0,
+        -1.0,
+        0.0,
+        1.0,
+        2.0,
+        3.0
+      ],
+      "labels": [
+        "very uncomfortable",
+        "uncomfortable",
+        "slightly uncomfortable",
+        "neutral",
+        "slightly comfortable",
+        "comfortable",
+        "very comfortable"
+      ],
+      "id": "181_1"
+    },
+    {
+      "points": 6,
+      "range": [
+        -2.0,
+        -1.0,
+        -0.0,
+        0.0,
+        1.0,
+        2.0
+      ],
+      "labels": [
+        "very uncomfortable",
+        "uncomfortable",
+        "just uncomfortable",
+        "just comfortable",
+        "comfortable",
+        "very comfortable"
+      ],
+      "id": "183_1"
+    },
+    {
+      "points": 6,
+      "range": [
+        -2.0,
+        -1.0,
+        -0.0,
+        0.0,
+        1.0,
+        2.0
+      ],
+      "labels": [
+        "very uncomfortable",
+        "uncomfortable",
+        "just uncomfortable",
+        "just comfortable",
+        "comfortable",
+        "very comfortable"
+      ],
+      "id": "184_1"
+    },
+    {
+      "points": 4,
+      "range": [
+        -3.0,
+        -2.0,
+        -1.0,
+        0.0
+      ],
+      "labels": [
+        "very uncomfortable",
+        "uncomfortable",
+        "slightly uncomfortable",
+        "comfortable"
+      ],
+      "id": "187_1"
+    },
+    {
+      "points": 4,
+      "range": [
+        1.0,
+        2.0,
+        3.0,
+        4.0
+      ],
+      "labels": [
+        "comfortable",
+        "slightly uncomfortable",
+        "uncomfortable",
+        "very uncomfortable"
+      ],
+      "id": "188_1"
+    },
+    {
+      "points": 6,
+      "range": [
+        -2.0,
+        -1.0,
+        0.0,
+        0.0,
+        1.0,
+        2.0
+      ],
+      "labels": [
+        "very uncomfortable",
+        "uncomfortable",
+        "just uncomfortable",
+        "just comfortable",
+        "comfortable",
+        "very comfortable"
+      ],
+      "id": "189_1"
+    },
+    {
+      "points": 5,
+      "range": [
+        0.0,
+        1.0,
+        2.0,
+        3.0,
+        4.0
+      ],
+      "labels": [
+        "comfortable",
+        "slightly uncomfortable",
+        "uncomfortable",
+        "very uncomfortable",
+        "unbearable"
+      ],
+      "id": "193_1"
+    },
+    {
+      "points": 4,
+      "range": [
+        -3.0,
+        -2.0
+      ],
+      "labels": [
+        "very uncomfortable",
+        "uncomfortable"
+      ],
+      "id": "195_1"
+    },
+    {
+      "points": 4,
+      "range": [
+        -3.0,
+        -2.0,
+        -1.0,
+        0.0
+      ],
+      "labels": [
+        "very uncomfortable",
+        "uncomfortable",
+        "slightly uncomfortable",
+        "comfortable"
+      ],
+      "id": "197_1"
+    },
+    {
+      "points": 7,
+      "range": [
+        -3.0,
+        -2.0,
+        -1.0,
+        0.0,
+        1.0,
+        2.0,
+        3.0
+      ],
+      "labels": [
+        "very uncomfortable",
+        "uncomfortable",
+        "slightly uncomfortable",
+        "neutral",
+        "slightly comfortable",
+        "comfortable",
+        "very comfortable"
+      ],
+      "id": "198_1"
+    },
+    {
+      "points": 4,
+      "range": [
+        0.0,
+        1.0,
+        2.0,
+        3.0
+      ],
+      "labels": [
+        "comfortable",
+        "just comfortable",
+        "just uncomfortable",
+        "very uncomfortable"
+      ],
+      "id": "203_1"
+    },
+    {
+      "points": 4,
+      "range": [
+        -3.0,
+        -2.0,
+        -1.0,
+        0.0
+      ],
+      "labels": [
+        "very uncomfortable",
+        "uncomfortable",
+        "slightly uncomfortable",
+        "comfortable"
+      ],
+      "id": "206_1"
+    },
+    {
+      "points": 7,
+      "range": [
+        -3.0,
+        -2.0,
+        -1.0,
+        0.0,
+        1.0,
+        2.0,
+        3.0
+      ],
+      "labels": [
+        "very uncomfortable",
+        "uncomfortable",
+        "slightly uncomfortable",
+        "neutral",
+        "slightly comfortable",
+        "comfortable",
+        "very comfortable"
+      ],
+      "id": "210_1"
+    },
+    {
+      "points": 5,
+      "range": [
+        -2.0,
+        -1.0,
+        0.0,
+        1.0,
+        2.0
+      ],
+      "labels": [
+        "very uncomfortable",
+        "uncomfortable",
+        "neutral",
+        "comfortable",
+        "very comfortable"
+      ],
+      "id": "211_1"
+    },
+    {
+      "points": 4,
+      "range": [
+        0.0,
+        1.0,
+        2.0,
+        3.0
+      ],
+      "labels": [
+        "comfortable",
+        "slightly uncomfortable",
+        "uncomfortable",
+        "very uncomfortable"
+      ],
+      "id": "215_1"
+    },
+    {
+      "points": 5,
+      "range": [
+        -2.0,
+        -1.0,
+        -0.01,
+        0.01,
+        1.0,
+        2.0
+      ],
+      "labels": [
+        "very uncomfortable",
+        "uncomfortable",
+        "just uncomfortable",
+        "just comfortable",
+        "comfortable",
+        "very comfortable"
+      ],
+      "id": "218_1"
+    },
+    {
+      "points": 6,
+      "range": [
+        -2.0,
+        -1.0,
+        -0.1,
+        0.1,
+        1.0,
+        2.0
+      ],
+      "labels": [
+        "very uncomfortable",
+        "uncomfortable",
+        "slightly uncomfortable",
+        "slightly comfortable",
+        "comfortable",
+        "very comfortable"
+      ],
+      "id": "219_1"
+    },
+    {
+      "points": 7,
+      "range": [
+        -3.0,
+        -2.0,
+        -1.0,
+        0.0,
+        1.0,
+        2.0,
+        3.0
+      ],
+      "labels": [
+        "very uncomfortable",
+        "uncomfortable",
+        "slightly uncomfortable",
+        "neither comfortable nor uncomfortable",
+        "slightly comfortable",
+        "comfortable",
+        "very comfortable"
+      ],
+      "id": "220_1"
+    },
+    {
+      "points": 7,
+      "range": [
+        -3.0,
+        -2.0,
+        -1.0,
+        0.0,
+        1.0,
+        2.0,
+        3.0
+      ],
+      "labels": [
+        "very uncomfortable",
+        "uncomfortable",
+        "slightly uncomfortable",
+        "neutral",
+        "slightly comfortable",
+        "comfortable",
+        "very comfortable"
+      ],
+      "id": "221_1"
+    },
+    {
+      "points": 7,
+      "range": [
+        -3.0,
+        -2.0,
+        -1.0,
+        0.0,
+        1.0,
+        2.0,
+        3.0
+      ],
+      "labels": [
+        "very uncomfortable",
+        "uncomfortable",
+        "slightly uncomfortable",
+        "unclear",
+        "slightly comfortable",
+        "comfortable",
+        "very comfortable"
+      ],
+      "id": "224_1"
+    },
+    {
+      "points": 5,
+      "range": [
+        0.0,
+        1.0,
+        2.0,
+        3.0,
+        4.0
+      ],
+      "labels": [
+        "comfortable",
+        "slightly uncomfortable",
+        "uncomfortable",
+        "very uncomfortable",
+        "limited tolerance"
+      ],
+      "id": "225_1"
+    },
+    {
+      "points": 5,
+      "range": [
+        0.0,
+        1.0,
+        2.0,
+        3.0,
+        4.0
+      ],
+      "labels": [
+        "comfortable",
+        "slightly uncomfortable",
+        "uncomfortable",
+        "very uncomfortable",
+        "limited tolerance"
+      ],
+      "id": "225_2"
+    },
+    {
+      "points": 6,
+      "range": [
+        -2.0,
+        -1.0,
+        -0.01,
+        0.01,
+        1.0,
+        2.0
+      ],
+      "labels": [
+        "very uncomfortable",
+        "uncomfortable",
+        "just uncomfortable",
+        "just comfortable",
+        "comfortable",
+        "very comfortable"
+      ],
+      "id": "226_1"
+    },
+    {
+      "points": 6,
+      "range": [
+        0.0,
+        1.0,
+        2.0,
+        3.0,
+        4.0,
+        5.0
+      ],
+      "labels": [
+        "very comfortable",
+        "comfortable",
+        "uncomfortable but acceptable",
+        "uncomfortable and unacceptable",
+        "very uncomfortable",
+        "unacceptable"
+      ],
+      "id": "230_1"
+    },
+    {
+      "points": 7,
+      "range": [
+        -3.0,
+        -2.0,
+        -1.0,
+        0.0,
+        1.0,
+        2.0,
+        3.0
+      ],
+      "labels": [
+        "very uncomfortable",
+        "uncomfortable",
+        "just uncomfortable",
+        "unclear",
+        "just comfortable",
+        "comfortable",
+        "very comfortable"
+      ],
+      "id": "231_1"
+    },
+    {
+      "points": 7,
+      "range": [
+        -3.0,
+        -2.0,
+        -1.0,
+        0.0,
+        1.0,
+        2.0,
+        3.0
+      ],
+      "labels": [
+        "very uncomfortable",
+        "uncomfortable",
+        "just uncomfortable",
+        "unclear",
+        "just comfortable",
+        "comfortable",
+        "very comfortable"
+      ],
+      "id": "233_1"
+    },
+    {
+      "points": 5,
+      "range": [
+        -2.0,
+        -1.0,
+        0.0,
+        1.0,
+        2.0
+      ],
+      "labels": [
+        "very uncomfortable",
+        "uncomfortable",
+        "moderate",
+        "comfortable",
+        "very comfortable"
+      ],
+      "id": "234_1"
+    },
+    {
+      "points": 9,
+      "range": [
+        -4.0,
+        -3.0,
+        -2.0,
+        -1.0,
+        0.0,
+        1.0,
+        2.0,
+        3.0,
+        4.0
+      ],
+      "labels": [
+        "very uncomfortable",
+        "quite uncomfortable",
+        "uncomfortable",
+        "slightly uncomfortable",
+        "neutral",
+        "slightly comfortable",
+        "comfortable",
+        "quite comfortable",
+        "very comfortable"
+      ],
+      "id": "235_1"
+    },
+    {
+      "points": 6,
+      "range": [
+        -2.0,
+        -1.0,
+        -0.01,
+        0.01,
+        1.0,
+        2.0
+      ],
+      "labels": [
+        "very uncomfortable",
+        "uncomfortable",
+        "just uncomfortable",
+        "just comfortable",
+        "comfortable",
+        "very comfortable"
+      ],
+      "id": "236_1"
+    },
+    {
+      "points": 6,
+      "range": [
+        -2.0,
+        -1.0,
+        -0.01,
+        0.01,
+        1.0,
+        2.0
+      ],
+      "labels": [
+        "very uncomfortable",
+        "uncomfortable",
+        "just uncomfortable",
+        "just comfortable",
+        "comfortable",
+        "very comfortable"
+      ],
+      "id": "236_2"
+    },
+    {
+      "points": 6,
+      "range": [
+        -2.0,
+        -1.0,
+        -0.01,
+        0.01,
+        1.0,
+        2.0
+      ],
+      "labels": [
+        "very uncomfortable",
+        "uncomfortable",
+        "just uncomfortable",
+        "just comfortable",
+        "comfortable",
+        "very comfortable"
+      ],
+      "id": "236_3"
+    },
+    {
+      "points": 5,
+      "range": [
+        -1.0,
+        0.0,
+        1.0,
+        2.0,
+        3.0
+      ],
+      "labels": [
+        "comfortable",
+        "slightly uncomfortable",
+        "uncomfortable",
+        "very uncomfortable",
+        "unendurable"
+      ],
+      "id": "237_1"
+    },
+    {
+      "points": 7,
+      "range": [
+        3.0,
+        2.0,
+        1.0,
+        0.0,
+        1.0,
+        2.0,
+        3.0
+      ],
+      "labels": [
+        "very unsatisfied",
+        "unsatisfied",
+        "slightly unsatisfied",
+        "neutral",
+        "slightly satisfied",
+        "satisfied",
+        "very satisfied"
+      ],
+      "id": "240_1"
+    },
+    {
+      "points": 7,
+      "range": [
+        -3.0,
+        -2.0,
+        -1.0,
+        0.0,
+        1.0,
+        2.0,
+        3.0
+      ],
+      "labels": [
+        "very uncomfortable",
+        "uncomfortable",
+        "slightly uncomfortable",
+        "neutral",
+        "slightly comfortable",
+        "comfortable",
+        "very comfortable"
+      ],
+      "id": "243_1"
+    },
+    {
+      "points": 8,
+      "range": [
+        -3.0,
+        -2.0,
+        -1.0,
+        -0.01,
+        0.01,
+        1.0,
+        2.0,
+        3.0
+      ],
+      "labels": [
+        "very uncomfortable",
+        "uncomfortable",
+        "just uncomfortable",
+        "",
+        "",
+        "just comfortable",
+        "comfortable",
+        "very comfortable"
+      ],
+      "id": "245_1"
+    },
+    {
+      "points": 4,
+      "range": [
+        -3.0,
+        -2.0,
+        -1.0,
+        0.0
+      ],
+      "labels": [
+        "severe discomfort",
+        "discomfort",
+        "slight discomfort",
+        "comfort"
+      ],
+      "id": "246_1"
+    },
+    {
+      "points": 4,
+      "range": [
+        0.0,
+        1.0,
+        2.0,
+        3.0
+      ],
+      "labels": [
+        "comfort",
+        "slightly discomfort",
+        "discomfort",
+        "very discomfort"
+      ],
+      "id": "249_1"
+    },
+    {
+      "points": 4,
+      "range": [
+        -3.0,
+        -2.0,
+        -1.0,
+        0.0
+      ],
+      "labels": [
+        "very uncomfortable",
+        "uncomfortable",
+        "slightly uncomfortable",
+        "comfortable"
+      ],
+      "id": "250_1"
+    }
+  ],
+  "points_distribution": [
+    {
+      "points": 3,
+      "count": 1
+    },
+    {
+      "points": 4,
+      "count": 26
+    },
+    {
+      "points": 5,
+      "count": 28
+    },
+    {
+      "points": 6,
+      "count": 33
+    },
+    {
+      "points": 7,
+      "count": 24
+    },
+    {
+      "points": 8,
+      "count": 1
+    },
+    {
+      "points": 9,
+      "count": 1
+    },
+    {
+      "points": 10,
+      "count": 2
+    }
+  ],
+  "n_total": 116
+}

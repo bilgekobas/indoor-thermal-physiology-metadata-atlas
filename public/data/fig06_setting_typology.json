@@ -1,0 +1,99 @@
+{
+  "data": [
+    {
+      "exp-type": "Field",
+      "exp-spatial-typology": "Classroom/Study room",
+      "count": 3
+    },
+    {
+      "exp-type": "Field",
+      "exp-spatial-typology": "Desk&Chair",
+      "count": 1
+    },
+    {
+      "exp-type": "Field",
+      "exp-spatial-typology": "Free-living",
+      "count": 2
+    },
+    {
+      "exp-type": "Field",
+      "exp-spatial-typology": "Office/Workstations",
+      "count": 23
+    },
+    {
+      "exp-type": "Field",
+      "exp-spatial-typology": "Residential",
+      "count": 2
+    },
+    {
+      "exp-type": "Field",
+      "exp-spatial-typology": "Standing",
+      "count": 1
+    },
+    {
+      "exp-type": "Lab",
+      "exp-spatial-typology": "Classroom/Study room",
+      "count": 1
+    },
+    {
+      "exp-type": "Lab",
+      "exp-spatial-typology": "Desk&Chair",
+      "count": 48
+    },
+    {
+      "exp-type": "Lab",
+      "exp-spatial-typology": "NR",
+      "count": 43
+    },
+    {
+      "exp-type": "Lab",
+      "exp-spatial-typology": "Office/Workstations",
+      "count": 83
+    },
+    {
+      "exp-type": "Lab",
+      "exp-spatial-typology": "Seating",
+      "count": 25
+    },
+    {
+      "exp-type": "Living Lab",
+      "exp-spatial-typology": "Classroom/Study room",
+      "count": 4
+    },
+    {
+      "exp-type": "Living Lab",
+      "exp-spatial-typology": "Desk&Chair",
+      "count": 1
+    },
+    {
+      "exp-type": "Living Lab",
+      "exp-spatial-typology": "Office/Workstations",
+      "count": 23
+    },
+    {
+      "exp-type": "Living Lab",
+      "exp-spatial-typology": "Residential",
+      "count": 2
+    },
+    {
+      "exp-type": "Living Lab",
+      "exp-spatial-typology": "Seating",
+      "count": 1
+    },
+    {
+      "exp-type": "Mixed",
+      "exp-spatial-typology": "NR",
+      "count": 1
+    },
+    {
+      "exp-type": "Mixed",
+      "exp-spatial-typology": "Office/Workstations",
+      "count": 1
+    },
+    {
+      "exp-type": "Mixed",
+      "exp-spatial-typology": "Seating",
+      "count": 1
+    }
+  ]
+}

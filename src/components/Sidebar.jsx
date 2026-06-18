@@ -16,8 +16,10 @@ const SECTIONS = [
   {
     group: 'Analysis',
     items: [
+      { to: '/study-design', label: 'Study design & context' },
       { to: '/measurement', label: 'Measurement & sensors' },
       { to: '/mst', label: 'Mean skin temperature' },
+      { to: '/questionnaires', label: 'Questionnaire scales' },
       { to: '/reporting', label: 'Reporting completeness' },
     ],
   },

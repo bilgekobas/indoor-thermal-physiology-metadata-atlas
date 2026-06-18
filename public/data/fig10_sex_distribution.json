@@ -1,0 +1,1527 @@
+{
+  "studies": [
+    {
+      "id": "182_1",
+      "male": 0.0,
+      "female": 8.0,
+      "male_pct": 0.0
+    },
+    {
+      "id": "189_1",
+      "male": 0.0,
+      "female": 20.0,
+      "male_pct": 0.0
+    },
+    {
+      "id": "215_1",
+      "male": 0.0,
+      "female": 56.0,
+      "male_pct": 0.0
+    },
+    {
+      "id": "158_1",
+      "male": 5.0,
+      "female": 23.0,
+      "male_pct": 17.9
+    },
+    {
+      "id": "109_1",
+      "male": 9.0,
+      "female": 29.0,
+      "male_pct": 23.7
+    },
+    {
+      "id": null,
+      "male": 9.0,
+      "female": 29.0,
+      "male_pct": 23.7
+    },
+    {
+      "id": "211_1",
+      "male": 10.0,
+      "female": 22.0,
+      "male_pct": 31.2
+    },
+    {
+      "id": "234_1",
+      "male": 46.0,
+      "female": 98.0,
+      "male_pct": 31.9
+    },
+    {
+      "id": "209_1",
+      "male": 20.0,
+      "female": 38.0,
+      "male_pct": 34.5
+    },
+    {
+      "id": "92_1",
+      "male": 3.0,
+      "female": 5.0,
+      "male_pct": 37.5
+    },
+    {
+      "id": "224_1",
+      "male": 15.0,
+      "female": 25.0,
+      "male_pct": 37.5
+    },
+    {
+      "id": "181_1",
+      "male": 14.0,
+      "female": 22.0,
+      "male_pct": 38.9
+    },
+    {
+      "id": "16_1",
+      "male": 6.0,
+      "female": 9.0,
+      "male_pct": 40.0
+    },
+    {
+      "id": "212_1",
+      "male": 2.0,
+      "female": 3.0,
+      "male_pct": 40.0
+    },
+    {
+      "id": "115_1",
+      "male": 17.0,
+      "female": 25.0,
+      "male_pct": 40.5
+    },
+    {
+      "id": "61_1",
+      "male": 6.0,
+      "female": 8.0,
+      "male_pct": 42.9
+    },
+    {
+      "id": "68_1",
+      "male": 3.0,
+      "female": 4.0,
+      "male_pct": 42.9
+    },
+    {
+      "id": "28_1",
+      "male": 23.0,
+      "female": 29.0,
+      "male_pct": 44.2
+    },
+    {
+      "id": "88_1",
+      "male": 12.0,
+      "female": 15.0,
+      "male_pct": 44.4
+    },
+    {
+      "id": "31_1",
+      "male": 13.0,
+      "female": 16.0,
+      "male_pct": 44.8
+    },
+    {
+      "id": "76_1",
+      "male": 13.0,
+      "female": 16.0,
+      "male_pct": 44.8
+    },
+    {
+      "id": "229_1",
+      "male": 13.0,
+      "female": 16.0,
+      "male_pct": 44.8
+    },
+    {
+      "id": "29_1",
+      "male": 9.0,
+      "female": 11.0,
+      "male_pct": 45.0
+    },
+    {
+      "id": "41_1",
+      "male": 9.0,
+      "female": 11.0,
+      "male_pct": 45.0
+    },
+    {
+      "id": "52_1",
+      "male": 9.0,
+      "female": 11.0,
+      "male_pct": 45.0
+    },
+    {
+      "id": "36_1",
+      "male": 29.0,
+      "female": 35.0,
+      "male_pct": 45.3
+    },
+    {
+      "id": "113_1",
+      "male": 10.0,
+      "female": 12.0,
+      "male_pct": 45.5
+    },
+    {
+      "id": "169_1",
+      "male": 12.0,
+      "female": 14.0,
+      "male_pct": 46.2
+    },
+    {
+      "id": "93_2",
+      "male": 13.0,
+      "female": 15.0,
+      "male_pct": 46.4
+    },
+    {
+      "id": "204_1",
+      "male": 20.0,
+      "female": 23.0,
+      "male_pct": 46.5
+    },
+    {
+      "id": "216_1",
+      "male": 17.0,
+      "female": 19.0,
+      "male_pct": 47.2
+    },
+    {
+      "id": "82_1",
+      "male": 23.0,
+      "female": 25.0,
+      "male_pct": 47.9
+    },
+    {
+      "id": "4_1",
+      "male": 13.0,
+      "female": 14.0,
+      "male_pct": 48.1
+    },
+    {
+      "id": "3_1",
+      "male": 15.0,
+      "female": 16.0,
+      "male_pct": 48.4
+    },
+    {
+      "id": "186_1",
+      "male": 15.0,
+      "female": 16.0,
+      "male_pct": 48.4
+    },
+    {
+      "id": "133_1",
+      "male": 17.0,
+      "female": 18.0,
+      "male_pct": 48.6
+    },
+    {
+      "id": "67_1",
+      "male": 44.0,
+      "female": 45.0,
+      "male_pct": 49.4
+    },
+    {
+      "id": "2_1",
+      "male": 16.0,
+      "female": 16.0,
+      "male_pct": 50.0
+    },
+    {
+      "id": "2_2",
+      "male": 12.0,
+      "female": 12.0,
+      "male_pct": 50.0
+    },
+    {
+      "id": "2_3",
+      "male": 24.0,
+      "female": 24.0,
+      "male_pct": 50.0
+    },
+    {
+      "id": "5_1",
+      "male": 6.0,
+      "female": 6.0,
+      "male_pct": 50.0
+    },
+    {
+      "id": "6_1",
+      "male": 16.0,
+      "female": 16.0,
+      "male_pct": 50.0
+    },
+    {
+      "id": "7_1",
+      "male": 4.0,
+      "female": 4.0,
+      "male_pct": 50.0
+    },
+    {
+      "id": "8_1",
+      "male": 8.0,
+      "female": 8.0,
+      "male_pct": 50.0
+    },
+    {
+      "id": "10_1",
+      "male": 8.0,
+      "female": 8.0,
+      "male_pct": 50.0
+    },
+    {
+      "id": "12_1",
+      "male": 15.0,
+      "female": 15.0,
+      "male_pct": 50.0
+    },
+    {
+      "id": "13_1",
+      "male": 12.0,
+      "female": 12.0,
+      "male_pct": 50.0
+    },
+    {
+      "id": "14_1",
+      "male": 10.0,
+      "female": 10.0,
+      "male_pct": 50.0
+    },
+    {
+      "id": "18_1",
+      "male": 10.0,
+      "female": 10.0,
+      "male_pct": 50.0
+    },
+    {
+      "id": "19_1",
+      "male": 10.0,
+      "female": 10.0,
+      "male_pct": 50.0
+    },
+    {
+      "id": "20_1",
+      "male": 12.0,
+      "female": 12.0,
+      "male_pct": 50.0
+    },
+    {
+      "id": "21_1",
+      "male": 7.0,
+      "female": 7.0,
+      "male_pct": 50.0
+    },
+    {
+      "id": "22_1",
+      "male": 16.0,
+      "female": 16.0,
+      "male_pct": 50.0
+    },
+    {
+      "id": "23_1",
+      "male": 11.0,
+      "female": 11.0,
+      "male_pct": 50.0
+    },
+    {
+      "id": "24_1",
+      "male": 8.0,
+      "female": 8.0,
+      "male_pct": 50.0
+    },
+    {
+      "id": "25_1",
+      "male": 18.0,
+      "female": 18.0,
+      "male_pct": 50.0
+    },
+    {
+      "id": "30_1",
+      "male": 15.0,
+      "female": 15.0,
+      "male_pct": 50.0
+    },
+    {
+      "id": "32_1",
+      "male": 12.0,
+      "female": 12.0,
+      "male_pct": 50.0
+    },
+    {
+      "id": "33_1",
+      "male": 5.0,
+      "female": 5.0,
+      "male_pct": 50.0
+    },
+    {
+      "id": "35_1",
+      "male": 10.0,
+      "female": 10.0,
+      "male_pct": 50.0
+    },
+    {
+      "id": "39_1",
+      "male": 15.0,
+      "female": 15.0,
+      "male_pct": 50.0
+    },
+    {
+      "id": "40_1",
+      "male": 12.0,
+      "female": 12.0,
+      "male_pct": 50.0
+    },
+    {
+      "id": "42_1",
+      "male": 10.0,
+      "female": 10.0,
+      "male_pct": 50.0
+    },
+    {
+      "id": "43_1",
+      "male": 24.0,
+      "female": 24.0,
+      "male_pct": 50.0
+    },
+    {
+      "id": "44_1",
+      "male": 15.0,
+      "female": 15.0,
+      "male_pct": 50.0
+    },
+    {
+      "id": "45_1",
+      "male": 10.0,
+      "female": 10.0,
+      "male_pct": 50.0
+    },
+    {
+      "id": "47_1",
+      "male": 11.0,
+      "female": 11.0,
+      "male_pct": 50.0
+    },
+    {
+      "id": "48_1",
+      "male": 24.0,
+      "female": 24.0,
+      "male_pct": 50.0
+    },
+    {
+      "id": "50_1",
+      "male": 3.0,
+      "female": 3.0,
+      "male_pct": 50.0
+    },
+    {
+      "id": "51_1",
+      "male": 16.0,
+      "female": 16.0,
+      "male_pct": 50.0
+    },
+    {
+      "id": "55_1",
+      "male": 10.0,
+      "female": 10.0,
+      "male_pct": 50.0
+    },
+    {
+      "id": "60_1",
+      "male": 10.0,
+      "female": 10.0,
+      "male_pct": 50.0
+    },
+    {
+      "id": "62_1",
+      "male": 4.0,
+      "female": 4.0,
+      "male_pct": 50.0
+    },
+    {
+      "id": "63_1",
+      "male": 10.0,
+      "female": 10.0,
+      "male_pct": 50.0
+    },
+    {
+      "id": "65_1",
+      "male": 4.0,
+      "female": 4.0,
+      "male_pct": 50.0
+    },
+    {
+      "id": "66_1",
+      "male": 8.0,
+      "female": 8.0,
+      "male_pct": 50.0
+    },
+    {
+      "id": "70_1",
+      "male": 7.0,
+      "female": 7.0,
+      "male_pct": 50.0
+    },
+    {
+      "id": "71_1",
+      "male": 18.0,
+      "female": 18.0,
+      "male_pct": 50.0
+    },
+    {
+      "id": "71_2",
+      "male": 33.0,
+      "female": 33.0,
+      "male_pct": 50.0
+    },
+    {
+      "id": "73_1",
+      "male": 12.0,
+      "female": 12.0,
+      "male_pct": 50.0
+    },
+    {
+      "id": "74_1",
+      "male": 16.0,
+      "female": 16.0,
+      "male_pct": 50.0
+    },
+    {
+      "id": "74_2",
+      "male": 12.0,
+      "female": 12.0,
+      "male_pct": 50.0
+    },
+    {
+      "id": "74_3",
+      "male": 24.0,
+      "female": 24.0,
+      "male_pct": 50.0
+    },
+    {
+      "id": "74_4",
+      "male": 16.0,
+      "female": 16.0,
+      "male_pct": 50.0
+    },
+    {
+      "id": "75_1",
+      "male": 20.0,
+      "female": 20.0,
+      "male_pct": 50.0
+    },
+    {
+      "id": "77_1",
+      "male": 12.0,
+      "female": 12.0,
+      "male_pct": 50.0
+    },
+    {
+      "id": "79_1",
+      "male": 16.0,
+      "female": 16.0,
+      "male_pct": 50.0
+    },
+    {
+      "id": "80_1",
+      "male": 7.0,
+      "female": 7.0,
+      "male_pct": 50.0
+    },
+    {
+      "id": "83_1",
+      "male": 8.0,
+      "female": 8.0,
+      "male_pct": 50.0
+    },
+    {
+      "id": "86_1",
+      "male": 9.0,
+      "female": 9.0,
+      "male_pct": 50.0
+    },
+    {
+      "id": "90_1",
+      "male": 30.0,
+      "female": 30.0,
+      "male_pct": 50.0
+    },
+    {
+      "id": "93_1",
+      "male": 17.0,
+      "female": 17.0,
+      "male_pct": 50.0
+    },
+    {
+      "id": "94_1",
+      "male": 16.0,
+      "female": 16.0,
+      "male_pct": 50.0
+    },
+    {
+      "id": "97_1",
+      "male": 16.0,
+      "female": 16.0,
+      "male_pct": 50.0
+    },
+    {
+      "id": "99_1",
+      "male": 10.0,
+      "female": 10.0,
+      "male_pct": 50.0
+    },
+    {
+      "id": "101_1",
+      "male": 15.0,
+      "female": 15.0,
+      "male_pct": 50.0
+    },
+    {
+      "id": "106_1",
+      "male": 10.0,
+      "female": 10.0,
+      "male_pct": 50.0
+    },
+    {
+      "id": "107_1",
+      "male": 9.0,
+      "female": 9.0,
+      "male_pct": 50.0
+    },
+    {
+      "id": "111_1",
+      "male": 33.0,
+      "female": 33.0,
+      "male_pct": 50.0
+    },
+    {
+      "id": "116_1",
+      "male": 42.0,
+      "female": 42.0,
+      "male_pct": 50.0
+    },
+    {
+      "id": "119_1",
+      "male": 12.0,
+      "female": 12.0,
+      "male_pct": 50.0
+    },
+    {
+      "id": "120_1",
+      "male": 10.0,
+      "female": 10.0,
+      "male_pct": 50.0
+    },
+    {
+      "id": "121_1",
+      "male": 7.0,
+      "female": 7.0,
+      "male_pct": 50.0
+    },
+    {
+      "id": "125_1",
+      "male": 16.0,
+      "female": 16.0,
+      "male_pct": 50.0
+    },
+    {
+      "id": "129_1",
+      "male": 12.0,
+      "female": 12.0,
+      "male_pct": 50.0
+    },
+    {
+      "id": "130_1",
+      "male": 15.0,
+      "female": 15.0,
+      "male_pct": 50.0
+    },
+    {
+      "id": "131_1",
+      "male": 16.0,
+      "female": 16.0,
+      "male_pct": 50.0
+    },
+    {
+      "id": "131_2",
+      "male": 8.0,
+      "female": 8.0,
+      "male_pct": 50.0
+    },
+    {
+      "id": "132_1",
+      "male": 1.0,
+      "female": 1.0,
+      "male_pct": 50.0
+    },
+    {
+      "id": "135_1",
+      "male": 10.0,
+      "female": 10.0,
+      "male_pct": 50.0
+    },
+    {
+      "id": "140_1",
+      "male": 10.0,
+      "female": 10.0,
+      "male_pct": 50.0
+    },
+    {
+      "id": "143_1",
+      "male": 10.0,
+      "female": 10.0,
+      "male_pct": 50.0
+    },
+    {
+      "id": "146_1",
+      "male": 8.0,
+      "female": 8.0,
+      "male_pct": 50.0
+    },
+    {
+      "id": "146_2",
+      "male": 12.0,
+      "female": 12.0,
+      "male_pct": 50.0
+    },
+    {
+      "id": "150_1",
+      "male": 10.0,
+      "female": 10.0,
+      "male_pct": 50.0
+    },
+    {
+      "id": "151_1",
+      "male": 10.0,
+      "female": 10.0,
+      "male_pct": 50.0
+    },
+    {
+      "id": "154_1",
+      "male": 15.0,
+      "female": 15.0,
+      "male_pct": 50.0
+    },
+    {
+      "id": "156_1",
+      "male": 10.0,
+      "female": 10.0,
+      "male_pct": 50.0
+    },
+    {
+      "id": "156_3",
+      "male": 30.0,
+      "female": 30.0,
+      "male_pct": 50.0
+    },
+    {
+      "id": "157_1",
+      "male": 15.0,
+      "female": 15.0,
+      "male_pct": 50.0
+    },
+    {
+      "id": "160_1",
+      "male": 15.0,
+      "female": 15.0,
+      "male_pct": 50.0
+    },
+    {
+      "id": "161_1",
+      "male": 8.0,
+      "female": 8.0,
+      "male_pct": 50.0
+    },
+    {
+      "id": "163_1",
+      "male": 6.0,
+      "female": 6.0,
+      "male_pct": 50.0
+    },
+    {
+      "id": "164_1",
+      "male": 12.0,
+      "female": 12.0,
+      "male_pct": 50.0
+    },
+    {
+      "id": "167_1",
+      "male": 10.0,
+      "female": 10.0,
+      "male_pct": 50.0
+    },
+    {
+      "id": "170_1",
+      "male": 30.0,
+      "female": 30.0,
+      "male_pct": 50.0
+    },
+    {
+      "id": "172_1",
+      "male": 9.0,
+      "female": 9.0,
+      "male_pct": 50.0
+    },
+    {
+      "id": "174_1",
+      "male": 8.0,
+      "female": 8.0,
+      "male_pct": 50.0
+    },
+    {
+      "id": "177_1",
+      "male": 12.0,
+      "female": 12.0,
+      "male_pct": 50.0
+    },
+    {
+      "id": "179_1",
+      "male": 30.0,
+      "female": 30.0,
+      "male_pct": 50.0
+    },
+    {
+      "id": "183_1",
+      "male": 18.0,
+      "female": 18.0,
+      "male_pct": 50.0
+    },
+    {
+      "id": "184_1",
+      "male": 12.0,
+      "female": 12.0,
+      "male_pct": 50.0
+    },
+    {
+      "id": "188_1",
+      "male": 15.0,
+      "female": 15.0,
+      "male_pct": 50.0
+    },
+    {
+      "id": "193_1",
+      "male": 8.0,
+      "female": 8.0,
+      "male_pct": 50.0
+    },
+    {
+      "id": "194_1",
+      "male": 10.0,
+      "female": 10.0,
+      "male_pct": 50.0
+    },
+    {
+      "id": "195_1",
+      "male": 10.0,
+      "female": 10.0,
+      "male_pct": 50.0
+    },
+    {
+      "id": "197_1",
+      "male": 10.0,
+      "female": 10.0,
+      "male_pct": 50.0
+    },
+    {
+      "id": "200_2",
+      "male": 12.0,
+      "female": 12.0,
+      "male_pct": 50.0
+    },
+    {
+      "id": "201_1",
+      "male": 10.0,
+      "female": 10.0,
+      "male_pct": 50.0
+    },
+    {
+      "id": "202_1",
+      "male": 10.0,
+      "female": 10.0,
+      "male_pct": 50.0
+    },
+    {
+      "id": "210_1",
+      "male": 7.0,
+      "female": 7.0,
+      "male_pct": 50.0
+    },
+    {
+      "id": "213_1",
+      "male": 6.0,
+      "female": 6.0,
+      "male_pct": 50.0
+    },
+    {
+      "id": "214_1",
+      "male": 43.0,
+      "female": 43.0,
+      "male_pct": 50.0
+    },
+    {
+      "id": "218_1",
+      "male": 10.0,
+      "female": 10.0,
+      "male_pct": 50.0
+    },
+    {
+      "id": "219_1",
+      "male": 13.0,
+      "female": 13.0,
+      "male_pct": 50.0
+    },
+    {
+      "id": "221_1",
+      "male": 10.0,
+      "female": 10.0,
+      "male_pct": 50.0
+    },
+    {
+      "id": "222_1",
+      "male": 8.0,
+      "female": 8.0,
+      "male_pct": 50.0
+    },
+    {
+      "id": "226_1",
+      "male": 24.0,
+      "female": 24.0,
+      "male_pct": 50.0
+    },
+    {
+      "id": "230_1",
+      "male": 10.0,
+      "female": 10.0,
+      "male_pct": 50.0
+    },
+    {
+      "id": "231_1",
+      "male": 8.0,
+      "female": 8.0,
+      "male_pct": 50.0
+    },
+    {
+      "id": "241_1",
+      "male": 12.0,
+      "female": 12.0,
+      "male_pct": 50.0
+    },
+    {
+      "id": "243_1",
+      "male": 30.0,
+      "female": 30.0,
+      "male_pct": 50.0
+    },
+    {
+      "id": "245_1",
+      "male": 15.0,
+      "female": 15.0,
+      "male_pct": 50.0
+    },
+    {
+      "id": "246_1",
+      "male": 20.0,
+      "female": 20.0,
+      "male_pct": 50.0
+    },
+    {
+      "id": "247_1",
+      "male": 8.0,
+      "female": 8.0,
+      "male_pct": 50.0
+    },
+    {
+      "id": "248_1",
+      "male": 18.0,
+      "female": 18.0,
+      "male_pct": 50.0
+    },
+    {
+      "id": "249_1",
+      "male": 8.0,
+      "female": 8.0,
+      "male_pct": 50.0
+    },
+    {
+      "id": "250_1",
+      "male": 6.0,
+      "female": 6.0,
+      "male_pct": 50.0
+    },
+    {
+      "id": "159_1",
+      "male": 71.0,
+      "female": 70.0,
+      "male_pct": 50.4
+    },
+    {
+      "id": "142_1",
+      "male": 187.0,
+      "female": 182.0,
+      "male_pct": 50.7
+    },
+    {
+      "id": "53_1",
+      "male": 1071.0,
+      "female": 1039.0,
+      "male_pct": 50.8
+    },
+    {
+      "id": "244_1",
+      "male": 347.0,
+      "female": 333.0,
+      "male_pct": 51.0
+    },
+    {
+      "id": "17_1",
+      "male": 32.0,
+      "female": 28.0,
+      "male_pct": 53.3
+    },
+    {
+      "id": "205_1",
+      "male": 8.0,
+      "female": 7.0,
+      "male_pct": 53.3
+    },
+    {
+      "id": "233_1",
+      "male": 8.0,
+      "female": 7.0,
+      "male_pct": 53.3
+    },
+    {
+      "id": "180_1",
+      "male": 7.0,
+      "female": 6.0,
+      "male_pct": 53.8
+    },
+    {
+      "id": "1_1",
+      "male": 9.0,
+      "female": 7.0,
+      "male_pct": 56.2
+    },
+    {
+      "id": "102_1",
+      "male": 117.0,
+      "female": 88.0,
+      "male_pct": 57.1
+    },
+    {
+      "id": "124_1",
+      "male": 8.0,
+      "female": 6.0,
+      "male_pct": 57.1
+    },
+    {
+      "id": "237_1",
+      "male": 15.0,
+      "female": 11.0,
+      "male_pct": 57.7
+    },
+    {
+      "id": "84_1",
+      "male": 11.0,
+      "female": 8.0,
+      "male_pct": 57.9
+    },
+    {
+      "id": "220_1",
+      "male": 36.0,
+      "female": 26.0,
+      "male_pct": 58.1
+    },
+    {
+      "id": "148_1",
+      "male": 7.0,
+      "female": 5.0,
+      "male_pct": 58.3
+    },
+    {
+      "id": "240_1",
+      "male": 10.0,
+      "female": 7.0,
+      "male_pct": 58.8
+    },
+    {
+      "id": "56_1",
+      "male": 12.0,
+      "female": 8.0,
+      "male_pct": 60.0
+    },
+    {
+      "id": "57_1",
+      "male": 6.0,
+      "female": 4.0,
+      "male_pct": 60.0
+    },
+    {
+      "id": "114_1",
+      "male": 12.0,
+      "female": 8.0,
+      "male_pct": 60.0
+    },
+    {
+      "id": "122_1",
+      "male": 6.0,
+      "female": 4.0,
+      "male_pct": 60.0
+    },
+    {
+      "id": "137_1",
+      "male": 45.0,
+      "female": 30.0,
+      "male_pct": 60.0
+    },
+    {
+      "id": "235_1",
+      "male": 30.0,
+      "female": 20.0,
+      "male_pct": 60.0
+    },
+    {
+      "id": "15_1",
+      "male": 11.0,
+      "female": 7.0,
+      "male_pct": 61.1
+    },
+    {
+      "id": "117_1",
+      "male": 10.0,
+      "female": 6.0,
+      "male_pct": 62.5
+    },
+    {
+      "id": "126_1",
+      "male": 10.0,
+      "female": 6.0,
+      "male_pct": 62.5
+    },
+    {
+      "id": "147_1",
+      "male": 5.0,
+      "female": 3.0,
+      "male_pct": 62.5
+    },
+    {
+      "id": "166_1",
+      "male": 10.0,
+      "female": 6.0,
+      "male_pct": 62.5
+    },
+    {
+      "id": "203_1",
+      "male": 10.0,
+      "female": 6.0,
+      "male_pct": 62.5
+    },
+    {
+      "id": "59_1",
+      "male": 35.0,
+      "female": 20.0,
+      "male_pct": 63.6
+    },
+    {
+      "id": "134_1",
+      "male": 21.0,
+      "female": 12.0,
+      "male_pct": 63.6
+    },
+    {
+      "id": "145_1",
+      "male": 14.0,
+      "female": 8.0,
+      "male_pct": 63.6
+    },
+    {
+      "id": "26_1",
+      "male": 13.0,
+      "female": 7.0,
+      "male_pct": 65.0
+    },
+    {
+      "id": "199_1",
+      "male": 45.0,
+      "female": 23.0,
+      "male_pct": 66.2
+    },
+    {
+      "id": "34_1",
+      "male": 8.0,
+      "female": 4.0,
+      "male_pct": 66.7
+    },
+    {
+      "id": "37_1",
+      "male": 20.0,
+      "female": 10.0,
+      "male_pct": 66.7
+    },
+    {
+      "id": "96_1",
+      "male": 16.0,
+      "female": 8.0,
+      "male_pct": 66.7
+    },
+    {
+      "id": "121_2",
+      "male": 12.0,
+      "female": 6.0,
+      "male_pct": 66.7
+    },
+    {
+      "id": "176_1",
+      "male": 10.0,
+      "female": 5.0,
+      "male_pct": 66.7
+    },
+    {
+      "id": "238_1",
+      "male": 6.0,
+      "female": 3.0,
+      "male_pct": 66.7
+    },
+    {
+      "id": "153_1",
+      "male": 55.0,
+      "female": 27.0,
+      "male_pct": 67.1
+    },
+    {
+      "id": "72_1",
+      "male": 146.0,
+      "female": 70.0,
+      "male_pct": 67.6
+    },
+    {
+      "id": "171_1",
+      "male": 298.0,
+      "female": 132.0,
+      "male_pct": 69.3
+    },
+    {
+      "id": "198_1",
+      "male": 566.0,
+      "female": 244.0,
+      "male_pct": 69.9
+    },
+    {
+      "id": "155_1",
+      "male": 7.0,
+      "female": 3.0,
+      "male_pct": 70.0
+    },
+    {
+      "id": "207_1",
+      "male": 252.0,
+      "female": 108.0,
+      "male_pct": 70.0
+    },
+    {
+      "id": "217_1",
+      "male": 14.0,
+      "female": 6.0,
+      "male_pct": 70.0
+    },
+    {
+      "id": "110_1",
+      "male": 11.0,
+      "female": 4.0,
+      "male_pct": 73.3
+    },
+    {
+      "id": "26_2",
+      "male": 9.0,
+      "female": 3.0,
+      "male_pct": 75.0
+    },
+    {
+      "id": "173_1",
+      "male": 6.0,
+      "female": 2.0,
+      "male_pct": 75.0
+    },
+    {
+      "id": "139_1",
+      "male": 23.0,
+      "female": 7.0,
+      "male_pct": 76.7
+    },
+    {
+      "id": "104_1",
+      "male": 27.0,
+      "female": 8.0,
+      "male_pct": 77.1
+    },
+    {
+      "id": "81_1",
+      "male": 16.0,
+      "female": 4.0,
+      "male_pct": 80.0
+    },
+    {
+      "id": "91_1",
+      "male": 16.0,
+      "female": 4.0,
+      "male_pct": 80.0
+    },
+    {
+      "id": "165_1",
+      "male": 8.0,
+      "female": 2.0,
+      "male_pct": 80.0
+    },
+    {
+      "id": "58_1",
+      "male": 14.0,
+      "female": 3.0,
+      "male_pct": 82.4
+    },
+    {
+      "id": "138_1",
+      "male": 11.0,
+      "female": 1.0,
+      "male_pct": 91.7
+    },
+    {
+      "id": "9_1",
+      "male": 11.0,
+      "female": 0.0,
+      "male_pct": 100.0
+    },
+    {
+      "id": "11_1",
+      "male": 15.0,
+      "female": 0.0,
+      "male_pct": 100.0
+    },
+    {
+      "id": "38_1",
+      "male": 18.0,
+      "female": 0.0,
+      "male_pct": 100.0
+    },
+    {
+      "id": "46_1",
+      "male": 10.0,
+      "female": 0.0,
+      "male_pct": 100.0
+    },
+    {
+      "id": "49_1",
+      "male": 1.0,
+      "female": 0.0,
+      "male_pct": 100.0
+    },
+    {
+      "id": "69_1",
+      "male": 20.0,
+      "female": 0.0,
+      "male_pct": 100.0
+    },
+    {
+      "id": "78_1",
+      "male": 30.0,
+      "female": 0.0,
+      "male_pct": 100.0
+    },
+    {
+      "id": "85_1",
+      "male": 32.0,
+      "female": 0.0,
+      "male_pct": 100.0
+    },
+    {
+      "id": "87_1",
+      "male": 16.0,
+      "female": 0.0,
+      "male_pct": 100.0
+    },
+    {
+      "id": "89_1",
+      "male": 24.0,
+      "female": 0.0,
+      "male_pct": 100.0
+    },
+    {
+      "id": "95_1",
+      "male": 25.0,
+      "female": 0.0,
+      "male_pct": 100.0
+    },
+    {
+      "id": "103_1",
+      "male": 18.0,
+      "female": 0.0,
+      "male_pct": 100.0
+    },
+    {
+      "id": "105_1",
+      "male": 18.0,
+      "female": 0.0,
+      "male_pct": 100.0
+    },
+    {
+      "id": "108_1",
+      "male": 20.0,
+      "female": 0.0,
+      "male_pct": 100.0
+    },
+    {
+      "id": "112_1",
+      "male": 3.0,
+      "female": 0.0,
+      "male_pct": 100.0
+    },
+    {
+      "id": "118_1",
+      "male": 7.0,
+      "female": 0.0,
+      "male_pct": 100.0
+    },
+    {
+      "id": "127_1",
+      "male": 8.0,
+      "female": 0.0,
+      "male_pct": 100.0
+    },
+    {
+      "id": "128_1",
+      "male": 35.0,
+      "female": 0.0,
+      "male_pct": 100.0
+    },
+    {
+      "id": "141_1",
+      "male": 6.0,
+      "female": 0.0,
+      "male_pct": 100.0
+    },
+    {
+      "id": "144_1",
+      "male": 17.0,
+      "female": 0.0,
+      "male_pct": 100.0
+    },
+    {
+      "id": "149_1",
+      "male": 41.0,
+      "female": 0.0,
+      "male_pct": 100.0
+    },
+    {
+      "id": "152_1",
+      "male": 50.0,
+      "female": 0.0,
+      "male_pct": 100.0
+    },
+    {
+      "id": "156_2",
+      "male": 10.0,
+      "female": 0.0,
+      "male_pct": 100.0
+    },
+    {
+      "id": "162_1",
+      "male": 60.0,
+      "female": 0.0,
+      "male_pct": 100.0
+    },
+    {
+      "id": "175_1",
+      "male": 30.0,
+      "female": 0.0,
+      "male_pct": 100.0
+    },
+    {
+      "id": "178_1",
+      "male": 30.0,
+      "female": 0.0,
+      "male_pct": 100.0
+    },
+    {
+      "id": "185_2",
+      "male": 34.0,
+      "female": 0.0,
+      "male_pct": 100.0
+    },
+    {
+      "id": "187_1",
+      "male": 10.0,
+      "female": 0.0,
+      "male_pct": 100.0
+    },
+    {
+      "id": "190_1",
+      "male": 40.0,
+      "female": 0.0,
+      "male_pct": 100.0
+    },
+    {
+      "id": "191_1",
+      "male": 20.0,
+      "female": 0.0,
+      "male_pct": 100.0
+    },
+    {
+      "id": "192_1",
+      "male": 12.0,
+      "female": 0.0,
+      "male_pct": 100.0
+    },
+    {
+      "id": "196_1",
+      "male": 40.0,
+      "female": 0.0,
+      "male_pct": 100.0
+    },
+    {
+      "id": "225_1",
+      "male": 28.0,
+      "female": 0.0,
+      "male_pct": 100.0
+    },
+    {
+      "id": "225_2",
+      "male": 20.0,
+      "female": 0.0,
+      "male_pct": 100.0
+    },
+    {
+      "id": "227_1",
+      "male": 9.0,
+      "female": 0.0,
+      "male_pct": 100.0
+    },
+    {
+      "id": "228_1",
+      "male": 18.0,
+      "female": 0.0,
+      "male_pct": 100.0
+    },
+    {
+      "id": "232_1",
+      "male": 12.0,
+      "female": 0.0,
+      "male_pct": 100.0
+    },
+    {
+      "id": "239_1",
+      "male": 16.0,
+      "female": 0.0,
+      "male_pct": 100.0
+    },
+    {
+      "id": "242_1",
+      "male": 14.0,
+      "female": 0.0,
+      "male_pct": 100.0
+    }
+  ],
+  "summary": {
+    "male_gt": 87,
+    "equal": 144,
+    "female_gt": 22
+  }
+}

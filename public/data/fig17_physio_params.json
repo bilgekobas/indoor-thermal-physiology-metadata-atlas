@@ -1,0 +1,172 @@
+{
+  "data": [
+    {
+      "parameter": "Skin temperature",
+      "count": 218
+    },
+    {
+      "parameter": "Heart/Pulse rate",
+      "count": 135
+    },
+    {
+      "parameter": "Core/Body temperature",
+      "count": 45
+    },
+    {
+      "parameter": "Blood pressure",
+      "count": 41
+    },
+    {
+      "parameter": "EEG",
+      "count": 34
+    },
+    {
+      "parameter": "Sweat indicators",
+      "count": 32
+    },
+    {
+      "parameter": "Oxygen saturation",
+      "count": 31
+    },
+    {
+      "parameter": "Skin conductance",
+      "count": 27
+    },
+    {
+      "parameter": "Metabolic rate/Gas exchange",
+      "count": 18
+    },
+    {
+      "parameter": "Skin blood flow",
+      "count": 13
+    },
+    {
+      "parameter": "Movement",
+      "count": 12
+    },
+    {
+      "parameter": "Respiration",
+      "count": 9
+    },
+    {
+      "parameter": "Near body temperature",
+      "count": 8
+    },
+    {
+      "parameter": "Heat flux",
+      "count": 8
+    },
+    {
+      "parameter": "EOG",
+      "count": 5
+    },
+    {
+      "parameter": "Biomarkers: Alpha-amylase",
+      "count": 3
+    },
+    {
+      "parameter": "EMG",
+      "count": 2
+    },
+    {
+      "parameter": "Biomarkers: Cortisol",
+      "count": 2
+    },
+    {
+      "parameter": "Glucose",
+      "count": 2
+    },
+    {
+      "parameter": "Biomarkers: Immunoglobulin E (IgE)",
+      "count": 2
+    },
+    {
+      "parameter": "Exhaled breath temperature",
+      "count": 2
+    },
+    {
+      "parameter": "Biomarkers: Interleukin 6 (IL-6)",
+      "count": 2
+    },
+    {
+      "parameter": "Biomarkers: Heat shock protein (HSP)",
+      "count": 2
+    },
+    {
+      "parameter": "Biomarkers: Thyroid-stimulating hormone (TSH)",
+      "count": 2
+    },
+    {
+      "parameter": "Biomarkers: Free thyroxine (FT4)",
+      "count": 2
+    },
+    {
+      "parameter": "Biomarkers: Dopamine",
+      "count": 1
+    },
+    {
+      "parameter": "Skin hardness",
+      "count": 1
+    },
+    {
+      "parameter": "Sensory nerve\nconduction velocity",
+      "count": 1
+    },
+    {
+      "parameter": "Biomarkers: Estradiol",
+      "count": 1
+    },
+    {
+      "parameter": "Biomarkers: Progesterone",
+      "count": 1
+    },
+    {
+      "parameter": "Biomarkers: Testosterone",
+      "count": 1
+    },
+    {
+      "parameter": "Biomarkers: Free triiodothyronine (FT3)",
+      "count": 1
+    },
+    {
+      "parameter": "Biomarkers: Catecholamines",
+      "count": 1
+    },
+    {
+      "parameter": "Biomarkers: Tear film mucus",
+      "count": 1
+    },
+    {
+      "parameter": "Pupillometry",
+      "count": 1
+    },
+    {
+      "parameter": "Perfusion index",
+      "count": 1
+    },
+    {
+      "parameter": "Biomarkers: COX1",
+      "count": 1
+    },
+    {
+      "parameter": "Biomarkers: COX2",
+      "count": 1
+    },
+    {
+      "parameter": "Biomarkers: PGE2",
+      "count": 1
+    },
+    {
+      "parameter": "Biomarkers: Lysozyme",
+      "count": 1
+    },
+    {
+      "parameter": "Biomarkers: Immunoglobulin A (IgA)",
+      "count": 1
+    },
+    {
+      "parameter": "Sensory nerve conduction velocity",
+      "count": 1
+    }
+  ]
+}

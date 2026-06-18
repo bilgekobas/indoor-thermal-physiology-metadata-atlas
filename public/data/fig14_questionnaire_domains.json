@@ -1,0 +1,209 @@
+{
+  "Thermal": {
+    "n_any": 251,
+    "fields": [
+      {
+        "field": "Thermal sensation",
+        "count": 236
+      },
+      {
+        "field": "Thermal comfort",
+        "count": 144
+      },
+      {
+        "field": "Thermal acceptance",
+        "count": 77
+      },
+      {
+        "field": "Thermal preference",
+        "count": 58
+      },
+      {
+        "field": "Local thermal sensation",
+        "count": 31
+      },
+      {
+        "field": "Thermal satisfaction",
+        "count": 15
+      },
+      {
+        "field": "Thermal pleasure",
+        "count": 11
+      },
+      {
+        "field": "Local thermal comfort",
+        "count": 10
+      },
+      {
+        "field": "Sweating sensation",
+        "count": 9
+      },
+      {
+        "field": "Shivering sensation",
+        "count": 7
+      },
+      {
+        "field": "Local thermal satisfaction",
+        "count": 2
+      }
+    ]
+  },
+  "Overall": {
+    "n_any": 6,
+    "fields": [
+      {
+        "field": "Overall comfort",
+        "count": 3
+      },
+      {
+        "field": "Overall satisfaction",
+        "count": 3
+      }
+    ]
+  },
+  "Air movement": {
+    "n_any": 19,
+    "fields": [
+      {
+        "field": "Air movement sensation",
+        "count": 12
+      },
+      {
+        "field": "Air movement preference",
+        "count": 12
+      },
+      {
+        "field": "Air movement acceptability",
+        "count": 3
+      },
+      {
+        "field": "Local air movement sensation",
+        "count": 2
+      },
+      {
+        "field": "Air movement satisfaction",
+        "count": 2
+      },
+      {
+        "field": "Air movement perception",
+        "count": 1
+      },
+      {
+        "field": "Air movement comfort",
+        "count": 0
+      }
+    ]
+  },
+  "Humidity": {
+    "n_any": 23,
+    "fields": [
+      {
+        "field": "Humidity sensation",
+        "count": 21
+      },
+      {
+        "field": "Humidity preference",
+        "count": 6
+      },
+      {
+        "field": "Humidity acceptability",
+        "count": 5
+      },
+      {
+        "field": "Humidity satisfaction",
+        "count": 4
+      },
+      {
+        "field": "Humidity comfort",
+        "count": 3
+      }
+    ]
+  },
+  "Light & Visual": {
+    "n_any": 11,
+    "fields": [
+      {
+        "field": "Light sensation",
+        "count": 7
+      },
+      {
+        "field": "Light comfort",
+        "count": 5
+      },
+      {
+        "field": "Light satisfaction",
+        "count": 4
+      },
+      {
+        "field": "Light preference",
+        "count": 3
+      },
+      {
+        "field": "Light acceptability",
+        "count": 1
+      },
+      {
+        "field": "Visual preference",
+        "count": 0
+      }
+    ]
+  },
+  "IAQ": {
+    "n_any": 30,
+    "fields": [
+      {
+        "field": "Sick building syndrome",
+        "count": 16
+      },
+      {
+        "field": "IAQ acceptability",
+        "count": 15
+      },
+      {
+        "field": "IAQ sensation",
+        "count": 8
+      },
+      {
+        "field": "Odour intensity",
+        "count": 5
+      },
+      {
+        "field": "IAQ satisfaction",
+        "count": 2
+      },
+      {
+        "field": "IAQ comfort",
+        "count": 0
+      },
+      {
+        "field": "IAQ preference",
+        "count": 0
+      }
+    ]
+  },
+  "Acoustic": {
+    "n_any": 6,
+    "fields": [
+      {
+        "field": "Acoustic sensation",
+        "count": 3
+      },
+      {
+        "field": "Acoustic satisfaction",
+        "count": 3
+      },
+      {
+        "field": "Acoustic comfort",
+        "count": 2
+      },
+      {
+        "field": "Acoustic preference",
+        "count": 1
+      },
+      {
+        "field": "Acoustic acceptability",
+        "count": 0
+      }
+    ]
+  }
+}
