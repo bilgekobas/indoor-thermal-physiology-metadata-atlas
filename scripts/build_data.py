@@ -9,12 +9,26 @@ import json
 import re
 from pathlib import Path
 
-SRC = '/mnt/user-data/uploads/corpus_main_dataset.csv'
-OUT_DIR = Path('/home/claude/corpus-site/public/data')
+PROJECT_ROOT = Path(__file__).resolve().parents[1]
+SRC = Path(__import__('os').environ.get('CORPUS_CSV', PROJECT_ROOT / 'corpus_main_dataset.csv'))
+OUT_DIR = PROJECT_ROOT / 'public' / 'data'
 OUT_DIR.mkdir(parents=True, exist_ok=True)
+
+if not SRC.exists():
+    raise FileNotFoundError(
+        f'Corpus CSV not found: {SRC}. Put corpus_main_dataset.csv in the project root '
+        'or set CORPUS_CSV=/path/to/your/corpus.csv.'
+    )
 
 df = pd.read_csv(SRC, encoding='utf-8-sig', low_memory=False)
 df = df.replace({np.nan: None})
+
+# Drop fully invalid / accidental duplicate rows before computing study-level artifacts.
+# In the June 2026 export, one duplicate publication row had missing id and id-pub-id.
+initial_rows = len(df)
+df = df[df['id'].notna() & (df['id'].astype(str).str.strip() != '')].copy()
+if len(df) != initial_rows:
+    print(f'Dropped {initial_rows - len(df)} rows with missing study-experiment id.')
 
 CODES = {'NR','MNR','NAN','NC'}
 
@@ -567,4 +581,28 @@ with open(OUT_DIR / 'fig22_selection_criteria.json', 'w') as f:
 print('fig22_selection_criteria.json written:', len(fig22['bar']), 'fields')
 
 print("\nAll appendix figure artifacts built.")
+
+# ── Combined runtime bundle ───────────────────────────────────────────────
+# The React app performs one fetch for this file. Keep it in sync with all
+# individual JSON artifacts so the site does not display stale data after
+# rerunning the pipeline.
+BUNDLE_FILES = [
+    'summary', 'studies', 'physio_signal_sensor', 'skintemp_sites', 'mst',
+    'core_temp_crossmap', 'completeness', 'fig01_pubs_by_year', 'fig02_geography',
+    'fig03_session_length', 'fig04_normalisation_length', 'fig05_time_of_day',
+    'fig06_setting_typology', 'fig07_temperature_ranges', 'fig08_age', 'fig09_bmi',
+    'fig10_sex_distribution', 'fig11_sample_size', 'fig12_env_cooccurrence',
+    'fig14_questionnaire_domains', 'fig15_tsv_scales', 'fig16_tcv_scales',
+    'fig17_physio_params', 'fig18_physio_cooccurrence', 'fig20_protocol',
+    'fig21_participant_metadata', 'fig22_selection_criteria',
+]
+
+bundle = {}
+for name in BUNDLE_FILES:
+    with open(OUT_DIR / f'{name}.json', encoding='utf-8') as f:
+        bundle[name] = json.load(f)
+
+with open(OUT_DIR / 'bundle.json', 'w', encoding='utf-8') as f:
+    json.dump(bundle, f, indent=2, ensure_ascii=False)
+print('bundle.json written:', len(bundle), 'artifacts')
 
