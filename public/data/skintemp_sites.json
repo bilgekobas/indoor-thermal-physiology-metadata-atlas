@@ -1,0 +1,652 @@
+{
+  "site_period_counts": [
+    {
+      "site": "Abdomen",
+      "period": "2013\u201314",
+      "count": 6
+    },
+    {
+      "site": "Abdomen",
+      "period": "2015\u201316",
+      "count": 2
+    },
+    {
+      "site": "Abdomen",
+      "period": "2017\u201318",
+      "count": 1
+    },
+    {
+      "site": "Abdomen",
+      "period": "2019\u201320",
+      "count": 9
+    },
+    {
+      "site": "Abdomen",
+      "period": "2021\u201322",
+      "count": 18
+    },
+    {
+      "site": "Abdomen",
+      "period": "2023\u201324",
+      "count": 6
+    },
+    {
+      "site": "Ankle",
+      "period": "2015\u201316",
+      "count": 3
+    },
+    {
+      "site": "Ankle",
+      "period": "2017\u201318",
+      "count": 1
+    },
+    {
+      "site": "Ankle",
+      "period": "2019\u201320",
+      "count": 1
+    },
+    {
+      "site": "Ankle",
+      "period": "2021\u201322",
+      "count": 3
+    },
+    {
+      "site": "Ankle",
+      "period": "2023\u201324",
+      "count": 3
+    },
+    {
+      "site": "Axilla",
+      "period": "2013\u201314",
+      "count": 1
+    },
+    {
+      "site": "Back",
+      "period": "2013\u201314",
+      "count": 9
+    },
+    {
+      "site": "Back",
+      "period": "2015\u201316",
+      "count": 6
+    },
+    {
+      "site": "Back",
+      "period": "2017\u201318",
+      "count": 14
+    },
+    {
+      "site": "Back",
+      "period": "2019\u201320",
+      "count": 14
+    },
+    {
+      "site": "Back",
+      "period": "2021\u201322",
+      "count": 22
+    },
+    {
+      "site": "Back",
+      "period": "2023\u201324",
+      "count": 14
+    },
+    {
+      "site": "Buttocks",
+      "period": "2013\u201314",
+      "count": 1
+    },
+    {
+      "site": "Buttocks",
+      "period": "2021\u201322",
+      "count": 3
+    },
+    {
+      "site": "Chest",
+      "period": "2013\u201314",
+      "count": 9
+    },
+    {
+      "site": "Chest",
+      "period": "2015\u201316",
+      "count": 9
+    },
+    {
+      "site": "Chest",
+      "period": "2017\u201318",
+      "count": 20
+    },
+    {
+      "site": "Chest",
+      "period": "2019\u201320",
+      "count": 22
+    },
+    {
+      "site": "Chest",
+      "period": "2021\u201322",
+      "count": 41
+    },
+    {
+      "site": "Chest",
+      "period": "2023\u201324",
+      "count": 26
+    },
+    {
+      "site": "Clavicle",
+      "period": "2021\u201322",
+      "count": 1
+    },
+    {
+      "site": "Elbow",
+      "period": "2013\u201314",
+      "count": 2
+    },
+    {
+      "site": "Elbow",
+      "period": "2017\u201318",
+      "count": 1
+    },
+    {
+      "site": "Elbow",
+      "period": "2021\u201322",
+      "count": 1
+    },
+    {
+      "site": "Elbow",
+      "period": "2023\u201324",
+      "count": 1
+    },
+    {
+      "site": "Face",
+      "period": "2013\u201314",
+      "count": 4
+    },
+    {
+      "site": "Face",
+      "period": "2015\u201316",
+      "count": 1
+    },
+    {
+      "site": "Face",
+      "period": "2017\u201318",
+      "count": 5
+    },
+    {
+      "site": "Face",
+      "period": "2019\u201320",
+      "count": 13
+    },
+    {
+      "site": "Face",
+      "period": "2021\u201322",
+      "count": 14
+    },
+    {
+      "site": "Face",
+      "period": "2023\u201324",
+      "count": 9
+    },
+    {
+      "site": "Finger",
+      "period": "2013\u201314",
+      "count": 2
+    },
+    {
+      "site": "Finger",
+      "period": "2015\u201316",
+      "count": 2
+    },
+    {
+      "site": "Finger",
+      "period": "2017\u201318",
+      "count": 2
+    },
+    {
+      "site": "Finger",
+      "period": "2019\u201320",
+      "count": 1
+    },
+    {
+      "site": "Finger",
+      "period": "2021\u201322",
+      "count": 7
+    },
+    {
+      "site": "Finger",
+      "period": "2023\u201324",
+      "count": 5
+    },
+    {
+      "site": "Foot",
+      "period": "2013\u201314",
+      "count": 6
+    },
+    {
+      "site": "Foot",
+      "period": "2015\u201316",
+      "count": 5
+    },
+    {
+      "site": "Foot",
+      "period": "2017\u201318",
+      "count": 1
+    },
+    {
+      "site": "Foot",
+      "period": "2019\u201320",
+      "count": 13
+    },
+    {
+      "site": "Foot",
+      "period": "2021\u201322",
+      "count": 21
+    },
+    {
+      "site": "Foot",
+      "period": "2023\u201324",
+      "count": 10
+    },
+    {
+      "site": "Forearm",
+      "period": "2013\u201314",
+      "count": 7
+    },
+    {
+      "site": "Forearm",
+      "period": "2015\u201316",
+      "count": 8
+    },
+    {
+      "site": "Forearm",
+      "period": "2017\u201318",
+      "count": 14
+    },
+    {
+      "site": "Forearm",
+      "period": "2019\u201320",
+      "count": 18
+    },
+    {
+      "site": "Forearm",
+      "period": "2021\u201322",
+      "count": 33
+    },
+    {
+      "site": "Forearm",
+      "period": "2023\u201324",
+      "count": 20
+    },
+    {
+      "site": "Forehead",
+      "period": "2013\u201314",
+      "count": 10
+    },
+    {
+      "site": "Forehead",
+      "period": "2015\u201316",
+      "count": 11
+    },
+    {
+      "site": "Forehead",
+      "period": "2017\u201318",
+      "count": 18
+    },
+    {
+      "site": "Forehead",
+      "period": "2019\u201320",
+      "count": 18
+    },
+    {
+      "site": "Forehead",
+      "period": "2021\u201322",
+      "count": 42
+    },
+    {
+      "site": "Forehead",
+      "period": "2023\u201324",
+      "count": 24
+    },
+    {
+      "site": "Hand",
+      "period": "2013\u201314",
+      "count": 10
+    },
+    {
+      "site": "Hand",
+      "period": "2015\u201316",
+      "count": 9
+    },
+    {
+      "site": "Hand",
+      "period": "2017\u201318",
+      "count": 21
+    },
+    {
+      "site": "Hand",
+      "period": "2019\u201320",
+      "count": 24
+    },
+    {
+      "site": "Hand",
+      "period": "2021\u201322",
+      "count": 42
+    },
+    {
+      "site": "Hand",
+      "period": "2023\u201324",
+      "count": 24
+    },
+    {
+      "site": "Lower back",
+      "period": "2013\u201314",
+      "count": 4
+    },
+    {
+      "site": "Lower back",
+      "period": "2015\u201316",
+      "count": 2
+    },
+    {
+      "site": "Lower back",
+      "period": "2021\u201322",
+      "count": 3
+    },
+    {
+      "site": "Lower back",
+      "period": "2023\u201324",
+      "count": 1
+    },
+    {
+      "site": "Lower leg",
+      "period": "2013\u201314",
+      "count": 10
+    },
+    {
+      "site": "Lower leg",
+      "period": "2015\u201316",
+      "count": 9
+    },
+    {
+      "site": "Lower leg",
+      "period": "2017\u201318",
+      "count": 21
+    },
+    {
+      "site": "Lower leg",
+      "period": "2019\u201320",
+      "count": 26
+    },
+    {
+      "site": "Lower leg",
+      "period": "2021\u201322",
+      "count": 43
+    },
+    {
+      "site": "Lower leg",
+      "period": "2023\u201324",
+      "count": 27
+    },
+    {
+      "site": "Neck",
+      "period": "2013\u201314",
+      "count": 3
+    },
+    {
+      "site": "Neck",
+      "period": "2015\u201316",
+      "count": 2
+    },
+    {
+      "site": "Neck",
+      "period": "2017\u201318",
+      "count": 3
+    },
+    {
+      "site": "Neck",
+      "period": "2019\u201320",
+      "count": 8
+    },
+    {
+      "site": "Neck",
+      "period": "2021\u201322",
+      "count": 11
+    },
+    {
+      "site": "Neck",
+      "period": "2023\u201324",
+      "count": 3
+    },
+    {
+      "site": "Shoulder",
+      "period": "2017\u201318",
+      "count": 1
+    },
+    {
+      "site": "Sole",
+      "period": "2017\u201318",
+      "count": 1
+    },
+    {
+      "site": "Thigh",
+      "period": "2013\u201314",
+      "count": 10
+    },
+    {
+      "site": "Thigh",
+      "period": "2015\u201316",
+      "count": 9
+    },
+    {
+      "site": "Thigh",
+      "period": "2017\u201318",
+      "count": 17
+    },
+    {
+      "site": "Thigh",
+      "period": "2019\u201320",
+      "count": 24
+    },
+    {
+      "site": "Thigh",
+      "period": "2021\u201322",
+      "count": 42
+    },
+    {
+      "site": "Thigh",
+      "period": "2023\u201324",
+      "count": 26
+    },
+    {
+      "site": "Upper arm",
+      "period": "2013\u201314",
+      "count": 10
+    },
+    {
+      "site": "Upper arm",
+      "period": "2015\u201316",
+      "count": 7
+    },
+    {
+      "site": "Upper arm",
+      "period": "2017\u201318",
+      "count": 17
+    },
+    {
+      "site": "Upper arm",
+      "period": "2019\u201320",
+      "count": 18
+    },
+    {
+      "site": "Upper arm",
+      "period": "2021\u201322",
+      "count": 39
+    },
+    {
+      "site": "Upper arm",
+      "period": "2023\u201324",
+      "count": 23
+    },
+    {
+      "site": "Waist",
+      "period": "2017\u201318",
+      "count": 1
+    },
+    {
+      "site": "Wrist",
+      "period": "2013\u201314",
+      "count": 1
+    },
+    {
+      "site": "Wrist",
+      "period": "2015\u201316",
+      "count": 1
+    },
+    {
+      "site": "Wrist",
+      "period": "2017\u201318",
+      "count": 5
+    },
+    {
+      "site": "Wrist",
+      "period": "2019\u201320",
+      "count": 14
+    },
+    {
+      "site": "Wrist",
+      "period": "2021\u201322",
+      "count": 16
+    },
+    {
+      "site": "Wrist",
+      "period": "2023\u201324",
+      "count": 12
+    }
+  ],
+  "site_totals": [
+    {
+      "site": "Lower leg",
+      "total": 136
+    },
+    {
+      "site": "Hand",
+      "total": 130
+    },
+    {
+      "site": "Thigh",
+      "total": 128
+    },
+    {
+      "site": "Chest",
+      "total": 127
+    },
+    {
+      "site": "Forehead",
+      "total": 123
+    },
+    {
+      "site": "Upper arm",
+      "total": 114
+    },
+    {
+      "site": "Forearm",
+      "total": 100
+    },
+    {
+      "site": "Back",
+      "total": 79
+    },
+    {
+      "site": "Foot",
+      "total": 56
+    },
+    {
+      "site": "Wrist",
+      "total": 49
+    },
+    {
+      "site": "Face",
+      "total": 46
+    },
+    {
+      "site": "Abdomen",
+      "total": 42
+    },
+    {
+      "site": "Neck",
+      "total": 30
+    },
+    {
+      "site": "Finger",
+      "total": 19
+    },
+    {
+      "site": "Ankle",
+      "total": 11
+    },
+    {
+      "site": "Lower back",
+      "total": 10
+    },
+    {
+      "site": "Elbow",
+      "total": 5
+    },
+    {
+      "site": "Buttocks",
+      "total": 4
+    },
+    {
+      "site": "Clavicle",
+      "total": 1
+    },
+    {
+      "site": "Shoulder",
+      "total": 1
+    },
+    {
+      "site": "Sole",
+      "total": 1
+    },
+    {
+      "site": "Waist",
+      "total": 1
+    },
+    {
+      "site": "Axilla",
+      "total": 1
+    }
+  ],
+  "period_n": [
+    {
+      "period": "2013\u201314",
+      "n_studies": 11
+    },
+    {
+      "period": "2015\u201316",
+      "n_studies": 14
+    },
+    {
+      "period": "2017\u201318",
+      "n_studies": 38
+    },
+    {
+      "period": "2019\u201320",
+      "n_studies": 47
+    },
+    {
+      "period": "2021\u201322",
+      "n_studies": 64
+    },
+    {
+      "period": "2023\u201324",
+      "n_studies": 44
+    }
+  ],
+  "periods": [
+    "2013\u201314",
+    "2015\u201316",
+    "2017\u201318",
+    "2019\u201320",
+    "2021\u201322",
+    "2023\u201324"
+  ]
+}

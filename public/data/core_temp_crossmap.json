@@ -1,0 +1,54 @@
+{
+  "data": [
+    {
+      "sensor": "Infrared thermometer",
+      "physio-body-site": "Forehead",
+      "count": 2
+    },
+    {
+      "sensor": "Infrared thermometer",
+      "physio-body-site": "Oral cavity",
+      "count": 1
+    },
+    {
+      "sensor": "Infrared thermometer",
+      "physio-body-site": "Tympanic canal",
+      "count": 12
+    },
+    {
+      "sensor": "Ingestible pill",
+      "physio-body-site": "Gastrointestinal tract",
+      "count": 9
+    },
+    {
+      "sensor": "Probe",
+      "physio-body-site": "Rectal",
+      "count": 2
+    },
+    {
+      "sensor": "Thermistor",
+      "physio-body-site": "Rectal",
+      "count": 3
+    },
+    {
+      "sensor": "Thermistor",
+      "physio-body-site": "Tympanic canal",
+      "count": 1
+    },
+    {
+      "sensor": "Thermometer",
+      "physio-body-site": "Axilla",
+      "count": 3
+    },
+    {
+      "sensor": "Thermometer",
+      "physio-body-site": "Oral cavity",
+      "count": 6
+    },
+    {
+      "sensor": "Thermometer",
+      "physio-body-site": "Tympanic canal",
+      "count": 2
+    }
+  ]
+}

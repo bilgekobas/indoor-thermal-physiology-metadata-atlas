@@ -1,0 +1,432 @@
+{
+  "calc_rate_by_period": [
+    {
+      "period": "2013\u201314",
+      "physio-mst-calculated": "N",
+      "count": 1
+    },
+    {
+      "period": "2013\u201314",
+      "physio-mst-calculated": "Y",
+      "count": 10
+    },
+    {
+      "period": "2015\u201316",
+      "physio-mst-calculated": "N",
+      "count": 5
+    },
+    {
+      "period": "2015\u201316",
+      "physio-mst-calculated": "NAN",
+      "count": 1
+    },
+    {
+      "period": "2015\u201316",
+      "physio-mst-calculated": "Y",
+      "count": 9
+    },
+    {
+      "period": "2017\u201318",
+      "physio-mst-calculated": "N",
+      "count": 15
+    },
+    {
+      "period": "2017\u201318",
+      "physio-mst-calculated": "NAN",
+      "count": 10
+    },
+    {
+      "period": "2017\u201318",
+      "physio-mst-calculated": "Y",
+      "count": 22
+    },
+    {
+      "period": "2019\u201320",
+      "physio-mst-calculated": "N",
+      "count": 23
+    },
+    {
+      "period": "2019\u201320",
+      "physio-mst-calculated": "NAN",
+      "count": 19
+    },
+    {
+      "period": "2019\u201320",
+      "physio-mst-calculated": "Y",
+      "count": 21
+    },
+    {
+      "period": "2021\u201322",
+      "physio-mst-calculated": "N",
+      "count": 25
+    },
+    {
+      "period": "2021\u201322",
+      "physio-mst-calculated": "NAN",
+      "count": 21
+    },
+    {
+      "period": "2021\u201322",
+      "physio-mst-calculated": "Y",
+      "count": 33
+    },
+    {
+      "period": "2023\u201324",
+      "physio-mst-calculated": "N",
+      "count": 14
+    },
+    {
+      "period": "2023\u201324",
+      "physio-mst-calculated": "NAN",
+      "count": 25
+    },
+    {
+      "period": "2023\u201324",
+      "physio-mst-calculated": "Y",
+      "count": 16
+    }
+  ],
+  "formula_by_period": [
+    {
+      "period": "2013\u201314",
+      "formula_grp": "Hardy & DuBois (1938)",
+      "count": 3
+    },
+    {
+      "period": "2013\u201314",
+      "formula_grp": "ISO 9886: 2004",
+      "count": 4
+    },
+    {
+      "period": "2013\u201314",
+      "formula_grp": "NR",
+      "count": 1
+    },
+    {
+      "period": "2013\u201314",
+      "formula_grp": "Other/Multiple",
+      "count": 1
+    },
+    {
+      "period": "2013\u201314",
+      "formula_grp": "Ramanathan (1964)",
+      "count": 1
+    },
+    {
+      "period": "2015\u201316",
+      "formula_grp": "Hardy & DuBois (1938)",
+      "count": 4
+    },
+    {
+      "period": "2015\u201316",
+      "formula_grp": "McIntyre (1980)",
+      "count": 1
+    },
+    {
+      "period": "2015\u201316",
+      "formula_grp": "NR",
+      "count": 1
+    },
+    {
+      "period": "2015\u201316",
+      "formula_grp": "Ouyang (1985)",
+      "count": 1
+    },
+    {
+      "period": "2015\u201316",
+      "formula_grp": "Ramanathan (1964)",
+      "count": 2
+    },
+    {
+      "period": "2017\u201318",
+      "formula_grp": "Hardy & DuBois (1938)",
+      "count": 1
+    },
+    {
+      "period": "2017\u201318",
+      "formula_grp": "ISO 9886: 2004",
+      "count": 2
+    },
+    {
+      "period": "2017\u201318",
+      "formula_grp": "McIntyre (1980)",
+      "count": 3
+    },
+    {
+      "period": "2017\u201318",
+      "formula_grp": "Other/Multiple",
+      "count": 11
+    },
+    {
+      "period": "2017\u201318",
+      "formula_grp": "Ouyang (1985)",
+      "count": 1
+    },
+    {
+      "period": "2017\u201318",
+      "formula_grp": "Ramanathan (1964)",
+      "count": 4
+    },
+    {
+      "period": "2019\u201320",
+      "formula_grp": "Colin & Houdas (1982)",
+      "count": 1
+    },
+    {
+      "period": "2019\u201320",
+      "formula_grp": "Hardy & DuBois (1938)",
+      "count": 4
+    },
+    {
+      "period": "2019\u201320",
+      "formula_grp": "ISO 9886: 2004",
+      "count": 2
+    },
+    {
+      "period": "2019\u201320",
+      "formula_grp": "McIntyre (1980)",
+      "count": 2
+    },
+    {
+      "period": "2019\u201320",
+      "formula_grp": "NR",
+      "count": 2
+    },
+    {
+      "period": "2019\u201320",
+      "formula_grp": "Other/Multiple",
+      "count": 3
+    },
+    {
+      "period": "2019\u201320",
+      "formula_grp": "Ouyang (1985)",
+      "count": 2
+    },
+    {
+      "period": "2019\u201320",
+      "formula_grp": "Ramanathan (1964)",
+      "count": 5
+    },
+    {
+      "period": "2021\u201322",
+      "formula_grp": "Colin & Houdas (1982)",
+      "count": 5
+    },
+    {
+      "period": "2021\u201322",
+      "formula_grp": "Hardy & DuBois (1938)",
+      "count": 7
+    },
+    {
+      "period": "2021\u201322",
+      "formula_grp": "ISO 9886: 2004",
+      "count": 4
+    },
+    {
+      "period": "2021\u201322",
+      "formula_grp": "NR",
+      "count": 3
+    },
+    {
+      "period": "2021\u201322",
+      "formula_grp": "Other/Multiple",
+      "count": 8
+    },
+    {
+      "period": "2021\u201322",
+      "formula_grp": "Ouyang (1985)",
+      "count": 1
+    },
+    {
+      "period": "2021\u201322",
+      "formula_grp": "Ramanathan (1964)",
+      "count": 5
+    },
+    {
+      "period": "2023\u201324",
+      "formula_grp": "Colin & Houdas (1982)",
+      "count": 1
+    },
+    {
+      "period": "2023\u201324",
+      "formula_grp": "Hardy & DuBois (1938)",
+      "count": 5
+    },
+    {
+      "period": "2023\u201324",
+      "formula_grp": "ISO 9886: 2004",
+      "count": 5
+    },
+    {
+      "period": "2023\u201324",
+      "formula_grp": "Other/Multiple",
+      "count": 2
+    },
+    {
+      "period": "2023\u201324",
+      "formula_grp": "Ouyang (1985)",
+      "count": 1
+    },
+    {
+      "period": "2023\u201324",
+      "formula_grp": "Ramanathan (1964)",
+      "count": 2
+    }
+  ],
+  "points_by_formula": [
+    {
+      "pt_bucket": "1",
+      "formula_grp": "Other/Multiple",
+      "count": 1
+    },
+    {
+      "pt_bucket": "10",
+      "formula_grp": "Colin & Houdas (1982)",
+      "count": 7
+    },
+    {
+      "pt_bucket": "10",
+      "formula_grp": "NR",
+      "count": 1
+    },
+    {
+      "pt_bucket": "3",
+      "formula_grp": "Other/Multiple",
+      "count": 7
+    },
+    {
+      "pt_bucket": "4",
+      "formula_grp": "ISO 9886: 2004",
+      "count": 4
+    },
+    {
+      "pt_bucket": "4",
+      "formula_grp": "McIntyre (1980)",
+      "count": 6
+    },
+    {
+      "pt_bucket": "4",
+      "formula_grp": "NR",
+      "count": 1
+    },
+    {
+      "pt_bucket": "4",
+      "formula_grp": "Other/Multiple",
+      "count": 6
+    },
+    {
+      "pt_bucket": "4",
+      "formula_grp": "Ramanathan (1964)",
+      "count": 16
+    },
+    {
+      "pt_bucket": "5",
+      "formula_grp": "NR",
+      "count": 1
+    },
+    {
+      "pt_bucket": "5",
+      "formula_grp": "Other/Multiple",
+      "count": 3
+    },
+    {
+      "pt_bucket": "6",
+      "formula_grp": "Hardy & DuBois (1938)",
+      "count": 2
+    },
+    {
+      "pt_bucket": "6",
+      "formula_grp": "Other/Multiple",
+      "count": 1
+    },
+    {
+      "pt_bucket": "7",
+      "formula_grp": "Hardy & DuBois (1938)",
+      "count": 18
+    },
+    {
+      "pt_bucket": "7",
+      "formula_grp": "NR",
+      "count": 1
+    },
+    {
+      "pt_bucket": "7",
+      "formula_grp": "Ouyang (1985)",
+      "count": 1
+    },
+    {
+      "pt_bucket": "7",
+      "formula_grp": "Ramanathan (1964)",
+      "count": 1
+    },
+    {
+      "pt_bucket": "8",
+      "formula_grp": "Hardy & DuBois (1938)",
+      "count": 3
+    },
+    {
+      "pt_bucket": "8",
+      "formula_grp": "ISO 9886: 2004",
+      "count": 10
+    },
+    {
+      "pt_bucket": "8",
+      "formula_grp": "Other/Multiple",
+      "count": 6
+    },
+    {
+      "pt_bucket": "9",
+      "formula_grp": "ISO 9886: 2004",
+      "count": 1
+    },
+    {
+      "pt_bucket": "9",
+      "formula_grp": "Ouyang (1985)",
+      "count": 5
+    },
+    {
+      "pt_bucket": "9",
+      "formula_grp": "Ramanathan (1964)",
+      "count": 2
+    },
+    {
+      "pt_bucket": "\u226512",
+      "formula_grp": "Hardy & DuBois (1938)",
+      "count": 1
+    },
+    {
+      "pt_bucket": "\u226512",
+      "formula_grp": "ISO 9886: 2004",
+      "count": 2
+    },
+    {
+      "pt_bucket": "\u226512",
+      "formula_grp": "NR",
+      "count": 2
+    },
+    {
+      "pt_bucket": "\u226512",
+      "formula_grp": "Other/Multiple",
+      "count": 1
+    }
+  ],
+  "formula_order": [
+    "Ramanathan (1964)",
+    "Hardy & DuBois (1938)",
+    "ISO 9886: 2004",
+    "Colin & Houdas (1982)",
+    "Ouyang (1985)",
+    "McIntyre (1980)",
+    "Other/Multiple",
+    "NR"
+  ],
+  "periods": [
+    "2013\u201314",
+    "2015\u201316",
+    "2017\u201318",
+    "2019\u201320",
+    "2021\u201322",
+    "2023\u201324"
+  ],
+  "n_mst_studies": 111
+}

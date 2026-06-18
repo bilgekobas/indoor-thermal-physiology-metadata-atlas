@@ -1,0 +1,1794 @@
+{
+  "overall": [
+    {
+      "signal": "Biomarkers: Alpha-amylase",
+      "physio-sensing-method": "Saliva",
+      "count": 3
+    },
+    {
+      "signal": "Biomarkers: COX1",
+      "physio-sensing-method": "Blood",
+      "count": 1
+    },
+    {
+      "signal": "Biomarkers: COX2",
+      "physio-sensing-method": "Blood",
+      "count": 1
+    },
+    {
+      "signal": "Biomarkers: Catecholamines",
+      "physio-sensing-method": "Blood",
+      "count": 1
+    },
+    {
+      "signal": "Biomarkers: Cortisol",
+      "physio-sensing-method": "Saliva",
+      "count": 2
+    },
+    {
+      "signal": "Biomarkers: Dopamine",
+      "physio-sensing-method": "Urine",
+      "count": 1
+    },
+    {
+      "signal": "Biomarkers: Estradiol",
+      "physio-sensing-method": "Blood",
+      "count": 1
+    },
+    {
+      "signal": "Biomarkers: Free thyroxine (FT4)",
+      "physio-sensing-method": "Blood",
+      "count": 2
+    },
+    {
+      "signal": "Biomarkers: Free triiodothyronine (FT3)",
+      "physio-sensing-method": "Blood",
+      "count": 1
+    },
+    {
+      "signal": "Biomarkers: Heat shock protein (HSP)",
+      "physio-sensing-method": "Blood",
+      "count": 2
+    },
+    {
+      "signal": "Biomarkers: Immunoglobulin A (IgA)",
+      "physio-sensing-method": "Nasal lavage fluid",
+      "count": 1
+    },
+    {
+      "signal": "Biomarkers: Immunoglobulin E (IgE)",
+      "physio-sensing-method": "Saliva",
+      "count": 2
+    },
+    {
+      "signal": "Biomarkers: Interleukin 6 (IL-6)",
+      "physio-sensing-method": "Blood",
+      "count": 2
+    },
+    {
+      "signal": "Biomarkers: Lysozyme ",
+      "physio-sensing-method": "Nasal lavage fluid",
+      "count": 1
+    },
+    {
+      "signal": "Biomarkers: PGE2",
+      "physio-sensing-method": "Blood",
+      "count": 1
+    },
+    {
+      "signal": "Biomarkers: Progesterone",
+      "physio-sensing-method": "Blood",
+      "count": 1
+    },
+    {
+      "signal": "Biomarkers: Tear film mucus",
+      "physio-sensing-method": "Tear fluid",
+      "count": 1
+    },
+    {
+      "signal": "Biomarkers: Testosterone",
+      "physio-sensing-method": "Blood",
+      "count": 1
+    },
+    {
+      "signal": "Biomarkers: Thyroid-stimulating hormone (TSH)",
+      "physio-sensing-method": "Blood",
+      "count": 2
+    },
+    {
+      "signal": "Blood pressure",
+      "physio-sensing-method": "Digital sphygmomanometer",
+      "count": 39
+    },
+    {
+      "signal": "Blood pressure",
+      "physio-sensing-method": "Sonomic pick-up",
+      "count": 1
+    },
+    {
+      "signal": "Blood pressure",
+      "physio-sensing-method": "Sphygmomanometer",
+      "count": 1
+    },
+    {
+      "signal": "Core/Body temperature",
+      "physio-sensing-method": "Infrared thermometer",
+      "count": 15
+    },
+    {
+      "signal": "Core/Body temperature",
+      "physio-sensing-method": "Ingestible pill",
+      "count": 9
+    },
+    {
+      "signal": "Core/Body temperature",
+      "physio-sensing-method": "Mercury thermometer",
+      "count": 2
+    },
+    {
+      "signal": "Core/Body temperature",
+      "physio-sensing-method": "Probe",
+      "count": 2
+    },
+    {
+      "signal": "Core/Body temperature",
+      "physio-sensing-method": "Thermistor",
+      "count": 4
+    },
+    {
+      "signal": "Core/Body temperature",
+      "physio-sensing-method": "Thermometer",
+      "count": 9
+    },
+    {
+      "signal": "EEG",
+      "physio-sensing-method": "1-channel",
+      "count": 1
+    },
+    {
+      "signal": "EEG",
+      "physio-sensing-method": "14-channel",
+      "count": 13
+    },
+    {
+      "signal": "EEG",
+      "physio-sensing-method": "16-channel",
+      "count": 1
+    },
+    {
+      "signal": "EEG",
+      "physio-sensing-method": "19-channel",
+      "count": 3
+    },
+    {
+      "signal": "EEG",
+      "physio-sensing-method": "2-channel",
+      "count": 3
+    },
+    {
+      "signal": "EEG",
+      "physio-sensing-method": "3-channel",
+      "count": 2
+    },
+    {
+      "signal": "EEG",
+      "physio-sensing-method": "4-channel",
+      "count": 3
+    },
+    {
+      "signal": "EEG",
+      "physio-sensing-method": "5-channel",
+      "count": 1
+    },
+    {
+      "signal": "EEG",
+      "physio-sensing-method": "8-channel",
+      "count": 4
+    },
+    {
+      "signal": "EEG",
+      "physio-sensing-method": "9-channel",
+      "count": 3
+    },
+    {
+      "signal": "EMG",
+      "physio-sensing-method": "EMG",
+      "count": 2
+    },
+    {
+      "signal": "EOG",
+      "physio-sensing-method": "EOG",
+      "count": 5
+    },
+    {
+      "signal": "Exhaled breath temperature",
+      "physio-sensing-method": "Thermal picker",
+      "count": 1
+    },
+    {
+      "signal": "Exhaled breath temperature",
+      "physio-sensing-method": "Thermistor",
+      "count": 1
+    },
+    {
+      "signal": "Glucose",
+      "physio-sensing-method": "Blood",
+      "count": 2
+    },
+    {
+      "signal": "Heart/Pulse rate",
+      "physio-sensing-method": "Digital Sphygmomanometer",
+      "count": 1
+    },
+    {
+      "signal": "Heart/Pulse rate",
+      "physio-sensing-method": "Digital sphygmomanometer",
+      "count": 19
+    },
+    {
+      "signal": "Heart/Pulse rate",
+      "physio-sensing-method": "ECG",
+      "count": 64
+    },
+    {
+      "signal": "Heart/Pulse rate",
+      "physio-sensing-method": "OHR/PPG",
+      "count": 25
+    },
+    {
+      "signal": "Heart/Pulse rate",
+      "physio-sensing-method": "Pulse oximeter",
+      "count": 16
+    },
+    {
+      "signal": "Heat flux",
+      "physio-sensing-method": "Heat flux/Heat flow",
+      "count": 8
+    },
+    {
+      "signal": "Metabolic rate/Gas exchange",
+      "physio-sensing-method": "Capnometry/Capnography",
+      "count": 5
+    },
+    {
+      "signal": "Metabolic rate/Gas exchange",
+      "physio-sensing-method": "Exhaled gas analyzer",
+      "count": 3
+    },
+    {
+      "signal": "Metabolic rate/Gas exchange",
+      "physio-sensing-method": "Gas analyzer",
+      "count": 1
+    },
+    {
+      "signal": "Metabolic rate/Gas exchange",
+      "physio-sensing-method": "Metabolic cart",
+      "count": 7
+    },
+    {
+      "signal": "Metabolic rate/Gas exchange",
+      "physio-sensing-method": "Respiration chamber",
+      "count": 2
+    },
+    {
+      "signal": "Movement",
+      "physio-sensing-method": "Accelerometer",
+      "count": 11
+    },
+    {
+      "signal": "Movement",
+      "physio-sensing-method": "Step count",
+      "count": 1
+    },
+    {
+      "signal": "Near body temperature",
+      "physio-sensing-method": "Hygrochron",
+      "count": 1
+    },
+    {
+      "signal": "Near body temperature",
+      "physio-sensing-method": "Infrared camera",
+      "count": 2
+    },
+    {
+      "signal": "Near body temperature",
+      "physio-sensing-method": "Silicon-based temperature sensor",
+      "count": 1
+    },
+    {
+      "signal": "Near body temperature",
+      "physio-sensing-method": "Thermochron",
+      "count": 3
+    },
+    {
+      "signal": "Near body temperature",
+      "physio-sensing-method": "Thermocouple",
+      "count": 1
+    },
+    {
+      "signal": "Oxygen saturation",
+      "physio-sensing-method": "NIRS",
+      "count": 1
+    },
+    {
+      "signal": "Oxygen saturation",
+      "physio-sensing-method": "Pulse oximeter",
+      "count": 28
+    },
+    {
+      "signal": "Perfusion index",
+      "physio-sensing-method": "Pulse oximeter",
+      "count": 1
+    },
+    {
+      "signal": "Pupillometry",
+      "physio-sensing-method": "Eye-tracking",
+      "count": 1
+    },
+    {
+      "signal": "Respiration",
+      "physio-sensing-method": "BCG",
+      "count": 1
+    },
+    {
+      "signal": "Respiration",
+      "physio-sensing-method": "Capnometry/Capnography",
+      "count": 2
+    },
+    {
+      "signal": "Respiration",
+      "physio-sensing-method": "Gas flowmeter",
+      "count": 1
+    },
+    {
+      "signal": "Respiration",
+      "physio-sensing-method": "Respiration belt",
+      "count": 4
+    },
+    {
+      "signal": "Sensory nerve conduction velocity",
+      "physio-sensing-method": "EMG",
+      "count": 1
+    },
+    {
+      "signal": "Skin blood flow",
+      "physio-sensing-method": "Laser Doppler",
+      "count": 1
+    },
+    {
+      "signal": "Skin blood flow",
+      "physio-sensing-method": "Laser doppler",
+      "count": 10
+    },
+    {
+      "signal": "Skin blood flow",
+      "physio-sensing-method": "OHR/PPG",
+      "count": 1
+    },
+    {
+      "signal": "Skin conductance",
+      "physio-sensing-method": "GSR/EDA",
+      "count": 21
+    },
+    {
+      "signal": "Skin conductance",
+      "physio-sensing-method": "Hygrochron",
+      "count": 5
+    },
+    {
+      "signal": "Skin conductance",
+      "physio-sensing-method": "Thermochron",
+      "count": 1
+    },
+    {
+      "signal": "Skin hardness",
+      "physio-sensing-method": "Durometer",
+      "count": 1
+    },
+    {
+      "signal": "Skin temperature",
+      "physio-sensing-method": "Dermal patch",
+      "count": 3
+    },
+    {
+      "signal": "Skin temperature",
+      "physio-sensing-method": "Heat flux/Heat flow",
+      "count": 6
+    },
+    {
+      "signal": "Skin temperature",
+      "physio-sensing-method": "Hygrochron",
+      "count": 1
+    },
+    {
+      "signal": "Skin temperature",
+      "physio-sensing-method": "Infrared camera",
+      "count": 22
+    },
+    {
+      "signal": "Skin temperature",
+      "physio-sensing-method": "Infrared thermometer",
+      "count": 14
+    },
+    {
+      "signal": "Skin temperature",
+      "physio-sensing-method": "Infrared thermopile",
+      "count": 10
+    },
+    {
+      "signal": "Skin temperature",
+      "physio-sensing-method": "Probe",
+      "count": 2
+    },
+    {
+      "signal": "Skin temperature",
+      "physio-sensing-method": "RTD",
+      "count": 5
+    },
+    {
+      "signal": "Skin temperature",
+      "physio-sensing-method": "Thermistor",
+      "count": 20
+    },
+    {
+      "signal": "Skin temperature",
+      "physio-sensing-method": "Thermochron",
+      "count": 83
+    },
+    {
+      "signal": "Skin temperature",
+      "physio-sensing-method": "Thermocouple",
+      "count": 53
+    },
+    {
+      "signal": "Skin temperature",
+      "physio-sensing-method": "Thermometer",
+      "count": 2
+    },
+    {
+      "signal": "Sweat indicators",
+      "physio-sensing-method": "Corneometer",
+      "count": 1
+    },
+    {
+      "signal": "Sweat indicators",
+      "physio-sensing-method": "Digital moisture meter",
+      "count": 1
+    },
+    {
+      "signal": "Sweat indicators",
+      "physio-sensing-method": "High precision scale",
+      "count": 27
+    },
+    {
+      "signal": "Sweat indicators",
+      "physio-sensing-method": "Hygrochron",
+      "count": 1
+    },
+    {
+      "signal": "Sweat indicators",
+      "physio-sensing-method": "Microscope",
+      "count": 1
+    },
+    {
+      "signal": "Sweat indicators",
+      "physio-sensing-method": "Moisture meter",
+      "count": 1
+    },
+    {
+      "signal": "Sweat indicators",
+      "physio-sensing-method": "Osmometer",
+      "count": 1
+    },
+    {
+      "signal": "Sweat indicators",
+      "physio-sensing-method": "TEWL",
+      "count": 1
+    },
+    {
+      "signal": "Sweat indicators",
+      "physio-sensing-method": "Tewameter",
+      "count": 1
+    }
+  ],
+  "by_period": [
+    {
+      "signal": "Biomarkers: Alpha-amylase",
+      "physio-sensing-method": "Saliva",
+      "period": "2017\u201318",
+      "count": 1
+    },
+    {
+      "signal": "Biomarkers: Alpha-amylase",
+      "physio-sensing-method": "Saliva",
+      "period": "2019\u201320",
+      "count": 1
+    },
+    {
+      "signal": "Biomarkers: Alpha-amylase",
+      "physio-sensing-method": "Saliva",
+      "period": "2021\u201322",
+      "count": 1
+    },
+    {
+      "signal": "Biomarkers: COX1",
+      "physio-sensing-method": "Blood",
+      "period": "2021\u201322",
+      "count": 1
+    },
+    {
+      "signal": "Biomarkers: COX2",
+      "physio-sensing-method": "Blood",
+      "period": "2021\u201322",
+      "count": 1
+    },
+    {
+      "signal": "Biomarkers: Catecholamines",
+      "physio-sensing-method": "Blood",
+      "period": "2013\u201314",
+      "count": 1
+    },
+    {
+      "signal": "Biomarkers: Cortisol",
+      "physio-sensing-method": "Saliva",
+      "period": "2017\u201318",
+      "count": 1
+    },
+    {
+      "signal": "Biomarkers: Cortisol",
+      "physio-sensing-method": "Saliva",
+      "period": "2021\u201322",
+      "count": 1
+    },
+    {
+      "signal": "Biomarkers: Dopamine",
+      "physio-sensing-method": "Urine",
+      "period": "2023\u201324",
+      "count": 1
+    },
+    {
+      "signal": "Biomarkers: Estradiol",
+      "physio-sensing-method": "Blood",
+      "period": "2015\u201316",
+      "count": 1
+    },
+    {
+      "signal": "Biomarkers: Free thyroxine (FT4)",
+      "physio-sensing-method": "Blood",
+      "period": "2013\u201314",
+      "count": 1
+    },
+    {
+      "signal": "Biomarkers: Free thyroxine (FT4)",
+      "physio-sensing-method": "Blood",
+      "period": "2015\u201316",
+      "count": 1
+    },
+    {
+      "signal": "Biomarkers: Free triiodothyronine (FT3)",
+      "physio-sensing-method": "Blood",
+      "period": "2015\u201316",
+      "count": 1
+    },
+    {
+      "signal": "Biomarkers: Heat shock protein (HSP)",
+      "physio-sensing-method": "Blood",
+      "period": "2015\u201316",
+      "count": 2
+    },
+    {
+      "signal": "Biomarkers: Immunoglobulin A (IgA)",
+      "physio-sensing-method": "Nasal lavage fluid",
+      "period": "2023\u201324",
+      "count": 1
+    },
+    {
+      "signal": "Biomarkers: Immunoglobulin E (IgE)",
+      "physio-sensing-method": "Saliva",
+      "period": "2021\u201322",
+      "count": 2
+    },
+    {
+      "signal": "Biomarkers: Interleukin 6 (IL-6)",
+      "physio-sensing-method": "Blood",
+      "period": "2015\u201316",
+      "count": 2
+    },
+    {
+      "signal": "Biomarkers: Lysozyme ",
+      "physio-sensing-method": "Nasal lavage fluid",
+      "period": "2023\u201324",
+      "count": 1
+    },
+    {
+      "signal": "Biomarkers: PGE2",
+      "physio-sensing-method": "Blood",
+      "period": "2021\u201322",
+      "count": 1
+    },
+    {
+      "signal": "Biomarkers: Progesterone",
+      "physio-sensing-method": "Blood",
+      "period": "2015\u201316",
+      "count": 1
+    },
+    {
+      "signal": "Biomarkers: Tear film mucus",
+      "physio-sensing-method": "Tear fluid",
+      "period": "2019\u201320",
+      "count": 1
+    },
+    {
+      "signal": "Biomarkers: Testosterone",
+      "physio-sensing-method": "Blood",
+      "period": "2015\u201316",
+      "count": 1
+    },
+    {
+      "signal": "Biomarkers: Thyroid-stimulating hormone (TSH)",
+      "physio-sensing-method": "Blood",
+      "period": "2013\u201314",
+      "count": 1
+    },
+    {
+      "signal": "Biomarkers: Thyroid-stimulating hormone (TSH)",
+      "physio-sensing-method": "Blood",
+      "period": "2015\u201316",
+      "count": 1
+    },
+    {
+      "signal": "Blood pressure",
+      "physio-sensing-method": "Digital sphygmomanometer",
+      "period": "2015\u201316",
+      "count": 1
+    },
+    {
+      "signal": "Blood pressure",
+      "physio-sensing-method": "Digital sphygmomanometer",
+      "period": "2017\u201318",
+      "count": 4
+    },
+    {
+      "signal": "Blood pressure",
+      "physio-sensing-method": "Digital sphygmomanometer",
+      "period": "2019\u201320",
+      "count": 8
+    },
+    {
+      "signal": "Blood pressure",
+      "physio-sensing-method": "Digital sphygmomanometer",
+      "period": "2021\u201322",
+      "count": 13
+    },
+    {
+      "signal": "Blood pressure",
+      "physio-sensing-method": "Digital sphygmomanometer",
+      "period": "2023\u201324",
+      "count": 13
+    },
+    {
+      "signal": "Blood pressure",
+      "physio-sensing-method": "Sonomic pick-up",
+      "period": "2015\u201316",
+      "count": 1
+    },
+    {
+      "signal": "Blood pressure",
+      "physio-sensing-method": "Sphygmomanometer",
+      "period": "2023\u201324",
+      "count": 1
+    },
+    {
+      "signal": "Core/Body temperature",
+      "physio-sensing-method": "Infrared thermometer",
+      "period": "2019\u201320",
+      "count": 1
+    },
+    {
+      "signal": "Core/Body temperature",
+      "physio-sensing-method": "Infrared thermometer",
+      "period": "2021\u201322",
+      "count": 5
+    },
+    {
+      "signal": "Core/Body temperature",
+      "physio-sensing-method": "Infrared thermometer",
+      "period": "2023\u201324",
+      "count": 9
+    },
+    {
+      "signal": "Core/Body temperature",
+      "physio-sensing-method": "Ingestible pill",
+      "period": "2013\u201314",
+      "count": 2
+    },
+    {
+      "signal": "Core/Body temperature",
+      "physio-sensing-method": "Ingestible pill",
+      "period": "2015\u201316",
+      "count": 2
+    },
+    {
+      "signal": "Core/Body temperature",
+      "physio-sensing-method": "Ingestible pill",
+      "period": "2019\u201320",
+      "count": 1
+    },
+    {
+      "signal": "Core/Body temperature",
+      "physio-sensing-method": "Ingestible pill",
+      "period": "2021\u201322",
+      "count": 4
+    },
+    {
+      "signal": "Core/Body temperature",
+      "physio-sensing-method": "Mercury thermometer",
+      "period": "2021\u201322",
+      "count": 1
+    },
+    {
+      "signal": "Core/Body temperature",
+      "physio-sensing-method": "Mercury thermometer",
+      "period": "2023\u201324",
+      "count": 1
+    },
+    {
+      "signal": "Core/Body temperature",
+      "physio-sensing-method": "Probe",
+      "period": "2013\u201314",
+      "count": 1
+    },
+    {
+      "signal": "Core/Body temperature",
+      "physio-sensing-method": "Probe",
+      "period": "2017\u201318",
+      "count": 1
+    },
+    {
+      "signal": "Core/Body temperature",
+      "physio-sensing-method": "Thermistor",
+      "period": "2019\u201320",
+      "count": 2
+    },
+    {
+      "signal": "Core/Body temperature",
+      "physio-sensing-method": "Thermistor",
+      "period": "2021\u201322",
+      "count": 2
+    },
+    {
+      "signal": "Core/Body temperature",
+      "physio-sensing-method": "Thermometer",
+      "period": "2013\u201314",
+      "count": 2
+    },
+    {
+      "signal": "Core/Body temperature",
+      "physio-sensing-method": "Thermometer",
+      "period": "2015\u201316",
+      "count": 3
+    },
+    {
+      "signal": "Core/Body temperature",
+      "physio-sensing-method": "Thermometer",
+      "period": "2017\u201318",
+      "count": 1
+    },
+    {
+      "signal": "Core/Body temperature",
+      "physio-sensing-method": "Thermometer",
+      "period": "2019\u201320",
+      "count": 2
+    },
+    {
+      "signal": "Core/Body temperature",
+      "physio-sensing-method": "Thermometer",
+      "period": "2021\u201322",
+      "count": 1
+    },
+    {
+      "signal": "EEG",
+      "physio-sensing-method": "1-channel",
+      "period": "2019\u201320",
+      "count": 1
+    },
+    {
+      "signal": "EEG",
+      "physio-sensing-method": "14-channel",
+      "period": "2017\u201318",
+      "count": 1
+    },
+    {
+      "signal": "EEG",
+      "physio-sensing-method": "14-channel",
+      "period": "2019\u201320",
+      "count": 6
+    },
+    {
+      "signal": "EEG",
+      "physio-sensing-method": "14-channel",
+      "period": "2021\u201322",
+      "count": 3
+    },
+    {
+      "signal": "EEG",
+      "physio-sensing-method": "14-channel",
+      "period": "2023\u201324",
+      "count": 3
+    },
+    {
+      "signal": "EEG",
+      "physio-sensing-method": "16-channel",
+      "period": "2019\u201320",
+      "count": 1
+    },
+    {
+      "signal": "EEG",
+      "physio-sensing-method": "19-channel",
+      "period": "2021\u201322",
+      "count": 2
+    },
+    {
+      "signal": "EEG",
+      "physio-sensing-method": "19-channel",
+      "period": "2023\u201324",
+      "count": 1
+    },
+    {
+      "signal": "EEG",
+      "physio-sensing-method": "2-channel",
+      "period": "2021\u201322",
+      "count": 2
+    },
+    {
+      "signal": "EEG",
+      "physio-sensing-method": "2-channel",
+      "period": "2023\u201324",
+      "count": 1
+    },
+    {
+      "signal": "EEG",
+      "physio-sensing-method": "3-channel",
+      "period": "2021\u201322",
+      "count": 1
+    },
+    {
+      "signal": "EEG",
+      "physio-sensing-method": "3-channel",
+      "period": "2023\u201324",
+      "count": 1
+    },
+    {
+      "signal": "EEG",
+      "physio-sensing-method": "4-channel",
+      "period": "2021\u201322",
+      "count": 2
+    },
+    {
+      "signal": "EEG",
+      "physio-sensing-method": "4-channel",
+      "period": "2023\u201324",
+      "count": 1
+    },
+    {
+      "signal": "EEG",
+      "physio-sensing-method": "5-channel",
+      "period": "2017\u201318",
+      "count": 1
+    },
+    {
+      "signal": "EEG",
+      "physio-sensing-method": "8-channel",
+      "period": "2015\u201316",
+      "count": 1
+    },
+    {
+      "signal": "EEG",
+      "physio-sensing-method": "8-channel",
+      "period": "2017\u201318",
+      "count": 1
+    },
+    {
+      "signal": "EEG",
+      "physio-sensing-method": "8-channel",
+      "period": "2019\u201320",
+      "count": 2
+    },
+    {
+      "signal": "EEG",
+      "physio-sensing-method": "9-channel",
+      "period": "2017\u201318",
+      "count": 1
+    },
+    {
+      "signal": "EEG",
+      "physio-sensing-method": "9-channel",
+      "period": "2021\u201322",
+      "count": 2
+    },
+    {
+      "signal": "EMG",
+      "physio-sensing-method": "EMG",
+      "period": "2017\u201318",
+      "count": 1
+    },
+    {
+      "signal": "EMG",
+      "physio-sensing-method": "EMG",
+      "period": "2021\u201322",
+      "count": 1
+    },
+    {
+      "signal": "EOG",
+      "physio-sensing-method": "EOG",
+      "period": "2017\u201318",
+      "count": 1
+    },
+    {
+      "signal": "EOG",
+      "physio-sensing-method": "EOG",
+      "period": "2019\u201320",
+      "count": 2
+    },
+    {
+      "signal": "EOG",
+      "physio-sensing-method": "EOG",
+      "period": "2021\u201322",
+      "count": 2
+    },
+    {
+      "signal": "Exhaled breath temperature",
+      "physio-sensing-method": "Thermal picker",
+      "period": "2019\u201320",
+      "count": 1
+    },
+    {
+      "signal": "Exhaled breath temperature",
+      "physio-sensing-method": "Thermistor",
+      "period": "2021\u201322",
+      "count": 1
+    },
+    {
+      "signal": "Glucose",
+      "physio-sensing-method": "Blood",
+      "period": "2021\u201322",
+      "count": 1
+    },
+    {
+      "signal": "Glucose",
+      "physio-sensing-method": "Blood",
+      "period": "2023\u201324",
+      "count": 1
+    },
+    {
+      "signal": "Heart/Pulse rate",
+      "physio-sensing-method": "Digital Sphygmomanometer",
+      "period": "2019\u201320",
+      "count": 1
+    },
+    {
+      "signal": "Heart/Pulse rate",
+      "physio-sensing-method": "Digital sphygmomanometer",
+      "period": "2013\u201314",
+      "count": 1
+    },
+    {
+      "signal": "Heart/Pulse rate",
+      "physio-sensing-method": "Digital sphygmomanometer",
+      "period": "2015\u201316",
+      "count": 2
+    },
+    {
+      "signal": "Heart/Pulse rate",
+      "physio-sensing-method": "Digital sphygmomanometer",
+      "period": "2017\u201318",
+      "count": 3
+    },
+    {
+      "signal": "Heart/Pulse rate",
+      "physio-sensing-method": "Digital sphygmomanometer",
+      "period": "2019\u201320",
+      "count": 5
+    },
+    {
+      "signal": "Heart/Pulse rate",
+      "physio-sensing-method": "Digital sphygmomanometer",
+      "period": "2021\u201322",
+      "count": 2
+    },
+    {
+      "signal": "Heart/Pulse rate",
+      "physio-sensing-method": "Digital sphygmomanometer",
+      "period": "2023\u201324",
+      "count": 6
+    },
+    {
+      "signal": "Heart/Pulse rate",
+      "physio-sensing-method": "ECG",
+      "period": "2015\u201316",
+      "count": 6
+    },
+    {
+      "signal": "Heart/Pulse rate",
+      "physio-sensing-method": "ECG",
+      "period": "2017\u201318",
+      "count": 6
+    },
+    {
+      "signal": "Heart/Pulse rate",
+      "physio-sensing-method": "ECG",
+      "period": "2019\u201320",
+      "count": 18
+    },
+    {
+      "signal": "Heart/Pulse rate",
+      "physio-sensing-method": "ECG",
+      "period": "2021\u201322",
+      "count": 20
+    },
+    {
+      "signal": "Heart/Pulse rate",
+      "physio-sensing-method": "ECG",
+      "period": "2023\u201324",
+      "count": 14
+    },
+    {
+      "signal": "Heart/Pulse rate",
+      "physio-sensing-method": "OHR/PPG",
+      "period": "2017\u201318",
+      "count": 4
+    },
+    {
+      "signal": "Heart/Pulse rate",
+      "physio-sensing-method": "OHR/PPG",
+      "period": "2019\u201320",
+      "count": 4
+    },
+    {
+      "signal": "Heart/Pulse rate",
+      "physio-sensing-method": "OHR/PPG",
+      "period": "2021\u201322",
+      "count": 8
+    },
+    {
+      "signal": "Heart/Pulse rate",
+      "physio-sensing-method": "OHR/PPG",
+      "period": "2023\u201324",
+      "count": 9
+    },
+    {
+      "signal": "Heart/Pulse rate",
+      "physio-sensing-method": "Pulse oximeter",
+      "period": "2017\u201318",
+      "count": 1
+    },
+    {
+      "signal": "Heart/Pulse rate",
+      "physio-sensing-method": "Pulse oximeter",
+      "period": "2019\u201320",
+      "count": 3
+    },
+    {
+      "signal": "Heart/Pulse rate",
+      "physio-sensing-method": "Pulse oximeter",
+      "period": "2021\u201322",
+      "count": 7
+    },
+    {
+      "signal": "Heart/Pulse rate",
+      "physio-sensing-method": "Pulse oximeter",
+      "period": "2023\u201324",
+      "count": 5
+    },
+    {
+      "signal": "Heat flux",
+      "physio-sensing-method": "Heat flux/Heat flow",
+      "period": "2013\u201314",
+      "count": 1
+    },
+    {
+      "signal": "Heat flux",
+      "physio-sensing-method": "Heat flux/Heat flow",
+      "period": "2019\u201320",
+      "count": 6
+    },
+    {
+      "signal": "Heat flux",
+      "physio-sensing-method": "Heat flux/Heat flow",
+      "period": "2021\u201322",
+      "count": 1
+    },
+    {
+      "signal": "Metabolic rate/Gas exchange",
+      "physio-sensing-method": "Capnometry/Capnography",
+      "period": "2017\u201318",
+      "count": 1
+    },
+    {
+      "signal": "Metabolic rate/Gas exchange",
+      "physio-sensing-method": "Capnometry/Capnography",
+      "period": "2019\u201320",
+      "count": 2
+    },
+    {
+      "signal": "Metabolic rate/Gas exchange",
+      "physio-sensing-method": "Capnometry/Capnography",
+      "period": "2021\u201322",
+      "count": 2
+    },
+    {
+      "signal": "Metabolic rate/Gas exchange",
+      "physio-sensing-method": "Exhaled gas analyzer",
+      "period": "2013\u201314",
+      "count": 1
+    },
+    {
+      "signal": "Metabolic rate/Gas exchange",
+      "physio-sensing-method": "Exhaled gas analyzer",
+      "period": "2015\u201316",
+      "count": 1
+    },
+    {
+      "signal": "Metabolic rate/Gas exchange",
+      "physio-sensing-method": "Exhaled gas analyzer",
+      "period": "2019\u201320",
+      "count": 1
+    },
+    {
+      "signal": "Metabolic rate/Gas exchange",
+      "physio-sensing-method": "Gas analyzer",
+      "period": "2019\u201320",
+      "count": 1
+    },
+    {
+      "signal": "Metabolic rate/Gas exchange",
+      "physio-sensing-method": "Metabolic cart",
+      "period": "2015\u201316",
+      "count": 2
+    },
+    {
+      "signal": "Metabolic rate/Gas exchange",
+      "physio-sensing-method": "Metabolic cart",
+      "period": "2017\u201318",
+      "count": 1
+    },
+    {
+      "signal": "Metabolic rate/Gas exchange",
+      "physio-sensing-method": "Metabolic cart",
+      "period": "2019\u201320",
+      "count": 1
+    },
+    {
+      "signal": "Metabolic rate/Gas exchange",
+      "physio-sensing-method": "Metabolic cart",
+      "period": "2021\u201322",
+      "count": 2
+    },
+    {
+      "signal": "Metabolic rate/Gas exchange",
+      "physio-sensing-method": "Metabolic cart",
+      "period": "2023\u201324",
+      "count": 1
+    },
+    {
+      "signal": "Metabolic rate/Gas exchange",
+      "physio-sensing-method": "Respiration chamber",
+      "period": "2021\u201322",
+      "count": 1
+    },
+    {
+      "signal": "Metabolic rate/Gas exchange",
+      "physio-sensing-method": "Respiration chamber",
+      "period": "2023\u201324",
+      "count": 1
+    },
+    {
+      "signal": "Movement",
+      "physio-sensing-method": "Accelerometer",
+      "period": "2017\u201318",
+      "count": 1
+    },
+    {
+      "signal": "Movement",
+      "physio-sensing-method": "Accelerometer",
+      "period": "2019\u201320",
+      "count": 3
+    },
+    {
+      "signal": "Movement",
+      "physio-sensing-method": "Accelerometer",
+      "period": "2021\u201322",
+      "count": 2
+    },
+    {
+      "signal": "Movement",
+      "physio-sensing-method": "Accelerometer",
+      "period": "2023\u201324",
+      "count": 5
+    },
+    {
+      "signal": "Movement",
+      "physio-sensing-method": "Step count",
+      "period": "2021\u201322",
+      "count": 1
+    },
+    {
+      "signal": "Near body temperature",
+      "physio-sensing-method": "Hygrochron",
+      "period": "2019\u201320",
+      "count": 1
+    },
+    {
+      "signal": "Near body temperature",
+      "physio-sensing-method": "Infrared camera",
+      "period": "2017\u201318",
+      "count": 1
+    },
+    {
+      "signal": "Near body temperature",
+      "physio-sensing-method": "Infrared camera",
+      "period": "2019\u201320",
+      "count": 1
+    },
+    {
+      "signal": "Near body temperature",
+      "physio-sensing-method": "Silicon-based temperature sensor",
+      "period": "2019\u201320",
+      "count": 1
+    },
+    {
+      "signal": "Near body temperature",
+      "physio-sensing-method": "Thermochron",
+      "period": "2017\u201318",
+      "count": 1
+    },
+    {
+      "signal": "Near body temperature",
+      "physio-sensing-method": "Thermochron",
+      "period": "2019\u201320",
+      "count": 1
+    },
+    {
+      "signal": "Near body temperature",
+      "physio-sensing-method": "Thermochron",
+      "period": "2021\u201322",
+      "count": 1
+    },
+    {
+      "signal": "Near body temperature",
+      "physio-sensing-method": "Thermocouple",
+      "period": "2019\u201320",
+      "count": 1
+    },
+    {
+      "signal": "Oxygen saturation",
+      "physio-sensing-method": "NIRS",
+      "period": "2021\u201322",
+      "count": 1
+    },
+    {
+      "signal": "Oxygen saturation",
+      "physio-sensing-method": "Pulse oximeter",
+      "period": "2017\u201318",
+      "count": 2
+    },
+    {
+      "signal": "Oxygen saturation",
+      "physio-sensing-method": "Pulse oximeter",
+      "period": "2019\u201320",
+      "count": 5
+    },
+    {
+      "signal": "Oxygen saturation",
+      "physio-sensing-method": "Pulse oximeter",
+      "period": "2021\u201322",
+      "count": 14
+    },
+    {
+      "signal": "Oxygen saturation",
+      "physio-sensing-method": "Pulse oximeter",
+      "period": "2023\u201324",
+      "count": 7
+    },
+    {
+      "signal": "Perfusion index",
+      "physio-sensing-method": "Pulse oximeter",
+      "period": "2023\u201324",
+      "count": 1
+    },
+    {
+      "signal": "Pupillometry",
+      "physio-sensing-method": "Eye-tracking",
+      "period": "2021\u201322",
+      "count": 1
+    },
+    {
+      "signal": "Respiration",
+      "physio-sensing-method": "BCG",
+      "period": "2021\u201322",
+      "count": 1
+    },
+    {
+      "signal": "Respiration",
+      "physio-sensing-method": "Capnometry/Capnography",
+      "period": "2019\u201320",
+      "count": 1
+    },
+    {
+      "signal": "Respiration",
+      "physio-sensing-method": "Capnometry/Capnography",
+      "period": "2021\u201322",
+      "count": 1
+    },
+    {
+      "signal": "Respiration",
+      "physio-sensing-method": "Gas flowmeter",
+      "period": "2021\u201322",
+      "count": 1
+    },
+    {
+      "signal": "Respiration",
+      "physio-sensing-method": "Respiration belt",
+      "period": "2019\u201320",
+      "count": 2
+    },
+    {
+      "signal": "Respiration",
+      "physio-sensing-method": "Respiration belt",
+      "period": "2021\u201322",
+      "count": 2
+    },
+    {
+      "signal": "Sensory nerve conduction velocity",
+      "physio-sensing-method": "EMG",
+      "period": "2019\u201320",
+      "count": 1
+    },
+    {
+      "signal": "Skin blood flow",
+      "physio-sensing-method": "Laser Doppler",
+      "period": "2021\u201322",
+      "count": 1
+    },
+    {
+      "signal": "Skin blood flow",
+      "physio-sensing-method": "Laser doppler",
+      "period": "2015\u201316",
+      "count": 3
+    },
+    {
+      "signal": "Skin blood flow",
+      "physio-sensing-method": "Laser doppler",
+      "period": "2017\u201318",
+      "count": 3
+    },
+    {
+      "signal": "Skin blood flow",
+      "physio-sensing-method": "Laser doppler",
+      "period": "2019\u201320",
+      "count": 1
+    },
+    {
+      "signal": "Skin blood flow",
+      "physio-sensing-method": "Laser doppler",
+      "period": "2021\u201322",
+      "count": 1
+    },
+    {
+      "signal": "Skin blood flow",
+      "physio-sensing-method": "Laser doppler",
+      "period": "2023\u201324",
+      "count": 2
+    },
+    {
+      "signal": "Skin blood flow",
+      "physio-sensing-method": "OHR/PPG",
+      "period": "2021\u201322",
+      "count": 1
+    },
+    {
+      "signal": "Skin conductance",
+      "physio-sensing-method": "GSR/EDA",
+      "period": "2017\u201318",
+      "count": 4
+    },
+    {
+      "signal": "Skin conductance",
+      "physio-sensing-method": "GSR/EDA",
+      "period": "2019\u201320",
+      "count": 5
+    },
+    {
+      "signal": "Skin conductance",
+      "physio-sensing-method": "GSR/EDA",
+      "period": "2021\u201322",
+      "count": 6
+    },
+    {
+      "signal": "Skin conductance",
+      "physio-sensing-method": "GSR/EDA",
+      "period": "2023\u201324",
+      "count": 6
+    },
+    {
+      "signal": "Skin conductance",
+      "physio-sensing-method": "Hygrochron",
+      "period": "2019\u201320",
+      "count": 3
+    },
+    {
+      "signal": "Skin conductance",
+      "physio-sensing-method": "Hygrochron",
+      "period": "2021\u201322",
+      "count": 1
+    },
+    {
+      "signal": "Skin conductance",
+      "physio-sensing-method": "Hygrochron",
+      "period": "2023\u201324",
+      "count": 1
+    },
+    {
+      "signal": "Skin conductance",
+      "physio-sensing-method": "Thermochron",
+      "period": "2019\u201320",
+      "count": 1
+    },
+    {
+      "signal": "Skin hardness",
+      "physio-sensing-method": "Durometer",
+      "period": "2017\u201318",
+      "count": 1
+    },
+    {
+      "signal": "Skin temperature",
+      "physio-sensing-method": "Dermal patch",
+      "period": "2015\u201316",
+      "count": 2
+    },
+    {
+      "signal": "Skin temperature",
+      "physio-sensing-method": "Dermal patch",
+      "period": "2017\u201318",
+      "count": 1
+    },
+    {
+      "signal": "Skin temperature",
+      "physio-sensing-method": "Heat flux/Heat flow",
+      "period": "2019\u201320",
+      "count": 3
+    },
+    {
+      "signal": "Skin temperature",
+      "physio-sensing-method": "Heat flux/Heat flow",
+      "period": "2021\u201322",
+      "count": 1
+    },
+    {
+      "signal": "Skin temperature",
+      "physio-sensing-method": "Heat flux/Heat flow",
+      "period": "2023\u201324",
+      "count": 2
+    },
+    {
+      "signal": "Skin temperature",
+      "physio-sensing-method": "Hygrochron",
+      "period": "2019\u201320",
+      "count": 1
+    },
+    {
+      "signal": "Skin temperature",
+      "physio-sensing-method": "Infrared camera",
+      "period": "2015\u201316",
+      "count": 1
+    },
+    {
+      "signal": "Skin temperature",
+      "physio-sensing-method": "Infrared camera",
+      "period": "2017\u201318",
+      "count": 5
+    },
+    {
+      "signal": "Skin temperature",
+      "physio-sensing-method": "Infrared camera",
+      "period": "2019\u201320",
+      "count": 5
+    },
+    {
+      "signal": "Skin temperature",
+      "physio-sensing-method": "Infrared camera",
+      "period": "2021\u201322",
+      "count": 9
+    },
+    {
+      "signal": "Skin temperature",
+      "physio-sensing-method": "Infrared camera",
+      "period": "2023\u201324",
+      "count": 2
+    },
+    {
+      "signal": "Skin temperature",
+      "physio-sensing-method": "Infrared thermometer",
+      "period": "2015\u201316",
+      "count": 2
+    },
+    {
+      "signal": "Skin temperature",
+      "physio-sensing-method": "Infrared thermometer",
+      "period": "2017\u201318",
+      "count": 2
+    },
+    {
+      "signal": "Skin temperature",
+      "physio-sensing-method": "Infrared thermometer",
+      "period": "2019\u201320",
+      "count": 4
+    },
+    {
+      "signal": "Skin temperature",
+      "physio-sensing-method": "Infrared thermometer",
+      "period": "2021\u201322",
+      "count": 4
+    },
+    {
+      "signal": "Skin temperature",
+      "physio-sensing-method": "Infrared thermometer",
+      "period": "2023\u201324",
+      "count": 2
+    },
+    {
+      "signal": "Skin temperature",
+      "physio-sensing-method": "Infrared thermopile",
+      "period": "2017\u201318",
+      "count": 2
+    },
+    {
+      "signal": "Skin temperature",
+      "physio-sensing-method": "Infrared thermopile",
+      "period": "2021\u201322",
+      "count": 3
+    },
+    {
+      "signal": "Skin temperature",
+      "physio-sensing-method": "Infrared thermopile",
+      "period": "2023\u201324",
+      "count": 5
+    },
+    {
+      "signal": "Skin temperature",
+      "physio-sensing-method": "Probe",
+      "period": "2017\u201318",
+      "count": 2
+    },
+    {
+      "signal": "Skin temperature",
+      "physio-sensing-method": "RTD",
+      "period": "2013\u201314",
+      "count": 2
+    },
+    {
+      "signal": "Skin temperature",
+      "physio-sensing-method": "RTD",
+      "period": "2021\u201322",
+      "count": 2
+    },
+    {
+      "signal": "Skin temperature",
+      "physio-sensing-method": "RTD",
+      "period": "2023\u201324",
+      "count": 1
+    },
+    {
+      "signal": "Skin temperature",
+      "physio-sensing-method": "Thermistor",
+      "period": "2013\u201314",
+      "count": 1
+    },
+    {
+      "signal": "Skin temperature",
+      "physio-sensing-method": "Thermistor",
+      "period": "2015\u201316",
+      "count": 1
+    },
+    {
+      "signal": "Skin temperature",
+      "physio-sensing-method": "Thermistor",
+      "period": "2017\u201318",
+      "count": 7
+    },
+    {
+      "signal": "Skin temperature",
+      "physio-sensing-method": "Thermistor",
+      "period": "2019\u201320",
+      "count": 5
+    },
+    {
+      "signal": "Skin temperature",
+      "physio-sensing-method": "Thermistor",
+      "period": "2021\u201322",
+      "count": 5
+    },
+    {
+      "signal": "Skin temperature",
+      "physio-sensing-method": "Thermistor",
+      "period": "2023\u201324",
+      "count": 1
+    },
+    {
+      "signal": "Skin temperature",
+      "physio-sensing-method": "Thermochron",
+      "period": "2013\u201314",
+      "count": 2
+    },
+    {
+      "signal": "Skin temperature",
+      "physio-sensing-method": "Thermochron",
+      "period": "2015\u201316",
+      "count": 4
+    },
+    {
+      "signal": "Skin temperature",
+      "physio-sensing-method": "Thermochron",
+      "period": "2017\u201318",
+      "count": 8
+    },
+    {
+      "signal": "Skin temperature",
+      "physio-sensing-method": "Thermochron",
+      "period": "2019\u201320",
+      "count": 14
+    },
+    {
+      "signal": "Skin temperature",
+      "physio-sensing-method": "Thermochron",
+      "period": "2021\u201322",
+      "count": 32
+    },
+    {
+      "signal": "Skin temperature",
+      "physio-sensing-method": "Thermochron",
+      "period": "2023\u201324",
+      "count": 23
+    },
+    {
+      "signal": "Skin temperature",
+      "physio-sensing-method": "Thermocouple",
+      "period": "2013\u201314",
+      "count": 6
+    },
+    {
+      "signal": "Skin temperature",
+      "physio-sensing-method": "Thermocouple",
+      "period": "2015\u201316",
+      "count": 4
+    },
+    {
+      "signal": "Skin temperature",
+      "physio-sensing-method": "Thermocouple",
+      "period": "2017\u201318",
+      "count": 7
+    },
+    {
+      "signal": "Skin temperature",
+      "physio-sensing-method": "Thermocouple",
+      "period": "2019\u201320",
+      "count": 15
+    },
+    {
+      "signal": "Skin temperature",
+      "physio-sensing-method": "Thermocouple",
+      "period": "2021\u201322",
+      "count": 10
+    },
+    {
+      "signal": "Skin temperature",
+      "physio-sensing-method": "Thermocouple",
+      "period": "2023\u201324",
+      "count": 11
+    },
+    {
+      "signal": "Skin temperature",
+      "physio-sensing-method": "Thermometer",
+      "period": "2017\u201318",
+      "count": 1
+    },
+    {
+      "signal": "Skin temperature",
+      "physio-sensing-method": "Thermometer",
+      "period": "2021\u201322",
+      "count": 1
+    },
+    {
+      "signal": "Sweat indicators",
+      "physio-sensing-method": "Corneometer",
+      "period": "2021\u201322",
+      "count": 1
+    },
+    {
+      "signal": "Sweat indicators",
+      "physio-sensing-method": "Digital moisture meter",
+      "period": "2019\u201320",
+      "count": 1
+    },
+    {
+      "signal": "Sweat indicators",
+      "physio-sensing-method": "High precision scale",
+      "period": "2013\u201314",
+      "count": 1
+    },
+    {
+      "signal": "Sweat indicators",
+      "physio-sensing-method": "High precision scale",
+      "period": "2015\u201316",
+      "count": 1
+    },
+    {
+      "signal": "Sweat indicators",
+      "physio-sensing-method": "High precision scale",
+      "period": "2017\u201318",
+      "count": 6
+    },
+    {
+      "signal": "Sweat indicators",
+      "physio-sensing-method": "High precision scale",
+      "period": "2019\u201320",
+      "count": 7
+    },
+    {
+      "signal": "Sweat indicators",
+      "physio-sensing-method": "High precision scale",
+      "period": "2021\u201322",
+      "count": 9
+    },
+    {
+      "signal": "Sweat indicators",
+      "physio-sensing-method": "High precision scale",
+      "period": "2023\u201324",
+      "count": 3
+    },
+    {
+      "signal": "Sweat indicators",
+      "physio-sensing-method": "Hygrochron",
+      "period": "2019\u201320",
+      "count": 1
+    },
+    {
+      "signal": "Sweat indicators",
+      "physio-sensing-method": "Microscope",
+      "period": "2017\u201318",
+      "count": 1
+    },
+    {
+      "signal": "Sweat indicators",
+      "physio-sensing-method": "Moisture meter",
+      "period": "2019\u201320",
+      "count": 1
+    },
+    {
+      "signal": "Sweat indicators",
+      "physio-sensing-method": "Osmometer",
+      "period": "2017\u201318",
+      "count": 1
+    },
+    {
+      "signal": "Sweat indicators",
+      "physio-sensing-method": "TEWL",
+      "period": "2023\u201324",
+      "count": 1
+    },
+    {
+      "signal": "Sweat indicators",
+      "physio-sensing-method": "Tewameter",
+      "period": "2021\u201322",
+      "count": 1
+    }
+  ],
+  "periods": [
+    "2013\u201314",
+    "2015\u201316",
+    "2017\u201318",
+    "2019\u201320",
+    "2021\u201322",
+    "2023\u201324"
+  ]
+}
