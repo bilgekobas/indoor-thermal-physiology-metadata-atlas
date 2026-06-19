@@ -217,13 +217,8 @@
     },
     {
       "signal": "Heart/Pulse rate",
-      "physio-sensing-method": "Digital Sphygmomanometer",
-      "count": 1
-    },
-    {
-      "signal": "Heart/Pulse rate",
       "physio-sensing-method": "Digital sphygmomanometer",
-      "count": 19
+      "count": 20
     },
     {
       "signal": "Heart/Pulse rate",
@@ -353,12 +348,7 @@
     {
       "signal": "Skin blood flow",
       "physio-sensing-method": "Laser Doppler",
-      "count": 1
-    },
-    {
-      "signal": "Skin blood flow",
-      "physio-sensing-method": "Laser doppler",
-      "count": 10
+      "count": 11
     },
     {
       "signal": "Skin blood flow",
@@ -962,12 +952,6 @@
     },
     {
       "signal": "Heart/Pulse rate",
-      "physio-sensing-method": "Digital Sphygmomanometer",
-      "period": "2019\u201320",
-      "count": 1
-    },
-    {
-      "signal": "Heart/Pulse rate",
       "physio-sensing-method": "Digital sphygmomanometer",
       "period": "2013\u201314",
       "count": 1
@@ -988,7 +972,7 @@
       "signal": "Heart/Pulse rate",
       "physio-sensing-method": "Digital sphygmomanometer",
       "period": "2019\u201320",
-      "count": 5
+      "count": 6
     },
     {
       "signal": "Heart/Pulse rate",
@@ -1347,36 +1331,30 @@
     {
       "signal": "Skin blood flow",
       "physio-sensing-method": "Laser Doppler",
-      "period": "2021\u201322",
-      "count": 1
-    },
-    {
-      "signal": "Skin blood flow",
-      "physio-sensing-method": "Laser doppler",
       "period": "2015\u201316",
       "count": 3
     },
     {
       "signal": "Skin blood flow",
-      "physio-sensing-method": "Laser doppler",
+      "physio-sensing-method": "Laser Doppler",
       "period": "2017\u201318",
       "count": 3
     },
     {
       "signal": "Skin blood flow",
-      "physio-sensing-method": "Laser doppler",
+      "physio-sensing-method": "Laser Doppler",
       "period": "2019\u201320",
       "count": 1
     },
     {
       "signal": "Skin blood flow",
-      "physio-sensing-method": "Laser doppler",
+      "physio-sensing-method": "Laser Doppler",
       "period": "2021\u201322",
-      "count": 1
+      "count": 2
     },
     {
       "signal": "Skin blood flow",
-      "physio-sensing-method": "Laser doppler",
+      "physio-sensing-method": "Laser Doppler",
       "period": "2023\u201324",
       "count": 2
     },

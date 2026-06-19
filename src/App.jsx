@@ -8,6 +8,9 @@ import StudyDesign from './pages/StudyDesign.jsx'
 import Environment from './pages/Environment.jsx'
 import Measurement from './pages/Measurement.jsx'
 import Sankey from './pages/Sankey.jsx'
+import Evolution from './pages/Evolution.jsx'
+import Trends from './pages/Trends.jsx'
+import Context from './pages/Context.jsx'
 import Mst from './pages/Mst.jsx'
 import Questionnaires from './pages/Questionnaires.jsx'
 import Reporting from './pages/Reporting.jsx'
@@ -36,6 +39,9 @@ export default function App() {
             <Route path="/environment" element={<Environment data={data} />} />
             <Route path="/measurement" element={<Measurement data={data} />} />
             <Route path="/sankey" element={<Sankey data={data} />} />
+            <Route path="/evolution" element={<Evolution data={data} />} />
+            <Route path="/trends" element={<Trends data={data} />} />
+            <Route path="/context" element={<Context data={data} />} />
             <Route path="/mst" element={<Mst data={data} />} />
             <Route path="/questionnaires" element={<Questionnaires data={data} />} />
             <Route path="/reporting" element={<Reporting data={data} />} />

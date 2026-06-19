@@ -75,6 +75,10 @@ physio = physio[~physio['physio-sensing-method'].isin(CODES)]
 physio = physio[physio['physio-sensing-method'].notna()]
 physio = physio[physio['physio-parameter'].notna()]
 physio['physio-sensing-method'] = physio['physio-sensing-method'].astype(str).str.strip()
+physio['physio-sensing-method'] = physio['physio-sensing-method'].replace({
+    'Digital Sphygmomanometer': 'Digital sphygmomanometer',
+    'Laser doppler': 'Laser Doppler',
+})
 physio['signal'] = physio['physio-parameter'].replace({
     'Body temperature':'Core/Body temperature','Core temperature':'Core/Body temperature',
 })
@@ -604,3 +608,165 @@ all_height_rows = [r for rows in height_data.values() for r in rows]
 with open(OUT_DIR / 'fig13_sensor_heights.json', 'w') as f:
     json.dump({'data': all_height_rows, 'variables': list(ENV_HEIGHT_COLS.values())}, f, indent=2)
 print(f'fig13_sensor_heights.json: {len(all_height_rows)} height observations')
+
+# ════════════════════════════════════════════════════════════════════════
+# ADDITIONAL EVOLUTION & CONCENTRATION FIGURES (top-5 follow-up request)
+# ════════════════════════════════════════════════════════════════════════
+
+# ── A1. Signal × sensor composition by period (sensor displacement) ────
+# Reuses physio_dedup (already built above, with casing fixed)
+TRACK_SIGNALS = ['Skin temperature', 'Heart/Pulse rate', 'Core/Body temperature', 'Skin conductance']
+signal_sensor_evolution = {}
+for sig in TRACK_SIGNALS:
+    sub = physio_dedup[physio_dedup['signal'] == sig]
+    by_period_sensor = sub.groupby(['period', 'physio-sensing-method']).size().reset_index(name='count')
+    period_totals = sub.groupby('period')['id'].nunique().to_dict()
+    # keep top 6 sensors for this signal, group rest as 'Other'
+    sensor_totals = sub['physio-sensing-method'].value_counts()
+    top_sensors = sensor_totals.head(6).index.tolist()
+    by_period_sensor['sensor_grp'] = by_period_sensor['physio-sensing-method'].apply(
+        lambda s: s if s in top_sensors else 'Other')
+    grouped = by_period_sensor.groupby(['period', 'sensor_grp'])['count'].sum().reset_index()
+    signal_sensor_evolution[sig] = {
+        'data': grouped.to_dict('records'),
+        'sensor_order': top_sensors + (['Other'] if len(sensor_totals) > 6 else []),
+        'period_totals': {k: int(v) for k, v in period_totals.items()},
+    }
+
+with open(OUT_DIR / 'evo_signal_sensor.json', 'w') as f:
+    json.dump({'signals': signal_sensor_evolution, 'periods': [b[2] for b in BINS]}, f, indent=2, default=str)
+print('evo_signal_sensor.json written for', list(signal_sensor_evolution.keys()))
+
+# ── A2. Protocol rigor over time ────────────────────────────────────────
+RIGOR_FIELDS = {
+    'protocol-random': 'Randomisation',
+    'protocol-balancing': 'Balanced order',
+    'protocol-blinded': 'Blinding',
+    'protocol-circadian': 'Circadian control',
+    'protocol-mens-timing': 'Menstrual timing control',
+    'protocol-time-btw-sessions': 'Time between sessions controlled',
+}
+# Clean stray data-entry artifacts (e.g. a lone backtick) by treating anything
+# that isn't Y/N/NR/MNR/NAN/NC as NR — these are not legitimate codes.
+VALID_VALS = CODES | {'Y', 'N'}
+rigor_clean = studies_u[['id', 'period'] + list(RIGOR_FIELDS.keys())].copy()
+for col in RIGOR_FIELDS:
+    rigor_clean[col] = rigor_clean[col].apply(lambda v: v if v in VALID_VALS else ('NR' if v is not None else None))
+
+rigor_evolution = []
+for period in [b[2] for b in BINS]:
+    sub = rigor_clean[rigor_clean['period'] == period]
+    n = len(sub)
+    if n == 0:
+        continue
+    row = {'period': period, 'n_studies': n}
+    for col, label in RIGOR_FIELDS.items():
+        reported_y = (sub[col] == 'Y').sum()
+        row[label] = {'count': int(reported_y), 'pct': round(100 * reported_y / n, 1)}
+    rigor_evolution.append(row)
+
+with open(OUT_DIR / 'evo_protocol_rigor.json', 'w') as f:
+    json.dump({'data': rigor_evolution, 'fields': list(RIGOR_FIELDS.values())}, f, indent=2)
+print('evo_protocol_rigor.json written:', len(rigor_evolution), 'periods')
+
+# ── A3. Climate class vs tested temperature range ───────────────────────
+KOPPEN_GROUP = {
+    'Af': 'Tropical', 'Am': 'Tropical', 'Aw': 'Tropical', 'As': 'Tropical',
+    'BWh': 'Arid (hot)', 'BWk': 'Arid (cold)', 'BSh': 'Semi-arid (hot)', 'BSk': 'Semi-arid (cold)',
+    'Csa': 'Mediterranean', 'Csb': 'Mediterranean',
+    'Cwa': 'Humid subtropical', 'Cwb': 'Humid subtropical',
+    'Cfa': 'Humid subtropical', 'Cfb': 'Oceanic', 'Cfc': 'Oceanic',
+    'Dsa': 'Continental', 'Dsb': 'Continental', 'Dwa': 'Continental', 'Dwb': 'Continental',
+    'Dfa': 'Continental', 'Dfb': 'Continental', 'Dfc': 'Subarctic',
+    'ET': 'Polar', 'EF': 'Polar',
+}
+def koppen_group(v):
+    if v is None or str(v).strip() in CODES:
+        return None
+    code = str(v).strip().split('/')[0]  # take first if multiple given (e.g. "Csa/Cfb")
+    return KOPPEN_GROUP.get(code, 'Other/Mixed')
+
+studies_u['climate_group'] = studies_u['id-climate-class'].apply(koppen_group)
+# Defensive fix: pandas can silently upcast a None-containing object column to
+# float64 (turning None into np.nan) on assignment. Re-coerce explicitly so
+# downstream `if grp` checks and JSON serialization both behave correctly —
+# np.nan is truthy in Python and would otherwise leak as invalid JSON `NaN`.
+studies_u['climate_group'] = studies_u['climate_group'].where(studies_u['climate_group'].notna(), None)
+
+climate_temp_rows = []
+for _, row in studies_u.iterrows():
+    grp = row['climate_group']
+    if grp is None or (isinstance(grp, float) and np.isnan(grp)):
+        continue
+    steps = parse_temp_steps(row['exp-tested-target-temps'])
+    if steps:
+        climate_temp_rows.append({
+            'id': row['id'], 'climate_group': grp,
+            'min': min(steps), 'max': max(steps), 'country': row['id-country'],
+        })
+
+climate_counts = studies_u['climate_group'].value_counts(dropna=True)
+with open(OUT_DIR / 'climate_vs_temp.json', 'w') as f:
+    json.dump({
+        'studies': climate_temp_rows,
+        'climate_counts': {k: int(v) for k, v in climate_counts.items()},
+    }, f, indent=2, default=str)
+print(f'climate_vs_temp.json: {len(climate_temp_rows)} studies with both climate class and temp range')
+
+# ── A4. Sample size and setting type over time ─────────────────────────
+size_evo_rows = []
+for _, row in studies_u.iterrows():
+    n = clean_num(row['pop-no-tot'])
+    if n is not None and n > 0 and row['period'] is not None:
+        size_evo_rows.append({'id': row['id'], 'period': row['period'], 'n': n})
+
+setting_evo = studies_u[studies_u['exp-type'].notna() & ~studies_u['exp-type'].isin(CODES) & studies_u['period'].notna()].copy()
+setting_evo['exp-type'] = setting_evo['exp-type'].astype(str).str.strip().replace({'Living lab': 'Living Lab'})
+setting_counts = setting_evo.groupby(['period', 'exp-type']).size().reset_index(name='count')
+
+with open(OUT_DIR / 'evo_size_setting.json', 'w') as f:
+    json.dump({
+        'sample_sizes': size_evo_rows,
+        'setting_by_period': setting_counts.to_dict('records'),
+        'periods': [b[2] for b in BINS],
+    }, f, indent=2, default=str)
+print(f'evo_size_setting.json: {len(size_evo_rows)} sample-size points, {len(setting_counts)} setting-period pairs')
+
+# ── A5. Sensor brand concentration ──────────────────────────────────────
+brand_clean = df[['id', 'physio-parameter', 'physio-sensor-brand']].copy()
+brand_clean['physio-sensor-brand'] = brand_clean['physio-sensor-brand'].astype(str).str.strip()
+brand_clean = brand_clean[~brand_clean['physio-sensor-brand'].isin(CODES) & (brand_clean['physio-sensor-brand'] != 'nan')]
+
+# Canonicalize casing: group by lowercase, display the most frequent original casing.
+# This is a recurring data-entry issue (e.g. 'OMRON' vs 'Omron') and will keep
+# happening as new papers are added each year, so we fix it generally rather
+# than with a manual lookup table.
+brand_casing_counts = brand_clean['physio-sensor-brand'].value_counts()
+canonical_label = {}
+for lower_key, group in brand_clean.groupby(brand_clean['physio-sensor-brand'].str.lower()):
+    variants = group['physio-sensor-brand'].unique()
+    if len(variants) > 1:
+        best = max(variants, key=lambda v: brand_casing_counts[v])
+        for v in variants:
+            canonical_label[v] = best
+brand_clean['physio-sensor-brand'] = brand_clean['physio-sensor-brand'].apply(
+    lambda v: canonical_label.get(v, v))
+
+brand_dedup = brand_clean.drop_duplicates(subset=['id', 'physio-sensor-brand'])
+brand_totals = brand_dedup['physio-sensor-brand'].value_counts()
+
+# Also: which brands show up across which signal categories (concentration by domain)
+brand_signal = brand_clean.drop_duplicates(subset=['id', 'physio-parameter', 'physio-sensor-brand'])
+top_brands = brand_totals.head(15).index.tolist()
+brand_signal_top = brand_signal[brand_signal['physio-sensor-brand'].isin(top_brands)]
+brand_signal_counts = brand_signal_top.groupby(['physio-sensor-brand', 'physio-parameter']).size().reset_index(name='count')
+
+with open(OUT_DIR / 'sensor_brands.json', 'w') as f:
+    json.dump({
+        'totals': [{'brand': b, 'count': int(c)} for b, c in brand_totals.items()],
+        'n_studies_with_brand': int(brand_dedup['id'].nunique()),
+        'by_signal': brand_signal_counts.to_dict('records'),
+    }, f, indent=2, default=str)
+print(f'sensor_brands.json: {len(brand_totals)} unique brands (casing+whitespace-normalized), {brand_dedup["id"].nunique()} studies reporting a brand')
+
+print("\nAll top-5 follow-up artifacts built.")

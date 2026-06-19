@@ -1,0 +1,180 @@
+{
+  "data": [
+    {
+      "period": "2013\u201314",
+      "n_studies": 11,
+      "Randomisation": {
+        "count": 4,
+        "pct": 36.4
+      },
+      "Balanced order": {
+        "count": 0,
+        "pct": 0.0
+      },
+      "Blinding": {
+        "count": 0,
+        "pct": 0.0
+      },
+      "Circadian control": {
+        "count": 1,
+        "pct": 9.1
+      },
+      "Menstrual timing control": {
+        "count": 1,
+        "pct": 9.1
+      },
+      "Time between sessions controlled": {
+        "count": 4,
+        "pct": 36.4
+      }
+    },
+    {
+      "period": "2015\u201316",
+      "n_studies": 15,
+      "Randomisation": {
+        "count": 5,
+        "pct": 33.3
+      },
+      "Balanced order": {
+        "count": 2,
+        "pct": 13.3
+      },
+      "Blinding": {
+        "count": 2,
+        "pct": 13.3
+      },
+      "Circadian control": {
+        "count": 2,
+        "pct": 13.3
+      },
+      "Menstrual timing control": {
+        "count": 1,
+        "pct": 6.7
+      },
+      "Time between sessions controlled": {
+        "count": 0,
+        "pct": 0.0
+      }
+    },
+    {
+      "period": "2017\u201318",
+      "n_studies": 47,
+      "Randomisation": {
+        "count": 12,
+        "pct": 25.5
+      },
+      "Balanced order": {
+        "count": 8,
+        "pct": 17.0
+      },
+      "Blinding": {
+        "count": 9,
+        "pct": 19.1
+      },
+      "Circadian control": {
+        "count": 10,
+        "pct": 21.3
+      },
+      "Menstrual timing control": {
+        "count": 1,
+        "pct": 2.1
+      },
+      "Time between sessions controlled": {
+        "count": 10,
+        "pct": 21.3
+      }
+    },
+    {
+      "period": "2019\u201320",
+      "n_studies": 63,
+      "Randomisation": {
+        "count": 13,
+        "pct": 20.6
+      },
+      "Balanced order": {
+        "count": 10,
+        "pct": 15.9
+      },
+      "Blinding": {
+        "count": 9,
+        "pct": 14.3
+      },
+      "Circadian control": {
+        "count": 6,
+        "pct": 9.5
+      },
+      "Menstrual timing control": {
+        "count": 2,
+        "pct": 3.2
+      },
+      "Time between sessions controlled": {
+        "count": 12,
+        "pct": 19.0
+      }
+    },
+    {
+      "period": "2021\u201322",
+      "n_studies": 79,
+      "Randomisation": {
+        "count": 35,
+        "pct": 44.3
+      },
+      "Balanced order": {
+        "count": 19,
+        "pct": 24.1
+      },
+      "Blinding": {
+        "count": 16,
+        "pct": 20.3
+      },
+      "Circadian control": {
+        "count": 21,
+        "pct": 26.6
+      },
+      "Menstrual timing control": {
+        "count": 10,
+        "pct": 12.7
+      },
+      "Time between sessions controlled": {
+        "count": 18,
+        "pct": 22.8
+      }
+    },
+    {
+      "period": "2023\u201324",
+      "n_studies": 55,
+      "Randomisation": {
+        "count": 24,
+        "pct": 43.6
+      },
+      "Balanced order": {
+        "count": 15,
+        "pct": 27.3
+      },
+      "Blinding": {
+        "count": 16,
+        "pct": 29.1
+      },
+      "Circadian control": {
+        "count": 21,
+        "pct": 38.2
+      },
+      "Menstrual timing control": {
+        "count": 7,
+        "pct": 12.7
+      },
+      "Time between sessions controlled": {
+        "count": 19,
+        "pct": 34.5
+      }
+    }
+  ],
+  "fields": [
+    "Randomisation",
+    "Balanced order",
+    "Blinding",
+    "Circadian control",
+    "Menstrual timing control",
+    "Time between sessions controlled"
+  ]
+}

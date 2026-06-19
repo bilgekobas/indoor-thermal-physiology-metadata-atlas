@@ -1,0 +1,1526 @@
+{
+  "studies": [
+    {
+      "id": "1_1",
+      "climate_group": "Tropical",
+      "min": 27.0,
+      "max": 30.0,
+      "country": "Singapore"
+    },
+    {
+      "id": "2_1",
+      "climate_group": "Humid subtropical",
+      "min": 26.0,
+      "max": 37.0,
+      "country": "China"
+    },
+    {
+      "id": "2_2",
+      "climate_group": "Humid subtropical",
+      "min": 26.0,
+      "max": 37.0,
+      "country": "China"
+    },
+    {
+      "id": "2_3",
+      "climate_group": "Humid subtropical",
+      "min": 26.0,
+      "max": 39.0,
+      "country": "China"
+    },
+    {
+      "id": "3_1",
+      "climate_group": "Oceanic",
+      "min": 21.0,
+      "max": 28.0,
+      "country": "Germany"
+    },
+    {
+      "id": "4_1",
+      "climate_group": "Humid subtropical",
+      "min": 23.0,
+      "max": 32.0,
+      "country": "China"
+    },
+    {
+      "id": "5_1",
+      "climate_group": "Semi-arid (cold)",
+      "min": 12.0,
+      "max": 23.0,
+      "country": "China"
+    },
+    {
+      "id": "6_1",
+      "climate_group": "Humid subtropical",
+      "min": 22.5,
+      "max": 28.0,
+      "country": "China"
+    },
+    {
+      "id": "7_1",
+      "climate_group": "Humid subtropical",
+      "min": 26.0,
+      "max": 34.0,
+      "country": "China"
+    },
+    {
+      "id": "8_1",
+      "climate_group": "Continental",
+      "min": 15.0,
+      "max": 30.0,
+      "country": "China"
+    },
+    {
+      "id": "9_1",
+      "climate_group": "Humid subtropical",
+      "min": 0.0,
+      "max": 40.0,
+      "country": "China"
+    },
+    {
+      "id": "12_1",
+      "climate_group": "Continental",
+      "min": -29.0,
+      "max": 26.0,
+      "country": "China"
+    },
+    {
+      "id": "14_1",
+      "climate_group": "Humid subtropical",
+      "min": 24.0,
+      "max": 32.0,
+      "country": "China"
+    },
+    {
+      "id": "16_1",
+      "climate_group": "Humid subtropical",
+      "min": -28.0,
+      "max": 25.0,
+      "country": "Italy"
+    },
+    {
+      "id": "17_1",
+      "climate_group": "Semi-arid (cold)",
+      "min": 18.0,
+      "max": 33.0,
+      "country": "China"
+    },
+    {
+      "id": "20_1",
+      "climate_group": "Oceanic",
+      "min": 20.0,
+      "max": 30.0,
+      "country": "Denmark"
+    },
+    {
+      "id": "21_1",
+      "climate_group": "Humid subtropical",
+      "min": 27.0,
+      "max": 27.0,
+      "country": "Italy"
+    },
+    {
+      "id": "25_1",
+      "climate_group": "Continental",
+      "min": 26.0,
+      "max": 32.0,
+      "country": "China"
+    },
+    {
+      "id": "26_2",
+      "climate_group": "Mediterranean",
+      "min": 24.0,
+      "max": 30.0,
+      "country": "USA"
+    },
+    {
+      "id": "28_1",
+      "climate_group": "Humid subtropical",
+      "min": 16.0,
+      "max": 35.0,
+      "country": "Italy"
+    },
+    {
+      "id": "29_1",
+      "climate_group": "Tropical",
+      "min": 23.0,
+      "max": 27.0,
+      "country": "Taiwan"
+    },
+    {
+      "id": "30_1",
+      "climate_group": "Continental",
+      "min": 16.0,
+      "max": 32.0,
+      "country": "Republic of Korea"
+    },
+    {
+      "id": "31_1",
+      "climate_group": "Continental",
+      "min": -27.0,
+      "max": 29.0,
+      "country": "China"
+    },
+    {
+      "id": "32_1",
+      "climate_group": "Continental",
+      "min": 18.0,
+      "max": 18.0,
+      "country": "China"
+    },
+    {
+      "id": "33_1",
+      "climate_group": "Continental",
+      "min": 18.0,
+      "max": 30.0,
+      "country": "China"
+    },
+    {
+      "id": "34_1",
+      "climate_group": "Semi-arid (cold)",
+      "min": -30.0,
+      "max": 27.0,
+      "country": "China"
+    },
+    {
+      "id": "35_1",
+      "climate_group": "Mediterranean",
+      "min": 20.0,
+      "max": 30.0,
+      "country": "USA"
+    },
+    {
+      "id": "36_1",
+      "climate_group": "Oceanic",
+      "min": 22.0,
+      "max": 30.0,
+      "country": "France"
+    },
+    {
+      "id": "37_1",
+      "climate_group": "Continental",
+      "min": 18.0,
+      "max": 30.0,
+      "country": "Republic of Korea"
+    },
+    {
+      "id": "38_1",
+      "climate_group": "Humid subtropical",
+      "min": 22.0,
+      "max": 28.0,
+      "country": "Australia"
+    },
+    {
+      "id": "39_1",
+      "climate_group": "Humid subtropical",
+      "min": 26.0,
+      "max": 32.0,
+      "country": "China"
+    },
+    {
+      "id": "41_1",
+      "climate_group": "Humid subtropical",
+      "min": 26.0,
+      "max": 36.0,
+      "country": "China"
+    },
+    {
+      "id": "43_1",
+      "climate_group": "Humid subtropical",
+      "min": 20.0,
+      "max": 35.0,
+      "country": "China"
+    },
+    {
+      "id": "44_1",
+      "climate_group": "Continental",
+      "min": 22.0,
+      "max": 30.0,
+      "country": "China"
+    },
+    {
+      "id": "45_1",
+      "climate_group": "Humid subtropical",
+      "min": 12.0,
+      "max": 24.0,
+      "country": "China"
+    },
+    {
+      "id": "46_1",
+      "climate_group": "Humid subtropical",
+      "min": 16.0,
+      "max": 32.0,
+      "country": "China"
+    },
+    {
+      "id": "47_1",
+      "climate_group": "Humid subtropical",
+      "min": 23.0,
+      "max": 28.0,
+      "country": "China"
+    },
+    {
+      "id": "48_1",
+      "climate_group": "Oceanic",
+      "min": 18.0,
+      "max": 28.0,
+      "country": "Germany"
+    },
+    {
+      "id": "50_1",
+      "climate_group": "Oceanic",
+      "min": 16.0,
+      "max": 24.0,
+      "country": "Switzerland"
+    },
+    {
+      "id": "51_1",
+      "climate_group": "Humid subtropical",
+      "min": 26.0,
+      "max": 37.0,
+      "country": "China"
+    },
+    {
+      "id": "54_1",
+      "climate_group": "Humid subtropical",
+      "min": -34.0,
+      "max": 34.0,
+      "country": "China"
+    },
+    {
+      "id": "56_1",
+      "climate_group": "Humid subtropical",
+      "min": 30.0,
+      "max": 30.0,
+      "country": "Japan"
+    },
+    {
+      "id": "58_1",
+      "climate_group": "Continental",
+      "min": -24.0,
+      "max": 18.0,
+      "country": "Republic of Korea"
+    },
+    {
+      "id": "59_1",
+      "climate_group": "Continental",
+      "min": 16.0,
+      "max": 30.0,
+      "country": "China"
+    },
+    {
+      "id": "60_1",
+      "climate_group": "Humid subtropical",
+      "min": 17.0,
+      "max": 23.0,
+      "country": "China"
+    },
+    {
+      "id": "61_1",
+      "climate_group": "Humid subtropical",
+      "min": 16.0,
+      "max": 28.0,
+      "country": "China"
+    },
+    {
+      "id": "62_1",
+      "climate_group": "Continental",
+      "min": 21.0,
+      "max": 27.0,
+      "country": "China"
+    },
+    {
+      "id": "63_1",
+      "climate_group": "Humid subtropical",
+      "min": 22.1,
+      "max": 27.8,
+      "country": "China"
+    },
+    {
+      "id": "65_1",
+      "climate_group": "Continental",
+      "min": -22.0,
+      "max": 18.0,
+      "country": "China"
+    },
+    {
+      "id": "66_1",
+      "climate_group": "Humid subtropical",
+      "min": 22.0,
+      "max": 31.0,
+      "country": "China"
+    },
+    {
+      "id": "67_1",
+      "climate_group": "Tropical",
+      "min": -30.0,
+      "max": 25.0,
+      "country": "Singapore"
+    },
+    {
+      "id": "68_1",
+      "climate_group": "Mediterranean",
+      "min": 24.0,
+      "max": 30.0,
+      "country": "Portugal"
+    },
+    {
+      "id": "69_1",
+      "climate_group": "Humid subtropical",
+      "min": 14.0,
+      "max": 31.0,
+      "country": "Japan"
+    },
+    {
+      "id": "70_1",
+      "climate_group": "Continental",
+      "min": 18.0,
+      "max": 22.0,
+      "country": "China"
+    },
+    {
+      "id": "71_1",
+      "climate_group": "Continental",
+      "min": 15.0,
+      "max": 32.0,
+      "country": "Republic of Korea"
+    },
+    {
+      "id": "71_2",
+      "climate_group": "Continental",
+      "min": 15.0,
+      "max": 32.0,
+      "country": "Republic of Korea"
+    },
+    {
+      "id": "72_1",
+      "climate_group": "Semi-arid (cold)",
+      "min": 22.0,
+      "max": 22.0,
+      "country": "Turkey"
+    },
+    {
+      "id": "73_1",
+      "climate_group": "Humid subtropical",
+      "min": 26.0,
+      "max": 37.0,
+      "country": "China"
+    },
+    {
+      "id": "74_1",
+      "climate_group": "Humid subtropical",
+      "min": 26.0,
+      "max": 39.0,
+      "country": "China"
+    },
+    {
+      "id": "74_2",
+      "climate_group": "Humid subtropical",
+      "min": 26.0,
+      "max": 37.0,
+      "country": "China"
+    },
+    {
+      "id": "74_3",
+      "climate_group": "Humid subtropical",
+      "min": 26.0,
+      "max": 39.0,
+      "country": "China"
+    },
+    {
+      "id": "74_4",
+      "climate_group": "Humid subtropical",
+      "min": 26.0,
+      "max": 37.0,
+      "country": "China"
+    },
+    {
+      "id": "75_1",
+      "climate_group": "Semi-arid (cold)",
+      "min": 14.0,
+      "max": 34.0,
+      "country": "China"
+    },
+    {
+      "id": "76_1",
+      "climate_group": "Continental",
+      "min": -27.0,
+      "max": 29.0,
+      "country": "China"
+    },
+    {
+      "id": "77_1",
+      "climate_group": "Semi-arid (cold)",
+      "min": 10.0,
+      "max": 22.0,
+      "country": "Iran"
+    },
+    {
+      "id": "78_1",
+      "climate_group": "Humid subtropical",
+      "min": 24.0,
+      "max": 30.0,
+      "country": "China"
+    },
+    {
+      "id": "79_1",
+      "climate_group": "Humid subtropical",
+      "min": -16.0,
+      "max": 24.0,
+      "country": "China"
+    },
+    {
+      "id": "80_1",
+      "climate_group": "Humid subtropical",
+      "min": 23.0,
+      "max": 30.0,
+      "country": "China"
+    },
+    {
+      "id": "81_1",
+      "climate_group": "Humid subtropical",
+      "min": 26.0,
+      "max": 30.0,
+      "country": "China"
+    },
+    {
+      "id": "82_1",
+      "climate_group": "Continental",
+      "min": 18.0,
+      "max": 28.0,
+      "country": "USA"
+    },
+    {
+      "id": "83_1",
+      "climate_group": "Humid subtropical",
+      "min": 22.0,
+      "max": 34.0,
+      "country": "China"
+    },
+    {
+      "id": "84_1",
+      "climate_group": "Humid subtropical",
+      "min": 20.0,
+      "max": 20.0,
+      "country": "Japan"
+    },
+    {
+      "id": "85_1",
+      "climate_group": "Semi-arid (cold)",
+      "min": 24.0,
+      "max": 31.0,
+      "country": "China"
+    },
+    {
+      "id": "86_1",
+      "climate_group": "Oceanic",
+      "min": -26.0,
+      "max": 26.0,
+      "country": "Spain"
+    },
+    {
+      "id": "87_1",
+      "climate_group": "Oceanic",
+      "min": -25.0,
+      "max": 25.0,
+      "country": "Netherlands"
+    },
+    {
+      "id": "89_1",
+      "climate_group": "Semi-arid (cold)",
+      "min": 26.0,
+      "max": 32.0,
+      "country": "China"
+    },
+    {
+      "id": "90_1",
+      "climate_group": "Humid subtropical",
+      "min": 20.0,
+      "max": 32.0,
+      "country": "China"
+    },
+    {
+      "id": "91_1",
+      "climate_group": "Continental",
+      "min": 19.0,
+      "max": 31.0,
+      "country": "Republic of Korea"
+    },
+    {
+      "id": "93_1",
+      "climate_group": "Humid subtropical",
+      "min": -30.0,
+      "max": 30.0,
+      "country": "Italy"
+    },
+    {
+      "id": "93_2",
+      "climate_group": "Humid subtropical",
+      "min": -30.0,
+      "max": 28.0,
+      "country": "Italy"
+    },
+    {
+      "id": "94_1",
+      "climate_group": "Humid subtropical",
+      "min": 26.0,
+      "max": 37.0,
+      "country": "China"
+    },
+    {
+      "id": "95_1",
+      "climate_group": "Semi-arid (cold)",
+      "min": 18.0,
+      "max": 30.0,
+      "country": "Iran"
+    },
+    {
+      "id": "96_1",
+      "climate_group": "Continental",
+      "min": -23.0,
+      "max": 21.0,
+      "country": "USA"
+    },
+    {
+      "id": "97_1",
+      "climate_group": "Humid subtropical",
+      "min": -16.0,
+      "max": 24.0,
+      "country": "China"
+    },
+    {
+      "id": "98_1",
+      "climate_group": "Semi-arid (cold)",
+      "min": 14.0,
+      "max": 22.0,
+      "country": "China"
+    },
+    {
+      "id": "99_1",
+      "climate_group": "Humid subtropical",
+      "min": 10.0,
+      "max": 22.0,
+      "country": "China"
+    },
+    {
+      "id": "102_1",
+      "climate_group": "Mediterranean",
+      "min": 16.0,
+      "max": 32.0,
+      "country": "Iran"
+    },
+    {
+      "id": "103_1",
+      "climate_group": "Semi-arid (cold)",
+      "min": 17.0,
+      "max": 21.0,
+      "country": "China"
+    },
+    {
+      "id": "104_1",
+      "climate_group": "Continental",
+      "min": 18.0,
+      "max": 28.0,
+      "country": "China"
+    },
+    {
+      "id": "105_1",
+      "climate_group": "Semi-arid (cold)",
+      "min": 17.0,
+      "max": 21.0,
+      "country": "China"
+    },
+    {
+      "id": "106_1",
+      "climate_group": "Tropical",
+      "min": 21.0,
+      "max": 24.0,
+      "country": "Singapore"
+    },
+    {
+      "id": "107_1",
+      "climate_group": "Humid subtropical",
+      "min": 20.0,
+      "max": 30.0,
+      "country": "China"
+    },
+    {
+      "id": "108_1",
+      "climate_group": "Continental",
+      "min": 20.0,
+      "max": 20.0,
+      "country": "China"
+    },
+    {
+      "id": "109_1",
+      "climate_group": "Subarctic",
+      "min": -29.0,
+      "max": 23.0,
+      "country": "Norway"
+    },
+    {
+      "id": "110_1",
+      "climate_group": "Mediterranean",
+      "min": -31.0,
+      "max": 31.0,
+      "country": "USA"
+    },
+    {
+      "id": "111_1",
+      "climate_group": "Continental",
+      "min": 19.0,
+      "max": 19.0,
+      "country": "China"
+    },
+    {
+      "id": "114_1",
+      "climate_group": "Mediterranean",
+      "min": -29.0,
+      "max": 24.0,
+      "country": "USA"
+    },
+    {
+      "id": "115_1",
+      "climate_group": "Mediterranean",
+      "min": 20.0,
+      "max": 25.0,
+      "country": "USA"
+    },
+    {
+      "id": "116_1",
+      "climate_group": "Oceanic",
+      "min": 19.0,
+      "max": 27.0,
+      "country": "Switzerland"
+    },
+    {
+      "id": "117_1",
+      "climate_group": "Mediterranean",
+      "min": -30.0,
+      "max": 20.0,
+      "country": "USA"
+    },
+    {
+      "id": "118_1",
+      "climate_group": "Continental",
+      "min": 14.6,
+      "max": 33.8,
+      "country": "Republic of Korea"
+    },
+    {
+      "id": "119_1",
+      "climate_group": "Humid subtropical",
+      "min": 25.0,
+      "max": 28.0,
+      "country": "China"
+    },
+    {
+      "id": "120_1",
+      "climate_group": "Semi-arid (cold)",
+      "min": 20.0,
+      "max": 30.0,
+      "country": "China"
+    },
+    {
+      "id": "123_1",
+      "climate_group": "Continental",
+      "min": 21.7,
+      "max": 28.6,
+      "country": "USA"
+    },
+    {
+      "id": "125_1",
+      "climate_group": "Humid subtropical",
+      "min": 26.0,
+      "max": 37.0,
+      "country": "China"
+    },
+    {
+      "id": "126_1",
+      "climate_group": "Continental",
+      "min": -27.0,
+      "max": 23.0,
+      "country": "USA"
+    },
+    {
+      "id": "127_1",
+      "climate_group": "Humid subtropical",
+      "min": 30.0,
+      "max": 30.0,
+      "country": "Japan"
+    },
+    {
+      "id": "128_1",
+      "climate_group": "Semi-arid (cold)",
+      "min": 18.0,
+      "max": 30.0,
+      "country": "Iran"
+    },
+    {
+      "id": "129_1",
+      "climate_group": "Semi-arid (cold)",
+      "min": 15.0,
+      "max": 31.0,
+      "country": "China"
+    },
+    {
+      "id": "130_1",
+      "climate_group": "Humid subtropical",
+      "min": 20.0,
+      "max": 32.0,
+      "country": "China"
+    },
+    {
+      "id": "131_1",
+      "climate_group": "Humid subtropical",
+      "min": 25.5,
+      "max": 25.5,
+      "country": "China"
+    },
+    {
+      "id": "131_2",
+      "climate_group": "Humid subtropical",
+      "min": 25.5,
+      "max": 25.5,
+      "country": "China"
+    },
+    {
+      "id": "133_1",
+      "climate_group": "Semi-arid (cold)",
+      "min": 24.0,
+      "max": 30.0,
+      "country": "China"
+    },
+    {
+      "id": "134_1",
+      "climate_group": "Humid subtropical",
+      "min": -28.0,
+      "max": 28.0,
+      "country": "USA"
+    },
+    {
+      "id": "135_1",
+      "climate_group": "Humid subtropical",
+      "min": 26.0,
+      "max": 32.0,
+      "country": "China"
+    },
+    {
+      "id": "136_1",
+      "climate_group": "Oceanic",
+      "min": -24.5,
+      "max": 18.5,
+      "country": "Denmark"
+    },
+    {
+      "id": "136_2",
+      "climate_group": "Oceanic",
+      "min": -27.5,
+      "max": 20.0,
+      "country": "Denmark"
+    },
+    {
+      "id": "136_3",
+      "climate_group": "Oceanic",
+      "min": -26.0,
+      "max": 21.5,
+      "country": "Denmark"
+    },
+    {
+      "id": "136_4",
+      "climate_group": "Oceanic",
+      "min": -27.5,
+      "max": 23.0,
+      "country": "Denmark"
+    },
+    {
+      "id": "137_1",
+      "climate_group": "Oceanic",
+      "min": 19.0,
+      "max": 26.0,
+      "country": "Switzerland"
+    },
+    {
+      "id": "140_1",
+      "climate_group": "Humid subtropical",
+      "min": 26.0,
+      "max": 28.0,
+      "country": "China"
+    },
+    {
+      "id": "141_1",
+      "climate_group": "Humid subtropical",
+      "min": 22.0,
+      "max": 30.0,
+      "country": "China"
+    },
+    {
+      "id": "143_1",
+      "climate_group": "Humid subtropical",
+      "min": 10.0,
+      "max": 28.0,
+      "country": "China"
+    },
+    {
+      "id": "144_1",
+      "climate_group": "Humid subtropical",
+      "min": 18.0,
+      "max": 30.0,
+      "country": "Japan"
+    },
+    {
+      "id": "145_1",
+      "climate_group": "Tropical",
+      "min": 23.0,
+      "max": 29.0,
+      "country": "Singapore"
+    },
+    {
+      "id": "146_1",
+      "climate_group": "Humid subtropical",
+      "min": 26.0,
+      "max": 32.0,
+      "country": "China"
+    },
+    {
+      "id": "146_2",
+      "climate_group": "Humid subtropical",
+      "min": 32.0,
+      "max": 32.0,
+      "country": "China"
+    },
+    {
+      "id": "148_1",
+      "climate_group": "Continental",
+      "min": 22.0,
+      "max": 28.0,
+      "country": "USA"
+    },
+    {
+      "id": "149_1",
+      "climate_group": "Oceanic",
+      "min": 21.2,
+      "max": 41.9,
+      "country": "UK"
+    },
+    {
+      "id": "150_1",
+      "climate_group": "Humid subtropical",
+      "min": 28.0,
+      "max": 34.0,
+      "country": "China"
+    },
+    {
+      "id": "151_1",
+      "climate_group": "Tropical",
+      "min": -27.0,
+      "max": 18.0,
+      "country": "Singapore"
+    },
+    {
+      "id": "152_1",
+      "climate_group": "Continental",
+      "min": 25.0,
+      "max": 32.0,
+      "country": "Republic of Korea"
+    },
+    {
+      "id": "154_1",
+      "climate_group": "Humid subtropical",
+      "min": 21.11,
+      "max": 27.78,
+      "country": "USA"
+    },
+    {
+      "id": "155_1",
+      "climate_group": "Mediterranean",
+      "min": 18.0,
+      "max": 29.0,
+      "country": "USA"
+    },
+    {
+      "id": "157_1",
+      "climate_group": "Humid subtropical",
+      "min": 20.0,
+      "max": 36.0,
+      "country": "China"
+    },
+    {
+      "id": "158_1",
+      "climate_group": "Tropical",
+      "min": 20.0,
+      "max": 24.0,
+      "country": "Brazil"
+    },
+    {
+      "id": "159_1",
+      "climate_group": "Continental",
+      "min": 17.8,
+      "max": 30.8,
+      "country": "Republic of Korea"
+    },
+    {
+      "id": "160_1",
+      "climate_group": "Humid subtropical",
+      "min": 20.0,
+      "max": 36.0,
+      "country": "China"
+    },
+    {
+      "id": "161_1",
+      "climate_group": "Humid subtropical",
+      "min": 20.0,
+      "max": 28.0,
+      "country": "China"
+    },
+    {
+      "id": "162_1",
+      "climate_group": "Continental",
+      "min": 18.0,
+      "max": 26.0,
+      "country": "China"
+    },
+    {
+      "id": "163_1",
+      "climate_group": "Oceanic",
+      "min": 26.0,
+      "max": 35.0,
+      "country": "Denmark"
+    },
+    {
+      "id": "164_1",
+      "climate_group": "Humid subtropical",
+      "min": 22.0,
+      "max": 37.0,
+      "country": "China"
+    },
+    {
+      "id": "165_1",
+      "climate_group": "Humid subtropical",
+      "min": 21.0,
+      "max": 27.0,
+      "country": "Italy"
+    },
+    {
+      "id": "166_1",
+      "climate_group": "Mediterranean",
+      "min": -30.0,
+      "max": 30.0,
+      "country": "USA"
+    },
+    {
+      "id": "167_1",
+      "climate_group": "Continental",
+      "min": 20.0,
+      "max": 32.0,
+      "country": "China"
+    },
+    {
+      "id": "169_1",
+      "climate_group": "Humid subtropical",
+      "min": 22.0,
+      "max": 25.0,
+      "country": "Australia"
+    },
+    {
+      "id": "170_1",
+      "climate_group": "Humid subtropical",
+      "min": 20.0,
+      "max": 32.0,
+      "country": "China"
+    },
+    {
+      "id": "172_1",
+      "climate_group": "Continental",
+      "min": -20.0,
+      "max": 20.0,
+      "country": "China"
+    },
+    {
+      "id": "174_1",
+      "climate_group": "Semi-arid (cold)",
+      "min": 23.0,
+      "max": 37.0,
+      "country": "China"
+    },
+    {
+      "id": "175_1",
+      "climate_group": "Continental",
+      "min": 16.0,
+      "max": 26.0,
+      "country": "China"
+    },
+    {
+      "id": "176_1",
+      "climate_group": "Mediterranean",
+      "min": -29.0,
+      "max": 29.0,
+      "country": "USA"
+    },
+    {
+      "id": "177_1",
+      "climate_group": "Humid subtropical",
+      "min": 22.0,
+      "max": 37.0,
+      "country": "China"
+    },
+    {
+      "id": "178_1",
+      "climate_group": "Continental",
+      "min": 16.0,
+      "max": 31.0,
+      "country": "China"
+    },
+    {
+      "id": "179_1",
+      "climate_group": "Humid subtropical",
+      "min": 20.0,
+      "max": 32.0,
+      "country": "China"
+    },
+    {
+      "id": "180_1",
+      "climate_group": "Humid subtropical",
+      "min": -32.0,
+      "max": 30.0,
+      "country": "Australia"
+    },
+    {
+      "id": "181_1",
+      "climate_group": "Tropical",
+      "min": 24.0,
+      "max": 35.0,
+      "country": "Malaysia"
+    },
+    {
+      "id": "182_1",
+      "climate_group": "Humid subtropical",
+      "min": -23.5,
+      "max": 29.0,
+      "country": "Japan"
+    },
+    {
+      "id": "183_1",
+      "climate_group": "Continental",
+      "min": 19.0,
+      "max": 22.0,
+      "country": "China"
+    },
+    {
+      "id": "184_1",
+      "climate_group": "Humid subtropical",
+      "min": 22.0,
+      "max": 37.0,
+      "country": "China"
+    },
+    {
+      "id": "185_2",
+      "climate_group": "Continental",
+      "min": 20.0,
+      "max": 30.0,
+      "country": "Republic of Korea"
+    },
+    {
+      "id": "186_1",
+      "climate_group": "Oceanic",
+      "min": -29.2,
+      "max": 26.0,
+      "country": "Germany"
+    },
+    {
+      "id": "187_1",
+      "climate_group": "Humid subtropical",
+      "min": -30.0,
+      "max": 30.0,
+      "country": "Japan"
+    },
+    {
+      "id": "188_1",
+      "climate_group": "Humid subtropical",
+      "min": 20.0,
+      "max": 32.0,
+      "country": "China"
+    },
+    {
+      "id": "189_1",
+      "climate_group": "Oceanic",
+      "min": -32.0,
+      "max": 24.0,
+      "country": "Netherlands"
+    },
+    {
+      "id": "190_1",
+      "climate_group": "Tropical",
+      "min": -33.0,
+      "max": 30.0,
+      "country": "India"
+    },
+    {
+      "id": "191_1",
+      "climate_group": "Humid subtropical",
+      "min": 25.0,
+      "max": 32.0,
+      "country": "China"
+    },
+    {
+      "id": "192_1",
+      "climate_group": "Humid subtropical",
+      "min": 12.0,
+      "max": 22.0,
+      "country": "China"
+    },
+    {
+      "id": "193_1",
+      "climate_group": "Semi-arid (cold)",
+      "min": 28.0,
+      "max": 32.0,
+      "country": "China"
+    },
+    {
+      "id": "194_1",
+      "climate_group": "Continental",
+      "min": 19.0,
+      "max": 22.0,
+      "country": "China"
+    },
+    {
+      "id": "195_1",
+      "climate_group": "Humid subtropical",
+      "min": 26.0,
+      "max": 30.0,
+      "country": "China"
+    },
+    {
+      "id": "196_1",
+      "climate_group": "Tropical",
+      "min": 21.0,
+      "max": 33.0,
+      "country": "India"
+    },
+    {
+      "id": "197_1",
+      "climate_group": "Oceanic",
+      "min": 25.0,
+      "max": 25.0,
+      "country": "Netherlands"
+    },
+    {
+      "id": "199_1",
+      "climate_group": "Semi-arid (cold)",
+      "min": 8.0,
+      "max": 12.0,
+      "country": "China"
+    },
+    {
+      "id": "200_2",
+      "climate_group": "Humid subtropical",
+      "min": 18.0,
+      "max": 34.0,
+      "country": "China"
+    },
+    {
+      "id": "201_1",
+      "climate_group": "Humid subtropical",
+      "min": 16.0,
+      "max": 24.0,
+      "country": "China"
+    },
+    {
+      "id": "202_1",
+      "climate_group": "Tropical",
+      "min": 19.0,
+      "max": 24.0,
+      "country": "Singapore"
+    },
+    {
+      "id": "203_1",
+      "climate_group": "Continental",
+      "min": 23.0,
+      "max": 29.0,
+      "country": "China"
+    },
+    {
+      "id": "204_1",
+      "climate_group": "Oceanic",
+      "min": 9.0,
+      "max": 26.0,
+      "country": "Netherlands"
+    },
+    {
+      "id": "205_1",
+      "climate_group": "Humid subtropical",
+      "min": 18.0,
+      "max": 30.0,
+      "country": "USA"
+    },
+    {
+      "id": "206_1",
+      "climate_group": "Humid subtropical",
+      "min": -27.0,
+      "max": 20.0,
+      "country": "Japan"
+    },
+    {
+      "id": "209_1",
+      "climate_group": "Humid subtropical",
+      "min": 30.0,
+      "max": 40.0,
+      "country": "China"
+    },
+    {
+      "id": "210_1",
+      "climate_group": "Continental",
+      "min": 15.0,
+      "max": 30.0,
+      "country": "China"
+    },
+    {
+      "id": "211_1",
+      "climate_group": "Continental",
+      "min": 23.0,
+      "max": 29.0,
+      "country": "China"
+    },
+    {
+      "id": "212_1",
+      "climate_group": "Oceanic",
+      "min": 25.0,
+      "max": 30.0,
+      "country": "Germany"
+    },
+    {
+      "id": "213_1",
+      "climate_group": "Oceanic",
+      "min": 23.0,
+      "max": 27.0,
+      "country": "Denmark"
+    },
+    {
+      "id": "214_1",
+      "climate_group": "Mediterranean",
+      "min": 28.0,
+      "max": 28.0,
+      "country": "USA"
+    },
+    {
+      "id": "216_1",
+      "climate_group": "Continental",
+      "min": 18.0,
+      "max": 30.0,
+      "country": "China"
+    },
+    {
+      "id": "217_1",
+      "climate_group": "Humid subtropical",
+      "min": 24.0,
+      "max": 26.0,
+      "country": "Italy"
+    },
+    {
+      "id": "218_1",
+      "climate_group": "Humid subtropical",
+      "min": 24.0,
+      "max": 32.0,
+      "country": "China"
+    },
+    {
+      "id": "219_1",
+      "climate_group": "Humid subtropical",
+      "min": 19.0,
+      "max": 25.0,
+      "country": "China"
+    },
+    {
+      "id": "221_1",
+      "climate_group": "Humid subtropical",
+      "min": 22.0,
+      "max": 28.0,
+      "country": "China"
+    },
+    {
+      "id": "222_1",
+      "climate_group": "Semi-arid (cold)",
+      "min": 25.0,
+      "max": 31.0,
+      "country": "China"
+    },
+    {
+      "id": "223_1",
+      "climate_group": "Humid subtropical",
+      "min": 16.0,
+      "max": 31.0,
+      "country": "Italy"
+    },
+    {
+      "id": "224_1",
+      "climate_group": "Continental",
+      "min": -33.0,
+      "max": 33.0,
+      "country": "Republic of Korea"
+    },
+    {
+      "id": "225_1",
+      "climate_group": "Semi-arid (cold)",
+      "min": 16.0,
+      "max": 24.0,
+      "country": "China"
+    },
+    {
+      "id": "225_2",
+      "climate_group": "Semi-arid (cold)",
+      "min": 16.0,
+      "max": 24.0,
+      "country": "China"
+    },
+    {
+      "id": "226_1",
+      "climate_group": "Humid subtropical",
+      "min": 26.0,
+      "max": 39.0,
+      "country": "China"
+    },
+    {
+      "id": "227_1",
+      "climate_group": "Arid (hot)",
+      "min": 20.0,
+      "max": 40.0,
+      "country": "Qatar"
+    },
+    {
+      "id": "228_1",
+      "climate_group": "Humid subtropical",
+      "min": -43.0,
+      "max": 43.0,
+      "country": "Japan"
+    },
+    {
+      "id": "229_1",
+      "climate_group": "Continental",
+      "min": -27.0,
+      "max": 29.0,
+      "country": "China"
+    },
+    {
+      "id": "230_1",
+      "climate_group": "Semi-arid (cold)",
+      "min": 28.0,
+      "max": 30.0,
+      "country": "China"
+    },
+    {
+      "id": "231_1",
+      "climate_group": "Continental",
+      "min": -30.0,
+      "max": 15.0,
+      "country": "China"
+    },
+    {
+      "id": "232_1",
+      "climate_group": "Humid subtropical",
+      "min": -15.0,
+      "max": 24.0,
+      "country": "China"
+    },
+    {
+      "id": "234_1",
+      "climate_group": "Semi-arid (cold)",
+      "min": 26.0,
+      "max": 26.0,
+      "country": "China"
+    },
+    {
+      "id": "236_1",
+      "climate_group": "Humid subtropical",
+      "min": 22.0,
+      "max": 30.0,
+      "country": "China"
+    },
+    {
+      "id": "236_2",
+      "climate_group": "Humid subtropical",
+      "min": 26.0,
+      "max": 37.0,
+      "country": "China"
+    },
+    {
+      "id": "236_3",
+      "climate_group": "Humid subtropical",
+      "min": 26.0,
+      "max": 39.0,
+      "country": "China"
+    },
+    {
+      "id": "237_1",
+      "climate_group": "Humid subtropical",
+      "min": 24.0,
+      "max": 28.0,
+      "country": "China"
+    },
+    {
+      "id": "239_1",
+      "climate_group": "Humid subtropical",
+      "min": 22.0,
+      "max": 32.0,
+      "country": "Republic of Korea"
+    },
+    {
+      "id": "240_1",
+      "climate_group": "Continental",
+      "min": 20.0,
+      "max": 29.0,
+      "country": "USA"
+    },
+    {
+      "id": "245_1",
+      "climate_group": "Humid subtropical",
+      "min": -32.0,
+      "max": 32.0,
+      "country": "China"
+    },
+    {
+      "id": "246_1",
+      "climate_group": "Humid subtropical",
+      "min": 16.0,
+      "max": 16.0,
+      "country": "China"
+    },
+    {
+      "id": "247_1",
+      "climate_group": "Oceanic",
+      "min": 17.0,
+      "max": 17.0,
+      "country": "Netherlands"
+    },
+    {
+      "id": "248_1",
+      "climate_group": "Humid subtropical",
+      "min": -28.0,
+      "max": 26.0,
+      "country": "China"
+    },
+    {
+      "id": "249_1",
+      "climate_group": "Continental",
+      "min": 23.0,
+      "max": 30.0,
+      "country": "China"
+    },
+    {
+      "id": "250_1",
+      "climate_group": "Humid subtropical",
+      "min": 28.0,
+      "max": 28.0,
+      "country": "Japan"
+    }
+  ],
+  "climate_counts": {
+    "Humid subtropical": 117,
+    "Continental": 51,
+    "Oceanic": 25,
+    "Semi-arid (cold)": 25,
+    "Mediterranean": 16,
+    "Tropical": 14,
+    "Subarctic": 2,
+    "Arid (hot)": 1
+  }
+}
