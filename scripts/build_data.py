@@ -770,3 +770,28 @@ with open(OUT_DIR / 'sensor_brands.json', 'w') as f:
 print(f'sensor_brands.json: {len(brand_totals)} unique brands (casing+whitespace-normalized), {brand_dedup["id"].nunique()} studies reporting a brand')
 
 print("\nAll top-5 follow-up artifacts built.")
+
+# ── A6. Sensor type × brand (third Sankey column) ───────────────────────
+# Reuses the same casing/whitespace canonicalization as A5, but keyed by
+# sensing method (not just signal) since that's the actual middle node
+# the Sankey's third column hangs off of.
+sb = df[['id', 'physio-sensing-method', 'physio-sensor-brand']].copy()
+sb['physio-sensing-method'] = sb['physio-sensing-method'].astype(str).str.strip()
+sb['physio-sensing-method'] = sb['physio-sensing-method'].replace({
+    'Digital Sphygmomanometer': 'Digital sphygmomanometer',
+    'Laser doppler': 'Laser Doppler',
+})
+sb['physio-sensor-brand'] = sb['physio-sensor-brand'].astype(str).str.strip()
+sb = sb[~sb['physio-sensing-method'].isin(CODES) & sb['physio-sensing-method'].notna()]
+sb = sb[~sb['physio-sensor-brand'].isin(CODES) & (sb['physio-sensor-brand'] != 'nan')]
+
+# Reuse the same canonical-casing map built for sensor_brands so 'iButton '
+# and 'iButton' (or 'OMRON'/'Omron') collapse to one brand label here too.
+sb['physio-sensor-brand'] = sb['physio-sensor-brand'].apply(lambda v: canonical_label.get(v, v))
+
+sb_dedup = sb.drop_duplicates(subset=['id', 'physio-sensing-method', 'physio-sensor-brand'])
+sensor_brand_pairs = sb_dedup.groupby(['physio-sensing-method', 'physio-sensor-brand']).size().reset_index(name='count')
+
+with open(OUT_DIR / 'sensor_type_brand.json', 'w') as f:
+    json.dump({'data': sensor_brand_pairs.to_dict('records')}, f, indent=2)
+print(f'sensor_type_brand.json: {len(sensor_brand_pairs)} sensor-type-brand pairs')
