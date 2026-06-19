@@ -9,26 +9,12 @@ import json
 import re
 from pathlib import Path
 
-PROJECT_ROOT = Path(__file__).resolve().parents[1]
-SRC = Path(__import__('os').environ.get('CORPUS_CSV', PROJECT_ROOT / 'corpus_main_dataset.csv'))
-OUT_DIR = PROJECT_ROOT / 'public' / 'data'
+SRC = '/mnt/user-data/uploads/corpus_main_dataset.csv'
+OUT_DIR = Path('/home/claude/corpus-site/public/data')
 OUT_DIR.mkdir(parents=True, exist_ok=True)
-
-if not SRC.exists():
-    raise FileNotFoundError(
-        f'Corpus CSV not found: {SRC}. Put corpus_main_dataset.csv in the project root '
-        'or set CORPUS_CSV=/path/to/your/corpus.csv.'
-    )
 
 df = pd.read_csv(SRC, encoding='utf-8-sig', low_memory=False)
 df = df.replace({np.nan: None})
-
-# Drop fully invalid / accidental duplicate rows before computing study-level artifacts.
-# In the June 2026 export, one duplicate publication row had missing id and id-pub-id.
-initial_rows = len(df)
-df = df[df['id'].notna() & (df['id'].astype(str).str.strip() != '')].copy()
-if len(df) != initial_rows:
-    print(f'Dropped {initial_rows - len(df)} rows with missing study-experiment id.')
 
 CODES = {'NR','MNR','NAN','NC'}
 
@@ -561,9 +547,13 @@ def binary_matrix_block(prefix, pretty_map=None):
     pct = (reported.mean() * 100).round(1)
     order = pct.sort_values(ascending=False).index.tolist()
     pretty = pretty_map or {}
-    bar = [{'field': pretty.get(c, c.replace(prefix,'').replace('-',' ')), 'pct': float(pct[c]), 'count': int(reported[c].sum())} for c in order]
-    matrix = reported[order].astype(int).values.tolist()
-    return {'bar': bar, 'matrix': matrix, 'fields': [pretty.get(c, c.replace(prefix,'').replace('-',' ')) for c in order], 'n_studies': len(studies_u)}
+    bar = [{'field': pretty.get(c, c.replace(prefix,'').replace('-',' ')),
+            'pct': float(pct[c]),
+            'count': int(reported[c].sum())} for c in order]
+    # matrix shape: fields × studies (field_i × study_j) = reported[order].T
+    matrix = reported[order].T.astype(int).values.tolist()
+    fields = [pretty.get(c, c.replace(prefix,'').replace('-',' ')) for c in order]
+    return {'bar': bar, 'matrix': matrix, 'fields': fields, 'n_studies': len(studies_u)}
 
 fig20 = binary_matrix_block('protocol-')
 with open(OUT_DIR / 'fig20_protocol.json', 'w') as f:
@@ -582,27 +572,35 @@ print('fig22_selection_criteria.json written:', len(fig22['bar']), 'fields')
 
 print("\nAll appendix figure artifacts built.")
 
-# ── Combined runtime bundle ───────────────────────────────────────────────
-# The React app performs one fetch for this file. Keep it in sync with all
-# individual JSON artifacts so the site does not display stale data after
-# rerunning the pipeline.
-BUNDLE_FILES = [
-    'summary', 'studies', 'physio_signal_sensor', 'skintemp_sites', 'mst',
-    'core_temp_crossmap', 'completeness', 'fig01_pubs_by_year', 'fig02_geography',
-    'fig03_session_length', 'fig04_normalisation_length', 'fig05_time_of_day',
-    'fig06_setting_typology', 'fig07_temperature_ranges', 'fig08_age', 'fig09_bmi',
-    'fig10_sex_distribution', 'fig11_sample_size', 'fig12_env_cooccurrence',
-    'fig14_questionnaire_domains', 'fig15_tsv_scales', 'fig16_tcv_scales',
-    'fig17_physio_params', 'fig18_physio_cooccurrence', 'fig20_protocol',
-    'fig21_participant_metadata', 'fig22_selection_criteria',
-]
 
-bundle = {}
-for name in BUNDLE_FILES:
-    with open(OUT_DIR / f'{name}.json', encoding='utf-8') as f:
-        bundle[name] = json.load(f)
+# ── Fig 13. Environmental sensor heights ────────────────────────────────
+ENV_HEIGHT_COLS = {
+    'env-tdb': 'Air temperature',
+    'env-rh': 'Relative humidity',
+    'env-v': 'Air velocity',
+    'env-tg': 'Globe temperature',
+}
+def parse_heights(v):
+    if v is None or str(v).strip() in CODES or str(v).strip() == '':
+        return []
+    nums = re.findall(r'\d+\.?\d*', str(v))
+    heights = []
+    for n in nums:
+        h = float(n)
+        if 0 < h <= 3.5:  # plausible sensor height in metres
+            heights.append(h)
+    return heights
 
-with open(OUT_DIR / 'bundle.json', 'w', encoding='utf-8') as f:
-    json.dump(bundle, f, indent=2, ensure_ascii=False)
-print('bundle.json written:', len(bundle), 'artifacts')
+height_data = {}
+for col, label in ENV_HEIGHT_COLS.items():
+    rows = []
+    for _, row in studies_u.iterrows():
+        hs = parse_heights(row.get(col))
+        for h in hs:
+            rows.append({'id': row['id'], 'variable': label, 'height': h})
+    height_data[label] = rows
 
+all_height_rows = [r for rows in height_data.values() for r in rows]
+with open(OUT_DIR / 'fig13_sensor_heights.json', 'w') as f:
+    json.dump({'data': all_height_rows, 'variables': list(ENV_HEIGHT_COLS.values())}, f, indent=2)
+print(f'fig13_sensor_heights.json: {len(all_height_rows)} height observations')

@@ -5,15 +5,59 @@ import HistogramECDF from '../components/HistogramECDF.jsx'
 import StudyIntervalPlot from '../components/StudyIntervalPlot.jsx'
 import { useTooltip, TooltipPortal } from '../components/Tooltip.jsx'
 
+// SVG-based normalised sex distribution chart — each study is a thin bar
+// split between male (gray) and female (pink) proportion.
+function SexDistributionChart({ studies }) {
+  const { tip, showTip, moveTip, hideTip } = useTooltip()
+  const barW = 3
+  const gap = 1
+  const H = 64
+  const totalW = studies.length * (barW + gap)
+
+  return (
+    <div className="overflow-x-auto">
+      <svg width={totalW} height={H} style={{ display: 'block' }}>
+        {studies.map((s, i) => {
+          const x = i * (barW + gap)
+          const malePx = Math.round((s.male_pct / 100) * H)
+          const femPx = H - malePx
+          return (
+            <g key={i}
+              onMouseEnter={(e) => showTip(e, `${s.id}: ${s.male}M / ${s.female}F · ${s.male_pct}% male`)}
+              onMouseMove={moveTip}
+              onMouseLeave={hideTip}
+              className="cursor-default"
+            >
+              <rect x={x} y={0} width={barW} height={malePx} fill="#E2DED4" />
+              <rect x={x} y={malePx} width={barW} height={femPx} fill="#D94F6E" />
+            </g>
+          )
+        })}
+      </svg>
+      <div className="flex gap-4 mt-2 text-[11px] text-inkmid">
+        <span className="flex items-center gap-1.5">
+          <span className="w-2.5 h-2.5 inline-block rounded-sm" style={{ background: '#E2DED4' }} /> Male
+        </span>
+        <span className="flex items-center gap-1.5">
+          <span className="w-2.5 h-2.5 inline-block rounded-sm" style={{ background: '#D94F6E' }} /> Female
+        </span>
+      </div>
+      <TooltipPortal tip={tip} />
+    </div>
+  )
+}
+
 export default function StudyDesign({ data }) {
   const {
     fig01_pubs_by_year, fig02_geography, fig03_session_length, fig04_normalisation_length,
     fig06_setting_typology, fig07_temperature_ranges, fig08_age, fig09_bmi,
     fig10_sex_distribution, fig11_sample_size, summary,
   } = data
-  const { tip, showTip, moveTip, hideTip } = useTooltip()
 
-  const maxYearCount = Math.max(...fig01_pubs_by_year.data.map((d) => d.count))
+  // Each sub-section that needs hover gets its own tooltip state
+  const yearTip = useTooltip()
+
+  const maxYearCount = fig01_pubs_by_year.data.reduce((m, d) => d.count > m ? d.count : m, 1)
   const totalPubs = fig01_pubs_by_year.data.reduce((a, d) => a + d.count, 0)
 
   const typeRollup = useMemo(() => {
@@ -50,15 +94,15 @@ export default function StudyDesign({ data }) {
               <div
                 className="w-full rounded-sm bg-ink/85 group-hover:bg-peripheral transition-colors cursor-default"
                 style={{ height: `${(d.count / maxYearCount) * 130}px` }}
-                onMouseEnter={(e) => showTip(e, `${d.year}: ${d.count} publications · ${((d.count / totalPubs) * 100).toFixed(1)}%`)}
-                onMouseMove={moveTip}
-                onMouseLeave={hideTip}
+                onMouseEnter={(e) => yearTip.showTip(e, `${d.year}: ${d.count} publications · ${((d.count / totalPubs) * 100).toFixed(1)}%`)}
+                onMouseMove={yearTip.moveTip}
+                onMouseLeave={yearTip.hideTip}
               />
               <div className="font-data text-[10px] text-inkfaint mt-1.5">{d.year}</div>
             </div>
           ))}
         </div>
-        <TooltipPortal tip={tip} />
+        <TooltipPortal tip={yearTip.tip} />
       </div>
 
       {/* Fig 2: Geography */}
@@ -79,13 +123,19 @@ export default function StudyDesign({ data }) {
       <div className="px-10 py-8 border-b border-line grid grid-cols-2 gap-10">
         <div>
           <h2 className="text-[16px] font-semibold mb-1">Session length</h2>
-          <p className="text-[12.5px] text-inkmid mb-4">Minutes per session. 88% fall under 3 hours.</p>
-          <HistogramECDF values={fig03_session_length.values_minutes.map((v) => v / 60)} binWidth={0.5} unit="h" />
+          <p className="text-[12.5px] text-inkmid mb-4">
+            Minutes per experimental session (capped at 600 min; 88% fall under 180 min).
+          </p>
+          <HistogramECDF
+            values={fig03_session_length.values_minutes.filter((v) => v <= 600)}
+            binWidth={15}
+            unit=" min"
+          />
         </div>
         <div>
           <h2 className="text-[16px] font-semibold mb-1">Normalisation period</h2>
           <p className="text-[12.5px] text-inkmid mb-4">Minutes of acclimatisation before measurement starts.</p>
-          <HistogramECDF values={fig04_normalisation_length.values_minutes} binWidth={10} unit="min" />
+          <HistogramECDF values={fig04_normalisation_length.values_minutes} binWidth={10} unit=" min" />
         </div>
       </div>
 
@@ -161,24 +211,12 @@ export default function StudyDesign({ data }) {
       <div className="px-10 py-8">
         <h2 className="text-[16px] font-semibold mb-1">Sex distribution & sample size</h2>
         <p className="text-[13px] text-inkmid mb-5 max-w-2xl">
-          Of {fig10_sex_distribution.studies.length} studies reporting sex breakdown: {sexSummary.male_gt} skew male,{' '}
-          {sexSummary.equal} are balanced (45–55%), {sexSummary.female_gt} skew female.
+          Of {fig10_sex_distribution.studies.length} studies reporting sex breakdown:{' '}
+          {sexSummary.male_gt} skew male (&gt;55%), {sexSummary.equal} are balanced (45–55%),{' '}
+          {sexSummary.female_gt} skew female. Hover any bar for the exact split.
         </p>
-        <div className="flex gap-1 h-16 mb-6 max-w-3xl">
-          {fig10_sex_distribution.studies.map((s, i) => (
-            <div
-              key={i}
-              className="flex-1 flex flex-col-reverse cursor-default group"
-              onMouseEnter={(e) => showTip(e, `${s.id}: ${s.male} male / ${s.female} female (${s.male_pct}% male)`)}
-              onMouseMove={moveTip}
-              onMouseLeave={hideTip}
-            >
-              <div style={{ height: `${100 - s.male_pct}%`, background: '#D94F6E' }} className="group-hover:brightness-110" />
-              <div style={{ height: `${s.male_pct}%`, background: '#E2DED4' }} className="group-hover:brightness-95" />
-            </div>
-          ))}
-        </div>
-        <p className="text-[12.5px] text-inkfaint mb-2">Sample size per study (log scale), median highlighted.</p>
+        <SexDistributionChart studies={fig10_sex_distribution.studies} />
+        <p className="text-[12.5px] text-inkfaint mt-8 mb-2">Sample size per study (log scale), median n=22 highlighted.</p>
         <HistogramECDF values={fig11_sample_size.studies.map((s) => Math.log10(s.n))} binWidth={0.15} xLabel="log₁₀(n)" />
       </div>
     </div>

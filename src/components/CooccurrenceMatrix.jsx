@@ -1,40 +1,36 @@
 import { useTooltip, TooltipPortal } from './Tooltip.jsx'
 
-// Square co-occurrence matrix. `matrix[i][j]` = count of studies measuring
-// both labels[i] and labels[j]. Diagonal = total count for that variable.
 export default function CooccurrenceMatrix({ labels, matrix, cellSize = 34 }) {
   const { tip, showTip, moveTip, hideTip } = useTooltip()
-  const max = Math.max(...matrix.flat(), 1)
+  // Bug fix: use reduce instead of Math.max(...spread)
+  const max = matrix.flat().reduce((m, v) => (v > m ? v : m), 1)
 
   const colorFor = (v) => {
     if (v === 0) return '#F1EDE6'
     const t = Math.min(v / max, 1)
-    // interpolate paper -> peripheral-pink for a single coherent ramp
-    const r1 = 241, g1 = 237, b1 = 230
-    const r2 = 217, g2 = 79, b2 = 110
-    const r = Math.round(r1 + (r2 - r1) * t)
-    const g = Math.round(g1 + (g2 - g1) * t)
-    const b = Math.round(b1 + (b2 - b1) * t)
+    const r = Math.round(241 + (217 - 241) * t)
+    const g = Math.round(237 + (79 - 237) * t)
+    const b = Math.round(230 + (110 - 230) * t)
     return `rgb(${r},${g},${b})`
   }
 
   return (
     <div className="overflow-x-auto">
       <div className="inline-block">
+        {/* Column headers — rotate so text reads top-to-bottom */}
         <div className="flex" style={{ marginLeft: 140 }}>
           {labels.map((l) => (
             <div
               key={l}
-              className="font-data text-[10px] text-inkfaint origin-bottom-left whitespace-nowrap"
+              className="font-data text-[10px] text-inkfaint whitespace-nowrap overflow-hidden"
               style={{
                 width: cellSize,
-                height: 90,
-                writingMode: 'vertical-rl',
-                textOrientation: 'mixed',
+                height: 88,
+                writingMode: 'vertical-lr',
                 transform: 'rotate(180deg)',
                 display: 'flex',
-                alignItems: 'flex-end',
-                justifyContent: 'center',
+                alignItems: 'center',
+                justifyContent: 'flex-start',
                 paddingBottom: 4,
               }}
             >
@@ -64,12 +60,9 @@ export default function CooccurrenceMatrix({ labels, matrix, cellSize = 34 }) {
                     color: v / max > 0.55 ? 'white' : '#1A1A18',
                   }}
                   onMouseEnter={(e) =>
-                    showTip(
-                      e,
-                      i === j
-                        ? `${rowLabel}: measured in ${v} studies`
-                        : `${rowLabel} + ${colLabel}: measured together in ${v} studies`
-                    )
+                    showTip(e, i === j
+                      ? `${rowLabel}: measured in ${v} studies`
+                      : `${rowLabel} + ${colLabel}: co-occur in ${v} studies`)
                   }
                   onMouseMove={moveTip}
                   onMouseLeave={hideTip}

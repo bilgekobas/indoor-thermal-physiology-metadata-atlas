@@ -5,7 +5,9 @@ import { useCorpusData } from './useCorpusData.js'
 import Overview from './pages/Overview.jsx'
 import Browse from './pages/Browse.jsx'
 import StudyDesign from './pages/StudyDesign.jsx'
+import Environment from './pages/Environment.jsx'
 import Measurement from './pages/Measurement.jsx'
+import Sankey from './pages/Sankey.jsx'
 import Mst from './pages/Mst.jsx'
 import Questionnaires from './pages/Questionnaires.jsx'
 import Reporting from './pages/Reporting.jsx'
@@ -31,7 +33,9 @@ export default function App() {
             <Route path="/" element={<Overview data={data} />} />
             <Route path="/browse" element={<Browse data={data} />} />
             <Route path="/study-design" element={<StudyDesign data={data} />} />
+            <Route path="/environment" element={<Environment data={data} />} />
             <Route path="/measurement" element={<Measurement data={data} />} />
+            <Route path="/sankey" element={<Sankey data={data} />} />
             <Route path="/mst" element={<Mst data={data} />} />
             <Route path="/questionnaires" element={<Questionnaires data={data} />} />
             <Route path="/reporting" element={<Reporting data={data} />} />

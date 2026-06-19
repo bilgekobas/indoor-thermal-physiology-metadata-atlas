@@ -1,11 +1,10 @@
 import { useTooltip, TooltipPortal, fmtCountPct } from './Tooltip.jsx'
 
-// Horizontal bar chart where every bar shows count + percentage on hover.
-// `data` is [{ label, count }], `total` is the denominator for percentage.
 export default function InteractiveBarChart({ data, total, color = '#D94F6E', maxBars = null, height = 22 }) {
   const { tip, showTip, moveTip, hideTip } = useTooltip()
   const rows = maxBars ? data.slice(0, maxBars) : data
-  const max = Math.max(...rows.map((r) => r.count), 1)
+  // Bug fix: use reduce instead of Math.max(...spread) to avoid call-stack limit
+  const max = rows.reduce((m, r) => (r.count > m ? r.count : m), 1)
 
   return (
     <div className="space-y-1.5">
