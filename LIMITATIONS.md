@@ -367,6 +367,36 @@ standalone brand chart (Section 3 above) — `canonical_label`, applied here
 too rather than re-derived, so `'iButton '`/`'iButton'` and similar
 variants collapse consistently across every view that shows brand names.
 
+## 16. Signal → sensor type → brand Sankey: a real join bug, and its correction
+
+The original implementation derived signal→brand counts by joining two
+separately-aggregated tables: signal→sensor-type totals, and sensor-type→
+brand totals (`sensor_type_brand.json`). This silently double-attributed a
+brand's full count to every signal that happens to share a sensing method
+with it. The concrete failure: **OMRON** makes both a digital
+sphygmomanometer (blood pressure + heart rate) and, in a few studies, an
+infrared thermometer — joining through sensing method alone gave OMRON a
+spuriously inflated count under "Skin temperature" (14, when the real
+number checked against the raw rows is 2).
+
+Fixed by deriving signal→brand directly from `brand_model_reference.json`
+(itself built from the raw per-row `physio-parameter` + `physio-sensor-brand`
+pairs, not from a join of two aggregates), which is the same data backing
+the `/devices` reference table. This changed a real, previously-reported
+finding: **OMRON, not iButton, is the most-cited brand overall** (65 vs. 49
+studies) once counted correctly — but OMRON's count is spread across
+multiple signals via its combination devices (blood pressure 30, heart rate
+20, core temperature 12), while iButton's is concentrated almost entirely
+in one signal (44 of 49 in skin temperature). Both facts are worth keeping
+in view; neither "most-cited brand" framing alone tells the full story.
+
+The Sankey's brand column now also groups each signal's brands to its own
+top 3 by default, collapsing the rest into a clickable "Other brands (N)"
+node that expands to the full list on click — a different legibility
+strategy than the earlier flat ≥2-studies global threshold, scoped per
+signal instead of globally, since a globally-rare brand can still be a
+signal's #2 or #3 choice and deserves to be visible there.
+
 ## What this file does not cover
 
 This file documents pipeline-level (`build_data.py`) decisions — i.e.,

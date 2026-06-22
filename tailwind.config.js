@@ -5,17 +5,24 @@ export default {
     extend: {
       colors: {
         paper: '#FAF8F4',
-        ink: '#1A1A18',
-        inkmid: '#5F5E58',
-        inkfaint: '#A8A59C',
-        line: '#E2DED4',
-        peripheral: '#D94F6E',
-        cardio: '#4855C8',
-        central: '#E07820',
-        sudomotor: '#B8C020',
-        neuro: '#8A8A86',
+        ink: '#31393C',
+        inkmid: '#5C6166',
+        inkfaint: '#8A8783',
+        line: '#E4DFDA',
+        // Primary accent (per the updated palette): blue leads, coral is
+        // the secondary/rare-emphasis accent. coreaccent now points at
+        // blue since that's the new "this is the headline number" color.
+        coreaccent: '#005EF5',
+        accentcoral: '#FF5964',
+        // Categorical domain colors (Sankey, climate groups) — kept
+        // distinct since collapsing these to one color would break the
+        // charts that exist specifically to show 6+ different categories.
+        peripheral: '#FF5964',
+        cardio: '#005EF5',
+        central: '#31393C',
+        sudomotor: '#8A8783',
+        neuro: '#5C6166',
         metabolic: '#BBBBBB',
-        coreaccent: '#7A1830',
       },
       fontFamily: {
         mono: ['"IBM Plex Mono"', 'ui-monospace', 'monospace'],

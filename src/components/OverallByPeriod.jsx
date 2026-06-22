@@ -9,7 +9,14 @@ import { useTooltip, TooltipPortal } from './Tooltip.jsx'
 // `renderOverall` and `renderByPeriod` are render-prop functions so this
 // component stays agnostic to what kind of chart each metric actually needs
 // (bar, line, stacked) while keeping the toggle interaction identical everywhere.
-export default function OverallByPeriod({ renderOverall, renderByPeriod, earliestPeriodCaveat }) {
+//
+// `minHeight`: the two views often have genuinely different natural heights
+// (e.g. a wide map vs. a six-bar-group layout), which without a reserved
+// height causes the whole page to jump up or down when switching tabs —
+// the container should hold its size, not reflow the page under the reader.
+// Pass the height of the TALLER of the two views; the shorter one will just
+// have extra space below it rather than the box shrinking.
+export default function OverallByPeriod({ renderOverall, renderByPeriod, earliestPeriodCaveat, minHeight }) {
   const [mode, setMode] = useState('overall')
   return (
     <div>
@@ -31,7 +38,9 @@ export default function OverallByPeriod({ renderOverall, renderByPeriod, earlies
           By 2-year period
         </button>
       </div>
-      {mode === 'overall' ? renderOverall() : renderByPeriod()}
+      <div style={minHeight ? { minHeight } : undefined}>
+        {mode === 'overall' ? renderOverall() : renderByPeriod()}
+      </div>
       {mode === 'byPeriod' && earliestPeriodCaveat && (
         <p className="text-[11px] text-inkfaint mt-2">{earliestPeriodCaveat}</p>
       )}
@@ -81,7 +90,7 @@ export function PeriodBarGroup({ periods, periodN, getValue, getTooltip, color =
 // each chapter had its own copy-pasted version of this, which had already
 // started to drift; consolidating here so a fix in one place reaches all of
 // them, and so the y-axis is consistently labelled "% of studies in period."
-const DEFAULT_LINE_PALETTE = ['#1A1A18', '#D94F6E', '#4855C8', '#E07820', '#B8C020', '#8A8A86', '#C9698A', '#7A8FD9']
+const DEFAULT_LINE_PALETTE = ['#31393C', '#005EF5', '#FF5964', '#8A8783', '#5C6166', '#BBBBBB', '#C9C6BC', '#E4DFDA']
 export function PercentLinesByPeriod({ periodData, fields, periods, palette = DEFAULT_LINE_PALETTE }) {
   const { tip, showTip, moveTip, hideTip } = useTooltip()
   const W = 600, H = 170

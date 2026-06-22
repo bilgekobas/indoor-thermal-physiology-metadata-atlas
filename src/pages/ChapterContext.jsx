@@ -37,28 +37,30 @@ function GeographyToggle({ cityData, countryData, geoConcentration }) {
           </button>
         ))}
       </div>
-      {mode === 'city' && <CityMap cityData={cityData} />}
-      {mode === 'country' && <ChoroplethMap countryData={countryData} />}
-      {mode === 'period' && (
-        <div>
-          <p className="text-[12.5px] text-inkmid mb-3">
-            Share of studies from {geoConcentration.top_country}, the single most-represented
-            country overall, by period.
-          </p>
-          <PeriodBarGroup
+      <div style={{ minHeight: 460 }}>
+        {mode === 'city' && <CityMap cityData={cityData} />}
+        {mode === 'country' && <ChoroplethMap countryData={countryData} />}
+        {mode === 'period' && (
+          <div>
+            <p className="text-[12.5px] text-inkmid mb-3">
+              Share of studies from {geoConcentration.top_country}, the single most-represented
+              country overall, by period.
+            </p>
+            <PeriodBarGroup
             periods={geoConcentration.data.map((d) => d.period)}
             getValue={(p) => geoConcentration.data.find((d) => d.period === p)?.pct || 0}
             getTooltip={(p, v) => {
               const d = geoConcentration.data.find((r) => r.period === p)
               return `${p}: ${d.top_count} of ${d.total} studies from ${geoConcentration.top_country} · ${v}%`
             }}
-            color="#D94F6E"
+            color="#31393C"
             height={120}
             yUnit="%"
           />
           <p className="text-[11px] text-inkfaint mt-2">2013–14 and 2015–16 have few studies; read early-period percentages cautiously.</p>
         </div>
       )}
+      </div>
     </div>
   )
 }
@@ -101,7 +103,7 @@ function TimeOfDayChart({ sessions }) {
           {occupancy.map((v, i) => {
             const x = i * slotW, barH = (v / maxOcc) * (H_TOP - 12), hour = (i * SLOT_MINS) / 60
             return (
-              <rect key={i} x={x} y={H_TOP - barH} width={slotW + 0.5} height={barH} fill="#D94F6E" opacity={0.7}
+              <rect key={i} x={x} y={H_TOP - barH} width={slotW + 0.5} height={barH} fill="#005EF5" opacity={0.7}
                 className="cursor-default"
                 onMouseEnter={(e) => showTip(e, `${hourLabel(Math.floor(hour))}: ${(v * 100).toFixed(1)}% of sessions active`)}
                 onMouseMove={moveTip} onMouseLeave={hideTip} />
@@ -110,7 +112,7 @@ function TimeOfDayChart({ sessions }) {
           {sessions.map((s, i) => {
             const x1 = (s.start / TOTAL_HOURS) * W, x2 = (s.end / TOTAL_HOURS) * W
             const y = H_TOP + 8 + i * (H_BOT / sessions.length)
-            const color = s.circadian_considered ? '#4855C8' : '#A8A59C'
+            const color = s.circadian_considered ? '#005EF5' : '#8A8783'
             return (
               <line key={i} x1={x1} x2={x2} y1={y} y2={y} stroke={color} strokeWidth={1.2} opacity={0.75}
                 className="cursor-default"
@@ -127,8 +129,8 @@ function TimeOfDayChart({ sessions }) {
         </g>
       </svg>
       <div className="flex gap-4 mt-2 text-[11px] text-inkmid">
-        <span className="flex items-center gap-1.5"><span className="w-4 h-[2px] inline-block" style={{ background: '#4855C8' }} /> circadian timing considered ({nConsidered})</span>
-        <span className="flex items-center gap-1.5"><span className="w-4 h-[2px] inline-block" style={{ background: '#A8A59C' }} /> not considered / unspecified ({nStudies - nConsidered})</span>
+        <span className="flex items-center gap-1.5"><span className="w-4 h-[2px] inline-block" style={{ background: '#005EF5' }} /> circadian timing considered ({nConsidered})</span>
+        <span className="flex items-center gap-1.5"><span className="w-4 h-[2px] inline-block" style={{ background: '#8A8783' }} /> not considered / unspecified ({nStudies - nConsidered})</span>
       </div>
       <TooltipPortal tip={tip} />
     </div>
@@ -228,8 +230,8 @@ export default function ChapterContext({ data }) {
         }
         headline={[
           { value: summary.n_publications, label: 'Publications, ' + summary.year_min + '–' + summary.year_max },
-          { value: peakYear.year, label: `Peak year (${peakYear.count} studies)`, color: '#D94F6E' },
-          { value: `${topCountryShare}%`, label: `of studies from ${fig02_geography.data[0].country}`, color: '#4855C8' },
+          { value: peakYear.year, label: `Peak year (${peakYear.count} studies)`, color: '#31393C' },
+          { value: `${topCountryShare}%`, label: `of studies from ${fig02_geography.data[0].country}`, color: '#005EF5' },
         ]}
       />
 
@@ -283,7 +285,7 @@ export default function ChapterContext({ data }) {
         intro="Lab studies dominate; office-like spaces are the most common spatial typology. Sessions cluster under 3 hours, and almost all testing happens in daytime hours."
       >
         <FigureCard figNumber="6" title="Experimental setting type" commentary="200 of 266 experiments (75%) are run in a lab; Field and Living Lab split the remainder almost evenly (12% each).">
-          <InteractiveBarChart data={typeRollup} total={summary.n_experiments} color="#4855C8" />
+          <InteractiveBarChart data={typeRollup} total={summary.n_experiments} color="#31393C" />
         </FigureCard>
 
         <FigureCard figNumber="5" title="Time of day distribution" plotWidth={620} commentary="Testing peaks at 15:00, when 88% of the 73 sessions with known timing are active. Sessions in blue explicitly report considering circadian timing effects — most don't; testing concentrated in a narrow daytime window is itself a common way labs implicitly control for circadian variation without saying so.">
@@ -303,7 +305,7 @@ export default function ChapterContext({ data }) {
           <InteractiveBarChart
             data={domain_comanipulation.n_domains_distribution.map((d) => ({ label: `${d.n_domains} domain${d.n_domains === 1 ? '' : 's'}`, count: d.count }))}
             total={domain_comanipulation.n_studies}
-            color="#4855C8"
+            color="#31393C"
           />
         </FigureCard>
 
@@ -311,7 +313,7 @@ export default function ChapterContext({ data }) {
           <InteractiveBarChart
             data={Object.entries(domain_comanipulation.domain_totals).map(([label, count]) => ({ label, count })).sort((a, b) => b.count - a.count)}
             total={domain_comanipulation.n_studies}
-            color="#E07820"
+            color="#31393C"
           />
         </FigureCard>
       </ChapterSection>

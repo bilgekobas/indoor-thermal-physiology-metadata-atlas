@@ -5,7 +5,7 @@ import { useTooltip, TooltipPortal, fmtCountPct } from './Tooltip.jsx'
 // relative to the largest bar shown (not to 100%) — `total` is stated
 // directly under the chart so the denominator is visible without hovering,
 // and every bar also shows its raw count at the end of the row.
-export default function InteractiveBarChart({ data, total, color = '#D94F6E', maxBars = null, height = 22, unitLabel = 'studies' }) {
+export default function InteractiveBarChart({ data, total, color = '#31393C', maxBars = null, height = 22, unitLabel = 'studies' }) {
   const { tip, showTip, moveTip, hideTip } = useTooltip()
   const rows = maxBars ? data.slice(0, maxBars) : data
   // Bug fix: use reduce instead of Math.max(...spread) to avoid call-stack limit

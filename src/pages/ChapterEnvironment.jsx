@@ -161,6 +161,7 @@ export default function ChapterEnvironment({ data }) {
       >
         <FigureCard figNumber="13" title="Sensor heights for the core four variables" commentary="537 of 722 reported heights (74%) sit exactly at one of the four ISO 7726 / ASHRAE 55 standard heights (0.1, 0.6, 1.1, 1.7m). The remaining quarter fall in between or at non-standard positions, which is enough divergence that two studies' 'air temperature' readings aren't always describing the same point in the room.">
           <OverallByPeriod
+            minHeight={260}
             renderOverall={() => (
               <SensorHeightChart heightData={fig13_sensor_heights.data} variables={fig13_sensor_heights.variables} />
             )}

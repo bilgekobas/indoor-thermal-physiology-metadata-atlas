@@ -748,37 +748,14 @@ with open(OUT_DIR / 'evo_signal_sensor.json', 'w') as f:
     json.dump({'signals': signal_sensor_evolution, 'periods': [b[2] for b in BINS]}, f, indent=2, default=str)
 print('evo_signal_sensor.json written for', list(signal_sensor_evolution.keys()))
 
-# ── A2. Protocol rigor over time ────────────────────────────────────────
-RIGOR_FIELDS = {
-    'protocol-random': 'Randomisation',
-    'protocol-balancing': 'Balanced order',
-    'protocol-blinded': 'Blinding',
-    'protocol-circadian': 'Circadian control',
-    'protocol-mens-timing': 'Menstrual timing control',
-    'protocol-time-btw-sessions': 'Time between sessions controlled',
-}
-# Clean stray data-entry artifacts (e.g. a lone backtick) by treating anything
-# that isn't Y/N/NR/MNR/NAN/NC as NR — these are not legitimate codes.
-VALID_VALS = CODES | {'Y', 'N'}
-rigor_clean = studies_u[['id', 'period'] + list(RIGOR_FIELDS.keys())].copy()
-for col in RIGOR_FIELDS:
-    rigor_clean[col] = rigor_clean[col].apply(lambda v: v if v in VALID_VALS else ('NR' if v is not None else None))
-
-rigor_evolution = []
-for period in [b[2] for b in BINS]:
-    sub = rigor_clean[rigor_clean['period'] == period]
-    n = len(sub)
-    if n == 0:
-        continue
-    row = {'period': period, 'n_studies': n}
-    for col, label in RIGOR_FIELDS.items():
-        reported_y = (sub[col] == 'Y').sum()
-        row[label] = {'count': int(reported_y), 'pct': round(100 * reported_y / n, 1)}
-    rigor_evolution.append(row)
-
-with open(OUT_DIR / 'evo_protocol_rigor.json', 'w') as f:
-    json.dump({'data': rigor_evolution, 'fields': list(RIGOR_FIELDS.values())}, f, indent=2)
-print('evo_protocol_rigor.json written:', len(rigor_evolution), 'periods')
+# ── A2. (Removed) Protocol rigor over time was previously computed here as
+# a second, independent aggregate (`evo_protocol_rigor`) with its own
+# hand-picked field subset and its own labels — which is exactly how
+# 'Randomisation' and 'Time between sessions' ended up computed twice, with
+# two slightly different percentages, in two visually stacked charts. The
+# "rigor over time" line chart now draws from `protocol_by_period` below
+# instead (see `extra_cols` on that call), so there is exactly one
+# computation of protocol-field percentages by period, used everywhere.
 
 # ── A3. Climate class vs tested temperature range ───────────────────────
 KOPPEN_GROUP = {
@@ -1088,13 +1065,23 @@ with open(OUT_DIR / 'sensor_heights_by_period.json', 'w') as f:
 print(f'sensor_heights_by_period.json: {len(height_rows_with_period)} height observations with period')
 
 # ── B3. Protocol / participant / selection completeness by period ─────────
-def binary_matrix_by_period(prefix, top_n=8):
+def binary_matrix_by_period(prefix, top_n=8, extra_cols=None):
     cols = [c for c in studies_u.columns if c.startswith(prefix)]
     reported = ~studies_u[cols].isin(CODES) & studies_u[cols].notna()
     # restrict to the same top fields already shown in the overall bar chart,
     # so the by-period view is a direct breakdown of the same fields
     overall_pct = reported.mean().sort_values(ascending=False)
     top_cols = overall_pct.head(top_n).index.tolist()
+    # extra_cols: fields that must appear even if they fall outside the
+    # natural top-N by completeness — used so the "has rigor improved"
+    # narrative (which specifically discusses blinding, circadian, and
+    # menstrual timing control) draws from the exact same numbers as the
+    # bar chart and study-by-study matrix, rather than a second, separately
+    # computed field set that can silently drift out of sync with this one.
+    if extra_cols:
+        for c in extra_cols:
+            if c not in top_cols:
+                top_cols.append(c)
     rows = []
     for period in [b[2] for b in BINS]:
         mask = studies_u['period'] == period
@@ -1106,7 +1093,10 @@ def binary_matrix_by_period(prefix, top_n=8):
             rows.append({'period': period, 'field': pretty_name(c, prefix), 'pct': pct, 'count': int(reported.loc[mask, c].sum()), 'n': int(n)})
     return {'data': rows, 'fields': [pretty_name(c, prefix) for c in top_cols], 'periods': [b[2] for b in BINS]}
 
-protocol_by_period = binary_matrix_by_period('protocol-')
+protocol_by_period = binary_matrix_by_period(
+    'protocol-', top_n=8,
+    extra_cols=['protocol-blinded', 'protocol-circadian', 'protocol-mens-timing'],
+)
 with open(OUT_DIR / 'protocol_by_period.json', 'w') as f:
     json.dump(protocol_by_period, f, indent=2)
 print(f'protocol_by_period.json: {len(protocol_by_period["data"])} rows')

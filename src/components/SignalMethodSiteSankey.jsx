@@ -13,11 +13,11 @@ const DOMAIN_ORDER = [
   'SUDOMOTOR / ELECTRODERMAL', 'NEURO-MUSCULAR ELECTROPHYSIOLOGY', 'METABOLIC & BIOCHEMICAL',
 ]
 const DOMAIN_GROUPS = {
-  'PERIPHERAL THERMAL EXCHANGE': { color: '#D94F6E', signals: ['Skin temperature', 'Near body temperature', 'Heat flux', 'Skin blood flow'] },
-  'CARDIOVASCULAR HEAT TRANSPORT': { color: '#4855C8', signals: ['Heart/Pulse rate', 'Blood pressure', 'Oxygen saturation'] },
-  'CENTRAL THERMAL STATE': { color: '#E07820', signals: ['Core/Body temperature', 'Exhaled breath temperature'] },
-  'SUDOMOTOR / ELECTRODERMAL': { color: '#B8C020', signals: ['Sweat indicators', 'Skin conductance'] },
-  'NEURO-MUSCULAR ELECTROPHYSIOLOGY': { color: '#8A8A86', signals: ['EEG', 'EMG', 'EOG', 'Movement', 'Respiration'] },
+  'PERIPHERAL THERMAL EXCHANGE': { color: '#005EF5', signals: ['Skin temperature', 'Near body temperature', 'Heat flux', 'Skin blood flow'] },
+  'CARDIOVASCULAR HEAT TRANSPORT': { color: '#31393C', signals: ['Heart/Pulse rate', 'Blood pressure', 'Oxygen saturation'] },
+  'CENTRAL THERMAL STATE': { color: '#FF5964', signals: ['Core/Body temperature', 'Exhaled breath temperature'] },
+  'SUDOMOTOR / ELECTRODERMAL': { color: '#8A8783', signals: ['Sweat indicators', 'Skin conductance'] },
+  'NEURO-MUSCULAR ELECTROPHYSIOLOGY': { color: '#5C6166', signals: ['EEG', 'EMG', 'EOG', 'Movement', 'Respiration'] },
   'METABOLIC & BIOCHEMICAL': { color: '#BBBBBB', signals: ['Metabolic rate/Gas exchange', 'Biomarkers'] },
 }
 function layoutColumn(entries, { x, gap, pxPerUnit, minH }) {

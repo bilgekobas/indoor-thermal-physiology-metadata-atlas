@@ -1,4 +1,4 @@
-import { useMemo } from 'react'
+import { useMemo, useState } from 'react'
 import { ChapterHeader, ChapterSection } from '../components/Chapter.jsx'
 import CompletenessStrip from '../components/CompletenessStrip.jsx'
 import FigureCard from '../components/FigureCard.jsx'
@@ -8,7 +8,7 @@ import SignalMethodSiteSankey from '../components/SignalMethodSiteSankey.jsx'
 import OverallByPeriod, { PeriodBarGroup } from '../components/OverallByPeriod.jsx'
 import { useTooltip, TooltipPortal } from '../components/Tooltip.jsx'
 
-const SENSOR_PALETTE = ['#D94F6E', '#4855C8', '#E07820', '#B8C020', '#8A8A86', '#C9698A', '#C9C6BC']
+const SENSOR_PALETTE = ['#005EF5', '#31393C', '#FF5964', '#8A8783', '#BBBBBB', '#5C6166', '#C9C6BC']
 
 function SensorStackChart({ signalData, periods }) {
   const { tip, showTip, moveTip, hideTip } = useTooltip()
@@ -58,17 +58,17 @@ function SensorStackChart({ signalData, periods }) {
   )
 }
 
-// ── Sankey (signal -> sensor -> brand) ─────────────────────────────────
+// ── Sankey (signal -> sensor type -> brand) ────────────────────────────
 const DOMAIN_ORDER = [
   'PERIPHERAL THERMAL EXCHANGE', 'CARDIOVASCULAR HEAT TRANSPORT', 'CENTRAL THERMAL STATE',
   'SUDOMOTOR / ELECTRODERMAL', 'NEURO-MUSCULAR ELECTROPHYSIOLOGY', 'METABOLIC & BIOCHEMICAL',
 ]
 const DOMAIN_GROUPS = {
-  'PERIPHERAL THERMAL EXCHANGE': { color: '#D94F6E', signals: ['Skin temperature', 'Near body temperature', 'Heat flux', 'Skin blood flow'] },
-  'CARDIOVASCULAR HEAT TRANSPORT': { color: '#4855C8', signals: ['Heart/Pulse rate', 'Blood pressure', 'Oxygen saturation'] },
-  'CENTRAL THERMAL STATE': { color: '#E07820', signals: ['Core/Body temperature', 'Exhaled breath temperature'] },
-  'SUDOMOTOR / ELECTRODERMAL': { color: '#B8C020', signals: ['Sweat indicators', 'Skin conductance'] },
-  'NEURO-MUSCULAR ELECTROPHYSIOLOGY': { color: '#8A8A86', signals: ['EEG', 'EMG', 'EOG', 'Movement', 'Respiration'] },
+  'PERIPHERAL THERMAL EXCHANGE': { color: '#005EF5', signals: ['Skin temperature', 'Near body temperature', 'Heat flux', 'Skin blood flow'] },
+  'CARDIOVASCULAR HEAT TRANSPORT': { color: '#31393C', signals: ['Heart/Pulse rate', 'Blood pressure', 'Oxygen saturation'] },
+  'CENTRAL THERMAL STATE': { color: '#FF5964', signals: ['Core/Body temperature', 'Exhaled breath temperature'] },
+  'SUDOMOTOR / ELECTRODERMAL': { color: '#8A8783', signals: ['Sweat indicators', 'Skin conductance'] },
+  'NEURO-MUSCULAR ELECTROPHYSIOLOGY': { color: '#5C6166', signals: ['EEG', 'EMG', 'EOG', 'Movement', 'Respiration'] },
   'METABOLIC & BIOCHEMICAL': { color: '#BBBBBB', signals: ['Metabolic rate/Gas exchange', 'Biomarkers'] },
 }
 function layoutColumn(entries, { x, gap, pxPerUnit, minH }) {
@@ -81,8 +81,17 @@ function layoutColumn(entries, { x, gap, pxPerUnit, minH }) {
   })
   return { nodes, totalHeight: y - gap }
 }
-function SignalSensorBrandSankey({ overall, brandPairs }) {
+
+function SignalSensorBrandSankey({ overall, brandModelData }) {
   const { tip, showTip, moveTip, hideTip } = useTooltip()
+  // Selection state for click-to-highlight: null = nothing selected (show
+  // everything at normal opacity). Otherwise { level: 'signal'|'sensor', name }.
+  const [selected, setSelected] = useState(null)
+  // Which signals have had their brand list expanded past the top-3 +
+  // "Other brands" default — a signal name in this set shows every brand
+  // individually instead of collapsing the tail into one node.
+  const [expandedSignals, setExpandedSignals] = useState(new Set())
+
   const layout = useMemo(() => {
     const sigTotals = {}
     overall.forEach((r) => { sigTotals[r.signal] = (sigTotals[r.signal] || 0) + r.count })
@@ -93,6 +102,7 @@ function SignalSensorBrandSankey({ overall, brandPairs }) {
       group.signals.filter((s) => activeSignalNames.includes(s)).sort((a, b) => sigTotals[b] - sigTotals[a])
         .forEach((s) => signalEntries.push({ name: s, total: sigTotals[s], color: group.color, domain }))
     })
+
     const sensorTotals = {}
     overall.forEach((r) => { if (sigTotals[r.signal] >= 5) sensorTotals[r['physio-sensing-method']] = (sensorTotals[r['physio-sensing-method']] || 0) + r.count })
     const sensorDomain = {}
@@ -112,81 +122,130 @@ function SignalSensorBrandSankey({ overall, brandPairs }) {
       return da !== db ? da - db : b.total - a.total
     })
     const activeSensorNames = sensorEntries.map((s) => s.name)
-    const brandTotalsAll = {}
-    brandPairs.forEach((r) => { if (activeSensorNames.includes(r['physio-sensing-method'])) brandTotalsAll[r['physio-sensor-brand']] = (brandTotalsAll[r['physio-sensor-brand']] || 0) + r.count })
-    const brandTotals = Object.fromEntries(Object.entries(brandTotalsAll).filter(([, v]) => v >= 2))
-    const nSingleStudyBrands = Object.keys(brandTotalsAll).length - Object.keys(brandTotals).length
-    const sensorOfBrand = {}
-    brandPairs.forEach((r) => {
-      if (!activeSensorNames.includes(r['physio-sensing-method'])) return
-      const b = r['physio-sensor-brand']
-      if (!sensorOfBrand[b]) sensorOfBrand[b] = {}
-      sensorOfBrand[b][r['physio-sensing-method']] = (sensorOfBrand[b][r['physio-sensing-method']] || 0) + r.count
+
+    // Brand totals are derived directly from brand_model_reference (signal +
+    // brand pairs from the raw rows), NOT by joining sensor-type totals to
+    // brand-per-sensor-type totals — that two-step join double-counts a
+    // brand whenever it's used for more than one signal via the same
+    // sensing method (e.g. OMRON makes both a blood-pressure cuff and an
+    // infrared thermometer, both "the OMRON device" but for different
+    // signals — joining through sensing method alone attributed its full
+    // count to every signal sharing that method).
+    const brandsBySignal = {}
+    brandModelData.forEach((r) => {
+      if (r.brand === 'NR' || !activeSensorNames.includes(r.sensing_method)) return
+      if (!brandsBySignal[r.signal]) brandsBySignal[r.signal] = {}
+      brandsBySignal[r.signal][r.brand] = (brandsBySignal[r.signal][r.brand] || 0) + r.count
     })
-    const sensorOrderIndex = {}
-    sensorEntries.forEach((s, i) => { sensorOrderIndex[s.name] = i })
-    const brandEntries = Object.entries(brandTotals).map(([name, total]) => {
-      const sensors = sensorOfBrand[name] || {}
-      const primarySensor = Object.entries(sensors).sort((a, b) => b[1] - a[1])[0]?.[0]
-      return { name, total, primarySensor }
-    }).sort((a, b) => {
-      const ia = sensorOrderIndex[a.primarySensor] ?? 999, ib = sensorOrderIndex[b.primarySensor] ?? 999
-      return ia !== ib ? ia - ib : b.total - a.total
+
+    // Per-signal top-3 + "Other brands (N)" collapsing, unless that signal
+    // has been expanded by the user.
+    const brandEntries = []
+    const brandLinksRaw = [] // { signal, brand, count } — built alongside brandEntries
+    signalEntries.forEach((sig) => {
+      const brands = brandsBySignal[sig.name] || {}
+      const sorted = Object.entries(brands).sort((a, b) => b[1] - a[1])
+      const isExpanded = expandedSignals.has(sig.name)
+      const shown = isExpanded ? sorted : sorted.slice(0, 3)
+      const rest = isExpanded ? [] : sorted.slice(3)
+      const restTotal = rest.reduce((a, [, v]) => a + v, 0)
+      shown.forEach(([name, count]) => {
+        const key = `${sig.name}::${name}`
+        brandEntries.push({ key, name, total: count, signal: sig.name, isOther: false })
+        brandLinksRaw.push({ signal: sig.name, brandKey: key, count })
+      })
+      if (restTotal > 0) {
+        const key = `${sig.name}::__other__`
+        brandEntries.push({ key, name: `Other brands (${rest.length})`, total: restTotal, signal: sig.name, isOther: true })
+        brandLinksRaw.push({ signal: sig.name, brandKey: key, count: restTotal })
+      }
     })
-    const COL_SIGNAL = 230, COL_SENSOR = 560, COL_BRAND = 860
+
+    const COL_SIGNAL = 230, COL_SENSOR = 560, COL_BRAND = 900
     const sigLayout = layoutColumn(signalEntries, { x: COL_SIGNAL, gap: 6, pxPerUnit: 0.62, minH: 8 })
     const senLayout = layoutColumn(sensorEntries, { x: COL_SENSOR, gap: 5, pxPerUnit: 0.62, minH: 7 })
-    const brandLayout = layoutColumn(brandEntries, { x: COL_BRAND, gap: 5, pxPerUnit: 0.62, minH: 7 })
-    const H = Math.max(sigLayout.totalHeight, senLayout.totalHeight, brandLayout.totalHeight) + 40
-    const domainLayout = []
-    DOMAIN_ORDER.forEach((domain) => {
-      const sigsInDomain = sigLayout.nodes.filter((n) => n.domain === domain)
-      if (sigsInDomain.length === 0) return
-      const top = sigsInDomain[0].y
-      const bottom = sigsInDomain[sigsInDomain.length - 1].y + sigsInDomain[sigsInDomain.length - 1].h
-      domainLayout.push({ name: domain, color: DOMAIN_GROUPS[domain].color, y: top, h: bottom - top })
+    // Brand column is grouped by signal (matching the per-signal grouping
+    // above) but still laid out as one continuous stacked column, ordered
+    // to match signal order so a signal's brands cluster near its row.
+    const brandBySignalOrder = []
+    signalEntries.forEach((sig) => {
+      brandEntries.filter((b) => b.signal === sig.name).forEach((b) => brandBySignalOrder.push(b))
     })
+    const brandLayout = layoutColumn(brandBySignalOrder, { x: COL_BRAND, gap: 4, pxPerUnit: 0.62, minH: 7 })
+
+    const H = Math.max(sigLayout.totalHeight, senLayout.totalHeight, brandLayout.totalHeight) + 40
+
     const sigSenLinks = []
     overall.forEach((r) => {
       const sig = sigLayout.nodes.find((n) => n.name === r.signal)
       const sen = senLayout.nodes.find((n) => n.name === r['physio-sensing-method'])
       if (!sig || !sen) return
-      sigSenLinks.push({ from: sig, to: sen, count: r.count, label: `${r.signal} → ${r['physio-sensing-method']}` })
+      sigSenLinks.push({ from: sig, to: sen, count: r.count, label: `${r.signal} → ${r['physio-sensing-method']}`, signal: r.signal, sensor: r['physio-sensing-method'] })
     })
-    const senBrandLinks = []
-    brandPairs.forEach((r) => {
-      const sen = senLayout.nodes.find((n) => n.name === r['physio-sensing-method'])
-      const brand = brandLayout.nodes.find((n) => n.name === r['physio-sensor-brand'])
-      if (!sen || !brand) return
-      senBrandLinks.push({ from: sen, to: brand, count: r.count, label: `${r['physio-sensing-method']} → ${r['physio-sensor-brand']}` })
+    // Sensor -> brand link is approximated visually by routing from the
+    // signal's own sensor node mix to its brand nodes is not exact (a
+    // signal can have multiple sensor types), so this second-stage flow
+    // is drawn signal -> brand directly, same as the data really supports,
+    // rather than implying a sensor-type -> brand relationship the data
+    // doesn't actually establish cleanly.
+    const sigBrandLinks = []
+    brandLinksRaw.forEach((r) => {
+      const sig = sigLayout.nodes.find((n) => n.name === r.signal)
+      const brand = brandLayout.nodes.find((n) => n.key === r.brandKey)
+      if (!sig || !brand) return
+      const brandLabel = brand.isOther ? brand.name : brand.name
+      sigBrandLinks.push({ from: sig, to: brand, count: r.count, label: `${r.signal} → ${brandLabel}`, signal: r.signal, brandKey: r.brandKey })
     })
+
     return {
-      domain: domainLayout, signal: sigLayout.nodes, sensor: senLayout.nodes, brand: brandLayout.nodes,
-      sigSenLinks, senBrandLinks, W: COL_BRAND + 220, H,
-      maxFlow: Math.max(...overall.map((r) => r.count), 1), nSingleStudyBrands,
+      signal: sigLayout.nodes, sensor: senLayout.nodes, brand: brandLayout.nodes,
+      sigSenLinks, sigBrandLinks, W: COL_BRAND + 260, H,
+      maxFlow: Math.max(...overall.map((r) => r.count), 1),
+      nTotalBrands: new Set(brandModelData.filter((r) => r.brand !== 'NR').map((r) => r.brand)).size,
     }
-  }, [overall, brandPairs])
+  }, [overall, brandModelData, expandedSignals])
+
+  // Is a given link/node "active" under the current selection? Returns
+  // true if nothing is selected (show everything normally) or if the
+  // link/node touches the selected signal/sensor.
+  const isActive = (linkOrNode) => {
+    if (!selected) return true
+    if (selected.level === 'signal') return linkOrNode.signal === selected.name
+    if (selected.level === 'sensor') return linkOrNode.sensor === selected.name || (linkOrNode.name === selected.name)
+    return true
+  }
 
   function FlowPath({ link, color, maxFlow }) {
     const strokeW = Math.max(0.6, (link.count / maxFlow) * 22)
     const x1 = link.from.x + 14, y1 = link.from.y + link.from.h / 2
     const x2 = link.to.x, y2 = link.to.y + link.to.h / 2
     const mx = (x1 + x2) / 2
+    const active = isActive(link)
     return (
-      <path d={`M ${x1} ${y1} C ${mx} ${y1}, ${mx} ${y2}, ${x2} ${y2}`} fill="none" stroke={color} strokeWidth={strokeW} opacity={0.26}
-        className="cursor-default hover:opacity-70 transition-opacity"
+      <path d={`M ${x1} ${y1} C ${mx} ${y1}, ${mx} ${y2}, ${x2} ${y2}`} fill="none" stroke={color}
+        strokeWidth={strokeW} opacity={active ? 0.32 : 0.06}
+        className="cursor-default transition-opacity duration-150"
         onMouseEnter={(e) => showTip(e, `${link.label}: ${link.count} studies`)} onMouseMove={moveTip} onMouseLeave={hideTip} />
     )
   }
 
   return (
     <div>
-      <p className="text-[12.5px] text-inkmid mb-4">
-        Flow width is proportional to study count (widest flow = {layout.maxFlow} studies); node bar length is also
-        proportional to that node's total, printed next to each signal node. No "Other" bucket for signals or
-        sensor types. Brands used in only one study ({layout.nSingleStudyBrands} of them) are omitted from the
-        third column to keep it readable.
+      <p className="text-[12.5px] text-inkmid mb-2">
+        Flow width and node bar length are both proportional to study count (widest flow ={' '}
+        {layout.maxFlow} studies). No "Other" bucket for signals or sensor types. For brands,
+        each signal shows its top 3 by default ({layout.nTotalBrands} distinct brands exist in
+        total) — click "Other brands" under a signal to expand the full list, or click any
+        signal or sensor node to trace its paths.
       </p>
+      {selected && (
+        <button
+          onClick={() => setSelected(null)}
+          className="mb-3 px-2.5 py-1 rounded text-[11px] font-data bg-line/60 text-inkmid hover:bg-line"
+        >
+          ✕ clear selection ({selected.name})
+        </button>
+      )}
       <div className="flex flex-wrap gap-3 mb-4">
         {DOMAIN_ORDER.map((name) => (
           <div key={name} className="flex items-center gap-1.5 text-[11px] text-inkmid">
@@ -196,37 +255,78 @@ function SignalSensorBrandSankey({ overall, brandPairs }) {
         ))}
       </div>
       <div className="overflow-x-auto">
-        <svg width={layout.W} height={layout.H} className="font-data block">
-          {layout.domain.map((d) => (<rect key={d.name} x={0} y={d.y} width={6} height={Math.max(d.h, 4)} fill={d.color} rx={1.5} />))}
-          {layout.sigSenLinks.map((l, i) => (<FlowPath key={`ss-${i}`} link={l} color={l.from.color} maxFlow={layout.maxFlow} />))}
-          {layout.senBrandLinks.map((l, i) => (<FlowPath key={`sb-${i}`} link={l} color="#A8A59C" maxFlow={layout.maxFlow} />))}
-          {layout.signal.map((n) => (
-            <g key={n.name} onMouseEnter={(e) => showTip(e, `${n.name}: ${n.total} studies`)} onMouseMove={moveTip} onMouseLeave={hideTip} className="cursor-default">
-              <rect x={n.x} y={n.y} width={14} height={n.h} fill={n.color} rx={2} />
-              <text x={n.x + 18} y={n.y + n.h / 2 + 3.5} fontSize={10.5} fill="#1A1A18">{n.name}, {n.total}</text>
-            </g>
-          ))}
-          {layout.sensor.map((n) => (
-            <g key={n.name} onMouseEnter={(e) => showTip(e, `${n.name}: ${n.total} studies`)} onMouseMove={moveTip} onMouseLeave={hideTip} className="cursor-default">
-              <rect x={n.x} y={n.y} width={14} height={n.h} fill="#5F5E58" rx={2} />
-              <text x={n.x + 18} y={n.y + n.h / 2 + 3.5} fontSize={10} fill="#1A1A18">{n.name}</text>
-            </g>
-          ))}
-          {layout.brand.map((n) => (
-            <g key={n.name} onMouseEnter={(e) => showTip(e, `${n.name}: ${n.total} studies`)} onMouseMove={moveTip} onMouseLeave={hideTip} className="cursor-default">
-              <rect x={n.x} y={n.y} width={14} height={n.h} fill="#A8A59C" rx={2} />
-              <text x={n.x + 18} y={n.y + n.h / 2 + 3.5} fontSize={10} fill="#1A1A18">{n.name}</text>
-            </g>
-          ))}
-          <text x={230} y={12} fontSize={10} fill="#A8A59C" fontWeight="600">SIGNAL</text>
-          <text x={560} y={12} fontSize={10} fill="#A8A59C" fontWeight="600">SENSOR TYPE</text>
-          <text x={860} y={12} fontSize={10} fill="#A8A59C" fontWeight="600">SENSOR BRAND</text>
+        <svg width={layout.W} height={layout.H + 24} className="font-data block">
+          {/* Column headers, given their own row above the chart so they
+              never overlap the topmost node regardless of column height. */}
+          <text x={230} y={14} fontSize={10} fill="#8A8783" fontWeight="600">SIGNAL</text>
+          <text x={560} y={14} fontSize={10} fill="#8A8783" fontWeight="600">SENSOR TYPE</text>
+          <text x={900} y={14} fontSize={10} fill="#8A8783" fontWeight="600">SENSOR BRAND (top 3 per signal)</text>
+          <g transform="translate(0, 24)">
+            {layout.sigSenLinks.map((l, i) => (<FlowPath key={`ss-${i}`} link={l} color={l.from.color} maxFlow={layout.maxFlow} />))}
+            {layout.sigBrandLinks.map((l, i) => (<FlowPath key={`sb-${i}`} link={l} color="#8A8783" maxFlow={layout.maxFlow} />))}
+            {layout.signal.map((n) => {
+              const active = isActive({ signal: n.name })
+              return (
+                <g key={n.name}
+                  onClick={() => setSelected(selected?.name === n.name ? null : { level: 'signal', name: n.name })}
+                  onMouseEnter={(e) => showTip(e, `${n.name}: ${n.total} studies — click to highlight`)} onMouseMove={moveTip} onMouseLeave={hideTip}
+                  className="cursor-pointer" style={{ opacity: active ? 1 : 0.25 }}>
+                  <rect x={n.x} y={n.y} width={14} height={n.h} fill={n.color} rx={2} />
+                  <text x={n.x + 18} y={n.y + n.h / 2 + 3.5} fontSize={10.5} fill="#31393C">{n.name}, {n.total}</text>
+                </g>
+              )
+            })}
+            {layout.sensor.map((n) => {
+              const active = isActive({ sensor: n.name })
+              return (
+                <g key={n.name}
+                  onClick={() => setSelected(selected?.name === n.name ? null : { level: 'sensor', name: n.name })}
+                  onMouseEnter={(e) => showTip(e, `${n.name}: ${n.total} studies — click to highlight`)} onMouseMove={moveTip} onMouseLeave={hideTip}
+                  className="cursor-pointer" style={{ opacity: active ? 1 : 0.25 }}>
+                  <rect x={n.x} y={n.y} width={14} height={n.h} fill="#5C6166" rx={2} />
+                  <text x={n.x + 18} y={n.y + n.h / 2 + 3.5} fontSize={10} fill="#31393C">{n.name}, {n.total}</text>
+                </g>
+              )
+            })}
+            {layout.brand.map((n) => {
+              const active = isActive({ signal: n.signal })
+              const sigTotal = layout.signal.find((s) => s.name === n.signal)?.total || n.total
+              const pct = ((n.total / sigTotal) * 100).toFixed(0)
+              return (
+                <g key={n.key}
+                  onClick={() => {
+                    if (n.isOther) {
+                      setExpandedSignals((prev) => new Set(prev).add(n.signal))
+                    }
+                  }}
+                  onMouseEnter={(e) => showTip(e, n.isOther
+                    ? `${n.name} for ${n.signal}: ${n.total} studies (${pct}%) — click to expand`
+                    : `${n.name}: ${n.total} studies (${pct}% of ${n.signal})`)}
+                  onMouseMove={moveTip} onMouseLeave={hideTip}
+                  className={n.isOther ? 'cursor-pointer' : 'cursor-default'} style={{ opacity: active ? 1 : 0.25 }}>
+                  <rect x={n.x} y={n.y} width={14} height={n.h} fill={n.isOther ? '#C9C6BC' : '#A8A59C'} rx={2} />
+                  <text x={n.x + 18} y={n.y + n.h / 2 + 3.5} fontSize={10} fill="#31393C" fontStyle={n.isOther ? 'italic' : 'normal'}>
+                    {n.name}, {n.total} ({pct}%)
+                  </text>
+                </g>
+              )
+            })}
+          </g>
         </svg>
       </div>
+      {expandedSignals.size > 0 && (
+        <button
+          onClick={() => setExpandedSignals(new Set())}
+          className="mt-2 px-2.5 py-1 rounded text-[11px] font-data bg-line/60 text-inkmid hover:bg-line"
+        >
+          Collapse expanded brand lists
+        </button>
+      )}
       <TooltipPortal tip={tip} />
     </div>
   )
 }
+
 
 const FORMULA_COLORS = {
   'Ramanathan (1964)': '#4B1528', 'Hardy & DuBois (1938)': '#D94F6E', 'ISO 9886: 2004': '#E07820',
@@ -388,9 +488,10 @@ export default function ChapterBody({ data }) {
       >
         <FigureCard figNumber="17" title="Most frequently measured signals" commentary="Skin temperature dominates at 218 of 269 experiments (81%) — more than triple the next most common signal, heart/pulse rate at 135 (50%). After that the field thins out fast: core/body temperature and blood pressure each appear in well under a fifth of experiments. Toggle to see how individual signal frequencies have shifted across the decade.">
           <OverallByPeriod
+            minHeight={620}
             earliestPeriodCaveat="2013–14 and 2015–16 have few studies (11 and 15); read early-period percentages cautiously."
             renderOverall={() => (
-              <InteractiveBarChart data={fig17_physio_params.data.map((d) => ({ label: d.parameter, count: d.count }))} total={summary.n_experiments} color="#D94F6E" maxBars={12} />
+              <InteractiveBarChart data={fig17_physio_params.data.map((d) => ({ label: d.parameter, count: d.count }))} total={summary.n_experiments} color="#005EF5" maxBars={12} />
             )}
             renderByPeriod={() => {
               const topSignalNames = fig17_physio_params.data.slice(0, 6).map((d) => d.parameter)
@@ -405,7 +506,7 @@ export default function ChapterBody({ data }) {
                         periodN={signal_freq_by_period.period_n}
                         getValue={(p) => signal_freq_by_period.data.find((r) => r.signal === sig && r.period === p)?.count || 0}
                         getTooltip={(p, v) => `${sig}, ${p}: ${v} of ${signal_freq_by_period.period_n[p]} studies · ${signal_freq_by_period.period_n[p] ? ((v / signal_freq_by_period.period_n[p]) * 100).toFixed(1) : 0}%`}
-                        color="#D94F6E"
+                        color="#31393C"
                         height={70}
                         yUnit=" studies"
                       />
@@ -426,8 +527,8 @@ export default function ChapterBody({ data }) {
         title="Signals, sensor types, and brands"
         intro="The same signal can be captured by very different instruments. This flow covers 15 signals measured in ≥5 studies, 53 distinct sensor types used across them, and every commercial brand behind those sensors — ordered by thermophysiological mechanism."
       >
-        <FigureCard figNumber="19" title="Signal → sensor type → brand" plotWidth={1100} commentary="iButton is the single most-cited sensor brand (64 studies), almost all of it for skin temperature via the Thermochron sensor type. Flow thickness is proportional to study count — hover any node or flow for the exact number.">
-          <SignalSensorBrandSankey overall={physio_signal_sensor.overall} brandPairs={data.sensor_type_brand.data} />
+        <FigureCard figNumber="19" title="Signal → sensor type → brand" plotWidth={1100} commentary="OMRON is the most-cited brand overall (65 studies), but spread across signals — it makes combination devices covering blood pressure (30), heart rate (20), and core temperature (12). iButton (49 studies) is the opposite pattern: concentrated almost entirely in one signal, skin temperature (44 of its 49). Flow and node thickness are proportional to study count — hover for the exact number, or click a signal/sensor to trace its paths.">
+          <SignalSensorBrandSankey overall={physio_signal_sensor.overall} brandModelData={data.brand_model_reference.data} />
         </FigureCard>
 
         <FigureCard title="Signal → sensing method → body site" plotWidth={1100} commentary="A different cut of the same question, with brand removed: which measurement mechanism (ECG vs. optical PPG, thermocouple vs. infrared) is used at which body site. This matters for agreeability — two devices from the same brand can differ in validation tier, but ECG-vs-PPG or thermocouple-vs-infrared are real mechanistic differences that change what the signal actually represents.">
@@ -470,7 +571,7 @@ export default function ChapterBody({ data }) {
                       return (
                         <td key={p} className="p-0.5">
                           <div className="w-14 h-9 rounded-[3px] flex items-center justify-center font-data text-[11px] cursor-default"
-                            style={{ background: pct === 0 ? '#F1EDE6' : `rgba(217, 79, 110, ${0.12 + intensity * 0.78})`, color: intensity > 0.55 ? 'white' : '#1A1A18' }}
+                            style={{ background: pct === 0 ? '#F1EDE6' : `rgba(0, 94, 245, ${0.10 + intensity * 0.80})`, color: intensity > 0.55 ? 'white' : '#31393C' }}
                             title={`${s.site}, ${p}: ${n || 0} of ${periodN[p] || 0} (${pct}%)`}>
                             {pct > 0 ? `${pct}%` : '–'}
                           </div>
@@ -491,12 +592,13 @@ export default function ChapterBody({ data }) {
       >
         <FigureCard title="Heart/pulse rate measurement site" plotWidth={680} commentary="Chest (44 of 99 studies) and wrist (25) are the two dominant sites — roughly, ECG-strap vs. optical-wearable territory. Toggle to see wrist catch up to chest over the decade.">
           <OverallByPeriod
+            minHeight={420}
             earliestPeriodCaveat="2013–14 (n=1) and 2015–16 (n=3) are too thin to read literally; the wrist/chest convergence is clearest from 2017 onward."
             renderOverall={() => (
               <InteractiveBarChart
                 data={site_by_signal['Heart/Pulse rate'].site_totals.map((d) => ({ label: d.site, count: d.count }))}
                 total={site_by_signal['Heart/Pulse rate'].n_studies_with_site}
-                color="#4855C8"
+                color="#31393C"
               />
             )}
             renderByPeriod={() => {
@@ -512,7 +614,7 @@ export default function ChapterBody({ data }) {
                         periodN={hr.period_n}
                         getValue={(p) => hr.data.find((r) => r.site === site && r.period === p)?.count || 0}
                         getTooltip={(p, v) => `${site}, ${p}: ${v} of ${hr.period_n[p] || 0} heart-rate studies · ${hr.period_n[p] ? ((v / hr.period_n[p]) * 100).toFixed(0) : 0}%`}
-                        color="#4855C8"
+                        color="#31393C"
                         height={64}
                         yUnit=" studies"
                       />
@@ -528,7 +630,7 @@ export default function ChapterBody({ data }) {
           <InteractiveBarChart
             data={site_by_signal['Skin conductance'].site_totals.map((d) => ({ label: d.site, count: d.count }))}
             total={site_by_signal['Skin conductance'].n_studies_with_site}
-            color="#B8C020"
+            color="#31393C"
           />
         </FigureCard>
 
@@ -536,7 +638,7 @@ export default function ChapterBody({ data }) {
           <InteractiveBarChart
             data={site_by_signal['Sweat indicators'].site_totals.map((d) => ({ label: d.site, count: d.count }))}
             total={site_by_signal['Sweat indicators'].n_studies_with_site}
-            color="#E07820"
+            color="#31393C"
           />
         </FigureCard>
       </ChapterSection>

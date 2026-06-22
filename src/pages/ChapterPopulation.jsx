@@ -181,8 +181,9 @@ export default function ChapterPopulation({ data }) {
       >
         <FigureCard figNumber="22" title="Inclusion / exclusion criteria" plotWidth={900} commentary="Each column on the right is one study. Most studies report at most one or two explicit criteria beyond general health.">
           <OverallByPeriod
+            minHeight={460}
             renderOverall={() => (
-              <BinaryPresenceFigure bar={fig22_selection_criteria.bar} matrix={fig22_selection_criteria.matrix} fields={fig22_selection_criteria.fields} nStudies={fig22_selection_criteria.n_studies} barColor="#E07820" />
+              <BinaryPresenceFigure bar={fig22_selection_criteria.bar} matrix={fig22_selection_criteria.matrix} fields={fig22_selection_criteria.fields} nStudies={fig22_selection_criteria.n_studies} barColor="#31393C" />
             )}
             renderByPeriod={() => (
               <PercentLinesByPeriod periodData={selection_by_period.data} fields={selection_by_period.fields} periods={selection_by_period.periods} />
@@ -197,8 +198,9 @@ export default function ChapterPopulation({ data }) {
       >
         <FigureCard figNumber="21" title="Participant metadata collected" plotWidth={900} commentary={null}>
           <OverallByPeriod
+            minHeight={430}
             renderOverall={() => (
-              <BinaryPresenceFigure bar={fig21_participant_metadata.bar} matrix={fig21_participant_metadata.matrix} fields={fig21_participant_metadata.fields} nStudies={fig21_participant_metadata.n_studies} barColor="#4855C8" />
+              <BinaryPresenceFigure bar={fig21_participant_metadata.bar} matrix={fig21_participant_metadata.matrix} fields={fig21_participant_metadata.fields} nStudies={fig21_participant_metadata.n_studies} barColor="#31393C" />
             )}
             renderByPeriod={() => (
               <PercentLinesByPeriod periodData={participant_by_period.data} fields={participant_by_period.fields} periods={participant_by_period.periods} />

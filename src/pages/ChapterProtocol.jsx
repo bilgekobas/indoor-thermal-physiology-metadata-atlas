@@ -6,13 +6,23 @@ import InteractiveBarChart from '../components/InteractiveBarChart.jsx'
 import OverallByPeriod, { PercentLinesByPeriod } from '../components/OverallByPeriod.jsx'
 import { useTooltip, TooltipPortal } from '../components/Tooltip.jsx'
 
+// The "rigor over time" narrative focuses on these six fields specifically
+// (out of protocol_by_period's full set) — picked for the line chart
+// because they're the ones a methods reviewer would ask about first
+// (blinding, randomisation, balance, timing controls), not because they're
+// computed any differently from the rest. All six are guaranteed present
+// in protocol_by_period via its extra_cols argument (see build_data.py),
+// so this chart and the Fig. 20 bar/matrix below are reading the exact same
+// numbers — there used to be a second, independently computed field set
+// here that quietly drifted out of sync with Fig. 20; that's gone now.
+const RIGOR_FIELDS = ['Randomisation', 'Balanced session order', 'Blinding', 'Circadian control', 'Menstrual timing control', 'Time between sessions']
 const RIGOR_COLORS = {
-  'Randomisation': '#D94F6E', 'Balanced order': '#4855C8', 'Blinding': '#E07820',
-  'Circadian control': '#B8C020', 'Menstrual timing control': '#8A8A86', 'Time between sessions controlled': '#C9698A',
+  'Randomisation': '#005EF5', 'Balanced session order': '#31393C', 'Blinding': '#FF5964',
+  'Circadian control': '#8A8783', 'Menstrual timing control': '#5C6166', 'Time between sessions': '#BBBBBB',
 }
-function RigorLines({ rigorData, fields }) {
+
+function RigorLines({ periodData, fields, periods }) {
   const { tip, showTip, moveTip, hideTip } = useTooltip()
-  const periods = rigorData.map((d) => d.period)
   const W = 600, H = 170
   const xStep = W / (periods.length - 1)
   const yScale = (pct) => H - (pct / 100) * H
@@ -22,12 +32,15 @@ function RigorLines({ rigorData, fields }) {
       <svg width={W + 20} height={H + 24} className="font-data overflow-visible">
         {[0, 25, 50, 75, 100].map((g) => (
           <g key={g}>
-            <line x1={0} x2={W} y1={yScale(g)} y2={yScale(g)} stroke="#E2DED4" strokeWidth={1} />
-            <text x={W + 4} y={yScale(g) + 3} fontSize={9} fill="#A8A59C">{g}%</text>
+            <line x1={0} x2={W} y1={yScale(g)} y2={yScale(g)} stroke="#E4DFDA" strokeWidth={1} />
+            <text x={W + 4} y={yScale(g) + 3} fontSize={9} fill="#8A8783">{g}%</text>
           </g>
         ))}
         {fields.map((field) => {
-          const points = rigorData.map((d, i) => ({ x: i * xStep, y: yScale(d[field].pct), pct: d[field].pct, count: d[field].count, n: d.n_studies }))
+          const points = periods.map((p, i) => {
+            const r = periodData.find((d) => d.period === p && d.field === field)
+            return { x: i * xStep, y: yScale(r?.pct || 0), pct: r?.pct || 0, count: r?.count || 0, n: r?.n || 0 }
+          })
           return (
             <g key={field}>
               <polyline points={points.map((p) => `${p.x},${p.y}`).join(' ')} fill="none" stroke={RIGOR_COLORS[field]} strokeWidth={1.8} />
@@ -39,7 +52,7 @@ function RigorLines({ rigorData, fields }) {
             </g>
           )
         })}
-        {periods.map((p, i) => (<text key={p} x={i * xStep} y={H + 16} fontSize={10} fill="#A8A59C" textAnchor="middle">{p}</text>))}
+        {periods.map((p, i) => (<text key={p} x={i * xStep} y={H + 16} fontSize={10} fill="#8A8783" textAnchor="middle">{p}</text>))}
       </svg>
       <div className="flex flex-wrap gap-x-4 gap-y-1 mt-2">
         {fields.map((f) => (
@@ -55,26 +68,29 @@ function RigorLines({ rigorData, fields }) {
 
 // Overall summary bar for the same 6 rigor fields shown by-period below —
 // gives a single-glance baseline before toggling to see the trend.
-function RigorOverallBar({ rigorData, fields }) {
+function RigorOverallBar({ periodData, fields }) {
   const totals = fields.map((f) => {
-    const sumCount = rigorData.reduce((a, d) => a + d[f].count, 0)
-    const sumN = rigorData.reduce((a, d) => a + d.n_studies, 0)
+    const rows = periodData.filter((d) => d.field === f)
+    const sumCount = rows.reduce((a, d) => a + d.count, 0)
+    const sumN = rows.reduce((a, d) => a + d.n, 0)
     return { label: f, count: sumCount, n: sumN }
   })
   return (
     <InteractiveBarChart
       data={totals.map((t) => ({ label: t.label, count: t.count }))}
       total={totals[0]?.n || 1}
-      color="#1A1A18"
+      color="#31393C"
     />
   )
 }
 
 export default function ChapterProtocol({ data }) {
-  const { evo_protocol_rigor, fig20_protocol, protocol_by_period, chapter_completeness } = data
-  const firstPeriod = evo_protocol_rigor.data[0]
-  const lastPeriod = evo_protocol_rigor.data[evo_protocol_rigor.data.length - 1]
-  const randoChange = lastPeriod['Randomisation'].pct - firstPeriod['Randomisation'].pct
+  const { fig20_protocol, protocol_by_period, chapter_completeness } = data
+  const periods = protocol_by_period.periods
+  const randoRows = protocol_by_period.data.filter((d) => d.field === 'Randomisation')
+  const firstPct = randoRows.find((d) => d.period === periods[0])?.pct ?? 0
+  const lastPct = randoRows.find((d) => d.period === periods[periods.length - 1])?.pct ?? 0
+  const randoChange = lastPct - firstPct
 
   return (
     <div>
@@ -96,8 +112,12 @@ export default function ChapterProtocol({ data }) {
           </>
         }
         headline={[
-          { value: '77.4%', label: 'fix clothing insulation', color: '#1A1A18' },
-          { value: `${randoChange >= 0 ? '+' : ''}${randoChange.toFixed(0)}pt`, label: `change in randomisation, ${firstPeriod.period}→${lastPeriod.period}`, color: '#D94F6E' },
+          { value: '77.4%', label: 'fix clothing insulation', color: '#31393C' },
+          {
+            value: `${randoChange >= 0 ? '+' : ''}${randoChange.toFixed(0)} pct. pts`,
+            label: `change in randomisation rate, ${periods[0]}→${periods[periods.length - 1]}`,
+            color: '#005EF5',
+          },
         ]}
       />
 
@@ -105,28 +125,30 @@ export default function ChapterProtocol({ data }) {
 
       <ChapterSection
         title="Has rigor improved as the field has grown?"
-        intro="Blinding rose from 0% of studies in 2013–14 to 29% in 2023–24 — a real gain. Randomisation barely moved (36% to 44%, on small early-period samples), and circadian control still sits under 40% even in the most recent period. Rigor has improved unevenly, not uniformly, as the field has grown."
+        intro="Blinding rose from 0% of studies in 2013–14 to 29% in 2023–24 — a real gain. Randomisation barely moved (an increase of 7 percentage points, on small early-period samples), and circadian control still sits under 40% even in the most recent period. Rigor has improved unevenly, not uniformly, as the field has grown."
       >
         <FigureCard title="Protocol controls reported, by period" plotWidth={680} commentary={null}>
           <OverallByPeriod
+            minHeight={260}
             earliestPeriodCaveat="2013–14 and 2015–16 have few studies; read early-period percentages cautiously."
-            renderOverall={() => <RigorOverallBar rigorData={evo_protocol_rigor.data} fields={evo_protocol_rigor.fields} />}
-            renderByPeriod={() => <RigorLines rigorData={evo_protocol_rigor.data} fields={evo_protocol_rigor.fields} />}
+            renderOverall={() => <RigorOverallBar periodData={protocol_by_period.data} fields={RIGOR_FIELDS} />}
+            renderByPeriod={() => <RigorLines periodData={protocol_by_period.data} fields={RIGOR_FIELDS} periods={periods} />}
           />
         </FigureCard>
       </ChapterSection>
 
       <ChapterSection
         title="Which controls are used, study by study"
-        intro="Fixed clothing insulation (209 of 269 studies, 77%) and a defined activity protocol (191, 71%) are the most common controls by far. Blinding, randomisation, and circadian/menstrual timing control each appear in well under half of studies. Each column in the matrix on the right is one study."
+        intro="Fixed clothing insulation (209 of 269 studies, 77%) and a defined activity protocol (191, 71%) are the most common controls by far. Blinding, randomisation, and circadian/menstrual timing control each appear in well under half of studies. Each column in the matrix on the right is one study, row-aligned with the bar to its left."
       >
         <FigureCard figNumber="20" title="Protocol & standardisation controls" plotWidth={900} commentary={null}>
           <OverallByPeriod
+            minHeight={320}
             renderOverall={() => (
-              <BinaryPresenceFigure bar={fig20_protocol.bar} matrix={fig20_protocol.matrix} fields={fig20_protocol.fields} nStudies={fig20_protocol.n_studies} barColor="#1A1A18" />
+              <BinaryPresenceFigure bar={fig20_protocol.bar} matrix={fig20_protocol.matrix} fields={fig20_protocol.fields} nStudies={fig20_protocol.n_studies} barColor="#31393C" />
             )}
             renderByPeriod={() => (
-              <PercentLinesByPeriod periodData={protocol_by_period.data} fields={protocol_by_period.fields} periods={protocol_by_period.periods} />
+              <PercentLinesByPeriod periodData={protocol_by_period.data} fields={protocol_by_period.fields} periods={protocol_by_period.periods} palette={['#31393C', '#005EF5', '#FF5964', '#8A8783', '#5C6166', '#BBBBBB', '#C9C6BC', '#E4DFDA']} />
             )}
           />
         </FigureCard>
