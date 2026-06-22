@@ -18,6 +18,7 @@
         "comfortable",
         "very comfortable"
       ],
+      "comfort_pole": "high",
       "id": "2_1"
     },
     {
@@ -38,6 +39,7 @@
         "comfortable",
         "very comfortable"
       ],
+      "comfort_pole": "high",
       "id": "2_2"
     },
     {
@@ -58,6 +60,7 @@
         "comfortable",
         "very comfortable"
       ],
+      "comfort_pole": "high",
       "id": "2_3"
     },
     {
@@ -76,6 +79,7 @@
         "slightly uncomfortable",
         "comfortable"
       ],
+      "comfort_pole": "high",
       "id": "4_1"
     },
     {
@@ -96,6 +100,7 @@
         "comfortable",
         "very comfortable"
       ],
+      "comfort_pole": "high",
       "id": "7_1"
     },
     {
@@ -118,6 +123,7 @@
         "comfortable",
         "very comfortable"
       ],
+      "comfort_pole": "high",
       "id": "8_1"
     },
     {
@@ -134,6 +140,7 @@
         "uncomfortable",
         "very uncomfortable"
       ],
+      "comfort_pole": "low",
       "id": "9_1"
     },
     {
@@ -148,6 +155,7 @@
         "comfort",
         "warm discomfort"
       ],
+      "comfort_pole": "high",
       "id": "11_1"
     },
     {
@@ -166,6 +174,7 @@
         "indifferent",
         "comfortable"
       ],
+      "comfort_pole": "high",
       "id": "12_1"
     },
     {
@@ -188,6 +197,7 @@
         "comfortable",
         "very comfortable"
       ],
+      "comfort_pole": "high",
       "id": "13_1"
     },
     {
@@ -208,6 +218,7 @@
         "comfortable",
         "very comfortable"
       ],
+      "comfort_pole": "high",
       "id": "14_1"
     },
     {
@@ -224,6 +235,7 @@
         "slightly uncomfortable",
         "uncomfortable"
       ],
+      "comfort_pole": "low",
       "id": "20_1"
     },
     {
@@ -240,6 +252,7 @@
         "slight discomfort",
         "comfort"
       ],
+      "comfort_pole": "high",
       "id": "22_1"
     },
     {
@@ -256,6 +269,7 @@
         "slight discomfort",
         "comfort"
       ],
+      "comfort_pole": "high",
       "id": "23_1"
     },
     {
@@ -272,6 +286,7 @@
         "slightly discomfort",
         "comfort"
       ],
+      "comfort_pole": "high",
       "id": "24_1"
     },
     {
@@ -290,6 +305,7 @@
         "very uncomfortable",
         "extremely uncomfortable"
       ],
+      "comfort_pole": "low",
       "id": "25_1"
     },
     {
@@ -308,6 +324,7 @@
         "very uncomfortable",
         "intolerable"
       ],
+      "comfort_pole": "low",
       "id": "32_1"
     },
     {
@@ -326,6 +343,7 @@
         "comfortable",
         "very comfortable"
       ],
+      "comfort_pole": "high",
       "id": "35_1"
     },
     {
@@ -346,6 +364,7 @@
         "comfortable",
         "very comfortable"
       ],
+      "comfort_pole": "high",
       "id": "36_1"
     },
     {
@@ -358,6 +377,7 @@
         "very uncomfortable",
         "uncomfortable"
       ],
+      "comfort_pole": "high",
       "id": "38_1"
     },
     {
@@ -380,6 +400,7 @@
         "comfortable",
         "very comfortable"
       ],
+      "comfort_pole": "high",
       "id": "41_1"
     },
     {
@@ -398,6 +419,7 @@
         "very uncomfortable",
         "extremely uncomfortable"
       ],
+      "comfort_pole": "low",
       "id": "42_1"
     },
     {
@@ -418,6 +440,7 @@
         "comfortable",
         "very comfortable"
       ],
+      "comfort_pole": "high",
       "id": "45_1"
     },
     {
@@ -438,6 +461,7 @@
         "comfortable",
         "very comfortable"
       ],
+      "comfort_pole": "high",
       "id": "47_1"
     },
     {
@@ -458,6 +482,7 @@
         "comfortable",
         "very comfortable"
       ],
+      "comfort_pole": "high",
       "id": "51_1"
     },
     {
@@ -476,6 +501,7 @@
         "very uncomfortable",
         "unbearable"
       ],
+      "comfort_pole": "low",
       "id": "59_1"
     },
     {
@@ -498,6 +524,7 @@
         "comfortable",
         "very comfortable"
       ],
+      "comfort_pole": "high",
       "id": "60_1"
     },
     {
@@ -518,6 +545,7 @@
         "comfortable",
         "very comfortable"
       ],
+      "comfort_pole": "high",
       "id": "62_1"
     },
     {
@@ -536,6 +564,7 @@
         "comfortable",
         "very comfortable"
       ],
+      "comfort_pole": "high",
       "id": "63_1"
     },
     {
@@ -556,6 +585,7 @@
         "comfortable",
         "very comfortable"
       ],
+      "comfort_pole": "high",
       "id": "64_1"
     },
     {
@@ -574,6 +604,7 @@
         "very uncomfortable",
         "unbearable"
       ],
+      "comfort_pole": "low",
       "id": "65_1"
     },
     {
@@ -594,6 +625,7 @@
         "comfortable",
         "very comfortable"
       ],
+      "comfort_pole": "high",
       "id": "67_1"
     },
     {
@@ -616,6 +648,7 @@
         "comfortable",
         "very comfortable"
       ],
+      "comfort_pole": "high",
       "id": "69_1"
     },
     {
@@ -636,6 +669,7 @@
         "comfortable",
         "very comfortable"
       ],
+      "comfort_pole": "high",
       "id": "73_1"
     },
     {
@@ -656,6 +690,7 @@
         "comfortable",
         "very comfortable"
       ],
+      "comfort_pole": "high",
       "id": "74_1"
     },
     {
@@ -676,6 +711,7 @@
         "comfortable",
         "very comfortable"
       ],
+      "comfort_pole": "high",
       "id": "74_2"
     },
     {
@@ -696,6 +732,7 @@
         "comfortable",
         "very comfortable"
       ],
+      "comfort_pole": "high",
       "id": "74_3"
     },
     {
@@ -716,6 +753,7 @@
         "comfortable",
         "very comfortable"
       ],
+      "comfort_pole": "high",
       "id": "74_4"
     },
     {
@@ -742,6 +780,7 @@
         "NR",
         "very comfortable"
       ],
+      "comfort_pole": "high",
       "id": "75_1"
     },
     {
@@ -758,6 +797,7 @@
         "uncomfortable",
         "very uncomfortable"
       ],
+      "comfort_pole": "low",
       "id": "77_1"
     },
     {
@@ -776,6 +816,7 @@
         "comfortable",
         "very comfortable"
       ],
+      "comfort_pole": "high",
       "id": "80_1"
     },
     {
@@ -792,6 +833,7 @@
         "just comfortable",
         "very comfortable"
       ],
+      "comfort_pole": "high",
       "id": "83_1"
     },
     {
@@ -810,6 +852,7 @@
         "comfort",
         "high comfort"
       ],
+      "comfort_pole": "high",
       "id": "85_1"
     },
     {
@@ -830,6 +873,7 @@
         "comfortable",
         "very comfortable"
       ],
+      "comfort_pole": "high",
       "id": "87_1"
     },
     {
@@ -848,6 +892,7 @@
         "very uncomfortable",
         "limited tolerance"
       ],
+      "comfort_pole": "low",
       "id": "89_1"
     },
     {
@@ -866,29 +911,8 @@
         "very uncomfortable",
         "limited tolerance"
       ],
+      "comfort_pole": "low",
       "id": "103_1"
-    },
-    {
-      "points": 7,
-      "range": [
-        -3.0,
-        -2.0,
-        -1.0,
-        0.0,
-        1.0,
-        2.0,
-        3.0
-      ],
-      "labels": [
-        "cold",
-        "cool",
-        "slight cool",
-        "neutral",
-        "slight warm",
-        "warm",
-        "hot"
-      ],
-      "id": "104_1"
     },
     {
       "points": 5,
@@ -906,6 +930,7 @@
         "slightly uncomfortable",
         "comfortable"
       ],
+      "comfort_pole": "high",
       "id": "108_1"
     },
     {
@@ -926,6 +951,7 @@
         "comfortable",
         "very comfortable"
       ],
+      "comfort_pole": "high",
       "id": "111_1"
     },
     {
@@ -944,6 +970,7 @@
         "comfortable",
         "very comfortable"
       ],
+      "comfort_pole": "high",
       "id": "116_1"
     },
     {
@@ -964,6 +991,7 @@
         "very uncomfortable",
         "unbearable"
       ],
+      "comfort_pole": "low",
       "id": "120_1"
     },
     {
@@ -984,6 +1012,7 @@
         "comfortable",
         "very comfortable"
       ],
+      "comfort_pole": "high",
       "id": "125_1"
     },
     {
@@ -1002,6 +1031,7 @@
         "NR",
         "comfort"
       ],
+      "comfort_pole": "high",
       "id": "127_1"
     },
     {
@@ -1018,6 +1048,7 @@
         "uncomfortable",
         "very uncomfortable"
       ],
+      "comfort_pole": "low",
       "id": "130_1"
     },
     {
@@ -1034,6 +1065,7 @@
         "just uncomfortable",
         "comfortable"
       ],
+      "comfort_pole": "high",
       "id": "131_1"
     },
     {
@@ -1050,6 +1082,7 @@
         "just uncomfortable",
         "comfortable"
       ],
+      "comfort_pole": "high",
       "id": "131_2"
     },
     {
@@ -1076,6 +1109,7 @@
         "NR",
         "very comfortable"
       ],
+      "comfort_pole": "high",
       "id": "133_1"
     },
     {
@@ -1094,6 +1128,7 @@
         "warm discomfort",
         "high warm discomfort"
       ],
+      "comfort_pole": "high",
       "id": "134_1"
     },
     {
@@ -1112,6 +1147,7 @@
         "comfortable",
         "very comfortable"
       ],
+      "comfort_pole": "high",
       "id": "137_1"
     },
     {
@@ -1130,6 +1166,7 @@
         "NR",
         "comfortable"
       ],
+      "comfort_pole": "high",
       "id": "141_1"
     },
     {
@@ -1152,6 +1189,7 @@
         "comfortable",
         "very comfortable"
       ],
+      "comfort_pole": "high",
       "id": "146_1"
     },
     {
@@ -1174,29 +1212,8 @@
         "comfortable",
         "very comfortable"
       ],
+      "comfort_pole": "high",
       "id": "146_2"
-    },
-    {
-      "points": 7,
-      "range": [
-        -3.0,
-        -2.0,
-        -1.0,
-        0.0,
-        1.0,
-        2.0,
-        3.0
-      ],
-      "labels": [
-        "much too cool",
-        "too coold",
-        "comfortably cool",
-        "comfortable",
-        "comfortably warm",
-        "warm",
-        "much too wamr"
-      ],
-      "id": "151_1"
     },
     {
       "points": 5,
@@ -1214,6 +1231,7 @@
         "warm discomfort",
         "high warm discomfort"
       ],
+      "comfort_pole": "high",
       "id": "154_1"
     },
     {
@@ -1230,6 +1248,7 @@
         "uncomfortable",
         "very uncomfortable"
       ],
+      "comfort_pole": "low",
       "id": "157_1"
     },
     {
@@ -1246,6 +1265,7 @@
         "uncomfortable",
         "very uncomfortable"
       ],
+      "comfort_pole": "low",
       "id": "160_1"
     },
     {
@@ -1264,6 +1284,7 @@
         "very uncomfortable",
         "intolerable"
       ],
+      "comfort_pole": "low",
       "id": "161_1"
     },
     {
@@ -1286,6 +1307,7 @@
         "comfortable",
         "very comfortable"
       ],
+      "comfort_pole": "high",
       "id": "162_1"
     },
     {
@@ -1306,6 +1328,7 @@
         "comfortable",
         "very comfortable"
       ],
+      "comfort_pole": "high",
       "id": "163_1"
     },
     {
@@ -1322,6 +1345,7 @@
         "slightly uncomfortable",
         "comfortable"
       ],
+      "comfort_pole": "high",
       "id": "165_1"
     },
     {
@@ -1342,6 +1366,7 @@
         "comfortable",
         "very comfortable"
       ],
+      "comfort_pole": "high",
       "id": "167_1"
     },
     {
@@ -1360,6 +1385,7 @@
         "very uncomfortable",
         "intolerably uncomfortable"
       ],
+      "comfort_pole": "low",
       "id": "168_1"
     },
     {
@@ -1376,6 +1402,7 @@
         "uncomfortable",
         "very uncomfortable"
       ],
+      "comfort_pole": "low",
       "id": "170_1"
     },
     {
@@ -1398,6 +1425,7 @@
         "comfortable",
         "very comfortable"
       ],
+      "comfort_pole": "high",
       "id": "171_1"
     },
     {
@@ -1418,6 +1446,7 @@
         "comfortable",
         "very comfortable"
       ],
+      "comfort_pole": "high",
       "id": "172_1"
     },
     {
@@ -1440,6 +1469,7 @@
         "comfortable",
         "very comfortable"
       ],
+      "comfort_pole": "high",
       "id": "175_1"
     },
     {
@@ -1462,6 +1492,7 @@
         "comfortable",
         "very comfortable"
       ],
+      "comfort_pole": "high",
       "id": "178_1"
     },
     {
@@ -1478,6 +1509,7 @@
         "uncomfortable",
         "very uncomfortable"
       ],
+      "comfort_pole": "low",
       "id": "179_1"
     },
     {
@@ -1500,6 +1532,7 @@
         "comfortable",
         "very comfortable"
       ],
+      "comfort_pole": "high",
       "id": "181_1"
     },
     {
@@ -1520,6 +1553,7 @@
         "comfortable",
         "very comfortable"
       ],
+      "comfort_pole": "high",
       "id": "183_1"
     },
     {
@@ -1540,6 +1574,7 @@
         "comfortable",
         "very comfortable"
       ],
+      "comfort_pole": "high",
       "id": "184_1"
     },
     {
@@ -1556,6 +1591,7 @@
         "slightly uncomfortable",
         "comfortable"
       ],
+      "comfort_pole": "high",
       "id": "187_1"
     },
     {
@@ -1572,6 +1608,7 @@
         "uncomfortable",
         "very uncomfortable"
       ],
+      "comfort_pole": "low",
       "id": "188_1"
     },
     {
@@ -1592,6 +1629,7 @@
         "comfortable",
         "very comfortable"
       ],
+      "comfort_pole": "high",
       "id": "189_1"
     },
     {
@@ -1610,6 +1648,7 @@
         "very uncomfortable",
         "unbearable"
       ],
+      "comfort_pole": "low",
       "id": "193_1"
     },
     {
@@ -1622,6 +1661,7 @@
         "very uncomfortable",
         "uncomfortable"
       ],
+      "comfort_pole": "high",
       "id": "195_1"
     },
     {
@@ -1638,6 +1678,7 @@
         "slightly uncomfortable",
         "comfortable"
       ],
+      "comfort_pole": "high",
       "id": "197_1"
     },
     {
@@ -1660,6 +1701,7 @@
         "comfortable",
         "very comfortable"
       ],
+      "comfort_pole": "high",
       "id": "198_1"
     },
     {
@@ -1676,6 +1718,7 @@
         "just uncomfortable",
         "very uncomfortable"
       ],
+      "comfort_pole": "low",
       "id": "203_1"
     },
     {
@@ -1692,6 +1735,7 @@
         "slightly uncomfortable",
         "comfortable"
       ],
+      "comfort_pole": "high",
       "id": "206_1"
     },
     {
@@ -1714,6 +1758,7 @@
         "comfortable",
         "very comfortable"
       ],
+      "comfort_pole": "high",
       "id": "210_1"
     },
     {
@@ -1732,6 +1777,7 @@
         "comfortable",
         "very comfortable"
       ],
+      "comfort_pole": "high",
       "id": "211_1"
     },
     {
@@ -1748,6 +1794,7 @@
         "uncomfortable",
         "very uncomfortable"
       ],
+      "comfort_pole": "low",
       "id": "215_1"
     },
     {
@@ -1768,6 +1815,7 @@
         "comfortable",
         "very comfortable"
       ],
+      "comfort_pole": "high",
       "id": "218_1"
     },
     {
@@ -1788,6 +1836,7 @@
         "comfortable",
         "very comfortable"
       ],
+      "comfort_pole": "high",
       "id": "219_1"
     },
     {
@@ -1810,6 +1859,7 @@
         "comfortable",
         "very comfortable"
       ],
+      "comfort_pole": "high",
       "id": "220_1"
     },
     {
@@ -1832,6 +1882,7 @@
         "comfortable",
         "very comfortable"
       ],
+      "comfort_pole": "high",
       "id": "221_1"
     },
     {
@@ -1854,6 +1905,7 @@
         "comfortable",
         "very comfortable"
       ],
+      "comfort_pole": "high",
       "id": "224_1"
     },
     {
@@ -1872,6 +1924,7 @@
         "very uncomfortable",
         "limited tolerance"
       ],
+      "comfort_pole": "low",
       "id": "225_1"
     },
     {
@@ -1890,6 +1943,7 @@
         "very uncomfortable",
         "limited tolerance"
       ],
+      "comfort_pole": "low",
       "id": "225_2"
     },
     {
@@ -1910,6 +1964,7 @@
         "comfortable",
         "very comfortable"
       ],
+      "comfort_pole": "high",
       "id": "226_1"
     },
     {
@@ -1930,6 +1985,7 @@
         "very uncomfortable",
         "unacceptable"
       ],
+      "comfort_pole": "low",
       "id": "230_1"
     },
     {
@@ -1952,6 +2008,7 @@
         "comfortable",
         "very comfortable"
       ],
+      "comfort_pole": "high",
       "id": "231_1"
     },
     {
@@ -1974,6 +2031,7 @@
         "comfortable",
         "very comfortable"
       ],
+      "comfort_pole": "high",
       "id": "233_1"
     },
     {
@@ -1992,6 +2050,7 @@
         "comfortable",
         "very comfortable"
       ],
+      "comfort_pole": "high",
       "id": "234_1"
     },
     {
@@ -2018,6 +2077,7 @@
         "quite comfortable",
         "very comfortable"
       ],
+      "comfort_pole": "high",
       "id": "235_1"
     },
     {
@@ -2038,6 +2098,7 @@
         "comfortable",
         "very comfortable"
       ],
+      "comfort_pole": "high",
       "id": "236_1"
     },
     {
@@ -2058,6 +2119,7 @@
         "comfortable",
         "very comfortable"
       ],
+      "comfort_pole": "high",
       "id": "236_2"
     },
     {
@@ -2078,6 +2140,7 @@
         "comfortable",
         "very comfortable"
       ],
+      "comfort_pole": "high",
       "id": "236_3"
     },
     {
@@ -2096,6 +2159,7 @@
         "very uncomfortable",
         "unendurable"
       ],
+      "comfort_pole": "low",
       "id": "237_1"
     },
     {
@@ -2118,6 +2182,7 @@
         "satisfied",
         "very satisfied"
       ],
+      "comfort_pole": "high",
       "id": "240_1"
     },
     {
@@ -2140,6 +2205,7 @@
         "comfortable",
         "very comfortable"
       ],
+      "comfort_pole": "high",
       "id": "243_1"
     },
     {
@@ -2164,6 +2230,7 @@
         "comfortable",
         "very comfortable"
       ],
+      "comfort_pole": "high",
       "id": "245_1"
     },
     {
@@ -2180,6 +2247,7 @@
         "slight discomfort",
         "comfort"
       ],
+      "comfort_pole": "high",
       "id": "246_1"
     },
     {
@@ -2196,6 +2264,7 @@
         "discomfort",
         "very discomfort"
       ],
+      "comfort_pole": "low",
       "id": "249_1"
     },
     {
@@ -2212,6 +2281,7 @@
         "slightly uncomfortable",
         "comfortable"
       ],
+      "comfort_pole": "high",
       "id": "250_1"
     }
   ],
@@ -2234,7 +2304,7 @@
     },
     {
       "points": 7,
-      "count": 24
+      "count": 22
     },
     {
       "points": 8,
@@ -2249,5 +2319,5 @@
       "count": 2
     }
   ],
-  "n_total": 116
+  "n_total": 114
 }

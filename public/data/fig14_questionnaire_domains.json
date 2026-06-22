@@ -1,10 +1,10 @@
 {
   "Thermal": {
-    "n_any": 251,
+    "n_any": 250,
     "fields": [
       {
         "field": "Thermal sensation",
-        "count": 236
+        "count": 235
       },
       {
         "field": "Thermal comfort",
@@ -12,11 +12,11 @@
       },
       {
         "field": "Thermal acceptance",
-        "count": 77
+        "count": 76
       },
       {
         "field": "Thermal preference",
-        "count": 58
+        "count": 57
       },
       {
         "field": "Local thermal sensation",

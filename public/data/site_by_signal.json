@@ -1,0 +1,265 @@
+{
+  "Heart/Pulse rate": {
+    "site_totals": [
+      {
+        "site": "Chest",
+        "count": 44
+      },
+      {
+        "site": "Wrist",
+        "count": 25
+      },
+      {
+        "site": "Upper arm",
+        "count": 15
+      },
+      {
+        "site": "Finger",
+        "count": 10
+      },
+      {
+        "site": "Ear",
+        "count": 4
+      },
+      {
+        "site": "Limbs",
+        "count": 1
+      },
+      {
+        "site": "Hand",
+        "count": 1
+      },
+      {
+        "site": "Cheek",
+        "count": 1
+      },
+      {
+        "site": "Earlobe",
+        "count": 1
+      }
+    ],
+    "n_studies_with_site": 99,
+    "by_period": {
+      "data": [
+        {
+          "site": "Cheek",
+          "period": "2017\u201318",
+          "count": 1
+        },
+        {
+          "site": "Chest",
+          "period": "2015\u201316",
+          "count": 1
+        },
+        {
+          "site": "Chest",
+          "period": "2017\u201318",
+          "count": 4
+        },
+        {
+          "site": "Chest",
+          "period": "2019\u201320",
+          "count": 13
+        },
+        {
+          "site": "Chest",
+          "period": "2021\u201322",
+          "count": 13
+        },
+        {
+          "site": "Chest",
+          "period": "2023\u201324",
+          "count": 13
+        },
+        {
+          "site": "Ear",
+          "period": "2019\u201320",
+          "count": 1
+        },
+        {
+          "site": "Ear",
+          "period": "2021\u201322",
+          "count": 3
+        },
+        {
+          "site": "Finger",
+          "period": "2017\u201318",
+          "count": 1
+        },
+        {
+          "site": "Finger",
+          "period": "2019\u201320",
+          "count": 1
+        },
+        {
+          "site": "Finger",
+          "period": "2021\u201322",
+          "count": 4
+        },
+        {
+          "site": "Finger",
+          "period": "2023\u201324",
+          "count": 4
+        },
+        {
+          "site": "Hand",
+          "period": "2017\u201318",
+          "count": 1
+        },
+        {
+          "site": "Limbs",
+          "period": "2021\u201322",
+          "count": 1
+        },
+        {
+          "site": "Upper arm",
+          "period": "2013\u201314",
+          "count": 1
+        },
+        {
+          "site": "Upper arm",
+          "period": "2015\u201316",
+          "count": 2
+        },
+        {
+          "site": "Upper arm",
+          "period": "2017\u201318",
+          "count": 3
+        },
+        {
+          "site": "Upper arm",
+          "period": "2019\u201320",
+          "count": 4
+        },
+        {
+          "site": "Upper arm",
+          "period": "2021\u201322",
+          "count": 2
+        },
+        {
+          "site": "Upper arm",
+          "period": "2023\u201324",
+          "count": 3
+        },
+        {
+          "site": "Wrist",
+          "period": "2017\u201318",
+          "count": 3
+        },
+        {
+          "site": "Wrist",
+          "period": "2019\u201320",
+          "count": 3
+        },
+        {
+          "site": "Wrist",
+          "period": "2021\u201322",
+          "count": 7
+        },
+        {
+          "site": "Wrist",
+          "period": "2023\u201324",
+          "count": 12
+        }
+      ],
+      "period_n": {
+        "2013\u201314": 1,
+        "2015\u201316": 3,
+        "2017\u201318": 12,
+        "2019\u201320": 22,
+        "2021\u201322": 30,
+        "2023\u201324": 31
+      },
+      "periods": [
+        "2013\u201314",
+        "2015\u201316",
+        "2017\u201318",
+        "2019\u201320",
+        "2021\u201322",
+        "2023\u201324"
+      ]
+    }
+  },
+  "Skin conductance": {
+    "site_totals": [
+      {
+        "site": "Wrist",
+        "count": 11
+      },
+      {
+        "site": "Finger",
+        "count": 8
+      },
+      {
+        "site": "Chest",
+        "count": 4
+      },
+      {
+        "site": "Thigh",
+        "count": 3
+      },
+      {
+        "site": "Shin",
+        "count": 3
+      },
+      {
+        "site": "Temple",
+        "count": 2
+      },
+      {
+        "site": "Forearm",
+        "count": 2
+      },
+      {
+        "site": "Upper arm",
+        "count": 1
+      },
+      {
+        "site": "Hand",
+        "count": 1
+      },
+      {
+        "site": "Back",
+        "count": 1
+      }
+    ],
+    "n_studies_with_site": 25
+  },
+  "Sweat indicators": {
+    "site_totals": [
+      {
+        "site": "Whole body",
+        "count": 27
+      },
+      {
+        "site": "Forearm",
+        "count": 1
+      },
+      {
+        "site": "Finger",
+        "count": 1
+      },
+      {
+        "site": "Urine",
+        "count": 1
+      },
+      {
+        "site": "Temple",
+        "count": 1
+      },
+      {
+        "site": "Back",
+        "count": 1
+      },
+      {
+        "site": "Arm",
+        "count": 1
+      },
+      {
+        "site": "Calf",
+        "count": 1
+      }
+    ],
+    "n_studies_with_site": 32
+  }
+}

@@ -1,107 +1,107 @@
 {
   "bar": [
     {
-      "field": "fixed clo",
-      "pct": 77.4,
-      "count": 209
+      "field": "Fixed clothing insulation",
+      "pct": 77.3,
+      "count": 208
     },
     {
-      "field": "defined activity",
-      "pct": 70.7,
+      "field": "Defined activity protocol",
+      "pct": 71.0,
       "count": 191
     },
     {
-      "field": "avoid stimulant",
-      "pct": 50.0,
+      "field": "Avoid stimulants",
+      "pct": 50.2,
       "count": 135
     },
     {
-      "field": "instruction practice",
-      "pct": 46.7,
+      "field": "Pre-study instruction/practice",
+      "pct": 46.8,
       "count": 126
     },
     {
-      "field": "avoid activity",
-      "pct": 40.0,
+      "field": "Avoid physical activity",
+      "pct": 40.1,
       "count": 108
     },
     {
-      "field": "random",
-      "pct": 34.4,
+      "field": "Randomisation",
+      "pct": 34.6,
       "count": 93
     },
     {
-      "field": "rest sleep",
-      "pct": 26.3,
+      "field": "Pre-experiment rest/sleep",
+      "pct": 26.4,
       "count": 71
     },
     {
-      "field": "time btw sessions",
-      "pct": 23.3,
+      "field": "Time between sessions",
+      "pct": 23.4,
       "count": 63
     },
     {
-      "field": "circadian",
-      "pct": 22.6,
+      "field": "Circadian control",
+      "pct": 22.7,
       "count": 61
     },
     {
-      "field": "food",
-      "pct": 20.7,
+      "field": "Controlled food intake",
+      "pct": 20.8,
       "count": 56
     },
     {
-      "field": "balancing",
-      "pct": 20.0,
+      "field": "Balanced session order",
+      "pct": 20.1,
       "count": 54
     },
     {
-      "field": "blinded",
-      "pct": 19.6,
+      "field": "Blinding",
+      "pct": 19.7,
       "count": 53
     },
     {
-      "field": "observed clo",
-      "pct": 13.7,
-      "count": 37
+      "field": "Observed clothing",
+      "pct": 13.4,
+      "count": 36
     },
     {
-      "field": "subjects not allowed to discuss",
+      "field": "Participants not allowed to discuss study",
       "pct": 12.6,
       "count": 34
     },
     {
-      "field": "mens timing",
-      "pct": 8.1,
+      "field": "Menstrual timing control",
+      "pct": 8.2,
       "count": 22
     },
     {
-      "field": "water",
+      "field": "Controlled water intake",
       "pct": 6.7,
       "count": 18
     },
     {
-      "field": "prep body site",
+      "field": "Body-site preparation for sensors",
       "pct": 6.3,
       "count": 17
     },
     {
-      "field": "maintain routine",
+      "field": "Maintain routine",
       "pct": 6.3,
       "count": 17
     },
     {
-      "field": "diary",
+      "field": "Activity diary use",
       "pct": 4.8,
       "count": 13
     },
     {
-      "field": "avoid heavy food",
+      "field": "Avoid heavy meals",
       "pct": 4.1,
       "count": 11
     },
     {
-      "field": "observed met",
+      "field": "Observed metabolic rate",
       "pct": 3.3,
       "count": 9
     }
@@ -331,7 +331,6 @@
       0,
       0,
       0,
-      1,
       0,
       1,
       1,
@@ -601,7 +600,6 @@
       1,
       1,
       1,
-      0,
       0,
       0,
       0,
@@ -876,7 +874,6 @@
       1,
       0,
       0,
-      0,
       1,
       1,
       1,
@@ -1150,7 +1147,6 @@
       0,
       0,
       0,
-      0,
       1,
       1,
       1,
@@ -1420,7 +1416,6 @@
       1,
       0,
       0,
-      0,
       1,
       1,
       1,
@@ -1694,7 +1689,6 @@
       0,
       0,
       0,
-      0,
       1,
       0,
       0,
@@ -1948,7 +1942,6 @@
       0,
       0,
       1,
-      0,
       0,
       0,
       0,
@@ -2239,7 +2232,6 @@
       0,
       0,
       0,
-      0,
       1,
       0,
       0,
@@ -2511,7 +2503,6 @@
       0,
       0,
       0,
-      0,
       1,
       0,
       0,
@@ -2776,7 +2767,6 @@
       0,
       0,
       1,
-      0,
       0,
       0,
       0,
@@ -3057,7 +3047,6 @@
       0,
       0,
       0,
-      0,
       1,
       0,
       0,
@@ -3329,7 +3318,6 @@
       0,
       0,
       0,
-      0,
       1,
       0,
       0,
@@ -3595,7 +3583,6 @@
       1,
       0,
       0,
-      1,
       0,
       0,
       0,
@@ -3881,7 +3868,6 @@
       0,
       0,
       0,
-      0,
       1,
       0,
       0,
@@ -4140,7 +4126,6 @@
       0,
       0,
       0,
-      0,
       1,
       0,
       0,
@@ -4417,7 +4402,6 @@
       0,
       0,
       0,
-      0,
       1,
       0,
       0,
@@ -4685,7 +4669,6 @@
       0,
       0,
       0,
-      0,
       1,
       0,
       0,
@@ -4956,7 +4939,6 @@
       0,
       0,
       0,
-      0,
       1,
       0,
       0,
@@ -5171,7 +5153,6 @@
       0,
       0,
       1,
-      0,
       0,
       0,
       0,
@@ -5531,7 +5512,6 @@
       0,
       0,
       0,
-      0,
       1,
       0,
       0,
@@ -5748,7 +5728,6 @@
       1,
       0,
       1,
-      0,
       0,
       0,
       0,
@@ -5821,27 +5800,27 @@
     ]
   ],
   "fields": [
-    "fixed clo",
-    "defined activity",
-    "avoid stimulant",
-    "instruction practice",
-    "avoid activity",
-    "random",
-    "rest sleep",
-    "time btw sessions",
-    "circadian",
-    "food",
-    "balancing",
-    "blinded",
-    "observed clo",
-    "subjects not allowed to discuss",
-    "mens timing",
-    "water",
-    "prep body site",
-    "maintain routine",
-    "diary",
-    "avoid heavy food",
-    "observed met"
+    "Fixed clothing insulation",
+    "Defined activity protocol",
+    "Avoid stimulants",
+    "Pre-study instruction/practice",
+    "Avoid physical activity",
+    "Randomisation",
+    "Pre-experiment rest/sleep",
+    "Time between sessions",
+    "Circadian control",
+    "Controlled food intake",
+    "Balanced session order",
+    "Blinding",
+    "Observed clothing",
+    "Participants not allowed to discuss study",
+    "Menstrual timing control",
+    "Controlled water intake",
+    "Body-site preparation for sensors",
+    "Maintain routine",
+    "Activity diary use",
+    "Avoid heavy meals",
+    "Observed metabolic rate"
   ],
-  "n_studies": 270
+  "n_studies": 269
 }

@@ -1,0 +1,818 @@
+{
+  "data": [
+    {
+      "city": "Aachen",
+      "lat": 50.7753,
+      "lon": 6.0839,
+      "precision": "city",
+      "country": "Germany",
+      "count": 2,
+      "climate_class": "Cfb",
+      "climate_group": "Oceanic"
+    },
+    {
+      "city": "Ancona",
+      "lat": 43.6158,
+      "lon": 13.5189,
+      "precision": "city",
+      "country": "Italy",
+      "count": 1,
+      "climate_class": "Cfa",
+      "climate_group": "Humid subtropical"
+    },
+    {
+      "city": "Ankara",
+      "lat": 39.9334,
+      "lon": 32.8597,
+      "precision": "city",
+      "country": "Turkey",
+      "count": 1,
+      "climate_class": "BSk",
+      "climate_group": "Semi-arid (cold)"
+    },
+    {
+      "city": "Ann Arbor",
+      "lat": 42.2808,
+      "lon": -83.743,
+      "precision": "city",
+      "country": "USA",
+      "count": 3,
+      "climate_class": "Dfa",
+      "climate_group": "Continental"
+    },
+    {
+      "city": "Bangalore",
+      "lat": 12.9716,
+      "lon": 77.5946,
+      "precision": "city",
+      "country": "India",
+      "count": 2,
+      "climate_class": "Aw",
+      "climate_group": "Tropical"
+    },
+    {
+      "city": "Beijing",
+      "lat": 39.9042,
+      "lon": 116.4074,
+      "precision": "city",
+      "country": "China",
+      "count": 11,
+      "climate_class": "Dwa",
+      "climate_group": "Continental"
+    },
+    {
+      "city": "Beijing (Tsinghua University)",
+      "lat": 39.9999,
+      "lon": 116.3261,
+      "precision": "institute",
+      "country": "China",
+      "count": 1,
+      "climate_class": "Dwa",
+      "climate_group": "Continental"
+    },
+    {
+      "city": "Berkeley",
+      "lat": 37.8715,
+      "lon": -122.273,
+      "precision": "city",
+      "country": "USA",
+      "count": 4,
+      "climate_class": "Csb",
+      "climate_group": "Mediterranean"
+    },
+    {
+      "city": "Bilbao",
+      "lat": 43.263,
+      "lon": -2.935,
+      "precision": "city",
+      "country": "Spain",
+      "count": 1,
+      "climate_class": "Cfb",
+      "climate_group": "Oceanic"
+    },
+    {
+      "city": "Bismarck (North Dakota, state-level only)",
+      "lat": 46.8083,
+      "lon": -100.7837,
+      "precision": "province",
+      "country": "USA",
+      "count": 1,
+      "climate_class": "Dfb",
+      "climate_group": "Continental"
+    },
+    {
+      "city": "Changsha",
+      "lat": 28.2278,
+      "lon": 112.9388,
+      "precision": "city",
+      "country": "China",
+      "count": 26,
+      "climate_class": "Cfa",
+      "climate_group": "Humid subtropical"
+    },
+    {
+      "city": "Changsha (Hunan province capital)",
+      "lat": 28.2278,
+      "lon": 112.9388,
+      "precision": "province",
+      "country": "China",
+      "count": 3,
+      "climate_class": "Cfa",
+      "climate_group": "Humid subtropical"
+    },
+    {
+      "city": "Chongqing",
+      "lat": 29.563,
+      "lon": 106.5516,
+      "precision": "city",
+      "country": "China",
+      "count": 22,
+      "climate_class": "Cwa",
+      "climate_group": "Humid subtropical"
+    },
+    {
+      "city": "Copenhagen",
+      "lat": 55.6761,
+      "lon": 12.5683,
+      "precision": "city",
+      "country": "Denmark",
+      "count": 1,
+      "climate_class": "Cfb",
+      "climate_group": "Oceanic"
+    },
+    {
+      "city": "Daegu",
+      "lat": 35.8714,
+      "lon": 128.6014,
+      "precision": "city",
+      "country": "Republic of Korea",
+      "count": 1,
+      "climate_class": "Cwa",
+      "climate_group": "Humid subtropical"
+    },
+    {
+      "city": "Dalian",
+      "lat": 38.914,
+      "lon": 121.6147,
+      "precision": "city",
+      "country": "China",
+      "count": 2,
+      "climate_class": "Dwa",
+      "climate_group": "Continental"
+    },
+    {
+      "city": "Doha",
+      "lat": 25.2854,
+      "lon": 51.531,
+      "precision": "city",
+      "country": "Qatar",
+      "count": 1,
+      "climate_class": "BWh",
+      "climate_group": "Arid (hot)"
+    },
+    {
+      "city": "Edinburgh",
+      "lat": 55.9533,
+      "lon": -3.1883,
+      "precision": "city",
+      "country": "Great Britain",
+      "count": 1,
+      "climate_class": "Cfb",
+      "climate_group": "Oceanic"
+    },
+    {
+      "city": "Eindhoven",
+      "lat": 51.4416,
+      "lon": 5.4697,
+      "precision": "city",
+      "country": "Netherlands",
+      "count": 2,
+      "climate_class": "Cfb",
+      "climate_group": "Oceanic"
+    },
+    {
+      "city": "Eugene",
+      "lat": 44.0521,
+      "lon": -123.0868,
+      "precision": "city",
+      "country": "USA",
+      "count": 1,
+      "climate_class": "Csb",
+      "climate_group": "Mediterranean"
+    },
+    {
+      "city": "Fukuoka",
+      "lat": 33.5904,
+      "lon": 130.4017,
+      "precision": "city",
+      "country": "Japan",
+      "count": 2,
+      "climate_class": "Cfa",
+      "climate_group": "Humid subtropical"
+    },
+    {
+      "city": "Guangzhou",
+      "lat": 23.1291,
+      "lon": 113.2644,
+      "precision": "city",
+      "country": "China",
+      "count": 8,
+      "climate_class": "Cwa",
+      "climate_group": "Humid subtropical"
+    },
+    {
+      "city": "Guangzhou (Guangdong province capital)",
+      "lat": 23.1291,
+      "lon": 113.2644,
+      "precision": "province",
+      "country": "China",
+      "count": 2,
+      "climate_class": "Cwa",
+      "climate_group": "Humid subtropical"
+    },
+    {
+      "city": "Hamadan",
+      "lat": 34.7992,
+      "lon": 48.5146,
+      "precision": "city",
+      "country": "Iran",
+      "count": 3,
+      "climate_class": "BSk",
+      "climate_group": "Semi-arid (cold)"
+    },
+    {
+      "city": "Harbin",
+      "lat": 45.8038,
+      "lon": 126.535,
+      "precision": "city",
+      "country": "China",
+      "count": 6,
+      "climate_class": "Dwa",
+      "climate_group": "Continental"
+    },
+    {
+      "city": "Hefei",
+      "lat": 31.8206,
+      "lon": 117.2272,
+      "precision": "city",
+      "country": "China",
+      "count": 1,
+      "climate_class": "Cfa",
+      "climate_group": "Humid subtropical"
+    },
+    {
+      "city": "Hefei (Anhui province capital)",
+      "lat": 31.8206,
+      "lon": 117.2272,
+      "precision": "province",
+      "country": "China",
+      "count": 2,
+      "climate_class": "Cfa",
+      "climate_group": "Humid subtropical"
+    },
+    {
+      "city": "Ilam",
+      "lat": 33.6374,
+      "lon": 46.4227,
+      "precision": "city",
+      "country": "Iran",
+      "count": 1,
+      "climate_class": "Csa",
+      "climate_group": "Mediterranean"
+    },
+    {
+      "city": "Incheon",
+      "lat": 37.4563,
+      "lon": 126.7052,
+      "precision": "city",
+      "country": "Republic of Korea",
+      "count": 2,
+      "climate_class": "Dwa",
+      "climate_group": "Continental"
+    },
+    {
+      "city": "Jo\u00e3o Pessoa",
+      "lat": -7.1195,
+      "lon": -34.845,
+      "precision": "multi",
+      "country": "Brazil",
+      "count": 1,
+      "climate_class": "Aw/Am/As",
+      "climate_group": "Tropical"
+    },
+    {
+      "city": "Jo\u00e3o Pessoa (Para\u00edba state, state-level only)",
+      "lat": -7.1195,
+      "lon": -34.845,
+      "precision": "province",
+      "country": "Brazil",
+      "count": 1,
+      "climate_class": "As",
+      "climate_group": "Tropical"
+    },
+    {
+      "city": "Kaohsiung",
+      "lat": 22.6273,
+      "lon": 120.3014,
+      "precision": "city",
+      "country": "Taiwan",
+      "count": 1,
+      "climate_class": "Aw",
+      "climate_group": "Tropical"
+    },
+    {
+      "city": "Karlsruhe",
+      "lat": 49.0069,
+      "lon": 8.4037,
+      "precision": "city",
+      "country": "Germany",
+      "count": 1,
+      "climate_class": "Cfb",
+      "climate_group": "Oceanic"
+    },
+    {
+      "city": "Kongens Lyngby",
+      "lat": 55.7704,
+      "lon": 12.5021,
+      "precision": "city",
+      "country": "Denmark",
+      "count": 6,
+      "climate_class": "Cfb",
+      "climate_group": "Oceanic"
+    },
+    {
+      "city": "Kowloon, Hong Kong",
+      "lat": 22.3193,
+      "lon": 114.1694,
+      "precision": "city",
+      "country": "Hong Kong",
+      "count": 1,
+      "climate_class": "Cwa",
+      "climate_group": "Humid subtropical"
+    },
+    {
+      "city": "La Rochelle",
+      "lat": 46.1603,
+      "lon": -1.1511,
+      "precision": "city",
+      "country": "France",
+      "count": 1,
+      "climate_class": "Cfb",
+      "climate_group": "Oceanic"
+    },
+    {
+      "city": "Lausanne",
+      "lat": 46.5197,
+      "lon": 6.6323,
+      "precision": "city",
+      "country": "Switzerland",
+      "count": 3,
+      "climate_class": "Cfb",
+      "climate_group": "Oceanic"
+    },
+    {
+      "city": "Lisbon",
+      "lat": 38.7223,
+      "lon": -9.1393,
+      "precision": "city",
+      "country": "Portugal",
+      "count": 1,
+      "climate_class": "Csa",
+      "climate_group": "Mediterranean"
+    },
+    {
+      "city": "Los Angeles",
+      "lat": 34.0522,
+      "lon": -118.2437,
+      "precision": "city",
+      "country": "USA",
+      "count": 6,
+      "climate_class": "Csa",
+      "climate_group": "Mediterranean"
+    },
+    {
+      "city": "Maastricht",
+      "lat": 50.8514,
+      "lon": 5.691,
+      "precision": "city",
+      "country": "Netherlands",
+      "count": 3,
+      "climate_class": "Cfb",
+      "climate_group": "Oceanic"
+    },
+    {
+      "city": "Manaus",
+      "lat": -3.119,
+      "lon": -60.0217,
+      "precision": "multi",
+      "country": "Brazil",
+      "count": 1,
+      "climate_class": "Aw/Am/As",
+      "climate_group": "Tropical"
+    },
+    {
+      "city": "Milan",
+      "lat": 45.4642,
+      "lon": 9.19,
+      "precision": "city",
+      "country": "Italy",
+      "count": 1,
+      "climate_class": "Cfa",
+      "climate_group": "Humid subtropical"
+    },
+    {
+      "city": "Munich",
+      "lat": 48.1351,
+      "lon": 11.582,
+      "precision": "city",
+      "country": "Germany",
+      "count": 2,
+      "climate_class": "Cfb",
+      "climate_group": "Oceanic"
+    },
+    {
+      "city": "Nagoya (Aichi prefecture)",
+      "lat": 35.1802,
+      "lon": 137.0,
+      "precision": "province",
+      "country": "Japan",
+      "count": 2,
+      "climate_class": "Cfa",
+      "climate_group": "Humid subtropical"
+    },
+    {
+      "city": "Nagoya (Meijo University)",
+      "lat": 35.1568,
+      "lon": 136.9776,
+      "precision": "institute",
+      "country": "Japan",
+      "count": 1,
+      "climate_class": "Cfa",
+      "climate_group": "Humid subtropical"
+    },
+    {
+      "city": "Nagoya (corpus spelling: \"Naogoya\")",
+      "lat": 35.1815,
+      "lon": 136.9066,
+      "precision": "city",
+      "country": "Japan",
+      "count": 1,
+      "climate_class": "Cfa",
+      "climate_group": "Humid subtropical"
+    },
+    {
+      "city": "Nanjing",
+      "lat": 32.0603,
+      "lon": 118.7969,
+      "precision": "city",
+      "country": "China",
+      "count": 4,
+      "climate_class": "Cfa",
+      "climate_group": "Humid subtropical"
+    },
+    {
+      "city": "Nanjing (Jiangsu province capital)",
+      "lat": 32.0603,
+      "lon": 118.7969,
+      "precision": "province",
+      "country": "China",
+      "count": 1,
+      "climate_class": "Cfa",
+      "climate_group": "Humid subtropical"
+    },
+    {
+      "city": "Nottingham",
+      "lat": 52.9548,
+      "lon": -1.1581,
+      "precision": "city",
+      "country": "UK",
+      "count": 1,
+      "climate_class": "Cfb",
+      "climate_group": "Oceanic"
+    },
+    {
+      "city": "Olympia (Washington state, state-level only)",
+      "lat": 47.0379,
+      "lon": -122.9007,
+      "precision": "province",
+      "country": "USA",
+      "count": 2,
+      "climate_class": "Cfa",
+      "climate_group": "Humid subtropical"
+    },
+    {
+      "city": "Osaka",
+      "lat": 34.6937,
+      "lon": 135.5023,
+      "precision": "city",
+      "country": "Japan",
+      "count": 1,
+      "climate_class": "Cfa",
+      "climate_group": "Humid subtropical"
+    },
+    {
+      "city": "Padova",
+      "lat": 45.4064,
+      "lon": 11.8768,
+      "precision": "city",
+      "country": "Italy",
+      "count": 1,
+      "climate_class": "Cfa",
+      "climate_group": "Humid subtropical"
+    },
+    {
+      "city": "Perugia",
+      "lat": 43.1107,
+      "lon": 12.3908,
+      "precision": "city",
+      "country": "Italy",
+      "count": 5,
+      "climate_class": "Cfa",
+      "climate_group": "Humid subtropical"
+    },
+    {
+      "city": "Petrolina",
+      "lat": -9.3891,
+      "lon": -40.503,
+      "precision": "multi",
+      "country": "Brazil",
+      "count": 1,
+      "climate_class": "Aw/Am/As",
+      "climate_group": "Tropical"
+    },
+    {
+      "city": "Qingdao",
+      "lat": 36.0671,
+      "lon": 120.3826,
+      "precision": "city",
+      "country": "China",
+      "count": 11,
+      "climate_class": "Dwa",
+      "climate_group": "Continental"
+    },
+    {
+      "city": "Qiqihar",
+      "lat": 47.3543,
+      "lon": 123.918,
+      "precision": "city",
+      "country": "China",
+      "count": 1,
+      "climate_class": "Dwa",
+      "climate_group": "Continental"
+    },
+    {
+      "city": "Queenstown, Singapore",
+      "lat": 1.2942,
+      "lon": 103.803,
+      "precision": "city",
+      "country": "Singapore",
+      "count": 1,
+      "climate_class": "Af",
+      "climate_group": "Tropical"
+    },
+    {
+      "city": "Richmond (Virginia, state-level only)",
+      "lat": 37.5407,
+      "lon": -77.436,
+      "precision": "province",
+      "country": "USA",
+      "count": 1,
+      "climate_class": "Cfa",
+      "climate_group": "Humid subtropical"
+    },
+    {
+      "city": "Rotterdam",
+      "lat": 51.9244,
+      "lon": 4.4777,
+      "precision": "city",
+      "country": "Netherlands",
+      "count": 1,
+      "climate_class": "Cfb",
+      "climate_group": "Oceanic"
+    },
+    {
+      "city": "Sacramento (California, state-level only)",
+      "lat": 38.5767,
+      "lon": -121.4934,
+      "precision": "province",
+      "country": "USA",
+      "count": 2,
+      "climate_class": "Csb/Csa",
+      "climate_group": "Mediterranean"
+    },
+    {
+      "city": "San Giuliano Milanese",
+      "lat": 45.3989,
+      "lon": 9.2733,
+      "precision": "city",
+      "country": "Italy",
+      "count": 1,
+      "climate_class": "Cfa",
+      "climate_group": "Humid subtropical"
+    },
+    {
+      "city": "Seoul",
+      "lat": 37.5665,
+      "lon": 126.978,
+      "precision": "city",
+      "country": "Republic of Korea",
+      "count": 10,
+      "climate_class": "Dwa",
+      "climate_group": "Continental"
+    },
+    {
+      "city": "Serdang",
+      "lat": 2.9928,
+      "lon": 101.7066,
+      "precision": "city",
+      "country": "Malaysia",
+      "count": 1,
+      "climate_class": "Af",
+      "climate_group": "Tropical"
+    },
+    {
+      "city": "Shanghai",
+      "lat": 31.2304,
+      "lon": 121.4737,
+      "precision": "city",
+      "country": "China",
+      "count": 15,
+      "climate_class": "Cfa",
+      "climate_group": "Humid subtropical"
+    },
+    {
+      "city": "Singapore",
+      "lat": 1.3521,
+      "lon": 103.8198,
+      "precision": "city",
+      "country": "Singapore",
+      "count": 7,
+      "climate_class": "Af",
+      "climate_group": "Tropical"
+    },
+    {
+      "city": "Southfield",
+      "lat": 42.4734,
+      "lon": -83.2219,
+      "precision": "city",
+      "country": "USA",
+      "count": 1,
+      "climate_class": "Dfa",
+      "climate_group": "Continental"
+    },
+    {
+      "city": "Sydney",
+      "lat": -33.8688,
+      "lon": 151.2093,
+      "precision": "city",
+      "country": "Australia",
+      "count": 4,
+      "climate_class": "Cfa",
+      "climate_group": "Humid subtropical"
+    },
+    {
+      "city": "Taipei",
+      "lat": 25.033,
+      "lon": 121.5654,
+      "precision": "city",
+      "country": "Taiwan",
+      "count": 1,
+      "climate_class": "Cfa",
+      "climate_group": "Humid subtropical"
+    },
+    {
+      "city": "Teresina",
+      "lat": -5.0892,
+      "lon": -42.8019,
+      "precision": "multi",
+      "country": "Brazil",
+      "count": 1,
+      "climate_class": "Aw/Am/As",
+      "climate_group": "Tropical"
+    },
+    {
+      "city": "Tianjin",
+      "lat": 39.3434,
+      "lon": 117.3616,
+      "precision": "city",
+      "country": "China",
+      "count": 1,
+      "climate_class": "Dwa",
+      "climate_group": "Continental"
+    },
+    {
+      "city": "Tokyo",
+      "lat": 35.6762,
+      "lon": 139.6503,
+      "precision": "city",
+      "country": "Japan",
+      "count": 2,
+      "climate_class": "Cfa",
+      "climate_group": "Humid subtropical"
+    },
+    {
+      "city": "Toyohashi",
+      "lat": 34.7692,
+      "lon": 137.3917,
+      "precision": "city",
+      "country": "Japan",
+      "count": 1,
+      "climate_class": "Cfa",
+      "climate_group": "Humid subtropical"
+    },
+    {
+      "city": "Trondheim",
+      "lat": 63.4305,
+      "lon": 10.3951,
+      "precision": "city",
+      "country": "Norway",
+      "count": 1,
+      "climate_class": "Dfc",
+      "climate_group": "Subarctic"
+    },
+    {
+      "city": "West Lafayette",
+      "lat": 40.4259,
+      "lon": -86.9081,
+      "precision": "city",
+      "country": "USA",
+      "count": 1,
+      "climate_class": "Dfa",
+      "climate_group": "Continental"
+    },
+    {
+      "city": "Wuhan",
+      "lat": 30.5928,
+      "lon": 114.3055,
+      "precision": "city",
+      "country": "China",
+      "count": 1,
+      "climate_class": "Cfa",
+      "climate_group": "Humid subtropical"
+    },
+    {
+      "city": "Xi'an",
+      "lat": 34.3416,
+      "lon": 108.9398,
+      "precision": "city",
+      "country": "China",
+      "count": 20,
+      "climate_class": "BSk",
+      "climate_group": "Semi-arid (cold)"
+    },
+    {
+      "city": "Xi'an (Shaanxi province capital)",
+      "lat": 34.3416,
+      "lon": 108.9398,
+      "precision": "province",
+      "country": "China",
+      "count": 1,
+      "climate_class": "BSk",
+      "climate_group": "Semi-arid (cold)"
+    },
+    {
+      "city": "Xiangtan",
+      "lat": 27.8293,
+      "lon": 112.9445,
+      "precision": "city",
+      "country": "China",
+      "count": 1,
+      "climate_class": "Cfa",
+      "climate_group": "Humid subtropical"
+    },
+    {
+      "city": "Yokohama (Kanagawa prefecture)",
+      "lat": 35.4475,
+      "lon": 139.6425,
+      "precision": "province",
+      "country": "Japan",
+      "count": 1,
+      "climate_class": "Cfa",
+      "climate_group": "Humid subtropical"
+    },
+    {
+      "city": "Zagreb (corpus lists Split & Zagreb)",
+      "lat": 45.815,
+      "lon": 15.9819,
+      "precision": "city",
+      "country": "Croatia",
+      "count": 1,
+      "climate_class": "Csa/Cfb",
+      "climate_group": "Mediterranean"
+    },
+    {
+      "city": "Zhengzhou",
+      "lat": 34.7466,
+      "lon": 113.6253,
+      "precision": "city",
+      "country": "China",
+      "count": 1,
+      "climate_class": "Cwa",
+      "climate_group": "Humid subtropical"
+    }
+  ],
+  "n_cities": 81,
+  "n_studies_mapped": 250,
+  "n_studies_total": 269,
+  "n_province_level": 12
+}

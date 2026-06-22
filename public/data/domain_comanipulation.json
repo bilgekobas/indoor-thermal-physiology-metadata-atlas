@@ -1,0 +1,31 @@
+{
+  "n_domains_distribution": [
+    {
+      "n_domains": 0,
+      "count": 3
+    },
+    {
+      "n_domains": 1,
+      "count": 184
+    },
+    {
+      "n_domains": 2,
+      "count": 71
+    },
+    {
+      "n_domains": 3,
+      "count": 11
+    }
+  ],
+  "domain_totals": {
+    "Thermal": 256,
+    "Air movement": 24,
+    "Humidity": 53,
+    "CO2": 3,
+    "Light": 12,
+    "Acoustics": 3,
+    "Behaviour": 7,
+    "IAQ": 1
+  },
+  "n_studies": 269
+}

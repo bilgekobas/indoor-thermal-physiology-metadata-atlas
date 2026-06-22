@@ -2,7 +2,12 @@ import { useTooltip, TooltipPortal } from './Tooltip.jsx'
 
 // Renders one horizontal line per study from `low` to `high`, sorted by a sort key.
 // Used for Figures 7 (temp ranges), 8 (age mean±SD), 9 (BMI mean±SD).
-export default function StudyIntervalPlot({ studies, getLow, getHigh, getLabel, domain, color = '#D94F6E', rowHeight = 3.2 }) {
+// `unit` and `xAxisLabel` are required-in-spirit: this component is reused for
+// three different metrics with completely different units (years, kg/m², °C),
+// and bare numbers on the x-axis would be ambiguous out of context — a BMI
+// axis showing "16, 18, 20…" looks identical to an age or temperature axis
+// unless the unit is printed directly on the chart.
+export default function StudyIntervalPlot({ studies, getLow, getHigh, getLabel, domain, color = '#D94F6E', rowHeight = 3.2, unit = '', xAxisLabel = '' }) {
   const { tip, showTip, moveTip, hideTip } = useTooltip()
   if (!studies.length) return <div className="text-[12px] text-inkfaint">No data available.</div>
 
@@ -13,6 +18,7 @@ export default function StudyIntervalPlot({ studies, getLow, getHigh, getLabel, 
 
   return (
     <div>
+      <div className="font-data text-[10px] text-inkfaint mb-1">{studies.length} studies, sorted ascending ↓</div>
       <svg width={width} height={height + 24} className="font-data overflow-visible">
         {/* gridlines */}
         {Array.from({ length: 8 }, (_, i) => domainMin + (i * (domainMax - domainMin)) / 7).map((v) => (
@@ -38,10 +44,11 @@ export default function StudyIntervalPlot({ studies, getLow, getHigh, getLabel, 
         })}
         {Array.from({ length: 8 }, (_, i) => domainMin + (i * (domainMax - domainMin)) / 7).map((v) => (
           <text key={v} x={xScale(v)} y={height + 14} fontSize={10} fill="#A8A59C" textAnchor="middle">
-            {Math.round(v)}
+            {Math.round(v)}{unit}
           </text>
         ))}
       </svg>
+      {xAxisLabel && <div className="font-data text-[10px] text-inkfaint text-center mt-0.5">{xAxisLabel}</div>}
       <TooltipPortal tip={tip} />
     </div>
   )

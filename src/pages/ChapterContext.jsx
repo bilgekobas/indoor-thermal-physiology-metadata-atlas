@@ -1,0 +1,320 @@
+import { useMemo, useState } from 'react'
+import { ChapterHeader, ChapterSection } from '../components/Chapter.jsx'
+import CompletenessStrip from '../components/CompletenessStrip.jsx'
+import FigureCard from '../components/FigureCard.jsx'
+import InteractiveBarChart from '../components/InteractiveBarChart.jsx'
+import HistogramECDF from '../components/HistogramECDF.jsx'
+import ChoroplethMap from '../components/ChoroplethMap.jsx'
+import CityMap from '../components/CityMap.jsx'
+import SampleSizeByCountry from '../components/SampleSizeByCountry.jsx'
+import OverallByPeriod, { PeriodBarGroup } from '../components/OverallByPeriod.jsx'
+import { useTooltip, TooltipPortal } from '../components/Tooltip.jsx'
+
+// Three-way toggle specific to the geography figure: city-level map (the
+// most precise view), country-level choropleth (the broader pattern), and
+// the existing by-period concentration trend. Kept local to this chapter
+// since it's the only figure that needs three modes rather than the shared
+// OverallByPeriod component's two.
+function GeographyToggle({ cityData, countryData, geoConcentration }) {
+  const [mode, setMode] = useState('city')
+  const tabs = [
+    { key: 'city', label: 'By city' },
+    { key: 'country', label: 'By country' },
+    { key: 'period', label: 'Concentration over time' },
+  ]
+  return (
+    <div>
+      <div className="flex gap-1 mb-4">
+        {tabs.map((t) => (
+          <button
+            key={t.key}
+            onClick={() => setMode(t.key)}
+            className={`px-3 py-1 rounded text-[11.5px] font-data transition-colors ${
+              mode === t.key ? 'bg-ink text-paper' : 'bg-line/50 text-inkmid hover:bg-line'
+            }`}
+          >
+            {t.label}
+          </button>
+        ))}
+      </div>
+      {mode === 'city' && <CityMap cityData={cityData} />}
+      {mode === 'country' && <ChoroplethMap countryData={countryData} />}
+      {mode === 'period' && (
+        <div>
+          <p className="text-[12.5px] text-inkmid mb-3">
+            Share of studies from {geoConcentration.top_country}, the single most-represented
+            country overall, by period.
+          </p>
+          <PeriodBarGroup
+            periods={geoConcentration.data.map((d) => d.period)}
+            getValue={(p) => geoConcentration.data.find((d) => d.period === p)?.pct || 0}
+            getTooltip={(p, v) => {
+              const d = geoConcentration.data.find((r) => r.period === p)
+              return `${p}: ${d.top_count} of ${d.total} studies from ${geoConcentration.top_country} · ${v}%`
+            }}
+            color="#D94F6E"
+            height={120}
+            yUnit="%"
+          />
+          <p className="text-[11px] text-inkfaint mt-2">2013–14 and 2015–16 have few studies; read early-period percentages cautiously.</p>
+        </div>
+      )}
+    </div>
+  )
+}
+
+function TimeOfDayChart({ sessions }) {
+  const { tip, showTip, moveTip, hideTip } = useTooltip()
+  const TOTAL_HOURS = 24, SLOT_MINS = 15, N_SLOTS = (TOTAL_HOURS * 60) / SLOT_MINS
+  const nStudies = new Set(sessions.map((s) => s.id)).size
+  const nConsidered = new Set(sessions.filter((s) => s.circadian_considered).map((s) => s.id)).size
+  const occupancy = useMemo(() => {
+    const slots = new Array(N_SLOTS).fill(0)
+    sessions.forEach(({ start, end }) => {
+      const s0 = Math.floor(start * (60 / SLOT_MINS))
+      const s1 = Math.min(Math.ceil(end * (60 / SLOT_MINS)), N_SLOTS - 1)
+      for (let i = s0; i <= s1; i++) slots[i]++
+    })
+    return slots.map((v) => v / nStudies)
+  }, [sessions, nStudies])
+  const maxOcc = occupancy.reduce((m, v) => (v > m ? v : m), 0.001)
+  const W = 600, H_TOP = 80, H_BOT = 110, slotW = W / N_SLOTS, yAxisW = 32
+  const hourLabel = (h) => `${String(h).padStart(2, '0')}:00`
+  return (
+    <div className="overflow-x-auto">
+      <div className="font-data text-[10px] text-inkfaint mb-1">
+        Top: % of {nStudies} sessions active at each time of day (y-axis below). Bottom: each session's own
+        start–end window, one line per session, colored by whether the study explicitly reported considering
+        circadian timing effects ({nConsidered} of {nStudies} did).
+      </div>
+      <svg width={W + yAxisW} height={H_TOP + H_BOT + 28} className="font-data block">
+        {/* y-axis for the occupancy panel */}
+        {[0, 0.5, 1].map((frac) => (
+          <g key={frac}>
+            <line x1={yAxisW} x2={W + yAxisW} y1={H_TOP - 12 - frac * (H_TOP - 12)} y2={H_TOP - 12 - frac * (H_TOP - 12)} stroke="#E2DED4" strokeWidth={1} />
+            <text x={yAxisW - 4} y={H_TOP - 12 - frac * (H_TOP - 12) + 3} fontSize={9} fill="#A8A59C" textAnchor="end">
+              {Math.round(maxOcc * frac * 100)}%
+            </text>
+          </g>
+        ))}
+        <g transform={`translate(${yAxisW}, 0)`}>
+          {occupancy.map((v, i) => {
+            const x = i * slotW, barH = (v / maxOcc) * (H_TOP - 12), hour = (i * SLOT_MINS) / 60
+            return (
+              <rect key={i} x={x} y={H_TOP - barH} width={slotW + 0.5} height={barH} fill="#D94F6E" opacity={0.7}
+                className="cursor-default"
+                onMouseEnter={(e) => showTip(e, `${hourLabel(Math.floor(hour))}: ${(v * 100).toFixed(1)}% of sessions active`)}
+                onMouseMove={moveTip} onMouseLeave={hideTip} />
+            )
+          })}
+          {sessions.map((s, i) => {
+            const x1 = (s.start / TOTAL_HOURS) * W, x2 = (s.end / TOTAL_HOURS) * W
+            const y = H_TOP + 8 + i * (H_BOT / sessions.length)
+            const color = s.circadian_considered ? '#4855C8' : '#A8A59C'
+            return (
+              <line key={i} x1={x1} x2={x2} y1={y} y2={y} stroke={color} strokeWidth={1.2} opacity={0.75}
+                className="cursor-default"
+                onMouseEnter={(e) => showTip(e, `${s.id}: ${s.start.toFixed(2)}h–${s.end.toFixed(2)}h · circadian timing ${s.circadian_considered ? 'considered' : 'not considered / unspecified'}`)}
+                onMouseMove={moveTip} onMouseLeave={hideTip} />
+            )
+          })}
+          {Array.from({ length: 9 }, (_, i) => i * 3).map((h) => (
+            <g key={h}>
+              <line x1={(h / TOTAL_HOURS) * W} x2={(h / TOTAL_HOURS) * W} y1={H_TOP + H_BOT + 6} y2={H_TOP + H_BOT + 12} stroke="#E2DED4" />
+              <text x={(h / TOTAL_HOURS) * W} y={H_TOP + H_BOT + 22} fontSize={10} fill="#A8A59C" textAnchor="middle">{hourLabel(h)}</text>
+            </g>
+          ))}
+        </g>
+      </svg>
+      <div className="flex gap-4 mt-2 text-[11px] text-inkmid">
+        <span className="flex items-center gap-1.5"><span className="w-4 h-[2px] inline-block" style={{ background: '#4855C8' }} /> circadian timing considered ({nConsidered})</span>
+        <span className="flex items-center gap-1.5"><span className="w-4 h-[2px] inline-block" style={{ background: '#A8A59C' }} /> not considered / unspecified ({nStudies - nConsidered})</span>
+      </div>
+      <TooltipPortal tip={tip} />
+    </div>
+  )
+}
+
+const CLIMATE_COLORS = {
+  'Tropical': '#D94F6E', 'Arid (hot)': '#E07820', 'Semi-arid (hot)': '#E0A020',
+  'Mediterranean': '#B8C020', 'Humid subtropical': '#4855C8', 'Oceanic': '#6E8FD9',
+  'Continental': '#8A8A86', 'Semi-arid (cold)': '#A8A59C', 'Subarctic': '#5F5E58', 'Other/Mixed': '#C9C6BC',
+}
+function ClimateTempChart({ studies, climateCounts }) {
+  const { tip, showTip, moveTip, hideTip } = useTooltip()
+  const climateOrder = Object.keys(climateCounts).sort((a, b) => climateCounts[b] - climateCounts[a])
+  const W = 600, domainMin = 6, domainMax = 44
+  const xScale = (v) => ((v - domainMin) / (domainMax - domainMin)) * W
+  const rowH = 12, groupGap = 8
+  let y = 10
+  const rows = []
+  climateOrder.forEach((grp) => {
+    studies.filter((s) => s.climate_group === grp).sort((a, b) => a.min - b.min).forEach((s) => {
+      rows.push({ ...s, y, color: CLIMATE_COLORS[grp] || '#BBBBBB' })
+      y += rowH
+    })
+    y += groupGap
+  })
+  const H = y
+  return (
+    <div className="overflow-x-auto">
+      <div className="font-data text-[10px] text-inkfaint mb-1">
+        Each horizontal line is one study's tested range, in °C (x-axis). Rows grouped by climate, sorted by minimum temperature within group.
+      </div>
+      <svg width={W + 20} height={H + 20} className="font-data overflow-visible">
+        {[10, 15, 20, 25, 30, 35, 40].map((v) => (
+          <line key={v} x1={xScale(v)} x2={xScale(v)} y1={0} y2={H} stroke="#E2DED4" strokeWidth={1} />
+        ))}
+        {rows.map((s, i) => (
+          <line key={i} x1={xScale(s.min)} x2={xScale(s.max)} y1={s.y} y2={s.y} stroke={s.color} strokeWidth={2.5} opacity={0.75}
+            className="cursor-default"
+            onMouseEnter={(e) => showTip(e, `${s.id} (${s.country}, ${s.climate_group}): ${s.min}–${s.max}°C`)}
+            onMouseMove={moveTip} onMouseLeave={hideTip} />
+        ))}
+        {[10, 20, 30, 40].map((v) => (
+          <text key={v} x={xScale(v)} y={H + 14} fontSize={10} fill="#A8A59C" textAnchor="middle">{v}°C</text>
+        ))}
+      </svg>
+      <div className="flex flex-wrap gap-x-3 gap-y-1 mt-3">
+        {climateOrder.map((g) => (
+          <div key={g} className="flex items-center gap-1.5 text-[11px] text-inkmid">
+            <span className="w-2.5 h-2.5 rounded-sm inline-block" style={{ background: CLIMATE_COLORS[g] || '#BBBBBB' }} />
+            {g} (n={climateCounts[g]})
+          </div>
+        ))}
+      </div>
+      <TooltipPortal tip={tip} />
+    </div>
+  )
+}
+
+export default function ChapterContext({ data }) {
+  const {
+    fig01_pubs_by_year, fig02_geography, fig03_session_length,
+    fig05_time_of_day, fig06_setting_typology, climate_vs_temp, geo_choropleth, geo_cities,
+    geo_concentration_by_period, domain_comanipulation, sample_size_by_country, chapter_completeness, summary,
+  } = data
+  const yearTip = useTooltip()
+  const maxYearCount = fig01_pubs_by_year.data.reduce((m, d) => (d.count > m ? d.count : m), 1)
+  const totalPubs = fig01_pubs_by_year.data.reduce((a, d) => a + d.count, 0)
+
+  const typeRollup = useMemo(() => {
+    const map = {}
+    fig06_setting_typology.data.forEach((r) => { map[r['exp-type']] = (map[r['exp-type']] || 0) + r.count })
+    return Object.entries(map).map(([label, count]) => ({ label, count })).sort((a, b) => b.count - a.count)
+  }, [fig06_setting_typology])
+
+  const peakYear = fig01_pubs_by_year.data.reduce((best, d) => (d.count > best.count ? d : best))
+  const topCountryShare = ((fig02_geography.data[0].count / summary.n_publications) * 100).toFixed(0)
+
+  return (
+    <div>
+      <ChapterHeader
+        eyebrow="Chapter 1 of 8"
+        title="When, where, and under what conditions"
+        framing={
+          <>
+            <p>
+              Before looking at who's studied or what's measured, this chapter covers the experiment
+              as an institution: when it was published, where it was run, what climate that location
+              sits in, what kind of setting it used, and how a session was timed.
+            </p>
+            <p>
+              We looked for these fields because they're the minimum context needed to judge whether
+              two studies are even comparable — a result from a lab study in Singapore summer doesn't
+              transfer to a field study in Danish winter without knowing both of these things first.
+            </p>
+          </>
+        }
+        headline={[
+          { value: summary.n_publications, label: 'Publications, ' + summary.year_min + '–' + summary.year_max },
+          { value: peakYear.year, label: `Peak year (${peakYear.count} studies)`, color: '#D94F6E' },
+          { value: `${topCountryShare}%`, label: `of studies from ${fig02_geography.data[0].country}`, color: '#4855C8' },
+        ]}
+      />
+
+      <CompletenessStrip
+        fields={chapter_completeness.context_setting.fields}
+        nStudies={chapter_completeness.context_setting.n_studies}
+      />
+
+      <ChapterSection
+        title="When and where research happens"
+        intro="Publication volume has risen steadily, with a dip during 2020–21. Research is geographically concentrated, and that concentration shapes more than just where studies happen — sample size patterns differ by country too, and the climate a study is conducted in often doesn't match the temperature range it tests."
+      >
+        <FigureCard figNumber="1" title="Publications by year" commentary="A clear upward trend with a COVID-era dip, consistent with the appendix's own account.">
+          <div className="flex gap-2 items-end h-36">
+            {fig01_pubs_by_year.data.map((d) => (
+              <div key={d.year} className="flex-1 flex flex-col items-center group">
+                <div className="w-full rounded-sm bg-ink/85 group-hover:bg-peripheral transition-colors cursor-default"
+                  style={{ height: `${(d.count / maxYearCount) * 110}px` }}
+                  onMouseEnter={(e) => yearTip.showTip(e, `${d.year}: ${d.count} publications · ${((d.count / totalPubs) * 100).toFixed(1)}%`)}
+                  onMouseMove={yearTip.moveTip} onMouseLeave={yearTip.hideTip} />
+                <div className="font-data text-[10px] text-inkfaint mt-1.5">{d.year}</div>
+              </div>
+            ))}
+          </div>
+          <TooltipPortal tip={yearTip.tip} />
+        </FigureCard>
+
+        <FigureCard figNumber="2" title="Geographical distribution" plotWidth={760} commentary="250 of 269 studies (93%) resolve to a specific city; the rest report only a country or province. Research concentrates in a small number of cities — Changsha and Chongqing alone account for 48 studies. Color uses a log scale on the country view so China's count doesn't wash out every other country.">
+          <GeographyToggle
+            cityData={geo_cities.data}
+            countryData={geo_choropleth.data}
+            geoConcentration={geo_concentration_by_period}
+          />
+        </FigureCard>
+
+        <FigureCard title="Sample size by country" plotWidth={760} commentary="China's median study (24 participants) looks like everywhere else — but its mean (56) is pulled up by a handful of large field studies, including one with 2,110 participants. Brazil and Switzerland show the opposite pattern: few studies, but typically large ones (medians of 82 and 75). Mean and median diverge enough here that either one alone would mislead.">
+          <SampleSizeByCountry
+            stats={sample_size_by_country.stats}
+            studies={sample_size_by_country.studies}
+            minCountThreshold={sample_size_by_country.min_count_threshold}
+          />
+        </FigureCard>
+
+        <FigureCard figNumber="7" title="Tested temperature range by host climate" plotWidth={680} commentary="Humid subtropical and continental climates together account for 67% of studies with a known climate, including most of the warm-condition research. Only 15 of 251 studies (6%) were run in a genuinely hot climate (tropical, hot-arid, or hot-semi-arid) — heat is mostly studied by simulating it in temperate-climate labs, not by testing where it actually occurs.">
+          <ClimateTempChart studies={climate_vs_temp.studies} climateCounts={climate_vs_temp.climate_counts} />
+        </FigureCard>
+      </ChapterSection>
+
+      <ChapterSection
+        title="Setting and timing"
+        intro="Lab studies dominate; office-like spaces are the most common spatial typology. Sessions cluster under 3 hours, and almost all testing happens in daytime hours."
+      >
+        <FigureCard figNumber="6" title="Experimental setting type" commentary="200 of 266 experiments (75%) are run in a lab; Field and Living Lab split the remainder almost evenly (12% each).">
+          <InteractiveBarChart data={typeRollup} total={summary.n_experiments} color="#4855C8" />
+        </FigureCard>
+
+        <FigureCard figNumber="5" title="Time of day distribution" plotWidth={620} commentary="Testing peaks at 15:00, when 88% of the 73 sessions with known timing are active. Sessions in blue explicitly report considering circadian timing effects — most don't; testing concentrated in a narrow daytime window is itself a common way labs implicitly control for circadian variation without saying so.">
+          <TimeOfDayChart sessions={fig05_time_of_day.sessions} />
+        </FigureCard>
+
+        <FigureCard figNumber="3" title="Session length" commentary="Minutes per session, capped at 600 (88% of studies fall under 180 minutes).">
+          <HistogramECDF values={fig03_session_length.values_minutes.filter((v) => v <= 600)} binWidth={15} unit=" min" />
+        </FigureCard>
+      </ChapterSection>
+
+      <ChapterSection
+        title="How many variables are manipulated at once"
+        intro={`${domain_comanipulation.n_domains_distribution.filter((d) => d.n_domains >= 2).reduce((a, d) => a + d.count, 0)} of ${domain_comanipulation.n_studies} studies manipulate more than one environmental domain simultaneously (e.g. air temperature crossed with humidity, or with air movement). The rest isolate a single variable, the classic thermal-comfort design.`}
+      >
+        <FigureCard title="Number of domains manipulated per study" commentary="184 of 269 studies (68%) isolate a single variable — the classic thermal-comfort design. 71 (26%) cross two domains, and 11 (4%) cross three; almost none cross four or more.">
+          <InteractiveBarChart
+            data={domain_comanipulation.n_domains_distribution.map((d) => ({ label: `${d.n_domains} domain${d.n_domains === 1 ? '' : 's'}`, count: d.count }))}
+            total={domain_comanipulation.n_studies}
+            color="#4855C8"
+          />
+        </FigureCard>
+
+        <FigureCard title="Which domains are manipulated" commentary="Thermal conditions are manipulated in 257 of 269 studies (95%) — almost universal. Humidity is the next most common at 53 studies (20%), followed by air movement at 24 (9%); CO2, light, acoustics, and IAQ each appear in fewer than 15 studies.">
+          <InteractiveBarChart
+            data={Object.entries(domain_comanipulation.domain_totals).map(([label, count]) => ({ label, count })).sort((a, b) => b.count - a.count)}
+            total={domain_comanipulation.n_studies}
+            color="#E07820"
+          />
+        </FigureCard>
+      </ChapterSection>
+    </div>
+  )
+}

@@ -1,0 +1,47 @@
+{
+  "data": [
+    {
+      "period": "2013\u201314",
+      "top_country": "China",
+      "top_count": 6,
+      "total": 11,
+      "pct": 54.5
+    },
+    {
+      "period": "2015\u201316",
+      "top_country": "China",
+      "top_count": 8,
+      "total": 15,
+      "pct": 53.3
+    },
+    {
+      "period": "2017\u201318",
+      "top_country": "China",
+      "top_count": 18,
+      "total": 44,
+      "pct": 40.9
+    },
+    {
+      "period": "2019\u201320",
+      "top_country": "China",
+      "top_count": 29,
+      "total": 59,
+      "pct": 49.2
+    },
+    {
+      "period": "2021\u201322",
+      "top_country": "China",
+      "top_count": 48,
+      "total": 79,
+      "pct": 60.8
+    },
+    {
+      "period": "2023\u201324",
+      "top_country": "China",
+      "top_count": 40,
+      "total": 55,
+      "pct": 72.7
+    }
+  ],
+  "top_country": "China"
+}

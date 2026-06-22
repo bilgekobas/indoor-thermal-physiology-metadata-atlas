@@ -1,6 +1,57 @@
 import { Link } from 'react-router-dom'
 import { CodeChip } from '../components/CodeChip.jsx'
 
+// Six citable, number-verified findings — each pulled from a chapter's own
+// live-computed data (see that chapter for the exact derivation), not
+// independently asserted here. Picked to span different chapters and
+// different kinds of finding (concentration, transparency, methods drift,
+// measurement convention, rigor, scale heterogeneity) rather than six
+// variations on "X% don't report Y."
+const KEY_FINDINGS = [
+  {
+    stat: '73%',
+    text: <>of 2023–24 studies are from <strong>China alone</strong> — up from 55% a decade earlier. The field hasn't just grown, it's concentrated.</>,
+    chapter: 'Ch. 1 — When, where & how',
+    to: '/context',
+    color: '#D94F6E',
+  },
+  {
+    stat: '5 of 269',
+    text: <>studies link to <strong>actual, working open data</strong>. 180 give no data-availability statement at all.</>,
+    chapter: 'Ch. 8 — Reporting completeness',
+    to: '/reporting',
+    color: '#4855C8',
+  },
+  {
+    stat: '55%→25%',
+    text: <>share of skin-temperature studies using a <strong>thermocouple</strong>, 2013–14 to 2023–24 — displaced by Thermochron-type loggers (iButton), which rose from 18% to 52% over the same span.</>,
+    chapter: 'Ch. 3 — Measurements: the body',
+    to: '/body',
+    color: '#E07820',
+  },
+  {
+    stat: '62%',
+    text: <>of skin-temperature studies measure the <strong>lower leg</strong> — the single most-measured site, but no site is measured in every study.</>,
+    chapter: 'Ch. 3 — Measurements: the body',
+    to: '/body',
+    color: '#B8C020',
+  },
+  {
+    stat: '0%→29%',
+    text: <><strong>Blinding</strong> rose from absent in 2013–14 to nearly a third of studies by 2023–24 — a real gain. Randomisation barely moved over the same period.</>,
+    chapter: 'Ch. 7 — Protocol rigor',
+    to: '/protocol',
+    color: '#8A8A86',
+  },
+  {
+    stat: '78% vs. none',
+    text: <>of thermal <em>sensation</em> scales use the standard 7-point format. Thermal <em>comfort</em> scales have no equivalent — point count, labels, and polarity all vary, and roughly a quarter of studies put "comfortable" at the opposite end of the number line from the rest.</>,
+    chapter: 'Ch. 5 — What people were asked',
+    to: '/questionnaires',
+    color: '#C9698A',
+  },
+]
+
 function StatBlock({ value, label, accent }) {
   return (
     <div className="border border-line rounded-md px-5 py-4 bg-white/40">
@@ -54,6 +105,36 @@ export default function Overview({ data }) {
           >
             See what's missing
           </Link>
+        </div>
+      </div>
+
+      {/* Key findings — six citable, number-backed facts, each linking to its chapter */}
+      <div className="px-10 py-8 border-b border-line bg-white/20">
+        <div className="flex items-baseline justify-between mb-5">
+          <h2 className="text-[16px] font-semibold">Six things worth knowing before you dig in</h2>
+          <span className="font-data text-[11px] text-inkfaint">each links to where it comes from</span>
+        </div>
+        <div className="grid grid-cols-2 gap-x-8 gap-y-5 max-w-4xl">
+          {KEY_FINDINGS.map((f) => (
+            <Link
+              key={f.to}
+              to={f.to}
+              className="group flex gap-3 p-3 -m-3 rounded-md hover:bg-white/60 transition-colors"
+            >
+              <div
+                className="font-data text-[20px] font-semibold leading-none shrink-0 w-20"
+                style={{ color: f.color }}
+              >
+                {f.stat}
+              </div>
+              <div className="text-[13px] text-inkmid leading-snug">
+                {f.text}
+                <span className="block font-data text-[10.5px] text-coreaccent mt-1 opacity-0 group-hover:opacity-100 transition-opacity">
+                  {f.chapter} →
+                </span>
+              </div>
+            </Link>
+          ))}
         </div>
       </div>
 

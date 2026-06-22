@@ -4,16 +4,15 @@ import { useCorpusData } from './useCorpusData.js'
 
 import Overview from './pages/Overview.jsx'
 import Browse from './pages/Browse.jsx'
-import StudyDesign from './pages/StudyDesign.jsx'
-import Environment from './pages/Environment.jsx'
-import Measurement from './pages/Measurement.jsx'
-import Sankey from './pages/Sankey.jsx'
-import Evolution from './pages/Evolution.jsx'
-import Trends from './pages/Trends.jsx'
-import Context from './pages/Context.jsx'
-import Mst from './pages/Mst.jsx'
-import Questionnaires from './pages/Questionnaires.jsx'
-import Reporting from './pages/Reporting.jsx'
+import Devices from './pages/Devices.jsx'
+import ChapterContext from './pages/ChapterContext.jsx'
+import ChapterPopulation from './pages/ChapterPopulation.jsx'
+import ChapterBody from './pages/ChapterBody.jsx'
+import ChapterEnvironment from './pages/ChapterEnvironment.jsx'
+import ChapterQuestionnaires from './pages/ChapterQuestionnaires.jsx'
+import ChapterCognitive from './pages/ChapterCognitive.jsx'
+import ChapterProtocol from './pages/ChapterProtocol.jsx'
+import ChapterReporting from './pages/ChapterReporting.jsx'
 import About from './pages/About.jsx'
 
 export default function App() {
@@ -35,16 +34,15 @@ export default function App() {
           <Routes>
             <Route path="/" element={<Overview data={data} />} />
             <Route path="/browse" element={<Browse data={data} />} />
-            <Route path="/study-design" element={<StudyDesign data={data} />} />
-            <Route path="/environment" element={<Environment data={data} />} />
-            <Route path="/measurement" element={<Measurement data={data} />} />
-            <Route path="/sankey" element={<Sankey data={data} />} />
-            <Route path="/evolution" element={<Evolution data={data} />} />
-            <Route path="/trends" element={<Trends data={data} />} />
-            <Route path="/context" element={<Context data={data} />} />
-            <Route path="/mst" element={<Mst data={data} />} />
-            <Route path="/questionnaires" element={<Questionnaires data={data} />} />
-            <Route path="/reporting" element={<Reporting data={data} />} />
+            <Route path="/devices" element={<Devices data={data} />} />
+            <Route path="/context" element={<ChapterContext data={data} />} />
+            <Route path="/population" element={<ChapterPopulation data={data} />} />
+            <Route path="/body" element={<ChapterBody data={data} />} />
+            <Route path="/environment" element={<ChapterEnvironment data={data} />} />
+            <Route path="/questionnaires" element={<ChapterQuestionnaires data={data} />} />
+            <Route path="/cognitive" element={<ChapterCognitive data={data} />} />
+            <Route path="/protocol" element={<ChapterProtocol data={data} />} />
+            <Route path="/reporting" element={<ChapterReporting data={data} />} />
             <Route path="/about" element={<About data={data} />} />
           </Routes>
         )}

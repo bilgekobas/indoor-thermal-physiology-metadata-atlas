@@ -1,0 +1,1222 @@
+{
+  "data": [
+    {
+      "id": "1_1",
+      "metric": "age",
+      "male": 23.1,
+      "female": 22.1,
+      "diff": 1.0
+    },
+    {
+      "id": "1_1",
+      "metric": "bmi",
+      "male": 22.4,
+      "female": 19.9,
+      "diff": 2.5
+    },
+    {
+      "id": "4_1",
+      "metric": "age",
+      "male": 23.0,
+      "female": 24.0,
+      "diff": -1.0
+    },
+    {
+      "id": "4_1",
+      "metric": "bmi",
+      "male": 22.2,
+      "female": 20.1,
+      "diff": 2.1
+    },
+    {
+      "id": "5_1",
+      "metric": "age",
+      "male": 25.8,
+      "female": 25.8,
+      "diff": 0.0
+    },
+    {
+      "id": "5_1",
+      "metric": "bmi",
+      "male": 23.99,
+      "female": 19.59,
+      "diff": 4.4
+    },
+    {
+      "id": "6_1",
+      "metric": "age",
+      "male": 24.1,
+      "female": 23.0,
+      "diff": 1.1
+    },
+    {
+      "id": "6_1",
+      "metric": "bmi",
+      "male": 22.6,
+      "female": 19.6,
+      "diff": 3.0
+    },
+    {
+      "id": "7_1",
+      "metric": "age",
+      "male": 20.3,
+      "female": 22.3,
+      "diff": -2.0
+    },
+    {
+      "id": "7_1",
+      "metric": "bmi",
+      "male": 23.5,
+      "female": 20.6,
+      "diff": 2.9
+    },
+    {
+      "id": "8_1",
+      "metric": "age",
+      "male": 24.6,
+      "female": 23.7,
+      "diff": 0.9
+    },
+    {
+      "id": "8_1",
+      "metric": "bmi",
+      "male": 20.6,
+      "female": 21.7,
+      "diff": -1.1
+    },
+    {
+      "id": "10_1",
+      "metric": "age",
+      "male": 23.3,
+      "female": 23.6,
+      "diff": -0.3
+    },
+    {
+      "id": "12_1",
+      "metric": "age",
+      "male": 19.9,
+      "female": 19.9,
+      "diff": 0.0
+    },
+    {
+      "id": "12_1",
+      "metric": "bmi",
+      "male": 21.6,
+      "female": 20.0,
+      "diff": 1.6
+    },
+    {
+      "id": "13_1",
+      "metric": "age",
+      "male": 21.5,
+      "female": 20.75,
+      "diff": 0.75
+    },
+    {
+      "id": "13_1",
+      "metric": "bmi",
+      "male": 23.48,
+      "female": 20.46,
+      "diff": 3.02
+    },
+    {
+      "id": "14_1",
+      "metric": "age",
+      "male": 22.1,
+      "female": 22.4,
+      "diff": -0.3
+    },
+    {
+      "id": "14_1",
+      "metric": "bmi",
+      "male": 22.4,
+      "female": 21.6,
+      "diff": 0.8
+    },
+    {
+      "id": "16_1",
+      "metric": "age",
+      "male": 29.83,
+      "female": 25.77,
+      "diff": 4.06
+    },
+    {
+      "id": "16_1",
+      "metric": "bmi",
+      "male": 23.41,
+      "female": 20.89,
+      "diff": 2.52
+    },
+    {
+      "id": "18_1",
+      "metric": "age",
+      "male": 23.0,
+      "female": 23.0,
+      "diff": 0.0
+    },
+    {
+      "id": "19_1",
+      "metric": "age",
+      "male": 23.0,
+      "female": 23.0,
+      "diff": 0.0
+    },
+    {
+      "id": "19_1",
+      "metric": "bmi",
+      "male": 22.0,
+      "female": 20.3,
+      "diff": 1.7
+    },
+    {
+      "id": "22_1",
+      "metric": "age",
+      "male": 43.3,
+      "female": 39.0,
+      "diff": 4.3
+    },
+    {
+      "id": "22_1",
+      "metric": "bmi",
+      "male": 23.6,
+      "female": 21.3,
+      "diff": 2.3
+    },
+    {
+      "id": "23_1",
+      "metric": "age",
+      "male": 24.4,
+      "female": 24.2,
+      "diff": 0.2
+    },
+    {
+      "id": "23_1",
+      "metric": "bmi",
+      "male": 20.9,
+      "female": 19.0,
+      "diff": 1.9
+    },
+    {
+      "id": "25_1",
+      "metric": "age",
+      "male": 23.5,
+      "female": 23.1,
+      "diff": 0.4
+    },
+    {
+      "id": "25_1",
+      "metric": "bmi",
+      "male": 22.4,
+      "female": 21.6,
+      "diff": 0.8
+    },
+    {
+      "id": "30_1",
+      "metric": "age",
+      "male": 29.3,
+      "female": 27.3,
+      "diff": 2.0
+    },
+    {
+      "id": "30_1",
+      "metric": "bmi",
+      "male": 24.86,
+      "female": 20.49,
+      "diff": 4.37
+    },
+    {
+      "id": "32_1",
+      "metric": "age",
+      "male": 24.0,
+      "female": 24.4,
+      "diff": -0.4
+    },
+    {
+      "id": "32_1",
+      "metric": "bmi",
+      "male": 23.5,
+      "female": 20.2,
+      "diff": 3.3
+    },
+    {
+      "id": "34_1",
+      "metric": "age",
+      "male": 23.9,
+      "female": 22.8,
+      "diff": 1.1
+    },
+    {
+      "id": "34_1",
+      "metric": "bmi",
+      "male": 21.8,
+      "female": 21.5,
+      "diff": 0.3
+    },
+    {
+      "id": "36_1",
+      "metric": "age",
+      "male": 39.0,
+      "female": 39.15,
+      "diff": -0.15
+    },
+    {
+      "id": "36_1",
+      "metric": "bmi",
+      "male": 24.02,
+      "female": 23.69,
+      "diff": 0.33
+    },
+    {
+      "id": "41_1",
+      "metric": "age",
+      "male": 23.9,
+      "female": 22.2,
+      "diff": 1.7
+    },
+    {
+      "id": "41_1",
+      "metric": "bmi",
+      "male": 21.3,
+      "female": 19.7,
+      "diff": 1.6
+    },
+    {
+      "id": "42_1",
+      "metric": "age",
+      "male": 26.6,
+      "female": 26.5,
+      "diff": 0.1
+    },
+    {
+      "id": "45_1",
+      "metric": "age",
+      "male": 22.4,
+      "female": 22.5,
+      "diff": -0.1
+    },
+    {
+      "id": "45_1",
+      "metric": "bmi",
+      "male": 24.3,
+      "female": 20.4,
+      "diff": 3.9
+    },
+    {
+      "id": "47_1",
+      "metric": "age",
+      "male": 21.5,
+      "female": 21.7,
+      "diff": -0.2
+    },
+    {
+      "id": "47_1",
+      "metric": "bmi",
+      "male": 21.8,
+      "female": 20.5,
+      "diff": 1.3
+    },
+    {
+      "id": "50_1",
+      "metric": "age",
+      "male": 31.33,
+      "female": 29.0,
+      "diff": 2.33
+    },
+    {
+      "id": "50_1",
+      "metric": "bmi",
+      "male": 25.13,
+      "female": 20.24,
+      "diff": 4.89
+    },
+    {
+      "id": "52_1",
+      "metric": "age",
+      "male": 19.89,
+      "female": 19.27,
+      "diff": 0.62
+    },
+    {
+      "id": "52_1",
+      "metric": "bmi",
+      "male": 21.51,
+      "female": 19.72,
+      "diff": 1.79
+    },
+    {
+      "id": "55_1",
+      "metric": "age",
+      "male": 33.8,
+      "female": 30.0,
+      "diff": 3.8
+    },
+    {
+      "id": "55_1",
+      "metric": "bmi",
+      "male": 24.98,
+      "female": 20.43,
+      "diff": 4.55
+    },
+    {
+      "id": "57_1",
+      "metric": "age",
+      "male": 23.0,
+      "female": 23.5,
+      "diff": -0.5
+    },
+    {
+      "id": "57_1",
+      "metric": "bmi",
+      "male": 21.9,
+      "female": 20.2,
+      "diff": 1.7
+    },
+    {
+      "id": "58_1",
+      "metric": "age",
+      "male": 25.5,
+      "female": 21.7,
+      "diff": 3.8
+    },
+    {
+      "id": "60_1",
+      "metric": "age",
+      "male": 23.0,
+      "female": 23.5,
+      "diff": -0.5
+    },
+    {
+      "id": "60_1",
+      "metric": "bmi",
+      "male": 20.71,
+      "female": 19.71,
+      "diff": 1.0
+    },
+    {
+      "id": "62_1",
+      "metric": "age",
+      "male": 24.0,
+      "female": 23.5,
+      "diff": 0.5
+    },
+    {
+      "id": "62_1",
+      "metric": "bmi",
+      "male": 19.92,
+      "female": 19.63,
+      "diff": 0.29
+    },
+    {
+      "id": "65_1",
+      "metric": "age",
+      "male": 24.3,
+      "female": 24.0,
+      "diff": 0.3
+    },
+    {
+      "id": "65_1",
+      "metric": "bmi",
+      "male": 20.7,
+      "female": 20.3,
+      "diff": 0.4
+    },
+    {
+      "id": "66_1",
+      "metric": "age",
+      "male": 24.3,
+      "female": 23.1,
+      "diff": 1.2
+    },
+    {
+      "id": "66_1",
+      "metric": "bmi",
+      "male": 22.5,
+      "female": 18.7,
+      "diff": 3.8
+    },
+    {
+      "id": "73_1",
+      "metric": "age",
+      "male": 22.4,
+      "female": 22.6,
+      "diff": -0.2
+    },
+    {
+      "id": "73_1",
+      "metric": "bmi",
+      "male": 22.0,
+      "female": 22.7,
+      "diff": -0.7
+    },
+    {
+      "id": "75_1",
+      "metric": "age",
+      "male": 19.9,
+      "female": 20.8,
+      "diff": -0.9
+    },
+    {
+      "id": "75_1",
+      "metric": "bmi",
+      "male": 19.6,
+      "female": 20.6,
+      "diff": -1.0
+    },
+    {
+      "id": "76_1",
+      "metric": "age",
+      "male": 20.3,
+      "female": 20.0,
+      "diff": 0.3
+    },
+    {
+      "id": "76_1",
+      "metric": "bmi",
+      "male": 22.9,
+      "female": 19.7,
+      "diff": 3.2
+    },
+    {
+      "id": "80_1",
+      "metric": "age",
+      "male": 24.0,
+      "female": 23.0,
+      "diff": 1.0
+    },
+    {
+      "id": "83_1",
+      "metric": "age",
+      "male": 23.6,
+      "female": 23.4,
+      "diff": 0.2
+    },
+    {
+      "id": "83_1",
+      "metric": "bmi",
+      "male": 22.02,
+      "female": 18.99,
+      "diff": 3.03
+    },
+    {
+      "id": "86_1",
+      "metric": "age",
+      "male": 33.4,
+      "female": 32.6,
+      "diff": 0.8
+    },
+    {
+      "id": "86_1",
+      "metric": "bmi",
+      "male": 24.2,
+      "female": 22.4,
+      "diff": 1.8
+    },
+    {
+      "id": "99_1",
+      "metric": "age",
+      "male": 23.6,
+      "female": 23.7,
+      "diff": -0.1
+    },
+    {
+      "id": "99_1",
+      "metric": "bmi",
+      "male": 21.2,
+      "female": 18.3,
+      "diff": 2.9
+    },
+    {
+      "id": "102_1",
+      "metric": "age",
+      "male": 24.41,
+      "female": 25.46,
+      "diff": -1.05
+    },
+    {
+      "id": "110_1",
+      "metric": "age",
+      "male": 21.5,
+      "female": 22.0,
+      "diff": -0.5
+    },
+    {
+      "id": "114_1",
+      "metric": "age",
+      "male": 23.9,
+      "female": 29.5,
+      "diff": -5.6
+    },
+    {
+      "id": "120_1",
+      "metric": "age",
+      "male": 23.6,
+      "female": 23.4,
+      "diff": 0.2
+    },
+    {
+      "id": "120_1",
+      "metric": "bmi",
+      "male": 21.9,
+      "female": 20.6,
+      "diff": 1.3
+    },
+    {
+      "id": "122_1",
+      "metric": "age",
+      "male": 25.0,
+      "female": 24.5,
+      "diff": 0.5
+    },
+    {
+      "id": "122_1",
+      "metric": "bmi",
+      "male": 20.9,
+      "female": 19.4,
+      "diff": 1.5
+    },
+    {
+      "id": "124_1",
+      "metric": "age",
+      "male": 25.38,
+      "female": 30.17,
+      "diff": -4.79
+    },
+    {
+      "id": "124_1",
+      "metric": "bmi",
+      "male": 20.9,
+      "female": 21.6,
+      "diff": -0.7
+    },
+    {
+      "id": "125_1",
+      "metric": "age",
+      "male": 23.0,
+      "female": 22.0,
+      "diff": 1.0
+    },
+    {
+      "id": "125_1",
+      "metric": "bmi",
+      "male": 20.8,
+      "female": 19.4,
+      "diff": 1.4
+    },
+    {
+      "id": "131_1",
+      "metric": "age",
+      "male": 18.5,
+      "female": 18.8,
+      "diff": -0.3
+    },
+    {
+      "id": "131_2",
+      "metric": "age",
+      "male": 22.7,
+      "female": 22.4,
+      "diff": 0.3
+    },
+    {
+      "id": "133_1",
+      "metric": "age",
+      "male": 21.9,
+      "female": 21.4,
+      "diff": 0.5
+    },
+    {
+      "id": "133_1",
+      "metric": "bmi",
+      "male": 21.6,
+      "female": 20.4,
+      "diff": 1.2
+    },
+    {
+      "id": "135_1",
+      "metric": "age",
+      "male": 23.6,
+      "female": 23.9,
+      "diff": -0.3
+    },
+    {
+      "id": "136_1",
+      "metric": "age",
+      "male": 25.16,
+      "female": 25.14,
+      "diff": 0.02
+    },
+    {
+      "id": "136_1",
+      "metric": "bmi",
+      "male": 23.2,
+      "female": 21.9,
+      "diff": 1.3
+    },
+    {
+      "id": "136_2",
+      "metric": "age",
+      "male": 25.16,
+      "female": 25.14,
+      "diff": 0.02
+    },
+    {
+      "id": "136_2",
+      "metric": "bmi",
+      "male": 23.2,
+      "female": 21.9,
+      "diff": 1.3
+    },
+    {
+      "id": "136_3",
+      "metric": "age",
+      "male": 25.16,
+      "female": 25.14,
+      "diff": 0.02
+    },
+    {
+      "id": "136_3",
+      "metric": "bmi",
+      "male": 23.2,
+      "female": 21.9,
+      "diff": 1.3
+    },
+    {
+      "id": "136_4",
+      "metric": "age",
+      "male": 25.16,
+      "female": 25.14,
+      "diff": 0.02
+    },
+    {
+      "id": "136_4",
+      "metric": "bmi",
+      "male": 23.2,
+      "female": 21.9,
+      "diff": 1.3
+    },
+    {
+      "id": "139_1",
+      "metric": "age",
+      "male": 25.3,
+      "female": 20.6,
+      "diff": 4.7
+    },
+    {
+      "id": "139_1",
+      "metric": "bmi",
+      "male": 22.2,
+      "female": 19.9,
+      "diff": 2.3
+    },
+    {
+      "id": "140_1",
+      "metric": "age",
+      "male": 23.2,
+      "female": 24.5,
+      "diff": -1.3
+    },
+    {
+      "id": "142_1",
+      "metric": "age",
+      "male": 23.5,
+      "female": 23.2,
+      "diff": 0.3
+    },
+    {
+      "id": "143_1",
+      "metric": "age",
+      "male": 23.6,
+      "female": 23.7,
+      "diff": -0.1
+    },
+    {
+      "id": "146_1",
+      "metric": "age",
+      "male": 23.0,
+      "female": 23.3,
+      "diff": -0.3
+    },
+    {
+      "id": "146_2",
+      "metric": "age",
+      "male": 23.7,
+      "female": 23.8,
+      "diff": -0.1
+    },
+    {
+      "id": "147_1",
+      "metric": "age",
+      "male": 40.6,
+      "female": 36.33,
+      "diff": 4.27
+    },
+    {
+      "id": "150_1",
+      "metric": "age",
+      "male": 23.3,
+      "female": 24.5,
+      "diff": -1.2
+    },
+    {
+      "id": "151_1",
+      "metric": "age",
+      "male": 24.0,
+      "female": 22.3,
+      "diff": 1.7
+    },
+    {
+      "id": "156_1",
+      "metric": "age",
+      "male": 24.0,
+      "female": 24.0,
+      "diff": 0.0
+    },
+    {
+      "id": "157_1",
+      "metric": "age",
+      "male": 20.1,
+      "female": 18.9,
+      "diff": 1.2
+    },
+    {
+      "id": "157_1",
+      "metric": "bmi",
+      "male": 20.0,
+      "female": 19.0,
+      "diff": 1.0
+    },
+    {
+      "id": "160_1",
+      "metric": "age",
+      "male": 20.1,
+      "female": 18.9,
+      "diff": 1.2
+    },
+    {
+      "id": "160_1",
+      "metric": "bmi",
+      "male": 20.0,
+      "female": 19.0,
+      "diff": 1.0
+    },
+    {
+      "id": "161_1",
+      "metric": "age",
+      "male": 23.6,
+      "female": 23.4,
+      "diff": 0.2
+    },
+    {
+      "id": "161_1",
+      "metric": "bmi",
+      "male": 21.3,
+      "female": 19.4,
+      "diff": 1.9
+    },
+    {
+      "id": "164_1",
+      "metric": "age",
+      "male": 23.0,
+      "female": 21.9,
+      "diff": 1.1
+    },
+    {
+      "id": "164_1",
+      "metric": "bmi",
+      "male": 21.4,
+      "female": 20.7,
+      "diff": 0.7
+    },
+    {
+      "id": "167_1",
+      "metric": "age",
+      "male": 20.3,
+      "female": 20.4,
+      "diff": -0.1
+    },
+    {
+      "id": "171_1",
+      "metric": "age",
+      "male": 26.0,
+      "female": 26.4,
+      "diff": -0.4
+    },
+    {
+      "id": "171_1",
+      "metric": "bmi",
+      "male": 21.9,
+      "female": 19.3,
+      "diff": 2.6
+    },
+    {
+      "id": "172_1",
+      "metric": "age",
+      "male": 30.0,
+      "female": 30.0,
+      "diff": 0.0
+    },
+    {
+      "id": "172_1",
+      "metric": "bmi",
+      "male": 24.9,
+      "female": 22.4,
+      "diff": 2.5
+    },
+    {
+      "id": "177_1",
+      "metric": "age",
+      "male": 22.0,
+      "female": 22.0,
+      "diff": 0.0
+    },
+    {
+      "id": "180_1",
+      "metric": "age",
+      "male": 27.0,
+      "female": 24.0,
+      "diff": 3.0
+    },
+    {
+      "id": "180_1",
+      "metric": "bmi",
+      "male": 23.9,
+      "female": 21.2,
+      "diff": 2.7
+    },
+    {
+      "id": "181_1",
+      "metric": "age",
+      "male": 23.1,
+      "female": 21.0,
+      "diff": 2.1
+    },
+    {
+      "id": "184_1",
+      "metric": "age",
+      "male": 22.0,
+      "female": 22.0,
+      "diff": 0.0
+    },
+    {
+      "id": "184_1",
+      "metric": "bmi",
+      "male": 21.3,
+      "female": 20.5,
+      "diff": 0.8
+    },
+    {
+      "id": "188_1",
+      "metric": "age",
+      "male": 20.0,
+      "female": 20.0,
+      "diff": 0.0
+    },
+    {
+      "id": "188_1",
+      "metric": "bmi",
+      "male": 21.5,
+      "female": 19.1,
+      "diff": 2.4
+    },
+    {
+      "id": "193_1",
+      "metric": "age",
+      "male": 25.0,
+      "female": 25.0,
+      "diff": 0.0
+    },
+    {
+      "id": "194_1",
+      "metric": "age",
+      "male": 21.3,
+      "female": 21.3,
+      "diff": 0.0
+    },
+    {
+      "id": "195_1",
+      "metric": "age",
+      "male": 23.5,
+      "female": 23.9,
+      "diff": -0.4
+    },
+    {
+      "id": "197_1",
+      "metric": "age",
+      "male": 24.7,
+      "female": 24.0,
+      "diff": 0.7
+    },
+    {
+      "id": "197_1",
+      "metric": "bmi",
+      "male": 23.5,
+      "female": 22.5,
+      "diff": 1.0
+    },
+    {
+      "id": "201_1",
+      "metric": "age",
+      "male": 22.7,
+      "female": 23.2,
+      "diff": -0.5
+    },
+    {
+      "id": "202_1",
+      "metric": "age",
+      "male": 24.0,
+      "female": 22.3,
+      "diff": 1.7
+    },
+    {
+      "id": "203_1",
+      "metric": "age",
+      "male": 24.2,
+      "female": 23.9,
+      "diff": 0.3
+    },
+    {
+      "id": "204_1",
+      "metric": "age",
+      "male": 23.5,
+      "female": 22.0,
+      "diff": 1.5
+    },
+    {
+      "id": "204_1",
+      "metric": "bmi",
+      "male": 22.4,
+      "female": 22.2,
+      "diff": 0.2
+    },
+    {
+      "id": "209_1",
+      "metric": "age",
+      "male": 19.5,
+      "female": 19.0,
+      "diff": 0.5
+    },
+    {
+      "id": "209_1",
+      "metric": "bmi",
+      "male": 22.8,
+      "female": 20.4,
+      "diff": 2.4
+    },
+    {
+      "id": "210_1",
+      "metric": "bmi",
+      "male": 20.6,
+      "female": 21.7,
+      "diff": -1.1
+    },
+    {
+      "id": "212_1",
+      "metric": "age",
+      "male": 25.5,
+      "female": 30.33,
+      "diff": -4.83
+    },
+    {
+      "id": "212_1",
+      "metric": "bmi",
+      "male": 20.8,
+      "female": 20.73,
+      "diff": 0.07
+    },
+    {
+      "id": "218_1",
+      "metric": "age",
+      "male": 22.1,
+      "female": 22.4,
+      "diff": -0.3
+    },
+    {
+      "id": "218_1",
+      "metric": "bmi",
+      "male": 22.4,
+      "female": 21.6,
+      "diff": 0.8
+    },
+    {
+      "id": "219_1",
+      "metric": "age",
+      "male": 21.5,
+      "female": 22.0,
+      "diff": -0.5
+    },
+    {
+      "id": "219_1",
+      "metric": "bmi",
+      "male": 20.5,
+      "female": 18.5,
+      "diff": 2.0
+    },
+    {
+      "id": "220_1",
+      "metric": "age",
+      "male": 20.7,
+      "female": 19.6,
+      "diff": 1.1
+    },
+    {
+      "id": "220_1",
+      "metric": "bmi",
+      "male": 21.3,
+      "female": 19.7,
+      "diff": 1.6
+    },
+    {
+      "id": "221_1",
+      "metric": "age",
+      "male": 23.4,
+      "female": 23.3,
+      "diff": 0.1
+    },
+    {
+      "id": "221_1",
+      "metric": "bmi",
+      "male": 23.4,
+      "female": 20.1,
+      "diff": 3.3
+    },
+    {
+      "id": "222_1",
+      "metric": "age",
+      "male": 25.3,
+      "female": 23.8,
+      "diff": 1.5
+    },
+    {
+      "id": "222_1",
+      "metric": "bmi",
+      "male": 21.1,
+      "female": 20.2,
+      "diff": 0.9
+    },
+    {
+      "id": "226_1",
+      "metric": "age",
+      "male": 21.8,
+      "female": 21.0,
+      "diff": 0.8
+    },
+    {
+      "id": "226_1",
+      "metric": "bmi",
+      "male": 21.5,
+      "female": 21.2,
+      "diff": 0.3
+    },
+    {
+      "id": "229_1",
+      "metric": "age",
+      "male": 20.3,
+      "female": 20.0,
+      "diff": 0.3
+    },
+    {
+      "id": "229_1",
+      "metric": "bmi",
+      "male": 22.9,
+      "female": 19.7,
+      "diff": 3.2
+    },
+    {
+      "id": "230_1",
+      "metric": "age",
+      "male": 23.6,
+      "female": 23.4,
+      "diff": 0.2
+    },
+    {
+      "id": "231_1",
+      "metric": "age",
+      "male": 24.3,
+      "female": 24.1,
+      "diff": 0.2
+    },
+    {
+      "id": "231_1",
+      "metric": "bmi",
+      "male": 22.2,
+      "female": 20.3,
+      "diff": 1.9
+    },
+    {
+      "id": "234_1",
+      "metric": "age",
+      "male": 24.0,
+      "female": 24.0,
+      "diff": 0.0
+    },
+    {
+      "id": "234_1",
+      "metric": "bmi",
+      "male": 22.41,
+      "female": 20.13,
+      "diff": 2.28
+    },
+    {
+      "id": "238_1",
+      "metric": "age",
+      "male": 32.83,
+      "female": 34.67,
+      "diff": -1.84
+    },
+    {
+      "id": "238_1",
+      "metric": "bmi",
+      "male": 22.53,
+      "female": 21.43,
+      "diff": 1.1
+    },
+    {
+      "id": "241_1",
+      "metric": "age",
+      "male": 26.0,
+      "female": 25.0,
+      "diff": 1.0
+    },
+    {
+      "id": "244_1",
+      "metric": "age",
+      "male": 23.7,
+      "female": 23.2,
+      "diff": 0.5
+    },
+    {
+      "id": "248_1",
+      "metric": "age",
+      "male": 25.02,
+      "female": 23.51,
+      "diff": 1.51
+    },
+    {
+      "id": "248_1",
+      "metric": "bmi",
+      "male": 22.07,
+      "female": 21.78,
+      "diff": 0.29
+    },
+    {
+      "id": "249_1",
+      "metric": "age",
+      "male": 23.6,
+      "female": 22.3,
+      "diff": 1.3
+    },
+    {
+      "id": "249_1",
+      "metric": "bmi",
+      "male": 22.5,
+      "female": 20.1,
+      "diff": 2.4
+    },
+    {
+      "id": "250_1",
+      "metric": "age",
+      "male": 22.2,
+      "female": 22.6,
+      "diff": -0.4
+    }
+  ]
+}

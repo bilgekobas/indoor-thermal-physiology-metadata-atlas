@@ -1,0 +1,1331 @@
+{
+  "stats": [
+    {
+      "country": "China",
+      "count": 146,
+      "median": 24.0,
+      "mean": 56.12328767123287,
+      "min": 2.0,
+      "max": 2110.0
+    },
+    {
+      "country": "USA",
+      "count": 23,
+      "median": 16.0,
+      "mean": 23.17391304347826,
+      "min": 10.0,
+      "max": 86.0
+    },
+    {
+      "country": "Republic of Korea",
+      "count": 15,
+      "median": 30.0,
+      "mean": 36.2,
+      "min": 7.0,
+      "max": 141.0
+    },
+    {
+      "country": "Japan",
+      "count": 11,
+      "median": 17.0,
+      "mean": 15.090909090909092,
+      "min": 8.0,
+      "max": 24.0
+    },
+    {
+      "country": "Italy",
+      "count": 9,
+      "median": 20.0,
+      "mean": 28.555555555555557,
+      "min": 8.0,
+      "max": 76.0
+    },
+    {
+      "country": "Singapore",
+      "count": 9,
+      "median": 20.0,
+      "mean": 27.444444444444443,
+      "min": 10.0,
+      "max": 89.0
+    },
+    {
+      "country": "Denmark",
+      "count": 7,
+      "median": 25.0,
+      "mean": 21.142857142857142,
+      "min": 12.0,
+      "max": 25.0
+    },
+    {
+      "country": "Germany",
+      "count": 5,
+      "median": 31.0,
+      "mean": 24.8,
+      "min": 5.0,
+      "max": 48.0
+    },
+    {
+      "country": "Netherlands",
+      "count": 5,
+      "median": 20.0,
+      "mean": 23.0,
+      "min": 16.0,
+      "max": 43.0
+    },
+    {
+      "country": "Iran",
+      "count": 4,
+      "median": 30.0,
+      "mean": 72.25,
+      "min": 24.0,
+      "max": 205.0
+    },
+    {
+      "country": "Australia",
+      "count": 4,
+      "median": 22.0,
+      "mean": 28.25,
+      "min": 13.0,
+      "max": 56.0
+    },
+    {
+      "country": "Brazil",
+      "count": 3,
+      "median": 82.0,
+      "mean": 156.66666666666666,
+      "min": 28.0,
+      "max": 360.0
+    },
+    {
+      "country": "Switzerland",
+      "count": 3,
+      "median": 75.0,
+      "mean": 55.0,
+      "min": 6.0,
+      "max": 84.0
+    }
+  ],
+  "studies": [
+    {
+      "id": "1_1",
+      "country": "Singapore",
+      "n": 16.0
+    },
+    {
+      "id": "2_1",
+      "country": "China",
+      "n": 32.0
+    },
+    {
+      "id": "2_2",
+      "country": "China",
+      "n": 24.0
+    },
+    {
+      "id": "2_3",
+      "country": "China",
+      "n": 48.0
+    },
+    {
+      "id": "3_1",
+      "country": "Germany",
+      "n": 31.0
+    },
+    {
+      "id": "4_1",
+      "country": "China",
+      "n": 27.0
+    },
+    {
+      "id": "5_1",
+      "country": "China",
+      "n": 12.0
+    },
+    {
+      "id": "6_1",
+      "country": "China",
+      "n": 32.0
+    },
+    {
+      "id": "7_1",
+      "country": "China",
+      "n": 8.0
+    },
+    {
+      "id": "8_1",
+      "country": "China",
+      "n": 16.0
+    },
+    {
+      "id": "9_1",
+      "country": "China",
+      "n": 11.0
+    },
+    {
+      "id": "10_1",
+      "country": "China",
+      "n": 16.0
+    },
+    {
+      "id": "11_1",
+      "country": "China",
+      "n": 15.0
+    },
+    {
+      "id": "12_1",
+      "country": "China",
+      "n": 30.0
+    },
+    {
+      "id": "13_1",
+      "country": "China",
+      "n": 24.0
+    },
+    {
+      "id": "14_1",
+      "country": "China",
+      "n": 20.0
+    },
+    {
+      "id": "15_1",
+      "country": "Republic of Korea",
+      "n": 18.0
+    },
+    {
+      "id": "16_1",
+      "country": "Italy",
+      "n": 15.0
+    },
+    {
+      "id": "17_1",
+      "country": "China",
+      "n": 60.0
+    },
+    {
+      "id": "18_1",
+      "country": "China",
+      "n": 20.0
+    },
+    {
+      "id": "19_1",
+      "country": "China",
+      "n": 20.0
+    },
+    {
+      "id": "20_1",
+      "country": "Denmark",
+      "n": 24.0
+    },
+    {
+      "id": "21_1",
+      "country": "Italy",
+      "n": 14.0
+    },
+    {
+      "id": "22_1",
+      "country": "China",
+      "n": 32.0
+    },
+    {
+      "id": "23_1",
+      "country": "China",
+      "n": 22.0
+    },
+    {
+      "id": "24_1",
+      "country": "China",
+      "n": 16.0
+    },
+    {
+      "id": "25_1",
+      "country": "China",
+      "n": 36.0
+    },
+    {
+      "id": "26_1",
+      "country": "USA",
+      "n": 20.0
+    },
+    {
+      "id": "26_2",
+      "country": "USA",
+      "n": 12.0
+    },
+    {
+      "id": "28_1",
+      "country": "Italy",
+      "n": 52.0
+    },
+    {
+      "id": "30_1",
+      "country": "Republic of Korea",
+      "n": 30.0
+    },
+    {
+      "id": "31_1",
+      "country": "China",
+      "n": 29.0
+    },
+    {
+      "id": "32_1",
+      "country": "China",
+      "n": 24.0
+    },
+    {
+      "id": "33_1",
+      "country": "China",
+      "n": 10.0
+    },
+    {
+      "id": "34_1",
+      "country": "China",
+      "n": 12.0
+    },
+    {
+      "id": "35_1",
+      "country": "USA",
+      "n": 20.0
+    },
+    {
+      "id": "37_1",
+      "country": "Republic of Korea",
+      "n": 30.0
+    },
+    {
+      "id": "38_1",
+      "country": "Australia",
+      "n": 18.0
+    },
+    {
+      "id": "39_1",
+      "country": "China",
+      "n": 30.0
+    },
+    {
+      "id": "40_1",
+      "country": "China",
+      "n": 24.0
+    },
+    {
+      "id": "41_1",
+      "country": "China",
+      "n": 20.0
+    },
+    {
+      "id": "42_1",
+      "country": "China",
+      "n": 20.0
+    },
+    {
+      "id": "43_1",
+      "country": "China",
+      "n": 48.0
+    },
+    {
+      "id": "44_1",
+      "country": "China",
+      "n": 30.0
+    },
+    {
+      "id": "45_1",
+      "country": "China",
+      "n": 20.0
+    },
+    {
+      "id": "46_1",
+      "country": "China",
+      "n": 10.0
+    },
+    {
+      "id": "47_1",
+      "country": "China",
+      "n": 22.0
+    },
+    {
+      "id": "48_1",
+      "country": "Germany",
+      "n": 48.0
+    },
+    {
+      "id": "50_1",
+      "country": "Switzerland",
+      "n": 6.0
+    },
+    {
+      "id": "51_1",
+      "country": "China",
+      "n": 32.0
+    },
+    {
+      "id": "52_1",
+      "country": "China",
+      "n": 20.0
+    },
+    {
+      "id": "53_1",
+      "country": "China",
+      "n": 2110.0
+    },
+    {
+      "id": "54_1",
+      "country": "China",
+      "n": 32.0
+    },
+    {
+      "id": "55_1",
+      "country": "Singapore",
+      "n": 20.0
+    },
+    {
+      "id": "56_1",
+      "country": "Japan",
+      "n": 20.0
+    },
+    {
+      "id": "57_1",
+      "country": "Singapore",
+      "n": 10.0
+    },
+    {
+      "id": "58_1",
+      "country": "Republic of Korea",
+      "n": 17.0
+    },
+    {
+      "id": "59_1",
+      "country": "China",
+      "n": 55.0
+    },
+    {
+      "id": "60_1",
+      "country": "China",
+      "n": 20.0
+    },
+    {
+      "id": "61_1",
+      "country": "China",
+      "n": 14.0
+    },
+    {
+      "id": "62_1",
+      "country": "China",
+      "n": 8.0
+    },
+    {
+      "id": "63_1",
+      "country": "China",
+      "n": 20.0
+    },
+    {
+      "id": "65_1",
+      "country": "China",
+      "n": 8.0
+    },
+    {
+      "id": "66_1",
+      "country": "China",
+      "n": 16.0
+    },
+    {
+      "id": "67_1",
+      "country": "Singapore",
+      "n": 89.0
+    },
+    {
+      "id": "69_1",
+      "country": "Japan",
+      "n": 20.0
+    },
+    {
+      "id": "70_1",
+      "country": "China",
+      "n": 14.0
+    },
+    {
+      "id": "71_1",
+      "country": "Republic of Korea",
+      "n": 36.0
+    },
+    {
+      "id": "71_2",
+      "country": "Republic of Korea",
+      "n": 66.0
+    },
+    {
+      "id": "73_1",
+      "country": "China",
+      "n": 24.0
+    },
+    {
+      "id": "74_1",
+      "country": "China",
+      "n": 32.0
+    },
+    {
+      "id": "74_2",
+      "country": "China",
+      "n": 24.0
+    },
+    {
+      "id": "74_3",
+      "country": "China",
+      "n": 48.0
+    },
+    {
+      "id": "74_4",
+      "country": "China",
+      "n": 32.0
+    },
+    {
+      "id": "75_1",
+      "country": "China",
+      "n": 40.0
+    },
+    {
+      "id": "76_1",
+      "country": "China",
+      "n": 29.0
+    },
+    {
+      "id": "77_1",
+      "country": "Iran",
+      "n": 24.0
+    },
+    {
+      "id": "78_1",
+      "country": "China",
+      "n": 30.0
+    },
+    {
+      "id": "79_1",
+      "country": "China",
+      "n": 32.0
+    },
+    {
+      "id": "80_1",
+      "country": "China",
+      "n": 14.0
+    },
+    {
+      "id": "81_1",
+      "country": "China",
+      "n": 20.0
+    },
+    {
+      "id": "82_1",
+      "country": "USA",
+      "n": 48.0
+    },
+    {
+      "id": "83_1",
+      "country": "China",
+      "n": 16.0
+    },
+    {
+      "id": "84_1",
+      "country": "Japan",
+      "n": 19.0
+    },
+    {
+      "id": "85_1",
+      "country": "China",
+      "n": 32.0
+    },
+    {
+      "id": "87_1",
+      "country": "Netherlands",
+      "n": 16.0
+    },
+    {
+      "id": "88_1",
+      "country": "USA",
+      "n": 27.0
+    },
+    {
+      "id": "89_1",
+      "country": "China",
+      "n": 24.0
+    },
+    {
+      "id": "90_1",
+      "country": "China",
+      "n": 60.0
+    },
+    {
+      "id": "91_1",
+      "country": "Republic of Korea",
+      "n": 20.0
+    },
+    {
+      "id": "93_1",
+      "country": "Italy",
+      "n": 34.0
+    },
+    {
+      "id": "93_2",
+      "country": "Italy",
+      "n": 28.0
+    },
+    {
+      "id": "94_1",
+      "country": "China",
+      "n": 32.0
+    },
+    {
+      "id": "95_1",
+      "country": "Iran",
+      "n": 25.0
+    },
+    {
+      "id": "96_1",
+      "country": "USA",
+      "n": 24.0
+    },
+    {
+      "id": "97_1",
+      "country": "China",
+      "n": 32.0
+    },
+    {
+      "id": "98_1",
+      "country": "China",
+      "n": 30.0
+    },
+    {
+      "id": "99_1",
+      "country": "China",
+      "n": 20.0
+    },
+    {
+      "id": "100_1",
+      "country": "USA",
+      "n": 10.0
+    },
+    {
+      "id": "101_1",
+      "country": "Singapore",
+      "n": 30.0
+    },
+    {
+      "id": "102_1",
+      "country": "Iran",
+      "n": 205.0
+    },
+    {
+      "id": "103_1",
+      "country": "China",
+      "n": 18.0
+    },
+    {
+      "id": "104_1",
+      "country": "China",
+      "n": 35.0
+    },
+    {
+      "id": "105_1",
+      "country": "China",
+      "n": 18.0
+    },
+    {
+      "id": "106_1",
+      "country": "Singapore",
+      "n": 20.0
+    },
+    {
+      "id": "107_1",
+      "country": "China",
+      "n": 18.0
+    },
+    {
+      "id": "108_1",
+      "country": "China",
+      "n": 20.0
+    },
+    {
+      "id": "110_1",
+      "country": "USA",
+      "n": 15.0
+    },
+    {
+      "id": "111_1",
+      "country": "China",
+      "n": 66.0
+    },
+    {
+      "id": "112_1",
+      "country": "China",
+      "n": 3.0
+    },
+    {
+      "id": "114_1",
+      "country": "USA",
+      "n": 20.0
+    },
+    {
+      "id": "115_1",
+      "country": "USA",
+      "n": 42.0
+    },
+    {
+      "id": "116_1",
+      "country": "Switzerland",
+      "n": 84.0
+    },
+    {
+      "id": "117_1",
+      "country": "USA",
+      "n": 16.0
+    },
+    {
+      "id": "118_1",
+      "country": "Republic of Korea",
+      "n": 7.0
+    },
+    {
+      "id": "119_1",
+      "country": "China",
+      "n": 24.0
+    },
+    {
+      "id": "120_1",
+      "country": "China",
+      "n": 20.0
+    },
+    {
+      "id": "122_1",
+      "country": "China",
+      "n": 10.0
+    },
+    {
+      "id": "123_1",
+      "country": "USA",
+      "n": 15.0
+    },
+    {
+      "id": "124_1",
+      "country": "USA",
+      "n": 14.0
+    },
+    {
+      "id": "125_1",
+      "country": "China",
+      "n": 32.0
+    },
+    {
+      "id": "126_1",
+      "country": "USA",
+      "n": 16.0
+    },
+    {
+      "id": "127_1",
+      "country": "Japan",
+      "n": 8.0
+    },
+    {
+      "id": "128_1",
+      "country": "Iran",
+      "n": 35.0
+    },
+    {
+      "id": "129_1",
+      "country": "China",
+      "n": 24.0
+    },
+    {
+      "id": "130_1",
+      "country": "China",
+      "n": 30.0
+    },
+    {
+      "id": "131_1",
+      "country": "China",
+      "n": 32.0
+    },
+    {
+      "id": "131_2",
+      "country": "China",
+      "n": 16.0
+    },
+    {
+      "id": "132_1",
+      "country": "China",
+      "n": 2.0
+    },
+    {
+      "id": "133_1",
+      "country": "China",
+      "n": 35.0
+    },
+    {
+      "id": "134_1",
+      "country": "USA",
+      "n": 33.0
+    },
+    {
+      "id": "135_1",
+      "country": "China",
+      "n": 20.0
+    },
+    {
+      "id": "136_1",
+      "country": "Denmark",
+      "n": 25.0
+    },
+    {
+      "id": "136_2",
+      "country": "Denmark",
+      "n": 25.0
+    },
+    {
+      "id": "136_3",
+      "country": "Denmark",
+      "n": 25.0
+    },
+    {
+      "id": "136_4",
+      "country": "Denmark",
+      "n": 25.0
+    },
+    {
+      "id": "137_1",
+      "country": "Switzerland",
+      "n": 75.0
+    },
+    {
+      "id": "139_1",
+      "country": "Republic of Korea",
+      "n": 30.0
+    },
+    {
+      "id": "140_1",
+      "country": "China",
+      "n": 20.0
+    },
+    {
+      "id": "141_1",
+      "country": "China",
+      "n": 6.0
+    },
+    {
+      "id": "142_1",
+      "country": "China",
+      "n": 339.0
+    },
+    {
+      "id": "143_1",
+      "country": "China",
+      "n": 20.0
+    },
+    {
+      "id": "144_1",
+      "country": "Japan",
+      "n": 17.0
+    },
+    {
+      "id": "145_1",
+      "country": "Singapore",
+      "n": 22.0
+    },
+    {
+      "id": "146_1",
+      "country": "China",
+      "n": 16.0
+    },
+    {
+      "id": "146_2",
+      "country": "China",
+      "n": 24.0
+    },
+    {
+      "id": "147_1",
+      "country": "Italy",
+      "n": 8.0
+    },
+    {
+      "id": "148_1",
+      "country": "USA",
+      "n": 12.0
+    },
+    {
+      "id": "150_1",
+      "country": "China",
+      "n": 20.0
+    },
+    {
+      "id": "151_1",
+      "country": "Singapore",
+      "n": 20.0
+    },
+    {
+      "id": "152_1",
+      "country": "Republic of Korea",
+      "n": 50.0
+    },
+    {
+      "id": "153_1",
+      "country": "Brazil",
+      "n": 82.0
+    },
+    {
+      "id": "154_1",
+      "country": "USA",
+      "n": 30.0
+    },
+    {
+      "id": "155_1",
+      "country": "USA",
+      "n": 10.0
+    },
+    {
+      "id": "157_1",
+      "country": "China",
+      "n": 30.0
+    },
+    {
+      "id": "158_1",
+      "country": "Brazil",
+      "n": 28.0
+    },
+    {
+      "id": "159_1",
+      "country": "Republic of Korea",
+      "n": 141.0
+    },
+    {
+      "id": "160_1",
+      "country": "China",
+      "n": 30.0
+    },
+    {
+      "id": "161_1",
+      "country": "China",
+      "n": 16.0
+    },
+    {
+      "id": "162_1",
+      "country": "China",
+      "n": 60.0
+    },
+    {
+      "id": "163_1",
+      "country": "Denmark",
+      "n": 12.0
+    },
+    {
+      "id": "164_1",
+      "country": "China",
+      "n": 24.0
+    },
+    {
+      "id": "165_1",
+      "country": "Italy",
+      "n": 10.0
+    },
+    {
+      "id": "166_1",
+      "country": "USA",
+      "n": 16.0
+    },
+    {
+      "id": "167_1",
+      "country": "China",
+      "n": 20.0
+    },
+    {
+      "id": "169_1",
+      "country": "Australia",
+      "n": 26.0
+    },
+    {
+      "id": "170_1",
+      "country": "China",
+      "n": 60.0
+    },
+    {
+      "id": "171_1",
+      "country": "China",
+      "n": 430.0
+    },
+    {
+      "id": "172_1",
+      "country": "China",
+      "n": 18.0
+    },
+    {
+      "id": "173_1",
+      "country": "Republic of Korea",
+      "n": 8.0
+    },
+    {
+      "id": "174_1",
+      "country": "China",
+      "n": 16.0
+    },
+    {
+      "id": "175_1",
+      "country": "China",
+      "n": 30.0
+    },
+    {
+      "id": "176_1",
+      "country": "USA",
+      "n": 15.0
+    },
+    {
+      "id": "177_1",
+      "country": "China",
+      "n": 24.0
+    },
+    {
+      "id": "178_1",
+      "country": "China",
+      "n": 30.0
+    },
+    {
+      "id": "179_1",
+      "country": "China",
+      "n": 60.0
+    },
+    {
+      "id": "180_1",
+      "country": "Australia",
+      "n": 13.0
+    },
+    {
+      "id": "182_1",
+      "country": "Japan",
+      "n": 8.0
+    },
+    {
+      "id": "183_1",
+      "country": "China",
+      "n": 36.0
+    },
+    {
+      "id": "184_1",
+      "country": "China",
+      "n": 24.0
+    },
+    {
+      "id": "185_2",
+      "country": "Republic of Korea",
+      "n": 34.0
+    },
+    {
+      "id": "186_1",
+      "country": "Germany",
+      "n": 31.0
+    },
+    {
+      "id": "187_1",
+      "country": "Japan",
+      "n": 10.0
+    },
+    {
+      "id": "188_1",
+      "country": "China",
+      "n": 30.0
+    },
+    {
+      "id": "189_1",
+      "country": "Netherlands",
+      "n": 20.0
+    },
+    {
+      "id": "191_1",
+      "country": "China",
+      "n": 20.0
+    },
+    {
+      "id": "192_1",
+      "country": "China",
+      "n": 12.0
+    },
+    {
+      "id": "193_1",
+      "country": "China",
+      "n": 16.0
+    },
+    {
+      "id": "194_1",
+      "country": "China",
+      "n": 20.0
+    },
+    {
+      "id": "195_1",
+      "country": "China",
+      "n": 20.0
+    },
+    {
+      "id": "197_1",
+      "country": "Netherlands",
+      "n": 20.0
+    },
+    {
+      "id": "198_1",
+      "country": "China",
+      "n": 810.0
+    },
+    {
+      "id": "199_1",
+      "country": "China",
+      "n": 68.0
+    },
+    {
+      "id": "200_2",
+      "country": "China",
+      "n": 24.0
+    },
+    {
+      "id": "201_1",
+      "country": "China",
+      "n": 20.0
+    },
+    {
+      "id": "202_1",
+      "country": "Singapore",
+      "n": 20.0
+    },
+    {
+      "id": "203_1",
+      "country": "China",
+      "n": 16.0
+    },
+    {
+      "id": "204_1",
+      "country": "Netherlands",
+      "n": 43.0
+    },
+    {
+      "id": "205_1",
+      "country": "USA",
+      "n": 15.0
+    },
+    {
+      "id": "206_1",
+      "country": "Japan",
+      "n": 10.0
+    },
+    {
+      "id": "207_1",
+      "country": "Brazil",
+      "n": 360.0
+    },
+    {
+      "id": "209_1",
+      "country": "China",
+      "n": 58.0
+    },
+    {
+      "id": "210_1",
+      "country": "China",
+      "n": 14.0
+    },
+    {
+      "id": "211_1",
+      "country": "China",
+      "n": 32.0
+    },
+    {
+      "id": "212_1",
+      "country": "Germany",
+      "n": 5.0
+    },
+    {
+      "id": "213_1",
+      "country": "Denmark",
+      "n": 12.0
+    },
+    {
+      "id": "214_1",
+      "country": "USA",
+      "n": 86.0
+    },
+    {
+      "id": "215_1",
+      "country": "Australia",
+      "n": 56.0
+    },
+    {
+      "id": "216_1",
+      "country": "China",
+      "n": 36.0
+    },
+    {
+      "id": "217_1",
+      "country": "Italy",
+      "n": 20.0
+    },
+    {
+      "id": "218_1",
+      "country": "China",
+      "n": 20.0
+    },
+    {
+      "id": "219_1",
+      "country": "China",
+      "n": 26.0
+    },
+    {
+      "id": "220_1",
+      "country": "China",
+      "n": 62.0
+    },
+    {
+      "id": "221_1",
+      "country": "China",
+      "n": 20.0
+    },
+    {
+      "id": "222_1",
+      "country": "China",
+      "n": 16.0
+    },
+    {
+      "id": "223_1",
+      "country": "Italy",
+      "n": 76.0
+    },
+    {
+      "id": "224_1",
+      "country": "Republic of Korea",
+      "n": 40.0
+    },
+    {
+      "id": "225_1",
+      "country": "China",
+      "n": 28.0
+    },
+    {
+      "id": "225_2",
+      "country": "China",
+      "n": 20.0
+    },
+    {
+      "id": "226_1",
+      "country": "China",
+      "n": 48.0
+    },
+    {
+      "id": "228_1",
+      "country": "Japan",
+      "n": 18.0
+    },
+    {
+      "id": "229_1",
+      "country": "China",
+      "n": 29.0
+    },
+    {
+      "id": "230_1",
+      "country": "China",
+      "n": 20.0
+    },
+    {
+      "id": "231_1",
+      "country": "China",
+      "n": 16.0
+    },
+    {
+      "id": "232_1",
+      "country": "China",
+      "n": 12.0
+    },
+    {
+      "id": "233_1",
+      "country": "China",
+      "n": 15.0
+    },
+    {
+      "id": "234_1",
+      "country": "China",
+      "n": 144.0
+    },
+    {
+      "id": "236_1",
+      "country": "China",
+      "n": 32.0
+    },
+    {
+      "id": "236_2",
+      "country": "China",
+      "n": 24.0
+    },
+    {
+      "id": "236_3",
+      "country": "China",
+      "n": 48.0
+    },
+    {
+      "id": "237_1",
+      "country": "China",
+      "n": 26.0
+    },
+    {
+      "id": "238_1",
+      "country": "Germany",
+      "n": 9.0
+    },
+    {
+      "id": "239_1",
+      "country": "Republic of Korea",
+      "n": 16.0
+    },
+    {
+      "id": "240_1",
+      "country": "USA",
+      "n": 17.0
+    },
+    {
+      "id": "241_1",
+      "country": "Japan",
+      "n": 24.0
+    },
+    {
+      "id": "242_1",
+      "country": "China",
+      "n": 14.0
+    },
+    {
+      "id": "243_1",
+      "country": "China",
+      "n": 60.0
+    },
+    {
+      "id": "244_1",
+      "country": "China",
+      "n": 680.0
+    },
+    {
+      "id": "245_1",
+      "country": "China",
+      "n": 30.0
+    },
+    {
+      "id": "246_1",
+      "country": "China",
+      "n": 40.0
+    },
+    {
+      "id": "247_1",
+      "country": "Netherlands",
+      "n": 16.0
+    },
+    {
+      "id": "248_1",
+      "country": "China",
+      "n": 36.0
+    },
+    {
+      "id": "249_1",
+      "country": "China",
+      "n": 16.0
+    },
+    {
+      "id": "250_1",
+      "country": "Japan",
+      "n": 12.0
+    }
+  ],
+  "min_count_threshold": 3
+}

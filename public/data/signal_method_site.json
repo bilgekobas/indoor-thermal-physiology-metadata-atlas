@@ -1,0 +1,1594 @@
+{
+  "data": [
+    {
+      "signal": "Biomarkers: Catecholamines",
+      "sensing_method": "Blood",
+      "site": "Blood",
+      "count": 1
+    },
+    {
+      "signal": "Biomarkers: Estradiol",
+      "sensing_method": "Blood",
+      "site": "Blood",
+      "count": 1
+    },
+    {
+      "signal": "Biomarkers: Free thyroxine (FT4)",
+      "sensing_method": "Blood",
+      "site": "Blood",
+      "count": 2
+    },
+    {
+      "signal": "Biomarkers: Free triiodothyronine (FT3)",
+      "sensing_method": "Blood",
+      "site": "Blood",
+      "count": 1
+    },
+    {
+      "signal": "Biomarkers: Heat shock protein (HSP)",
+      "sensing_method": "Blood",
+      "site": "Blood",
+      "count": 1
+    },
+    {
+      "signal": "Biomarkers: Interleukin 6 (IL-6)",
+      "sensing_method": "Blood",
+      "site": "Blood",
+      "count": 1
+    },
+    {
+      "signal": "Biomarkers: Progesterone",
+      "sensing_method": "Blood",
+      "site": "Blood",
+      "count": 1
+    },
+    {
+      "signal": "Biomarkers: Testosterone",
+      "sensing_method": "Blood",
+      "site": "Blood",
+      "count": 1
+    },
+    {
+      "signal": "Biomarkers: Thyroid-stimulating hormone (TSH)",
+      "sensing_method": "Blood",
+      "site": "Blood",
+      "count": 2
+    },
+    {
+      "signal": "Blood pressure",
+      "sensing_method": "Digital sphygmomanometer",
+      "site": "Finger",
+      "count": 1
+    },
+    {
+      "signal": "Blood pressure",
+      "sensing_method": "Digital sphygmomanometer",
+      "site": "Forearm",
+      "count": 1
+    },
+    {
+      "signal": "Blood pressure",
+      "sensing_method": "Digital sphygmomanometer",
+      "site": "Hand",
+      "count": 1
+    },
+    {
+      "signal": "Blood pressure",
+      "sensing_method": "Digital sphygmomanometer",
+      "site": "Upper arm",
+      "count": 19
+    },
+    {
+      "signal": "Blood pressure",
+      "sensing_method": "Digital sphygmomanometer",
+      "site": "Wrist",
+      "count": 6
+    },
+    {
+      "signal": "Blood pressure",
+      "sensing_method": "Sonomic pick-up",
+      "site": "Upper arm",
+      "count": 1
+    },
+    {
+      "signal": "Blood pressure",
+      "sensing_method": "Sphygmomanometer",
+      "site": "Upper arm",
+      "count": 1
+    },
+    {
+      "signal": "Core/Body temperature",
+      "sensing_method": "Infrared thermometer",
+      "site": "Forehead",
+      "count": 2
+    },
+    {
+      "signal": "Core/Body temperature",
+      "sensing_method": "Infrared thermometer",
+      "site": "Oral cavity",
+      "count": 1
+    },
+    {
+      "signal": "Core/Body temperature",
+      "sensing_method": "Infrared thermometer",
+      "site": "Tympanic canal",
+      "count": 12
+    },
+    {
+      "signal": "Core/Body temperature",
+      "sensing_method": "Ingestible pill",
+      "site": "Gastrointestinal tract",
+      "count": 9
+    },
+    {
+      "signal": "Core/Body temperature",
+      "sensing_method": "Mercury thermometer",
+      "site": "Axilla",
+      "count": 2
+    },
+    {
+      "signal": "Core/Body temperature",
+      "sensing_method": "Probe",
+      "site": "Rectal",
+      "count": 2
+    },
+    {
+      "signal": "Core/Body temperature",
+      "sensing_method": "Thermistor",
+      "site": "Rectal",
+      "count": 3
+    },
+    {
+      "signal": "Core/Body temperature",
+      "sensing_method": "Thermistor",
+      "site": "Tympanic canal",
+      "count": 1
+    },
+    {
+      "signal": "Core/Body temperature",
+      "sensing_method": "Thermometer",
+      "site": "Axilla",
+      "count": 1
+    },
+    {
+      "signal": "Core/Body temperature",
+      "sensing_method": "Thermometer",
+      "site": "Oral cavity",
+      "count": 6
+    },
+    {
+      "signal": "Core/Body temperature",
+      "sensing_method": "Thermometer",
+      "site": "Tympanic canal",
+      "count": 2
+    },
+    {
+      "signal": "EEG",
+      "sensing_method": "1-channel",
+      "site": "Cz",
+      "count": 1
+    },
+    {
+      "signal": "EEG",
+      "sensing_method": "14-channel",
+      "site": "AF3, AF4, F3, F4, F7, F8, FC5, FC6, T7, T8, P7, P8, O1, O2",
+      "count": 2
+    },
+    {
+      "signal": "EEG",
+      "sensing_method": "14-channel",
+      "site": "AF3, F7, F3, FC5, T7, P7, O1, O2, P8, T8, FC6, F4, F8, AF4",
+      "count": 2
+    },
+    {
+      "signal": "EEG",
+      "sensing_method": "14-channel",
+      "site": "AF3, F7, F3, FC5, T7, P7, O1, O2, P8, T8, FC6, F4, F8, AF4, CMS, DML",
+      "count": 8
+    },
+    {
+      "signal": "EEG",
+      "sensing_method": "14-channel",
+      "site": "AF3, F7, F3, FC5, T7, P7, O1, O2, P8, T8, FC6, F4, F8, AF4, CMS, DRL",
+      "count": 1
+    },
+    {
+      "signal": "EEG",
+      "sensing_method": "16-channel",
+      "site": "Fp1, Fp2, F7, F3, F4, F8, T7, C3, C4, T8, P7, P3, P4, P8, O1, O2",
+      "count": 1
+    },
+    {
+      "signal": "EEG",
+      "sensing_method": "19-channel",
+      "site": "Fp1, Fp2, F3, F4, C3, C4, P3, P4, O1, O2, F7, F8, T3, T4, T5, T6, Fz, Cz, Pz",
+      "count": 1
+    },
+    {
+      "signal": "EEG",
+      "sensing_method": "19-channel",
+      "site": "Fp1, Fp2, Fz, F3, F4, F7, F8, Cz, C3, C4, T3, T4, T5, T6, P3, P4, Pz, O1, O2",
+      "count": 1
+    },
+    {
+      "signal": "EEG",
+      "sensing_method": "2-channel",
+      "site": "FP1, FP2",
+      "count": 2
+    },
+    {
+      "signal": "EEG",
+      "sensing_method": "3-channel",
+      "site": "A1, A2, A3",
+      "count": 1
+    },
+    {
+      "signal": "EEG",
+      "sensing_method": "3-channel",
+      "site": "Fz, Cz, Pz",
+      "count": 1
+    },
+    {
+      "signal": "EEG",
+      "sensing_method": "4-channel",
+      "site": "AF7, AF8, TP9, TP10",
+      "count": 1
+    },
+    {
+      "signal": "EEG",
+      "sensing_method": "4-channel",
+      "site": "Fp1, Fp2, C3, C4",
+      "count": 1
+    },
+    {
+      "signal": "EEG",
+      "sensing_method": "4-channel",
+      "site": "Fpz, AF7, AF8, TP9, TP10",
+      "count": 1
+    },
+    {
+      "signal": "EEG",
+      "sensing_method": "5-channel",
+      "site": "AF3, AF4, T7, T8, Pz",
+      "count": 1
+    },
+    {
+      "signal": "EEG",
+      "sensing_method": "8-channel",
+      "site": "A1, Fp1, Fp2, F3, F4, T3, T4, P3, P4",
+      "count": 1
+    },
+    {
+      "signal": "EEG",
+      "sensing_method": "8-channel",
+      "site": "F3, F4, T3, T4, P3, P4, O1, O2",
+      "count": 1
+    },
+    {
+      "signal": "EEG",
+      "sensing_method": "8-channel",
+      "site": "Fp1, Fp2, F3, F4, T3, T4, P3, P4",
+      "count": 1
+    },
+    {
+      "signal": "EEG",
+      "sensing_method": "8-channel",
+      "site": "Fp1, Fp2, F3, F4, T3, T4, P3, P4F3, T3, P3",
+      "count": 1
+    },
+    {
+      "signal": "EEG",
+      "sensing_method": "9-channel",
+      "site": "F3, Fz, F4, C3, Cz, C4, P3, POz, P4",
+      "count": 3
+    },
+    {
+      "signal": "EMG",
+      "sensing_method": "EMG",
+      "site": "Calf",
+      "count": 1
+    },
+    {
+      "signal": "EMG",
+      "sensing_method": "EMG",
+      "site": "Thigh",
+      "count": 1
+    },
+    {
+      "signal": "EOG",
+      "sensing_method": "EOG",
+      "site": "Ocular region",
+      "count": 4
+    },
+    {
+      "signal": "Exhaled breath temperature",
+      "sensing_method": "Thermal picker",
+      "site": "Face",
+      "count": 1
+    },
+    {
+      "signal": "Exhaled breath temperature",
+      "sensing_method": "Thermistor",
+      "site": "Face",
+      "count": 1
+    },
+    {
+      "signal": "Glucose",
+      "sensing_method": "Blood",
+      "site": "Finger",
+      "count": 1
+    },
+    {
+      "signal": "Heart/Pulse rate",
+      "sensing_method": "Digital sphygmomanometer",
+      "site": "Finger",
+      "count": 1
+    },
+    {
+      "signal": "Heart/Pulse rate",
+      "sensing_method": "Digital sphygmomanometer",
+      "site": "Upper arm",
+      "count": 13
+    },
+    {
+      "signal": "Heart/Pulse rate",
+      "sensing_method": "Digital sphygmomanometer",
+      "site": "Wrist",
+      "count": 3
+    },
+    {
+      "signal": "Heart/Pulse rate",
+      "sensing_method": "ECG",
+      "site": "Chest",
+      "count": 44
+    },
+    {
+      "signal": "Heart/Pulse rate",
+      "sensing_method": "ECG",
+      "site": "Finger",
+      "count": 1
+    },
+    {
+      "signal": "Heart/Pulse rate",
+      "sensing_method": "ECG",
+      "site": "Limbs",
+      "count": 1
+    },
+    {
+      "signal": "Heart/Pulse rate",
+      "sensing_method": "ECG",
+      "site": "Wrist",
+      "count": 1
+    },
+    {
+      "signal": "Heart/Pulse rate",
+      "sensing_method": "OHR/PPG",
+      "site": "Cheek",
+      "count": 1
+    },
+    {
+      "signal": "Heart/Pulse rate",
+      "sensing_method": "OHR/PPG",
+      "site": "Ear",
+      "count": 4
+    },
+    {
+      "signal": "Heart/Pulse rate",
+      "sensing_method": "OHR/PPG",
+      "site": "Earlobe",
+      "count": 0
+    },
+    {
+      "signal": "Heart/Pulse rate",
+      "sensing_method": "OHR/PPG",
+      "site": "Finger",
+      "count": 1
+    },
+    {
+      "signal": "Heart/Pulse rate",
+      "sensing_method": "OHR/PPG",
+      "site": "Upper arm",
+      "count": 2
+    },
+    {
+      "signal": "Heart/Pulse rate",
+      "sensing_method": "OHR/PPG",
+      "site": "Wrist",
+      "count": 17
+    },
+    {
+      "signal": "Heart/Pulse rate",
+      "sensing_method": "Pulse oximeter",
+      "site": "Finger",
+      "count": 7
+    },
+    {
+      "signal": "Heart/Pulse rate",
+      "sensing_method": "Pulse oximeter",
+      "site": "Hand",
+      "count": 1
+    },
+    {
+      "signal": "Heart/Pulse rate",
+      "sensing_method": "Pulse oximeter",
+      "site": "Wrist",
+      "count": 2
+    },
+    {
+      "signal": "Heat flux",
+      "sensing_method": "Heat flux/Heat flow",
+      "site": "Abdomen",
+      "count": 2
+    },
+    {
+      "signal": "Heat flux",
+      "sensing_method": "Heat flux/Heat flow",
+      "site": "Back",
+      "count": 1
+    },
+    {
+      "signal": "Heat flux",
+      "sensing_method": "Heat flux/Heat flow",
+      "site": "Calf",
+      "count": 1
+    },
+    {
+      "signal": "Heat flux",
+      "sensing_method": "Heat flux/Heat flow",
+      "site": "Cheek",
+      "count": 2
+    },
+    {
+      "signal": "Heat flux",
+      "sensing_method": "Heat flux/Heat flow",
+      "site": "Chest",
+      "count": 5
+    },
+    {
+      "signal": "Heat flux",
+      "sensing_method": "Heat flux/Heat flow",
+      "site": "Foot",
+      "count": 4
+    },
+    {
+      "signal": "Heat flux",
+      "sensing_method": "Heat flux/Heat flow",
+      "site": "Forearm",
+      "count": 5
+    },
+    {
+      "signal": "Heat flux",
+      "sensing_method": "Heat flux/Heat flow",
+      "site": "Forehead",
+      "count": 4
+    },
+    {
+      "signal": "Heat flux",
+      "sensing_method": "Heat flux/Heat flow",
+      "site": "Hand",
+      "count": 4
+    },
+    {
+      "signal": "Heat flux",
+      "sensing_method": "Heat flux/Heat flow",
+      "site": "Leg",
+      "count": 1
+    },
+    {
+      "signal": "Heat flux",
+      "sensing_method": "Heat flux/Heat flow",
+      "site": "Shin",
+      "count": 4
+    },
+    {
+      "signal": "Heat flux",
+      "sensing_method": "Heat flux/Heat flow",
+      "site": "Thigh",
+      "count": 6
+    },
+    {
+      "signal": "Heat flux",
+      "sensing_method": "Heat flux/Heat flow",
+      "site": "Upper arm",
+      "count": 1
+    },
+    {
+      "signal": "Heat flux",
+      "sensing_method": "Heat flux/Heat flow",
+      "site": "Wrist",
+      "count": 2
+    },
+    {
+      "signal": "Metabolic rate/Gas exchange",
+      "sensing_method": "Capnometry/Capnography",
+      "site": "Face",
+      "count": 1
+    },
+    {
+      "signal": "Metabolic rate/Gas exchange",
+      "sensing_method": "Capnometry/Capnography",
+      "site": "Nasal cavity",
+      "count": 1
+    },
+    {
+      "signal": "Metabolic rate/Gas exchange",
+      "sensing_method": "Exhaled gas analyzer",
+      "site": "Face",
+      "count": 1
+    },
+    {
+      "signal": "Metabolic rate/Gas exchange",
+      "sensing_method": "Metabolic cart",
+      "site": "Face",
+      "count": 5
+    },
+    {
+      "signal": "Metabolic rate/Gas exchange",
+      "sensing_method": "Respiration chamber",
+      "site": "Whole body",
+      "count": 2
+    },
+    {
+      "signal": "Movement",
+      "sensing_method": "Accelerometer",
+      "site": "Chest",
+      "count": 1
+    },
+    {
+      "signal": "Movement",
+      "sensing_method": "Accelerometer",
+      "site": "Thigh",
+      "count": 1
+    },
+    {
+      "signal": "Movement",
+      "sensing_method": "Accelerometer",
+      "site": "Waist",
+      "count": 1
+    },
+    {
+      "signal": "Movement",
+      "sensing_method": "Accelerometer",
+      "site": "Wrist",
+      "count": 8
+    },
+    {
+      "signal": "Movement",
+      "sensing_method": "Step count",
+      "site": "Wrist",
+      "count": 1
+    },
+    {
+      "signal": "Near body temperature",
+      "sensing_method": "Hygrochron",
+      "site": "Chest",
+      "count": 1
+    },
+    {
+      "signal": "Near body temperature",
+      "sensing_method": "Hygrochron",
+      "site": "Forearm",
+      "count": 1
+    },
+    {
+      "signal": "Near body temperature",
+      "sensing_method": "Hygrochron",
+      "site": "Shin",
+      "count": 1
+    },
+    {
+      "signal": "Near body temperature",
+      "sensing_method": "Hygrochron",
+      "site": "Thigh",
+      "count": 1
+    },
+    {
+      "signal": "Near body temperature",
+      "sensing_method": "Infrared camera",
+      "site": "Chest",
+      "count": 1
+    },
+    {
+      "signal": "Near body temperature",
+      "sensing_method": "Infrared camera",
+      "site": "Clothing surface",
+      "count": 1
+    },
+    {
+      "signal": "Near body temperature",
+      "sensing_method": "Silicon-based temperature sensor",
+      "site": "Wrist",
+      "count": 1
+    },
+    {
+      "signal": "Near body temperature",
+      "sensing_method": "Thermochron",
+      "site": "Ankle",
+      "count": 1
+    },
+    {
+      "signal": "Near body temperature",
+      "sensing_method": "Thermochron",
+      "site": "Calf",
+      "count": 1
+    },
+    {
+      "signal": "Near body temperature",
+      "sensing_method": "Thermochron",
+      "site": "Chest",
+      "count": 1
+    },
+    {
+      "signal": "Near body temperature",
+      "sensing_method": "Thermochron",
+      "site": "Thigh",
+      "count": 1
+    },
+    {
+      "signal": "Near body temperature",
+      "sensing_method": "Thermochron",
+      "site": "Upper arm",
+      "count": 1
+    },
+    {
+      "signal": "Near body temperature",
+      "sensing_method": "Thermochron",
+      "site": "Wrist",
+      "count": 1
+    },
+    {
+      "signal": "Near body temperature",
+      "sensing_method": "Thermocouple",
+      "site": "Wrist",
+      "count": 1
+    },
+    {
+      "signal": "Oxygen saturation",
+      "sensing_method": "NIRS",
+      "site": "Forehead",
+      "count": 1
+    },
+    {
+      "signal": "Oxygen saturation",
+      "sensing_method": "Pulse oximeter",
+      "site": "Finger",
+      "count": 16
+    },
+    {
+      "signal": "Oxygen saturation",
+      "sensing_method": "Pulse oximeter",
+      "site": "Hand",
+      "count": 1
+    },
+    {
+      "signal": "Oxygen saturation",
+      "sensing_method": "Pulse oximeter",
+      "site": "Wrist",
+      "count": 2
+    },
+    {
+      "signal": "Perfusion index",
+      "sensing_method": "Pulse oximeter",
+      "site": "Finger",
+      "count": 1
+    },
+    {
+      "signal": "Pupillometry",
+      "sensing_method": "Eye-tracking",
+      "site": "Ocular region",
+      "count": 1
+    },
+    {
+      "signal": "Respiration",
+      "sensing_method": "BCG",
+      "site": "Ear",
+      "count": 1
+    },
+    {
+      "signal": "Respiration",
+      "sensing_method": "Capnometry/Capnography",
+      "site": "Face",
+      "count": 1
+    },
+    {
+      "signal": "Respiration",
+      "sensing_method": "Gas flowmeter",
+      "site": "Face",
+      "count": 1
+    },
+    {
+      "signal": "Respiration",
+      "sensing_method": "Respiration belt",
+      "site": "Abdomen",
+      "count": 2
+    },
+    {
+      "signal": "Respiration",
+      "sensing_method": "Respiration belt",
+      "site": "Chest",
+      "count": 2
+    },
+    {
+      "signal": "Sensory nerve conduction velocity",
+      "sensing_method": "EMG",
+      "site": "Hand",
+      "count": 1
+    },
+    {
+      "signal": "Skin blood flow",
+      "sensing_method": "Laser Doppler",
+      "site": "Chest",
+      "count": 1
+    },
+    {
+      "signal": "Skin blood flow",
+      "sensing_method": "Laser Doppler",
+      "site": "Finger",
+      "count": 7
+    },
+    {
+      "signal": "Skin blood flow",
+      "sensing_method": "Laser Doppler",
+      "site": "Forearm",
+      "count": 2
+    },
+    {
+      "signal": "Skin blood flow",
+      "sensing_method": "Laser Doppler",
+      "site": "Hand",
+      "count": 2
+    },
+    {
+      "signal": "Skin blood flow",
+      "sensing_method": "OHR/PPG",
+      "site": "Finger",
+      "count": 1
+    },
+    {
+      "signal": "Skin conductance",
+      "sensing_method": "GSR/EDA",
+      "site": "Chest",
+      "count": 1
+    },
+    {
+      "signal": "Skin conductance",
+      "sensing_method": "GSR/EDA",
+      "site": "Finger",
+      "count": 7
+    },
+    {
+      "signal": "Skin conductance",
+      "sensing_method": "GSR/EDA",
+      "site": "Forearm",
+      "count": 1
+    },
+    {
+      "signal": "Skin conductance",
+      "sensing_method": "GSR/EDA",
+      "site": "Hand",
+      "count": 1
+    },
+    {
+      "signal": "Skin conductance",
+      "sensing_method": "GSR/EDA",
+      "site": "Wrist",
+      "count": 11
+    },
+    {
+      "signal": "Skin conductance",
+      "sensing_method": "Hygrochron",
+      "site": "Back",
+      "count": 1
+    },
+    {
+      "signal": "Skin conductance",
+      "sensing_method": "Hygrochron",
+      "site": "Chest",
+      "count": 3
+    },
+    {
+      "signal": "Skin conductance",
+      "sensing_method": "Hygrochron",
+      "site": "Forearm",
+      "count": 1
+    },
+    {
+      "signal": "Skin conductance",
+      "sensing_method": "Hygrochron",
+      "site": "Shin",
+      "count": 3
+    },
+    {
+      "signal": "Skin conductance",
+      "sensing_method": "Hygrochron",
+      "site": "Temple",
+      "count": 1
+    },
+    {
+      "signal": "Skin conductance",
+      "sensing_method": "Hygrochron",
+      "site": "Thigh",
+      "count": 3
+    },
+    {
+      "signal": "Skin conductance",
+      "sensing_method": "Hygrochron",
+      "site": "Upper arm",
+      "count": 1
+    },
+    {
+      "signal": "Skin conductance",
+      "sensing_method": "Thermochron",
+      "site": "Temple",
+      "count": 1
+    },
+    {
+      "signal": "Skin hardness",
+      "sensing_method": "Durometer",
+      "site": "Forearm",
+      "count": 1
+    },
+    {
+      "signal": "Skin hardness",
+      "sensing_method": "Durometer",
+      "site": "Wrist",
+      "count": 1
+    },
+    {
+      "signal": "Skin temperature",
+      "sensing_method": "Dermal patch",
+      "site": "Ankle",
+      "count": 3
+    },
+    {
+      "signal": "Skin temperature",
+      "sensing_method": "Dermal patch",
+      "site": "Back",
+      "count": 3
+    },
+    {
+      "signal": "Skin temperature",
+      "sensing_method": "Dermal patch",
+      "site": "Chest",
+      "count": 3
+    },
+    {
+      "signal": "Skin temperature",
+      "sensing_method": "Dermal patch",
+      "site": "Forearm",
+      "count": 3
+    },
+    {
+      "signal": "Skin temperature",
+      "sensing_method": "Dermal patch",
+      "site": "Forehead",
+      "count": 3
+    },
+    {
+      "signal": "Skin temperature",
+      "sensing_method": "Dermal patch",
+      "site": "Hand",
+      "count": 3
+    },
+    {
+      "signal": "Skin temperature",
+      "sensing_method": "Dermal patch",
+      "site": "Lower leg",
+      "count": 3
+    },
+    {
+      "signal": "Skin temperature",
+      "sensing_method": "Dermal patch",
+      "site": "Thigh",
+      "count": 3
+    },
+    {
+      "signal": "Skin temperature",
+      "sensing_method": "Dermal patch",
+      "site": "Upper arm",
+      "count": 3
+    },
+    {
+      "signal": "Skin temperature",
+      "sensing_method": "Heat flux/Heat flow",
+      "site": "Abdomen",
+      "count": 1
+    },
+    {
+      "signal": "Skin temperature",
+      "sensing_method": "Heat flux/Heat flow",
+      "site": "Back",
+      "count": 1
+    },
+    {
+      "signal": "Skin temperature",
+      "sensing_method": "Heat flux/Heat flow",
+      "site": "Chest",
+      "count": 6
+    },
+    {
+      "signal": "Skin temperature",
+      "sensing_method": "Heat flux/Heat flow",
+      "site": "Foot",
+      "count": 3
+    },
+    {
+      "signal": "Skin temperature",
+      "sensing_method": "Heat flux/Heat flow",
+      "site": "Forearm",
+      "count": 3
+    },
+    {
+      "signal": "Skin temperature",
+      "sensing_method": "Heat flux/Heat flow",
+      "site": "Forehead",
+      "count": 3
+    },
+    {
+      "signal": "Skin temperature",
+      "sensing_method": "Heat flux/Heat flow",
+      "site": "Hand",
+      "count": 3
+    },
+    {
+      "signal": "Skin temperature",
+      "sensing_method": "Heat flux/Heat flow",
+      "site": "Lower leg",
+      "count": 5
+    },
+    {
+      "signal": "Skin temperature",
+      "sensing_method": "Heat flux/Heat flow",
+      "site": "Thigh",
+      "count": 6
+    },
+    {
+      "signal": "Skin temperature",
+      "sensing_method": "Heat flux/Heat flow",
+      "site": "Upper arm",
+      "count": 3
+    },
+    {
+      "signal": "Skin temperature",
+      "sensing_method": "Hygrochron",
+      "site": "Face",
+      "count": 1
+    },
+    {
+      "signal": "Skin temperature",
+      "sensing_method": "Infrared camera",
+      "site": "Abdomen",
+      "count": 1
+    },
+    {
+      "signal": "Skin temperature",
+      "sensing_method": "Infrared camera",
+      "site": "Back",
+      "count": 1
+    },
+    {
+      "signal": "Skin temperature",
+      "sensing_method": "Infrared camera",
+      "site": "Chest",
+      "count": 3
+    },
+    {
+      "signal": "Skin temperature",
+      "sensing_method": "Infrared camera",
+      "site": "Elbow",
+      "count": 1
+    },
+    {
+      "signal": "Skin temperature",
+      "sensing_method": "Infrared camera",
+      "site": "Face",
+      "count": 13
+    },
+    {
+      "signal": "Skin temperature",
+      "sensing_method": "Infrared camera",
+      "site": "Finger",
+      "count": 1
+    },
+    {
+      "signal": "Skin temperature",
+      "sensing_method": "Infrared camera",
+      "site": "Foot",
+      "count": 1
+    },
+    {
+      "signal": "Skin temperature",
+      "sensing_method": "Infrared camera",
+      "site": "Forearm",
+      "count": 3
+    },
+    {
+      "signal": "Skin temperature",
+      "sensing_method": "Infrared camera",
+      "site": "Forehead",
+      "count": 10
+    },
+    {
+      "signal": "Skin temperature",
+      "sensing_method": "Infrared camera",
+      "site": "Hand",
+      "count": 5
+    },
+    {
+      "signal": "Skin temperature",
+      "sensing_method": "Infrared camera",
+      "site": "Lower back",
+      "count": 1
+    },
+    {
+      "signal": "Skin temperature",
+      "sensing_method": "Infrared camera",
+      "site": "Lower leg",
+      "count": 3
+    },
+    {
+      "signal": "Skin temperature",
+      "sensing_method": "Infrared camera",
+      "site": "Neck",
+      "count": 2
+    },
+    {
+      "signal": "Skin temperature",
+      "sensing_method": "Infrared camera",
+      "site": "Shoulder",
+      "count": 1
+    },
+    {
+      "signal": "Skin temperature",
+      "sensing_method": "Infrared camera",
+      "site": "Thigh",
+      "count": 4
+    },
+    {
+      "signal": "Skin temperature",
+      "sensing_method": "Infrared camera",
+      "site": "Upper arm",
+      "count": 3
+    },
+    {
+      "signal": "Skin temperature",
+      "sensing_method": "Infrared camera",
+      "site": "Wrist",
+      "count": 1
+    },
+    {
+      "signal": "Skin temperature",
+      "sensing_method": "Infrared thermometer",
+      "site": "Face",
+      "count": 5
+    },
+    {
+      "signal": "Skin temperature",
+      "sensing_method": "Infrared thermometer",
+      "site": "Finger",
+      "count": 1
+    },
+    {
+      "signal": "Skin temperature",
+      "sensing_method": "Infrared thermometer",
+      "site": "Forehead",
+      "count": 8
+    },
+    {
+      "signal": "Skin temperature",
+      "sensing_method": "Infrared thermometer",
+      "site": "Hand",
+      "count": 3
+    },
+    {
+      "signal": "Skin temperature",
+      "sensing_method": "Infrared thermometer",
+      "site": "Wrist",
+      "count": 5
+    },
+    {
+      "signal": "Skin temperature",
+      "sensing_method": "Infrared thermopile",
+      "site": "Wrist",
+      "count": 10
+    },
+    {
+      "signal": "Skin temperature",
+      "sensing_method": "Probe",
+      "site": "Hand",
+      "count": 2
+    },
+    {
+      "signal": "Skin temperature",
+      "sensing_method": "RTD",
+      "site": "Abdomen",
+      "count": 4
+    },
+    {
+      "signal": "Skin temperature",
+      "sensing_method": "RTD",
+      "site": "Ankle",
+      "count": 1
+    },
+    {
+      "signal": "Skin temperature",
+      "sensing_method": "RTD",
+      "site": "Back",
+      "count": 4
+    },
+    {
+      "signal": "Skin temperature",
+      "sensing_method": "RTD",
+      "site": "Buttocks",
+      "count": 1
+    },
+    {
+      "signal": "Skin temperature",
+      "sensing_method": "RTD",
+      "site": "Chest",
+      "count": 4
+    },
+    {
+      "signal": "Skin temperature",
+      "sensing_method": "RTD",
+      "site": "Face",
+      "count": 2
+    },
+    {
+      "signal": "Skin temperature",
+      "sensing_method": "RTD",
+      "site": "Foot",
+      "count": 4
+    },
+    {
+      "signal": "Skin temperature",
+      "sensing_method": "RTD",
+      "site": "Forearm",
+      "count": 4
+    },
+    {
+      "signal": "Skin temperature",
+      "sensing_method": "RTD",
+      "site": "Forehead",
+      "count": 4
+    },
+    {
+      "signal": "Skin temperature",
+      "sensing_method": "RTD",
+      "site": "Hand",
+      "count": 4
+    },
+    {
+      "signal": "Skin temperature",
+      "sensing_method": "RTD",
+      "site": "Lower back",
+      "count": 3
+    },
+    {
+      "signal": "Skin temperature",
+      "sensing_method": "RTD",
+      "site": "Lower leg",
+      "count": 4
+    },
+    {
+      "signal": "Skin temperature",
+      "sensing_method": "RTD",
+      "site": "Neck",
+      "count": 2
+    },
+    {
+      "signal": "Skin temperature",
+      "sensing_method": "RTD",
+      "site": "Thigh",
+      "count": 4
+    },
+    {
+      "signal": "Skin temperature",
+      "sensing_method": "RTD",
+      "site": "Upper arm",
+      "count": 5
+    },
+    {
+      "signal": "Skin temperature",
+      "sensing_method": "RTD",
+      "site": "Wrist",
+      "count": 1
+    },
+    {
+      "signal": "Skin temperature",
+      "sensing_method": "Thermistor",
+      "site": "Abdomen",
+      "count": 6
+    },
+    {
+      "signal": "Skin temperature",
+      "sensing_method": "Thermistor",
+      "site": "Back",
+      "count": 9
+    },
+    {
+      "signal": "Skin temperature",
+      "sensing_method": "Thermistor",
+      "site": "Chest",
+      "count": 13
+    },
+    {
+      "signal": "Skin temperature",
+      "sensing_method": "Thermistor",
+      "site": "Face",
+      "count": 2
+    },
+    {
+      "signal": "Skin temperature",
+      "sensing_method": "Thermistor",
+      "site": "Finger",
+      "count": 1
+    },
+    {
+      "signal": "Skin temperature",
+      "sensing_method": "Thermistor",
+      "site": "Foot",
+      "count": 6
+    },
+    {
+      "signal": "Skin temperature",
+      "sensing_method": "Thermistor",
+      "site": "Forearm",
+      "count": 9
+    },
+    {
+      "signal": "Skin temperature",
+      "sensing_method": "Thermistor",
+      "site": "Forehead",
+      "count": 12
+    },
+    {
+      "signal": "Skin temperature",
+      "sensing_method": "Thermistor",
+      "site": "Hand",
+      "count": 9
+    },
+    {
+      "signal": "Skin temperature",
+      "sensing_method": "Thermistor",
+      "site": "Lower back",
+      "count": 1
+    },
+    {
+      "signal": "Skin temperature",
+      "sensing_method": "Thermistor",
+      "site": "Lower leg",
+      "count": 13
+    },
+    {
+      "signal": "Skin temperature",
+      "sensing_method": "Thermistor",
+      "site": "Neck",
+      "count": 3
+    },
+    {
+      "signal": "Skin temperature",
+      "sensing_method": "Thermistor",
+      "site": "Thigh",
+      "count": 13
+    },
+    {
+      "signal": "Skin temperature",
+      "sensing_method": "Thermistor",
+      "site": "Upper arm",
+      "count": 13
+    },
+    {
+      "signal": "Skin temperature",
+      "sensing_method": "Thermistor",
+      "site": "Waist",
+      "count": 1
+    },
+    {
+      "signal": "Skin temperature",
+      "sensing_method": "Thermistor",
+      "site": "Wrist",
+      "count": 5
+    },
+    {
+      "signal": "Skin temperature",
+      "sensing_method": "Thermochron",
+      "site": "Abdomen",
+      "count": 16
+    },
+    {
+      "signal": "Skin temperature",
+      "sensing_method": "Thermochron",
+      "site": "Ankle",
+      "count": 5
+    },
+    {
+      "signal": "Skin temperature",
+      "sensing_method": "Thermochron",
+      "site": "Axilla",
+      "count": 1
+    },
+    {
+      "signal": "Skin temperature",
+      "sensing_method": "Thermochron",
+      "site": "Back",
+      "count": 36
+    },
+    {
+      "signal": "Skin temperature",
+      "sensing_method": "Thermochron",
+      "site": "Buttocks",
+      "count": 2
+    },
+    {
+      "signal": "Skin temperature",
+      "sensing_method": "Thermochron",
+      "site": "Chest",
+      "count": 59
+    },
+    {
+      "signal": "Skin temperature",
+      "sensing_method": "Thermochron",
+      "site": "Clavicle",
+      "count": 1
+    },
+    {
+      "signal": "Skin temperature",
+      "sensing_method": "Thermochron",
+      "site": "Elbow",
+      "count": 4
+    },
+    {
+      "signal": "Skin temperature",
+      "sensing_method": "Thermochron",
+      "site": "Face",
+      "count": 16
+    },
+    {
+      "signal": "Skin temperature",
+      "sensing_method": "Thermochron",
+      "site": "Finger",
+      "count": 7
+    },
+    {
+      "signal": "Skin temperature",
+      "sensing_method": "Thermochron",
+      "site": "Foot",
+      "count": 25
+    },
+    {
+      "signal": "Skin temperature",
+      "sensing_method": "Thermochron",
+      "site": "Forearm",
+      "count": 41
+    },
+    {
+      "signal": "Skin temperature",
+      "sensing_method": "Thermochron",
+      "site": "Forehead",
+      "count": 45
+    },
+    {
+      "signal": "Skin temperature",
+      "sensing_method": "Thermochron",
+      "site": "Hand",
+      "count": 57
+    },
+    {
+      "signal": "Skin temperature",
+      "sensing_method": "Thermochron",
+      "site": "Lower back",
+      "count": 4
+    },
+    {
+      "signal": "Skin temperature",
+      "sensing_method": "Thermochron",
+      "site": "Lower leg",
+      "count": 66
+    },
+    {
+      "signal": "Skin temperature",
+      "sensing_method": "Thermochron",
+      "site": "Neck",
+      "count": 15
+    },
+    {
+      "signal": "Skin temperature",
+      "sensing_method": "Thermochron",
+      "site": "Sole",
+      "count": 1
+    },
+    {
+      "signal": "Skin temperature",
+      "sensing_method": "Thermochron",
+      "site": "Thigh",
+      "count": 58
+    },
+    {
+      "signal": "Skin temperature",
+      "sensing_method": "Thermochron",
+      "site": "Upper arm",
+      "count": 48
+    },
+    {
+      "signal": "Skin temperature",
+      "sensing_method": "Thermochron",
+      "site": "Wrist",
+      "count": 16
+    },
+    {
+      "signal": "Skin temperature",
+      "sensing_method": "Thermocouple",
+      "site": "Abdomen",
+      "count": 15
+    },
+    {
+      "signal": "Skin temperature",
+      "sensing_method": "Thermocouple",
+      "site": "Ankle",
+      "count": 2
+    },
+    {
+      "signal": "Skin temperature",
+      "sensing_method": "Thermocouple",
+      "site": "Back",
+      "count": 23
+    },
+    {
+      "signal": "Skin temperature",
+      "sensing_method": "Thermocouple",
+      "site": "Buttocks",
+      "count": 1
+    },
+    {
+      "signal": "Skin temperature",
+      "sensing_method": "Thermocouple",
+      "site": "Chest",
+      "count": 36
+    },
+    {
+      "signal": "Skin temperature",
+      "sensing_method": "Thermocouple",
+      "site": "Face",
+      "count": 7
+    },
+    {
+      "signal": "Skin temperature",
+      "sensing_method": "Thermocouple",
+      "site": "Finger",
+      "count": 8
+    },
+    {
+      "signal": "Skin temperature",
+      "sensing_method": "Thermocouple",
+      "site": "Foot",
+      "count": 17
+    },
+    {
+      "signal": "Skin temperature",
+      "sensing_method": "Thermocouple",
+      "site": "Forearm",
+      "count": 32
+    },
+    {
+      "signal": "Skin temperature",
+      "sensing_method": "Thermocouple",
+      "site": "Forehead",
+      "count": 33
+    },
+    {
+      "signal": "Skin temperature",
+      "sensing_method": "Thermocouple",
+      "site": "Hand",
+      "count": 38
+    },
+    {
+      "signal": "Skin temperature",
+      "sensing_method": "Thermocouple",
+      "site": "Lower back",
+      "count": 2
+    },
+    {
+      "signal": "Skin temperature",
+      "sensing_method": "Thermocouple",
+      "site": "Lower leg",
+      "count": 39
+    },
+    {
+      "signal": "Skin temperature",
+      "sensing_method": "Thermocouple",
+      "site": "Neck",
+      "count": 9
+    },
+    {
+      "signal": "Skin temperature",
+      "sensing_method": "Thermocouple",
+      "site": "Thigh",
+      "count": 38
+    },
+    {
+      "signal": "Skin temperature",
+      "sensing_method": "Thermocouple",
+      "site": "Upper arm",
+      "count": 36
+    },
+    {
+      "signal": "Skin temperature",
+      "sensing_method": "Thermocouple",
+      "site": "Wrist",
+      "count": 9
+    },
+    {
+      "signal": "Skin temperature",
+      "sensing_method": "Thermometer",
+      "site": "Forearm",
+      "count": 2
+    },
+    {
+      "signal": "Skin temperature",
+      "sensing_method": "Thermometer",
+      "site": "Forehead",
+      "count": 2
+    },
+    {
+      "signal": "Skin temperature",
+      "sensing_method": "Thermometer",
+      "site": "Hand",
+      "count": 1
+    },
+    {
+      "signal": "Sweat indicators",
+      "sensing_method": "Corneometer",
+      "site": "Forearm",
+      "count": 1
+    },
+    {
+      "signal": "Sweat indicators",
+      "sensing_method": "High precision scale",
+      "site": "Whole body",
+      "count": 27
+    },
+    {
+      "signal": "Sweat indicators",
+      "sensing_method": "Hygrochron",
+      "site": "Temple",
+      "count": 1
+    },
+    {
+      "signal": "Sweat indicators",
+      "sensing_method": "Microscope",
+      "site": "Finger",
+      "count": 1
+    },
+    {
+      "signal": "Sweat indicators",
+      "sensing_method": "Osmometer",
+      "site": "Urine",
+      "count": 1
+    },
+    {
+      "signal": "Sweat indicators",
+      "sensing_method": "TEWL",
+      "site": "Arm",
+      "count": 1
+    },
+    {
+      "signal": "Sweat indicators",
+      "sensing_method": "TEWL",
+      "site": "Back",
+      "count": 1
+    },
+    {
+      "signal": "Sweat indicators",
+      "sensing_method": "TEWL",
+      "site": "Calf",
+      "count": 1
+    },
+    {
+      "signal": "Sweat indicators",
+      "sensing_method": "Tewameter",
+      "site": "Forearm",
+      "count": 1
+    }
+  ]
+}

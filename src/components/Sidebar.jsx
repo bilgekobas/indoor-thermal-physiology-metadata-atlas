@@ -3,42 +3,37 @@ import { NavLink } from 'react-router-dom'
 const SECTIONS = [
   {
     group: 'Overview',
-    items: [
-      { to: '/', label: 'Corpus overview' },
-    ],
+    items: [{ to: '/', label: 'Corpus overview' }],
   },
   {
     group: 'Explore',
     items: [
       { to: '/browse', label: 'Browse studies' },
+      { to: '/devices', label: 'Sensor brands & models' },
     ],
   },
   {
-    group: 'Analysis',
+    group: 'Chapters',
     items: [
-      { to: '/study-design', label: 'Study design & context' },
-      { to: '/environment', label: 'Timing & environment' },
-      { to: '/measurement', label: 'Measurement & sensors' },
-      { to: '/sankey', label: 'Signals & sensor flows' },
-      { to: '/evolution', label: 'Sensor displacement over time' },
-      { to: '/trends', label: 'Rigor, scale & setting trends' },
-      { to: '/context', label: 'Climate & brand concentration' },
-      { to: '/mst', label: 'Mean skin temperature' },
-      { to: '/questionnaires', label: 'Questionnaire scales' },
-      { to: '/reporting', label: 'Reporting completeness' },
+      { to: '/context', label: '1. When, where & how' },
+      { to: '/population', label: '2. Who was studied' },
+      { to: '/body', label: '3. Measurements: the body' },
+      { to: '/environment', label: '4. Measurements: the environment' },
+      { to: '/questionnaires', label: '5. What people were asked' },
+      { to: '/cognitive', label: '6. Cognitive testing' },
+      { to: '/protocol', label: '7. Protocol rigor' },
+      { to: '/reporting', label: '8. Reporting completeness' },
     ],
   },
   {
     group: 'Reference',
-    items: [
-      { to: '/about', label: 'About & methods' },
-    ],
+    items: [{ to: '/about', label: 'About & methods' }],
   },
 ]
 
 export default function Sidebar({ summary }) {
   return (
-    <aside className="w-60 shrink-0 border-r border-line h-screen sticky top-0 flex flex-col">
+    <aside className="w-64 shrink-0 border-r border-line h-screen sticky top-0 flex flex-col">
       <div className="px-5 pt-6 pb-5 border-b border-line">
         <div className="font-data text-[11px] text-inkmid tracking-wide uppercase">
           Living corpus
@@ -65,10 +60,8 @@ export default function Sidebar({ summary }) {
                 to={item.to}
                 end={item.to === '/'}
                 className={({ isActive }) =>
-                  `block px-2 py-1.5 rounded text-[13.5px] mb-0.5 transition-colors ${
-                    isActive
-                      ? 'bg-ink text-paper font-medium'
-                      : 'text-ink hover:bg-line/60'
+                  `block px-2 py-1.5 rounded text-[13.5px] mb-0.5 transition-colors leading-snug ${
+                    isActive ? 'bg-ink text-paper font-medium' : 'text-ink hover:bg-line/60'
                   }`
                 }
               >

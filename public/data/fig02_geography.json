@@ -61,10 +61,6 @@
       "count": 2
     },
     {
-      "country": "Norway",
-      "count": 2
-    },
-    {
       "country": "India",
       "count": 2
     },
@@ -86,6 +82,10 @@
     },
     {
       "country": "Croatia",
+      "count": 1
+    },
+    {
+      "country": "Norway",
       "count": 1
     },
     {

@@ -5,6 +5,21 @@ function uniqueSorted(arr) {
   return [...new Set(arr.filter(Boolean))].sort()
 }
 
+const COLUMNS = [
+  { key: 'id', label: 'ID', numeric: false },
+  { key: 'id-title', label: 'Title', numeric: false },
+  { key: 'pub-year', label: 'Year', numeric: true },
+  { key: 'exp-type', label: 'Type', numeric: false },
+  { key: 'id-country', label: 'Country', numeric: false },
+  { key: 'pop-no-tot', label: 'n', numeric: true },
+  { key: 'data-avail', label: 'Data', numeric: false },
+]
+
+function SortIcon({ direction }) {
+  if (!direction) return <span className="text-inkfaint/40 ml-1">↕</span>
+  return <span className="text-coreaccent ml-1">{direction === 'asc' ? '↑' : '↓'}</span>
+}
+
 export default function Browse({ data }) {
   const { studies } = data
   const [query, setQuery] = useState('')
@@ -12,6 +27,8 @@ export default function Browse({ data }) {
   const [country, setCountry] = useState('')
   const [yearMin, setYearMin] = useState('')
   const [yearMax, setYearMax] = useState('')
+  const [sortKey, setSortKey] = useState('id-pub-id')
+  const [sortDir, setSortDir] = useState('asc')
 
   const expTypes = useMemo(() => uniqueSorted(studies.map((s) => s['exp-type'])), [studies])
   const countries = useMemo(() => uniqueSorted(studies.map((s) => s['id-country'])), [studies])
@@ -31,12 +48,40 @@ export default function Browse({ data }) {
     })
   }, [studies, query, expType, country, yearMin, yearMax])
 
+  const sorted = useMemo(() => {
+    const col = COLUMNS.find((c) => c.key === sortKey)
+    const arr = [...filtered]
+    arr.sort((a, b) => {
+      let av = a[sortKey], bv = b[sortKey]
+      if (col?.numeric) {
+        av = av == null || av === '' ? -Infinity : Number(av)
+        bv = bv == null || bv === '' ? -Infinity : Number(bv)
+      } else {
+        av = (av ?? '').toString().toLowerCase()
+        bv = (bv ?? '').toString().toLowerCase()
+      }
+      if (av < bv) return sortDir === 'asc' ? -1 : 1
+      if (av > bv) return sortDir === 'asc' ? 1 : -1
+      return 0
+    })
+    return arr
+  }, [filtered, sortKey, sortDir])
+
+  function handleSort(key) {
+    if (sortKey === key) {
+      setSortDir((d) => (d === 'asc' ? 'desc' : 'asc'))
+    } else {
+      setSortKey(key)
+      setSortDir('asc')
+    }
+  }
+
   return (
     <div>
       <PageHeader
         eyebrow="Explore"
         title="Browse studies"
-        description="Filter the corpus by experiment type, country, or publication year. Each row is one publication-experiment unit."
+        description="Filter the corpus by experiment type, country, or publication year, then click any column header to sort. Each row is one publication-experiment unit."
       />
 
       <div className="px-10 py-5 border-b border-line flex flex-wrap gap-3 items-center bg-white/30">
@@ -93,17 +138,21 @@ export default function Browse({ data }) {
         <table className="w-full text-[13px]">
           <thead>
             <tr className="border-b border-line text-left text-inkfaint font-data text-[11px] uppercase tracking-wide">
-              <th className="px-4 py-2.5 font-medium">ID</th>
-              <th className="px-4 py-2.5 font-medium">Title</th>
-              <th className="px-4 py-2.5 font-medium">Year</th>
-              <th className="px-4 py-2.5 font-medium">Type</th>
-              <th className="px-4 py-2.5 font-medium">Country</th>
-              <th className="px-4 py-2.5 font-medium">n</th>
-              <th className="px-4 py-2.5 font-medium">Data</th>
+              {COLUMNS.map((col) => (
+                <th
+                  key={col.key}
+                  className="px-4 py-2.5 font-medium cursor-pointer select-none hover:text-ink transition-colors"
+                  onClick={() => handleSort(col.key)}
+                  title={`Sort by ${col.label}`}
+                >
+                  {col.label}
+                  <SortIcon direction={sortKey === col.key ? sortDir : null} />
+                </th>
+              ))}
             </tr>
           </thead>
           <tbody>
-            {filtered.slice(0, 200).map((s) => (
+            {sorted.slice(0, 200).map((s) => (
               <tr key={s.id} className="border-b border-line/60 hover:bg-white/60 transition-colors">
                 <td className="px-4 py-2.5 font-data text-inkfaint">{s.id}</td>
                 <td className="px-4 py-2.5 max-w-md">
@@ -119,9 +168,9 @@ export default function Browse({ data }) {
             ))}
           </tbody>
         </table>
-        {filtered.length > 200 && (
+        {sorted.length > 200 && (
           <div className="px-4 py-3 font-data text-[11.5px] text-inkfaint">
-            Showing first 200 of {filtered.length} matches — refine filters to narrow further.
+            Showing first 200 of {sorted.length} matches — refine filters to narrow further.
           </div>
         )}
       </div>

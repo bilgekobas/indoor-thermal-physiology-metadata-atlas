@@ -1,0 +1,174 @@
+{
+  "data": [
+    {
+      "atlas_name": "Australia",
+      "count": 4,
+      "raw_labels": [
+        "Australia"
+      ]
+    },
+    {
+      "atlas_name": "Brazil",
+      "count": 3,
+      "raw_labels": [
+        "Brazil"
+      ]
+    },
+    {
+      "atlas_name": "China",
+      "count": 149,
+      "raw_labels": [
+        "China",
+        "Hong Kong"
+      ]
+    },
+    {
+      "atlas_name": "Croatia",
+      "count": 1,
+      "raw_labels": [
+        "Croatia"
+      ]
+    },
+    {
+      "atlas_name": "Denmark",
+      "count": 7,
+      "raw_labels": [
+        "Denmark"
+      ]
+    },
+    {
+      "atlas_name": "France",
+      "count": 1,
+      "raw_labels": [
+        "France"
+      ]
+    },
+    {
+      "atlas_name": "Germany",
+      "count": 5,
+      "raw_labels": [
+        "Germany"
+      ]
+    },
+    {
+      "atlas_name": "India",
+      "count": 2,
+      "raw_labels": [
+        "India"
+      ]
+    },
+    {
+      "atlas_name": "Iran",
+      "count": 4,
+      "raw_labels": [
+        "Iran"
+      ]
+    },
+    {
+      "atlas_name": "Italy",
+      "count": 9,
+      "raw_labels": [
+        "Italy"
+      ]
+    },
+    {
+      "atlas_name": "Japan",
+      "count": 11,
+      "raw_labels": [
+        "Japan"
+      ]
+    },
+    {
+      "atlas_name": "Malaysia",
+      "count": 1,
+      "raw_labels": [
+        "Malaysia"
+      ]
+    },
+    {
+      "atlas_name": "Netherlands",
+      "count": 6,
+      "raw_labels": [
+        "Netherlands"
+      ]
+    },
+    {
+      "atlas_name": "Norway",
+      "count": 1,
+      "raw_labels": [
+        "Norway"
+      ]
+    },
+    {
+      "atlas_name": "Portugal",
+      "count": 2,
+      "raw_labels": [
+        "Portugal"
+      ]
+    },
+    {
+      "atlas_name": "Qatar",
+      "count": 1,
+      "raw_labels": [
+        "Qatar"
+      ]
+    },
+    {
+      "atlas_name": "Singapore",
+      "count": 9,
+      "raw_labels": [
+        "Singapore"
+      ]
+    },
+    {
+      "atlas_name": "South Korea",
+      "count": 15,
+      "raw_labels": [
+        "Republic of Korea"
+      ]
+    },
+    {
+      "atlas_name": "Spain",
+      "count": 1,
+      "raw_labels": [
+        "Spain"
+      ]
+    },
+    {
+      "atlas_name": "Switzerland",
+      "count": 3,
+      "raw_labels": [
+        "Switzerland"
+      ]
+    },
+    {
+      "atlas_name": "Taiwan",
+      "count": 2,
+      "raw_labels": [
+        "Taiwan"
+      ]
+    },
+    {
+      "atlas_name": "Turkey",
+      "count": 1,
+      "raw_labels": [
+        "Turkey"
+      ]
+    },
+    {
+      "atlas_name": "United Kingdom",
+      "count": 2,
+      "raw_labels": [
+        "Great Britain",
+        "UK"
+      ]
+    },
+    {
+      "atlas_name": "United States of America",
+      "count": 23,
+      "raw_labels": [
+        "USA"
+      ]
+    }
+  ]
+}

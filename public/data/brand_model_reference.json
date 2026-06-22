@@ -1,0 +1,3383 @@
+{
+  "data": [
+    {
+      "signal": "Biomarkers: Catecholamines",
+      "sensing_method": "Blood",
+      "brand": "Recipe",
+      "model": "HPLC",
+      "count": 1,
+      "study_ids": [
+        "189_1"
+      ]
+    },
+    {
+      "signal": "Biomarkers: Free thyroxine (FT4)",
+      "sensing_method": "Blood",
+      "brand": "PerkinElmer",
+      "model": "AutoDELFIA",
+      "count": 1,
+      "study_ids": [
+        "189_1"
+      ]
+    },
+    {
+      "signal": "Biomarkers: Thyroid-stimulating hormone (TSH)",
+      "sensing_method": "Blood",
+      "brand": "Roche Diagnostica",
+      "model": "COBAS6000",
+      "count": 1,
+      "study_ids": [
+        "189_1"
+      ]
+    },
+    {
+      "signal": "Blood pressure",
+      "sensing_method": "Digital sphygmomanometer",
+      "brand": "OMRON",
+      "model": "HEM-6021",
+      "count": 4,
+      "study_ids": [
+        "200_2",
+        "66_1",
+        "79_1",
+        "97_1"
+      ]
+    },
+    {
+      "signal": "Blood pressure",
+      "sensing_method": "Digital sphygmomanometer",
+      "brand": "OMRON",
+      "model": "HEM-7220",
+      "count": 3,
+      "study_ids": [
+        "153_1",
+        "158_1",
+        "207_1"
+      ]
+    },
+    {
+      "signal": "Blood pressure",
+      "sensing_method": "Digital sphygmomanometer",
+      "brand": "OMRON",
+      "model": "HEM-7112",
+      "count": 2,
+      "study_ids": [
+        "111_1",
+        "183_1"
+      ]
+    },
+    {
+      "signal": "Blood pressure",
+      "sensing_method": "Digital sphygmomanometer",
+      "brand": "OMRON",
+      "model": "HEM-7124",
+      "count": 2,
+      "study_ids": [
+        "120_1",
+        "83_1"
+      ]
+    },
+    {
+      "signal": "Blood pressure",
+      "sensing_method": "Digital sphygmomanometer",
+      "brand": "OMRON",
+      "model": "HEM-7132",
+      "count": 2,
+      "study_ids": [
+        "226_1",
+        "73_1"
+      ]
+    },
+    {
+      "signal": "Blood pressure",
+      "sensing_method": "Digital sphygmomanometer",
+      "brand": "OMRON",
+      "model": "HEM-7600T",
+      "count": 2,
+      "study_ids": [
+        "224_1",
+        "30_1"
+      ]
+    },
+    {
+      "signal": "Blood pressure",
+      "sensing_method": "Digital sphygmomanometer",
+      "brand": "OMRON",
+      "model": "J12",
+      "count": 2,
+      "study_ids": [
+        "198_1",
+        "220_1"
+      ]
+    },
+    {
+      "signal": "Blood pressure",
+      "sensing_method": "Digital sphygmomanometer",
+      "brand": "OMRON",
+      "model": "U30",
+      "count": 2,
+      "study_ids": [
+        "22_1",
+        "54_1"
+      ]
+    },
+    {
+      "signal": "Blood pressure",
+      "sensing_method": "Digital sphygmomanometer",
+      "brand": "ANDON",
+      "model": "BP-5",
+      "count": 1,
+      "study_ids": [
+        "7_1"
+      ]
+    },
+    {
+      "signal": "Blood pressure",
+      "sensing_method": "Digital sphygmomanometer",
+      "brand": "ANDON",
+      "model": "KD-5907",
+      "count": 1,
+      "study_ids": [
+        "221_1"
+      ]
+    },
+    {
+      "signal": "Blood pressure",
+      "sensing_method": "Digital sphygmomanometer",
+      "brand": "Beurer",
+      "model": "BM 35",
+      "count": 1,
+      "study_ids": [
+        "163_1"
+      ]
+    },
+    {
+      "signal": "Blood pressure",
+      "sensing_method": "Digital sphygmomanometer",
+      "brand": "Contec Medical Systems",
+      "model": "CONTEC28A",
+      "count": 1,
+      "study_ids": [
+        "237_1"
+      ]
+    },
+    {
+      "signal": "Blood pressure",
+      "sensing_method": "Digital sphygmomanometer",
+      "brand": "Kofoe",
+      "model": "KF-65B",
+      "count": 1,
+      "study_ids": [
+        "78_1"
+      ]
+    },
+    {
+      "signal": "Blood pressure",
+      "sensing_method": "Digital sphygmomanometer",
+      "brand": "Libelium Co.",
+      "model": "Sphygmomanometer",
+      "count": 1,
+      "study_ids": [
+        "151_1"
+      ]
+    },
+    {
+      "signal": "Blood pressure",
+      "sensing_method": "Digital sphygmomanometer",
+      "brand": "OMRON",
+      "model": "HEM-6121",
+      "count": 1,
+      "study_ids": [
+        "5_1"
+      ]
+    },
+    {
+      "signal": "Blood pressure",
+      "sensing_method": "Digital sphygmomanometer",
+      "brand": "OMRON",
+      "model": "HEM-621",
+      "count": 1,
+      "study_ids": [
+        "232_1"
+      ]
+    },
+    {
+      "signal": "Blood pressure",
+      "sensing_method": "Digital sphygmomanometer",
+      "brand": "OMRON",
+      "model": "HEM-7211",
+      "count": 1,
+      "study_ids": [
+        "234_1"
+      ]
+    },
+    {
+      "signal": "Blood pressure",
+      "sensing_method": "Digital sphygmomanometer",
+      "brand": "OMRON",
+      "model": "HEM-7322U-E",
+      "count": 1,
+      "study_ids": [
+        "247_1"
+      ]
+    },
+    {
+      "signal": "Blood pressure",
+      "sensing_method": "Digital sphygmomanometer",
+      "brand": "OMRON",
+      "model": "HEM-737",
+      "count": 1,
+      "study_ids": [
+        "228_1"
+      ]
+    },
+    {
+      "signal": "Blood pressure",
+      "sensing_method": "Digital sphygmomanometer",
+      "brand": "OMRON",
+      "model": "HEM-8612",
+      "count": 1,
+      "study_ids": [
+        "249_1"
+      ]
+    },
+    {
+      "signal": "Blood pressure",
+      "sensing_method": "Digital sphygmomanometer",
+      "brand": "OMRON",
+      "model": "M6",
+      "count": 1,
+      "study_ids": [
+        "87_1"
+      ]
+    },
+    {
+      "signal": "Blood pressure",
+      "sensing_method": "Digital sphygmomanometer",
+      "brand": "OMRON",
+      "model": "M6 Comfort Model",
+      "count": 1,
+      "study_ids": [
+        "77_1"
+      ]
+    },
+    {
+      "signal": "Blood pressure",
+      "sensing_method": "Digital sphygmomanometer",
+      "brand": "OMRON",
+      "model": "T30",
+      "count": 1,
+      "study_ids": [
+        "9_1"
+      ]
+    },
+    {
+      "signal": "Blood pressure",
+      "sensing_method": "Digital sphygmomanometer",
+      "brand": "OMRON",
+      "model": "U10L",
+      "count": 1,
+      "study_ids": [
+        "104_1"
+      ]
+    },
+    {
+      "signal": "Blood pressure",
+      "sensing_method": "Digital sphygmomanometer",
+      "brand": "OMRON",
+      "model": "U724J",
+      "count": 1,
+      "study_ids": [
+        "10_1"
+      ]
+    },
+    {
+      "signal": "Blood pressure",
+      "sensing_method": "Digital sphygmomanometer",
+      "brand": "Philips",
+      "model": "DB12",
+      "count": 1,
+      "study_ids": [
+        "230_1"
+      ]
+    },
+    {
+      "signal": "Blood pressure",
+      "sensing_method": "Sonomic pick-up",
+      "brand": "Colin",
+      "model": "STBP-780",
+      "count": 1,
+      "study_ids": [
+        "182_1"
+      ]
+    },
+    {
+      "signal": "Blood pressure",
+      "sensing_method": "Sphygmomanometer",
+      "brand": "ADInstruments",
+      "model": "LTS2060",
+      "count": 1,
+      "study_ids": [
+        "11_1"
+      ]
+    },
+    {
+      "signal": "Core/Body temperature",
+      "sensing_method": "Infrared thermometer",
+      "brand": "Braun",
+      "model": "IRT6520",
+      "count": 4,
+      "study_ids": [
+        "210_1",
+        "234_1",
+        "242_1",
+        "9_1"
+      ]
+    },
+    {
+      "signal": "Core/Body temperature",
+      "sensing_method": "Infrared thermometer",
+      "brand": "OMRON",
+      "model": "TH839S",
+      "count": 4,
+      "study_ids": [
+        "226_1",
+        "236_1",
+        "236_2",
+        "236_3"
+      ]
+    },
+    {
+      "signal": "Core/Body temperature",
+      "sensing_method": "Thermometer",
+      "brand": "OMRON",
+      "model": "MC-246",
+      "count": 3,
+      "study_ids": [
+        "177_1",
+        "184_1",
+        "98_1"
+      ]
+    },
+    {
+      "signal": "Core/Body temperature",
+      "sensing_method": "Ingestible pill",
+      "brand": "HQ",
+      "model": "HT150001",
+      "count": 2,
+      "study_ids": [
+        "103_1",
+        "89_1"
+      ]
+    },
+    {
+      "signal": "Core/Body temperature",
+      "sensing_method": "Ingestible pill",
+      "brand": "Nihonkohden Co.",
+      "model": "CorTemp HT150002",
+      "count": 2,
+      "study_ids": [
+        "189_1",
+        "197_1"
+      ]
+    },
+    {
+      "signal": "Core/Body temperature",
+      "sensing_method": "Infrared thermometer",
+      "brand": "Braun",
+      "model": "Thermoscan 5 IRT6020",
+      "count": 1,
+      "study_ids": [
+        "48_1"
+      ]
+    },
+    {
+      "signal": "Core/Body temperature",
+      "sensing_method": "Infrared thermometer",
+      "brand": "OMEGA",
+      "model": "HXK200",
+      "count": 1,
+      "study_ids": [
+        "5_1"
+      ]
+    },
+    {
+      "signal": "Core/Body temperature",
+      "sensing_method": "Infrared thermometer",
+      "brand": "OMRON",
+      "model": "TH839",
+      "count": 1,
+      "study_ids": [
+        "73_1"
+      ]
+    },
+    {
+      "signal": "Core/Body temperature",
+      "sensing_method": "Infrared thermometer",
+      "brand": "OMRON",
+      "model": "ThermoScan",
+      "count": 1,
+      "study_ids": [
+        "125_1"
+      ]
+    },
+    {
+      "signal": "Core/Body temperature",
+      "sensing_method": "Infrared thermometer",
+      "brand": "iHealth",
+      "model": "PT3",
+      "count": 1,
+      "study_ids": [
+        "221_1"
+      ]
+    },
+    {
+      "signal": "Core/Body temperature",
+      "sensing_method": "Ingestible pill",
+      "brand": "BodyCap",
+      "model": "eCelsius Performance",
+      "count": 1,
+      "study_ids": [
+        "50_1"
+      ]
+    },
+    {
+      "signal": "Core/Body temperature",
+      "sensing_method": "Ingestible pill",
+      "brand": "CorTemp",
+      "model": "HT150001",
+      "count": 1,
+      "study_ids": [
+        "226_1"
+      ]
+    },
+    {
+      "signal": "Core/Body temperature",
+      "sensing_method": "Ingestible pill",
+      "brand": "HQ",
+      "model": "CorTemp 2000",
+      "count": 1,
+      "study_ids": [
+        "182_1"
+      ]
+    },
+    {
+      "signal": "Core/Body temperature",
+      "sensing_method": "Ingestible pill",
+      "brand": "Hidalgo",
+      "model": "VitalSense",
+      "count": 1,
+      "study_ids": [
+        "87_1"
+      ]
+    },
+    {
+      "signal": "Core/Body temperature",
+      "sensing_method": "Ingestible pill",
+      "brand": "Nihonkohden Co.",
+      "model": "CorTemp",
+      "count": 1,
+      "study_ids": [
+        "180_1"
+      ]
+    },
+    {
+      "signal": "Core/Body temperature",
+      "sensing_method": "Probe",
+      "brand": "ETO DENKI",
+      "model": "Cadac Model 9200A",
+      "count": 1,
+      "study_ids": [
+        "187_1"
+      ]
+    },
+    {
+      "signal": "Core/Body temperature",
+      "sensing_method": "Probe",
+      "brand": "Measurement Specialities",
+      "model": "MEAS 440",
+      "count": 1,
+      "study_ids": [
+        "149_1"
+      ]
+    },
+    {
+      "signal": "Core/Body temperature",
+      "sensing_method": "Thermistor",
+      "brand": "Ellab",
+      "model": "MRB Rectal Probe",
+      "count": 1,
+      "study_ids": [
+        "227_1"
+      ]
+    },
+    {
+      "signal": "Core/Body temperature",
+      "sensing_method": "Thermistor",
+      "brand": "Nikkiso-YSI",
+      "model": "ITPO10-11",
+      "count": 1,
+      "study_ids": [
+        "228_1"
+      ]
+    },
+    {
+      "signal": "Core/Body temperature",
+      "sensing_method": "Thermometer",
+      "brand": "Braun",
+      "model": "ThermoScan",
+      "count": 1,
+      "study_ids": [
+        "163_1"
+      ]
+    },
+    {
+      "signal": "Core/Body temperature",
+      "sensing_method": "Thermometer",
+      "brand": "OMRON",
+      "model": "MC-100L",
+      "count": 1,
+      "study_ids": [
+        "182_1"
+      ]
+    },
+    {
+      "signal": "Core/Body temperature",
+      "sensing_method": "Thermometer",
+      "brand": "OMRON",
+      "model": "MC342FL",
+      "count": 1,
+      "study_ids": [
+        "83_1"
+      ]
+    },
+    {
+      "signal": "Core/Body temperature",
+      "sensing_method": "Thermometer",
+      "brand": "OMRON",
+      "model": "TH839S",
+      "count": 1,
+      "study_ids": [
+        "94_1"
+      ]
+    },
+    {
+      "signal": "EEG",
+      "sensing_method": "14-channel",
+      "brand": "Emotiv",
+      "model": "EPOC+",
+      "count": 9,
+      "study_ids": [
+        "123_1",
+        "125_1",
+        "145_1",
+        "14_1",
+        "51_1",
+        "91_1",
+        "93_1",
+        "93_2",
+        "94_1"
+      ]
+    },
+    {
+      "signal": "EEG",
+      "sensing_method": "14-channel",
+      "brand": "Emotiv",
+      "model": "EPOC X",
+      "count": 4,
+      "study_ids": [
+        "234_1",
+        "240_1",
+        "37_1",
+        "44_1"
+      ]
+    },
+    {
+      "signal": "EEG",
+      "sensing_method": "8-channel",
+      "brand": "BIOPAC",
+      "model": "MP150",
+      "count": 3,
+      "study_ids": [
+        "118_1",
+        "159_1",
+        "185_2"
+      ]
+    },
+    {
+      "signal": "EEG",
+      "sensing_method": "9-channel",
+      "brand": "Advanced Brain Monitoring",
+      "model": "B-Alert X10",
+      "count": 3,
+      "study_ids": [
+        "152_1",
+        "71_1",
+        "71_2"
+      ]
+    },
+    {
+      "signal": "EEG",
+      "sensing_method": "19-channel",
+      "brand": "CGX",
+      "model": "Quick-20",
+      "count": 2,
+      "study_ids": [
+        "56_1",
+        "84_1"
+      ]
+    },
+    {
+      "signal": "EEG",
+      "sensing_method": "1-channel",
+      "brand": "Mind Media",
+      "model": "Nexus-4",
+      "count": 1,
+      "study_ids": [
+        "95_1"
+      ]
+    },
+    {
+      "signal": "EEG",
+      "sensing_method": "16-channel",
+      "brand": "Nihonkohden Co.",
+      "model": "EEG-1200",
+      "count": 1,
+      "study_ids": [
+        "206_1"
+      ]
+    },
+    {
+      "signal": "EEG",
+      "sensing_method": "19-channel",
+      "brand": "Wearable Sensing",
+      "model": "DSI-24",
+      "count": 1,
+      "study_ids": [
+        "239_1"
+      ]
+    },
+    {
+      "signal": "EEG",
+      "sensing_method": "2-channel",
+      "brand": "Neurosky",
+      "model": "MidnWave MW003",
+      "count": 1,
+      "study_ids": [
+        "211_1"
+      ]
+    },
+    {
+      "signal": "EEG",
+      "sensing_method": "2-channel",
+      "brand": "PLUX",
+      "model": "biosignalsplux",
+      "count": 1,
+      "study_ids": [
+        "19_1"
+      ]
+    },
+    {
+      "signal": "EEG",
+      "sensing_method": "3-channel",
+      "brand": "Intercross",
+      "model": "415, 511",
+      "count": 1,
+      "study_ids": [
+        "69_1"
+      ]
+    },
+    {
+      "signal": "EEG",
+      "sensing_method": "3-channel",
+      "brand": "Neurosky",
+      "model": "TGAM",
+      "count": 1,
+      "study_ids": [
+        "10_1"
+      ]
+    },
+    {
+      "signal": "EEG",
+      "sensing_method": "4-channel",
+      "brand": "Brain Products",
+      "model": "LiveAmp",
+      "count": 1,
+      "study_ids": [
+        "63_1"
+      ]
+    },
+    {
+      "signal": "EEG",
+      "sensing_method": "4-channel",
+      "brand": "InterAxon",
+      "model": "MUSE",
+      "count": 1,
+      "study_ids": [
+        "223_1"
+      ]
+    },
+    {
+      "signal": "EEG",
+      "sensing_method": "4-channel",
+      "brand": "InterAxon",
+      "model": "Muse 2",
+      "count": 1,
+      "study_ids": [
+        "28_1"
+      ]
+    },
+    {
+      "signal": "EEG",
+      "sensing_method": "5-channel",
+      "brand": "Emotiv",
+      "model": "Insight",
+      "count": 1,
+      "study_ids": [
+        "169_1"
+      ]
+    },
+    {
+      "signal": "EMG",
+      "sensing_method": "EMG",
+      "brand": "O&R Medical",
+      "model": "Nutrode Mini-P10MO",
+      "count": 1,
+      "study_ids": [
+        "204_1"
+      ]
+    },
+    {
+      "signal": "EOG",
+      "sensing_method": "EOG",
+      "brand": "CGX",
+      "model": "AIM Generation 2",
+      "count": 2,
+      "study_ids": [
+        "56_1",
+        "84_1"
+      ]
+    },
+    {
+      "signal": "EOG",
+      "sensing_method": "EOG",
+      "brand": "BIOPAC",
+      "model": "MP150",
+      "count": 1,
+      "study_ids": [
+        "159_1"
+      ]
+    },
+    {
+      "signal": "EOG",
+      "sensing_method": "EOG",
+      "brand": "Mind Media",
+      "model": "Nexus-4",
+      "count": 1,
+      "study_ids": [
+        "95_1"
+      ]
+    },
+    {
+      "signal": "Exhaled breath temperature",
+      "sensing_method": "Thermal picker",
+      "brand": "Nihonkohden Co.",
+      "model": "WEB-7000",
+      "count": 1,
+      "study_ids": [
+        "206_1"
+      ]
+    },
+    {
+      "signal": "Exhaled breath temperature",
+      "sensing_method": "Thermistor",
+      "brand": "Murata",
+      "model": "NXFT15XH103FA2B130",
+      "count": 1,
+      "study_ids": [
+        "58_1"
+      ]
+    },
+    {
+      "signal": "Glucose",
+      "sensing_method": "Blood",
+      "brand": "Abbott",
+      "model": "FreeStyle Libre 2",
+      "count": 1,
+      "study_ids": [
+        "224_1"
+      ]
+    },
+    {
+      "signal": "Glucose",
+      "sensing_method": "Blood",
+      "brand": "Dr. Diary Plus",
+      "model": "Dr. Diary",
+      "count": 1,
+      "study_ids": [
+        "30_1"
+      ]
+    },
+    {
+      "signal": "Heart/Pulse rate",
+      "sensing_method": "OHR/PPG",
+      "brand": "Empatica",
+      "model": "E4",
+      "count": 11,
+      "study_ids": [
+        "137_1",
+        "147_1",
+        "15_1",
+        "169_1",
+        "212_1",
+        "223_1",
+        "224_1",
+        "238_1",
+        "240_1",
+        "28_1",
+        "30_1"
+      ]
+    },
+    {
+      "signal": "Heart/Pulse rate",
+      "sensing_method": "ECG",
+      "brand": "Polar",
+      "model": "H10",
+      "count": 8,
+      "study_ids": [
+        "117_1",
+        "133_1",
+        "222_1",
+        "247_1",
+        "57_1",
+        "67_1",
+        "87_1",
+        "9_1"
+      ]
+    },
+    {
+      "signal": "Heart/Pulse rate",
+      "sensing_method": "ECG",
+      "brand": "Suunto",
+      "model": "Dual",
+      "count": 7,
+      "study_ids": [
+        "125_1",
+        "163_1",
+        "2_1",
+        "2_2",
+        "2_3",
+        "73_1",
+        "94_1"
+      ]
+    },
+    {
+      "signal": "Heart/Pulse rate",
+      "sensing_method": "Digital sphygmomanometer",
+      "brand": "OMRON",
+      "model": "HEM-7011",
+      "count": 5,
+      "study_ids": [
+        "130_1",
+        "170_1",
+        "179_1",
+        "188_1",
+        "90_1"
+      ]
+    },
+    {
+      "signal": "Heart/Pulse rate",
+      "sensing_method": "ECG",
+      "brand": "Polar",
+      "model": "RS400",
+      "count": 4,
+      "study_ids": [
+        "200_2",
+        "66_1",
+        "79_1",
+        "97_1"
+      ]
+    },
+    {
+      "signal": "Heart/Pulse rate",
+      "sensing_method": "ECG",
+      "brand": "Suunto",
+      "model": "Dual belt",
+      "count": 4,
+      "study_ids": [
+        "226_1",
+        "236_1",
+        "236_2",
+        "236_3"
+      ]
+    },
+    {
+      "signal": "Heart/Pulse rate",
+      "sensing_method": "Pulse oximeter",
+      "brand": "Heal Force",
+      "model": "Prince 100H",
+      "count": 4,
+      "study_ids": [
+        "13_1",
+        "47_1",
+        "52_1",
+        "7_1"
+      ]
+    },
+    {
+      "signal": "Heart/Pulse rate",
+      "sensing_method": "ECG",
+      "brand": "Hidalgo",
+      "model": "Equivital",
+      "count": 3,
+      "study_ids": [
+        "162_1",
+        "175_1",
+        "178_1"
+      ]
+    },
+    {
+      "signal": "Heart/Pulse rate",
+      "sensing_method": "ECG",
+      "brand": "Polar",
+      "model": "T31",
+      "count": 3,
+      "study_ids": [
+        "149_1",
+        "180_1",
+        "35_1"
+      ]
+    },
+    {
+      "signal": "Heart/Pulse rate",
+      "sensing_method": "Digital sphygmomanometer",
+      "brand": "OMRON",
+      "model": "HEM-7112",
+      "count": 2,
+      "study_ids": [
+        "111_1",
+        "183_1"
+      ]
+    },
+    {
+      "signal": "Heart/Pulse rate",
+      "sensing_method": "Digital sphygmomanometer",
+      "brand": "OMRON",
+      "model": "HEM-7124",
+      "count": 2,
+      "study_ids": [
+        "120_1",
+        "83_1"
+      ]
+    },
+    {
+      "signal": "Heart/Pulse rate",
+      "sensing_method": "Digital sphygmomanometer",
+      "brand": "OMRON",
+      "model": "J12",
+      "count": 2,
+      "study_ids": [
+        "198_1",
+        "220_1"
+      ]
+    },
+    {
+      "signal": "Heart/Pulse rate",
+      "sensing_method": "ECG",
+      "brand": "CGX",
+      "model": "AIM Generation 2",
+      "count": 2,
+      "study_ids": [
+        "56_1",
+        "84_1"
+      ]
+    },
+    {
+      "signal": "Heart/Pulse rate",
+      "sensing_method": "ECG",
+      "brand": "CompuMedics Ltd.",
+      "model": "Somt\u00e9",
+      "count": 2,
+      "study_ids": [
+        "177_1",
+        "184_1"
+      ]
+    },
+    {
+      "signal": "Heart/Pulse rate",
+      "sensing_method": "ECG",
+      "brand": "DMS",
+      "model": "300-4A",
+      "count": 2,
+      "study_ids": [
+        "103_1",
+        "89_1"
+      ]
+    },
+    {
+      "signal": "Heart/Pulse rate",
+      "sensing_method": "ECG",
+      "brand": "Mind Media",
+      "model": "Nexus-4",
+      "count": 2,
+      "study_ids": [
+        "128_1",
+        "95_1"
+      ]
+    },
+    {
+      "signal": "Heart/Pulse rate",
+      "sensing_method": "ECG",
+      "brand": "PLUX",
+      "model": "biosignalsplux",
+      "count": 2,
+      "study_ids": [
+        "18_1",
+        "19_1"
+      ]
+    },
+    {
+      "signal": "Heart/Pulse rate",
+      "sensing_method": "ECG",
+      "brand": "Polar",
+      "model": "A300",
+      "count": 2,
+      "study_ids": [
+        "22_1",
+        "54_1"
+      ]
+    },
+    {
+      "signal": "Heart/Pulse rate",
+      "sensing_method": "ECG",
+      "brand": "Zephyr",
+      "model": "BioHarness 3.0",
+      "count": 2,
+      "study_ids": [
+        "93_1",
+        "93_2"
+      ]
+    },
+    {
+      "signal": "Heart/Pulse rate",
+      "sensing_method": "OHR/PPG",
+      "brand": "Samsung",
+      "model": "Galaxy Watch",
+      "count": 2,
+      "study_ids": [
+        "16_1",
+        "86_1"
+      ]
+    },
+    {
+      "signal": "Heart/Pulse rate",
+      "sensing_method": "Pulse oximeter",
+      "brand": "Yuwell",
+      "model": "YX303",
+      "count": 2,
+      "study_ids": [
+        "53_1",
+        "78_1"
+      ]
+    },
+    {
+      "signal": "Heart/Pulse rate",
+      "sensing_method": "Digital sphygmomanometer",
+      "brand": "Contec Medical Systems",
+      "model": "CONTEC28A",
+      "count": 1,
+      "study_ids": [
+        "237_1"
+      ]
+    },
+    {
+      "signal": "Heart/Pulse rate",
+      "sensing_method": "Digital sphygmomanometer",
+      "brand": "OMRON",
+      "model": "HEM-6121",
+      "count": 1,
+      "study_ids": [
+        "5_1"
+      ]
+    },
+    {
+      "signal": "Heart/Pulse rate",
+      "sensing_method": "Digital sphygmomanometer",
+      "brand": "OMRON",
+      "model": "HEM-7211",
+      "count": 1,
+      "study_ids": [
+        "234_1"
+      ]
+    },
+    {
+      "signal": "Heart/Pulse rate",
+      "sensing_method": "Digital sphygmomanometer",
+      "brand": "OMRON",
+      "model": "HEM-7220",
+      "count": 1,
+      "study_ids": [
+        "153_1"
+      ]
+    },
+    {
+      "signal": "Heart/Pulse rate",
+      "sensing_method": "Digital sphygmomanometer",
+      "brand": "OMRON",
+      "model": "HEM-7320",
+      "count": 1,
+      "study_ids": [
+        "203_1"
+      ]
+    },
+    {
+      "signal": "Heart/Pulse rate",
+      "sensing_method": "Digital sphygmomanometer",
+      "brand": "OMRON",
+      "model": "HEM-8612",
+      "count": 1,
+      "study_ids": [
+        "249_1"
+      ]
+    },
+    {
+      "signal": "Heart/Pulse rate",
+      "sensing_method": "Digital sphygmomanometer",
+      "brand": "OMRON",
+      "model": "M6 Comfort Model",
+      "count": 1,
+      "study_ids": [
+        "77_1"
+      ]
+    },
+    {
+      "signal": "Heart/Pulse rate",
+      "sensing_method": "Digital sphygmomanometer",
+      "brand": "OMRON",
+      "model": "U10L",
+      "count": 1,
+      "study_ids": [
+        "104_1"
+      ]
+    },
+    {
+      "signal": "Heart/Pulse rate",
+      "sensing_method": "Digital sphygmomanometer",
+      "brand": "OMRON",
+      "model": "U724J",
+      "count": 1,
+      "study_ids": [
+        "10_1"
+      ]
+    },
+    {
+      "signal": "Heart/Pulse rate",
+      "sensing_method": "ECG",
+      "brand": "ADInstruments",
+      "model": "MLA2504",
+      "count": 1,
+      "study_ids": [
+        "11_1"
+      ]
+    },
+    {
+      "signal": "Heart/Pulse rate",
+      "sensing_method": "ECG",
+      "brand": "ADInstruments",
+      "model": "PowerLab",
+      "count": 1,
+      "study_ids": [
+        "81_1"
+      ]
+    },
+    {
+      "signal": "Heart/Pulse rate",
+      "sensing_method": "ECG",
+      "brand": "Careshine",
+      "model": "CCS-103",
+      "count": 1,
+      "study_ids": [
+        "248_1"
+      ]
+    },
+    {
+      "signal": "Heart/Pulse rate",
+      "sensing_method": "ECG",
+      "brand": "Careshine Electronic",
+      "model": "CCS-103",
+      "count": 1,
+      "study_ids": [
+        "41_1"
+      ]
+    },
+    {
+      "signal": "Heart/Pulse rate",
+      "sensing_method": "ECG",
+      "brand": "Fukuda Denshi",
+      "model": "AU-512",
+      "count": 1,
+      "study_ids": [
+        "228_1"
+      ]
+    },
+    {
+      "signal": "Heart/Pulse rate",
+      "sensing_method": "ECG",
+      "brand": "HeaLink",
+      "model": "HRV101",
+      "count": 1,
+      "study_ids": [
+        "141_1"
+      ]
+    },
+    {
+      "signal": "Heart/Pulse rate",
+      "sensing_method": "ECG",
+      "brand": "HeaLink",
+      "model": "R211B",
+      "count": 1,
+      "study_ids": [
+        "98_1"
+      ]
+    },
+    {
+      "signal": "Heart/Pulse rate",
+      "sensing_method": "ECG",
+      "brand": "Nihonkohden Co.",
+      "model": "ECG picker",
+      "count": 1,
+      "study_ids": [
+        "206_1"
+      ]
+    },
+    {
+      "signal": "Heart/Pulse rate",
+      "sensing_method": "ECG",
+      "brand": "Nihonkohden Co.",
+      "model": "Life Scope BSM-2401",
+      "count": 1,
+      "study_ids": [
+        "182_1"
+      ]
+    },
+    {
+      "signal": "Heart/Pulse rate",
+      "sensing_method": "ECG",
+      "brand": "Polar",
+      "model": "FT07",
+      "count": 1,
+      "study_ids": [
+        "158_1"
+      ]
+    },
+    {
+      "signal": "Heart/Pulse rate",
+      "sensing_method": "ECG",
+      "brand": "Polar",
+      "model": "FT7",
+      "count": 1,
+      "study_ids": [
+        "207_1"
+      ]
+    },
+    {
+      "signal": "Heart/Pulse rate",
+      "sensing_method": "ECG",
+      "brand": "Polar",
+      "model": "H7",
+      "count": 1,
+      "study_ids": [
+        "124_1"
+      ]
+    },
+    {
+      "signal": "Heart/Pulse rate",
+      "sensing_method": "ECG",
+      "brand": "Polar",
+      "model": "RS800CX",
+      "count": 1,
+      "study_ids": [
+        "127_1"
+      ]
+    },
+    {
+      "signal": "Heart/Pulse rate",
+      "sensing_method": "ECG",
+      "brand": "Tianjin Jingjin",
+      "model": "KF1",
+      "count": 1,
+      "study_ids": [
+        "85_1"
+      ]
+    },
+    {
+      "signal": "Heart/Pulse rate",
+      "sensing_method": "NR",
+      "brand": "fitbit",
+      "model": "Versa 1",
+      "count": 1,
+      "study_ids": [
+        "55_1"
+      ]
+    },
+    {
+      "signal": "Heart/Pulse rate",
+      "sensing_method": "OHR/PPG",
+      "brand": "Cosinuss",
+      "model": "One",
+      "count": 1,
+      "study_ids": [
+        "48_1"
+      ]
+    },
+    {
+      "signal": "Heart/Pulse rate",
+      "sensing_method": "OHR/PPG",
+      "brand": "EMFIT",
+      "model": "EMFI sensor L-3030",
+      "count": 1,
+      "study_ids": [
+        "68_1"
+      ]
+    },
+    {
+      "signal": "Heart/Pulse rate",
+      "sensing_method": "OHR/PPG",
+      "brand": "Hesvit",
+      "model": "S3",
+      "count": 1,
+      "study_ids": [
+        "96_1"
+      ]
+    },
+    {
+      "signal": "Heart/Pulse rate",
+      "sensing_method": "OHR/PPG",
+      "brand": "Logitech",
+      "model": "HD Pro Webcam 920",
+      "count": 1,
+      "study_ids": [
+        "205_1"
+      ]
+    },
+    {
+      "signal": "Heart/Pulse rate",
+      "sensing_method": "OHR/PPG",
+      "brand": "Polar",
+      "model": "OH1",
+      "count": 1,
+      "study_ids": [
+        "12_1"
+      ]
+    },
+    {
+      "signal": "Heart/Pulse rate",
+      "sensing_method": "OHR/PPG",
+      "brand": "Polar",
+      "model": "RS400",
+      "count": 1,
+      "study_ids": [
+        "242_1"
+      ]
+    },
+    {
+      "signal": "Heart/Pulse rate",
+      "sensing_method": "OHR/PPG",
+      "brand": "Seeed Studio",
+      "model": "Heart rate Ear clip",
+      "count": 1,
+      "study_ids": [
+        "58_1"
+      ]
+    },
+    {
+      "signal": "Heart/Pulse rate",
+      "sensing_method": "OHR/PPG",
+      "brand": "Shimmer Sensing",
+      "model": "Optical Pulse\nSensor Ear Clip",
+      "count": 1,
+      "study_ids": [
+        "109_1"
+      ]
+    },
+    {
+      "signal": "Heart/Pulse rate",
+      "sensing_method": "OHR/PPG",
+      "brand": "Xiaomi",
+      "model": "Mi Band 3",
+      "count": 1,
+      "study_ids": [
+        "72_1"
+      ]
+    },
+    {
+      "signal": "Heart/Pulse rate",
+      "sensing_method": "OHR/PPG",
+      "brand": "fitbit",
+      "model": "Versa 1",
+      "count": 1,
+      "study_ids": [
+        "101_1"
+      ]
+    },
+    {
+      "signal": "Heart/Pulse rate",
+      "sensing_method": "Pulse oximeter",
+      "brand": "ADInstruments",
+      "model": "LST2020",
+      "count": 1,
+      "study_ids": [
+        "11_1"
+      ]
+    },
+    {
+      "signal": "Heart/Pulse rate",
+      "sensing_method": "Pulse oximeter",
+      "brand": "Libelium Co.",
+      "model": "Pulsioximeter",
+      "count": 1,
+      "study_ids": [
+        "151_1"
+      ]
+    },
+    {
+      "signal": "Heart/Pulse rate",
+      "sensing_method": "Pulse oximeter",
+      "brand": "Medisana",
+      "model": "PH-100",
+      "count": 1,
+      "study_ids": [
+        "221_1"
+      ]
+    },
+    {
+      "signal": "Heart/Pulse rate",
+      "sensing_method": "Pulse oximeter",
+      "brand": "Nonin Medical",
+      "model": "LifeSense LS1-9R",
+      "count": 1,
+      "study_ids": [
+        "107_1"
+      ]
+    },
+    {
+      "signal": "Heart/Pulse rate",
+      "sensing_method": "Pulse oximeter",
+      "brand": "O2HEALTH",
+      "model": "DB-12",
+      "count": 1,
+      "study_ids": [
+        "98_1"
+      ]
+    },
+    {
+      "signal": "Heart/Pulse rate",
+      "sensing_method": "Pulse oximeter",
+      "brand": "OMRON",
+      "model": "HEM-7124",
+      "count": 1,
+      "study_ids": [
+        "230_1"
+      ]
+    },
+    {
+      "signal": "Heart/Pulse rate",
+      "sensing_method": "Pulse oximeter",
+      "brand": "Promise Technology",
+      "model": "PRO-PM350",
+      "count": 1,
+      "study_ids": [
+        "80_1"
+      ]
+    },
+    {
+      "signal": "Heart/Pulse rate",
+      "sensing_method": "OHR/PPG",
+      "brand": "Shimmer Sensing",
+      "model": "Optical Pulse Sensor Ear Clip",
+      "count": 0,
+      "study_ids": [
+        null
+      ]
+    },
+    {
+      "signal": "Heat flux",
+      "sensing_method": "Heat flux/Heat flow",
+      "brand": "Kyoto Electronics Manufacturing",
+      "model": "HFM-215 N",
+      "count": 2,
+      "study_ids": [
+        "103_1",
+        "89_1"
+      ]
+    },
+    {
+      "signal": "Heat flux",
+      "sensing_method": "Heat flux/Heat flow",
+      "brand": "Kyoto Electronics Manufacturing",
+      "model": "KM1",
+      "count": 2,
+      "study_ids": [
+        "105_1",
+        "129_1"
+      ]
+    },
+    {
+      "signal": "Heat flux",
+      "sensing_method": "Heat flux/Heat flow",
+      "brand": "Kyoto Electronics",
+      "model": "TM1",
+      "count": 1,
+      "study_ids": [
+        "250_1"
+      ]
+    },
+    {
+      "signal": "Heat flux",
+      "sensing_method": "Heat flux/Heat flow",
+      "brand": "Kyoto Electronics Manufacturing",
+      "model": "TM1 heat flux transducer disk",
+      "count": 1,
+      "study_ids": [
+        "187_1"
+      ]
+    },
+    {
+      "signal": "Metabolic rate/Gas exchange",
+      "sensing_method": "Metabolic cart",
+      "brand": "Vyaire Medical",
+      "model": "Vmax Encore",
+      "count": 3,
+      "study_ids": [
+        "162_1",
+        "175_1",
+        "178_1"
+      ]
+    },
+    {
+      "signal": "Metabolic rate/Gas exchange",
+      "sensing_method": "Capnometry/Capnography",
+      "brand": "LifeSense",
+      "model": "LS1",
+      "count": 2,
+      "study_ids": [
+        "163_1",
+        "94_1"
+      ]
+    },
+    {
+      "signal": "Metabolic rate/Gas exchange",
+      "sensing_method": "Exhaled gas analyzer",
+      "brand": "S&ME Company",
+      "model": "V2000",
+      "count": 2,
+      "study_ids": [
+        "127_1",
+        "187_1"
+      ]
+    },
+    {
+      "signal": "Metabolic rate/Gas exchange",
+      "sensing_method": "Metabolic cart",
+      "brand": "COSMED",
+      "model": "K5",
+      "count": 2,
+      "study_ids": [
+        "133_1",
+        "75_1"
+      ]
+    },
+    {
+      "signal": "Metabolic rate/Gas exchange",
+      "sensing_method": "Capnometry/Capnography",
+      "brand": "Kingst",
+      "model": "KMI605C3",
+      "count": 1,
+      "study_ids": [
+        "226_1"
+      ]
+    },
+    {
+      "signal": "Metabolic rate/Gas exchange",
+      "sensing_method": "Capnometry/Capnography",
+      "brand": "MedAir AB",
+      "model": "LifeSense LS1",
+      "count": 1,
+      "study_ids": [
+        "125_1"
+      ]
+    },
+    {
+      "signal": "Metabolic rate/Gas exchange",
+      "sensing_method": "Capnometry/Capnography",
+      "brand": "Medtronic",
+      "model": "PMSH300",
+      "count": 1,
+      "study_ids": [
+        "73_1"
+      ]
+    },
+    {
+      "signal": "Metabolic rate/Gas exchange",
+      "sensing_method": "Exhaled gas analyzer",
+      "brand": "ADInstruments",
+      "model": "ML206",
+      "count": 1,
+      "study_ids": [
+        "182_1"
+      ]
+    },
+    {
+      "signal": "Metabolic rate/Gas exchange",
+      "sensing_method": "Gas analyzer",
+      "brand": "S&ME Company",
+      "model": "V2000",
+      "count": 1,
+      "study_ids": [
+        "250_1"
+      ]
+    },
+    {
+      "signal": "Metabolic rate/Gas exchange",
+      "sensing_method": "Metabolic cart",
+      "brand": "COSMED",
+      "model": "Quark CPET",
+      "count": 1,
+      "study_ids": [
+        "50_1"
+      ]
+    },
+    {
+      "signal": "Metabolic rate/Gas exchange",
+      "sensing_method": "Metabolic cart",
+      "brand": "Oxycon",
+      "model": "CPX",
+      "count": 1,
+      "study_ids": [
+        "20_1"
+      ]
+    },
+    {
+      "signal": "Metabolic rate/Gas exchange",
+      "sensing_method": "Respiration chamber",
+      "brand": "Maastricht Instruments",
+      "model": "Omnical",
+      "count": 1,
+      "study_ids": [
+        "87_1"
+      ]
+    },
+    {
+      "signal": "Movement",
+      "sensing_method": "Accelerometer",
+      "brand": "Empatica",
+      "model": "E4",
+      "count": 6,
+      "study_ids": [
+        "147_1",
+        "15_1",
+        "212_1",
+        "223_1",
+        "224_1",
+        "238_1"
+      ]
+    },
+    {
+      "signal": "Movement",
+      "sensing_method": "Accelerometer",
+      "brand": "Maastricht Instruments",
+      "model": "MOX",
+      "count": 1,
+      "study_ids": [
+        "87_1"
+      ]
+    },
+    {
+      "signal": "Movement",
+      "sensing_method": "Accelerometer",
+      "brand": "Movisens",
+      "model": "Move 3",
+      "count": 1,
+      "study_ids": [
+        "92_1"
+      ]
+    },
+    {
+      "signal": "Movement",
+      "sensing_method": "Accelerometer",
+      "brand": "fitbit",
+      "model": "charge HR",
+      "count": 1,
+      "study_ids": [
+        "125_1"
+      ]
+    },
+    {
+      "signal": "Movement",
+      "sensing_method": "Step count",
+      "brand": "fitbit",
+      "model": "Versa 1",
+      "count": 1,
+      "study_ids": [
+        "55_1"
+      ]
+    },
+    {
+      "signal": "Near body temperature",
+      "sensing_method": "Thermochron",
+      "brand": "iButton",
+      "model": "DS1923",
+      "count": 2,
+      "study_ids": [
+        "124_1",
+        "161_1"
+      ]
+    },
+    {
+      "signal": "Near body temperature",
+      "sensing_method": "Infrared camera",
+      "brand": "FLIR",
+      "model": "B8400",
+      "count": 1,
+      "study_ids": [
+        "132_1"
+      ]
+    },
+    {
+      "signal": "Near body temperature",
+      "sensing_method": "Infrared camera",
+      "brand": "FLIR",
+      "model": "Lepton",
+      "count": 1,
+      "study_ids": [
+        "154_1"
+      ]
+    },
+    {
+      "signal": "Near body temperature",
+      "sensing_method": "Thermochron",
+      "brand": "iButton",
+      "model": "DS1925",
+      "count": 1,
+      "study_ids": [
+        "55_1"
+      ]
+    },
+    {
+      "signal": "Oxygen saturation",
+      "sensing_method": "Pulse oximeter",
+      "brand": "Heal Force",
+      "model": "Prince 100H",
+      "count": 8,
+      "study_ids": [
+        "13_1",
+        "226_1",
+        "41_1",
+        "47_1",
+        "52_1",
+        "60_1",
+        "7_1",
+        "94_1"
+      ]
+    },
+    {
+      "signal": "Oxygen saturation",
+      "sensing_method": "NR",
+      "brand": "CompuMedics Ltd.",
+      "model": "Somt\u00e9",
+      "count": 2,
+      "study_ids": [
+        "177_1",
+        "184_1"
+      ]
+    },
+    {
+      "signal": "Oxygen saturation",
+      "sensing_method": "Pulse oximeter",
+      "brand": "Nonin Medical",
+      "model": "LifeSense LS1-9R",
+      "count": 2,
+      "study_ids": [
+        "107_1",
+        "213_1"
+      ]
+    },
+    {
+      "signal": "Oxygen saturation",
+      "sensing_method": "Pulse oximeter",
+      "brand": "Yuwell",
+      "model": "YX303",
+      "count": 2,
+      "study_ids": [
+        "53_1",
+        "78_1"
+      ]
+    },
+    {
+      "signal": "Oxygen saturation",
+      "sensing_method": "NIRS",
+      "brand": "DynaSense",
+      "model": "Pocket NIRS-HM",
+      "count": 1,
+      "study_ids": [
+        "38_1"
+      ]
+    },
+    {
+      "signal": "Oxygen saturation",
+      "sensing_method": "Pulse oximeter",
+      "brand": "ADInstruments",
+      "model": "MLT321",
+      "count": 1,
+      "study_ids": [
+        "11_1"
+      ]
+    },
+    {
+      "signal": "Oxygen saturation",
+      "sensing_method": "Pulse oximeter",
+      "brand": "Heal Force",
+      "model": "A3",
+      "count": 1,
+      "study_ids": [
+        "5_1"
+      ]
+    },
+    {
+      "signal": "Oxygen saturation",
+      "sensing_method": "Pulse oximeter",
+      "brand": "Heal Force",
+      "model": "Prince 100A",
+      "count": 1,
+      "study_ids": [
+        "120_1"
+      ]
+    },
+    {
+      "signal": "Oxygen saturation",
+      "sensing_method": "Pulse oximeter",
+      "brand": "Lepu Medical",
+      "model": "PC-68B",
+      "count": 1,
+      "study_ids": [
+        "248_1"
+      ]
+    },
+    {
+      "signal": "Oxygen saturation",
+      "sensing_method": "Pulse oximeter",
+      "brand": "Libelium Co.",
+      "model": "Pulsioximeter",
+      "count": 1,
+      "study_ids": [
+        "151_1"
+      ]
+    },
+    {
+      "signal": "Oxygen saturation",
+      "sensing_method": "Pulse oximeter",
+      "brand": "LifeSense",
+      "model": "LS1",
+      "count": 1,
+      "study_ids": [
+        "163_1"
+      ]
+    },
+    {
+      "signal": "Oxygen saturation",
+      "sensing_method": "Pulse oximeter",
+      "brand": "Masimo",
+      "model": "MightySat",
+      "count": 1,
+      "study_ids": [
+        "224_1"
+      ]
+    },
+    {
+      "signal": "Oxygen saturation",
+      "sensing_method": "Pulse oximeter",
+      "brand": "Medisana",
+      "model": "PH-100",
+      "count": 1,
+      "study_ids": [
+        "221_1"
+      ]
+    },
+    {
+      "signal": "Oxygen saturation",
+      "sensing_method": "Pulse oximeter",
+      "brand": "OMRON",
+      "model": "HEM-7124",
+      "count": 1,
+      "study_ids": [
+        "230_1"
+      ]
+    },
+    {
+      "signal": "Oxygen saturation",
+      "sensing_method": "Pulse oximeter",
+      "brand": "Philips",
+      "model": "DB12",
+      "count": 1,
+      "study_ids": [
+        "234_1"
+      ]
+    },
+    {
+      "signal": "Oxygen saturation",
+      "sensing_method": "Pulse oximeter",
+      "brand": "Promise Technology",
+      "model": "PRO-PM350",
+      "count": 1,
+      "study_ids": [
+        "80_1"
+      ]
+    },
+    {
+      "signal": "Oxygen saturation",
+      "sensing_method": "Pulse oximeter",
+      "brand": "Yuwell",
+      "model": "YX301",
+      "count": 1,
+      "study_ids": [
+        "83_1"
+      ]
+    },
+    {
+      "signal": "Perfusion index",
+      "sensing_method": "Pulse oximeter",
+      "brand": "Masimo",
+      "model": "MightySat",
+      "count": 1,
+      "study_ids": [
+        "224_1"
+      ]
+    },
+    {
+      "signal": "Pupillometry",
+      "sensing_method": "Eye-tracking",
+      "brand": "Tobii",
+      "model": "Pro Glasses 2",
+      "count": 1,
+      "study_ids": [
+        "216_1"
+      ]
+    },
+    {
+      "signal": "Respiration",
+      "sensing_method": "Respiration belt",
+      "brand": "Mind Media",
+      "model": "Nexus-4",
+      "count": 3,
+      "study_ids": [
+        "128_1",
+        "77_1",
+        "95_1"
+      ]
+    },
+    {
+      "signal": "Respiration",
+      "sensing_method": "NR",
+      "brand": "CompuMedics Ltd.",
+      "model": "Somt\u00e9",
+      "count": 2,
+      "study_ids": [
+        "177_1",
+        "184_1"
+      ]
+    },
+    {
+      "signal": "Respiration",
+      "sensing_method": "BCG",
+      "brand": "EMFIT",
+      "model": "EMFI sensor L-3030",
+      "count": 1,
+      "study_ids": [
+        "68_1"
+      ]
+    },
+    {
+      "signal": "Respiration",
+      "sensing_method": "Capnometry/Capnography",
+      "brand": "Kingst",
+      "model": "KMI605C3",
+      "count": 1,
+      "study_ids": [
+        "226_1"
+      ]
+    },
+    {
+      "signal": "Respiration",
+      "sensing_method": "Capnometry/Capnography",
+      "brand": "Nonin Medical",
+      "model": "LifeSense LS1-9R",
+      "count": 1,
+      "study_ids": [
+        "213_1"
+      ]
+    },
+    {
+      "signal": "Respiration",
+      "sensing_method": "Gas flowmeter",
+      "brand": "DFM20-10",
+      "model": "Air-100SLM-B01",
+      "count": 1,
+      "study_ids": [
+        "226_1"
+      ]
+    },
+    {
+      "signal": "Respiration",
+      "sensing_method": "Respiration belt",
+      "brand": "CGX",
+      "model": "AIM Generation 2",
+      "count": 1,
+      "study_ids": [
+        "56_1"
+      ]
+    },
+    {
+      "signal": "Sensory nerve conduction velocity",
+      "sensing_method": "EMG",
+      "brand": "Nihon Kohden",
+      "model": "MEB-9140K",
+      "count": 1,
+      "study_ids": [
+        "244_1"
+      ]
+    },
+    {
+      "signal": "Skin blood flow",
+      "sensing_method": "Laser Doppler",
+      "brand": "Perimed",
+      "model": "PeriFlux System 5001",
+      "count": 4,
+      "study_ids": [
+        "162_1",
+        "175_1",
+        "178_1",
+        "75_1"
+      ]
+    },
+    {
+      "signal": "Skin blood flow",
+      "sensing_method": "Laser Doppler",
+      "brand": "Advance",
+      "model": "ALF 21",
+      "count": 1,
+      "study_ids": [
+        "182_1"
+      ]
+    },
+    {
+      "signal": "Skin blood flow",
+      "sensing_method": "Laser Doppler",
+      "brand": "BIOPAC",
+      "model": "LDF100C",
+      "count": 1,
+      "study_ids": [
+        "146_2"
+      ]
+    },
+    {
+      "signal": "Skin blood flow",
+      "sensing_method": "Laser Doppler",
+      "brand": "BIOPAC",
+      "model": "MP150-LDF100C",
+      "count": 1,
+      "study_ids": [
+        "201_1"
+      ]
+    },
+    {
+      "signal": "Skin blood flow",
+      "sensing_method": "Laser Doppler",
+      "brand": "Moor",
+      "model": "VMS-LDF1",
+      "count": 1,
+      "study_ids": [
+        "138_1"
+      ]
+    },
+    {
+      "signal": "Skin blood flow",
+      "sensing_method": "Laser Doppler",
+      "brand": "Omegawave Inc.",
+      "model": "FLO-C1",
+      "count": 1,
+      "study_ids": [
+        "228_1"
+      ]
+    },
+    {
+      "signal": "Skin blood flow",
+      "sensing_method": "Laser Doppler",
+      "brand": "Perimed",
+      "model": "PF5000",
+      "count": 1,
+      "study_ids": [
+        "247_1"
+      ]
+    },
+    {
+      "signal": "Skin blood flow",
+      "sensing_method": "Laser Doppler",
+      "brand": "Perimed",
+      "model": "PeriFlux System 5000",
+      "count": 1,
+      "study_ids": [
+        "12_1"
+      ]
+    },
+    {
+      "signal": "Skin blood flow",
+      "sensing_method": "NR",
+      "brand": "Perimed",
+      "model": "PeriFlux System 5000",
+      "count": 1,
+      "study_ids": [
+        "133_1"
+      ]
+    },
+    {
+      "signal": "Skin conductance",
+      "sensing_method": "GSR/EDA",
+      "brand": "Empatica",
+      "model": "E4",
+      "count": 9,
+      "study_ids": [
+        "137_1",
+        "147_1",
+        "15_1",
+        "212_1",
+        "223_1",
+        "224_1",
+        "238_1",
+        "28_1",
+        "30_1"
+      ]
+    },
+    {
+      "signal": "Skin conductance",
+      "sensing_method": "GSR/EDA",
+      "brand": "Shimmer Sensing",
+      "model": "Shimmer 3 GSR+",
+      "count": 2,
+      "study_ids": [
+        "109_1",
+        "67_1"
+      ]
+    },
+    {
+      "signal": "Skin conductance",
+      "sensing_method": "Hygrochron",
+      "brand": "iButton",
+      "model": "DS1923",
+      "count": 2,
+      "study_ids": [
+        "133_1",
+        "80_1"
+      ]
+    },
+    {
+      "signal": "Skin conductance",
+      "sensing_method": "GSR/EDA",
+      "brand": "ADInstruments",
+      "model": "MLT118F",
+      "count": 1,
+      "study_ids": [
+        "11_1"
+      ]
+    },
+    {
+      "signal": "Skin conductance",
+      "sensing_method": "GSR/EDA",
+      "brand": "Hesvit",
+      "model": "S3",
+      "count": 1,
+      "study_ids": [
+        "96_1"
+      ]
+    },
+    {
+      "signal": "Skin conductance",
+      "sensing_method": "GSR/EDA",
+      "brand": "Libelium Co.",
+      "model": "Skin conductance GSR sensor",
+      "count": 1,
+      "study_ids": [
+        "151_1"
+      ]
+    },
+    {
+      "signal": "Skin conductance",
+      "sensing_method": "GSR/EDA",
+      "brand": "Mind Media",
+      "model": "Nexus-4",
+      "count": 1,
+      "study_ids": [
+        "77_1"
+      ]
+    },
+    {
+      "signal": "Skin conductance",
+      "sensing_method": "Hygrochron",
+      "brand": "Opulus",
+      "model": "PyroButton",
+      "count": 1,
+      "study_ids": [
+        "201_1"
+      ]
+    },
+    {
+      "signal": "Skin conductance",
+      "sensing_method": "Hygrochron",
+      "brand": "Opulus",
+      "model": "PyroButton TH DS1923",
+      "count": 1,
+      "study_ids": [
+        "94_1"
+      ]
+    },
+    {
+      "signal": "Skin conductance",
+      "sensing_method": "Thermochron",
+      "brand": "Opulus",
+      "model": "PyroButton TH",
+      "count": 1,
+      "study_ids": [
+        "125_1"
+      ]
+    },
+    {
+      "signal": "Skin conductance",
+      "sensing_method": "GSR/EDA",
+      "brand": "Shimmer Sensing",
+      "model": "GSR",
+      "count": 0,
+      "study_ids": [
+        null
+      ]
+    },
+    {
+      "signal": "Skin hardness",
+      "sensing_method": "Durometer",
+      "brand": "Teclock",
+      "model": "GS-754G",
+      "count": 1,
+      "study_ids": [
+        "139_1"
+      ]
+    },
+    {
+      "signal": "Skin temperature",
+      "sensing_method": "Thermochron",
+      "brand": "iButton",
+      "model": "DS1923",
+      "count": 13,
+      "study_ids": [
+        "120_1",
+        "124_1",
+        "210_1",
+        "213_1",
+        "230_1",
+        "231_1",
+        "233_1",
+        "33_1",
+        "42_1",
+        "70_1",
+        "8_1",
+        "98_1",
+        "9_1"
+      ]
+    },
+    {
+      "signal": "Skin temperature",
+      "sensing_method": "Thermochron",
+      "brand": "iButton",
+      "model": "DS1922L",
+      "count": 12,
+      "study_ids": [
+        "180_1",
+        "189_1",
+        "218_1",
+        "229_1",
+        "242_1",
+        "247_1",
+        "41_1",
+        "52_1",
+        "60_1",
+        "65_1",
+        "76_1",
+        "87_1"
+      ]
+    },
+    {
+      "signal": "Skin temperature",
+      "sensing_method": "Infrared thermopile",
+      "brand": "Empatica",
+      "model": "E4",
+      "count": 10,
+      "study_ids": [
+        "137_1",
+        "147_1",
+        "15_1",
+        "212_1",
+        "223_1",
+        "224_1",
+        "238_1",
+        "240_1",
+        "28_1",
+        "30_1"
+      ]
+    },
+    {
+      "signal": "Skin temperature",
+      "sensing_method": "Thermochron",
+      "brand": "iButton",
+      "model": "DS1921H",
+      "count": 9,
+      "study_ids": [
+        "116_1",
+        "137_1",
+        "204_1",
+        "208_1",
+        "214_1",
+        "222_1",
+        "34_1",
+        "80_1",
+        "88_1"
+      ]
+    },
+    {
+      "signal": "Skin temperature",
+      "sensing_method": "Thermochron",
+      "brand": "Opulus",
+      "model": "PyroButton L",
+      "count": 7,
+      "study_ids": [
+        "108_1",
+        "115_1",
+        "125_1",
+        "133_1",
+        "164_1",
+        "172_1",
+        "184_1"
+      ]
+    },
+    {
+      "signal": "Skin temperature",
+      "sensing_method": "Thermochron",
+      "brand": "Opulus",
+      "model": "PyroButton LDS1922L",
+      "count": 7,
+      "study_ids": [
+        "73_1",
+        "74_1",
+        "74_2",
+        "74_3",
+        "74_4",
+        "75_1",
+        "94_1"
+      ]
+    },
+    {
+      "signal": "Skin temperature",
+      "sensing_method": "Thermochron",
+      "brand": "iButton",
+      "model": "DS1992L",
+      "count": 6,
+      "study_ids": [
+        "13_1",
+        "1_1",
+        "31_1",
+        "38_1",
+        "57_1",
+        "7_1"
+      ]
+    },
+    {
+      "signal": "Skin temperature",
+      "sensing_method": "Infrared thermometer",
+      "brand": "Melexis",
+      "model": "MLX90614",
+      "count": 5,
+      "study_ids": [
+        "110_1",
+        "114_1",
+        "155_1",
+        "176_1",
+        "58_1"
+      ]
+    },
+    {
+      "signal": "Skin temperature",
+      "sensing_method": "Thermistor",
+      "brand": "BIOPAC",
+      "model": "TSD202B",
+      "count": 5,
+      "study_ids": [
+        "135_1",
+        "143_1",
+        "150_1",
+        "161_1",
+        "99_1"
+      ]
+    },
+    {
+      "signal": "Skin temperature",
+      "sensing_method": "Thermochron",
+      "brand": "Opulus",
+      "model": "PyroButton",
+      "count": 5,
+      "study_ids": [
+        "12_1",
+        "177_1",
+        "219_1",
+        "248_1",
+        "4_1"
+      ]
+    },
+    {
+      "signal": "Skin temperature",
+      "sensing_method": "Thermocouple",
+      "brand": "NR",
+      "model": "T-type",
+      "count": 5,
+      "study_ids": [
+        "111_1",
+        "179_1",
+        "19_1",
+        "249_1",
+        "62_1"
+      ]
+    },
+    {
+      "signal": "Skin temperature",
+      "sensing_method": "Thermocouple",
+      "brand": "Onset",
+      "model": "TMC6-HD",
+      "count": 5,
+      "study_ids": [
+        "22_1",
+        "23_1",
+        "24_1",
+        "54_1",
+        "79_1"
+      ]
+    },
+    {
+      "signal": "Skin temperature",
+      "sensing_method": "Infrared camera",
+      "brand": "FLIR",
+      "model": "Lepton",
+      "count": 4,
+      "study_ids": [
+        "100_1",
+        "114_1",
+        "154_1",
+        "165_1"
+      ]
+    },
+    {
+      "signal": "Skin temperature",
+      "sensing_method": "Thermistor",
+      "brand": "Vernier",
+      "model": "STS-BTA",
+      "count": 4,
+      "study_ids": [
+        "117_1",
+        "166_1",
+        "35_1",
+        "82_1"
+      ]
+    },
+    {
+      "signal": "Skin temperature",
+      "sensing_method": "Thermocouple",
+      "brand": "Testo",
+      "model": "905-T2",
+      "count": 4,
+      "study_ids": [
+        "171_1",
+        "198_1",
+        "220_1",
+        "53_1"
+      ]
+    },
+    {
+      "signal": "Skin temperature",
+      "sensing_method": "Dermal patch",
+      "brand": "Hidalgo",
+      "model": "VitalSense",
+      "count": 3,
+      "study_ids": [
+        "162_1",
+        "175_1",
+        "178_1"
+      ]
+    },
+    {
+      "signal": "Skin temperature",
+      "sensing_method": "Heat flux/Heat flow",
+      "brand": "Kyoto Electronics Manufacturing",
+      "model": "KM1",
+      "count": 3,
+      "study_ids": [
+        "105_1",
+        "129_1",
+        "89_1"
+      ]
+    },
+    {
+      "signal": "Skin temperature",
+      "sensing_method": "Thermocouple",
+      "brand": "HOBO",
+      "model": "UX120-006M",
+      "count": 3,
+      "study_ids": [
+        "119_1",
+        "200_2",
+        "66_1"
+      ]
+    },
+    {
+      "signal": "Skin temperature",
+      "sensing_method": "Heat flux/Heat flow",
+      "brand": "KEM",
+      "model": "HFM-215 N",
+      "count": 2,
+      "study_ids": [
+        "225_1",
+        "225_2"
+      ]
+    },
+    {
+      "signal": "Skin temperature",
+      "sensing_method": "Infrared camera",
+      "brand": "FLIR",
+      "model": "A315",
+      "count": 2,
+      "study_ids": [
+        "26_1",
+        "26_2"
+      ]
+    },
+    {
+      "signal": "Skin temperature",
+      "sensing_method": "Infrared camera",
+      "brand": "FLIR",
+      "model": "Lepton 2.5",
+      "count": 2,
+      "study_ids": [
+        "126_1",
+        "148_1"
+      ]
+    },
+    {
+      "signal": "Skin temperature",
+      "sensing_method": "Infrared camera",
+      "brand": "NIPPON",
+      "model": "InfRec R550",
+      "count": 2,
+      "study_ids": [
+        "56_1",
+        "84_1"
+      ]
+    },
+    {
+      "signal": "Skin temperature",
+      "sensing_method": "Infrared thermometer",
+      "brand": "OMRON",
+      "model": "MC-872J",
+      "count": 2,
+      "study_ids": [
+        "104_1",
+        "10_1"
+      ]
+    },
+    {
+      "signal": "Skin temperature",
+      "sensing_method": "Probe",
+      "brand": "Libelium Co.",
+      "model": "Exacon D-S18JK",
+      "count": 2,
+      "study_ids": [
+        "151_1",
+        "202_1"
+      ]
+    },
+    {
+      "signal": "Skin temperature",
+      "sensing_method": "RTD",
+      "brand": "Honeywell",
+      "model": "DC1000 Digital Temperature/Process Controllers",
+      "count": 2,
+      "study_ids": [
+        "190_1",
+        "196_1"
+      ]
+    },
+    {
+      "signal": "Skin temperature",
+      "sensing_method": "RTD",
+      "brand": "NR",
+      "model": "PT100",
+      "count": 2,
+      "study_ids": [
+        "10_1",
+        "48_1"
+      ]
+    },
+    {
+      "signal": "Skin temperature",
+      "sensing_method": "Thermistor",
+      "brand": "Onset",
+      "model": "TMC6-HD",
+      "count": 2,
+      "study_ids": [
+        "146_1",
+        "146_2"
+      ]
+    },
+    {
+      "signal": "Skin temperature",
+      "sensing_method": "Thermochron",
+      "brand": "iButton",
+      "model": "DS1922",
+      "count": 2,
+      "study_ids": [
+        "16_1",
+        "43_1"
+      ]
+    },
+    {
+      "signal": "Skin temperature",
+      "sensing_method": "Thermocouple",
+      "brand": "BIOPAC",
+      "model": "MP150",
+      "count": 2,
+      "study_ids": [
+        "191_1",
+        "192_1"
+      ]
+    },
+    {
+      "signal": "Skin temperature",
+      "sensing_method": "Thermocouple",
+      "brand": "HOBO",
+      "model": "TMC6-HD",
+      "count": 2,
+      "study_ids": [
+        "246_1",
+        "97_1"
+      ]
+    },
+    {
+      "signal": "Skin temperature",
+      "sensing_method": "Thermocouple",
+      "brand": "OMEGA",
+      "model": "T-type",
+      "count": 2,
+      "study_ids": [
+        "245_1",
+        "39_1"
+      ]
+    },
+    {
+      "signal": "Skin temperature",
+      "sensing_method": "Thermocouple",
+      "brand": "TCSA",
+      "model": "T-type",
+      "count": 2,
+      "study_ids": [
+        "21_1",
+        "36_1"
+      ]
+    },
+    {
+      "signal": "Skin temperature",
+      "sensing_method": "Heat flux/Heat flow",
+      "brand": "Kyoto Electronics Manufacturing",
+      "model": "HFM-215 N",
+      "count": 1,
+      "study_ids": [
+        "103_1"
+      ]
+    },
+    {
+      "signal": "Skin temperature",
+      "sensing_method": "Hygrochron",
+      "brand": "Opulus",
+      "model": "PyroButton",
+      "count": 1,
+      "study_ids": [
+        "213_1"
+      ]
+    },
+    {
+      "signal": "Skin temperature",
+      "sensing_method": "Infrared camera",
+      "brand": "Avio",
+      "model": "TH9100MV",
+      "count": 1,
+      "study_ids": [
+        "174_1"
+      ]
+    },
+    {
+      "signal": "Skin temperature",
+      "sensing_method": "Infrared camera",
+      "brand": "CEM",
+      "model": "Standard ST-812",
+      "count": 1,
+      "study_ids": [
+        "149_1"
+      ]
+    },
+    {
+      "signal": "Skin temperature",
+      "sensing_method": "Infrared camera",
+      "brand": "FLIR",
+      "model": "A655sc",
+      "count": 1,
+      "study_ids": [
+        "61_1"
+      ]
+    },
+    {
+      "signal": "Skin temperature",
+      "sensing_method": "Infrared camera",
+      "brand": "FLIR",
+      "model": "B8400",
+      "count": 1,
+      "study_ids": [
+        "132_1"
+      ]
+    },
+    {
+      "signal": "Skin temperature",
+      "sensing_method": "Infrared camera",
+      "brand": "FLIR",
+      "model": "C2",
+      "count": 1,
+      "study_ids": [
+        "59_1"
+      ]
+    },
+    {
+      "signal": "Skin temperature",
+      "sensing_method": "Infrared camera",
+      "brand": "FLIR",
+      "model": "Lepton 3.0",
+      "count": 1,
+      "study_ids": [
+        "134_1"
+      ]
+    },
+    {
+      "signal": "Skin temperature",
+      "sensing_method": "Infrared camera",
+      "brand": "FLIR",
+      "model": "SC5200",
+      "count": 1,
+      "study_ids": [
+        "36_1"
+      ]
+    },
+    {
+      "signal": "Skin temperature",
+      "sensing_method": "Infrared camera",
+      "brand": "FLIR",
+      "model": "T450SC",
+      "count": 1,
+      "study_ids": [
+        "148_1"
+      ]
+    },
+    {
+      "signal": "Skin temperature",
+      "sensing_method": "Infrared camera",
+      "brand": "FLIR",
+      "model": "TG 165",
+      "count": 1,
+      "study_ids": [
+        "77_1"
+      ]
+    },
+    {
+      "signal": "Skin temperature",
+      "sensing_method": "Infrared camera",
+      "brand": "Melexis",
+      "model": "MLX90640",
+      "count": 1,
+      "study_ids": [
+        "54_1"
+      ]
+    },
+    {
+      "signal": "Skin temperature",
+      "sensing_method": "Infrared camera",
+      "brand": "NIPPON",
+      "model": "InfReC",
+      "count": 1,
+      "study_ids": [
+        "67_1"
+      ]
+    },
+    {
+      "signal": "Skin temperature",
+      "sensing_method": "Infrared camera",
+      "brand": "Onset",
+      "model": "TMC6-HD",
+      "count": 1,
+      "study_ids": [
+        "54_1"
+      ]
+    },
+    {
+      "signal": "Skin temperature",
+      "sensing_method": "Infrared thermometer",
+      "brand": "Beurer",
+      "model": "FT70",
+      "count": 1,
+      "study_ids": [
+        "102_1"
+      ]
+    },
+    {
+      "signal": "Skin temperature",
+      "sensing_method": "Infrared thermometer",
+      "brand": "EXTECH Instruments",
+      "model": "42530",
+      "count": 1,
+      "study_ids": [
+        "72_1"
+      ]
+    },
+    {
+      "signal": "Skin temperature",
+      "sensing_method": "Infrared thermometer",
+      "brand": "FLIR",
+      "model": "Lepton",
+      "count": 1,
+      "study_ids": [
+        "110_1"
+      ]
+    },
+    {
+      "signal": "Skin temperature",
+      "sensing_method": "Infrared thermometer",
+      "brand": "FLIR",
+      "model": "ThermaCAM S40",
+      "count": 1,
+      "study_ids": [
+        "16_1"
+      ]
+    },
+    {
+      "signal": "Skin temperature",
+      "sensing_method": "Infrared thermometer",
+      "brand": "Fluke",
+      "model": "Fluke 561",
+      "count": 1,
+      "study_ids": [
+        "181_1"
+      ]
+    },
+    {
+      "signal": "Skin temperature",
+      "sensing_method": "Infrared thermometer",
+      "brand": "TECNIMED SRL",
+      "model": "Visiofocus mod. 06400",
+      "count": 1,
+      "study_ids": [
+        "145_1"
+      ]
+    },
+    {
+      "signal": "Skin temperature",
+      "sensing_method": "Infrared thermometer",
+      "brand": "Testo",
+      "model": "830-T2",
+      "count": 1,
+      "study_ids": [
+        "64_1"
+      ]
+    },
+    {
+      "signal": "Skin temperature",
+      "sensing_method": "NR",
+      "brand": "Libelium Co.",
+      "model": "Exacon D-S18JK",
+      "count": 1,
+      "study_ids": [
+        "106_1"
+      ]
+    },
+    {
+      "signal": "Skin temperature",
+      "sensing_method": "NR",
+      "brand": "Microsoft",
+      "model": "Band 2",
+      "count": 1,
+      "study_ids": [
+        "126_1"
+      ]
+    },
+    {
+      "signal": "Skin temperature",
+      "sensing_method": "Thermistor",
+      "brand": "BIOPAC",
+      "model": "TSD202B, SKT-100C",
+      "count": 1,
+      "study_ids": [
+        "146_2"
+      ]
+    },
+    {
+      "signal": "Skin temperature",
+      "sensing_method": "Thermistor",
+      "brand": "ETO DENKI",
+      "model": "Cadac Model 9200A",
+      "count": 1,
+      "study_ids": [
+        "187_1"
+      ]
+    },
+    {
+      "signal": "Skin temperature",
+      "sensing_method": "Thermistor",
+      "brand": "Hesvit",
+      "model": "S3",
+      "count": 1,
+      "study_ids": [
+        "96_1"
+      ]
+    },
+    {
+      "signal": "Skin temperature",
+      "sensing_method": "Thermistor",
+      "brand": "Lattron",
+      "model": "LNJT103F",
+      "count": 1,
+      "study_ids": [
+        "173_1"
+      ]
+    },
+    {
+      "signal": "Skin temperature",
+      "sensing_method": "Thermistor",
+      "brand": "Mind Media",
+      "model": "Nexus-4",
+      "count": 1,
+      "study_ids": [
+        "77_1"
+      ]
+    },
+    {
+      "signal": "Skin temperature",
+      "sensing_method": "Thermistor",
+      "brand": "NR",
+      "model": "ME103",
+      "count": 1,
+      "study_ids": [
+        "243_1"
+      ]
+    },
+    {
+      "signal": "Skin temperature",
+      "sensing_method": "Thermistor",
+      "brand": "Nikkiso-Therm",
+      "model": "YSI 409 J",
+      "count": 1,
+      "study_ids": [
+        "69_1"
+      ]
+    },
+    {
+      "signal": "Skin temperature",
+      "sensing_method": "Thermistor",
+      "brand": "Nikkiso-YSI",
+      "model": "ITPO10-12",
+      "count": 1,
+      "study_ids": [
+        "228_1"
+      ]
+    },
+    {
+      "signal": "Skin temperature",
+      "sensing_method": "Thermochron",
+      "brand": "Opulus",
+      "model": "LDS1922L",
+      "count": 1,
+      "study_ids": [
+        "226_1"
+      ]
+    },
+    {
+      "signal": "Skin temperature",
+      "sensing_method": "Thermochron",
+      "brand": "Opulus",
+      "model": "PyroButton TH DS1923",
+      "count": 1,
+      "study_ids": [
+        "94_1"
+      ]
+    },
+    {
+      "signal": "Skin temperature",
+      "sensing_method": "Thermochron",
+      "brand": "iButton",
+      "model": "DS1291H",
+      "count": 1,
+      "study_ids": [
+        "197_1"
+      ]
+    },
+    {
+      "signal": "Skin temperature",
+      "sensing_method": "Thermochron",
+      "brand": "iButton",
+      "model": "DS1925",
+      "count": 1,
+      "study_ids": [
+        "55_1"
+      ]
+    },
+    {
+      "signal": "Skin temperature",
+      "sensing_method": "Thermocouple",
+      "brand": "ADInstruments",
+      "model": "MLT422/A",
+      "count": 1,
+      "study_ids": [
+        "11_1"
+      ]
+    },
+    {
+      "signal": "Skin temperature",
+      "sensing_method": "Thermocouple",
+      "brand": "Agilent",
+      "model": "34970A",
+      "count": 1,
+      "study_ids": [
+        "32_1"
+      ]
+    },
+    {
+      "signal": "Skin temperature",
+      "sensing_method": "Thermocouple",
+      "brand": "BEC-Ca",
+      "model": "C-K thermocouple",
+      "count": 1,
+      "study_ids": [
+        "194_1"
+      ]
+    },
+    {
+      "signal": "Skin temperature",
+      "sensing_method": "Thermocouple",
+      "brand": "BIOPAC",
+      "model": "TSD202B",
+      "count": 1,
+      "study_ids": [
+        "201_1"
+      ]
+    },
+    {
+      "signal": "Skin temperature",
+      "sensing_method": "Thermocouple",
+      "brand": "GRAM Co.",
+      "model": "LT8",
+      "count": 1,
+      "study_ids": [
+        "206_1"
+      ]
+    },
+    {
+      "signal": "Skin temperature",
+      "sensing_method": "Thermocouple",
+      "brand": "Innpitron",
+      "model": "TC-K",
+      "count": 1,
+      "study_ids": [
+        "139_1"
+      ]
+    },
+    {
+      "signal": "Skin temperature",
+      "sensing_method": "Thermocouple",
+      "brand": "NR",
+      "model": "E-type",
+      "count": 1,
+      "study_ids": [
+        "205_1"
+      ]
+    },
+    {
+      "signal": "Skin temperature",
+      "sensing_method": "Thermocouple",
+      "brand": "NR",
+      "model": "K-type",
+      "count": 1,
+      "study_ids": [
+        "241_1"
+      ]
+    },
+    {
+      "signal": "Skin temperature",
+      "sensing_method": "Thermocouple",
+      "brand": "OMEGA",
+      "model": "TT-K-30",
+      "count": 1,
+      "study_ids": [
+        "232_1"
+      ]
+    },
+    {
+      "signal": "Skin temperature",
+      "sensing_method": "Thermometer",
+      "brand": "Gigarise",
+      "model": "SG 900",
+      "count": 1,
+      "study_ids": [
+        "138_1"
+      ]
+    },
+    {
+      "signal": "Skin temperature",
+      "sensing_method": "Thermometer",
+      "brand": "Yumo",
+      "model": "YET-640L",
+      "count": 1,
+      "study_ids": [
+        "44_1"
+      ]
+    },
+    {
+      "signal": "Sweat indicators",
+      "sensing_method": "High precision scale",
+      "brand": "Nanjing Ronghua",
+      "model": "YP100KN",
+      "count": 3,
+      "study_ids": [
+        "146_1",
+        "146_2",
+        "201_1"
+      ]
+    },
+    {
+      "signal": "Sweat indicators",
+      "sensing_method": "High precision scale",
+      "brand": "KERN",
+      "model": "150K20D",
+      "count": 2,
+      "study_ids": [
+        "226_1",
+        "73_1"
+      ]
+    },
+    {
+      "signal": "Sweat indicators",
+      "sensing_method": "Corneometer",
+      "brand": "Courage-Khazaka MPA-5",
+      "model": "Corneometer CM 825",
+      "count": 1,
+      "study_ids": [
+        "27_1"
+      ]
+    },
+    {
+      "signal": "Sweat indicators",
+      "sensing_method": "Digital moisture meter",
+      "brand": "CMM",
+      "model": "DMM-001",
+      "count": 1,
+      "study_ids": [
+        "94_1"
+      ]
+    },
+    {
+      "signal": "Sweat indicators",
+      "sensing_method": "High precision scale",
+      "brand": "A&D Corporation",
+      "model": "GP 100K",
+      "count": 1,
+      "study_ids": [
+        "69_1"
+      ]
+    },
+    {
+      "signal": "Sweat indicators",
+      "sensing_method": "High precision scale",
+      "brand": "A&D Corporation",
+      "model": "GP-100KS",
+      "count": 1,
+      "study_ids": [
+        "127_1"
+      ]
+    },
+    {
+      "signal": "Sweat indicators",
+      "sensing_method": "High precision scale",
+      "brand": "A&D Instruments",
+      "model": "GP-100K",
+      "count": 1,
+      "study_ids": [
+        "250_1"
+      ]
+    },
+    {
+      "signal": "Sweat indicators",
+      "sensing_method": "High precision scale",
+      "brand": "FHI",
+      "model": "TC/C",
+      "count": 1,
+      "study_ids": [
+        "242_1"
+      ]
+    },
+    {
+      "signal": "Sweat indicators",
+      "sensing_method": "High precision scale",
+      "brand": "G.tech",
+      "model": "BALGL10",
+      "count": 1,
+      "study_ids": [
+        "153_1"
+      ]
+    },
+    {
+      "signal": "Sweat indicators",
+      "sensing_method": "High precision scale",
+      "brand": "KERN",
+      "model": "DE 150K20D",
+      "count": 1,
+      "study_ids": [
+        "163_1"
+      ]
+    },
+    {
+      "signal": "Sweat indicators",
+      "sensing_method": "High precision scale",
+      "brand": "KERN",
+      "model": "DE 150K2DL",
+      "count": 1,
+      "study_ids": [
+        "94_1"
+      ]
+    },
+    {
+      "signal": "Sweat indicators",
+      "sensing_method": "High precision scale",
+      "brand": "Mettler Toledo",
+      "model": "ID2",
+      "count": 1,
+      "study_ids": [
+        "228_1"
+      ]
+    },
+    {
+      "signal": "Sweat indicators",
+      "sensing_method": "High precision scale",
+      "brand": "Mettler Toledo",
+      "model": "IND570",
+      "count": 1,
+      "study_ids": [
+        "9_1"
+      ]
+    },
+    {
+      "signal": "Sweat indicators",
+      "sensing_method": "High precision scale",
+      "brand": "PESA",
+      "model": "CB 2.2-100",
+      "count": 1,
+      "study_ids": [
+        "75_1"
+      ]
+    },
+    {
+      "signal": "Sweat indicators",
+      "sensing_method": "High precision scale",
+      "brand": "Tanita",
+      "model": "BC-307 Inner Scan 50",
+      "count": 1,
+      "study_ids": [
+        "187_1"
+      ]
+    },
+    {
+      "signal": "Sweat indicators",
+      "sensing_method": "High precision scale",
+      "brand": "Tanita",
+      "model": "RD-545",
+      "count": 1,
+      "study_ids": [
+        "20_1"
+      ]
+    },
+    {
+      "signal": "Sweat indicators",
+      "sensing_method": "Hygrochron",
+      "brand": "Opulus",
+      "model": "PyroButton",
+      "count": 1,
+      "study_ids": [
+        "213_1"
+      ]
+    },
+    {
+      "signal": "Sweat indicators",
+      "sensing_method": "Microscope",
+      "brand": "Yukai",
+      "model": "USB Web camera",
+      "count": 1,
+      "study_ids": [
+        "138_1"
+      ]
+    },
+    {
+      "signal": "Sweat indicators",
+      "sensing_method": "Moisture meter",
+      "brand": "National",
+      "model": "Skin moisture meter",
+      "count": 1,
+      "study_ids": [
+        "125_1"
+      ]
+    },
+    {
+      "signal": "Sweat indicators",
+      "sensing_method": "Osmometer",
+      "brand": "Pocket-Pal",
+      "model": "Osmocheck",
+      "count": 1,
+      "study_ids": [
+        "149_1"
+      ]
+    },
+    {
+      "signal": "Sweat indicators",
+      "sensing_method": "TEWL",
+      "brand": "Delfin Technologies",
+      "model": "VapoMeter SWL5",
+      "count": 1,
+      "study_ids": [
+        "235_1"
+      ]
+    },
+    {
+      "signal": "Sweat indicators",
+      "sensing_method": "Tewameter",
+      "brand": "Courage-Khazaka MPA-5",
+      "model": "Tewameter TM 300",
+      "count": 1,
+      "study_ids": [
+        "27_1"
+      ]
+    }
+  ],
+  "n_models": 241
+}

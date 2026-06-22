@@ -1,0 +1,49 @@
+{
+  "data_avail_distribution": [
+    {
+      "status": "NR",
+      "count": 179
+    },
+    {
+      "status": "Upon request",
+      "count": 51
+    },
+    {
+      "status": "Not available for sharing",
+      "count": 23
+    },
+    {
+      "status": "NC",
+      "count": 11
+    },
+    {
+      "status": "Available",
+      "count": 5
+    }
+  ],
+  "n_with_real_data_link": 5,
+  "n_with_supplementary_link": 57,
+  "n_total": 269,
+  "studies_with_link": [
+    {
+      "id": "15_1",
+      "link": "https://data.mendeley.com/datasets/nx8kd33dng/4"
+    },
+    {
+      "id": "21_1",
+      "link": "https://doi.org/10.6084/m9.fgshare.21878520.v1"
+    },
+    {
+      "id": "55_1",
+      "link": "https://github.com/FedericoTartarini/dorn-longitudinal-tc-study"
+    },
+    {
+      "id": "124_1",
+      "link": "https://datadryad.org/dataset/doi:10.15146/R3S68S"
+    },
+    {
+      "id": "248_1",
+      "link": "https://onlinelibrary.wiley.com/action/downloadSupplement?doi=10.1111%2Fina.12916&file=ina12916-sup-0001-Supinfo.docx"
+    }
+  ]
+}

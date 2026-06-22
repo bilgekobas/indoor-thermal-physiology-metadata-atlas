@@ -40,6 +40,26 @@ export default function About({ data }) {
         </section>
 
         <section>
+          <h2 className="text-[15px] font-semibold mb-2">Limitations & judgment calls</h2>
+          <p className="text-[13.5px] text-inkmid leading-relaxed">
+            Turning the raw corpus into the figures on this site required real judgment calls —
+            how to classify thermal comfort scale polarity, how to harmonise free-text sensor
+            and cognitive-test names, how to resolve city names to map coordinates, which
+            thresholds keep a chart legible versus cluttered. Every one of these is documented,
+            with the exact reasoning and numbers affected, in{' '}
+            <a
+              href="https://github.com/bilgekobas/indoor-thermal-physiology-metadata-atlas/blob/main/LIMITATIONS.md"
+              className="text-coreaccent hover:underline"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              LIMITATIONS.md
+            </a>{' '}
+            in the repository. Start there before asking "how exactly did you handle X."
+          </p>
+        </section>
+
+        <section>
           <h2 className="text-[15px] font-semibold mb-2">Citing this dataset</h2>
           <p className="text-[13.5px] text-inkmid leading-relaxed">
             If you use this corpus, please cite the accompanying dataset DOI and the related

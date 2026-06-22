@@ -1,147 +1,147 @@
 {
   "bar": [
     {
-      "field": "healthy",
-      "pct": 70.7,
+      "field": "Healthy",
+      "pct": 71.0,
       "count": 191
     },
     {
-      "field": "thermal history",
-      "pct": 31.9,
+      "field": "Thermal history assessed",
+      "pct": 32.0,
       "count": 86
     },
     {
-      "field": "no ongoing treatment medication use",
+      "field": "No ongoing medication use",
       "pct": 19.3,
       "count": 52
     },
     {
-      "field": "healthy cv bp disease",
-      "pct": 18.9,
+      "field": "No CV/BP disease",
+      "pct": 19.0,
       "count": 51
     },
     {
-      "field": "smoking",
+      "field": "Smoking status",
       "pct": 15.2,
       "count": 41
     },
     {
-      "field": "colour weakness eyesight",
+      "field": "Colour weak./eyesight",
       "pct": 12.6,
       "count": 34
     },
     {
-      "field": "age range",
+      "field": "Age range",
       "pct": 11.9,
       "count": 32
     },
     {
-      "field": "sex",
-      "pct": 11.1,
+      "field": "Sex",
+      "pct": 11.2,
       "count": 30
     },
     {
-      "field": "bmi range",
-      "pct": 9.6,
+      "field": "BMI range",
+      "pct": 9.7,
       "count": 26
     },
     {
-      "field": "active recent illness",
-      "pct": 8.5,
+      "field": "No active/recent illness",
+      "pct": 8.6,
       "count": 23
     },
     {
-      "field": "immune related diseases",
-      "pct": 8.1,
+      "field": "No immune-related disease",
+      "pct": 8.2,
       "count": 22
     },
     {
-      "field": "lang skills",
-      "pct": 7.0,
+      "field": "Language skills",
+      "pct": 7.1,
       "count": 19
     },
     {
-      "field": "neuro disease",
+      "field": "No neuro disease",
       "pct": 6.7,
       "count": 18
     },
     {
-      "field": "alcohol",
+      "field": "Alcohol",
       "pct": 6.3,
       "count": 17
     },
     {
-      "field": "metabolic syndrome",
+      "field": "No metabolic syndrome",
       "pct": 3.3,
       "count": 9
     },
     {
-      "field": "activity level",
+      "field": "Activity level",
       "pct": 3.3,
       "count": 9
     },
     {
-      "field": "chronotype",
+      "field": "Chronotype",
       "pct": 2.6,
       "count": 7
     },
     {
-      "field": "dominant hand",
+      "field": "Dominant hand",
       "pct": 2.6,
       "count": 7
     },
     {
-      "field": "previous knowledge",
+      "field": "No previous knowledge",
       "pct": 1.9,
       "count": 5
     },
     {
-      "field": "neurodivergent",
+      "field": "Neurodivergent",
       "pct": 1.9,
       "count": 5
     },
     {
-      "field": "hearing",
+      "field": "Hearing",
       "pct": 1.5,
       "count": 4
     },
     {
-      "field": "emotionally stable",
+      "field": "Emotionally stable",
       "pct": 1.5,
       "count": 4
     },
     {
-      "field": "contraceptive type",
+      "field": "Contraceptive type",
       "pct": 1.5,
       "count": 4
     },
     {
-      "field": "pregnancy",
+      "field": "Pregnancy",
       "pct": 1.5,
       "count": 4
     },
     {
-      "field": "thermal sensitivity",
+      "field": "Thermal sensitivity",
       "pct": 1.1,
       "count": 3
     },
     {
-      "field": "diet weight change",
+      "field": "Diet/weight change",
       "pct": 0.7,
       "count": 2
     },
     {
-      "field": "no medical implant",
+      "field": "No medical implant",
       "pct": 0.7,
       "count": 2
     },
     {
-      "field": "menopause",
+      "field": "Menopause",
       "pct": 0.4,
       "count": 1
     },
     {
-      "field": "hormone therapy",
+      "field": "Hormone therapy",
       "pct": 0.0,
       "count": 0
     }
@@ -371,7 +371,6 @@
       1,
       0,
       1,
-      0,
       0,
       0,
       1,
@@ -644,7 +643,6 @@
       0,
       0,
       0,
-      0,
       1,
       0,
       0,
@@ -921,7 +919,6 @@
       0,
       0,
       0,
-      0,
       1,
       0,
       0,
@@ -1188,7 +1185,6 @@
       0,
       1,
       0,
-      0,
       1,
       0,
       0,
@@ -1451,7 +1447,6 @@
       1,
       0,
       1,
-      0,
       0,
       0,
       0,
@@ -1734,7 +1729,6 @@
       0,
       0,
       0,
-      0,
       1,
       0,
       1,
@@ -2008,7 +2002,6 @@
       0,
       0,
       0,
-      0,
       1,
       1,
       0,
@@ -2264,7 +2257,6 @@
       0,
       0,
       1,
-      0,
       0,
       0,
       0,
@@ -2558,7 +2550,6 @@
       0,
       0,
       0,
-      0,
       1,
       0,
       0,
@@ -2829,7 +2820,6 @@
       0,
       0,
       0,
-      0,
       1,
       1,
       0,
@@ -3096,7 +3086,6 @@
       0,
       0,
       0,
-      0,
       1,
       0,
       0,
@@ -3319,7 +3308,6 @@
       0,
       0,
       1,
-      0,
       0,
       0,
       0,
@@ -3662,7 +3650,6 @@
       0,
       0,
       0,
-      0,
       1,
       0,
       0,
@@ -3934,7 +3921,6 @@
       0,
       0,
       0,
-      0,
       1,
       0,
       0,
@@ -4195,7 +4181,6 @@
       0,
       0,
       0,
-      0,
       1,
       0,
       0,
@@ -4469,7 +4454,6 @@
       0,
       0,
       0,
-      0,
       1,
       0,
       0,
@@ -4650,7 +4634,6 @@
       0,
       0,
       1,
-      0,
       0,
       0,
       0,
@@ -5022,7 +5005,6 @@
       0,
       0,
       0,
-      0,
       1,
       0,
       0,
@@ -5298,7 +5280,6 @@
       0,
       0,
       0,
-      0,
       1,
       0,
       0,
@@ -5566,7 +5547,6 @@
       0,
       0,
       0,
-      0,
       1,
       0,
       0,
@@ -5856,7 +5836,6 @@
       0,
       0,
       0,
-      0,
       0
     ],
     [
@@ -5943,7 +5922,6 @@
       0,
       0,
       1,
-      0,
       0,
       0,
       0,
@@ -6397,7 +6375,6 @@
       0,
       0,
       0,
-      0,
       1,
       0,
       0,
@@ -6628,7 +6605,6 @@
       0,
       0,
       0,
-      0,
       1,
       0,
       0,
@@ -6944,7 +6920,6 @@
       0,
       0,
       0,
-      0,
       0
     ],
     [
@@ -7216,7 +7191,6 @@
       0,
       0,
       0,
-      0,
       0
     ],
     [
@@ -7242,7 +7216,6 @@
       0,
       0,
       1,
-      0,
       0,
       0,
       0,
@@ -7760,11 +7733,9 @@
       0,
       0,
       0,
-      0,
       0
     ],
     [
-      0,
       0,
       0,
       0,
@@ -8037,35 +8008,35 @@
     ]
   ],
   "fields": [
-    "healthy",
-    "thermal history",
-    "no ongoing treatment medication use",
-    "healthy cv bp disease",
-    "smoking",
-    "colour weakness eyesight",
-    "age range",
-    "sex",
-    "bmi range",
-    "active recent illness",
-    "immune related diseases",
-    "lang skills",
-    "neuro disease",
-    "alcohol",
-    "metabolic syndrome",
-    "activity level",
-    "chronotype",
-    "dominant hand",
-    "previous knowledge",
-    "neurodivergent",
-    "hearing",
-    "emotionally stable",
-    "contraceptive type",
-    "pregnancy",
-    "thermal sensitivity",
-    "diet weight change",
-    "no medical implant",
-    "menopause",
-    "hormone therapy"
+    "Healthy",
+    "Thermal history assessed",
+    "No ongoing medication use",
+    "No CV/BP disease",
+    "Smoking status",
+    "Colour weak./eyesight",
+    "Age range",
+    "Sex",
+    "BMI range",
+    "No active/recent illness",
+    "No immune-related disease",
+    "Language skills",
+    "No neuro disease",
+    "Alcohol",
+    "No metabolic syndrome",
+    "Activity level",
+    "Chronotype",
+    "Dominant hand",
+    "No previous knowledge",
+    "Neurodivergent",
+    "Hearing",
+    "Emotionally stable",
+    "Contraceptive type",
+    "Pregnancy",
+    "Thermal sensitivity",
+    "Diet/weight change",
+    "No medical implant",
+    "Menopause",
+    "Hormone therapy"
   ],
-  "n_studies": 270
+  "n_studies": 269
 }

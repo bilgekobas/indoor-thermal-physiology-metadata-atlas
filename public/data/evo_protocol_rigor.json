@@ -86,22 +86,22 @@
     },
     {
       "period": "2019\u201320",
-      "n_studies": 63,
+      "n_studies": 62,
       "Randomisation": {
         "count": 13,
-        "pct": 20.6
+        "pct": 21.0
       },
       "Balanced order": {
         "count": 10,
-        "pct": 15.9
+        "pct": 16.1
       },
       "Blinding": {
         "count": 9,
-        "pct": 14.3
+        "pct": 14.5
       },
       "Circadian control": {
         "count": 6,
-        "pct": 9.5
+        "pct": 9.7
       },
       "Menstrual timing control": {
         "count": 2,
@@ -109,7 +109,7 @@
       },
       "Time between sessions controlled": {
         "count": 12,
-        "pct": 19.0
+        "pct": 19.4
       }
     },
     {

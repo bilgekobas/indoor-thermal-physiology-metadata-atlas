@@ -1,5 +1,11 @@
 import { useTooltip, TooltipPortal } from './Tooltip.jsx'
 
+// Co-occurrence matrix: diagonal cells = number of studies measuring that
+// one variable; off-diagonal cells = number of studies measuring BOTH row
+// and column variables together. Every cell prints its own count, and a
+// color-scale legend + the diagonal/off-diagonal distinction are stated
+// directly under the chart so this reads correctly without the surrounding
+// chapter prose.
 export default function CooccurrenceMatrix({ labels, matrix, cellSize = 34 }) {
   const { tip, showTip, moveTip, hideTip } = useTooltip()
   // Bug fix: use reduce instead of Math.max(...spread)
@@ -58,11 +64,13 @@ export default function CooccurrenceMatrix({ labels, matrix, cellSize = 34 }) {
                     height: cellSize,
                     background: colorFor(v),
                     color: v / max > 0.55 ? 'white' : '#1A1A18',
+                    outline: i === j ? '1.5px solid #1A1A18' : 'none',
+                    outlineOffset: i === j ? '-1.5px' : 0,
                   }}
                   onMouseEnter={(e) =>
                     showTip(e, i === j
-                      ? `${rowLabel}: measured in ${v} studies`
-                      : `${rowLabel} + ${colLabel}: co-occur in ${v} studies`)
+                      ? `${rowLabel}: measured in ${v} studies (diagonal = single-variable total)`
+                      : `${rowLabel} + ${colLabel}: co-occur in ${v} studies (both measured in the same study)`)
                   }
                   onMouseMove={moveTip}
                   onMouseLeave={hideTip}
@@ -73,6 +81,18 @@ export default function CooccurrenceMatrix({ labels, matrix, cellSize = 34 }) {
             })}
           </div>
         ))}
+      </div>
+      <div className="flex flex-wrap items-center gap-4 mt-3 font-data text-[10.5px] text-inkfaint">
+        <span className="flex items-center gap-1.5">
+          <span className="w-3 h-3 inline-block" style={{ background: colorFor(max), border: '1.5px solid #1A1A18' }} />
+          outlined cell = diagonal (single-variable count, n studies measuring that one variable)
+        </span>
+        <span className="flex items-center gap-2">
+          <span>scale:</span>
+          <span className="w-3 h-3 inline-block" style={{ background: '#F1EDE6' }} /> 0
+          <span className="w-3 h-3 inline-block" style={{ background: colorFor(max * 0.5) }} /> {Math.round(max * 0.5)}
+          <span className="w-3 h-3 inline-block" style={{ background: colorFor(max) }} /> {max} (max)
+        </span>
       </div>
       <TooltipPortal tip={tip} />
     </div>

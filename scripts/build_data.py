@@ -16,6 +16,55 @@ OUT_DIR.mkdir(parents=True, exist_ok=True)
 df = pd.read_csv(SRC, encoding='utf-8-sig', low_memory=False)
 df = df.replace({np.nan: None})
 
+# Shared pretty-name lookup, defined once near the top so every function that
+# builds a protocol/participant-metadata/selection-criteria view (overall AND
+# by-period) uses the identical label for the same underlying column. Without
+# this, the fallback "strip prefix, replace hyphens" naming produces inputs
+# like "no ongoing treatment medication use" instead of a properly punctuated
+# label, and — worse — could drift between an overall view and its by-period
+# companion if each built its labels independently.
+FIELD_PRETTY_NAMES = {
+    'protocol-fixed-clo': 'Fixed clothing insulation', 'protocol-observed-clo': 'Observed clothing',
+    'protocol-defined-activity': 'Defined activity protocol', 'protocol-observed-met': 'Observed metabolic rate',
+    'protocol-avoid-stimulant': 'Avoid stimulants', 'protocol-avoid-activity': 'Avoid physical activity',
+    'protocol-avoid-heavy-food': 'Avoid heavy meals',
+    'protocol-rest-sleep': 'Pre-experiment rest/sleep', 'protocol-maintain-routine': 'Maintain routine',
+    'protocol-circadian': 'Circadian control', 'protocol-mens-timing': 'Menstrual timing control',
+    'protocol-time-btw-sessions': 'Time between sessions', 'protocol-instruction-practice': 'Pre-study instruction/practice',
+    'protocol-diary': 'Activity diary use',
+    'protocol-blinded': 'Blinding', 'protocol-random': 'Randomisation', 'protocol-balancing': 'Balanced session order',
+    'protocol-subjects-not-allowed-to-discuss': 'Participants not allowed to discuss study',
+    'protocol-food': 'Controlled food intake', 'protocol-water': 'Controlled water intake',
+    'protocol-prep-body-site': 'Body-site preparation for sensors',
+    'part-meta-age': 'Age', 'part-meta-sex': 'Sex', 'part-meta-height': 'Height', 'part-meta-weight': 'Weight',
+    'part-meta-bmi': 'BMI', 'part-meta-ponderal-index': 'Ponderal index', 'part-meta-body-fat': 'Body fat %',
+    'part-meta-ethnicity-nationality': 'Ethnicity/nationality', 'part-meta-bsa': 'Body surface area',
+    'part-meta-thermal-history-background': 'Thermal history', 'part-meta-education-profession': 'Education/profession',
+    'part-meta-thermal-sensitivity-preference': 'Thermal sensitivity/preference', 'part-meta-personality': 'Personality',
+    'part-meta-psych-eval': 'Psychological evaluation', 'part-meta-smoking': 'Smoking behaviour',
+    'part-meta-activity-level': 'Activity level', 'part-meta-health-status': 'General health status',
+    'part-meta-chronotype': 'Chronotype', 'part-recent-chrono-change': 'Recent chronotype shift',
+    'part-meta-bmr-rmr': 'Basal/resting metabolic rate', 'part-meta-alcohol-use': 'Alcohol use',
+    'part-meta-mens-timing': 'Menstrual timing', 'part-meta-contraceptive-type': 'Contraceptive method',
+    'part-meta-reg-coffee': 'Coffee consumption', 'part-meta-reg-sleep-time': 'Regular sleep time',
+    'part-meta-reg-work time': 'Regular work time',
+    'select-healthy': 'Healthy', 'select-active-recent-illness': 'No active/recent illness',
+    'select-no-ongoing-treatment-medication-use': 'No ongoing medication use', 'select-age-range': 'Age range',
+    'select-healthy-cv-bp-disease': 'No CV/BP disease', 'select-neuro-disease': 'No neuro disease',
+    'select-metabolic-syndrome': 'No metabolic syndrome', 'select-immune-related-diseases': 'No immune-related disease',
+    'select-previous-knowledge': 'No previous knowledge', 'select-thermal-history': 'Thermal history assessed',
+    'select-smoking': 'Smoking status', 'select-bmi-range': 'BMI range', 'select-colour-weakness-eyesight': 'Colour weak./eyesight',
+    'select-hearing': 'Hearing', 'select-lang-skills': 'Language skills', 'select-alcohol': 'Alcohol',
+    'select-dominant-hand': 'Dominant hand', 'select-contraceptive-type': 'Contraceptive type',
+    'select-activity-level': 'Activity level', 'select-chronotype': 'Chronotype',
+    'select-emotionally-stable': 'Emotionally stable', 'select-neurodivergent': 'Neurodivergent',
+    'select-thermal-sensitivity': 'Thermal sensitivity', 'select-pregnancy': 'Pregnancy',
+    'select-diet-weight-change': 'Diet/weight change', 'select-hormone-therapy': 'Hormone therapy',
+    'select-menopause': 'Menopause', 'select-no-medical-implant': 'No medical implant', 'select-sex': 'Sex',
+}
+def pretty_name(col, prefix):
+    return FIELD_PRETTY_NAMES.get(col, col.replace(prefix, '').replace('-', ' '))
+
 CODES = {'NR','MNR','NAN','NC'}
 
 # ── 1. Corpus-level summary stats ──────────────────────────────────────────
@@ -231,12 +280,36 @@ print("\nAll artifacts built in", OUT_DIR)
 # APPENDIX FIGURES — reproducing Appendix VI figures 1–23 as data for the
 # interactive site. Each block below corresponds to one numbered figure.
 # ════════════════════════════════════════════════════════════════════════
+# Bug guard: one publication (Marchenko et al. 2020, "facial muscle movements
+# for non-invasive thermal discomfort detection") is missing its id-pub-id/id
+# values in the source corpus — likely a data-entry gap rather than a study
+# that shouldn't exist. Because it has no id, it can't be deduplicated,
+# tracked, or cited correctly, and drop_duplicates() was treating its NaN id
+# as one additional "study" distinct from every real id — silently inflating
+# every count built from studies_u by one (270 instead of the correct 269,
+# which is what df['id'].nunique() reports since nunique() excludes NaN by
+# default). Filtering it out here makes every downstream count agree.
 studies_u = df.drop_duplicates(subset=['id']).copy()
+studies_u = studies_u[studies_u['id'].notna()]
 
 def clean_num(v):
     if v is None: return None
+    # Bug guard: Python's float() silently accepts the strings 'nan'/'NAN'/
+    # 'NaN' and returns an actual IEEE NaN — but in this corpus 'NAN' is the
+    # missing-value code for "not applicable", not a number. Without this
+    # check, every numeric column reusing the corpus's own NAN code would
+    # leak float('nan') downstream, which then serializes as the bare token
+    # `NaN` in JSON output — invalid per spec and silently breaks the bundle
+    # for any browser using a strict parser. (This exact failure mode bit the
+    # climate_vs_temp aggregate earlier; clean_num is the one place to fix it
+    # for all 14 call sites at once rather than re-discovering it repeatedly.)
+    if isinstance(v, str) and v.strip().lower() in ('nan', 'nr', 'mnr', 'nc', ''):
+        return None
     try:
-        return float(v)
+        result = float(v)
+        if result != result:  # NaN != NaN is the standard float NaN check
+            return None
+        return result
     except (ValueError, TypeError):
         return None
 
@@ -288,12 +361,19 @@ def parse_time_ranges(v):
 studies_u['time_ranges'] = studies_u['exp-hours'].apply(parse_time_ranges)
 time_rows = []
 for _, row in studies_u.iterrows():
+    circadian_considered = row['protocol-circadian'] == 'Y'
     for start, end in row['time_ranges']:
-        time_rows.append({'id': row['id'], 'start': start, 'end': end})
+        time_rows.append({'id': row['id'], 'start': start, 'end': end, 'circadian_considered': circadian_considered})
 
+n_circadian_considered = sum(1 for r in time_rows if r['circadian_considered'])
 with open(OUT_DIR / 'fig05_time_of_day.json', 'w') as f:
-    json.dump({'sessions': time_rows, 'n_reporting': len(set(r['id'] for r in time_rows))}, f, indent=2)
-print(f'fig05_time_of_day.json: {len(time_rows)} session time blocks')
+    json.dump({
+        'sessions': time_rows,
+        'n_reporting': len(set(r['id'] for r in time_rows)),
+        'n_circadian_considered': len(set(r['id'] for r in time_rows if r['circadian_considered'])),
+    }, f, indent=2)
+print(f'fig05_time_of_day.json: {len(time_rows)} session time blocks, '
+      f'{n_circadian_considered} with circadian control considered')
 
 # ── Fig 6. Experiment type × spatial typology sunburst ─────────────────
 typ = studies_u[['exp-type', 'exp-spatial-typology']].copy()
@@ -463,13 +543,45 @@ def parse_scale(text, kind):
         return None
     return {'points': pts, 'range': range_vals, 'labels': labels}
 
+# IMPORTANT: for TCV specifically, "low number" does NOT reliably mean
+# "uncomfortable" — the appendix's own Fig. 16 finding is that polarity
+# varies across studies (some put "comfortable" at the negative end, some
+# at the positive end). A purely numeric min/max coloring would therefore
+# silently misrepresent ~25% of studies. We classify each endpoint by its
+# label text instead, so the plotted color always means the same thing.
+COMFORT_WORDS = {'comfortable', 'comfort', 'satisfied', 'satisfaction', 'pleasant'}
+DISCOMFORT_WORDS = {'uncomfortable', 'discomfort', 'unbearable', 'intolerable', 'unacceptable',
+                     'unendurable', 'dissatisfied', 'unpleasant'}
+
+def classify_comfort_pole(label):
+    l = label.lower()
+    if any(w in l for w in DISCOMFORT_WORDS):
+        return 'discomfort'
+    if any(w in l for w in COMFORT_WORDS):
+        return 'comfort'
+    return None  # ambiguous label (e.g. "neutral", "intermediate") — left unclassified
+
+def parse_scale_tcv(text):
+    base = parse_scale(text, 'tcv')
+    if base is None:
+        return None
+    pole_low = classify_comfort_pole(base['labels'][0])
+    pole_high = classify_comfort_pole(base['labels'][-1])
+    # Only keep studies where we can confidently identify which end is which;
+    # if neither endpoint contains a recognisable comfort/discomfort word,
+    # we cannot safely color it and exclude it rather than guess.
+    if pole_low is None and pole_high is None:
+        return None
+    base['comfort_pole'] = 'high' if pole_high == 'comfort' or pole_low == 'discomfort' else 'low'
+    return base
+
 tsv_parsed, tcv_parsed = [], []
 for _, row in studies_u.iterrows():
     p = parse_scale(row['ques-thermal-sensation'], 'tsv')
     if p:
         p['id'] = row['id']
         tsv_parsed.append(p)
-    p2 = parse_scale(row['ques-thermal-comfort'], 'tcv')
+    p2 = parse_scale_tcv(row['ques-thermal-comfort'])
     if p2:
         p2['id'] = row['id']
         tcv_parsed.append(p2)
@@ -545,18 +657,17 @@ with open(OUT_DIR / 'fig14_questionnaire_domains.json', 'w') as f:
 print('fig14_questionnaire_domains.json written')
 
 # ── Fig 20, 21, 22. Protocol / participant metadata / selection criteria binary matrices ──
-def binary_matrix_block(prefix, pretty_map=None):
+def binary_matrix_block(prefix):
     cols = [c for c in studies_u.columns if c.startswith(prefix)]
     reported = ~studies_u[cols].isin(CODES) & studies_u[cols].notna()
     pct = (reported.mean() * 100).round(1)
     order = pct.sort_values(ascending=False).index.tolist()
-    pretty = pretty_map or {}
-    bar = [{'field': pretty.get(c, c.replace(prefix,'').replace('-',' ')),
+    bar = [{'field': pretty_name(c, prefix),
             'pct': float(pct[c]),
             'count': int(reported[c].sum())} for c in order]
     # matrix shape: fields × studies (field_i × study_j) = reported[order].T
     matrix = reported[order].T.astype(int).values.tolist()
-    fields = [pretty.get(c, c.replace(prefix,'').replace('-',' ')) for c in order]
+    fields = [pretty_name(c, prefix) for c in order]
     return {'bar': bar, 'matrix': matrix, 'fields': fields, 'n_studies': len(studies_u)}
 
 fig20 = binary_matrix_block('protocol-')
@@ -795,3 +906,499 @@ sensor_brand_pairs = sb_dedup.groupby(['physio-sensing-method', 'physio-sensor-b
 with open(OUT_DIR / 'sensor_type_brand.json', 'w') as f:
     json.dump({'data': sensor_brand_pairs.to_dict('records')}, f, indent=2)
 print(f'sensor_type_brand.json: {len(sensor_brand_pairs)} sensor-type-brand pairs')
+
+# ── A7. Field-level completeness for chapter completeness strips ──────────
+# Unlike the category-level `completeness.json` above, this gives per-field
+# percentages for the specific fields each chapter's CompletenessStrip shows.
+CHAPTER_FIELD_GROUPS = {
+    'context_setting': {
+        'id-city': 'City', 'id-country': 'Country', 'id-climate-class': 'Climate class',
+        'exp-year-start': 'Experiment year', 'exp-seasons': 'Season of testing',
+        'exp-hours': 'Daily start/end time', 'exp-session-length': 'Session length',
+        'exp-normalisation-length': 'Normalisation period',
+        'data-avail': 'Data availability statement',
+    },
+    'population': {
+        'pop-sample-size-calc': 'Sample size calculation', 'pop-no-tot': 'Total sample size',
+        'pop-male-no': 'Male participants', 'pop-fem-no': 'Female participants',
+        'pop-age-mean': 'Age mean', 'pop-age-std': 'Age SD',
+        'pop-bmi-mean': 'BMI mean', 'pop-bmi-std': 'BMI SD',
+        'select-healthy': 'Healthy participant requirement', 'select-thermal-history': 'Thermal history assessed',
+        'part-meta-thermal-history-background': 'Thermal history collected', 'part-meta-smoking': 'Smoking behaviour collected',
+        'part-meta-mens-timing': 'Menstrual timing collected', 'part-meta-chronotype': 'Chronotype collected',
+    },
+    'physio_measurement': {
+        'physio-sensing-method': 'Sensor type', 'physio-sensor-brand': 'Sensor brand',
+        'physio-sensor-model': 'Sensor model', 'physio-body-site': 'Body site',
+        'physio-body-site-sagittal': 'Sagittal location', 'physio-body-site-surface': 'Surface location',
+        'physio-mst-points': 'Number of MST points', 'physio-mst-formula': 'MST formula used',
+        'physio-formulas': 'Full formula text', 'physio-mst-weighting': 'Weighting factors per region',
+    },
+    'env_measurement': {
+        'env-tdb': 'Air temperature', 'env-rh': 'Relative humidity', 'env-v': 'Air velocity',
+        'env-tg': 'Globe temperature', 'env-tsurface': 'Surface temperatures', 'env-twb': 'Wet-bulb temperature',
+        'env-tout': 'Outdoor temperature', 'env-rhout': 'Outdoor RH',
+        'env-co2': 'CO2 concentration', 'env-voc': 'VOC concentration',
+        'env-illuminance': 'Illuminance', 'env-light-color': 'Light colour/CCT',
+        'env-solar-rad': 'Solar radiation', 'env-sound-level': 'Sound level',
+    },
+    'questionnaires': {
+        'ques-thermal-sensation': 'Thermal sensation', 'ques-thermal-comfort': 'Thermal comfort',
+        'ques-thermal-prefer': 'Thermal preference', 'ques-thermal-accept': 'Thermal acceptability',
+        'ques-thermal-satisfaction': 'Thermal satisfaction', 'ques-local-therm-sensation': 'Local thermal sensation',
+        'ques-airmove-sensation': 'Air movement sensation', 'ques-humidity-sensation': 'Humidity sensation',
+        'ques-light-sensation': 'Light sensation', 'ques-iaq-sensation': 'IAQ sensation',
+        'ques-acoustic-sensation': 'Acoustic sensation', 'cognitive-test-done': 'Cognitive test applied',
+    },
+    'protocol': {
+        'protocol-fixed-clo': 'Fixed clothing insulation', 'protocol-observed-clo': 'Observed clothing',
+        'protocol-defined-activity': 'Defined activity protocol', 'protocol-observed-met': 'Observed metabolic rate',
+        'protocol-avoid-stimulant': 'Avoid stimulants', 'protocol-avoid-activity': 'Avoid physical activity',
+        'protocol-rest-sleep': 'Pre-experiment rest/sleep', 'protocol-maintain-routine': 'Maintain routine',
+        'protocol-circadian': 'Circadian control', 'protocol-mens-timing': 'Menstrual timing control',
+        'protocol-time-btw-sessions': 'Time between sessions', 'protocol-instruction-practice': 'Pre-study instruction/practice',
+        'protocol-blinded': 'Blinding', 'protocol-random': 'Randomisation', 'protocol-balancing': 'Balanced session order',
+        'protocol-subjects-not-allowed-to-discuss': 'Participants not allowed to discuss study',
+        'protocol-food': 'Controlled food intake', 'protocol-water': 'Controlled water intake',
+        'protocol-prep-body-site': 'Body-site preparation for sensors',
+    },
+}
+
+chapter_completeness = {}
+for group_name, field_map in CHAPTER_FIELD_GROUPS.items():
+    cols_present = [c for c in field_map if c in studies_u.columns]
+    reported = ~studies_u[cols_present].isin(CODES) & studies_u[cols_present].notna()
+    rows = []
+    for c in cols_present:
+        rows.append({
+            'field': field_map[c],
+            'count': int(reported[c].sum()),
+            'pct': round(100 * reported[c].sum() / len(studies_u), 1),
+        })
+    chapter_completeness[group_name] = {'fields': rows, 'n_studies': len(studies_u)}
+
+with open(OUT_DIR / 'chapter_completeness.json', 'w') as f:
+    json.dump(chapter_completeness, f, indent=2)
+print('chapter_completeness.json written for groups:', list(chapter_completeness.keys()))
+
+# ── A8. Cognitive test harmonization ────────────────────────────────────
+import sys as _sys
+_sys.path.insert(0, str(Path(__file__).parent))
+from cognitive_taxonomy import split_cognitive_tests, canonicalize_token
+
+cog_done = studies_u[studies_u['cognitive-test-done'] == 'Y'].copy()
+cog_rows = []
+unrecognized_log = []
+for _, row in cog_done.iterrows():
+    tokens = split_cognitive_tests(row['cognitive-test-type'])
+    seen_in_study = set()
+    for t in tokens:
+        canon, domain, ok = canonicalize_token(t)
+        if not ok:
+            unrecognized_log.append({'id': row['id'], 'raw': t})
+        if canon in seen_in_study:
+            continue  # avoid double-counting the same instrument within one study
+        seen_in_study.add(canon)
+        cog_rows.append({'id': row['id'], 'period': row['period'], 'instrument': canon, 'domain': domain, 'raw': t})
+
+cog_df = pd.DataFrame(cog_rows)
+instrument_totals = cog_df.groupby(['instrument', 'domain']).agg(
+    count=('id', 'nunique')
+).reset_index().sort_values('count', ascending=False)
+
+domain_totals = cog_df.groupby('domain')['id'].nunique().reset_index(name='count').sort_values('count', ascending=False)
+
+# Per-study list (for a study-level browse view)
+study_instruments = cog_df.groupby('id')['instrument'].apply(list).reset_index()
+
+with open(OUT_DIR / 'cognitive_tests.json', 'w') as f:
+    json.dump({
+        'instrument_totals': instrument_totals.to_dict('records'),
+        'domain_totals': domain_totals.to_dict('records'),
+        'study_instruments': study_instruments.to_dict('records'),
+        'n_studies_with_cognitive_test': int(cog_done['id'].nunique()),
+        'n_total_studies': len(studies_u),
+        'unrecognized_count': len(unrecognized_log),
+    }, f, indent=2, default=str)
+print(f'cognitive_tests.json: {len(instrument_totals)} canonical instruments, '
+      f'{cog_done["id"].nunique()} studies, {len(unrecognized_log)} unrecognized tokens')
+
+# ── A9. Country -> world-atlas name crosswalk for choropleth map ──────────
+# The corpus's free-text country names don't match world-atlas's polygon
+# names 1:1 (e.g. 'USA' vs 'United States of America', 'Republic of Korea'
+# vs 'South Korea'). Hong Kong has no separate polygon at this resolution
+# and is folded into China's; Great Britain / UK are the same place, written
+# two different ways in the raw corpus, and are merged here too.
+COUNTRY_TO_ATLAS_NAME = {
+    'USA': 'United States of America', 'Republic of Korea': 'South Korea',
+    'Great Britain': 'United Kingdom', 'UK': 'United Kingdom',
+    'Hong Kong': 'China',
+    # everything else (Australia, Brazil, China, Croatia, Denmark, France,
+    # Germany, India, Iran, Italy, Japan, Malaysia, Netherlands, Norway,
+    # Portugal, Qatar, Singapore, Spain, Switzerland, Taiwan, Turkey)
+    # already matches the atlas polygon name as-is.
+}
+
+country_counts_raw = studies_u['id-country'].astype(str).str.strip()
+country_counts_raw = country_counts_raw[~country_counts_raw.isin(CODES)]
+atlas_names = country_counts_raw.map(lambda c: COUNTRY_TO_ATLAS_NAME.get(c, c))
+# Keep BOTH the raw corpus label (for display/tooltip) and the atlas-matched
+# name (for choropleth lookup), since e.g. Hong Kong studies should still say
+# "Hong Kong" in the tooltip even though they render on China's polygon.
+country_map_df = pd.DataFrame({'raw_country': country_counts_raw, 'atlas_name': atlas_names})
+by_atlas = country_map_df.groupby('atlas_name').agg(
+    count=('atlas_name', 'size'),
+    raw_labels=('raw_country', lambda s: sorted(s.unique())),
+).reset_index()
+
+with open(OUT_DIR / 'geo_choropleth.json', 'w') as f:
+    json.dump({'data': by_atlas.to_dict('records')}, f, indent=2, default=str)
+print(f'geo_choropleth.json: {len(by_atlas)} atlas-matched countries, '
+      f'{country_counts_raw.nunique()} raw country labels')
+
+# ════════════════════════════════════════════════════════════════════════
+# NORMALIZED OVERALL + BY-PERIOD PAIRING
+# Several metrics only had an "overall" view (signal frequency, sensor
+# heights, protocol/participant/selection completeness, geography) while
+# others only had a "by-period" view (sensor mix, MST, body sites, rigor).
+# This section adds the missing half so every applicable metric can show
+# both, using one shared visual grammar on the frontend.
+# ════════════════════════════════════════════════════════════════════════
+
+# ── B1. Signal frequency by period (companion to fig17 overall) ───────────
+sig_period = physio_dedup.groupby(['signal', 'period'])['id'].nunique().reset_index(name='count')
+period_n_studies = studies_u.groupby('period')['id'].nunique().to_dict()
+with open(OUT_DIR / 'signal_freq_by_period.json', 'w') as f:
+    json.dump({
+        'data': sig_period.to_dict('records'),
+        'period_n': {k: int(v) for k, v in period_n_studies.items()},
+        'periods': [b[2] for b in BINS],
+    }, f, indent=2, default=str)
+print(f'signal_freq_by_period.json: {len(sig_period)} signal-period rows')
+
+# ── B2. Sensor heights by period (companion to fig13 overall) ─────────────
+height_rows_with_period = []
+for col, label in ENV_HEIGHT_COLS.items():
+    for _, row in studies_u.iterrows():
+        hs = parse_heights(row.get(col))
+        for h in hs:
+            height_rows_with_period.append({'variable': label, 'height': h, 'period': row['period']})
+with open(OUT_DIR / 'sensor_heights_by_period.json', 'w') as f:
+    json.dump({'data': height_rows_with_period, 'periods': [b[2] for b in BINS]}, f, indent=2)
+print(f'sensor_heights_by_period.json: {len(height_rows_with_period)} height observations with period')
+
+# ── B3. Protocol / participant / selection completeness by period ─────────
+def binary_matrix_by_period(prefix, top_n=8):
+    cols = [c for c in studies_u.columns if c.startswith(prefix)]
+    reported = ~studies_u[cols].isin(CODES) & studies_u[cols].notna()
+    # restrict to the same top fields already shown in the overall bar chart,
+    # so the by-period view is a direct breakdown of the same fields
+    overall_pct = reported.mean().sort_values(ascending=False)
+    top_cols = overall_pct.head(top_n).index.tolist()
+    rows = []
+    for period in [b[2] for b in BINS]:
+        mask = studies_u['period'] == period
+        n = mask.sum()
+        if n == 0:
+            continue
+        for c in top_cols:
+            pct = round(100 * reported.loc[mask, c].sum() / n, 1) if n else 0
+            rows.append({'period': period, 'field': pretty_name(c, prefix), 'pct': pct, 'count': int(reported.loc[mask, c].sum()), 'n': int(n)})
+    return {'data': rows, 'fields': [pretty_name(c, prefix) for c in top_cols], 'periods': [b[2] for b in BINS]}
+
+protocol_by_period = binary_matrix_by_period('protocol-')
+with open(OUT_DIR / 'protocol_by_period.json', 'w') as f:
+    json.dump(protocol_by_period, f, indent=2)
+print(f'protocol_by_period.json: {len(protocol_by_period["data"])} rows')
+
+participant_by_period = binary_matrix_by_period('part-')
+with open(OUT_DIR / 'participant_by_period.json', 'w') as f:
+    json.dump(participant_by_period, f, indent=2)
+print(f'participant_by_period.json: {len(participant_by_period["data"])} rows')
+
+selection_by_period = binary_matrix_by_period('select-')
+with open(OUT_DIR / 'selection_by_period.json', 'w') as f:
+    json.dump(selection_by_period, f, indent=2)
+print(f'selection_by_period.json: {len(selection_by_period["data"])} rows')
+
+# ── B4. Geographic concentration by period (companion to the choropleth) ──
+# Bug guard: country_map_df was built from a CODES-filtered subset of
+# studies_u (264 rows) while studies_u itself has 270 — a positional
+# `.values` assignment would silently misalign rows. Join on id instead.
+geo_period = country_map_df.copy()
+geo_period['id'] = studies_u.loc[country_map_df.index, 'id'].values
+geo_period = geo_period.merge(studies_u[['id', 'period']], on='id', how='left')
+geo_by_period = geo_period.groupby(['period', 'atlas_name']).size().reset_index(name='count')
+# also compute the share of studies from the single top country, per period,
+# as a simple concentration metric
+top_country_overall = by_atlas.sort_values('count', ascending=False).iloc[0]['atlas_name']
+concentration_by_period = []
+for period in [b[2] for b in BINS]:
+    sub = geo_by_period[geo_by_period['period'] == period]
+    total = sub['count'].sum()
+    top_count = sub[sub['atlas_name'] == top_country_overall]['count'].sum()
+    if total > 0:
+        concentration_by_period.append({
+            'period': period, 'top_country': top_country_overall,
+            'top_count': int(top_count), 'total': int(total),
+            'pct': round(100 * top_count / total, 1),
+        })
+with open(OUT_DIR / 'geo_concentration_by_period.json', 'w') as f:
+    json.dump({'data': concentration_by_period, 'top_country': top_country_overall}, f, indent=2)
+print(f'geo_concentration_by_period.json: {len(concentration_by_period)} periods')
+
+print("\nNormalized overall/by-period companions built.")
+
+# ════════════════════════════════════════════════════════════════════════
+# DATASET AUDIT FOLLOW-UPS — previously-unused columns worth visualizing
+# ════════════════════════════════════════════════════════════════════════
+
+# ── C1. Domain co-manipulation (how many variables are manipulated at once) ──
+DOMAIN_FLAG_COLS = {
+    'exp-domain-thermal': 'Thermal', 'exp-domain-air-move': 'Air movement',
+    'exp-domain-humidity': 'Humidity', 'exp-domain-co2': 'CO2',
+    'exp-domain-light': 'Light', 'exp-domain-acoustics': 'Acoustics',
+    'exp-domain-behaviour': 'Behaviour', 'exp-domain-iaq': 'IAQ',
+}
+domain_flags = pd.DataFrame({
+    label: (~studies_u[col].astype(str).isin(CODES)) & studies_u[col].notna()
+    for col, label in DOMAIN_FLAG_COLS.items()
+})
+n_domains = domain_flags.sum(axis=1)
+domain_count_dist = n_domains.value_counts().sort_index()
+domain_totals = {label: int(domain_flags[label].sum()) for label in DOMAIN_FLAG_COLS.values()}
+
+with open(OUT_DIR / 'domain_comanipulation.json', 'w') as f:
+    json.dump({
+        'n_domains_distribution': [{'n_domains': int(k), 'count': int(v)} for k, v in domain_count_dist.items()],
+        'domain_totals': domain_totals,
+        'n_studies': len(studies_u),
+    }, f, indent=2)
+print(f'domain_comanipulation.json: distribution {dict(domain_count_dist)}')
+
+# ── C2. Sex-disaggregated age and BMI (within-study male vs female means) ──
+sex_disagg_rows = []
+for _, row in studies_u.iterrows():
+    am = clean_num(row['pop-age-male-mean'])
+    af = clean_num(row['pop-age-fem-mean'])
+    bm = clean_num(row['pop-bmi-male-mean'])
+    bf = clean_num(row['pop-bmi-fem-mean'])
+    if am is not None and af is not None:
+        sex_disagg_rows.append({'id': row['id'], 'metric': 'age', 'male': am, 'female': af, 'diff': round(am - af, 2)})
+    if bm is not None and bf is not None:
+        sex_disagg_rows.append({'id': row['id'], 'metric': 'bmi', 'male': bm, 'female': bf, 'diff': round(bm - bf, 2)})
+
+with open(OUT_DIR / 'sex_disaggregated.json', 'w') as f:
+    json.dump({'data': sex_disagg_rows}, f, indent=2)
+print(f'sex_disaggregated.json: {len(sex_disagg_rows)} rows')
+
+# ── C3. Open data: who actually shares it, and how ──────────────────────
+data_avail_dist = studies_u['data-avail'].value_counts()
+real_links = studies_u[~studies_u['data-link'].astype(str).isin(CODES) & studies_u['data-link'].notna()].copy()
+# Repair a transcription artifact: at least one URL in the raw corpus has an
+# internal space (likely from a line-wrap when the data was originally
+# entered), which would otherwise render as a broken link on the site.
+real_links['data-link'] = real_links['data-link'].astype(str).str.replace(' ', '', regex=False)
+supp_links = studies_u[~studies_u['data-supp-link'].astype(str).isin(CODES) & studies_u['data-supp-link'].notna()]
+
+with open(OUT_DIR / 'open_data.json', 'w') as f:
+    json.dump({
+        'data_avail_distribution': [{'status': k, 'count': int(v)} for k, v in data_avail_dist.items()],
+        'n_with_real_data_link': len(real_links),
+        'n_with_supplementary_link': len(supp_links),
+        'n_total': len(studies_u),
+        'studies_with_link': real_links[['id', 'data-link']].rename(columns={'data-link': 'link'}).to_dict('records'),
+    }, f, indent=2)
+print(f'open_data.json: {len(real_links)} studies with a real open-data link of {len(studies_u)}')
+
+# ── C4. Sample size justification type & participant payment ───────────
+calc_type_dist = studies_u[~studies_u['pop-sample-size-calc-type'].astype(str).isin(CODES) & studies_u['pop-sample-size-calc-type'].notna()]['pop-sample-size-calc-type'].value_counts()
+payment_dist = studies_u['pop-payment'].value_counts()
+with open(OUT_DIR / 'sample_justification.json', 'w') as f:
+    json.dump({
+        'calc_type_distribution': [{'type': k, 'count': int(v)} for k, v in calc_type_dist.items()],
+        'payment_distribution': [{'status': k, 'count': int(v)} for k, v in payment_dist.items()],
+        'n_total': len(studies_u),
+    }, f, indent=2)
+print(f'sample_justification.json: calc types {dict(calc_type_dist)}, payment {dict(payment_dist)}')
+
+print("\nDataset audit follow-up artifacts built.")
+
+# ── D1. City-level map (replaces/supplements the country choropleth) ──────
+import sys as _sys2
+_sys2.path.insert(0, str(Path(__file__).parent))
+from city_coordinates import CITY_COORDS, MULTI_CITY_STUDIES
+
+city_rows = []
+for _, row in studies_u.iterrows():
+    raw_city = str(row['id-city']).strip() if row['id-city'] is not None else None
+    if raw_city is None or raw_city in CODES or raw_city == 'nan':
+        continue
+    if raw_city in MULTI_CITY_STUDIES:
+        for lat, lon, name, region in MULTI_CITY_STUDIES[raw_city]:
+            city_rows.append({
+                'id': row['id'], 'lat': lat, 'lon': lon, 'city': name, 'region': region,
+                'precision': 'multi', 'country': row['id-country'], 'climate_class': row['id-climate-class'],
+            })
+    elif raw_city in CITY_COORDS:
+        lat, lon, name, precision = CITY_COORDS[raw_city]
+        city_rows.append({
+            'id': row['id'], 'lat': lat, 'lon': lon, 'city': name, 'region': None,
+            'precision': precision, 'country': row['id-country'], 'climate_class': row['id-climate-class'],
+        })
+
+city_df = pd.DataFrame(city_rows)
+# Aggregate by resolved city name + coordinates (not raw string) so e.g.
+# 'Naogoya' and any future correctly-spelled 'Nagoya' entries would merge.
+city_agg = city_df.groupby(['city', 'lat', 'lon', 'precision', 'country']).agg(
+    count=('id', 'nunique'),
+    climate_classes=('climate_class', lambda s: sorted(set(s.dropna()) - CODES),
+)).reset_index()
+# climate_classes is a list per city; take the first (cities are
+# climate-consistent in this corpus, verified during construction)
+city_agg['climate_class'] = city_agg['climate_classes'].apply(lambda l: l[0] if l else None)
+city_agg = city_agg.drop(columns=['climate_classes'])
+city_agg['climate_group'] = city_agg['climate_class'].apply(koppen_group)
+
+with open(OUT_DIR / 'geo_cities.json', 'w') as f:
+    json.dump({
+        'data': city_agg.to_dict('records'),
+        'n_cities': len(city_agg),
+        'n_studies_mapped': int(city_df['id'].nunique()),
+        'n_studies_total': len(studies_u),
+        'n_province_level': int((city_agg['precision'] == 'province').sum()),
+    }, f, indent=2, default=str)
+print(f'geo_cities.json: {len(city_agg)} cities, {city_df["id"].nunique()} of {len(studies_u)} studies mapped')
+
+# ── D2. Sample size by country (cross-chapter: geography × population) ────
+# Mean and median can tell very different stories here — e.g. China's mean
+# sample size is pulled far above its median by a handful of large field
+# studies (one with n=2110), so both are reported, plus the full per-study
+# distribution, rather than collapsing to a single misleading summary number.
+ss_country = studies_u[['id', 'id-country', 'pop-no-tot']].copy()
+ss_country['pop-no-tot'] = ss_country['pop-no-tot'].apply(clean_num)
+ss_country = ss_country[~ss_country['id-country'].astype(str).isin(CODES) & ss_country['pop-no-tot'].notna()]
+
+country_stats = ss_country.groupby('id-country')['pop-no-tot'].agg(
+    count='count', median='median', mean='mean', min='min', max='max'
+).reset_index()
+# Only show countries with enough studies that a median/mean is meaningful
+# rather than a single data point dressed up as a summary statistic.
+country_stats = country_stats[country_stats['count'] >= 3].sort_values('count', ascending=False)
+
+country_studies = ss_country[ss_country['id-country'].isin(country_stats['id-country'])][
+    ['id', 'id-country', 'pop-no-tot']
+].rename(columns={'pop-no-tot': 'n', 'id-country': 'country'})
+
+with open(OUT_DIR / 'sample_size_by_country.json', 'w') as f:
+    json.dump({
+        'stats': country_stats.rename(columns={'id-country': 'country'}).to_dict('records'),
+        'studies': country_studies.to_dict('records'),
+        'min_count_threshold': 3,
+    }, f, indent=2, default=str)
+print(f'sample_size_by_country.json: {len(country_stats)} countries with >=3 studies')
+
+# ── D3. Body site by signal: heart rate, skin conductance, sweat indicators ──
+# Generalizes the skin-temperature site-prevalence treatment (Ch.3) to three
+# more signals where measurement site reflects a real methodological choice
+# (sensor modality for heart rate; electrode placement convention for skin
+# conductance; whole-body vs. local method for sweat). Unlike skin
+# temperature's 39 raw labels needing consolidation, these signals each have
+# only 8-10 distinct raw site labels — no merging rules needed.
+SITE_SIGNALS = ['Heart/Pulse rate', 'Skin conductance', 'Sweat indicators']
+site_by_signal = {}
+for sig in SITE_SIGNALS:
+    sub = df[df['physio-parameter'] == sig][['id', 'physio-body-site']].copy()
+    sub['physio-body-site'] = sub['physio-body-site'].astype(str).str.strip()
+    sub = sub[~sub['physio-body-site'].isin(CODES) & (sub['physio-body-site'] != 'nan')]
+    sub_dedup = sub.drop_duplicates(subset=['id', 'physio-body-site'])
+    totals = sub_dedup['physio-body-site'].value_counts()
+    site_by_signal[sig] = {
+        'site_totals': [{'site': s, 'count': int(c)} for s, c in totals.items()],
+        'n_studies_with_site': int(sub_dedup['id'].nunique()),
+    }
+
+# Heart rate has enough studies (99) for a meaningful by-period breakdown;
+# skin conductance (25) and sweat indicators (32) would average under 5
+# studies per two-year bin, too thin to split six ways — shown overall only,
+# same reasoning already applied to the environmental co-occurrence matrix.
+hr_sub = df[df['physio-parameter'] == 'Heart/Pulse rate'][['id', 'physio-body-site']].copy()
+hr_sub['physio-body-site'] = hr_sub['physio-body-site'].astype(str).str.strip()
+hr_sub = hr_sub[~hr_sub['physio-body-site'].isin(CODES) & (hr_sub['physio-body-site'] != 'nan')]
+hr_sub = hr_sub.merge(studies_u[['id', 'period']], on='id', how='left')
+hr_dedup = hr_sub.drop_duplicates(subset=['id', 'physio-body-site'])
+hr_by_period = hr_dedup.groupby(['physio-body-site', 'period']).size().reset_index(name='count')
+hr_period_n = hr_dedup.groupby('period')['id'].nunique().to_dict()
+
+site_by_signal['Heart/Pulse rate']['by_period'] = {
+    'data': hr_by_period.rename(columns={'physio-body-site': 'site'}).to_dict('records'),
+    'period_n': {k: int(v) for k, v in hr_period_n.items()},
+    'periods': [b[2] for b in BINS],
+}
+
+with open(OUT_DIR / 'site_by_signal.json', 'w') as f:
+    json.dump(site_by_signal, f, indent=2, default=str)
+print('site_by_signal.json written for:', {k: v['n_studies_with_site'] for k, v in site_by_signal.items()})
+
+# ── D4. Signal × sensing method × body site (agreeability-focused Sankey) ──
+# Complements the existing signal → sensor type → brand Sankey (Ch.3) with a
+# different cut: which body site a given measurement *method* uses, since
+# validation/agreeability concerns track sensing method (ECG vs. OHR/PPG,
+# thermocouple vs. infrared) more directly than brand does — two devices
+# from the same brand can differ in validation tier, but ECG-vs-PPG is a
+# real mechanistic difference that affects what "heart rate" actually means.
+sms = df[['id', 'physio-parameter', 'physio-sensing-method', 'physio-body-site']].copy()
+for c in ['physio-parameter', 'physio-sensing-method', 'physio-body-site']:
+    sms[c] = sms[c].astype(str).str.strip()
+sms = sms[~sms['physio-sensing-method'].isin(CODES) & ~sms['physio-body-site'].isin(CODES) & (sms['physio-body-site'] != 'nan')]
+sms['physio-sensing-method'] = sms['physio-sensing-method'].replace({
+    'Digital Sphygmomanometer': 'Digital sphygmomanometer', 'Laser doppler': 'Laser Doppler',
+})
+sms['signal'] = sms['physio-parameter'].replace({'Body temperature': 'Core/Body temperature', 'Core temperature': 'Core/Body temperature'})
+# Apply the same site-consolidation rules used for the skin-temperature site
+# heatmap (Ch.3), but ONLY to skin-temperature rows — these merge rules
+# (Lower arm→Forearm, Calf/Shin→Lower leg, facial sub-sites→Face, etc.) were
+# built specifically for that signal's 39-label vocabulary and don't apply
+# to other signals' site vocabularies.
+is_skin_temp = sms['signal'] == 'Skin temperature'
+sms.loc[is_skin_temp, 'physio-body-site'] = sms.loc[is_skin_temp, 'physio-body-site'].replace(SITE_MERGE)
+
+sms_dedup = sms.drop_duplicates(subset=['id', 'signal', 'physio-sensing-method', 'physio-body-site'])
+
+sig_sens_site = sms_dedup.groupby(['signal', 'physio-sensing-method', 'physio-body-site'])['id'].nunique().reset_index(name='count')
+sig_sens_site = sig_sens_site.rename(columns={'physio-sensing-method': 'sensing_method', 'physio-body-site': 'site'})
+
+with open(OUT_DIR / 'signal_method_site.json', 'w') as f:
+    json.dump({'data': sig_sens_site.to_dict('records')}, f, indent=2, default=str)
+print(f'signal_method_site.json: {len(sig_sens_site)} signal-method-site triples')
+
+# ── D5. Brand + model reference table (searchable, not a Sankey) ──────────
+# Model names are far too dense (237 distinct, vs. 64 brands after
+# filtering) for a third Sankey column to stay legible — this is the
+# searchable-table alternative for exactly the use case a Sankey can't
+# serve: "which specific devices are used for signal X" for an agreeability
+# check, where the answer needs to be a scannable list, not a diagram.
+bm = df[['id', 'physio-parameter', 'physio-sensing-method', 'physio-sensor-brand', 'physio-sensor-model']].copy()
+for c in ['physio-parameter', 'physio-sensing-method', 'physio-sensor-brand', 'physio-sensor-model']:
+    bm[c] = bm[c].astype(str).str.strip()
+bm = bm[~bm['physio-sensor-model'].isin(CODES) & (bm['physio-sensor-model'] != 'nan')]
+bm['physio-sensing-method'] = bm['physio-sensing-method'].replace({
+    'Digital Sphygmomanometer': 'Digital sphygmomanometer', 'Laser doppler': 'Laser Doppler',
+})
+bm['signal'] = bm['physio-parameter'].replace({'Body temperature': 'Core/Body temperature', 'Core temperature': 'Core/Body temperature'})
+# Reuse the same brand canonicalization already built for the standalone
+# brand chart and the signal->sensor->brand Sankey, so 'iButton '/'iButton'
+# and similar casing/whitespace variants collapse here too.
+bm['physio-sensor-brand'] = bm['physio-sensor-brand'].apply(
+    lambda v: canonical_label.get(v, v) if v not in CODES and v != 'nan' else 'NR')
+
+bm_dedup = bm.drop_duplicates(subset=['id', 'signal', 'physio-sensing-method', 'physio-sensor-brand', 'physio-sensor-model'])
+bm_grouped = bm_dedup.groupby(['signal', 'physio-sensing-method', 'physio-sensor-brand', 'physio-sensor-model']).agg(
+    count=('id', 'nunique'),
+    study_ids=('id', lambda s: sorted(s.unique())),
+).reset_index().rename(columns={'physio-sensing-method': 'sensing_method', 'physio-sensor-brand': 'brand', 'physio-sensor-model': 'model'})
+bm_grouped = bm_grouped.sort_values(['signal', 'count'], ascending=[True, False])
+
+with open(OUT_DIR / 'brand_model_reference.json', 'w') as f:
+    json.dump({'data': bm_grouped.to_dict('records'), 'n_models': bm_grouped['model'].nunique()}, f, indent=2, default=str)
+print(f'brand_model_reference.json: {len(bm_grouped)} signal-method-brand-model rows, {bm_grouped["model"].nunique()} distinct models')
