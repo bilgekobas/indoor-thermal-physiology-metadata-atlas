@@ -390,8 +390,40 @@ print('fig06_setting_typology.json:', len(sunburst), 'type-typology pairs')
 def parse_temp_steps(v):
     if v is None or str(v).strip() in CODES:
         return []
-    nums = re.findall(r'-?\d+\.?\d*', str(v))
-    return [float(n) for n in nums]
+    # Bug fix: the naive regex `-?\d+\.?\d*` treated every hyphen before a
+    # digit as a negative sign, including hyphens used as range/ramp
+    # separators (e.g. "28-43" meaning "ramp from 28 to 43", or
+    # "15-30-15" meaning "ramp 15→30, back to 15"), which it misparsed as
+    # negative numbers. This corpus genuinely has a few studies with real
+    # negative temperatures (e.g. "-20, 0, 10, 20"), so the fix can't just
+    # strip all minus signs — it has to tell the two cases apart.
+    #
+    # The actual disambiguating pattern, confirmed against every occurrence
+    # in the corpus: split on commas first. Within each comma-separated
+    # token, if it consists ENTIRELY of positive numbers joined by hyphens
+    # (one or more — e.g. "28-43" or "15-30-15"), every hyphen is a range
+    # separator and every number is a positive waypoint. Otherwise (a
+    # single bare number, possibly with one leading minus, e.g. "-2.1" or
+    # "24"), parse it as one value, negative sign included. This affected
+    # 44 studies' parsed temperature steps when first fixed for the
+    # two-segment case, plus 7 more multi-segment ramp tokens
+    # (e.g. "15-30-15") caught in a follow-up check.
+    s = str(v).strip()
+    tokens = [t.strip() for t in s.split(',')]
+    nums = []
+    for tok in tokens:
+        if not tok:
+            continue
+        all_positive_segments = re.fullmatch(r'\d+\.?\d*(?:-\d+\.?\d*)+', tok)
+        if all_positive_segments:
+            nums.extend(float(n) for n in tok.split('-'))
+        else:
+            single_match = re.fullmatch(r'(-?\d+\.?\d*)', tok)
+            if single_match:
+                nums.append(float(single_match.group(1)))
+            else:
+                nums.extend(float(n) for n in re.findall(r'-?\d+\.?\d*', tok))
+    return nums
 
 studies_u['temp_steps'] = studies_u['exp-tested-target-temps'].apply(parse_temp_steps)
 temp_rows = []
@@ -1155,16 +1187,66 @@ domain_flags = pd.DataFrame({
     for col, label in DOMAIN_FLAG_COLS.items()
 })
 n_domains = domain_flags.sum(axis=1)
-domain_count_dist = n_domains.value_counts().sort_index()
+# 3 studies have NR across every single domain column — not a real "0
+# domains manipulated" finding, just studies the extraction never coded for
+# this field. Counting them as "0 domains" would misrepresent missing data
+# as a genuine category; excluded from both the distribution and its
+# denominator, same as any other field with no usable value.
+has_any_domain_data = n_domains > 0
+n_excluded_no_domain_data = int((~has_any_domain_data).sum())
+domain_count_dist = n_domains[has_any_domain_data].value_counts().sort_index()
 domain_totals = {label: int(domain_flags[label].sum()) for label in DOMAIN_FLAG_COLS.values()}
 
 with open(OUT_DIR / 'domain_comanipulation.json', 'w') as f:
     json.dump({
         'n_domains_distribution': [{'n_domains': int(k), 'count': int(v)} for k, v in domain_count_dist.items()],
         'domain_totals': domain_totals,
-        'n_studies': len(studies_u),
+        'n_studies': int(has_any_domain_data.sum()),
+        'n_excluded_no_domain_data': n_excluded_no_domain_data,
     }, f, indent=2)
-print(f'domain_comanipulation.json: distribution {dict(domain_count_dist)}')
+print(f'domain_comanipulation.json: distribution {dict(domain_count_dist)}, excluded {n_excluded_no_domain_data} with no domain data')
+
+# Pairwise co-occurrence among the 8 domains, for a heatmap view of "which
+# domains get manipulated together" — complements the bar chart of
+# individual domain totals above.
+domain_labels = list(DOMAIN_FLAG_COLS.values())
+domain_cooc = pd.DataFrame(0, index=domain_labels, columns=domain_labels)
+domain_flags_valid = domain_flags[has_any_domain_data]
+for a in domain_labels:
+    for b in domain_labels:
+        domain_cooc.loc[a, b] = int((domain_flags_valid[a] & domain_flags_valid[b]).sum())
+with open(OUT_DIR / 'domain_cooccurrence.json', 'w') as f:
+    json.dump({'labels': domain_labels, 'matrix': domain_cooc.values.tolist()}, f, indent=2)
+print('domain_cooccurrence.json written')
+
+# ── C1b. Detailed thermal-domain manipulation type (exp-domains) ──────────
+# A richer free-text field than the 8 binary domain flags above: it
+# distinguishes manipulation PROTOCOL within a domain (e.g. "Air
+# temperature" steady-state vs. "Air temperature: Ramp" vs "...: Double
+# step change" vs "...: Non-uniform"), and surfaces a few manipulated
+# variables not covered by the 8 binary flags at all (Clothing, Adaptive
+# behaviour, Airflow direction, Visual access, Acclimation, Odour, PMV).
+exp_domains_clean = studies_u['exp-domains'].astype(str).str.strip()
+exp_domains_clean = exp_domains_clean[~exp_domains_clean.isin(CODES) & (exp_domains_clean != 'nan') & (exp_domains_clean != 'None')]
+domain_detail_rows = []
+for idx, val in exp_domains_clean.items():
+    study_id = studies_u.loc[idx, 'id']
+    for tok in val.split(','):
+        tok = tok.strip()
+        # Fix the two casing duplicates found in the raw data (otherwise
+        # 'Illumination'/'illumination' and 'Radiant temperature'/'radiant
+        # temperature' would silently fragment into separate bars).
+        tok = {'illumination': 'Illumination', 'radiant temperature': 'Radiant temperature'}.get(tok.lower(), tok)
+        if tok:
+            domain_detail_rows.append({'id': study_id, 'token': tok})
+domain_detail_df = pd.DataFrame(domain_detail_rows).drop_duplicates(subset=['id', 'token'])
+domain_detail_totals = domain_detail_df['token'].value_counts()
+with open(OUT_DIR / 'domain_detail.json', 'w') as f:
+    json.dump({
+        'totals': [{'token': t, 'count': int(c)} for t, c in domain_detail_totals.items()],
+        'n_studies': int(exp_domains_clean.shape[0]),
+    }, f, indent=2)
+print(f'domain_detail.json: {len(domain_detail_totals)} distinct manipulation tokens, {exp_domains_clean.shape[0]} studies with detail')
 
 # ── C2. Sex-disaggregated age and BMI (within-study male vs female means) ──
 sex_disagg_rows = []

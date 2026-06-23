@@ -1,10 +1,6 @@
 {
   "n_domains_distribution": [
     {
-      "n_domains": 0,
-      "count": 3
-    },
-    {
       "n_domains": 1,
       "count": 184
     },
@@ -27,5 +23,6 @@
     "Behaviour": 7,
     "IAQ": 1
   },
-  "n_studies": 269
+  "n_studies": 266,
+  "n_excluded_no_domain_data": 3
 }

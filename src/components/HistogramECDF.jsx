@@ -1,3 +1,4 @@
+import { useEffect } from 'react'
 import { useTooltip, TooltipPortal } from './Tooltip.jsx'
 
 // Histogram + ECDF, matching Figures 3, 4, 11 in the appendix.
@@ -6,7 +7,12 @@ import { useTooltip, TooltipPortal } from './Tooltip.jsx'
 // reader actually understands (e.g. log10(n) bins displaying "n=20" rather
 // than the bare log value "1.3") — without it, log-scaled axes show numbers
 // with no indication they're logarithms at all.
-export default function HistogramECDF({ values, binWidth = 1, xLabel = '', unit = '', tickFormatter = null }) {
+// `onStats`, if given, is called once per render with the chart's own
+// computed {min, max, q25, median, q75, n} — so the chapter page can build
+// commentary text ("88.7% of studies fall under 180 minutes") from the
+// SAME numbers the chart itself shows, rather than a hand-typed figure that
+// can silently drift out of sync with the data whenever the corpus updates.
+export default function HistogramECDF({ values, binWidth = 1, xLabel = '', unit = '', tickFormatter = null, onStats = null }) {
   const { tip, showTip, moveTip, hideTip } = useTooltip()
   if (!values.length) return <div className="text-[12px] text-inkfaint">No data available.</div>
 
@@ -16,6 +22,13 @@ export default function HistogramECDF({ values, binWidth = 1, xLabel = '', unit 
   const min = Math.floor(sorted[0] / binWidth) * binWidth
   const max = Math.ceil(sorted[sorted.length - 1] / binWidth) * binWidth
   const nBins = Math.max(1, Math.round((max - min) / binWidth))
+
+  const q = (p) => sorted[Math.min(sorted.length - 1, Math.floor(p * sorted.length))]
+  const stats = {
+    n: sorted.length, min: sorted[0], max: sorted[sorted.length - 1],
+    q25: q(0.25), median: q(0.5), q75: q(0.75),
+  }
+  useEffect(() => { if (onStats) onStats(stats) })
 
   const bins = Array.from({ length: nBins }, (_, i) => ({
     start: min + i * binWidth,
@@ -93,7 +106,7 @@ export default function HistogramECDF({ values, binWidth = 1, xLabel = '', unit 
               })
               .join(' ')}
             fill="none"
-            stroke="#FB3640"
+            stroke="#5B5BFF"
             strokeWidth={1.5}
           />
           {ecdf.map((y, i) => {
@@ -104,9 +117,9 @@ export default function HistogramECDF({ values, binWidth = 1, xLabel = '', unit 
                 cx={x}
                 cy={chartHeight - y * chartHeight}
                 r={2.5}
-                fill="#FB3640"
+                fill="#5B5BFF"
                 className="cursor-default"
-                onMouseEnter={(e) => showTip(e, `Cumulative: ${(y * 100).toFixed(1)}% of studies ≤ ${fmt(bins[i].end)}`)}
+                onMouseEnter={(e) => showTip(e, `Cumulative: ${(y * 100).toFixed(1)}% of studies < ${fmt(bins[i].end)}`)}
                 onMouseMove={moveTip}
                 onMouseLeave={hideTip}
               />

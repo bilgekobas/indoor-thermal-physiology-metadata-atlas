@@ -1,0 +1,105 @@
+{
+  "totals": [
+    {
+      "token": "Air temperature",
+      "count": 189
+    },
+    {
+      "token": "Air temperature: Ramp",
+      "count": 48
+    },
+    {
+      "token": "Humidity",
+      "count": 38
+    },
+    {
+      "token": "Air velocity",
+      "count": 20
+    },
+    {
+      "token": "Air temperature: Double step change",
+      "count": 17
+    },
+    {
+      "token": "Radiant temperature: Non-uniform",
+      "count": 11
+    },
+    {
+      "token": "Relative humidity",
+      "count": 11
+    },
+    {
+      "token": "Radiant temperature",
+      "count": 8
+    },
+    {
+      "token": "Illumination",
+      "count": 7
+    },
+    {
+      "token": "Light colour",
+      "count": 4
+    },
+    {
+      "token": "Air temperature: Non-uniform",
+      "count": 3
+    },
+    {
+      "token": "CO2",
+      "count": 3
+    },
+    {
+      "token": "Airflow direction",
+      "count": 3
+    },
+    {
+      "token": "Clothing",
+      "count": 3
+    },
+    {
+      "token": "Adaptive behaviour",
+      "count": 3
+    },
+    {
+      "token": "Sound level",
+      "count": 3
+    },
+    {
+      "token": "Humidity: Ramp",
+      "count": 3
+    },
+    {
+      "token": "Visual access",
+      "count": 2
+    },
+    {
+      "token": "PMV",
+      "count": 1
+    },
+    {
+      "token": "Outdoor temperature",
+      "count": 1
+    },
+    {
+      "token": "Solar radiation",
+      "count": 1
+    },
+    {
+      "token": "Air velocity: Ramp",
+      "count": 1
+    },
+    {
+      "token": "Radiant temperature: Ramp",
+      "count": 1
+    },
+    {
+      "token": "Odour",
+      "count": 1
+    },
+    {
+      "token": "Acclimation",
+      "count": 1
+    }
+  ],
+  "n_studies": 266
+}

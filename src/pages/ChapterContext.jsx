@@ -211,6 +211,16 @@ export default function ChapterContext({ data }) {
     geo_concentration_by_period, domain_comanipulation, sample_size_by_country, chapter_completeness, summary,
   } = data
   const totalPubs = fig01_pubs_by_year.data.reduce((a, d) => a + d.count, 0)
+  const [sessionStats, setSessionStats] = useState(null)
+  // Computed directly from the raw values (not derived from the chart's
+  // quartiles, which can't answer an arbitrary "% under 180" question) —
+  // this is what makes the Fig. 3 commentary text track the data exactly,
+  // rather than a hand-typed percentage that silently drifts whenever the
+  // corpus is updated.
+  const sessionValuesCapped = fig03_session_length.values_minutes.filter((v) => v <= 600)
+  const sessionUnder180Pct = sessionValuesCapped.length
+    ? ((sessionValuesCapped.filter((v) => v < 180).length / sessionValuesCapped.length) * 100).toFixed(1)
+    : '0'
 
   const typeRollup = useMemo(() => {
     const map = {}
@@ -292,8 +302,13 @@ export default function ChapterContext({ data }) {
           <TimeOfDayChart sessions={fig05_time_of_day.sessions} />
         </FigureCard>
 
-        <FigureCard figNumber="3" title="Session length" commentary="Minutes per session, capped at 600 (88% of studies fall under 180 minutes).">
-          <HistogramECDF values={fig03_session_length.values_minutes.filter((v) => v <= 600)} binWidth={15} unit=" min" />
+        <FigureCard figNumber="3" title="Session length" commentary={sessionStats ? `Minutes per session, capped at 600. ${sessionUnder180Pct}% of the ${sessionStats.n} studies with known session length run under 180 minutes. Median ${sessionStats.median} min (IQR ${sessionStats.q25}–${sessionStats.q75}), range ${sessionStats.min}–${sessionStats.max} min.` : 'Minutes per session, capped at 600.'}>
+          <HistogramECDF
+            values={sessionValuesCapped}
+            binWidth={15}
+            unit=" min"
+            onStats={setSessionStats}
+          />
         </FigureCard>
       </ChapterSection>
 

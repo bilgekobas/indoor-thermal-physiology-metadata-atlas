@@ -80,8 +80,8 @@
     {
       "id": "12_1",
       "climate_group": "Continental",
-      "min": -29.0,
-      "max": 26.0,
+      "min": 25.0,
+      "max": 29.0,
       "country": "China"
     },
     {
@@ -94,8 +94,8 @@
     {
       "id": "16_1",
       "climate_group": "Humid subtropical",
-      "min": -28.0,
-      "max": 25.0,
+      "min": 22.0,
+      "max": 28.0,
       "country": "Italy"
     },
     {
@@ -157,7 +157,7 @@
     {
       "id": "31_1",
       "climate_group": "Continental",
-      "min": -27.0,
+      "min": 23.0,
       "max": 29.0,
       "country": "China"
     },
@@ -178,8 +178,8 @@
     {
       "id": "34_1",
       "climate_group": "Semi-arid (cold)",
-      "min": -30.0,
-      "max": 27.0,
+      "min": 21.0,
+      "max": 30.0,
       "country": "China"
     },
     {
@@ -283,7 +283,7 @@
     {
       "id": "54_1",
       "climate_group": "Humid subtropical",
-      "min": -34.0,
+      "min": 18.0,
       "max": 34.0,
       "country": "China"
     },
@@ -297,8 +297,8 @@
     {
       "id": "58_1",
       "climate_group": "Continental",
-      "min": -24.0,
-      "max": 18.0,
+      "min": 18.0,
+      "max": 24.0,
       "country": "Republic of Korea"
     },
     {
@@ -339,8 +339,8 @@
     {
       "id": "65_1",
       "climate_group": "Continental",
-      "min": -22.0,
-      "max": 18.0,
+      "min": 15.0,
+      "max": 22.0,
       "country": "China"
     },
     {
@@ -353,8 +353,8 @@
     {
       "id": "67_1",
       "climate_group": "Tropical",
-      "min": -30.0,
-      "max": 25.0,
+      "min": 24.0,
+      "max": 30.0,
       "country": "Singapore"
     },
     {
@@ -444,7 +444,7 @@
     {
       "id": "76_1",
       "climate_group": "Continental",
-      "min": -27.0,
+      "min": 23.0,
       "max": 29.0,
       "country": "China"
     },
@@ -465,7 +465,7 @@
     {
       "id": "79_1",
       "climate_group": "Humid subtropical",
-      "min": -16.0,
+      "min": 12.0,
       "max": 24.0,
       "country": "China"
     },
@@ -514,14 +514,14 @@
     {
       "id": "86_1",
       "climate_group": "Oceanic",
-      "min": -26.0,
+      "min": 15.0,
       "max": 26.0,
       "country": "Spain"
     },
     {
       "id": "87_1",
       "climate_group": "Oceanic",
-      "min": -25.0,
+      "min": 17.0,
       "max": 25.0,
       "country": "Netherlands"
     },
@@ -549,15 +549,15 @@
     {
       "id": "93_1",
       "climate_group": "Humid subtropical",
-      "min": -30.0,
+      "min": 20.0,
       "max": 30.0,
       "country": "Italy"
     },
     {
       "id": "93_2",
       "climate_group": "Humid subtropical",
-      "min": -30.0,
-      "max": 28.0,
+      "min": 18.0,
+      "max": 30.0,
       "country": "Italy"
     },
     {
@@ -577,14 +577,14 @@
     {
       "id": "96_1",
       "climate_group": "Continental",
-      "min": -23.0,
-      "max": 21.0,
+      "min": 21.0,
+      "max": 23.0,
       "country": "USA"
     },
     {
       "id": "97_1",
       "climate_group": "Humid subtropical",
-      "min": -16.0,
+      "min": 12.0,
       "max": 24.0,
       "country": "China"
     },
@@ -654,14 +654,14 @@
     {
       "id": "109_1",
       "climate_group": "Subarctic",
-      "min": -29.0,
-      "max": 23.0,
+      "min": 17.5,
+      "max": 29.0,
       "country": "Norway"
     },
     {
       "id": "110_1",
       "climate_group": "Mediterranean",
-      "min": -31.0,
+      "min": 19.0,
       "max": 31.0,
       "country": "USA"
     },
@@ -675,8 +675,8 @@
     {
       "id": "114_1",
       "climate_group": "Mediterranean",
-      "min": -29.0,
-      "max": 24.0,
+      "min": 19.0,
+      "max": 29.0,
       "country": "USA"
     },
     {
@@ -696,8 +696,8 @@
     {
       "id": "117_1",
       "climate_group": "Mediterranean",
-      "min": -30.0,
-      "max": 20.0,
+      "min": 20.0,
+      "max": 30.0,
       "country": "USA"
     },
     {
@@ -738,8 +738,8 @@
     {
       "id": "126_1",
       "climate_group": "Continental",
-      "min": -27.0,
-      "max": 23.0,
+      "min": 23.0,
+      "max": 27.0,
       "country": "USA"
     },
     {
@@ -794,7 +794,7 @@
     {
       "id": "134_1",
       "climate_group": "Humid subtropical",
-      "min": -28.0,
+      "min": 20.0,
       "max": 28.0,
       "country": "USA"
     },
@@ -808,29 +808,29 @@
     {
       "id": "136_1",
       "climate_group": "Oceanic",
-      "min": -24.5,
-      "max": 18.5,
+      "min": 18.5,
+      "max": 24.5,
       "country": "Denmark"
     },
     {
       "id": "136_2",
       "climate_group": "Oceanic",
-      "min": -27.5,
-      "max": 20.0,
+      "min": 20.0,
+      "max": 27.5,
       "country": "Denmark"
     },
     {
       "id": "136_3",
       "climate_group": "Oceanic",
-      "min": -26.0,
-      "max": 21.5,
+      "min": 21.5,
+      "max": 26.0,
       "country": "Denmark"
     },
     {
       "id": "136_4",
       "climate_group": "Oceanic",
-      "min": -27.5,
-      "max": 23.0,
+      "min": 23.0,
+      "max": 27.5,
       "country": "Denmark"
     },
     {
@@ -913,8 +913,8 @@
     {
       "id": "151_1",
       "climate_group": "Tropical",
-      "min": -27.0,
-      "max": 18.0,
+      "min": 18.0,
+      "max": 27.0,
       "country": "Singapore"
     },
     {
@@ -1004,7 +1004,7 @@
     {
       "id": "166_1",
       "climate_group": "Mediterranean",
-      "min": -30.0,
+      "min": 20.0,
       "max": 30.0,
       "country": "USA"
     },
@@ -1053,7 +1053,7 @@
     {
       "id": "176_1",
       "climate_group": "Mediterranean",
-      "min": -29.0,
+      "min": 18.0,
       "max": 29.0,
       "country": "USA"
     },
@@ -1081,8 +1081,8 @@
     {
       "id": "180_1",
       "climate_group": "Humid subtropical",
-      "min": -32.0,
-      "max": 30.0,
+      "min": 18.0,
+      "max": 32.0,
       "country": "Australia"
     },
     {
@@ -1095,7 +1095,7 @@
     {
       "id": "182_1",
       "climate_group": "Humid subtropical",
-      "min": -23.5,
+      "min": 23.5,
       "max": 29.0,
       "country": "Japan"
     },
@@ -1123,14 +1123,14 @@
     {
       "id": "186_1",
       "climate_group": "Oceanic",
-      "min": -29.2,
-      "max": 26.0,
+      "min": 23.6,
+      "max": 29.2,
       "country": "Germany"
     },
     {
       "id": "187_1",
       "climate_group": "Humid subtropical",
-      "min": -30.0,
+      "min": 26.0,
       "max": 30.0,
       "country": "Japan"
     },
@@ -1144,15 +1144,15 @@
     {
       "id": "189_1",
       "climate_group": "Oceanic",
-      "min": -32.0,
-      "max": 24.0,
+      "min": 16.0,
+      "max": 32.0,
       "country": "Netherlands"
     },
     {
       "id": "190_1",
       "climate_group": "Tropical",
-      "min": -33.0,
-      "max": 30.0,
+      "min": 21.0,
+      "max": 33.0,
       "country": "India"
     },
     {
@@ -1256,8 +1256,8 @@
     {
       "id": "206_1",
       "climate_group": "Humid subtropical",
-      "min": -27.0,
-      "max": 20.0,
+      "min": 20.0,
+      "max": 27.0,
       "country": "Japan"
     },
     {
@@ -1354,7 +1354,7 @@
     {
       "id": "224_1",
       "climate_group": "Continental",
-      "min": -33.0,
+      "min": 16.0,
       "max": 33.0,
       "country": "Republic of Korea"
     },
@@ -1389,14 +1389,14 @@
     {
       "id": "228_1",
       "climate_group": "Humid subtropical",
-      "min": -43.0,
+      "min": 13.0,
       "max": 43.0,
       "country": "Japan"
     },
     {
       "id": "229_1",
       "climate_group": "Continental",
-      "min": -27.0,
+      "min": 23.0,
       "max": 29.0,
       "country": "China"
     },
@@ -1410,8 +1410,8 @@
     {
       "id": "231_1",
       "climate_group": "Continental",
-      "min": -30.0,
-      "max": 15.0,
+      "min": 15.0,
+      "max": 30.0,
       "country": "China"
     },
     {
@@ -1473,7 +1473,7 @@
     {
       "id": "245_1",
       "climate_group": "Humid subtropical",
-      "min": -32.0,
+      "min": 20.0,
       "max": 32.0,
       "country": "China"
     },
@@ -1494,8 +1494,8 @@
     {
       "id": "248_1",
       "climate_group": "Humid subtropical",
-      "min": -28.0,
-      "max": 26.0,
+      "min": 24.0,
+      "max": 28.0,
       "country": "China"
     },
     {
