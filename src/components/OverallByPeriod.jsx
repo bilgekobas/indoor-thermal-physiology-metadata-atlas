@@ -1,21 +1,6 @@
 import { useState } from 'react'
 import { useTooltip, TooltipPortal } from './Tooltip.jsx'
 
-// Shared visual grammar for "overall vs. by-period" pairs, used consistently
-// across every metric in the site where a two-year-binned breakdown is
-// meaningful. A toggle switches between:
-//   - "Overall": the simple summary across the whole corpus
-//   - "By period": the same metric split into the 6 two-year bins
-// `renderOverall` and `renderByPeriod` are render-prop functions so this
-// component stays agnostic to what kind of chart each metric actually needs
-// (bar, line, stacked) while keeping the toggle interaction identical everywhere.
-//
-// `minHeight`: the two views often have genuinely different natural heights
-// (e.g. a wide map vs. a six-bar-group layout), which without a reserved
-// height causes the whole page to jump up or down when switching tabs —
-// the container should hold its size, not reflow the page under the reader.
-// Pass the height of the TALLER of the two views; the shorter one will just
-// have extra space below it rather than the box shrinking.
 export default function OverallByPeriod({ renderOverall, renderByPeriod, earliestPeriodCaveat, minHeight }) {
   const [mode, setMode] = useState('overall')
   return (
@@ -48,15 +33,7 @@ export default function OverallByPeriod({ renderOverall, renderByPeriod, earlies
   )
 }
 
-// A compact grouped-bar primitive for "one metric, six period bars" — used
-// by several of the by-period views (signal frequency, sensor heights,
-// protocol/participant/selection fields, geographic concentration) so they
-// all look and behave the same way. Each bar shows its own value directly
-// above it (not just on hover) since a bare bar with no visible number
-// reads as decorative rather than as data. `yUnit` states what `getValue`
-// returns (e.g. "%" or "studies") so the chart is self-explanatory without
-// the surrounding chapter prose.
-export function PeriodBarGroup({ periods, periodN, getValue, getTooltip, color = '#FB3640', height = 110, yUnit = '', valueFormatter = null }) {
+export function PeriodBarGroup({ periods, periodN, getValue, getTooltip, color = '#5B5BFF', height = 110, yUnit = '', valueFormatter = null }) {
   const { tip, showTip, moveTip, hideTip } = useTooltip()
   const values = periods.map((p) => getValue(p))
   const max = values.reduce((m, v) => (v > m ? v : m), 1)
@@ -84,16 +61,11 @@ export function PeriodBarGroup({ periods, periodN, getValue, getTooltip, color =
   )
 }
 
-
-
-// Matrix-style period chart: rows are fields/signals/sites, columns are 2-year periods,
-// and the final column is a row-aligned total bar. This is the shared replacement for
-// small multiple period bars/lines so all period breakdowns read like the co-occurrence heatmaps.
-export function PeriodHeatmap({ rows, periods, periodN, getCount, rowTotals = null, labelWidth = 190, cellWidth = 66, cellHeight = 30, totalLabel = 'Total' }) {
+export function PeriodHeatmap({ rows, periods, periodN, getCount, rowTotals = null, labelWidth = 220, cellWidth = 68, cellHeight = 30, totalLabel = 'Total' }) {
   const { tip, showTip, moveTip, hideTip } = useTooltip()
   const totals = rowTotals || Object.fromEntries(rows.map((row) => [row, periods.reduce((a, p) => a + (getCount(row, p) || 0), 0)]))
   const maxTotal = Math.max(...rows.map((row) => totals[row] || 0), 1)
-  const barW = 120
+  const barW = 140
   const colorFor = (pct) => {
     if (!pct) return '#EFEFEF'
     const t = Math.min(pct / 100, 1)
@@ -103,20 +75,20 @@ export function PeriodHeatmap({ rows, periods, periodN, getCount, rowTotals = nu
     return `rgb(${r},${g},${b})`
   }
   return (
-    <div className="overflow-x-auto">
+    <div>
       <div className="inline-block">
         <div className="flex items-end" style={{ marginLeft: labelWidth }}>
           {periods.map((p) => (
-            <div key={p} className="font-data text-[10px] text-inkfaint text-center" style={{ width: cellWidth }}>
+            <div key={p} className="text-[12px] text-inkmid text-center" style={{ width: cellWidth }}>
               {p}
-              {periodN && <div className="text-inkfaint/70">n={periodN[p] || 0}</div>}
+              {periodN && <div className="font-data text-[10px] text-inkfaint/70">n={periodN[p] || 0}</div>}
             </div>
           ))}
-          <div className="font-data text-[10px] text-inkfaint text-center border-l border-line ml-2 pl-2" style={{ width: barW + 38 }}>{totalLabel}</div>
+          <div className="text-[12px] text-inkmid text-center border-l border-line ml-3 pl-3" style={{ width: barW + 38 }}>{totalLabel}</div>
         </div>
         {rows.map((row) => (
           <div key={row} className="flex items-center">
-            <div className="text-[12px] shrink-0 text-right pr-2 truncate" style={{ width: labelWidth }} title={row}>{row}</div>
+            <div className="text-[12px] shrink-0 text-right pr-3" style={{ width: labelWidth }} title={row}>{row}</div>
             {periods.map((p) => {
               const count = getCount(row, p) || 0
               const n = periodN?.[p] || 0
@@ -134,14 +106,14 @@ export function PeriodHeatmap({ rows, periods, periodN, getCount, rowTotals = nu
                 </div>
               )
             })}
-            <div className="shrink-0 flex items-center gap-2 border-l border-line ml-2 pl-2" style={{ width: barW + 38, height: cellHeight }}>
+            <div className="shrink-0 flex items-center gap-2 border-l border-line ml-3 pl-3" style={{ width: barW + 38, height: cellHeight }}>
               <div className="h-4 rounded-sm bg-[#5B5BFF]" style={{ width: `${((totals[row] || 0) / maxTotal) * barW}px` }} />
               <div className="font-data text-[10px] text-inkmid w-8 text-right">{totals[row] || 0}</div>
             </div>
           </div>
         ))}
       </div>
-      <div className="flex items-center gap-4 mt-3 font-data text-[10.5px] text-inkfaint">
+      <div className="flex items-center gap-4 mt-3 font-data text-[10.5px] text-inkfaint flex-wrap">
         <span className="flex items-center gap-2">
           <span>period cell scale:</span>
           <span className="w-3 h-3 inline-block" style={{ background: '#EFEFEF' }} /> 0%
@@ -154,12 +126,6 @@ export function PeriodHeatmap({ rows, periods, periodN, getCount, rowTotals = nu
   )
 }
 
-// Multi-line "% of studies reporting each field, by period" chart — shared
-// by every chapter that breaks a set of binary fields down over time
-// (participant metadata, selection criteria, protocol controls). Previously
-// each chapter had its own copy-pasted version of this, which had already
-// started to drift; consolidating here so a fix in one place reaches all of
-// them, and so the y-axis is consistently labelled "% of studies in period."
 const DEFAULT_LINE_PALETTE = ['#0A0A0A', '#5B5BFF', '#FB3640', '#8A8A8A', '#4A4A4A', '#BBBBBB', '#BBBBBB', '#E4E4E4']
 export function PercentLinesByPeriod({ periodData, fields, periods, palette = DEFAULT_LINE_PALETTE }) {
   const { tip, showTip, moveTip, hideTip } = useTooltip()

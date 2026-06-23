@@ -1,18 +1,14 @@
 import { useTooltip, TooltipPortal } from './Tooltip.jsx'
 
-// Co-occurrence matrix: diagonal cells = number of studies measuring that
-// one variable; off-diagonal cells = number of studies measuring BOTH row
-// and column variables together. Every cell prints its own count, and a
-// color-scale legend + the diagonal/off-diagonal distinction are stated
-// directly under the chart so this reads correctly without the surrounding
-// chapter prose.
-export default function CooccurrenceMatrix({ labels, matrix, cellSize = 34, colorScheme = 'warm' }) {
+export default function CooccurrenceMatrix({ labels, matrix, cellSize = 46, colorScheme = 'blue' }) {
   const { tip, showTip, moveTip, hideTip } = useTooltip()
-  // Bug fix: use reduce instead of Math.max(...spread)
-  const max = matrix.flat().reduce((m, v) => (v > m ? v : m), 1)
+  if (!labels?.length || !matrix?.length) return <div className="text-[12px] text-inkfaint">No data available.</div>
+
+  const max = Math.max(...matrix.flat(), 1)
+  const labelWidth = 158
 
   const colorFor = (v) => {
-    if (v === 0) return '#EFEFEF'
+    if (!v) return '#EFEFEF'
     const t = Math.min(v / max, 1)
     if (colorScheme === 'blue') {
       const r = Math.round(239 + (91 - 239) * t)
@@ -27,24 +23,24 @@ export default function CooccurrenceMatrix({ labels, matrix, cellSize = 34, colo
   }
 
   return (
-    <div className="overflow-x-auto">
+    <div>
       <div className="inline-block">
-        {/* Column headers — rotate so text reads top-to-bottom */}
-        <div className="flex" style={{ marginLeft: 140 }}>
+        <div className="flex" style={{ marginLeft: labelWidth }}>
           {labels.map((l) => (
             <div
               key={l}
-              className="font-data text-[10px] text-inkfaint whitespace-nowrap overflow-hidden"
+              className="text-[12px] text-inkmid whitespace-nowrap overflow-hidden"
               style={{
                 width: cellSize,
-                height: 88,
+                height: 110,
                 writingMode: 'vertical-lr',
                 transform: 'rotate(180deg)',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'flex-start',
-                paddingBottom: 4,
+                paddingBottom: 6,
               }}
+              title={l}
             >
               {l}
             </div>
@@ -52,11 +48,7 @@ export default function CooccurrenceMatrix({ labels, matrix, cellSize = 34, colo
         </div>
         {labels.map((rowLabel, i) => (
           <div key={rowLabel} className="flex items-center">
-            <div
-              className="text-[12px] shrink-0 text-right pr-2 truncate"
-              style={{ width: 140 }}
-              title={rowLabel}
-            >
+            <div className="text-[12px] shrink-0 text-right pr-2" style={{ width: labelWidth }} title={rowLabel}>
               {rowLabel}
             </div>
             {labels.map((colLabel, j) => {

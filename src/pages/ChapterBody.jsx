@@ -451,14 +451,14 @@ export default function ChapterBody({ data }) {
   const { physio_signal_sensor, skintemp_sites, fig17_physio_params, fig18_physio_cooccurrence,
     evo_signal_sensor, sensor_brands, mst, signal_freq_by_period, site_by_signal, chapter_completeness, summary } = data
 
-  const topSites = useMemo(() => [...skintemp_sites.site_totals].sort((a, b) => b.total - a.total).slice(0, 12), [skintemp_sites])
+  const allSites = useMemo(() => [...skintemp_sites.site_totals].sort((a, b) => b.total - a.total), [skintemp_sites])
   const periods = skintemp_sites.periods
   const siteByPeriod = useMemo(() => {
     const map = {}
-    topSites.forEach((s) => { map[s.site] = {} })
+    allSites.forEach((s) => { map[s.site] = {} })
     skintemp_sites.site_period_counts.forEach((r) => { if (map[r.site]) map[r.site][r.period] = r.count })
     return map
-  }, [topSites, skintemp_sites])
+  }, [allSites, skintemp_sites])
   const periodN = useMemo(() => {
     const m = {}
     skintemp_sites.period_n.forEach((r) => { m[r.period] = r.n_studies })
@@ -502,27 +502,15 @@ export default function ChapterBody({ data }) {
         title="What's measured, and how"
         intro="Skin temperature (218 studies, 81%) and heart rate (135, 50%) dominate by a wide margin over every other signal. Other signals appear far less often and are typically paired with skin temperature or heart rate rather than measured in isolation."
       >
-        <FigureCard figNumber="17" title="Most frequently measured signals" commentary="Skin temperature dominates at 218 of 269 experiments (81%) — more than triple the next most common signal, heart/pulse rate at 135 (50%). After that the field thins out fast: core/body temperature and blood pressure each appear in well under a fifth of experiments. Toggle to see how individual signal frequencies have shifted across the decade.">
-          <OverallByPeriod
-            minHeight={620}
-            earliestPeriodCaveat="2013–14 and 2015–16 have few studies (11 and 15); read early-period percentages cautiously."
-            renderOverall={() => (
-              <InteractiveBarChart data={fig17_physio_params.data.map((d) => ({ label: d.parameter, count: d.count }))} total={summary.n_experiments} color="#5B5BFF" maxBars={12} />
-            )}
-            renderByPeriod={() => {
-              const topSignalNames = fig17_physio_params.data.slice(0, 8).map((d) => d.parameter)
-              const totals = Object.fromEntries(topSignalNames.map((sig) => [sig, fig17_physio_params.data.find((d) => d.parameter === sig)?.count || 0]))
-              return (
-                <PeriodHeatmap
-                  rows={topSignalNames}
-                  periods={signal_freq_by_period.periods}
-                  periodN={signal_freq_by_period.period_n}
-                  rowTotals={totals}
-                  getCount={(sig, p) => signal_freq_by_period.data.find((r) => r.signal === sig && r.period === p)?.count || 0}
-                  labelWidth={180}
-                />
-              )
-            }}
+        <FigureCard figNumber="17" title="Most frequently measured signals" plotWidth={980} commentary="Skin temperature dominates at 218 of 269 experiments (81%) — more than triple the next most common signal, heart/pulse rate at 135 (50%). After that the field thins out fast: core/body temperature and blood pressure each appear in well under a fifth of experiments.">
+          <PeriodHeatmap
+            rows={fig17_physio_params.data.map((d) => d.parameter)}
+            periods={signal_freq_by_period.periods}
+            periodN={signal_freq_by_period.period_n}
+            rowTotals={Object.fromEntries(fig17_physio_params.data.map((d) => [d.parameter, d.count]))}
+            getCount={(sig, p) => signal_freq_by_period.data.find((r) => r.signal === sig && r.period === p)?.count || 0}
+            labelWidth={200}
+            cellWidth={88}
           />
         </FigureCard>
 
@@ -566,45 +554,16 @@ export default function ChapterBody({ data }) {
         title="Skin temperature body sites"
         intro="Where on the body skin temperature is measured, and how that has shifted across the decade — consolidated from 23 raw terminology variants (e.g. calf/shin → lower leg)."
       >
-        <FigureCard title="Site prevalence by period" plotWidth={820} commentary="Lower leg is the single most-measured site (136 of 218 skin-temperature studies, 62%), followed closely by hand, thigh, chest, and forehead (all 123–130 studies). No one site is measured in every study — choice of body site is still inconsistent across the field.">
-          <div className="overflow-x-auto">
-            <table className="text-[12px] border-collapse">
-              <thead>
-                <tr>
-                  <th className="text-left pr-4 pb-2 font-data text-[11px] text-inkfaint font-medium"></th>
-                  {periods.map((p) => (<th key={p} className="px-2 pb-2 font-data text-[11px] text-inkfaint font-medium text-center">{p}<div className="text-inkfaint/70">n={periodN[p] || 0}</div></th>))}
-                  <th className="px-2 pb-2 font-data text-[11px] text-inkfaint font-medium text-center border-l border-line">Total</th>
-                </tr>
-              </thead>
-              <tbody>
-                {topSites.map((s) => (
-                  <tr key={s.site}>
-                    <td className="pr-4 py-0.5 text-[12.5px] whitespace-nowrap">{s.site}</td>
-                    {periods.map((p) => {
-                      const n = siteByPeriod[s.site]?.[p]
-                      const pct = n && periodN[p] ? Math.round((n / periodN[p]) * 100) : 0
-                      const intensity = Math.min(pct / 70, 1)
-                      return (
-                        <td key={p} className="p-0.5">
-                          <div className="w-14 h-9 rounded-[3px] flex items-center justify-center font-data text-[11px] cursor-default"
-                            style={{ background: pct === 0 ? '#EFEFEF' : `rgba(91, 91, 255, ${0.10 + intensity * 0.80})`, color: intensity > 0.55 ? 'white' : '#0A0A0A' }}
-                            title={`${s.site}, ${p}: ${n || 0} of ${periodN[p] || 0} (${pct}%)`}>
-                            {pct > 0 ? `${pct}%` : '–'}
-                          </div>
-                        </td>
-                      )
-                    })}
-                    <td className="p-0.5 border-l border-line">
-                      <div className="w-14 h-9 rounded-[3px] flex items-center justify-center font-data text-[11px] font-medium cursor-default bg-line/40"
-                        title={`${s.site}: ${s.total} studies total across all periods`}>
-                        {s.total}
-                      </div>
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
+        <FigureCard title="Site prevalence by period" plotWidth={980} commentary="Lower leg is the single most-measured site (136 of 218 skin-temperature studies, 62%), followed closely by hand, thigh, chest, and forehead (all 123–130 studies). No one site is measured in every study — choice of body site is still inconsistent across the field.">
+          <PeriodHeatmap
+            rows={allSites.map((s) => s.site)}
+            periods={periods}
+            periodN={periodN}
+            rowTotals={Object.fromEntries(allSites.map((s) => [s.site, s.total]))}
+            getCount={(site, p) => siteByPeriod[site]?.[p] || 0}
+            labelWidth={170}
+            cellWidth={88}
+          />
         </FigureCard>
       </ChapterSection>
 
@@ -612,33 +571,23 @@ export default function ChapterBody({ data }) {
         title="Where other signals are measured"
         intro="Skin temperature isn't the only signal where measurement site reflects a real methodological choice. Heart rate's site splits roughly along sensor modality (chest straps vs. wrist/finger optical sensors); skin conductance follows electrode-placement convention; sweat is measured either at a local site or, more often, across the whole body at once — two fundamentally different kinds of measurement sharing one field name."
       >
-        <FigureCard title="Heart/pulse rate measurement site" plotWidth={680} commentary="Chest (44 of 99 studies) and wrist (25) are the two dominant sites — roughly, ECG-strap vs. optical-wearable territory. Toggle to see wrist catch up to chest over the decade.">
-          <OverallByPeriod
-            minHeight={420}
-            earliestPeriodCaveat="2013–14 (n=1) and 2015–16 (n=3) are too thin to read literally; the wrist/chest convergence is clearest from 2017 onward."
-            renderOverall={() => (
-              <InteractiveBarChart
-                data={site_by_signal['Heart/Pulse rate'].site_totals.map((d) => ({ label: d.site, count: d.count }))}
-                total={site_by_signal['Heart/Pulse rate'].n_studies_with_site}
-                color="#0A0A0A"
+        <FigureCard title="Heart/pulse rate measurement site" plotWidth={980} commentary="Chest (44 of 99 studies) and wrist (25) are the two dominant sites — roughly, ECG-strap vs. optical-wearable territory. The matrix below shows the full site distribution over time.">
+          {(() => {
+            const hr = site_by_signal['Heart/Pulse rate'].by_period
+            const hrSites = site_by_signal['Heart/Pulse rate'].site_totals.map((d) => d.site)
+            const totals = Object.fromEntries(site_by_signal['Heart/Pulse rate'].site_totals.map((d) => [d.site, d.count]))
+            return (
+              <PeriodHeatmap
+                rows={hrSites}
+                periods={hr.periods}
+                periodN={hr.period_n}
+                rowTotals={totals}
+                getCount={(site, p) => hr.data.find((r) => r.site === site && r.period === p)?.count || 0}
+                labelWidth={150}
+                cellWidth={88}
               />
-            )}
-            renderByPeriod={() => {
-              const hr = site_by_signal['Heart/Pulse rate'].by_period
-              const topSites = ['Chest', 'Wrist', 'Upper arm', 'Finger']
-              const totals = Object.fromEntries(topSites.map((site) => [site, site_by_signal['Heart/Pulse rate'].site_totals.find((d) => d.site === site)?.count || 0]))
-              return (
-                <PeriodHeatmap
-                  rows={topSites}
-                  periods={hr.periods}
-                  periodN={hr.period_n}
-                  rowTotals={totals}
-                  getCount={(site, p) => hr.data.find((r) => r.site === site && r.period === p)?.count || 0}
-                  labelWidth={120}
-                />
-              )
-            }}
-          />
+            )
+          })()}
         </FigureCard>
 
         <FigureCard title="Skin conductance measurement site" commentary="Wrist (11 of 25 studies) and finger (8) — the classic GSR electrode sites — dominate, with a long tail of one-off placements (thigh, shin, temple) reflecting study-specific designs.">

@@ -2,30 +2,18 @@ import { useMemo } from 'react'
 import { ChapterHeader, ChapterSection } from '../components/Chapter.jsx'
 import CompletenessStrip from '../components/CompletenessStrip.jsx'
 import FigureCard from '../components/FigureCard.jsx'
-import InteractiveBarChart from '../components/InteractiveBarChart.jsx'
 import StudyIntervalPlot from '../components/StudyIntervalPlot.jsx'
-import OverallByPeriod from '../components/OverallByPeriod.jsx'
+import { PeriodHeatmap } from '../components/OverallByPeriod.jsx'
 import { useTooltip, TooltipPortal } from '../components/Tooltip.jsx'
 
-function quantile(sorted, q) {
-  if (!sorted.length) return null
-  const pos = (sorted.length - 1) * q
-  const base = Math.floor(pos)
-  const rest = pos - base
-  return sorted[base + 1] !== undefined ? sorted[base] + rest * (sorted[base + 1] - sorted[base]) : sorted[base]
-}
-
-function SampleSizeHistogramLinear({ studies, maxDisplay = 100, binWidth = 5, color = '#5B5BFF' }) {
+function SampleSizeHistogramLinear({ studies, maxDisplay = 100, binWidth = 5, color = '#5B5BFF', width = 960 }) {
   const { tip, showTip, moveTip, hideTip } = useTooltip()
   const values = studies.map((s) => Number(s.n)).filter((n) => Number.isFinite(n) && n > 0).sort((a, b) => a - b)
   if (!values.length) return <div className="text-[12px] text-inkfaint">No data available.</div>
 
   const bins = []
-  for (let start = 0; start < maxDisplay; start += binWidth) {
-    bins.push({ start, end: start + binWidth, count: 0, overflow: false })
-  }
+  for (let start = 0; start < maxDisplay; start += binWidth) bins.push({ start, end: start + binWidth, count: 0, overflow: false })
   bins.push({ start: maxDisplay, end: Infinity, count: 0, overflow: true })
-
   values.forEach((v) => {
     const idx = v >= maxDisplay ? bins.length - 1 : Math.min(Math.floor(v / binWidth), bins.length - 2)
     bins[idx].count += 1
@@ -39,19 +27,18 @@ function SampleSizeHistogramLinear({ studies, maxDisplay = 100, binWidth = 5, co
     return cum / total
   })
 
-  const chartHeight = 160
-  const chartWidth = 620
+  const chartHeight = 180
   const yAxisW = 34
-  const binW = chartWidth / bins.length
+  const binW = width / bins.length
   const mid = Math.floor(values.length / 2)
   const median = values.length % 2 ? values[mid] : (values[mid - 1] + values[mid]) / 2
 
   return (
-    <div className="overflow-x-auto">
-      <svg width={chartWidth + yAxisW} height={chartHeight + 32} className="font-data">
+    <div>
+      <svg width={width + yAxisW} height={chartHeight + 34} className="font-data block overflow-visible">
         {[0, 0.5, 1].map((frac) => (
           <g key={frac}>
-            <line x1={yAxisW} x2={chartWidth + yAxisW} y1={chartHeight * (1 - frac)} y2={chartHeight * (1 - frac)} stroke="#E4E4E4" strokeWidth={1} />
+            <line x1={yAxisW} x2={width + yAxisW} y1={chartHeight * (1 - frac)} y2={chartHeight * (1 - frac)} stroke="#E4E4E4" strokeWidth={1} />
             <text x={yAxisW - 4} y={chartHeight * (1 - frac) + 3} fontSize={9} fill="#8A8A8A" textAnchor="end">
               {Math.round(maxCount * frac)}
             </text>
@@ -71,7 +58,7 @@ function SampleSizeHistogramLinear({ studies, maxDisplay = 100, binWidth = 5, co
                 y={chartHeight - barH}
                 width={w}
                 height={barH}
-                fill={color}
+                fill="#0A0A0A"
                 opacity={0.85}
                 className="cursor-default hover:opacity-100"
                 onMouseEnter={(e) => showTip(e, `${label} participants: ${b.count} studies · ${((b.count / total) * 100).toFixed(1)}%`)}
@@ -80,21 +67,16 @@ function SampleSizeHistogramLinear({ studies, maxDisplay = 100, binWidth = 5, co
               />
             )
           })}
-          <polyline
-            points={ecdf.map((y, i) => `${i * binW + binW / 2},${chartHeight - y * chartHeight}`).join(' ')}
-            fill="none"
-            stroke={color}
-            strokeWidth={1.5}
-          />
+          <polyline points={[`0,${chartHeight}`].concat(ecdf.map((y, i) => `${(i + 1) * binW},${chartHeight - y * chartHeight}`)).join(' ')} fill="none" stroke={color} strokeWidth={1.6} />
           {ecdf.map((y, i) => (
             <circle
               key={i}
-              cx={i * binW + binW / 2}
+              cx={(i + 1) * binW}
               cy={chartHeight - y * chartHeight}
-              r={2.5}
+              r={2.6}
               fill={color}
               className="cursor-default"
-              onMouseEnter={(e) => showTip(e, `Cumulative: ${(y * 100).toFixed(1)}% of studies up to and including ${bins[i].overflow ? `${maxDisplay}+` : `${bins[i].end} participants`} (end of this bin)`)}
+              onMouseEnter={(e) => showTip(e, `Cumulative through this bin: ${(y * 100).toFixed(1)}% of studies ${bins[i].overflow ? `≥ ${maxDisplay}` : `≤ ${bins[i].end}`} participants`)}
               onMouseMove={moveTip}
               onMouseLeave={hideTip}
             />
@@ -110,10 +92,10 @@ function SampleSizeHistogramLinear({ studies, maxDisplay = 100, binWidth = 5, co
           })}
         </g>
       </svg>
-      <div className="flex items-center gap-4 mt-1 text-[11px] text-inkmid">
-        <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 inline-block rounded-sm" style={{ background: color, opacity: 0.85 }} /> count</span>
+      <div className="flex items-center gap-4 mt-1 text-[11px] text-inkmid flex-wrap">
+        <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 inline-block rounded-sm bg-ink/85" /> count</span>
         <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 inline-block rounded-full" style={{ background: color }} /> cumulative %</span>
-        <span className="text-inkfaint">x-axis: participants per study, linear bins of {binWidth}; final bin = {maxDisplay}+.</span>
+        <span className="text-inkfaint">· x-axis: participants per study, linear bins of {binWidth}; final bin = {maxDisplay}+.</span>
       </div>
       <div className="font-data text-[10.5px] text-inkfaint mt-1">Median sample size = {median.toFixed(0)} participants.</div>
       <TooltipPortal tip={tip} />
@@ -121,112 +103,50 @@ function SampleSizeHistogramLinear({ studies, maxDisplay = 100, binWidth = 5, co
   )
 }
 
-function SexDistributionChart({ studies }) {
+function SexDistributionChart({ studies, width = 960 }) {
   const { tip, showTip, moveTip, hideTip } = useTooltip()
-  const H = 64
-  const width = 640
+  const H = 120
+  const yAxisW = 30
   const n = studies.length
-  const barSlot = width / n
-  const barW = Math.max(1.3, barSlot * 0.85)
+  const barSlot = width / Math.max(n, 1)
+  const barW = Math.max(1.3, barSlot * 0.82)
   return (
     <div>
       <div className="font-data text-[10px] text-inkfaint mb-1">
         Each thin bar is one study's reported sex split (100% stacked); studies sorted left→right by ascending % male.
       </div>
-      <svg width={width} height={H} style={{ display: 'block' }}>
-        {studies.map((s, i) => {
-          const x = i * barSlot + (barSlot - barW) / 2
-          const malePx = Math.round((s.male_pct / 100) * H)
+      <svg width={width + yAxisW} height={H + 2} style={{ display: 'block' }}>
+        {[0, 50, 100].map((pct) => {
+          const y = H - (pct / 100) * H
           return (
-            <g
-              key={i}
-              onMouseEnter={(e) => showTip(e, `${s.id}: ${s.male}M / ${s.female}F · ${s.male_pct}% male`)}
-              onMouseMove={moveTip}
-              onMouseLeave={hideTip}
-              className="cursor-default"
-            >
-              <rect x={x} y={0} width={barW} height={malePx} fill="#E4E4E4" />
-              <rect x={x} y={malePx} width={barW} height={H - malePx} fill="#5B5BFF" />
+            <g key={pct}>
+              <line x1={yAxisW} x2={width + yAxisW} y1={y} y2={y} stroke="#E4E4E4" strokeWidth={1} />
+              <text x={yAxisW - 4} y={y + 3} fontSize={9} fill="#8A8A8A" textAnchor="end" className="font-data">{pct}%</text>
             </g>
           )
         })}
+        <g transform={`translate(${yAxisW},0)`}>
+          {studies.map((s, i) => {
+            const x = i * barSlot + (barSlot - barW) / 2
+            const malePx = (s.male_pct / 100) * H
+            return (
+              <g
+                key={i}
+                onMouseEnter={(e) => showTip(e, `${s.id}: ${s.male}M / ${s.female}F · ${s.male_pct}% male`)}
+                onMouseMove={moveTip}
+                onMouseLeave={hideTip}
+                className="cursor-default"
+              >
+                <rect x={x} y={0} width={barW} height={malePx} fill="#E4E4E4" />
+                <rect x={x} y={malePx} width={barW} height={H - malePx} fill="#5B5BFF" />
+              </g>
+            )
+          })}
+        </g>
       </svg>
       <div className="flex gap-4 mt-2 text-[11px] text-inkmid">
         <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 inline-block rounded-sm" style={{ background: '#E4E4E4' }} /> Male</span>
         <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 inline-block rounded-sm" style={{ background: '#5B5BFF' }} /> Female</span>
-      </div>
-      <TooltipPortal tip={tip} />
-    </div>
-  )
-}
-
-function FieldPeriodHeatmap({ periodData, fields, periods, overallBar, color = 'blue' }) {
-  const { tip, showTip, moveTip, hideTip } = useTooltip()
-  const cellW = 64
-  const cellH = 30
-  const labelW = 180
-  const barW = 110
-  const maxPct = 100
-  const countByField = Object.fromEntries((overallBar || []).map((r) => [r.field, r.count]))
-  const maxCount = Math.max(...(overallBar || []).map((r) => r.count), 1)
-
-  const colorFor = (pct) => {
-    if (!pct) return '#EFEFEF'
-    const t = Math.min(pct / maxPct, 1)
-    if (color === 'blue') {
-      const r = Math.round(239 + (91 - 239) * t)
-      const g = Math.round(239 + (91 - 239) * t)
-      const b = Math.round(239 + (255 - 239) * t)
-      return `rgb(${r},${g},${b})`
-    }
-    return '#D9D9D9'
-  }
-
-  return (
-    <div className="overflow-x-auto">
-      <div className="font-data text-[10px] text-inkfaint mb-2">Rows are fields; columns are 2-year periods; the final column shows the total study count across the whole corpus for that same row.</div>
-      <div className="inline-block">
-        <div className="flex items-end" style={{ marginLeft: labelW }}>
-          {periods.map((p) => (
-            <div key={p} className="font-data text-[10px] text-inkfaint text-center" style={{ width: cellW }}>{p}</div>
-          ))}
-          <div className="font-data text-[10px] text-inkfaint text-center border-l border-line ml-2 pl-2" style={{ width: barW + 16 }}>Total</div>
-        </div>
-        {fields.map((field) => (
-          <div key={field} className="flex items-center">
-            <div className="text-[12px] shrink-0 text-right pr-2 truncate" style={{ width: labelW }} title={field}>{field}</div>
-            {periods.map((p) => {
-              const r = periodData.find((d) => d.period === p && d.field === field)
-              const pct = r?.pct || 0
-              const count = r?.count || 0
-              const n = r?.n || 0
-              return (
-                <div
-                  key={p}
-                  className="shrink-0 flex items-center justify-center font-data text-[10px] cursor-default border border-paper"
-                  style={{ width: cellW, height: cellH, background: colorFor(pct), color: pct > 55 ? 'white' : '#0A0A0A' }}
-                  onMouseEnter={(e) => showTip(e, `${field}, ${p}: ${count} of ${n} studies · ${pct}%`)}
-                  onMouseMove={moveTip}
-                  onMouseLeave={hideTip}
-                >
-                  {pct > 0 ? `${Math.round(pct)}%` : '–'}
-                </div>
-              )
-            })}
-            <div className="shrink-0 flex items-center gap-2 border-l border-line ml-2 pl-2" style={{ width: barW + 16, height: cellH }}>
-              <div className="h-4 rounded-sm bg-[#5B5BFF]" style={{ width: `${(countByField[field] / maxCount) * barW}px` }} />
-              <div className="font-data text-[10px] text-inkmid w-8 text-right">{countByField[field] || 0}</div>
-            </div>
-          </div>
-        ))}
-      </div>
-      <div className="flex items-center gap-4 mt-3 font-data text-[10.5px] text-inkfaint">
-        <span className="flex items-center gap-2">
-          <span>scale:</span>
-          <span className="w-3 h-3 inline-block" style={{ background: '#EFEFEF' }} /> 0%
-          <span className="w-3 h-3 inline-block" style={{ background: colorFor(50) }} /> 50%
-          <span className="w-3 h-3 inline-block" style={{ background: colorFor(100) }} /> 100%
-        </span>
       </div>
       <TooltipPortal tip={tip} />
     </div>
@@ -295,16 +215,13 @@ export default function ChapterPopulation({ data }) {
         ]}
       />
 
-      <CompletenessStrip
-        fields={chapter_completeness.population.fields}
-        nStudies={chapter_completeness.population.n_studies}
-      />
+      <CompletenessStrip fields={chapter_completeness.population.fields} nStudies={chapter_completeness.population.n_studies} />
 
       <ChapterSection
         title="Demographics"
         intro={`${sexSummary.equal} of ${sexSummary.total} studies (${balancedPct}%) report a balanced sex split (45–55% male); ${sexSummary.male_gt} (${malePct}%) skew male and only ${sexSummary.female_gt} (${femalePct}%) skew female. Sample sizes are modest, with a median of ${medianSampleSize.toFixed(0)} participants.`}
       >
-        <FigureCard figNumber="8" title="Participant age" commentary={`Mean ± SD per study, sorted ascending by mean. ${fig08_age.studies.filter((s) => !s.std_reported).length} studies report a mean with no SD; these appear as a mean point with no range.`}>
+        <FigureCard figNumber="8" title="Participant age" plotWidth={940} commentary={`Mean ± SD per study, sorted ascending by mean. ${fig08_age.studies.filter((s) => !s.std_reported).length} studies report a mean with no SD; these appear as a mean point with no range.`}>
           <StudyIntervalPlot
             studies={fig08_age.studies}
             getLow={(s) => (s.std_reported ? s.mean - s.std : s.mean)}
@@ -313,13 +230,13 @@ export default function ChapterPopulation({ data }) {
             getLabel={(s) => (s.std_reported ? `${s.id}: ${s.mean.toFixed(1)} ± ${s.std.toFixed(1)} years` : `${s.id}: ${s.mean.toFixed(1)} years (SD not reported)`)}
             domain={[15, 60]}
             color="#5B5BFF"
-            unit=""
             xAxisLabel="Age (years)"
             tickStep={5}
+            width={900}
           />
         </FigureCard>
 
-        <FigureCard figNumber="9" title="Participant BMI" commentary={`Mean ± SD per study, sorted ascending by mean. ${fig09_bmi.studies.filter((s) => !s.std_reported).length} studies report a mean with no SD; these appear as a mean point with no range.`}>
+        <FigureCard figNumber="9" title="Participant BMI" plotWidth={940} commentary={`Mean ± SD per study, sorted ascending by mean. ${fig09_bmi.studies.filter((s) => !s.std_reported).length} studies report a mean with no SD; these appear as a mean point with no range.`}>
           <StudyIntervalPlot
             studies={fig09_bmi.studies}
             getLow={(s) => (s.std_reported ? s.mean - s.std : s.mean)}
@@ -328,18 +245,18 @@ export default function ChapterPopulation({ data }) {
             getLabel={(s) => (s.std_reported ? `${s.id}: ${s.mean.toFixed(1)} ± ${s.std.toFixed(1)} kg/m²` : `${s.id}: ${s.mean.toFixed(1)} kg/m² (SD not reported)`)}
             domain={[16, 30]}
             color="#5B5BFF"
-            unit=""
             xAxisLabel="BMI (kg/m²)"
             tickStep={2}
+            width={900}
           />
         </FigureCard>
 
-        <FigureCard figNumber="10" title="Sex distribution" plotWidth={680} commentary={`Of ${fig10_sex_distribution.studies.length} studies reporting sex breakdown: ${sexSummary.male_gt} skew male (>55%), ${sexSummary.equal} are balanced, and ${sexSummary.female_gt} skew female.`}>
-          <SexDistributionChart studies={fig10_sex_distribution.studies} />
+        <FigureCard figNumber="10" title="Sex distribution" plotWidth={980} commentary={`Of ${fig10_sex_distribution.studies.length} studies reporting sex breakdown: ${sexSummary.male_gt} skew male (>55%), ${sexSummary.equal} are balanced, and ${sexSummary.female_gt} skew female.`}>
+          <SexDistributionChart studies={fig10_sex_distribution.studies} width={920} />
         </FigureCard>
 
-        <FigureCard figNumber="11" title="Sample size distribution" commentary={`Distribution of total participants per study, shown on a linear participant scale with an overflow bin at 100+ so the shape remains intuitive while still retaining the largest studies. Median is ${medianSampleSize.toFixed(0)}.`}>
-          <SampleSizeHistogramLinear studies={fig11_sample_size.studies} maxDisplay={100} binWidth={5} color="#5B5BFF" />
+        <FigureCard figNumber="11" title="Sample size distribution" plotWidth={980} commentary={`Distribution of total participants per study, shown on a linear participant scale with an overflow bin at 100+ so the shape remains intuitive while still retaining the largest studies. Median is ${medianSampleSize.toFixed(0)}.`}>
+          <SampleSizeHistogramLinear studies={fig11_sample_size.studies} maxDisplay={100} binWidth={5} color="#5B5BFF" width={920} />
         </FigureCard>
       </ChapterSection>
 
@@ -347,24 +264,15 @@ export default function ChapterPopulation({ data }) {
         title="Who was excluded, and why"
         intro={'"Healthy" is the dominant inclusion criterion, almost always without a stated method for verifying health status. Every other criterion shown appears in well under a third of studies — few select by a specific age or BMI range, or restrict recruitment to one sex.'}
       >
-        <FigureCard figNumber="22" title="Inclusion / exclusion criteria" plotWidth={900} commentary="The study-by-study binary matrix was removed here; the overall tab now summarizes the same fields as bars, and the by-period tab uses a matrix-style heatmap with a matching total column.">
-          <OverallByPeriod
-            minHeight={420}
-            renderOverall={() => (
-              <InteractiveBarChart
-                data={fig22_selection_criteria.bar.map((d) => ({ label: d.field, count: d.count }))}
-                total={fig22_selection_criteria.n_studies}
-                color="#0A0A0A"
-              />
-            )}
-            renderByPeriod={() => (
-              <FieldPeriodHeatmap
-                periodData={selection_by_period.data}
-                fields={selection_by_period.fields}
-                periods={selection_by_period.periods}
-                overallBar={fig22_selection_criteria.bar.filter((d) => selection_by_period.fields.includes(d.field))}
-              />
-            )}
+        <FigureCard figNumber="22" title="Inclusion / exclusion criteria" plotWidth={980} commentary="Rows are fields; columns are 2-year periods; the final column shows the corpus-wide total count for the same row.">
+          <PeriodHeatmap
+            rows={selection_by_period.fields}
+            periods={selection_by_period.periods}
+            periodN={Object.fromEntries(selection_by_period.data.filter((d, idx, arr) => arr.findIndex((x) => x.period === d.period) === idx).map((d) => [d.period, d.n]))}
+            rowTotals={Object.fromEntries(fig22_selection_criteria.bar.map((d) => [d.field, d.count]))}
+            getCount={(field, p) => selection_by_period.data.find((d) => d.field === field && d.period === p)?.count || 0}
+            labelWidth={210}
+            cellWidth={88}
           />
         </FigureCard>
       </ChapterSection>
@@ -373,24 +281,15 @@ export default function ChapterPopulation({ data }) {
         title="What else is known about participants"
         intro="Sex, age, height, and weight are reported in nearly every study. Thermal history, body fat, and menstrual or contraceptive status — all known to shift thermophysiological baselines — are reported much less often."
       >
-        <FigureCard figNumber="21" title="Participant metadata collected" plotWidth={900} commentary="The study-by-study binary matrix was removed here as well. The overall tab shows how often each field is reported across the corpus; the by-period tab shows how reporting percentages change across the 2-year bins, with the final column giving the corpus-wide total count for the same row.">
-          <OverallByPeriod
-            minHeight={420}
-            renderOverall={() => (
-              <InteractiveBarChart
-                data={fig21_participant_metadata.bar.map((d) => ({ label: d.field, count: d.count }))}
-                total={fig21_participant_metadata.n_studies}
-                color="#0A0A0A"
-              />
-            )}
-            renderByPeriod={() => (
-              <FieldPeriodHeatmap
-                periodData={participant_by_period.data}
-                fields={participant_by_period.fields}
-                periods={participant_by_period.periods}
-                overallBar={fig21_participant_metadata.bar.filter((d) => participant_by_period.fields.includes(d.field))}
-              />
-            )}
+        <FigureCard figNumber="21" title="Participant metadata collected" plotWidth={980} commentary="Rows are fields; columns are 2-year periods; the final column shows the corpus-wide total count for the same row.">
+          <PeriodHeatmap
+            rows={participant_by_period.fields}
+            periods={participant_by_period.periods}
+            periodN={Object.fromEntries(participant_by_period.data.filter((d, idx, arr) => arr.findIndex((x) => x.period === d.period) === idx).map((d) => [d.period, d.n]))}
+            rowTotals={Object.fromEntries(fig21_participant_metadata.bar.map((d) => [d.field, d.count]))}
+            getCount={(field, p) => participant_by_period.data.find((d) => d.field === field && d.period === p)?.count || 0}
+            labelWidth={210}
+            cellWidth={88}
           />
         </FigureCard>
       </ChapterSection>

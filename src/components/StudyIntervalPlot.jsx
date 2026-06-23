@@ -17,19 +17,19 @@ export default function StudyIntervalPlot({
   getLabel,
   domain,
   color = '#5B5BFF',
-  rowHeight = 3.4,
+  rowHeight = 3.8,
   unit = '',
   xAxisLabel = '',
   tickStep = null,
+  width = 900,
 }) {
   const { tip, showTip, moveTip, hideTip } = useTooltip()
   if (!studies.length) return <div className="text-[12px] text-inkfaint">No data available.</div>
 
   const [domainMin, domainMax] = domain
-  const width = 640
   const plotHeight = studies.length * rowHeight
-  const boxY = plotHeight + 16
-  const totalHeight = plotHeight + 48
+  const boxY = plotHeight + 22
+  const totalHeight = plotHeight + 74
   const xScale = (v) => ((v - domainMin) / (domainMax - domainMin)) * width
 
   const tickValues = useMemo(() => {
@@ -56,14 +56,15 @@ export default function StudyIntervalPlot({
         med: quantile(mids, 0.5),
         q3: quantile(mids, 0.75),
         max: mids[mids.length - 1],
+        mean: mids.reduce((a, v) => a + v, 0) / mids.length,
       }
     : null
 
   return (
     <div>
-      <svg width={width} height={totalHeight + 18} className="font-data overflow-visible">
+      <svg width={width} height={totalHeight + 18} className="font-data overflow-visible block">
         {tickValues.map((v) => (
-          <line key={v} x1={xScale(v)} x2={xScale(v)} y1={0} y2={boxY + 10} stroke="#E4E4E4" strokeWidth={1} />
+          <line key={v} x1={xScale(v)} x2={xScale(v)} y1={0} y2={boxY + 12} stroke="#E4E4E4" strokeWidth={1} />
         ))}
         {studies.map((s, i) => {
           const low = getLow(s)
@@ -78,29 +79,46 @@ export default function StudyIntervalPlot({
               onMouseMove={moveTip}
               onMouseLeave={hideTip}
             >
-              <line x1={xScale(low)} x2={xScale(high)} y1={y} y2={y} stroke={color} strokeWidth={1.15} opacity={0.5} />
-              <circle cx={xScale(mid)} cy={y} r={1.7} fill={color} opacity={0.95} />
+              <line x1={xScale(low)} x2={xScale(high)} y1={y} y2={y} stroke={color} strokeWidth={1.2} opacity={0.52} />
+              <circle cx={xScale(mid)} cy={y} r={1.9} fill={color} opacity={0.97} />
             </g>
           )
         })}
         {boxStats && (
-          <g className="cursor-default" onMouseEnter={(e) => showTip(e, `Study means: median ${boxStats.med.toFixed(1)}${unit}, IQR ${boxStats.q1.toFixed(1)}–${boxStats.q3.toFixed(1)}${unit}, range ${boxStats.min.toFixed(1)}–${boxStats.max.toFixed(1)}${unit}`)} onMouseMove={moveTip} onMouseLeave={hideTip}>
-            <line x1={xScale(boxStats.min)} x2={xScale(boxStats.max)} y1={boxY} y2={boxY} stroke="#0A0A0A" strokeWidth={1} />
-            <line x1={xScale(boxStats.min)} x2={xScale(boxStats.min)} y1={boxY - 4} y2={boxY + 4} stroke="#0A0A0A" strokeWidth={1} />
-            <line x1={xScale(boxStats.max)} x2={xScale(boxStats.max)} y1={boxY - 4} y2={boxY + 4} stroke="#0A0A0A" strokeWidth={1} />
-            <rect x={xScale(boxStats.q1)} y={boxY - 7} width={Math.max(1, xScale(boxStats.q3) - xScale(boxStats.q1))} height={14} fill="#FFFFFF" stroke="#0A0A0A" strokeWidth={1} />
-            <line x1={xScale(boxStats.med)} x2={xScale(boxStats.med)} y1={boxY - 8} y2={boxY + 8} stroke="#0A0A0A" strokeWidth={1.4} />
-            <text x={width - 2} y={boxY - 10} fontSize={9} fill="#8A8A8A" textAnchor="end">boxplot of study means</text>
+          <g
+            className="cursor-default"
+            onMouseEnter={(e) => showTip(e, `Study means: mean ${boxStats.mean.toFixed(1)}${unit}, median ${boxStats.med.toFixed(1)}${unit}, IQR ${boxStats.q1.toFixed(1)}–${boxStats.q3.toFixed(1)}${unit}, range ${boxStats.min.toFixed(1)}–${boxStats.max.toFixed(1)}${unit}`)}
+            onMouseMove={moveTip}
+            onMouseLeave={hideTip}
+          >
+            <line x1={xScale(boxStats.min)} x2={xScale(boxStats.max)} y1={boxY} y2={boxY} stroke="#0A0A0A" strokeWidth={1.1} />
+            <line x1={xScale(boxStats.min)} x2={xScale(boxStats.min)} y1={boxY - 5} y2={boxY + 5} stroke="#0A0A0A" strokeWidth={1.1} />
+            <line x1={xScale(boxStats.max)} x2={xScale(boxStats.max)} y1={boxY - 5} y2={boxY + 5} stroke="#0A0A0A" strokeWidth={1.1} />
+            <rect x={xScale(boxStats.q1)} y={boxY - 8} width={Math.max(1, xScale(boxStats.q3) - xScale(boxStats.q1))} height={16} fill="#FFFFFF" stroke="#0A0A0A" strokeWidth={1.15} />
+            <line x1={xScale(boxStats.q1)} x2={xScale(boxStats.q1)} y1={boxY - 9} y2={boxY + 9} stroke="#0A0A0A" strokeWidth={1} opacity={0.75} />
+            <line x1={xScale(boxStats.med)} x2={xScale(boxStats.med)} y1={boxY - 10} y2={boxY + 10} stroke="#0A0A0A" strokeWidth={1.5} />
+            <line x1={xScale(boxStats.q3)} x2={xScale(boxStats.q3)} y1={boxY - 9} y2={boxY + 9} stroke="#0A0A0A" strokeWidth={1} opacity={0.75} />
+            <rect
+              x={xScale(boxStats.mean) - 4}
+              y={boxY - 4}
+              width={8}
+              height={8}
+              fill={color}
+              stroke="#0A0A0A"
+              strokeWidth={0.8}
+              transform={`rotate(45 ${xScale(boxStats.mean)} ${boxY})`}
+            />
+            <text x={width - 2} y={boxY - 11} fontSize={9} fill="#8A8A8A" textAnchor="end">boxplot of study means</text>
           </g>
         )}
         {tickValues.map((v) => (
-          <text key={`t-${v}`} x={xScale(v)} y={totalHeight + 8} fontSize={10} fill="#8A8A8A" textAnchor="middle">
-            {Number.isInteger(v) ? v : v.toFixed(1)}{unit}
-          </text>
+          <text key={`t-${v}`} x={xScale(v)} y={totalHeight + 12} fontSize={10} fill="#8A8A8A" textAnchor="middle">{v}</text>
         ))}
+        {xAxisLabel && <text x={width} y={totalHeight + 28} fontSize={11} fill="#8A8A8A" textAnchor="end">{xAxisLabel}</text>}
       </svg>
-      {xAxisLabel && <div className="font-data text-[10px] text-inkfaint text-center mt-0.5">{xAxisLabel}</div>}
-      <div className="font-data text-[10px] text-inkfaint mt-2">{studies.length} studies, sorted ascending by mean. Each line shows mean ± SD; the central point marks the mean. Boxplot summarizes the distribution of study means.</div>
+      <div className="font-data text-[10.5px] text-inkfaint mt-1">
+        {studies.length} studies, sorted ascending by mean. Each line shows mean ± SD; the central point marks the mean. Boxplot summarizes the distribution of study means.
+      </div>
       <TooltipPortal tip={tip} />
     </div>
   )

@@ -1,48 +1,33 @@
 import { useState, useEffect, useMemo } from 'react'
 import { useTooltip, TooltipPortal } from './Tooltip.jsx'
 
-// Body-site visualization: places one marker per measurement site on a
-// front-view human silhouette, sized by study count. Coordinates below are
-// normalized (0-1 fractions of the silhouette's own width/height) rather
-// than raw pixels, estimated from standard front-facing-figure anatomical
-// proportions — NOT measured against the actual rendered silhouette pixel
-// positions, since this was built without the ability to view the
-// rendered image. Treat marker alignment as a first pass: if any site's
-// dot visibly sits off the body once this renders, adjust its (x, y) pair
-// below — each is independent and won't affect the others.
-//
-// Sites with no real front-view position (Back, Lower back, Buttocks,
-// Sole — all posterior) are placed at the closest visible analog with
-// "(back)" in their label, rather than silently misrepresenting them as
-// frontally visible.
+// Coordinates are normalized to the full two-body SVG (front at left, back at right).
+// Most sites are placed on the front silhouette; explicitly posterior sites are placed
+// on the back silhouette and drawn with a dashed outline.
 const SITE_COORDS = {
-  // Head/face/neck
-  'Forehead': [0.50, 0.075],
-  'Face': [0.50, 0.09],
-  'Neck': [0.50, 0.135],
-  // Torso
-  'Clavicle': [0.43, 0.165],
-  'Chest': [0.50, 0.22],
-  'Axilla': [0.38, 0.225],
-  'Abdomen': [0.50, 0.30],
-  'Waist': [0.50, 0.34],
-  'Back': [0.50, 0.27],          // posterior — approximated at torso center
-  'Lower back': [0.50, 0.345],   // posterior — approximated at lower torso
-  'Buttocks': [0.50, 0.40],      // posterior — approximated at hip level
-  // Arms
-  'Shoulder': [0.34, 0.185],
-  'Upper arm': [0.30, 0.27],
-  'Elbow': [0.275, 0.345],
-  'Forearm': [0.26, 0.40],
-  'Wrist': [0.245, 0.45],
-  'Hand': [0.235, 0.49],
-  'Finger': [0.225, 0.51],
-  // Legs
-  'Thigh': [0.44, 0.52],
-  'Lower leg': [0.44, 0.68],
-  'Ankle': [0.44, 0.82],
-  'Foot': [0.44, 0.87],
-  'Sole': [0.44, 0.885],          // posterior/plantar — approximated at foot
+  'Forehead': [150.12 / 603.04, 34.63 / 742.93],
+  'Face': [150.12 / 603.04, 76.53 / 742.93],
+  'Neck': [150.42 / 603.04, 126.08 / 742.93],
+  'Clavicle': [133.77 / 603.04, 126.08 / 742.93],
+  'Chest': [150.26 / 603.04, 191.71 / 742.93],
+  'Axilla': [113.59 / 603.04, 222.47 / 742.93],
+  'Abdomen': [150.42 / 603.04, 312.05 / 742.93],
+  'Waist': [150.42 / 603.04, 359.51 / 742.93],
+  'Back': [422.25 / 603.04, 199.10 / 742.93],
+  'Lower back': [422.25 / 603.04, 300.73 / 742.93],
+  'Buttocks': [424.19 / 603.04, 459.67 / 742.93],
+  'Shoulder': [72.50 / 603.04, 222.47 / 742.93],
+  'Upper arm': [72.50 / 603.04, 277.26 / 742.93],
+  'Elbow': [53.83 / 603.04, 359.51 / 742.93],
+  'Forearm': [42.15 / 603.04, 392.82 / 742.93],
+  'Wrist': [27.64 / 603.04, 433.89 / 742.93],
+  'Hand': [42.15 / 603.04, 433.89 / 742.93],
+  'Finger': [53.03 / 603.04, 323.85 / 742.93],
+  'Thigh': [116.20 / 603.04, 459.67 / 742.93],
+  'Lower leg': [116.73 / 603.04, 593.31 / 742.93],
+  'Ankle': [127.16 / 603.04, 677.16 / 742.93],
+  'Foot': [125.98 / 603.04, 710.17 / 742.93],
+  'Sole': [438.30 / 603.04, 716.50 / 742.93],
 }
 
 const NON_PLACEABLE_NOTE = {
@@ -77,7 +62,7 @@ export default function BodySiteMap({ siteData, totalLabel, color = '#5B5BFF', h
     return { placeable, unplaceable, maxCount }
   }, [siteData])
 
-  const radiusFor = (count) => 5 + Math.sqrt(count / maxCount) * 16
+  const radiusFor = (count) => 6 + Math.sqrt(count / maxCount) * 15
 
   const VB_W = 603.04, VB_H = 742.93
   const renderW = height * (VB_W / VB_H)
@@ -112,7 +97,7 @@ export default function BodySiteMap({ siteData, totalLabel, color = '#5B5BFF', h
                     stroke={isBack ? color : '#FCFCFC'} strokeWidth={isBack ? 1.2 : 1.5}
                     strokeDasharray={isBack ? '3 2' : 'none'}
                     className="cursor-default hover:fill-opacity-90 transition-[fill-opacity]"
-                    onMouseEnter={(e) => showTip(e, `${s.site}${isBack ? ' (back, approximated)' : ''}: ${s.count} studies (${pct}% of ${totalLabel.n})`)}
+                    onMouseEnter={(e) => showTip(e, `${s.site}${isBack ? ' (back)' : ''}: ${s.count} studies (${pct}% of ${totalLabel.n})`)}
                     onMouseMove={moveTip}
                     onMouseLeave={hideTip}
                   />
@@ -127,11 +112,10 @@ export default function BodySiteMap({ siteData, totalLabel, color = '#5B5BFF', h
 
         <div className="flex-1 pt-2">
           <div className="font-data text-[10px] text-inkfaint mb-3">
-            Marker area ∝ study count. Dashed outline = posterior (back-of-body) site, approximated
-            on this front view since no back view is available.
+            Marker area ∝ study count. Dashed outline = posterior (back-of-body) site.
           </div>
           <div className="space-y-1">
-            {placeable.sort((a, b) => b.count - a.count).map((s) => (
+            {[...placeable].sort((a, b) => b.count - a.count).map((s) => (
               <div key={s.site} className="flex items-center justify-between text-[12px] gap-3">
                 <span className="text-inkmid">{s.site}</span>
                 <span className="font-data text-inkfaint">{s.count}</span>

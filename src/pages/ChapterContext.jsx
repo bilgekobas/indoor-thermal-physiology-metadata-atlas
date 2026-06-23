@@ -55,14 +55,14 @@ function TimeOfDayChart({ sessions }) {
     return slots.map((v) => v / Math.max(nSessions, 1))
   }, [sessions, nSessions])
   const maxOcc = occupancy.reduce((m, v) => (v > m ? v : m), 0.001)
-  const W = 600
+  const W = 920
   const H = 120
   const slotW = W / N_SLOTS
   const yAxisW = 32
   const hourLabel = (h) => `${String(h).padStart(2, '0')}:00`
 
   return (
-    <div className="overflow-x-auto">
+    <div>
       <svg width={W + yAxisW} height={H + 28} className="font-data block">
         {[0, 0.5, 1].map((frac) => (
           <g key={frac}>
@@ -139,8 +139,8 @@ function ClimateTempChart({ studies, climateCounts, tempRanges }) {
   const rawMax = everyTemp.length ? Math.max(...everyTemp) : 40
   const domainMin = Math.floor(rawMin / 2) * 2 - 1
   const domainMax = Math.ceil(rawMax / 2) * 2 + 1
-  const W = 680
-  const LABEL_W = 150
+  const W = 920
+  const LABEL_W = 170
   const rowH = 52
   const H = rows.length * rowH + 8
   const xScale = (v) => ((v - domainMin) / Math.max(domainMax - domainMin, 1)) * W
@@ -177,7 +177,7 @@ function ClimateTempChart({ studies, climateCounts, tempRanges }) {
   }
 
   return (
-    <div className="overflow-x-auto">
+    <div>
       <svg width={W + LABEL_W + 10} height={H + 28} className="font-data overflow-visible">
         {ticks.map((v) => (
           <g key={v}>
@@ -349,7 +349,7 @@ function PublicationsByYearChart({ data, totalPubs }) {
   const maxVal = data.reduce((m, d) => (d.count > m ? d.count : m), 1)
   const gridMax = Math.ceil(maxVal / 10) * 10
   const gridStep = 10
-  const W = 600
+  const W = 920
   const H = 140
   const barGap = 6
   const barW = (W - barGap * (data.length - 1)) / data.length
@@ -483,7 +483,7 @@ export default function ChapterContext({ data }) {
           />
         </FigureCard>
 
-        <FigureCard figNumber="7" title="Tested temperature values by host climate" plotWidth={680} commentary="Humid subtropical and continental climates together account for most studies with a known climate, including much of the warm-condition research. Only a small minority were run in genuinely hot climates. The figure now focuses on the actual tested temperature values rather than per-study min–max spans, making the setpoint clustering easier to see.">
+        <FigureCard figNumber="7" title="Tested temperature values by host climate" plotWidth={980} commentary="Humid subtropical and continental climates together account for most studies with a known climate, including much of the warm-condition research. Only a small minority were run in genuinely hot climates. The figure now focuses on the actual tested temperature values rather than per-study min–max spans, making the setpoint clustering easier to see.">
           <ClimateTempChart
             studies={climate_vs_temp.studies}
             climateCounts={climate_vs_temp.climate_counts}
@@ -500,24 +500,28 @@ export default function ChapterContext({ data }) {
           <SettingSankey data={fig06_setting_typology.data} total={summary.n_experiments} />
         </FigureCard>
 
-        <FigureCard figNumber="5" title="Time of day distribution" plotWidth={620} commentary={`Testing peaks in the mid-afternoon. ${fig05_time_of_day.n_circadian_considered} of ${fig05_time_of_day.n_reporting} reporting studies explicitly mention circadian timing; the rest mostly standardize implicitly by testing during a fairly narrow daytime window.`}>
+        <FigureCard figNumber="5" title="Time of day distribution" plotWidth={980} commentary={`Testing peaks in the mid-afternoon. ${fig05_time_of_day.n_circadian_considered} of ${fig05_time_of_day.n_reporting} reporting studies explicitly mention circadian timing; the rest mostly standardize implicitly by testing during a fairly narrow daytime window.`}>
           <TimeOfDayChart sessions={fig05_time_of_day.sessions} />
         </FigureCard>
 
-        <FigureCard figNumber="3" title="Session length" commentary={sessionStats ? `Minutes per session, capped at 600. ${sessionUnder180Pct}% of the ${sessionStats.n} studies with known session length run under 180 minutes. Median ${sessionStats.median} min (IQR ${sessionStats.q25}–${sessionStats.q75}), range ${sessionStats.min}–${sessionStats.max} min.` : 'Minutes per session, capped at 600.'}>
+        <FigureCard figNumber="3" title="Session length" plotWidth={980} commentary={sessionStats ? `Minutes per session, capped at 600. ${sessionUnder180Pct}% of the ${sessionStats.n} studies with known session length run under 180 minutes. Median ${sessionStats.median} min (IQR ${sessionStats.q25}–${sessionStats.q75}), range ${sessionStats.min}–${sessionStats.max} min.` : 'Minutes per session, capped at 600.'}>
           <HistogramECDF
             values={sessionValuesCapped}
             binWidth={15}
             unit=" min"
+            xLabel="minutes per session"
+            width={920}
             onStats={setSessionStats}
           />
         </FigureCard>
 
-        <FigureCard figNumber="4" title="Normalization length" commentary={normStats ? `Minutes spent in normalization / stabilization before testing, capped at 600. ${normUnder60Pct}% of the ${normStats.n} studies with reported normalization time stay at or below 60 minutes. Median ${normStats.median} min (IQR ${normStats.q25}–${normStats.q75}), range ${normStats.min}–${normStats.max} min.` : 'Minutes spent in normalization / stabilization before testing, capped at 600.'}>
+        <FigureCard figNumber="4" title="Normalization length" plotWidth={980} commentary={normStats ? `Minutes spent in normalization / stabilization before testing, capped at 600. ${normUnder60Pct}% of the ${normStats.n} studies with reported normalization time stay at or below 60 minutes. Median ${normStats.median} min (IQR ${normStats.q25}–${normStats.q75}), range ${normStats.min}–${normStats.max} min.` : 'Minutes spent in normalization / stabilization before testing, capped at 600.'}>
           <HistogramECDF
             values={normValuesCapped}
             binWidth={10}
             unit=" min"
+            xLabel="normalization / stabilization time (minutes)"
+            width={920}
             onStats={setNormStats}
           />
         </FigureCard>
@@ -527,7 +531,7 @@ export default function ChapterContext({ data }) {
         title="How many variables are manipulated at once"
         intro={`${domain_comanipulation.n_domains_distribution.filter((d) => d.n_domains >= 2).reduce((a, d) => a + d.count, 0)} of ${domain_comanipulation.n_studies} studies manipulate more than one environmental domain simultaneously (e.g. air temperature crossed with humidity, or with air movement). The rest isolate a single variable, the classic thermal-comfort design.`}
       >
-        <FigureCard title="Number of domains manipulated per study" commentary="Most studies still isolate a single variable — the classic thermal-comfort design. Two-domain experiments form the main minority; three-domain designs are relatively rare.">
+        <FigureCard title="Number of domains manipulated per study" plotWidth={560} commentary="Most studies still isolate a single variable — the classic thermal-comfort design. Two-domain experiments form the main minority; three-domain designs are relatively rare.">
           <InteractiveBarChart
             data={domain_comanipulation.n_domains_distribution.map((d) => ({ label: `${d.n_domains} domain${d.n_domains === 1 ? '' : 's'}`, count: d.count }))}
             total={domain_comanipulation.n_studies}
