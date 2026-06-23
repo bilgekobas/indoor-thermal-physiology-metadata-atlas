@@ -6,7 +6,7 @@ import { useTooltip, TooltipPortal } from './Tooltip.jsx'
 // color-scale legend + the diagonal/off-diagonal distinction are stated
 // directly under the chart so this reads correctly without the surrounding
 // chapter prose.
-export default function CooccurrenceMatrix({ labels, matrix, cellSize = 34 }) {
+export default function CooccurrenceMatrix({ labels, matrix, cellSize = 34, colorScheme = 'warm' }) {
   const { tip, showTip, moveTip, hideTip } = useTooltip()
   // Bug fix: use reduce instead of Math.max(...spread)
   const max = matrix.flat().reduce((m, v) => (v > m ? v : m), 1)
@@ -14,6 +14,12 @@ export default function CooccurrenceMatrix({ labels, matrix, cellSize = 34 }) {
   const colorFor = (v) => {
     if (v === 0) return '#EFEFEF'
     const t = Math.min(v / max, 1)
+    if (colorScheme === 'blue') {
+      const r = Math.round(239 + (91 - 239) * t)
+      const g = Math.round(239 + (91 - 239) * t)
+      const b = Math.round(239 + (255 - 239) * t)
+      return `rgb(${r},${g},${b})`
+    }
     const r = Math.round(241 + (217 - 241) * t)
     const g = Math.round(237 + (79 - 237) * t)
     const b = Math.round(230 + (110 - 230) * t)
