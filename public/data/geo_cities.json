@@ -726,7 +726,7 @@
       "lon": 10.3951,
       "precision": "city",
       "country": "Norway",
-      "count": 1,
+      "count": 2,
       "climate_class": "Dfc",
       "climate_group": "Subarctic"
     },
@@ -812,7 +812,7 @@
     }
   ],
   "n_cities": 81,
-  "n_studies_mapped": 250,
-  "n_studies_total": 269,
+  "n_studies_mapped": 251,
+  "n_studies_total": 270,
   "n_province_level": 12
 }

@@ -37,7 +37,7 @@
         "non_anatomical": false
       }
     ],
-    "n_studies_with_site": 99,
+    "n_studies_with_site": 100,
     "by_period": {
       "data": [
         {
@@ -73,7 +73,7 @@
         {
           "site": "Face",
           "period": "2019\u201320",
-          "count": 1
+          "count": 2
         },
         {
           "site": "Face",
@@ -165,7 +165,7 @@
         "2013\u201314": 1,
         "2015\u201316": 3,
         "2017\u201318": 12,
-        "2019\u201320": 22,
+        "2019\u201320": 23,
         "2021\u201322": 30,
         "2023\u201324": 31
       },
@@ -232,7 +232,7 @@
         "non_anatomical": false
       }
     ],
-    "n_studies_with_site": 25
+    "n_studies_with_site": 26
   },
   "Sweat indicators": {
     "site_totals": [

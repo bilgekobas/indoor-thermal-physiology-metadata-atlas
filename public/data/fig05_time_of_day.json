@@ -313,6 +313,12 @@
       "circadian_considered": false
     },
     {
+      "id": "109_2",
+      "start": 9.0,
+      "end": 16.5,
+      "circadian_considered": false
+    },
+    {
       "id": "116_1",
       "start": 8.5,
       "end": 9.0,
@@ -679,6 +685,6 @@
       "circadian_considered": false
     }
   ],
-  "n_reporting": 72,
+  "n_reporting": 73,
   "n_circadian_considered": 35
 }

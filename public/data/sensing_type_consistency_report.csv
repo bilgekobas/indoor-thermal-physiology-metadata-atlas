@@ -1,0 +1,2 @@
+signal,brand,model,n_sensing_methods,sensing_methods,study_ids,n_rows
+Skin temperature,Opulus,PyroButton,2,Hygrochron | Thermochron,12_1 | 177_1 | 213_1 | 219_1 | 248_1 | 4_1,35

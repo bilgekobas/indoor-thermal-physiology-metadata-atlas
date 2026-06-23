@@ -2,7 +2,7 @@
   "totals": [
     {
       "token": "Air temperature",
-      "count": 189
+      "count": 190
     },
     {
       "token": "Air temperature: Ramp",
@@ -49,10 +49,6 @@
       "count": 3
     },
     {
-      "token": "Airflow direction",
-      "count": 3
-    },
-    {
       "token": "Clothing",
       "count": 3
     },
@@ -66,6 +62,10 @@
     },
     {
       "token": "Humidity: Ramp",
+      "count": 3
+    },
+    {
+      "token": "Airflow direction",
       "count": 3
     },
     {
@@ -85,11 +85,11 @@
       "count": 1
     },
     {
-      "token": "Air velocity: Ramp",
+      "token": "Radiant temperature: Ramp",
       "count": 1
     },
     {
-      "token": "Radiant temperature: Ramp",
+      "token": "Air velocity: Ramp",
       "count": 1
     },
     {
@@ -101,5 +101,5 @@
       "count": 1
     }
   ],
-  "n_studies": 266
+  "n_studies": 267
 }

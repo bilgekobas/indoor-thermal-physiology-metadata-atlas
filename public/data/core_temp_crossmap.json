@@ -13,7 +13,7 @@
     {
       "sensor": "Infrared thermometer",
       "physio-body-site": "Tympanic canal",
-      "count": 12
+      "count": 13
     },
     {
       "sensor": "Ingestible pill",
@@ -48,7 +48,7 @@
     {
       "sensor": "Thermometer",
       "physio-body-site": "Tympanic canal",
-      "count": 2
+      "count": 1
     }
   ]
 }

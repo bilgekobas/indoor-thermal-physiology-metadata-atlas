@@ -5,39 +5,14 @@ import FigureCard from '../components/FigureCard.jsx'
 import InteractiveBarChart from '../components/InteractiveBarChart.jsx'
 import CooccurrenceMatrix from '../components/CooccurrenceMatrix.jsx'
 import HistogramECDF from '../components/HistogramECDF.jsx'
-import ChoroplethMap from '../components/ChoroplethMap.jsx'
-import CityMap from '../components/CityMap.jsx'
+import WorldMapExplorer from '../components/WorldMapExplorer.jsx'
 import SampleSizeByCountry from '../components/SampleSizeByCountry.jsx'
 import { useTooltip, TooltipPortal } from '../components/Tooltip.jsx'
 
 function GeographyToggle({ cityData, countryData }) {
-  const [mode, setMode] = useState('city')
-  const tabs = [
-    { key: 'city', label: 'By city' },
-    { key: 'country', label: 'By country' },
-  ]
-  return (
-    <div>
-      <div className="flex gap-1 mb-4">
-        {tabs.map((t) => (
-          <button
-            key={t.key}
-            onClick={() => setMode(t.key)}
-            className={`px-3 py-1 rounded text-[11.5px] font-data transition-colors ${
-              mode === t.key ? 'bg-ink text-paper' : 'bg-line/50 text-inkmid hover:bg-line'
-            }`}
-          >
-            {t.label}
-          </button>
-        ))}
-      </div>
-      <div style={{ minHeight: 460 }}>
-        {mode === 'city' && <CityMap cityData={cityData} />}
-        {mode === 'country' && <ChoroplethMap countryData={countryData} cityData={cityData} />}
-      </div>
-    </div>
-  )
+  return <WorldMapExplorer cityData={cityData} countryData={countryData} />
 }
+
 
 function TimeOfDayChart({ sessions }) {
   const { tip, showTip, moveTip, hideTip } = useTooltip()
@@ -188,7 +163,7 @@ function ClimateTempChart({ studies, climateCounts, tempRanges }) {
         {rows.map((row, ri) => {
           const yCenter = ri * rowH + rowH / 2
           const vals = row.allTemps
-          const stats = vals.length ? { min: vals[0], q1: q(vals, 0.25), med: q(vals, 0.5), q3: q(vals, 0.75), max: vals[vals.length - 1] } : null
+          const stats = vals.length ? (() => { const q1 = q(vals, 0.25); const med = q(vals, 0.5); const q3 = q(vals, 0.75); const iqr = q3 - q1; const lowFence = q1 - 1.5 * iqr; const highFence = q3 + 1.5 * iqr; const nonOut = vals.filter((v) => v >= lowFence && v <= highFence); return { min: vals[0], q1, med, q3, max: vals[vals.length - 1], whiskerMin: nonOut[0] ?? vals[0], whiskerMax: nonOut[nonOut.length - 1] ?? vals[vals.length - 1], lowFence, highFence, outliers: vals.filter((v) => v < lowFence || v > highFence) } })() : null
           return (
             <g key={row.climate}>
               <line x1={LABEL_W} x2={LABEL_W + W} y1={yCenter} y2={yCenter} stroke="#F2F2F2" strokeWidth={1} />
@@ -212,15 +187,21 @@ function ClimateTempChart({ studies, climateCounts, tempRanges }) {
               {stats && (
                 <g
                   className="cursor-default"
-                  onMouseEnter={(e) => showTip(e, `${row.climate}: median ${stats.med.toFixed(1)}°C, IQR ${stats.q1.toFixed(1)}–${stats.q3.toFixed(1)}°C, range ${stats.min.toFixed(1)}–${stats.max.toFixed(1)}°C`)}
+                  onMouseEnter={(e) => showTip(e, `${row.climate}: median ${stats.med.toFixed(1)}°C, IQR ${stats.q1.toFixed(1)}–${stats.q3.toFixed(1)}°C, whiskers ${stats.whiskerMin.toFixed(1)}–${stats.whiskerMax.toFixed(1)}°C, full range ${stats.min.toFixed(1)}–${stats.max.toFixed(1)}°C`)}
                   onMouseMove={moveTip}
                   onMouseLeave={hideTip}
                 >
-                  <line x1={xScale(stats.min) + LABEL_W} x2={xScale(stats.max) + LABEL_W} y1={yCenter} y2={yCenter} stroke="#0A0A0A" strokeWidth={1} />
-                  <line x1={xScale(stats.min) + LABEL_W} x2={xScale(stats.min) + LABEL_W} y1={yCenter - 5} y2={yCenter + 5} stroke="#0A0A0A" strokeWidth={1} />
-                  <line x1={xScale(stats.max) + LABEL_W} x2={xScale(stats.max) + LABEL_W} y1={yCenter - 5} y2={yCenter + 5} stroke="#0A0A0A" strokeWidth={1} />
-                  <rect x={xScale(stats.q1) + LABEL_W} y={yCenter - 7} width={Math.max(1, xScale(stats.q3) - xScale(stats.q1))} height={14} fill="#FFFFFF" stroke="#0A0A0A" strokeWidth={1} />
-                  <line x1={xScale(stats.med) + LABEL_W} x2={xScale(stats.med) + LABEL_W} y1={yCenter - 8} y2={yCenter + 8} stroke="#0A0A0A" strokeWidth={1.2} />
+                  <line x1={xScale(stats.whiskerMin) + LABEL_W} x2={xScale(stats.whiskerMax) + LABEL_W} y1={yCenter} y2={yCenter} stroke="#0A0A0A" strokeWidth={1} />
+                  <line x1={xScale(stats.whiskerMin) + LABEL_W} x2={xScale(stats.whiskerMin) + LABEL_W} y1={yCenter - 5} y2={yCenter + 5} stroke="#0A0A0A" strokeWidth={1} />
+                  <line x1={xScale(stats.whiskerMax) + LABEL_W} x2={xScale(stats.whiskerMax) + LABEL_W} y1={yCenter - 5} y2={yCenter + 5} stroke="#0A0A0A" strokeWidth={1} />
+                  <rect x={xScale(stats.q1) + LABEL_W} y={yCenter - 7} width={Math.max(1, xScale(stats.q3) - xScale(stats.q1))} height={14} fill="none" stroke="#0A0A0A" strokeWidth={1.15} />
+                  <line x1={xScale(stats.q1) + LABEL_W} x2={xScale(stats.q1) + LABEL_W} y1={yCenter - 8} y2={yCenter + 8} stroke="#0A0A0A" strokeWidth={0.9} opacity={0.65} />
+                  <line x1={xScale(stats.med) + LABEL_W} x2={xScale(stats.med) + LABEL_W} y1={yCenter - 9} y2={yCenter + 9} stroke="#0A0A0A" strokeWidth={1.35} />
+                  <line x1={xScale(stats.q3) + LABEL_W} x2={xScale(stats.q3) + LABEL_W} y1={yCenter - 8} y2={yCenter + 8} stroke="#0A0A0A" strokeWidth={0.9} opacity={0.65} />
+                  {stats.outliers.map((temp, oi) => (
+                    <circle key={`out-${row.climate}-${oi}`} cx={xScale(temp) + LABEL_W} cy={yCenter} r={3.4} fill="none" stroke="#FB3640" strokeWidth={1.2}
+                      onMouseEnter={(e) => showTip(e, `${row.climate}: ${temp}°C outlier (>1.5×IQR)`)} onMouseMove={moveTip} onMouseLeave={hideTip} />
+                  ))}
                 </g>
               )}
             </g>
@@ -228,7 +209,7 @@ function ClimateTempChart({ studies, climateCounts, tempRanges }) {
         })}
       </svg>
       <div className="font-data text-[10px] text-inkfaint mt-2">
-        Violin width shows the density of reported tested temperature values within each host-climate row. Low-opacity points are the individual temperature values; the overlaid boxplot summarizes median, IQR, and range.
+        Violin width shows the density of reported tested temperature values within each host-climate row. Low-opacity points are individual temperature values; open red circles are 1.5×IQR outliers. The boxplot is unfilled so the violin remains visible. Negative tested temperatures are retained as coded and listed in public/data/tested_temperature_negative_values.csv for checking.
       </div>
       <TooltipPortal tip={tip} />
     </div>
@@ -480,6 +461,9 @@ export default function ChapterContext({ data }) {
             studies={sample_size_by_country.studies}
             minCountThreshold={sample_size_by_country.min_count_threshold}
             overallStudies={fig11_sample_size.studies}
+            sampleShareThreshold={sample_size_by_country.sample_share_threshold}
+            totalSampleSizeAllCountries={sample_size_by_country.total_sample_size_all_countries}
+            selectionRule={sample_size_by_country.selection_rule}
           />
         </FigureCard>
 

@@ -58,6 +58,28 @@ function SensorStackChart({ signalData, periods }) {
   )
 }
 
+
+function SensorEvolutionToggle({ signals, evoData, periods }) {
+  const [active, setActive] = useState(signals[0] || '')
+  if (!signals.length || !active) return <div className="text-[12px] text-inkfaint">No data available.</div>
+  return (
+    <div>
+      <div className="flex flex-wrap gap-1.5 mb-4">
+        {signals.map((sig) => (
+          <button
+            key={sig}
+            onClick={() => setActive(sig)}
+            className={`px-3 py-1 rounded text-[11.5px] font-data transition-colors ${active === sig ? 'bg-ink text-paper' : 'bg-line/50 text-inkmid hover:bg-line'}`}
+          >
+            {sig}
+          </button>
+        ))}
+      </div>
+      <SensorStackChart signalData={evoData.signals[active]} periods={periods} />
+    </div>
+  )
+}
+
 // ── Sankey (signal -> sensor type -> brand) ────────────────────────────
 const DOMAIN_ORDER = [
   'PERIPHERAL THERMAL EXCHANGE', 'CARDIOVASCULAR HEAT TRANSPORT', 'CENTRAL THERMAL STATE',
@@ -65,9 +87,9 @@ const DOMAIN_ORDER = [
 ]
 const DOMAIN_GROUPS = {
   'PERIPHERAL THERMAL EXCHANGE': { color: '#5B5BFF', signals: ['Skin temperature', 'Near body temperature', 'Heat flux', 'Skin blood flow'] },
-  'CARDIOVASCULAR HEAT TRANSPORT': { color: '#0A0A0A', signals: ['Heart/Pulse rate', 'Blood pressure', 'Oxygen saturation'] },
+  'CARDIOVASCULAR HEAT TRANSPORT': { color: '#FF4DA6', signals: ['Heart/Pulse rate', 'Blood pressure', 'Oxygen saturation'] },
   'CENTRAL THERMAL STATE': { color: '#FB3640', signals: ['Core/Body temperature', 'Exhaled breath temperature'] },
-  'SUDOMOTOR / ELECTRODERMAL': { color: '#8A8A8A', signals: ['Sweat indicators', 'Skin conductance'] },
+  'SUDOMOTOR / ELECTRODERMAL': { color: '#8A63FF', signals: ['Sweat indicators', 'Skin conductance'] },
   'NEURO-MUSCULAR ELECTROPHYSIOLOGY': { color: '#4A4A4A', signals: ['EEG', 'EMG', 'EOG', 'Movement', 'Respiration'] },
   'METABOLIC & BIOCHEMICAL': { color: '#BBBBBB', signals: ['Metabolic rate/Gas exchange', 'Biomarkers'] },
 }
@@ -112,7 +134,7 @@ function SignalSensorBrandSankey({ overall, brandModelData }) {
     const sensorEntries = Object.entries(sensorTotals).map(([name, total]) => {
       const domainCounts = sensorDomain[name] || {}
       const primaryDomain = Object.entries(domainCounts).sort((a, b) => b[1] - a[1])[0]?.[0]
-      return { name, total, color: '#8A8A8A', domain: primaryDomain }
+      return { name, total, color: DOMAIN_GROUPS[primaryDomain]?.color || '#8A8A8A', domain: primaryDomain }
     }).sort((a, b) => {
       const da = DOMAIN_ORDER.indexOf(a.domain), db = DOMAIN_ORDER.indexOf(b.domain)
       return da !== db ? da - db : b.total - a.total
@@ -151,7 +173,7 @@ function SignalSensorBrandSankey({ overall, brandModelData }) {
       const sorted = Object.entries(brands).sort((a, b) => b[1] - a[1]).slice(0, 3)
       sorted.forEach(([name, count]) => {
         const key = `${sen.name}::${name}`
-        brandEntries.push({ key, name, total: count, sensorType: sen.name })
+        brandEntries.push({ key, name, total: count, sensorType: sen.name, color: sen.color })
         brandLinksRaw.push({ sensorType: sen.name, brandKey: key, count })
       })
     })
@@ -176,7 +198,7 @@ function SignalSensorBrandSankey({ overall, brandModelData }) {
       const sig = sigLayout.nodes.find((n) => n.name === r.signal)
       const sen = senLayout.nodes.find((n) => n.name === r['physio-sensing-method'])
       if (!sig || !sen) return
-      sigSenLinks.push({ from: sig, to: sen, count: r.count, label: `${r.signal} → ${r['physio-sensing-method']}`, signal: r.signal, sensor: r['physio-sensing-method'] })
+      sigSenLinks.push({ from: sig, to: sen, count: r.count, label: `${r.signal} → ${r['physio-sensing-method']}`, signal: r.signal, sensor: r['physio-sensing-method'], color: sig.color })
     })
     // Sensor type -> brand: brand's real parent in the data.
     const senBrandLinks = []
@@ -184,7 +206,7 @@ function SignalSensorBrandSankey({ overall, brandModelData }) {
       const sen = senLayout.nodes.find((n) => n.name === r.sensorType)
       const brand = brandLayout.nodes.find((n) => n.key === r.brandKey)
       if (!sen || !brand) return
-      senBrandLinks.push({ from: sen, to: brand, count: r.count, label: `${r.sensorType} → ${brand.name}`, sensor: r.sensorType, brandKey: r.brandKey })
+      senBrandLinks.push({ from: sen, to: brand, count: r.count, label: `${r.sensorType} → ${brand.name}`, sensor: r.sensorType, brandKey: r.brandKey, color: sen.color })
     })
 
     return {
@@ -202,15 +224,30 @@ function SignalSensorBrandSankey({ overall, brandModelData }) {
   // link/node touches the selected signal/sensor/brand. Selecting a brand
   // also keeps its parent sensor type's signal->sensor link active, so the
   // full path back to signal stays traceable, not just the one brand edge.
-  const isActive = (linkOrNode) => {
+  const isActive = (obj) => {
     if (!selected) return true
-    if (selected.level === 'signal') return linkOrNode.signal === selected.name
-    if (selected.level === 'sensor') return linkOrNode.sensor === selected.name
+    if (selected.level === 'signal') {
+      const connectedSensors = new Set(layout.sigSenLinks.filter((l) => l.signal === selected.name).map((l) => l.sensor))
+      if (obj.signal === selected.name) return true
+      if (obj.sensor && connectedSensors.has(obj.sensor)) return true
+      if (obj.brandKey) {
+        const sensorOfBrand = obj.brandKey.split('::')[0]
+        return connectedSensors.has(sensorOfBrand)
+      }
+      return false
+    }
+    if (selected.level === 'sensor') {
+      if (obj.sensor === selected.name) return true
+      if (obj.signal) return layout.sigSenLinks.some((l) => l.sensor === selected.name && l.signal === obj.signal)
+      if (obj.brandKey) return obj.brandKey.split('::')[0] === selected.name
+      return false
+    }
     if (selected.level === 'brand') {
-      if (linkOrNode.brandKey) return linkOrNode.brandKey === selected.name
-      // signal->sensor link or sensor node: active if it's the selected brand's own sensor type
       const sensorOfBrand = selected.name.split('::')[0]
-      return linkOrNode.sensor === sensorOfBrand
+      if (obj.brandKey === selected.name) return true
+      if (obj.sensor === sensorOfBrand) return true
+      if (obj.signal) return layout.sigSenLinks.some((l) => l.sensor === sensorOfBrand && l.signal === obj.signal)
+      return false
     }
     return true
   }
@@ -225,7 +262,7 @@ function SignalSensorBrandSankey({ overall, brandModelData }) {
       <path d={`M ${x1} ${y1} C ${mx} ${y1}, ${mx} ${y2}, ${x2} ${y2}`} fill="none" stroke={color}
         strokeWidth={strokeW} opacity={active ? 0.32 : 0.06}
         className="cursor-default transition-opacity duration-150"
-        onMouseEnter={(e) => showTip(e, `${link.label}: ${link.count} studies`)} onMouseMove={moveTip} onMouseLeave={hideTip} />
+        onMouseEnter={(e) => showTip(e, `${link.label}: ${link.count} studies (${((link.count / Math.max(link.from.total || link.count, 1)) * 100).toFixed(1)}% of ${link.from.name})`)} onMouseMove={moveTip} onMouseLeave={hideTip} />
     )
   }
 
@@ -255,17 +292,18 @@ function SignalSensorBrandSankey({ overall, brandModelData }) {
           <text x={440} y={14} fontSize={10} fill="#8A8A8A" fontWeight="600">SENSOR TYPE</text>
           <text x={700} y={14} fontSize={10} fill="#8A8A8A" fontWeight="600">SENSOR BRAND (top 3 per sensor type)</text>
           <g transform="translate(0, 24)">
-            {layout.sigSenLinks.map((l, i) => (<FlowPath key={`ss-${i}`} link={l} color={l.from.color} maxFlow={layout.maxFlow} />))}
-            {layout.senBrandLinks.map((l, i) => (<FlowPath key={`sb-${i}`} link={l} color="#8A8A8A" maxFlow={layout.maxFlow} />))}
+            {layout.sigSenLinks.map((l, i) => (<FlowPath key={`ss-${i}`} link={l} color={l.color || l.from.color} maxFlow={layout.maxFlow} />))}
+            {layout.senBrandLinks.map((l, i) => (<FlowPath key={`sb-${i}`} link={l} color={l.color || '#8A8A8A'} maxFlow={layout.maxFlow} />))}
             {layout.signal.map((n) => {
               const active = isActive({ signal: n.name })
               return (
                 <g key={n.name}
                   onClick={() => setSelected(selected?.level === 'signal' && selected.name === n.name ? null : { level: 'signal', name: n.name })}
-                  onMouseEnter={(e) => showTip(e, `${n.name}: ${n.total} studies (${((n.total / layout.signalDenom) * 100).toFixed(1)}% of signal-column total) — click to isolate`)} onMouseMove={moveTip} onMouseLeave={hideTip}
+                  onMouseEnter={(e) => showTip(e, `${n.name}: ${n.total} studies — click to isolate all connected sensor types and brands`)} onMouseMove={moveTip} onMouseLeave={hideTip}
                   className="cursor-pointer" style={{ opacity: active ? 1 : 0.2 }}>
                   <rect x={n.x} y={n.y} width={14} height={n.h} fill={n.color} rx={2} />
-                  <text x={n.x + 18} y={n.y + n.h / 2 + 3.5} fontSize={10.5} fill="#0A0A0A">{n.name}, {n.total} ({((n.total / layout.signalDenom) * 100).toFixed(0)}%)</text>
+                  <text x={n.x - 8} y={n.y + n.h / 2 + 3.5} fontSize={10.5} fill="#0A0A0A" textAnchor="end">{n.name}</text>
+                  <text x={n.x + 18} y={n.y + n.h / 2 + 3.5} fontSize={10} fill="#8A8A8A">{n.total}</text>
                 </g>
               )
             })}
@@ -274,10 +312,10 @@ function SignalSensorBrandSankey({ overall, brandModelData }) {
               return (
                 <g key={n.name}
                   onClick={() => setSelected(selected?.level === 'sensor' && selected.name === n.name ? null : { level: 'sensor', name: n.name })}
-                  onMouseEnter={(e) => showTip(e, `${n.name}: ${n.total} studies (${((n.total / layout.sensorDenom) * 100).toFixed(1)}% of sensor-column total) — click to isolate`)} onMouseMove={moveTip} onMouseLeave={hideTip}
+                  onMouseEnter={(e) => showTip(e, `${n.name}: ${n.total} studies total; hover links for % of parent signal — click to isolate connected signals and brands`)} onMouseMove={moveTip} onMouseLeave={hideTip}
                   className="cursor-pointer" style={{ opacity: active ? 1 : 0.2 }}>
-                  <rect x={n.x} y={n.y} width={14} height={n.h} fill="#4A4A4A" rx={2} />
-                  <text x={n.x + 18} y={n.y + n.h / 2 + 3.5} fontSize={10} fill="#0A0A0A">{n.name}, {n.total} ({((n.total / layout.sensorDenom) * 100).toFixed(0)}%)</text>
+                  <rect x={n.x} y={n.y} width={14} height={n.h} fill={n.color || '#4A4A4A'} rx={2} />
+                  <text x={n.x + 18} y={n.y + n.h / 2 + 3.5} fontSize={10} fill="#0A0A0A">{n.name}, {n.total}</text>
                 </g>
               )
             })}
@@ -291,7 +329,7 @@ function SignalSensorBrandSankey({ overall, brandModelData }) {
                   onMouseEnter={(e) => showTip(e, `${n.name}: ${n.total} studies (${pct}% of ${n.sensorType}) — click to isolate`)}
                   onMouseMove={moveTip} onMouseLeave={hideTip}
                   className="cursor-pointer" style={{ opacity: active ? 1 : 0.2 }}>
-                  <rect x={n.x} y={n.y} width={14} height={n.h} fill="#8A8A8A" rx={2} />
+                  <rect x={n.x} y={n.y} width={14} height={n.h} fill={n.color || '#8A8A8A'} rx={2} />
                   <text x={n.x + 18} y={n.y + n.h / 2 + 3.5} fontSize={10} fill="#0A0A0A">
                     {n.name}, {n.total} ({pct}%)
                   </text>
@@ -302,13 +340,131 @@ function SignalSensorBrandSankey({ overall, brandModelData }) {
         </svg>
       </div>
       <p className="font-data text-[10px] text-inkfaint mt-2">
-        Flow width and node bar length are proportional to study count. Signal and sensor-node labels show absolute counts and percentages of their own Sankey column. Brand percentages are relative to each brand's parent sensor type. Click any signal, sensor, or brand node to isolate its paths.
+        Flow width and node height are proportional to study count. Signal labels show absolute counts only. Link hover reports the percentage relative to the parent node (signal → sensor uses the signal total; sensor → brand uses the sensor-type total). Brand labels also show percentage of their parent sensor type. Click any signal, sensor type, or brand to highlight all connected paths and rows across all three columns.
       </p>
       <TooltipPortal tip={tip} />
     </div>
   )
 }
 
+
+
+function MstSankey({ mst, totalExperiments }) {
+  const { tip, showTip, moveTip, hideTip } = useTooltip()
+  const [selected, setSelected] = useState(null)
+  const statusCounts = mst.calc_rate_by_period.reduce((acc, r) => {
+    const k = r['physio-mst-calculated'] === 'Y' ? 'Y' : 'N/NR'
+    acc[k] = (acc[k] || 0) + r.count
+    return acc
+  }, {})
+  const yCount = statusCounts.Y || mst.n_mst_studies
+  const nonYCount = statusCounts['N/NR'] || Math.max((totalExperiments || 0) - yCount, 0)
+  const pointTotals = {}
+  const formulaTotals = {}
+  const pointFormulaLinks = []
+  mst.points_by_formula.forEach((r) => {
+    pointTotals[r.pt_bucket] = (pointTotals[r.pt_bucket] || 0) + r.count
+    formulaTotals[r.formula_grp] = (formulaTotals[r.formula_grp] || 0) + r.count
+    pointFormulaLinks.push({ point: r.pt_bucket, formula: r.formula_grp, count: r.count })
+  })
+  const missingPoint = Math.max(yCount - Object.values(pointTotals).reduce((a, v) => a + v, 0), 0)
+  if (missingPoint > 0) pointTotals['NR points'] = (pointTotals['NR points'] || 0) + missingPoint
+
+  const points = Object.entries(pointTotals)
+    .map(([name, total]) => ({ name, total }))
+    .sort((a, b) => b.total - a.total)
+  const formulas = Object.entries(formulaTotals)
+    .map(([name, total]) => ({ name, total }))
+    .sort((a, b) => b.total - a.total)
+
+  const layoutNodes = (entries, x, px = 2.0, minH = 12, gap = 7) => {
+    let y = 8
+    return entries.map((e) => {
+      const h = Math.max(minH, e.total * px)
+      const n = { ...e, x, y, h }
+      y += h + gap
+      return n
+    })
+  }
+  const left = layoutNodes([{ name: 'MST calculated: Y', total: yCount }, { name: 'MST not calculated / NR', total: nonYCount }], 120, 1.0, 24, 12)
+  const mid = layoutNodes(points, 410, 1.35, 14, 6)
+  const right = layoutNodes(formulas, 700, 1.35, 14, 6)
+  const h = Math.max(210, ...[...left, ...mid, ...right].map((n) => n.y + n.h)) + 20
+  const maxFlow = Math.max(yCount, nonYCount, ...pointFormulaLinks.map((l) => l.count), 1)
+
+  const midBy = Object.fromEntries(mid.map((n) => [n.name, n]))
+  const rightBy = Object.fromEntries(right.map((n) => [n.name, n]))
+  const yNode = left[0]
+  const nonYNode = left[1]
+  const pointOffsets = {}
+  const formulaOffsets = {}
+  const links = []
+  let yOff = 0
+  mid.forEach((p) => {
+    links.push({ from: yNode, to: p, count: p.total, kind: 'ypoint', point: p.name, color: '#5B5BFF', sourceOffset: yOff, targetOffset: 0 })
+    yOff += p.total * 1.0
+  })
+  pointFormulaLinks.forEach((l) => {
+    const from = midBy[l.point]
+    const to = rightBy[l.formula]
+    if (!from || !to) return
+    const sourceOffset = pointOffsets[l.point] || 0
+    const targetOffset = formulaOffsets[l.formula] || 0
+    links.push({ from, to, count: l.count, kind: 'formula', point: l.point, formula: l.formula, color: '#5B5BFF', sourceOffset, targetOffset })
+    pointOffsets[l.point] = sourceOffset + l.count * 1.35
+    formulaOffsets[l.formula] = targetOffset + l.count * 1.35
+  })
+
+  const active = (obj) => {
+    if (!selected) return true
+    if (selected.type === 'status') return obj.status === selected.name || obj.kind === 'ypoint' || obj.kind === 'formula'
+    if (selected.type === 'point') return obj.point === selected.name || obj.name === selected.name
+    if (selected.type === 'formula') return obj.formula === selected.name || obj.name === selected.name
+    return true
+  }
+  const path = (l) => {
+    const x1 = l.from.x + 14
+    const y1 = l.from.y + (l.sourceOffset || 0) + Math.max(1, (l.count / maxFlow) * 22) / 2
+    const x2 = l.to.x
+    const y2 = l.to.y + (l.targetOffset || 0) + Math.max(1, (l.count / maxFlow) * 22) / 2
+    const mx = (x1 + x2) / 2
+    return `M ${x1} ${y1} C ${mx} ${y1}, ${mx} ${y2}, ${x2} ${y2}`
+  }
+  const node = (n, type, color, denom) => {
+    const isOn = !selected || active({ name: n.name, [type]: n.name })
+    return (
+      <g key={`${type}-${n.name}`} className="cursor-pointer" style={{ opacity: isOn ? 1 : 0.18 }}
+        onClick={() => setSelected(selected?.type === type && selected.name === n.name ? null : { type, name: n.name })}
+        onMouseEnter={(e) => showTip(e, `${n.name}: ${n.total} (${((n.total / denom) * 100).toFixed(0)}%)`)} onMouseMove={moveTip} onMouseLeave={hideTip}>
+        <rect x={n.x} y={n.y} width={14} height={n.h} rx={2} fill={color} />
+        <text x={n.x + 20} y={n.y + n.h / 2 + 3.5} fontSize={10.5} fill="#0A0A0A">{n.name}, {n.total} ({((n.total / denom) * 100).toFixed(0)}%)</text>
+      </g>
+    )
+  }
+
+  return (
+    <div>
+      {selected && <button onClick={() => setSelected(null)} className="mb-3 px-2.5 py-1 rounded text-[11px] font-data bg-line/60 text-inkmid hover:bg-line">✕ clear selection ({selected.name})</button>}
+      <svg width={920} height={h + 28} className="font-data block overflow-visible">
+        <text x={120} y={10} fontSize={10} fill="#8A8A8A" fontWeight="600">MST STATUS</text>
+        <text x={410} y={10} fontSize={10} fill="#8A8A8A" fontWeight="600">NUMBER OF POINTS</text>
+        <text x={700} y={10} fontSize={10} fill="#8A8A8A" fontWeight="600">FORMULA</text>
+        <g transform="translate(0,18)">
+          {links.map((l, i) => (
+            <path key={i} d={path(l)} fill="none" stroke={l.color} strokeWidth={Math.max(1, (l.count / maxFlow) * 28)} opacity={active(l) ? 0.28 : 0.04}
+              onMouseEnter={(e) => showTip(e, `${l.kind === 'ypoint' ? 'MST calculated Y → ' + l.point : l.point + ' points → ' + l.formula}: ${l.count} studies`)} onMouseMove={moveTip} onMouseLeave={hideTip} />
+          ))}
+          {node(yNode, 'status', '#5B5BFF', yCount + nonYCount)}
+          {node(nonYNode, 'status', '#BBBBBB', yCount + nonYCount)}
+          {mid.map((n) => node(n, 'point', '#5B5BFF', yCount))}
+          {right.map((n) => node(n, 'formula', '#8A63FF', Object.values(formulaTotals).reduce((a, v) => a + v, 0) || 1))}
+        </g>
+      </svg>
+      <p className="font-data text-[10px] text-inkfaint mt-2">MST-specific denominator: {yCount} studies with MST calculated. One study can be missing the number-of-points or formula detail, so downstream totals can be slightly lower than the MST-Y total.</p>
+      <TooltipPortal tip={tip} />
+    </div>
+  )
+}
 
 const FORMULA_COLORS = {
   'Ramanathan (1964)': '#FB3640', 'Hardy & DuBois (1938)': '#FB3640', 'ISO 9886: 2004': '#FB3640',
@@ -467,6 +623,11 @@ export default function ChapterBody({ data }) {
 
   const topSignal = fig17_physio_params.data[0]
   const evoSignals = Object.keys(evo_signal_sensor.signals)
+  const mstCompletenessNames = new Set(['Number of MST points', 'MST formula used', 'Full formula text', 'Weighting factors per region'])
+  const bodyCompletenessFields = chapter_completeness.physio_measurement.fields.filter((f) => !mstCompletenessNames.has(f.field))
+  const mstCompletenessFields = chapter_completeness.physio_measurement.fields
+    .filter((f) => mstCompletenessNames.has(f.field))
+    .map((f) => ({ ...f, pct: Number(((f.count / Math.max(mst.n_mst_studies, 1)) * 100).toFixed(1)) }))
 
   return (
     <div>
@@ -496,7 +657,8 @@ export default function ChapterBody({ data }) {
         ]}
       />
 
-      <CompletenessStrip fields={chapter_completeness.physio_measurement.fields} nStudies={chapter_completeness.physio_measurement.n_studies} />
+      <CompletenessStrip fields={bodyCompletenessFields} nStudies={chapter_completeness.physio_measurement.n_studies} title="Data completeness for physiological signals" />
+      <CompletenessStrip fields={mstCompletenessFields} nStudies={mst.n_mst_studies} title="MST-specific completeness, among studies where MST is calculated" />
 
       <ChapterSection
         title="What's measured, and how"
@@ -543,11 +705,9 @@ export default function ChapterBody({ data }) {
         title="How sensor choice has shifted over time"
         intro="For skin temperature, thermocouples made up 55% of sensors in 2013–14 but only 25% by 2023–24, while Thermochron-type dataloggers (e.g. iButton) rose from 18% to 52% over the same span — the field's main displacement story. Each column below is normalised to 100% of that period's studies measuring the signal."
       >
-        {evoSignals.map((sig) => (
-          <FigureCard key={sig} title={sig} plotWidth={680} commentary={null}>
-            <SensorStackChart signalData={evo_signal_sensor.signals[sig]} periods={evo_signal_sensor.periods} />
-          </FigureCard>
-        ))}
+        <FigureCard title="Sensor choice by signal" plotWidth={980} commentary="Use the signal toggles to compare how sensor-type composition changed over time. Each column is normalized within the studies measuring the selected signal in that 2-year period.">
+          <SensorEvolutionToggle signals={evoSignals} evoData={evo_signal_sensor} periods={evo_signal_sensor.periods} />
+        </FigureCard>
       </ChapterSection>
 
       <ChapterSection
@@ -611,8 +771,8 @@ export default function ChapterBody({ data }) {
         title="Mean skin temperature"
         intro={`${mst.n_mst_studies} studies explicitly calculate a weighted mean skin temperature. The calculation rate has declined over the decade even as formula choice has diversified beyond the classic Ramanathan formula.`}
       >
-        <FigureCard title="MST calculation rate and formula choice, by period" plotWidth={760} commentary={null}>
-          <MstCharts mst={mst} />
+        <FigureCard title="MST calculation pathway" plotWidth={980} commentary="The Sankey separates whether MST is calculated at all from the details that only become meaningful once MST is calculated: number of skin-temperature points and formula label.">
+          <MstSankey mst={mst} totalExperiments={summary.n_experiments} />
         </FigureCard>
       </ChapterSection>
     </div>

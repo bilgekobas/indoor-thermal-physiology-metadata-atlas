@@ -324,6 +324,20 @@
     {
       "signal": "Core/Body temperature",
       "sensing_method": "Infrared thermometer",
+      "brand": "OMRON",
+      "model": "TH839S",
+      "count": 5,
+      "study_ids": [
+        "226_1",
+        "236_1",
+        "236_2",
+        "236_3",
+        "94_1"
+      ]
+    },
+    {
+      "signal": "Core/Body temperature",
+      "sensing_method": "Infrared thermometer",
       "brand": "Braun",
       "model": "IRT6520",
       "count": 4,
@@ -332,19 +346,6 @@
         "234_1",
         "242_1",
         "9_1"
-      ]
-    },
-    {
-      "signal": "Core/Body temperature",
-      "sensing_method": "Infrared thermometer",
-      "brand": "OMRON",
-      "model": "TH839S",
-      "count": 4,
-      "study_ids": [
-        "226_1",
-        "236_1",
-        "236_2",
-        "236_3"
       ]
     },
     {
@@ -549,16 +550,6 @@
       "count": 1,
       "study_ids": [
         "83_1"
-      ]
-    },
-    {
-      "signal": "Core/Body temperature",
-      "sensing_method": "Thermometer",
-      "brand": "OMRON",
-      "model": "TH839S",
-      "count": 1,
-      "study_ids": [
-        "94_1"
       ]
     },
     {
@@ -890,9 +881,10 @@
       "sensing_method": "ECG",
       "brand": "Polar",
       "model": "RS400",
-      "count": 4,
+      "count": 5,
       "study_ids": [
         "200_2",
+        "242_1",
         "66_1",
         "79_1",
         "97_1"
@@ -922,6 +914,18 @@
         "47_1",
         "52_1",
         "7_1"
+      ]
+    },
+    {
+      "signal": "Heart/Pulse rate",
+      "sensing_method": "Digital sphygmomanometer",
+      "brand": "OMRON",
+      "model": "HEM-7124",
+      "count": 3,
+      "study_ids": [
+        "120_1",
+        "230_1",
+        "83_1"
       ]
     },
     {
@@ -957,17 +961,6 @@
       "study_ids": [
         "111_1",
         "183_1"
-      ]
-    },
-    {
-      "signal": "Heart/Pulse rate",
-      "sensing_method": "Digital sphygmomanometer",
-      "brand": "OMRON",
-      "model": "HEM-7124",
-      "count": 2,
-      "study_ids": [
-        "120_1",
-        "83_1"
       ]
     },
     {
@@ -1067,6 +1060,17 @@
       "study_ids": [
         "16_1",
         "86_1"
+      ]
+    },
+    {
+      "signal": "Heart/Pulse rate",
+      "sensing_method": "OHR/PPG",
+      "brand": "fitbit",
+      "model": "Versa 1",
+      "count": 2,
+      "study_ids": [
+        "101_1",
+        "55_1"
       ]
     },
     {
@@ -1312,16 +1316,6 @@
     },
     {
       "signal": "Heart/Pulse rate",
-      "sensing_method": "NR",
-      "brand": "fitbit",
-      "model": "Versa 1",
-      "count": 1,
-      "study_ids": [
-        "55_1"
-      ]
-    },
-    {
-      "signal": "Heart/Pulse rate",
       "sensing_method": "OHR/PPG",
       "brand": "Cosinuss",
       "model": "One",
@@ -1373,16 +1367,6 @@
     {
       "signal": "Heart/Pulse rate",
       "sensing_method": "OHR/PPG",
-      "brand": "Polar",
-      "model": "RS400",
-      "count": 1,
-      "study_ids": [
-        "242_1"
-      ]
-    },
-    {
-      "signal": "Heart/Pulse rate",
-      "sensing_method": "OHR/PPG",
       "brand": "Seeed Studio",
       "model": "Heart rate Ear clip",
       "count": 1,
@@ -1403,21 +1387,21 @@
     {
       "signal": "Heart/Pulse rate",
       "sensing_method": "OHR/PPG",
-      "brand": "Xiaomi",
-      "model": "Mi Band 3",
+      "brand": "Shimmer Sensing",
+      "model": "Optical Pulse Sensor Ear Clip",
       "count": 1,
       "study_ids": [
-        "72_1"
+        "109_2"
       ]
     },
     {
       "signal": "Heart/Pulse rate",
       "sensing_method": "OHR/PPG",
-      "brand": "fitbit",
-      "model": "Versa 1",
+      "brand": "Xiaomi",
+      "model": "Mi Band 3",
       "count": 1,
       "study_ids": [
-        "101_1"
+        "72_1"
       ]
     },
     {
@@ -1473,31 +1457,11 @@
     {
       "signal": "Heart/Pulse rate",
       "sensing_method": "Pulse oximeter",
-      "brand": "OMRON",
-      "model": "HEM-7124",
-      "count": 1,
-      "study_ids": [
-        "230_1"
-      ]
-    },
-    {
-      "signal": "Heart/Pulse rate",
-      "sensing_method": "Pulse oximeter",
       "brand": "Promise Technology",
       "model": "PRO-PM350",
       "count": 1,
       "study_ids": [
         "80_1"
-      ]
-    },
-    {
-      "signal": "Heart/Pulse rate",
-      "sensing_method": "OHR/PPG",
-      "brand": "Shimmer Sensing",
-      "model": "Optical Pulse Sensor Ear Clip",
-      "count": 0,
-      "study_ids": [
-        null
       ]
     },
     {
@@ -1544,6 +1508,18 @@
     },
     {
       "signal": "Metabolic rate/Gas exchange",
+      "sensing_method": "Exhaled gas analyzer",
+      "brand": "S&ME Company",
+      "model": "V2000",
+      "count": 3,
+      "study_ids": [
+        "127_1",
+        "187_1",
+        "250_1"
+      ]
+    },
+    {
+      "signal": "Metabolic rate/Gas exchange",
       "sensing_method": "Metabolic cart",
       "brand": "Vyaire Medical",
       "model": "Vmax Encore",
@@ -1563,17 +1539,6 @@
       "study_ids": [
         "163_1",
         "94_1"
-      ]
-    },
-    {
-      "signal": "Metabolic rate/Gas exchange",
-      "sensing_method": "Exhaled gas analyzer",
-      "brand": "S&ME Company",
-      "model": "V2000",
-      "count": 2,
-      "study_ids": [
-        "127_1",
-        "187_1"
       ]
     },
     {
@@ -1625,16 +1590,6 @@
       "count": 1,
       "study_ids": [
         "182_1"
-      ]
-    },
-    {
-      "signal": "Metabolic rate/Gas exchange",
-      "sensing_method": "Gas analyzer",
-      "brand": "S&ME Company",
-      "model": "V2000",
-      "count": 1,
-      "study_ids": [
-        "250_1"
       ]
     },
     {
@@ -2062,6 +2017,17 @@
     {
       "signal": "Skin blood flow",
       "sensing_method": "Laser Doppler",
+      "brand": "Perimed",
+      "model": "PeriFlux System 5000",
+      "count": 2,
+      "study_ids": [
+        "12_1",
+        "133_1"
+      ]
+    },
+    {
+      "signal": "Skin blood flow",
+      "sensing_method": "Laser Doppler",
       "brand": "Advance",
       "model": "ALF 21",
       "count": 1,
@@ -2117,26 +2083,6 @@
       "count": 1,
       "study_ids": [
         "247_1"
-      ]
-    },
-    {
-      "signal": "Skin blood flow",
-      "sensing_method": "Laser Doppler",
-      "brand": "Perimed",
-      "model": "PeriFlux System 5000",
-      "count": 1,
-      "study_ids": [
-        "12_1"
-      ]
-    },
-    {
-      "signal": "Skin blood flow",
-      "sensing_method": "NR",
-      "brand": "Perimed",
-      "model": "PeriFlux System 5000",
-      "count": 1,
-      "study_ids": [
-        "133_1"
       ]
     },
     {
@@ -2221,6 +2167,16 @@
     },
     {
       "signal": "Skin conductance",
+      "sensing_method": "GSR/EDA",
+      "brand": "Shimmer Sensing",
+      "model": "GSR",
+      "count": 1,
+      "study_ids": [
+        "109_2"
+      ]
+    },
+    {
+      "signal": "Skin conductance",
       "sensing_method": "Hygrochron",
       "brand": "Opulus",
       "model": "PyroButton",
@@ -2247,16 +2203,6 @@
       "count": 1,
       "study_ids": [
         "125_1"
-      ]
-    },
-    {
-      "signal": "Skin conductance",
-      "sensing_method": "GSR/EDA",
-      "brand": "Shimmer Sensing",
-      "model": "GSR",
-      "count": 0,
-      "study_ids": [
-        null
       ]
     },
     {
@@ -2383,6 +2329,37 @@
     },
     {
       "signal": "Skin temperature",
+      "sensing_method": "Thermocouple",
+      "brand": "Onset",
+      "model": "TMC6-HD",
+      "count": 7,
+      "study_ids": [
+        "146_1",
+        "146_2",
+        "22_1",
+        "23_1",
+        "24_1",
+        "54_1",
+        "79_1"
+      ]
+    },
+    {
+      "signal": "Skin temperature",
+      "sensing_method": "Thermistor",
+      "brand": "BIOPAC",
+      "model": "TSD202B",
+      "count": 6,
+      "study_ids": [
+        "135_1",
+        "143_1",
+        "150_1",
+        "161_1",
+        "201_1",
+        "99_1"
+      ]
+    },
+    {
+      "signal": "Skin temperature",
       "sensing_method": "Thermochron",
       "brand": "iButton",
       "model": "DS1992L",
@@ -2398,6 +2375,20 @@
     },
     {
       "signal": "Skin temperature",
+      "sensing_method": "Infrared camera",
+      "brand": "FLIR",
+      "model": "Lepton",
+      "count": 5,
+      "study_ids": [
+        "100_1",
+        "110_1",
+        "114_1",
+        "154_1",
+        "165_1"
+      ]
+    },
+    {
+      "signal": "Skin temperature",
       "sensing_method": "Infrared thermometer",
       "brand": "Melexis",
       "model": "MLX90614",
@@ -2408,20 +2399,6 @@
         "155_1",
         "176_1",
         "58_1"
-      ]
-    },
-    {
-      "signal": "Skin temperature",
-      "sensing_method": "Thermistor",
-      "brand": "BIOPAC",
-      "model": "TSD202B",
-      "count": 5,
-      "study_ids": [
-        "135_1",
-        "143_1",
-        "150_1",
-        "161_1",
-        "99_1"
       ]
     },
     {
@@ -2450,33 +2427,6 @@
         "19_1",
         "249_1",
         "62_1"
-      ]
-    },
-    {
-      "signal": "Skin temperature",
-      "sensing_method": "Thermocouple",
-      "brand": "Onset",
-      "model": "TMC6-HD",
-      "count": 5,
-      "study_ids": [
-        "22_1",
-        "23_1",
-        "24_1",
-        "54_1",
-        "79_1"
-      ]
-    },
-    {
-      "signal": "Skin temperature",
-      "sensing_method": "Infrared camera",
-      "brand": "FLIR",
-      "model": "Lepton",
-      "count": 4,
-      "study_ids": [
-        "100_1",
-        "114_1",
-        "154_1",
-        "165_1"
       ]
     },
     {
@@ -2527,6 +2477,18 @@
         "105_1",
         "129_1",
         "89_1"
+      ]
+    },
+    {
+      "signal": "Skin temperature",
+      "sensing_method": "Probe",
+      "brand": "Libelium Co.",
+      "model": "Exacon D-S18JK",
+      "count": 3,
+      "study_ids": [
+        "106_1",
+        "151_1",
+        "202_1"
       ]
     },
     {
@@ -2598,17 +2560,6 @@
     },
     {
       "signal": "Skin temperature",
-      "sensing_method": "Probe",
-      "brand": "Libelium Co.",
-      "model": "Exacon D-S18JK",
-      "count": 2,
-      "study_ids": [
-        "151_1",
-        "202_1"
-      ]
-    },
-    {
-      "signal": "Skin temperature",
       "sensing_method": "RTD",
       "brand": "Honeywell",
       "model": "DC1000 Digital Temperature/Process Controllers",
@@ -2627,17 +2578,6 @@
       "study_ids": [
         "10_1",
         "48_1"
-      ]
-    },
-    {
-      "signal": "Skin temperature",
-      "sensing_method": "Thermistor",
-      "brand": "Onset",
-      "model": "TMC6-HD",
-      "count": 2,
-      "study_ids": [
-        "146_1",
-        "146_2"
       ]
     },
     {
@@ -2827,16 +2767,6 @@
     },
     {
       "signal": "Skin temperature",
-      "sensing_method": "Infrared camera",
-      "brand": "Onset",
-      "model": "TMC6-HD",
-      "count": 1,
-      "study_ids": [
-        "54_1"
-      ]
-    },
-    {
-      "signal": "Skin temperature",
       "sensing_method": "Infrared thermometer",
       "brand": "Beurer",
       "model": "FT70",
@@ -2853,16 +2783,6 @@
       "count": 1,
       "study_ids": [
         "72_1"
-      ]
-    },
-    {
-      "signal": "Skin temperature",
-      "sensing_method": "Infrared thermometer",
-      "brand": "FLIR",
-      "model": "Lepton",
-      "count": 1,
-      "study_ids": [
-        "110_1"
       ]
     },
     {
@@ -2903,16 +2823,6 @@
       "count": 1,
       "study_ids": [
         "64_1"
-      ]
-    },
-    {
-      "signal": "Skin temperature",
-      "sensing_method": "NR",
-      "brand": "Libelium Co.",
-      "model": "Exacon D-S18JK",
-      "count": 1,
-      "study_ids": [
-        "106_1"
       ]
     },
     {
@@ -3073,16 +2983,6 @@
       "count": 1,
       "study_ids": [
         "194_1"
-      ]
-    },
-    {
-      "signal": "Skin temperature",
-      "sensing_method": "Thermocouple",
-      "brand": "BIOPAC",
-      "model": "TSD202B",
-      "count": 1,
-      "study_ids": [
-        "201_1"
       ]
     },
     {

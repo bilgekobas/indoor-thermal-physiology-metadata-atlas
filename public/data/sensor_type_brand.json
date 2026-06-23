@@ -198,7 +198,7 @@
     {
       "physio-sensing-method": "Digital sphygmomanometer",
       "physio-sensor-brand": "OMRON",
-      "count": 37
+      "count": 38
     },
     {
       "physio-sensing-method": "Digital sphygmomanometer",
@@ -278,7 +278,7 @@
     {
       "physio-sensing-method": "ECG",
       "physio-sensor-brand": "Polar",
-      "count": 21
+      "count": 22
     },
     {
       "physio-sensing-method": "ECG",
@@ -343,7 +343,7 @@
     {
       "physio-sensing-method": "Exhaled gas analyzer",
       "physio-sensor-brand": "S&ME Company",
-      "count": 2
+      "count": 3
     },
     {
       "physio-sensing-method": "Eye-tracking",
@@ -388,11 +388,6 @@
     {
       "physio-sensing-method": "GSR/EDA",
       "physio-sensor-brand": "TXZ",
-      "count": 1
-    },
-    {
-      "physio-sensing-method": "Gas analyzer",
-      "physio-sensor-brand": "S&ME Company",
       "count": 1
     },
     {
@@ -488,7 +483,7 @@
     {
       "physio-sensing-method": "Infrared camera",
       "physio-sensor-brand": "FLIR",
-      "count": 14
+      "count": 15
     },
     {
       "physio-sensing-method": "Infrared camera",
@@ -499,11 +494,6 @@
       "physio-sensing-method": "Infrared camera",
       "physio-sensor-brand": "NIPPON",
       "count": 3
-    },
-    {
-      "physio-sensing-method": "Infrared camera",
-      "physio-sensor-brand": "Onset",
-      "count": 1
     },
     {
       "physio-sensing-method": "Infrared thermometer",
@@ -523,7 +513,7 @@
     {
       "physio-sensing-method": "Infrared thermometer",
       "physio-sensor-brand": "FLIR",
-      "count": 2
+      "count": 1
     },
     {
       "physio-sensing-method": "Infrared thermometer",
@@ -543,7 +533,7 @@
     {
       "physio-sensing-method": "Infrared thermometer",
       "physio-sensor-brand": "OMRON",
-      "count": 8
+      "count": 9
     },
     {
       "physio-sensing-method": "Infrared thermometer",
@@ -613,7 +603,7 @@
     {
       "physio-sensing-method": "Laser Doppler",
       "physio-sensor-brand": "Perimed",
-      "count": 6
+      "count": 7
     },
     {
       "physio-sensing-method": "Mercury thermometer",
@@ -683,7 +673,7 @@
     {
       "physio-sensing-method": "OHR/PPG",
       "physio-sensor-brand": "Polar",
-      "count": 2
+      "count": 1
     },
     {
       "physio-sensing-method": "OHR/PPG",
@@ -713,7 +703,7 @@
     {
       "physio-sensing-method": "OHR/PPG",
       "physio-sensor-brand": "fitbit",
-      "count": 2
+      "count": 3
     },
     {
       "physio-sensing-method": "Osmometer",
@@ -728,7 +718,7 @@
     {
       "physio-sensing-method": "Probe",
       "physio-sensor-brand": "Libelium Co.",
-      "count": 2
+      "count": 3
     },
     {
       "physio-sensing-method": "Probe",
@@ -868,7 +858,7 @@
     {
       "physio-sensing-method": "Thermistor",
       "physio-sensor-brand": "BIOPAC",
-      "count": 6
+      "count": 7
     },
     {
       "physio-sensing-method": "Thermistor",
@@ -912,11 +902,6 @@
     },
     {
       "physio-sensing-method": "Thermistor",
-      "physio-sensor-brand": "Onset",
-      "count": 2
-    },
-    {
-      "physio-sensing-method": "Thermistor",
       "physio-sensor-brand": "Vernier",
       "count": 4
     },
@@ -948,7 +933,7 @@
     {
       "physio-sensing-method": "Thermocouple",
       "physio-sensor-brand": "BIOPAC",
-      "count": 3
+      "count": 2
     },
     {
       "physio-sensing-method": "Thermocouple",
@@ -978,7 +963,7 @@
     {
       "physio-sensing-method": "Thermocouple",
       "physio-sensor-brand": "Onset",
-      "count": 5
+      "count": 7
     },
     {
       "physio-sensing-method": "Thermocouple",
@@ -1008,7 +993,7 @@
     {
       "physio-sensing-method": "Thermometer",
       "physio-sensor-brand": "OMRON",
-      "count": 6
+      "count": 5
     },
     {
       "physio-sensing-method": "Thermometer",

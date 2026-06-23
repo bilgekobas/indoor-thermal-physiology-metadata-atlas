@@ -2,7 +2,7 @@
   "n_domains_distribution": [
     {
       "n_domains": 1,
-      "count": 184
+      "count": 185
     },
     {
       "n_domains": 2,
@@ -14,7 +14,7 @@
     }
   ],
   "domain_totals": {
-    "Thermal": 256,
+    "Thermal": 257,
     "Air movement": 24,
     "Humidity": 53,
     "CO2": 3,
@@ -23,6 +23,6 @@
     "Behaviour": 7,
     "IAQ": 1
   },
-  "n_studies": 266,
+  "n_studies": 267,
   "n_excluded_no_domain_data": 3
 }

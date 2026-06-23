@@ -113,7 +113,7 @@
     {
       "signal": "Core/Body temperature",
       "physio-sensing-method": "Infrared thermometer",
-      "count": 15
+      "count": 16
     },
     {
       "signal": "Core/Body temperature",
@@ -138,7 +138,7 @@
     {
       "signal": "Core/Body temperature",
       "physio-sensing-method": "Thermometer",
-      "count": 9
+      "count": 8
     },
     {
       "signal": "EEG",
@@ -218,12 +218,12 @@
     {
       "signal": "Heart/Pulse rate",
       "physio-sensing-method": "Digital sphygmomanometer",
-      "count": 20
+      "count": 21
     },
     {
       "signal": "Heart/Pulse rate",
       "physio-sensing-method": "ECG",
-      "count": 64
+      "count": 65
     },
     {
       "signal": "Heart/Pulse rate",
@@ -233,7 +233,7 @@
     {
       "signal": "Heart/Pulse rate",
       "physio-sensing-method": "Pulse oximeter",
-      "count": 16
+      "count": 15
     },
     {
       "signal": "Heat flux",
@@ -248,12 +248,7 @@
     {
       "signal": "Metabolic rate/Gas exchange",
       "physio-sensing-method": "Exhaled gas analyzer",
-      "count": 3
-    },
-    {
-      "signal": "Metabolic rate/Gas exchange",
-      "physio-sensing-method": "Gas analyzer",
-      "count": 1
+      "count": 4
     },
     {
       "signal": "Metabolic rate/Gas exchange",
@@ -348,7 +343,7 @@
     {
       "signal": "Skin blood flow",
       "physio-sensing-method": "Laser Doppler",
-      "count": 11
+      "count": 12
     },
     {
       "signal": "Skin blood flow",
@@ -393,7 +388,7 @@
     {
       "signal": "Skin temperature",
       "physio-sensing-method": "Infrared camera",
-      "count": 22
+      "count": 23
     },
     {
       "signal": "Skin temperature",
@@ -408,7 +403,7 @@
     {
       "signal": "Skin temperature",
       "physio-sensing-method": "Probe",
-      "count": 2
+      "count": 3
     },
     {
       "signal": "Skin temperature",
@@ -428,7 +423,7 @@
     {
       "signal": "Skin temperature",
       "physio-sensing-method": "Thermocouple",
-      "count": 53
+      "count": 54
     },
     {
       "signal": "Skin temperature",
@@ -672,7 +667,7 @@
       "signal": "Core/Body temperature",
       "physio-sensing-method": "Infrared thermometer",
       "period": "2019\u201320",
-      "count": 1
+      "count": 2
     },
     {
       "signal": "Core/Body temperature",
@@ -768,7 +763,7 @@
       "signal": "Core/Body temperature",
       "physio-sensing-method": "Thermometer",
       "period": "2019\u201320",
-      "count": 2
+      "count": 1
     },
     {
       "signal": "Core/Body temperature",
@@ -978,7 +973,7 @@
       "signal": "Heart/Pulse rate",
       "physio-sensing-method": "Digital sphygmomanometer",
       "period": "2021\u201322",
-      "count": 2
+      "count": 3
     },
     {
       "signal": "Heart/Pulse rate",
@@ -1014,7 +1009,7 @@
       "signal": "Heart/Pulse rate",
       "physio-sensing-method": "ECG",
       "period": "2023\u201324",
-      "count": 14
+      "count": 15
     },
     {
       "signal": "Heart/Pulse rate",
@@ -1032,13 +1027,13 @@
       "signal": "Heart/Pulse rate",
       "physio-sensing-method": "OHR/PPG",
       "period": "2021\u201322",
-      "count": 8
+      "count": 9
     },
     {
       "signal": "Heart/Pulse rate",
       "physio-sensing-method": "OHR/PPG",
       "period": "2023\u201324",
-      "count": 9
+      "count": 8
     },
     {
       "signal": "Heart/Pulse rate",
@@ -1056,7 +1051,7 @@
       "signal": "Heart/Pulse rate",
       "physio-sensing-method": "Pulse oximeter",
       "period": "2021\u201322",
-      "count": 7
+      "count": 6
     },
     {
       "signal": "Heart/Pulse rate",
@@ -1116,13 +1111,7 @@
       "signal": "Metabolic rate/Gas exchange",
       "physio-sensing-method": "Exhaled gas analyzer",
       "period": "2019\u201320",
-      "count": 1
-    },
-    {
-      "signal": "Metabolic rate/Gas exchange",
-      "physio-sensing-method": "Gas analyzer",
-      "period": "2019\u201320",
-      "count": 1
+      "count": 2
     },
     {
       "signal": "Metabolic rate/Gas exchange",
@@ -1344,7 +1333,7 @@
       "signal": "Skin blood flow",
       "physio-sensing-method": "Laser Doppler",
       "period": "2019\u201320",
-      "count": 1
+      "count": 2
     },
     {
       "signal": "Skin blood flow",
@@ -1470,7 +1459,7 @@
       "signal": "Skin temperature",
       "physio-sensing-method": "Infrared camera",
       "period": "2019\u201320",
-      "count": 5
+      "count": 6
     },
     {
       "signal": "Skin temperature",
@@ -1540,6 +1529,12 @@
     },
     {
       "signal": "Skin temperature",
+      "physio-sensing-method": "Probe",
+      "period": "2019\u201320",
+      "count": 1
+    },
+    {
+      "signal": "Skin temperature",
       "physio-sensing-method": "RTD",
       "period": "2013\u201314",
       "count": 2
@@ -1572,13 +1567,13 @@
       "signal": "Skin temperature",
       "physio-sensing-method": "Thermistor",
       "period": "2017\u201318",
-      "count": 7
+      "count": 6
     },
     {
       "signal": "Skin temperature",
       "physio-sensing-method": "Thermistor",
       "period": "2019\u201320",
-      "count": 5
+      "count": 6
     },
     {
       "signal": "Skin temperature",
@@ -1644,13 +1639,13 @@
       "signal": "Skin temperature",
       "physio-sensing-method": "Thermocouple",
       "period": "2017\u201318",
-      "count": 7
+      "count": 9
     },
     {
       "signal": "Skin temperature",
       "physio-sensing-method": "Thermocouple",
       "period": "2019\u201320",
-      "count": 15
+      "count": 14
     },
     {
       "signal": "Skin temperature",

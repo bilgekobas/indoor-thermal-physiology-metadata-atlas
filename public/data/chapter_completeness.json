@@ -3,108 +3,108 @@
     "fields": [
       {
         "field": "City",
-        "count": 250,
-        "pct": 92.9
+        "count": 251,
+        "pct": 93.0
       },
       {
         "field": "Country",
-        "count": 263,
+        "count": 264,
         "pct": 97.8
       },
       {
         "field": "Climate class",
-        "count": 250,
-        "pct": 92.9
+        "count": 251,
+        "pct": 93.0
       },
       {
         "field": "Experiment year",
-        "count": 136,
-        "pct": 50.6
+        "count": 137,
+        "pct": 50.7
       },
       {
         "field": "Season of testing",
         "count": 70,
-        "pct": 26.0
+        "pct": 25.9
       },
       {
         "field": "Daily start/end time",
-        "count": 73,
-        "pct": 27.1
+        "count": 74,
+        "pct": 27.4
       },
       {
         "field": "Session length",
-        "count": 253,
+        "count": 254,
         "pct": 94.1
       },
       {
         "field": "Normalisation period",
-        "count": 224,
+        "count": 225,
         "pct": 83.3
       },
       {
         "field": "Data availability statement",
         "count": 79,
-        "pct": 29.4
+        "pct": 29.3
       }
     ],
-    "n_studies": 269
+    "n_studies": 270
   },
   "population": {
     "fields": [
       {
         "field": "Sample size calculation",
-        "count": 62,
-        "pct": 23.0
+        "count": 63,
+        "pct": 23.3
       },
       {
         "field": "Total sample size",
-        "count": 266,
+        "count": 267,
         "pct": 98.9
       },
       {
         "field": "Male participants",
-        "count": 252,
+        "count": 253,
         "pct": 93.7
       },
       {
         "field": "Female participants",
-        "count": 252,
+        "count": 253,
         "pct": 93.7
       },
       {
         "field": "Age mean",
         "count": 220,
-        "pct": 81.8
+        "pct": 81.5
       },
       {
         "field": "Age SD",
         "count": 208,
-        "pct": 77.3
+        "pct": 77.0
       },
       {
         "field": "BMI mean",
         "count": 151,
-        "pct": 56.1
+        "pct": 55.9
       },
       {
         "field": "BMI SD",
         "count": 146,
-        "pct": 54.3
+        "pct": 54.1
       },
       {
         "field": "Healthy participant requirement",
         "count": 191,
-        "pct": 71.0
+        "pct": 70.7
       },
       {
         "field": "Thermal history assessed",
         "count": 86,
-        "pct": 32.0
+        "pct": 31.9
       },
       {
         "field": "Thermal history collected",
-        "count": 87,
-        "pct": 32.3
+        "count": 88,
+        "pct": 32.6
       },
       {
         "field": "Smoking behaviour collected",
@@ -122,84 +122,84 @@
         "pct": 2.2
       }
     ],
-    "n_studies": 269
+    "n_studies": 270
   },
   "physio_measurement": {
     "fields": [
       {
         "field": "Sensor type",
-        "count": 259,
-        "pct": 96.3
+        "count": 261,
+        "pct": 96.7
       },
       {
         "field": "Sensor brand",
-        "count": 229,
-        "pct": 85.1
+        "count": 230,
+        "pct": 85.2
       },
       {
         "field": "Sensor model",
-        "count": 214,
+        "count": 215,
         "pct": 79.6
       },
       {
         "field": "Body site",
-        "count": 260,
+        "count": 261,
         "pct": 96.7
       },
       {
         "field": "Sagittal location",
         "count": 107,
-        "pct": 39.8
+        "pct": 39.6
       },
       {
         "field": "Surface location",
         "count": 169,
-        "pct": 62.8
+        "pct": 62.6
       },
       {
         "field": "Number of MST points",
         "count": 110,
-        "pct": 40.9
+        "pct": 40.7
       },
       {
         "field": "MST formula used",
         "count": 104,
-        "pct": 38.7
+        "pct": 38.5
       },
       {
         "field": "Full formula text",
         "count": 93,
-        "pct": 34.6
+        "pct": 34.4
       },
       {
         "field": "Weighting factors per region",
         "count": 83,
-        "pct": 30.9
+        "pct": 30.7
       }
     ],
-    "n_studies": 269
+    "n_studies": 270
   },
   "env_measurement": {
     "fields": [
       {
         "field": "Air temperature",
         "count": 151,
-        "pct": 56.1
+        "pct": 55.9
       },
       {
         "field": "Relative humidity",
         "count": 124,
-        "pct": 46.1
+        "pct": 45.9
       },
       {
         "field": "Air velocity",
         "count": 105,
-        "pct": 39.0
+        "pct": 38.9
       },
       {
         "field": "Globe temperature",
         "count": 84,
-        "pct": 31.2
+        "pct": 31.1
       },
       {
         "field": "Surface temperatures",
@@ -234,7 +234,7 @@
       {
         "field": "Illuminance",
         "count": 29,
-        "pct": 10.8
+        "pct": 10.7
       },
       {
         "field": "Light colour/CCT",
@@ -252,29 +252,29 @@
         "pct": 1.9
       }
     ],
-    "n_studies": 269
+    "n_studies": 270
   },
   "questionnaires": {
     "fields": [
       {
         "field": "Thermal sensation",
-        "count": 235,
+        "count": 236,
         "pct": 87.4
       },
       {
         "field": "Thermal comfort",
         "count": 144,
-        "pct": 53.5
+        "pct": 53.3
       },
       {
         "field": "Thermal preference",
-        "count": 57,
-        "pct": 21.2
+        "count": 58,
+        "pct": 21.5
       },
       {
         "field": "Thermal acceptability",
-        "count": 76,
-        "pct": 28.3
+        "count": 77,
+        "pct": 28.5
       },
       {
         "field": "Thermal satisfaction",
@@ -289,7 +289,7 @@
       {
         "field": "Air movement sensation",
         "count": 12,
-        "pct": 4.5
+        "pct": 4.4
       },
       {
         "field": "Humidity sensation",
@@ -313,28 +313,28 @@
       },
       {
         "field": "Cognitive test applied",
-        "count": 269,
+        "count": 270,
         "pct": 100.0
       }
     ],
-    "n_studies": 269
+    "n_studies": 270
   },
   "protocol": {
     "fields": [
       {
         "field": "Fixed clothing insulation",
-        "count": 208,
-        "pct": 77.3
+        "count": 209,
+        "pct": 77.4
       },
       {
         "field": "Observed clothing",
-        "count": 36,
-        "pct": 13.4
+        "count": 37,
+        "pct": 13.7
       },
       {
         "field": "Defined activity protocol",
         "count": 191,
-        "pct": 71.0
+        "pct": 70.7
       },
       {
         "field": "Observed metabolic rate",
@@ -344,17 +344,17 @@
       {
         "field": "Avoid stimulants",
         "count": 135,
-        "pct": 50.2
+        "pct": 50.0
       },
       {
         "field": "Avoid physical activity",
         "count": 108,
-        "pct": 40.1
+        "pct": 40.0
       },
       {
         "field": "Pre-experiment rest/sleep",
         "count": 71,
-        "pct": 26.4
+        "pct": 26.3
       },
       {
         "field": "Maintain routine",
@@ -364,37 +364,37 @@
       {
         "field": "Circadian control",
         "count": 61,
-        "pct": 22.7
+        "pct": 22.6
       },
       {
         "field": "Menstrual timing control",
         "count": 22,
-        "pct": 8.2
+        "pct": 8.1
       },
       {
         "field": "Time between sessions",
         "count": 63,
-        "pct": 23.4
+        "pct": 23.3
       },
       {
         "field": "Pre-study instruction/practice",
         "count": 126,
-        "pct": 46.8
+        "pct": 46.7
       },
       {
         "field": "Blinding",
         "count": 53,
-        "pct": 19.7
+        "pct": 19.6
       },
       {
         "field": "Randomisation",
         "count": 93,
-        "pct": 34.6
+        "pct": 34.4
       },
       {
         "field": "Balanced session order",
         "count": 54,
-        "pct": 20.1
+        "pct": 20.0
       },
       {
         "field": "Participants not allowed to discuss study",
@@ -404,7 +404,7 @@
       {
         "field": "Controlled food intake",
         "count": 56,
-        "pct": 20.8
+        "pct": 20.7
       },
       {
         "field": "Controlled water intake",
@@ -417,6 +417,6 @@
         "pct": 6.3
       }
     ],
-    "n_studies": 269
+    "n_studies": 270
   }
 }

@@ -2,7 +2,7 @@
   "data_avail_distribution": [
     {
       "status": "NR",
-      "count": 179
+      "count": 180
     },
     {
       "status": "Upon request",
@@ -23,7 +23,7 @@
   ],
   "n_with_real_data_link": 5,
   "n_with_supplementary_link": 57,
-  "n_total": 269,
+  "n_total": 270,
   "studies_with_link": [
     {
       "id": "15_1",

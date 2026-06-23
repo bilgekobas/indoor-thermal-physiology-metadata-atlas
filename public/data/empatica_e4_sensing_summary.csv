@@ -1,0 +1,5 @@
+signal,brand,model,sensing_method,n_studies
+Heart/Pulse rate,Empatica,E4,OHR/PPG,11
+Movement,Empatica,E4,Accelerometer,6
+Skin conductance,Empatica,E4,GSR/EDA,9
+Skin temperature,Empatica,E4,Infrared thermopile,10

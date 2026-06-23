@@ -1,15 +1,15 @@
 import { useMemo } from 'react'
 import { useTooltip, TooltipPortal } from './Tooltip.jsx'
 
-export default function SampleSizeByCountry({ stats, studies, minCountThreshold, overallStudies = null }) {
+export default function SampleSizeByCountry({ stats, studies, minCountThreshold, overallStudies = null, sampleShareThreshold = 1, totalSampleSizeAllCountries = null, selectionRule = null }) {
   const { tip, showTip, moveTip, hideTip } = useTooltip()
-  const PLOT_W = 560
-  const AXIS_X = 148
-  const LABEL_X = AXIS_X - 10
+  const PLOT_W = 620
+  const AXIS_X = 160
+  const LABEL_X = AXIS_X - 12
   const domainMin = 0
-  const domainMax = 4 // log10(n): 1 to 10000; 1 starts at the visual baseline
+  const domainMax = 4 // log10(n): 1 to 10000
   const xScale = (n) => ((Math.log10(Math.max(n, 1)) - domainMin) / (domainMax - domainMin)) * PLOT_W
-  const rowH = 26
+  const rowH = 28
   const H = stats.length * rowH
 
   const studiesByCountry = useMemo(() => {
@@ -30,6 +30,7 @@ export default function SampleSizeByCountry({ stats, studies, minCountThreshold,
     return { n: vals.length, mean, median }
   }, [studies, overallStudies])
 
+  const totalSample = totalSampleSizeAllCountries || stats.reduce((a, s) => a + (s.sample_total || 0), 0)
   const refLines = [
     { key: 'n-equals-1', label: 'n = 1', value: 1, stroke: '#BBBBBB', dashed: false },
     { key: 'overall-median', label: 'overall median', value: overall.median, stroke: '#5B5BFF', dashed: true },
@@ -37,8 +38,8 @@ export default function SampleSizeByCountry({ stats, studies, minCountThreshold,
   ]
 
   return (
-    <div className="overflow-x-auto">
-      <svg width={AXIS_X + PLOT_W + 30} height={H + 36} className="font-data overflow-visible">
+    <div>
+      <svg width={AXIS_X + PLOT_W + 112} height={H + 40} className="font-data overflow-visible block">
         {[1, 10, 100, 1000, 10000].map((v) => (
           <g key={v}>
             <line x1={xScale(v) + AXIS_X} x2={xScale(v) + AXIS_X} y1={0} y2={H} stroke="#E4E4E4" strokeWidth={1} />
@@ -74,9 +75,12 @@ export default function SampleSizeByCountry({ stats, studies, minCountThreshold,
             )}
           </g>
         ))}
+        <text x={AXIS_X + PLOT_W + 28} y={-8} fontSize={9.5} fill="#8A8A8A" textAnchor="end">Σ participants</text>
+        <text x={AXIS_X + PLOT_W + 98} y={-8} fontSize={9.5} fill="#8A8A8A" textAnchor="end">% corpus</text>
         {stats.map((s, i) => {
           const y = i * rowH + rowH / 2
           const dots = studiesByCountry[s.country] || []
+          const samplePct = totalSample ? ((s.sample_total || 0) / totalSample) * 100 : (s.sample_pct || 0)
           return (
             <g key={s.country}>
               <text x={LABEL_X} y={y + 3} fontSize={11.5} textAnchor="end" fill="#0A0A0A">{s.country}</text>
@@ -118,12 +122,14 @@ export default function SampleSizeByCountry({ stats, studies, minCountThreshold,
                 onMouseMove={moveTip}
                 onMouseLeave={hideTip}
               />
+              <text x={AXIS_X + PLOT_W + 28} y={y + 3} fontSize={10.5} fill="#0A0A0A" textAnchor="end">{Math.round(s.sample_total || 0).toLocaleString()}</text>
+              <text x={AXIS_X + PLOT_W + 98} y={y + 3} fontSize={10.5} fill="#8A8A8A" textAnchor="end">{samplePct.toFixed(1)}%</text>
             </g>
           )
         })}
       </svg>
-      <div className="font-data text-[10px] text-inkfaint mt-2 mb-2">
-        x-axis: sample size (log scale, 1 to 10,000). The first gridline is n=1 and marks the visual baseline; country names sit to the left of that line. Grey dots are individual studies. Countries with fewer than {minCountThreshold} studies are omitted.
+      <div className="font-data text-[10px] text-inkfaint mt-2 mb-2 max-w-4xl">
+        Countries shown by rule: {selectionRule || `≥${minCountThreshold} studies or ≥${sampleShareThreshold}% of the total participant sample`}. x-axis: sample size per study (log scale, 1 to 10,000). Right columns show the total participant sample contributed by that country and its share of the corpus-wide participant sample.
       </div>
       <div className="flex flex-wrap gap-x-4 gap-y-1 mt-2 text-[11px] text-inkmid">
         <span className="flex items-center gap-1.5"><span className="w-2 h-2 rounded-full inline-block" style={{ background: '#8A8A8A', opacity: 0.55 }} /> individual study</span>

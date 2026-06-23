@@ -1516,11 +1516,11 @@
   "climate_counts": {
     "Humid subtropical": 117,
     "Continental": 51,
-    "Oceanic": 25,
     "Semi-arid (cold)": 25,
+    "Oceanic": 25,
     "Mediterranean": 16,
     "Tropical": 14,
-    "Subarctic": 1,
+    "Subarctic": 2,
     "Arid (hot)": 1
   }
 }

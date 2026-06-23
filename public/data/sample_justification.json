@@ -6,7 +6,7 @@
     },
     {
       "type": "Precedence",
-      "count": 12
+      "count": 13
     },
     {
       "type": "Post hoc",
@@ -16,7 +16,7 @@
   "payment_distribution": [
     {
       "status": "NR",
-      "count": 221
+      "count": 222
     },
     {
       "status": "Y",
@@ -27,5 +27,5 @@
       "count": 1
     }
   ],
-  "n_total": 269
+  "n_total": 270
 }

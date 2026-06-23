@@ -38,7 +38,8 @@ export default function CooccurrenceMatrix({ labels, matrix, cellSize = 46, colo
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'flex-start',
-                paddingBottom: 6,
+                paddingBottom: 8,
+                paddingRight: 8,
               }}
               title={l}
             >

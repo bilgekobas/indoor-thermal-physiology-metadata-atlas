@@ -112,7 +112,7 @@
       "signal": "Core/Body temperature",
       "sensing_method": "Infrared thermometer",
       "site": "Tympanic canal",
-      "count": 12
+      "count": 13
     },
     {
       "signal": "Core/Body temperature",
@@ -160,7 +160,7 @@
       "signal": "Core/Body temperature",
       "sensing_method": "Thermometer",
       "site": "Tympanic canal",
-      "count": 2
+      "count": 1
     },
     {
       "signal": "EEG",
@@ -357,6 +357,12 @@
     {
       "signal": "Heart/Pulse rate",
       "sensing_method": "ECG",
+      "site": "Upper arm",
+      "count": 1
+    },
+    {
+      "signal": "Heart/Pulse rate",
+      "sensing_method": "ECG",
       "site": "Wrist",
       "count": 1
     },
@@ -376,7 +382,7 @@
       "signal": "Heart/Pulse rate",
       "sensing_method": "OHR/PPG",
       "site": "Earlobe",
-      "count": 0
+      "count": 1
     },
     {
       "signal": "Heart/Pulse rate",
@@ -388,13 +394,13 @@
       "signal": "Heart/Pulse rate",
       "sensing_method": "OHR/PPG",
       "site": "Upper arm",
-      "count": 2
+      "count": 1
     },
     {
       "signal": "Heart/Pulse rate",
       "sensing_method": "OHR/PPG",
       "site": "Wrist",
-      "count": 17
+      "count": 18
     },
     {
       "signal": "Heart/Pulse rate",
@@ -730,7 +736,7 @@
       "signal": "Skin blood flow",
       "sensing_method": "Laser Doppler",
       "site": "Forearm",
-      "count": 2
+      "count": 3
     },
     {
       "signal": "Skin blood flow",
@@ -754,7 +760,7 @@
       "signal": "Skin conductance",
       "sensing_method": "GSR/EDA",
       "site": "Finger",
-      "count": 7
+      "count": 8
     },
     {
       "signal": "Skin conductance",
@@ -982,7 +988,7 @@
       "signal": "Skin temperature",
       "sensing_method": "Infrared camera",
       "site": "Face",
-      "count": 13
+      "count": 14
     },
     {
       "signal": "Skin temperature",
@@ -1024,7 +1030,7 @@
       "signal": "Skin temperature",
       "sensing_method": "Infrared camera",
       "site": "Lower leg",
-      "count": 3
+      "count": 2
     },
     {
       "signal": "Skin temperature",
@@ -1042,13 +1048,13 @@
       "signal": "Skin temperature",
       "sensing_method": "Infrared camera",
       "site": "Thigh",
-      "count": 4
+      "count": 3
     },
     {
       "signal": "Skin temperature",
       "sensing_method": "Infrared camera",
       "site": "Upper arm",
-      "count": 3
+      "count": 2
     },
     {
       "signal": "Skin temperature",
@@ -1060,7 +1066,7 @@
       "signal": "Skin temperature",
       "sensing_method": "Infrared thermometer",
       "site": "Face",
-      "count": 5
+      "count": 4
     },
     {
       "signal": "Skin temperature",
@@ -1096,7 +1102,7 @@
       "signal": "Skin temperature",
       "sensing_method": "Probe",
       "site": "Hand",
-      "count": 2
+      "count": 3
     },
     {
       "signal": "Skin temperature",
@@ -1204,13 +1210,13 @@
       "signal": "Skin temperature",
       "sensing_method": "Thermistor",
       "site": "Back",
-      "count": 9
+      "count": 10
     },
     {
       "signal": "Skin temperature",
       "sensing_method": "Thermistor",
       "site": "Chest",
-      "count": 13
+      "count": 12
     },
     {
       "signal": "Skin temperature",
@@ -1234,19 +1240,19 @@
       "signal": "Skin temperature",
       "sensing_method": "Thermistor",
       "site": "Forearm",
-      "count": 9
+      "count": 10
     },
     {
       "signal": "Skin temperature",
       "sensing_method": "Thermistor",
       "site": "Forehead",
-      "count": 12
+      "count": 13
     },
     {
       "signal": "Skin temperature",
       "sensing_method": "Thermistor",
       "site": "Hand",
-      "count": 9
+      "count": 10
     },
     {
       "signal": "Skin temperature",
@@ -1258,7 +1264,7 @@
       "signal": "Skin temperature",
       "sensing_method": "Thermistor",
       "site": "Lower leg",
-      "count": 13
+      "count": 12
     },
     {
       "signal": "Skin temperature",
@@ -1270,13 +1276,13 @@
       "signal": "Skin temperature",
       "sensing_method": "Thermistor",
       "site": "Thigh",
-      "count": 13
+      "count": 12
     },
     {
       "signal": "Skin temperature",
       "sensing_method": "Thermistor",
       "site": "Upper arm",
-      "count": 13
+      "count": 12
     },
     {
       "signal": "Skin temperature",
@@ -1432,7 +1438,7 @@
       "signal": "Skin temperature",
       "sensing_method": "Thermocouple",
       "site": "Back",
-      "count": 23
+      "count": 22
     },
     {
       "signal": "Skin temperature",
@@ -1444,7 +1450,7 @@
       "signal": "Skin temperature",
       "sensing_method": "Thermocouple",
       "site": "Chest",
-      "count": 36
+      "count": 37
     },
     {
       "signal": "Skin temperature",
@@ -1468,7 +1474,7 @@
       "signal": "Skin temperature",
       "sensing_method": "Thermocouple",
       "site": "Forearm",
-      "count": 32
+      "count": 31
     },
     {
       "signal": "Skin temperature",
@@ -1492,7 +1498,7 @@
       "signal": "Skin temperature",
       "sensing_method": "Thermocouple",
       "site": "Lower leg",
-      "count": 39
+      "count": 41
     },
     {
       "signal": "Skin temperature",
@@ -1504,13 +1510,13 @@
       "signal": "Skin temperature",
       "sensing_method": "Thermocouple",
       "site": "Thigh",
-      "count": 38
+      "count": 40
     },
     {
       "signal": "Skin temperature",
       "sensing_method": "Thermocouple",
       "site": "Upper arm",
-      "count": 36
+      "count": 38
     },
     {
       "signal": "Skin temperature",

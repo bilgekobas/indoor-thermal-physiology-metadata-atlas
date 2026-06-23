@@ -2,68 +2,68 @@
   "bar": [
     {
       "field": "Fixed clothing insulation",
-      "pct": 77.3,
-      "count": 208
+      "pct": 77.4,
+      "count": 209
     },
     {
       "field": "Defined activity protocol",
-      "pct": 71.0,
+      "pct": 70.7,
       "count": 191
     },
     {
       "field": "Avoid stimulants",
-      "pct": 50.2,
+      "pct": 50.0,
       "count": 135
     },
     {
       "field": "Pre-study instruction/practice",
-      "pct": 46.8,
+      "pct": 46.7,
       "count": 126
     },
     {
       "field": "Avoid physical activity",
-      "pct": 40.1,
+      "pct": 40.0,
       "count": 108
     },
     {
       "field": "Randomisation",
-      "pct": 34.6,
+      "pct": 34.4,
       "count": 93
     },
     {
       "field": "Pre-experiment rest/sleep",
-      "pct": 26.4,
+      "pct": 26.3,
       "count": 71
     },
     {
       "field": "Time between sessions",
-      "pct": 23.4,
+      "pct": 23.3,
       "count": 63
     },
     {
       "field": "Circadian control",
-      "pct": 22.7,
+      "pct": 22.6,
       "count": 61
     },
     {
       "field": "Controlled food intake",
-      "pct": 20.8,
+      "pct": 20.7,
       "count": 56
     },
     {
       "field": "Balanced session order",
-      "pct": 20.1,
+      "pct": 20.0,
       "count": 54
     },
     {
       "field": "Blinding",
-      "pct": 19.7,
+      "pct": 19.6,
       "count": 53
     },
     {
       "field": "Observed clothing",
-      "pct": 13.4,
-      "count": 36
+      "pct": 13.7,
+      "count": 37
     },
     {
       "field": "Participants not allowed to discuss study",
@@ -72,7 +72,7 @@
     },
     {
       "field": "Menstrual timing control",
-      "pct": 8.2,
+      "pct": 8.1,
       "count": 22
     },
     {
@@ -227,6 +227,7 @@
       0,
       1,
       1,
+      1,
       0,
       1,
       1,
@@ -493,6 +494,7 @@
       1,
       1,
       1,
+      0,
       0,
       0,
       0,
@@ -776,6 +778,7 @@
       0,
       0,
       0,
+      0,
       1,
       0,
       0,
@@ -1041,6 +1044,7 @@
       0,
       0,
       0,
+      0,
       1,
       0,
       1,
@@ -1310,6 +1314,7 @@
       0,
       0,
       0,
+      0,
       1,
       0,
       0,
@@ -1580,6 +1585,7 @@
       0,
       1,
       0,
+      0,
       1,
       0,
       0,
@@ -1852,6 +1858,7 @@
       0,
       0,
       0,
+      0,
       1,
       0,
       0,
@@ -2122,6 +2129,7 @@
       0,
       0,
       1,
+      0,
       1,
       0,
       0,
@@ -2407,6 +2415,7 @@
       0,
       0,
       0,
+      0,
       1,
       0,
       1,
@@ -2659,6 +2668,7 @@
       0,
       0,
       1,
+      0,
       0,
       0,
       0,
@@ -2936,6 +2946,7 @@
       0,
       0,
       0,
+      0,
       1,
       0,
       0,
@@ -3210,6 +3221,7 @@
       0,
       0,
       0,
+      0,
       1,
       0,
       1,
@@ -3477,6 +3489,7 @@
       0,
       0,
       0,
+      1,
       0,
       0,
       1,
@@ -3749,6 +3762,7 @@
       0,
       0,
       0,
+      0,
       1,
       0,
       0,
@@ -4035,6 +4049,7 @@
       0,
       0,
       0,
+      0,
       1,
       0,
       0,
@@ -4291,6 +4306,7 @@
       0,
       0,
       0,
+      0,
       1,
       0,
       0,
@@ -4575,6 +4591,7 @@
       0,
       0,
       0,
+      0,
       1,
       0,
       0,
@@ -4917,6 +4934,7 @@
       0,
       0,
       0,
+      0,
       1,
       0,
       0,
@@ -5119,6 +5137,7 @@
       0,
       0,
       0,
+      0,
       1,
       0,
       0,
@@ -5477,6 +5496,7 @@
       0,
       0,
       0,
+      0,
       1,
       0,
       0,
@@ -5637,6 +5657,7 @@
       0,
       0,
       1,
+      0,
       0,
       0,
       0,
@@ -5822,5 +5843,5 @@
     "Avoid heavy meals",
     "Observed metabolic rate"
   ],
-  "n_studies": 269
+  "n_studies": 270
 }

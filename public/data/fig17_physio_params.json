@@ -49,11 +49,11 @@
       "count": 9
     },
     {
-      "parameter": "Near body temperature",
+      "parameter": "Heat flux",
       "count": 8
     },
     {
-      "parameter": "Heat flux",
+      "parameter": "Near body temperature",
       "count": 8
     },
     {
@@ -65,7 +65,7 @@
       "count": 3
     },
     {
-      "parameter": "EMG",
+      "parameter": "Glucose",
       "count": 2
     },
     {
@@ -73,7 +73,7 @@
       "count": 2
     },
     {
-      "parameter": "Glucose",
+      "parameter": "Biomarkers: Heat shock protein (HSP)",
       "count": 2
     },
     {
@@ -81,19 +81,11 @@
       "count": 2
     },
     {
+      "parameter": "EMG",
+      "count": 2
+    },
+    {
       "parameter": "Exhaled breath temperature",
-      "count": 2
-    },
-    {
-      "parameter": "Biomarkers: Interleukin 6 (IL-6)",
-      "count": 2
-    },
-    {
-      "parameter": "Biomarkers: Heat shock protein (HSP)",
-      "count": 2
-    },
-    {
-      "parameter": "Biomarkers: Thyroid-stimulating hormone (TSH)",
       "count": 2
     },
     {
@@ -101,11 +93,15 @@
       "count": 2
     },
     {
-      "parameter": "Biomarkers: Dopamine",
-      "count": 1
+      "parameter": "Biomarkers: Interleukin 6 (IL-6)",
+      "count": 2
     },
     {
-      "parameter": "Skin hardness",
+      "parameter": "Biomarkers: Thyroid-stimulating hormone (TSH)",
+      "count": 2
+    },
+    {
+      "parameter": "Biomarkers: Dopamine",
       "count": 1
     },
     {
@@ -113,11 +109,15 @@
       "count": 1
     },
     {
-      "parameter": "Biomarkers: Estradiol",
+      "parameter": "Skin hardness",
       "count": 1
     },
     {
       "parameter": "Biomarkers: Progesterone",
+      "count": 1
+    },
+    {
+      "parameter": "Biomarkers: Estradiol",
       "count": 1
     },
     {

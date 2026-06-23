@@ -9,8 +9,8 @@ import json
 import re
 from pathlib import Path
 
-SRC = '/mnt/user-data/uploads/corpus_main_dataset.csv'
-OUT_DIR = Path('/home/claude/corpus-site/public/data')
+SRC = str(Path(__file__).resolve().parents[1] / 'public' / 'data' / 'corpus_main_dataset.csv')
+OUT_DIR = Path(__file__).resolve().parents[1] / 'public' / 'data'
 OUT_DIR.mkdir(parents=True, exist_ok=True)
 
 df = pd.read_csv(SRC, encoding='utf-8-sig', low_memory=False)
