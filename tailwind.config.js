@@ -9,8 +9,8 @@ export default {
         inkmid: '#4A4A4A',
         inkfaint: '#8A8A8A',
         line: '#E4E4E4',
-        // Primary accent: blue leads, red is the secondary/rare-emphasis accent.
-        coreaccent: '#5B5BFF',
+        // Primary accent: pink/red; blue is retained only inside plots that need a second data color.
+        coreaccent: '#FB3640',
         accentcoral: '#FB3640',
         // Categorical domain colors (Sankey, climate groups) — kept
         // distinct since collapsing these to one color would break the

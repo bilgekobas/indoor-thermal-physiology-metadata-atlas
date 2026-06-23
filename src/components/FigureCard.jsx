@@ -14,7 +14,7 @@ export default function FigureCard({ figNumber, title, commentary, children, plo
       {commentary && (
         <p className="text-[13px] text-inkmid leading-relaxed mb-4 max-w-3xl">{commentary}</p>
       )}
-      <div className="min-w-0" style={{ width: '100%', maxWidth: plotWidth || '100%' }}>
+      <div className="min-w-0 overflow-visible" style={{ width: '100%', maxWidth: plotWidth || '100%', padding: '8px 54px 30px 0' }}>
         {children}
       </div>
     </div>

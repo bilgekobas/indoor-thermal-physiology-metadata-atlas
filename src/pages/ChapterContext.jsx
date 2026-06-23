@@ -1,10 +1,10 @@
 import { useMemo, useState } from 'react'
 import { ChapterHeader, ChapterSection } from '../components/Chapter.jsx'
-import CompletenessStrip from '../components/CompletenessStrip.jsx'
 import FigureCard from '../components/FigureCard.jsx'
 import InteractiveBarChart from '../components/InteractiveBarChart.jsx'
 import CooccurrenceMatrix from '../components/CooccurrenceMatrix.jsx'
 import HistogramECDF from '../components/HistogramECDF.jsx'
+import { PeriodHeatmap } from '../components/OverallByPeriod.jsx'
 import WorldMapExplorer from '../components/WorldMapExplorer.jsx'
 import SampleSizeByCountry from '../components/SampleSizeByCountry.jsx'
 import { useTooltip, TooltipPortal } from '../components/Tooltip.jsx'
@@ -77,6 +77,24 @@ function TimeOfDayChart({ sessions }) {
         </g>
       </svg>
       <TooltipPortal tip={tip} />
+
+      <ChapterSection
+        title="Protocol & standardisation controls"
+        intro="Protocol reporting belongs to the general experimental setup: clothing, activity, pre-session instructions, blinding, randomisation, and timing controls define how the study was run before any physiological signal is interpreted."
+      >
+        <FigureCard figNumber="12" title="Protocol & standardisation controls" plotWidth={980} commentary="Rows are controls; columns are 2-year periods; the right-hand bar gives the overall count for the same row.">
+          <PeriodHeatmap
+            rows={protocol_by_period.fields}
+            periods={protocol_by_period.periods}
+            periodN={Object.fromEntries(protocol_by_period.data.filter((d, idx, arr) => arr.findIndex((x) => x.period === d.period) === idx).map((d) => [d.period, d.n]))}
+            rowTotals={Object.fromEntries(fig20_protocol.bar.map((d) => [d.field, d.count]))}
+            getCount={(field, p) => protocol_by_period.data.find((d) => d.field === field && d.period === p)?.count || 0}
+            labelWidth={230}
+            cellWidth={88}
+          />
+        </FigureCard>
+      </ChapterSection>
+
     </div>
   )
 }
@@ -212,6 +230,24 @@ function ClimateTempChart({ studies, climateCounts, tempRanges }) {
         Violin width shows the density of reported tested temperature values within each host-climate row. Low-opacity points are individual temperature values; darker black points are 1.5×IQR outliers. The boxplot is unfilled so the violin remains visible. Negative tested temperatures are retained as coded and listed in public/data/tested_temperature_negative_values.csv for checking.
       </div>
       <TooltipPortal tip={tip} />
+
+      <ChapterSection
+        title="Protocol & standardisation controls"
+        intro="Protocol reporting belongs to the general experimental setup: clothing, activity, pre-session instructions, blinding, randomisation, and timing controls define how the study was run before any physiological signal is interpreted."
+      >
+        <FigureCard figNumber="12" title="Protocol & standardisation controls" plotWidth={980} commentary="Rows are controls; columns are 2-year periods; the right-hand bar gives the overall count for the same row.">
+          <PeriodHeatmap
+            rows={protocol_by_period.fields}
+            periods={protocol_by_period.periods}
+            periodN={Object.fromEntries(protocol_by_period.data.filter((d, idx, arr) => arr.findIndex((x) => x.period === d.period) === idx).map((d) => [d.period, d.n]))}
+            rowTotals={Object.fromEntries(fig20_protocol.bar.map((d) => [d.field, d.count]))}
+            getCount={(field, p) => protocol_by_period.data.find((d) => d.field === field && d.period === p)?.count || 0}
+            labelWidth={230}
+            cellWidth={88}
+          />
+        </FigureCard>
+      </ChapterSection>
+
     </div>
   )
 }
@@ -321,6 +357,24 @@ function SettingSankey({ data, total }) {
       </svg>
       <div className="font-data text-[10px] text-inkfaint mt-2">Left column: experimental setting type. Right column: spatial typologies, combined across all setting types. Node labels show absolute experiment counts and percentages of all experiments in this Sankey.</div>
       <TooltipPortal tip={tip} />
+
+      <ChapterSection
+        title="Protocol & standardisation controls"
+        intro="Protocol reporting belongs to the general experimental setup: clothing, activity, pre-session instructions, blinding, randomisation, and timing controls define how the study was run before any physiological signal is interpreted."
+      >
+        <FigureCard figNumber="12" title="Protocol & standardisation controls" plotWidth={980} commentary="Rows are controls; columns are 2-year periods; the right-hand bar gives the overall count for the same row.">
+          <PeriodHeatmap
+            rows={protocol_by_period.fields}
+            periods={protocol_by_period.periods}
+            periodN={Object.fromEntries(protocol_by_period.data.filter((d, idx, arr) => arr.findIndex((x) => x.period === d.period) === idx).map((d) => [d.period, d.n]))}
+            rowTotals={Object.fromEntries(fig20_protocol.bar.map((d) => [d.field, d.count]))}
+            getCount={(field, p) => protocol_by_period.data.find((d) => d.field === field && d.period === p)?.count || 0}
+            labelWidth={230}
+            cellWidth={88}
+          />
+        </FigureCard>
+      </ChapterSection>
+
     </div>
   )
 }
@@ -366,6 +420,24 @@ function PublicationsByYearChart({ data, totalPubs }) {
         })}
       </svg>
       <TooltipPortal tip={tip} />
+
+      <ChapterSection
+        title="Protocol & standardisation controls"
+        intro="Protocol reporting belongs to the general experimental setup: clothing, activity, pre-session instructions, blinding, randomisation, and timing controls define how the study was run before any physiological signal is interpreted."
+      >
+        <FigureCard figNumber="12" title="Protocol & standardisation controls" plotWidth={980} commentary="Rows are controls; columns are 2-year periods; the right-hand bar gives the overall count for the same row.">
+          <PeriodHeatmap
+            rows={protocol_by_period.fields}
+            periods={protocol_by_period.periods}
+            periodN={Object.fromEntries(protocol_by_period.data.filter((d, idx, arr) => arr.findIndex((x) => x.period === d.period) === idx).map((d) => [d.period, d.n]))}
+            rowTotals={Object.fromEntries(fig20_protocol.bar.map((d) => [d.field, d.count]))}
+            getCount={(field, p) => protocol_by_period.data.find((d) => d.field === field && d.period === p)?.count || 0}
+            labelWidth={230}
+            cellWidth={88}
+          />
+        </FigureCard>
+      </ChapterSection>
+
     </div>
   )
 }
@@ -386,7 +458,10 @@ export default function ChapterContext({ data }) {
     domain_detail,
     sample_size_by_country,
     fig11_sample_size,
+    fig20_protocol,
+    protocol_by_period,
     chapter_completeness,
+    open_data,
     summary,
   } = data
 
@@ -415,8 +490,8 @@ export default function ChapterContext({ data }) {
   return (
     <div>
       <ChapterHeader
-        eyebrow="Chapter 1 of 8"
-        title="When, where, and under what conditions"
+        eyebrow="Chapter 1 of 7"
+        title="When, where & how"
         framing={
           <>
             <p>
@@ -438,11 +513,6 @@ export default function ChapterContext({ data }) {
         ]}
       />
 
-      <CompletenessStrip
-        fields={chapter_completeness.context_setting.fields}
-        nStudies={chapter_completeness.context_setting.n_studies}
-      />
-
       <ChapterSection
         title="When and where research happens"
         intro="Publication volume has risen steadily, with a dip during 2020–21. Research is geographically concentrated, and that concentration shapes more than just where studies happen — sample size patterns differ by country too, and the climate a study is conducted in often doesn't match the temperature values it tests."
@@ -455,7 +525,7 @@ export default function ChapterContext({ data }) {
           <GeographyToggle cityData={geo_cities.data} countryData={geo_choropleth.data} />
         </FigureCard>
 
-        <FigureCard title="Sample size by country" plotWidth={760} commentary="China's median study (24 participants) looks like everywhere else — but its mean (56) is pulled up by a handful of large field studies, including one with 2,110 participants. Brazil and Switzerland show the opposite pattern: few studies, but typically large ones (medians of 82 and 75). Mean and median diverge enough here that either one alone would mislead.">
+        <FigureCard figNumber="3" title="Sample size by country" plotWidth={760} commentary="China's median study (24 participants) looks like everywhere else — but its mean (56) is pulled up by a handful of large field studies, including one with 2,110 participants. Brazil and Switzerland show the opposite pattern: few studies, but typically large ones (medians of 82 and 75). Mean and median diverge enough here that either one alone would mislead.">
           <SampleSizeByCountry
             stats={sample_size_by_country.stats}
             studies={sample_size_by_country.studies}
@@ -467,7 +537,7 @@ export default function ChapterContext({ data }) {
           />
         </FigureCard>
 
-        <FigureCard figNumber="7" title="Tested temperature values by host climate" plotWidth={980} commentary="Humid subtropical and continental climates together account for most studies with a known climate, including much of the warm-condition research. Only a small minority were run in genuinely hot climates. The figure now focuses on the actual tested temperature values rather than per-study min–max spans, making the setpoint clustering easier to see.">
+        <FigureCard figNumber="4" title="Tested temperature values by host climate" plotWidth={980} commentary="Humid subtropical and continental climates together account for most studies with a known climate, including much of the warm-condition research. Only a small minority were run in genuinely hot climates. The figure now focuses on the actual tested temperature values rather than per-study min–max spans, making the setpoint clustering easier to see.">
           <ClimateTempChart
             studies={climate_vs_temp.studies}
             climateCounts={climate_vs_temp.climate_counts}
@@ -480,15 +550,15 @@ export default function ChapterContext({ data }) {
         title="Setting and timing"
         intro="Lab studies dominate; office-like spaces are the most common spatial typology. Sessions cluster under 3 hours, normalization periods are often short, and almost all testing happens in daytime hours."
       >
-        <FigureCard figNumber="6" title="Experimental setting type" plotWidth={760} commentary="200 of 266 experiments (75%) are run in a lab; Field and Living Lab split the remainder almost evenly. The Sankey makes the spatial typologies legible without flattening them into a single categorical count.">
+        <FigureCard figNumber="5" title="Experimental setting type" plotWidth={760} commentary="200 of 266 experiments (75%) are run in a lab; Field and Living Lab split the remainder almost evenly. The Sankey makes the spatial typologies legible without flattening them into a single categorical count.">
           <SettingSankey data={fig06_setting_typology.data} total={summary.n_experiments} />
         </FigureCard>
 
-        <FigureCard figNumber="5" title="Time of day distribution" plotWidth={980} commentary={`Testing peaks in the mid-afternoon. ${fig05_time_of_day.n_circadian_considered} of ${fig05_time_of_day.n_reporting} reporting studies explicitly mention circadian timing; the rest mostly standardize implicitly by testing during a fairly narrow daytime window.`}>
+        <FigureCard figNumber="6" title="Time of day distribution" plotWidth={980} commentary={`Testing peaks in the mid-afternoon. ${fig05_time_of_day.n_circadian_considered} of ${fig05_time_of_day.n_reporting} reporting studies explicitly mention circadian timing; the rest mostly standardize implicitly by testing during a fairly narrow daytime window.`}>
           <TimeOfDayChart sessions={fig05_time_of_day.sessions} />
         </FigureCard>
 
-        <FigureCard figNumber="3" title="Session length" plotWidth={980} commentary={sessionStats ? `Minutes per session, capped at 600. ${sessionUnder180Pct}% of the ${sessionStats.n} studies with known session length run under 180 minutes. Median ${sessionStats.median} min (IQR ${sessionStats.q25}–${sessionStats.q75}), range ${sessionStats.min}–${sessionStats.max} min.` : 'Minutes per session, capped at 600.'}>
+        <FigureCard figNumber="7" title="Session length" plotWidth={980} commentary={sessionStats ? `Minutes per session, capped at 600. ${sessionUnder180Pct}% of the ${sessionStats.n} studies with known session length run under 180 minutes. Median ${sessionStats.median} min (IQR ${sessionStats.q25}–${sessionStats.q75}), range ${sessionStats.min}–${sessionStats.max} min.` : 'Minutes per session, capped at 600.'}>
           <HistogramECDF
             values={sessionValuesCapped}
             binWidth={15}
@@ -499,7 +569,7 @@ export default function ChapterContext({ data }) {
           />
         </FigureCard>
 
-        <FigureCard figNumber="4" title="Normalization length" plotWidth={980} commentary={normStats ? `Minutes spent in normalization / stabilization before testing, capped at 600. ${normUnder60Pct}% of the ${normStats.n} studies with reported normalization time stay at or below 60 minutes. Median ${normStats.median} min (IQR ${normStats.q25}–${normStats.q75}), range ${normStats.min}–${normStats.max} min.` : 'Minutes spent in normalization / stabilization before testing, capped at 600.'}>
+        <FigureCard figNumber="8" title="Normalization length" plotWidth={980} commentary={normStats ? `Minutes spent in normalization / stabilization before testing, capped at 600. ${normUnder60Pct}% of the ${normStats.n} studies with reported normalization time stay at or below 60 minutes. Median ${normStats.median} min (IQR ${normStats.q25}–${normStats.q75}), range ${normStats.min}–${normStats.max} min.` : 'Minutes spent in normalization / stabilization before testing, capped at 600.'}>
           <HistogramECDF
             values={normValuesCapped}
             binWidth={10}
@@ -515,7 +585,7 @@ export default function ChapterContext({ data }) {
         title="How many variables are manipulated at once"
         intro={`${domain_comanipulation.n_domains_distribution.filter((d) => d.n_domains >= 2).reduce((a, d) => a + d.count, 0)} of ${domain_comanipulation.n_studies} studies manipulate more than one environmental domain simultaneously (e.g. air temperature crossed with humidity, or with air movement). The rest isolate a single variable, the classic thermal-comfort design.`}
       >
-        <FigureCard title="Number of domains manipulated per study" plotWidth={560} commentary="Most studies still isolate a single variable — the classic thermal-comfort design. Two-domain experiments form the main minority; three-domain designs are relatively rare.">
+        <FigureCard figNumber="9" title="Number of domains manipulated per study" plotWidth={560} commentary="Most studies still isolate a single variable — the classic thermal-comfort design. Two-domain experiments form the main minority; three-domain designs are relatively rare.">
           <InteractiveBarChart
             data={domain_comanipulation.n_domains_distribution.map((d) => ({ label: `${d.n_domains} domain${d.n_domains === 1 ? '' : 's'}`, count: d.count }))}
             total={domain_comanipulation.n_studies}
@@ -523,10 +593,42 @@ export default function ChapterContext({ data }) {
           />
         </FigureCard>
 
-        <FigureCard title="Which domains are manipulated together" plotWidth={620} commentary="Diagonal cells show the total number of studies manipulating each domain; off-diagonal cells show co-manipulation. This keeps the univariate counts while making the coupled experimental designs visible.">
+        <FigureCard figNumber="10" title="Which domains are manipulated together" plotWidth={620} commentary="Diagonal cells show the total number of studies manipulating each domain; off-diagonal cells show co-manipulation. This keeps the univariate counts while making the coupled experimental designs visible.">
           <CooccurrenceMatrix labels={domain_cooccurrence.labels} matrix={domain_cooccurrence.matrix} cellSize={38} />
         </FigureCard>
       </ChapterSection>
+
+      <ChapterSection
+        title="Open data, in practice"
+        intro={`A data-availability statement being present is not the same as data actually being shared. Of ${open_data.n_total} studies, only ${open_data.n_with_real_data_link} link to a real repository.`}
+      >
+        <FigureCard figNumber="11" title="Data availability statement, as reported" plotWidth={620} commentary="This belongs in the contextual layer of the corpus rather than in the closing synthesis: it describes the publication context of the studies themselves.">
+          <InteractiveBarChart
+            data={open_data.data_avail_distribution.map((d) => ({ label: d.status, count: d.count }))}
+            total={open_data.n_total}
+            color="#5B5BFF"
+          />
+        </FigureCard>
+      </ChapterSection>
+
+
+      <ChapterSection
+        title="Protocol & standardisation controls"
+        intro="Protocol reporting belongs to the general experimental setup: clothing, activity, pre-session instructions, blinding, randomisation, and timing controls define how the study was run before any physiological signal is interpreted."
+      >
+        <FigureCard figNumber="12" title="Protocol & standardisation controls" plotWidth={980} commentary="Rows are controls; columns are 2-year periods; the right-hand bar gives the overall count for the same row.">
+          <PeriodHeatmap
+            rows={protocol_by_period.fields}
+            periods={protocol_by_period.periods}
+            periodN={Object.fromEntries(protocol_by_period.data.filter((d, idx, arr) => arr.findIndex((x) => x.period === d.period) === idx).map((d) => [d.period, d.n]))}
+            rowTotals={Object.fromEntries(fig20_protocol.bar.map((d) => [d.field, d.count]))}
+            getCount={(field, p) => protocol_by_period.data.find((d) => d.field === field && d.period === p)?.count || 0}
+            labelWidth={230}
+            cellWidth={88}
+          />
+        </FigureCard>
+      </ChapterSection>
+
     </div>
   )
 }

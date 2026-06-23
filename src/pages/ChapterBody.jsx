@@ -1,6 +1,5 @@
 import { useMemo, useState } from 'react'
 import { ChapterHeader, ChapterSection } from '../components/Chapter.jsx'
-import CompletenessStrip from '../components/CompletenessStrip.jsx'
 import FigureCard from '../components/FigureCard.jsx'
 import InteractiveBarChart from '../components/InteractiveBarChart.jsx'
 import CooccurrenceMatrix from '../components/CooccurrenceMatrix.jsx'
@@ -626,17 +625,16 @@ export default function ChapterBody({ data }) {
 
   const topSignal = fig17_physio_params.data[0]
   const evoSignals = Object.keys(evo_signal_sensor.signals)
-  const mstCompletenessNames = new Set(['Number of MST points', 'MST formula used', 'Full formula text', 'Weighting factors per region'])
-  const bodyCompletenessFields = chapter_completeness.physio_measurement.fields.filter((f) => !mstCompletenessNames.has(f.field))
-  const mstCompletenessFields = chapter_completeness.physio_measurement.fields
-    .filter((f) => mstCompletenessNames.has(f.field))
-    .map((f) => ({ ...f, pct: Number(((f.count / Math.max(mst.n_mst_studies, 1)) * 100).toFixed(1)) }))
+
+  const topSignalPct = ((topSignal.count / summary.n_experiments) * 100).toFixed(0)
+  const mstPct = ((mst.n_mst_studies / summary.n_experiments) * 100).toFixed(0)
+  const brandPct = ((sensor_brands.n_studies_with_brand / summary.n_experiments) * 100).toFixed(0)
 
   return (
     <div>
       <ChapterHeader
-        eyebrow="Chapter 3 of 8"
-        title="Measurements from the body"
+        eyebrow="Chapter 3 of 7"
+        title="Measuring the human"
         framing={
           <>
             <p>
@@ -654,20 +652,17 @@ export default function ChapterBody({ data }) {
         }
         headline={[
           { value: summary.n_experiments, label: 'Experiments' },
-          { value: topSignal.count, label: `studies measure ${topSignal.parameter.toLowerCase()}`, color: '#FB3640' },
-          { value: mst.n_mst_studies, label: 'studies calculate MST', color: '#FB3640' },
-          { value: sensor_brands.n_studies_with_brand, label: 'report a sensor brand', color: '#5B5BFF' },
+          { value: `${topSignalPct}%`, label: `measure ${topSignal.parameter.toLowerCase()}`, color: '#FB3640' },
+          { value: `${mstPct}%`, label: 'calculate MST', color: '#FB3640' },
+          { value: `${brandPct}%`, label: 'report a sensor brand', color: '#5B5BFF' },
         ]}
       />
-
-      <CompletenessStrip fields={bodyCompletenessFields} nStudies={chapter_completeness.physio_measurement.n_studies} title="Data completeness for physiological signals" />
-      <CompletenessStrip fields={mstCompletenessFields} nStudies={mst.n_mst_studies} title="MST-specific completeness, among studies where MST is calculated" />
 
       <ChapterSection
         title="What's measured, and how"
         intro="Skin temperature (218 studies, 81%) and heart rate (135, 50%) dominate by a wide margin over every other signal. Other signals appear far less often and are typically paired with skin temperature or heart rate rather than measured in isolation."
       >
-        <FigureCard figNumber="17" title="Most frequently measured signals" plotWidth={980} commentary="Skin temperature dominates at 218 of 269 experiments (81%) — more than triple the next most common signal, heart/pulse rate at 135 (50%). After that the field thins out fast: core/body temperature and blood pressure each appear in well under a fifth of experiments.">
+        <FigureCard figNumber="20" title="Most frequently measured signals" plotWidth={980} commentary="Skin temperature dominates at 218 of 269 experiments (81%) — more than triple the next most common signal, heart/pulse rate at 135 (50%). After that the field thins out fast: core/body temperature and blood pressure each appear in well under a fifth of experiments.">
           <PeriodHeatmap
             rows={fig17_physio_params.data.map((d) => d.parameter)}
             periods={signal_freq_by_period.periods}
@@ -679,7 +674,7 @@ export default function ChapterBody({ data }) {
           />
         </FigureCard>
 
-        <FigureCard figNumber="18" title="Which signals get measured together" plotWidth={680} commentary="Skin temperature (218 studies) and heart/pulse rate (135) are individually the most common signals, and 103 studies measure both together — about half of all heart-rate studies also track skin temperature.">
+        <FigureCard figNumber="21" title="Which signals get measured together" plotWidth={680} commentary="Skin temperature (218 studies) and heart/pulse rate (135) are individually the most common signals, and 103 studies measure both together — about half of all heart-rate studies also track skin temperature.">
           <CooccurrenceMatrix labels={fig18_physio_cooccurrence.labels} matrix={fig18_physio_cooccurrence.matrix} colorScheme="blue" />
         </FigureCard>
       </ChapterSection>
@@ -688,11 +683,11 @@ export default function ChapterBody({ data }) {
         title="Signals, sensor types, and brands"
         intro="The same signal can be captured by very different instruments. This flow covers 15 signals measured in ≥5 studies, 53 distinct sensor types used across them, and every commercial brand behind those sensors — ordered by thermophysiological mechanism."
       >
-        <FigureCard figNumber="19" title="Signal → sensor type → brand" plotWidth={1100} commentary="OMRON is the most-cited brand overall (65 studies), but spread across signals — it makes combination devices covering blood pressure (30), heart rate (20), and core temperature (12). iButton (49 studies) is the opposite pattern: concentrated almost entirely in one signal, skin temperature (44 of its 49). Flow and node thickness are proportional to study count — hover for the exact number, or click any signal, sensor type, or brand to isolate its paths.">
+        <FigureCard figNumber="22" title="Signal → sensor type → brand" plotWidth={1100} commentary="OMRON is the most-cited brand overall (65 studies), but spread across signals — it makes combination devices covering blood pressure (30), heart rate (20), and core temperature (12). iButton (49 studies) is the opposite pattern: concentrated almost entirely in one signal, skin temperature (44 of its 49). Flow and node thickness are proportional to study count — hover for the exact number, or click any signal, sensor type, or brand to isolate its paths.">
           <SignalSensorBrandSankey overall={physio_signal_sensor.overall} brandModelData={data.brand_model_reference.data} />
         </FigureCard>
 
-        <FigureCard title="Where on the body each signal is measured" plotWidth={900} commentary="Skin temperature is measured across the body fairly evenly (no single dominant site). Heart rate concentrates at the chest (44 of 99 studies, ECG-strap territory) and wrist (25, optical wearables). The sudomotor signals split sharply by method: 27 sweat-indicator studies measure the whole body at once (not shown on the diagram, see the list at right), while skin conductance is almost always local — 11 studies at the wrist, 9 at the finger.">
+        <FigureCard figNumber="23" title="Where on the body each signal is measured" plotWidth={900} commentary="Skin temperature is measured across the body fairly evenly (no single dominant site). Heart rate concentrates at the chest (44 of 99 studies, ECG-strap territory) and wrist (25, optical wearables). The sudomotor signals split sharply by method: 27 sweat-indicator studies measure the whole body at once (not shown on the diagram, see the list at right), while skin conductance is almost always local — 11 studies at the wrist, 9 at the finger.">
           <BodySiteToggle
             skinTempSites={skintemp_sites.site_totals}
             skinTempN={skintemp_sites.n_studies_with_site}
@@ -708,7 +703,7 @@ export default function ChapterBody({ data }) {
         title="How sensor choice has shifted over time"
         intro="For skin temperature, thermocouples made up 55% of sensors in 2013–14 but only 25% by 2023–24, while Thermochron-type dataloggers (e.g. iButton) rose from 18% to 52% over the same span — the field's main displacement story. Each column below is normalised to 100% of that period's studies measuring the signal."
       >
-        <FigureCard title="Sensor choice by signal" plotWidth={980} commentary="Use the signal toggles to compare how sensor-type composition changed over time. Each column is normalized within the studies measuring the selected signal in that 2-year period.">
+        <FigureCard figNumber="24" title="Sensor choice by signal" plotWidth={980} commentary="Use the signal toggles to compare how sensor-type composition changed over time. Each column is normalized within the studies measuring the selected signal in that 2-year period.">
           <SensorEvolutionToggle signals={evoSignals} evoData={evo_signal_sensor} periods={evo_signal_sensor.periods} />
         </FigureCard>
       </ChapterSection>
@@ -717,7 +712,7 @@ export default function ChapterBody({ data }) {
         title="Skin temperature body sites"
         intro="Where on the body skin temperature is measured, and how that has shifted across the decade. Only near-synonymous labels are collapsed (e.g. calf/shin → lower leg); distinct face sub-sites remain separate."
       >
-        <FigureCard title="Site prevalence by period" plotWidth={980} commentary="Lower leg is the single most-measured site (136 of 218 skin-temperature studies, 62%), followed closely by hand, thigh, chest, and forehead (all 123–130 studies). No one site is measured in every study — choice of body site is still inconsistent across the field.">
+        <FigureCard figNumber="25" title="Site prevalence by period" plotWidth={980} commentary="Lower leg is the single most-measured site (136 of 218 skin-temperature studies, 62%), followed closely by hand, thigh, chest, and forehead (all 123–130 studies). No one site is measured in every study — choice of body site is still inconsistent across the field.">
           <PeriodHeatmap
             rows={allSites.map((s) => s.site)}
             periods={periods}
@@ -734,7 +729,7 @@ export default function ChapterBody({ data }) {
         title="Where other signals are measured"
         intro="Skin temperature isn't the only signal where measurement site reflects a real methodological choice. Heart rate's site splits roughly along sensor modality (chest straps vs. wrist/finger optical sensors); skin conductance follows electrode-placement convention; sweat is measured either at a local site or, more often, across the whole body at once — two fundamentally different kinds of measurement sharing one field name."
       >
-        <FigureCard title="Heart/pulse rate measurement site" plotWidth={980} commentary="Chest (44 of 99 studies) and wrist (25) are the two dominant sites — roughly, ECG-strap vs. optical-wearable territory. The matrix below shows the full site distribution over time.">
+        <FigureCard figNumber="26" title="Heart/pulse rate measurement site" plotWidth={980} commentary="Chest (44 of 99 studies) and wrist (25) are the two dominant sites — roughly, ECG-strap vs. optical-wearable territory. The matrix below shows the full site distribution over time.">
           {(() => {
             const hr = site_by_signal['Heart/Pulse rate'].by_period
             const hrSites = site_by_signal['Heart/Pulse rate'].site_totals.map((d) => d.site)
@@ -758,7 +753,7 @@ export default function ChapterBody({ data }) {
         title="Mean skin temperature"
         intro={`${mst.n_mst_studies} studies explicitly calculate a weighted mean skin temperature. The calculation rate has declined over the decade even as formula choice has diversified beyond the classic Ramanathan formula.`}
       >
-        <FigureCard title="MST calculation pathway" plotWidth={980} commentary="The Sankey separates whether MST is calculated at all from the details that only become meaningful once MST is calculated: number of skin-temperature points and formula label.">
+        <FigureCard figNumber="27" title="MST calculation pathway" plotWidth={980} commentary="The Sankey separates whether MST is calculated at all from the details that only become meaningful once MST is calculated: number of skin-temperature points and formula label.">
           <MstSankey mst={mst} totalExperiments={summary.n_experiments} />
         </FigureCard>
       </ChapterSection>

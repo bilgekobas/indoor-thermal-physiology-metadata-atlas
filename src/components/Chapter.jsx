@@ -20,7 +20,7 @@ export function ChapterHeader({ eyebrow, title, framing, headline }) {
         <div className="flex flex-wrap gap-6 mt-6">
           {headline.map((h) => (
             <div key={h.label}>
-              <div className="font-data text-[22px] font-semibold leading-none" style={{ color: h.color || '#0A0A0A' }}>
+              <div className="font-data text-[22px] font-semibold leading-none" style={{ color: '#FB3640' }}>
                 {h.value}
               </div>
               <div className="text-[12px] text-inkmid mt-1 max-w-[180px]">{h.label}</div>

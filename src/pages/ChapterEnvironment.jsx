@@ -1,133 +1,130 @@
 import { useMemo } from 'react'
 import { ChapterHeader, ChapterSection } from '../components/Chapter.jsx'
-import CompletenessStrip from '../components/CompletenessStrip.jsx'
 import FigureCard from '../components/FigureCard.jsx'
 import CooccurrenceMatrix from '../components/CooccurrenceMatrix.jsx'
-import OverallByPeriod from '../components/OverallByPeriod.jsx'
 import { useTooltip, TooltipPortal } from '../components/Tooltip.jsx'
 
-const VAR_COLORS = {
-  'Air temperature': '#FB3640', 'Relative humidity': '#5B5BFF', 'Air velocity': '#FB3640', 'Globe temperature': '#D5FF99',
+function quantile(sorted, q) {
+  if (!sorted.length) return null
+  if (sorted.length === 1) return sorted[0]
+  const pos = (sorted.length - 1) * q
+  const base = Math.floor(pos)
+  const rest = pos - base
+  const next = sorted[base + 1] ?? sorted[base]
+  return sorted[base] + rest * (next - sorted[base])
 }
-function SensorHeightChart({ heightData, variables }) {
+
+function stats(values) {
+  const sorted = [...values].sort((a, b) => a - b)
+  if (!sorted.length) return null
+  const q1 = quantile(sorted, 0.25)
+  const med = quantile(sorted, 0.5)
+  const q3 = quantile(sorted, 0.75)
+  const iqr = q3 - q1
+  const loFence = q1 - 1.5 * iqr
+  const hiFence = q3 + 1.5 * iqr
+  const inlier = sorted.filter((v) => v >= loFence && v <= hiFence)
+  return {
+    min: inlier[0] ?? sorted[0],
+    max: inlier[inlier.length - 1] ?? sorted[sorted.length - 1],
+    q1, med, q3,
+  }
+}
+
+function SensorHeightOverallChart({ heightData, variables }) {
   const { tip, showTip, moveTip, hideTip } = useTooltip()
-  const W = 600, H = 180, domainMin = 0, domainMax = 3.5
-  const xScale = (v) => ((v - domainMin) / (domainMax - domainMin)) * W
+  const W = 760
+  const left = 170
+  const right = 28
+  const top = 20
+  const rowH = 52
+  const H = top + variables.length * rowH + 34
+  const domainMin = 0
+  const domainMax = 3.5
+  const x = (v) => left + ((v - domainMin) / (domainMax - domainMin)) * W
+
   const byVar = useMemo(() => {
-    const m = {}
-    variables.forEach((v) => { m[v] = [] })
-    heightData.forEach((r) => { if (m[r.variable]) m[r.variable].push(r.height) })
-    return m
+    const map = {}
+    variables.forEach((v) => { map[v] = [] })
+    heightData.forEach((r) => { if (map[r.variable]) map[r.variable].push({ id: r.id, height: Number(r.height) }) })
+    return map
   }, [heightData, variables])
-  const refHeights = [{ h: 0.1, l: '0.1m' }, { h: 0.6, l: '0.6m' }, { h: 1.1, l: '1.1m' }, { h: 1.7, l: '1.7m' }]
+
+  const refHeights = [0.1, 0.6, 1.1, 1.7]
+  const ticks = Array.from({ length: 8 }, (_, i) => i * 0.5)
+
   return (
     <div className="overflow-x-auto">
-      <div className="font-data text-[10px] text-inkfaint mb-1">
-        Each dot is one reported height value, in metres (x-axis). Dots are jittered vertically within their row only to avoid overlap — vertical position carries no meaning.
+      <div className="font-data text-[10px] text-inkfaint mb-2">
+        Each dot is one reported sensor height. Black boxplots summarize the row distribution; dotted guide lines mark the four standard 0.1, 0.6, 1.1, and 1.7 m heights.
       </div>
-      <svg width={W} height={H + 24} className="font-data block">
-        {refHeights.map((r) => (
-          <g key={r.h}>
-            <line x1={xScale(r.h)} x2={xScale(r.h)} y1={0} y2={H} stroke="#E4E4E4" strokeWidth={1} strokeDasharray="4 2" />
-            <text x={xScale(r.h)} y={H + 18} fontSize={9} fill="#BBBBBB" textAnchor="middle">{r.l}</text>
+      <svg width={left + W + right} height={H} className="font-data block overflow-visible">
+        {ticks.map((t) => (
+          <g key={t}>
+            <line x1={x(t)} x2={x(t)} y1={top - 8} y2={H - 28} stroke="#E4E4E4" strokeWidth={1} />
+            <text x={x(t)} y={H - 10} fontSize={9.5} fill="#8A8A8A" textAnchor="middle">{t.toFixed(1)}</text>
           </g>
         ))}
-        {variables.map((v, vi) => {
-          const rowH = H / variables.length, rowY = vi * rowH + rowH / 2
-          const color = VAR_COLORS[v] || '#8A8A8A'
-          return byVar[v].map((h, i) => (
-            <circle key={i} cx={xScale(h)} cy={rowY + Math.sin(i * 7.3) * rowH * 0.35} r={3.5} fill={color} opacity={0.55}
-              className="cursor-default" onMouseEnter={(e) => showTip(e, `${v}: ${h}m`)} onMouseMove={moveTip} onMouseLeave={hideTip} />
-          ))
-        })}
-        {variables.map((v, vi) => {
-          const rowH = H / variables.length
-          return (<text key={v} x={-4} y={vi * rowH + rowH / 2 + 4} fontSize={11} fill="#4A4A4A" textAnchor="end">{v}</text>)
-        })}
-      </svg>
-      <TooltipPortal tip={tip} />
-    </div>
-  )
-}
-
-function median(arr) {
-  if (!arr.length) return null
-  const sorted = [...arr].sort((a, b) => a - b)
-  const mid = Math.floor(sorted.length / 2)
-  return sorted.length % 2 ? sorted[mid] : (sorted[mid - 1] + sorted[mid]) / 2
-}
-
-function SensorHeightByPeriod({ heightByPeriodData, variables, periods }) {
-  const { tip, showTip, moveTip, hideTip } = useTooltip()
-  const byVarPeriod = useMemo(() => {
-    const m = {}
-    variables.forEach((v) => {
-      m[v] = {}
-      periods.forEach((p) => { m[v][p] = [] })
-    })
-    heightByPeriodData.forEach((r) => { if (m[r.variable] && m[r.variable][r.period]) m[r.variable][r.period].push(r.height) })
-    return m
-  }, [heightByPeriodData, variables, periods])
-
-  const W = 560, rowH = 30
-  const domainMin = 0, domainMax = 2
-  const xScale = (v) => ((v - domainMin) / (domainMax - domainMin)) * W
-
-  return (
-    <div className="overflow-x-auto">
-      <svg width={W + 100} height={variables.length * rowH + 24} className="font-data block">
-        {[0, 0.5, 1, 1.5, 2].map((v) => (
-          <line key={v} x1={xScale(v) + 90} x2={xScale(v) + 90} y1={0} y2={variables.length * rowH} stroke="#E4E4E4" strokeWidth={1} />
+        {refHeights.map((h) => (
+          <line key={`ref-${h}`} x1={x(h)} x2={x(h)} y1={top - 8} y2={H - 28} stroke="#BBBBBB" strokeWidth={1} strokeDasharray="3 3" />
         ))}
         {variables.map((v, vi) => {
-          const y = vi * rowH + rowH / 2
-          const points = periods.map((p) => ({ p, med: median(byVarPeriod[v][p]), n: byVarPeriod[v][p].length }))
-          const valid = points.filter((pt) => pt.med !== null)
+          const rowY = top + vi * rowH + rowH / 2
+          const vals = byVar[v].map((d) => d.height).filter((d) => Number.isFinite(d))
+          const s = stats(vals)
           return (
             <g key={v}>
-              <text x={0} y={y + 4} fontSize={10.5} fill="#4A4A4A">{v}</text>
-              {valid.length > 1 && (
-                <polyline points={valid.map((pt) => `${xScale(pt.med) + 90},${y}`).join(' ')} fill="none" stroke="#BBBBBB" strokeWidth={1} />
-              )}
-              {valid.map((pt) => (
-                <circle key={pt.p} cx={xScale(pt.med) + 90} cy={y} r={4} fill={VAR_COLORS[v] || '#8A8A8A'}
+              <text x={left - 10} y={rowY + 3.5} fontSize={11} fill="#4A4A4A" textAnchor="end">{v}</text>
+              <line x1={left} x2={left + W} y1={rowY} y2={rowY} stroke="#F4F4F4" />
+              {byVar[v].map((d, i) => (
+                <circle
+                  key={`${d.id}-${i}`}
+                  cx={x(d.height)}
+                  cy={rowY + Math.sin(i * 7.17) * 8}
+                  r={3.2}
+                  fill="#0A0A0A"
+                  opacity={0.33}
                   className="cursor-default"
-                  onMouseEnter={(e) => showTip(e, `${v}, ${pt.p}: median height ${pt.med}m (n=${pt.n})`)}
-                  onMouseMove={moveTip} onMouseLeave={hideTip} />
+                  onMouseEnter={(e) => showTip(e, `${v}: ${d.height} m (${d.id})`)}
+                  onMouseMove={moveTip}
+                  onMouseLeave={hideTip}
+                />
               ))}
+              {s && (
+                <g>
+                  <line x1={x(s.min)} x2={x(s.max)} y1={rowY} y2={rowY} stroke="#0A0A0A" strokeWidth={1.4} />
+                  <line x1={x(s.min)} x2={x(s.min)} y1={rowY - 7} y2={rowY + 7} stroke="#0A0A0A" strokeWidth={1.2} />
+                  <line x1={x(s.max)} x2={x(s.max)} y1={rowY - 7} y2={rowY + 7} stroke="#0A0A0A" strokeWidth={1.2} />
+                  <rect x={x(s.q1)} y={rowY - 10} width={Math.max(1, x(s.q3) - x(s.q1))} height={20} fill="none" stroke="#0A0A0A" strokeWidth={1.4} />
+                  <line x1={x(s.med)} x2={x(s.med)} y1={rowY - 10} y2={rowY + 10} stroke="#0A0A0A" strokeWidth={1.6} />
+                </g>
+              )}
             </g>
           )
         })}
-        {[0, 0.5, 1, 1.5, 2].map((v) => (
-          <text key={v} x={xScale(v) + 90} y={variables.length * rowH + 16} fontSize={9} fill="#8A8A8A" textAnchor="middle">{v}m</text>
-        ))}
+        <text x={left + W / 2} y={H - 2} fontSize={10.5} fill="#8A8A8A" textAnchor="middle">Sensor height (m)</text>
       </svg>
-      <div className="flex flex-wrap gap-x-3 gap-y-1 mt-2 text-[11px] text-inkmid">
-        {periods.map((p) => <span key={p} className="font-data">{p}</span>)}
-      </div>
-      <p className="text-[11px] text-inkfaint mt-1">Each dot is the median reported height for that variable in that period; line connects periods chronologically.</p>
       <TooltipPortal tip={tip} />
     </div>
   )
 }
 
 export default function ChapterEnvironment({ data }) {
-  const { fig12_env_cooccurrence, fig13_sensor_heights, sensor_heights_by_period, chapter_completeness, summary } = data
-  const coreFour = ['Air temp.', 'Relative humidity', 'Air velocity', 'Globe temp.']
+  const { fig12_env_cooccurrence, fig13_sensor_heights, chapter_completeness } = data
   const coreTotal = fig12_env_cooccurrence.totals['Air temp.']
 
   return (
     <div>
       <ChapterHeader
-        eyebrow="Chapter 4 of 8"
-        title="Measurements from the environment"
+        eyebrow="Chapter 4 of 7"
+        title="Measuring the environment"
         framing={
           <>
             <p>
               Alongside the body, every study describes the room it happened in. This chapter looks
               at which environmental variables are measured, which ones tend to be measured together,
-              and at what height sensors are placed — a detail that materially changes what "air
-              temperature" actually means in a given study.
+              and at what height sensors are placed — a detail that materially changes what “air
+              temperature” actually means in a given study.
             </p>
             <p>
               We looked for these fields because thermal comfort and heat-balance models depend on a
@@ -144,31 +141,21 @@ export default function ChapterEnvironment({ data }) {
         ]}
       />
 
-      <CompletenessStrip fields={chapter_completeness.env_measurement.fields} nStudies={chapter_completeness.env_measurement.n_studies} />
-
       <ChapterSection
         title="What gets measured together"
-        intro="Air temperature (151 studies), relative humidity (124), air velocity (105), and globe temperature (84) form a standard core that's usually measured together. Other variables — surface temperature, CO2, light, sound — appear in fewer than 30 studies each, added selectively depending on the study's specific focus."
+        intro="Air temperature, relative humidity, air velocity, and globe temperature form the field's standard environmental core. Other variables — surface temperature, CO₂, light, sound — appear much more selectively."
       >
-        <FigureCard figNumber="12" title="Environmental variable co-occurrence" plotWidth={760} commentary="Air temperature is measured in 151 studies, relative humidity in 124 — and every one of those 124 also measures air temperature. Air velocity (105 studies) and globe temperature (84) overlap nearly as tightly with the other three. Surface temperature, wet-bulb temperature, sound, and light each appear in fewer than 30 studies, usually added only when a study's specific question calls for them.">
+        <FigureCard figNumber="28" title="Environmental variable co-occurrence" plotWidth={760} commentary="Air temperature is the anchor variable; relative humidity, air velocity, and globe temperature cluster tightly around it. Everything else is a minority add-on, included only when a study's specific question calls for it.">
           <CooccurrenceMatrix labels={fig12_env_cooccurrence.labels} matrix={fig12_env_cooccurrence.matrix} cellSize={28} />
         </FigureCard>
       </ChapterSection>
 
       <ChapterSection
         title="Where sensors are placed"
-        intro="74% of reported heights (537 of 722) sit exactly at one of the four standard positions matching ankle, abdomen, seated head, and standing head level — but the remaining quarter fall in between or omit height entirely."
+        intro="Most reported heights sit at one of the standard ankle, abdomen, seated-head, or standing-head levels, but a substantial minority do not. The scatter view below keeps every reported value visible while showing the distribution for each core variable."
       >
-        <FigureCard figNumber="13" title="Sensor heights for the core four variables" commentary="537 of 722 reported heights (74%) sit exactly at one of the four ISO 7726 / ASHRAE 55 standard heights (0.1, 0.6, 1.1, 1.7m). The remaining quarter fall in between or at non-standard positions, which is enough divergence that two studies' 'air temperature' readings aren't always describing the same point in the room.">
-          <OverallByPeriod
-            minHeight={260}
-            renderOverall={() => (
-              <SensorHeightChart heightData={fig13_sensor_heights.data} variables={fig13_sensor_heights.variables} />
-            )}
-            renderByPeriod={() => (
-              <SensorHeightByPeriod heightByPeriodData={sensor_heights_by_period.data} variables={fig13_sensor_heights.variables} periods={sensor_heights_by_period.periods} />
-            )}
-          />
+        <FigureCard figNumber="29" title="Sensor heights for the core four variables" plotWidth={980} commentary="The four rows show the full distribution of reported heights for air temperature, relative humidity, air velocity, and globe temperature. Dots are individual reported values; the boxplot in each row summarizes the same distribution. Standard reference heights are marked with dotted vertical lines.">
+          <SensorHeightOverallChart heightData={fig13_sensor_heights.data} variables={fig13_sensor_heights.variables} />
         </FigureCard>
       </ChapterSection>
     </div>

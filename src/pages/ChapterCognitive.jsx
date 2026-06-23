@@ -1,88 +1,138 @@
+import { useMemo, useState } from 'react'
 import { ChapterHeader, ChapterSection } from '../components/Chapter.jsx'
 import FigureCard from '../components/FigureCard.jsx'
 import { useTooltip, TooltipPortal } from '../components/Tooltip.jsx'
 
-const DOMAIN_PALETTE = {
-  'Performance task — arithmetic': '#FB3640',
-  'Performance task — working memory': '#5B5BFF',
-  'Performance task — inhibition/attention': '#FB3640',
-  'Performance task — sustained attention': '#D5FF99',
-  'Performance task — psychomotor speed': '#8A8A8A',
-  'Performance task — memory': '#F1FF71',
-  'Performance task — attention': '#C5FFFD',
-  'Performance task — reasoning': '#FB3640',
-  'Performance task — multi-domain battery': '#4A4A4A',
-  'Performance task — cue utilization/attention': '#8A8A8A',
-  'Performance task — creativity': '#BBBBBB',
-  'Performance task — executive function': '#F1FF71',
-  'Performance task — perception': '#C5FFFD',
-  'Performance task — planning': '#D5FF99',
-  'Subjective scale — sleepiness/alertness': '#FB3640',
-  'Subjective scale — work performance': '#C5FFFD',
-  'Subjective scale — workload': '#F1FF71',
-  'Subjective scale — mood': '#D5FF99',
-  'Subjective scale — fatigue': '#FB3640',
-  'Subjective scale — attention': '#C5FFFD',
-  'Stress induction protocol': '#0A0A0A',
+const TYPE_COLORS = {
+  'Performance task': '#0A0A0A',
+  'Subjective scale': '#0A0A0A',
+  'Stress induction': '#0A0A0A',
 }
-function domainColor(d) { return DOMAIN_PALETTE[d] || '#BBBBBB' }
-const isSubjective = (d) => d.startsWith('Subjective scale')
 
-function CognitiveInstrumentChart({ instrumentTotals, nStudies }) {
+function domainColor(domain) {
+  if (String(domain).toLowerCase().includes('working memory')) return '#5B5BFF'
+  if (String(domain).toLowerCase().includes('attention')) return '#FB3640'
+  if (String(domain).toLowerCase().includes('arithmetic')) return '#FB3640'
+  if (String(domain).toLowerCase().includes('workload')) return '#D5FF99'
+  if (String(domain).toLowerCase().includes('sleepiness')) return '#8A8A8A'
+  return '#BBBBBB'
+}
+
+function CognitiveSankey({ cognitive }) {
   const { tip, showTip, moveTip, hideTip } = useTooltip()
-  const top = instrumentTotals.slice(0, 20)
-  const max = top.reduce((m, r) => (r.count > m ? r.count : m), 1)
+  const [selected, setSelected] = useState(null)
+
+  const leftNodes = useMemo(() => {
+    const totals = {}
+    cognitive.flow_type_domain.forEach((r) => { totals[r.measure_type] = (totals[r.measure_type] || 0) + r.count })
+    return Object.entries(totals).map(([name, total]) => ({ name, total })).sort((a, b) => b.total - a.total)
+  }, [cognitive])
+
+  const midNodes = useMemo(() => {
+    const totals = {}
+    cognitive.flow_type_domain.forEach((r) => { totals[r.domain_short] = (totals[r.domain_short] || 0) + r.count })
+    return Object.entries(totals).map(([name, total]) => ({ name, total })).sort((a, b) => b.total - a.total)
+  }, [cognitive])
+
+  const rightNodes = useMemo(() => {
+    const totals = {}
+    cognitive.flow_domain_instrument.forEach((r) => { totals[r.instrument] = (totals[r.instrument] || 0) + r.count })
+    return Object.entries(totals).map(([name, total]) => ({ name, total })).sort((a, b) => b.total - a.total)
+  }, [cognitive])
+
+  const layoutNodes = (entries, x, px, minH, gap) => {
+    let y = 26
+    return entries.map((e) => {
+      const h = Math.max(minH, e.total * px)
+      const node = { ...e, x, y, h }
+      y += h + gap
+      return node
+    })
+  }
+
+  const left = layoutNodes(leftNodes, 170, 4.2, 24, 14)
+  const mid = layoutNodes(midNodes, 470, 2.3, 14, 7)
+  const right = layoutNodes(rightNodes, 790, 1.5, 12, 6)
+  const leftBy = Object.fromEntries(left.map((n) => [n.name, n]))
+  const midBy = Object.fromEntries(mid.map((n) => [n.name, n]))
+  const rightBy = Object.fromEntries(right.map((n) => [n.name, n]))
+  const links = [
+    ...cognitive.flow_type_domain.map((r) => ({ from: leftBy[r.measure_type], to: midBy[r.domain_short], count: r.count, a: r.measure_type, b: r.domain_short, type: 'type-domain' })),
+    ...cognitive.flow_domain_instrument.map((r) => ({ from: midBy[r.domain_short], to: rightBy[r.instrument], count: r.count, a: r.domain_short, b: r.instrument, type: 'domain-instrument' })),
+  ].filter((l) => l.from && l.to)
+  const H = Math.max(240, ...[...left, ...mid, ...right].map((n) => n.y + n.h)) + 18
+  const maxFlow = Math.max(...links.map((l) => l.count), 1)
+
+  const domainToType = {}
+  cognitive.flow_type_domain.forEach((r) => { domainToType[r.domain_short] = r.measure_type })
+  const instrumentToDomains = {}
+  cognitive.flow_domain_instrument.forEach((r) => {
+    if (!instrumentToDomains[r.instrument]) instrumentToDomains[r.instrument] = []
+    instrumentToDomains[r.instrument].push(r.domain_short)
+  })
+
+  const isConnected = (obj) => {
+    if (!selected) return true
+    if (selected.kind === 'type') {
+      return obj.name === selected.name || obj.a === selected.name || obj.measure_type === selected.name ||
+        domainToType[obj.name] === selected.name || domainToType[obj.a] === selected.name ||
+        (instrumentToDomains[obj.name] || []).some((d) => domainToType[d] === selected.name)
+    }
+    if (selected.kind === 'domain') {
+      return obj.name === selected.name || obj.a === selected.name || obj.b === selected.name ||
+        (instrumentToDomains[obj.name] || []).includes(selected.name) || domainToType[obj.name] === selected.name
+    }
+    if (selected.kind === 'instrument') {
+      return obj.name === selected.name || obj.b === selected.name || (instrumentToDomains[selected.name] || []).includes(obj.name)
+    }
+    return true
+  }
+
+  const nodeLabel = (name, total) => `${name} ${total}`
+  const pathFor = (l) => {
+    const x1 = l.from.x + 14
+    const y1 = l.from.y + l.from.h / 2
+    const x2 = l.to.x
+    const y2 = l.to.y + l.to.h / 2
+    const cx = (x1 + x2) / 2
+    return `M ${x1} ${y1} C ${cx} ${y1}, ${cx} ${y2}, ${x2} ${y2}`
+  }
+
+  const renderNode = (n, kind, color, labelSide = 'right') => {
+    const on = isConnected({ name: n.name, [kind]: n.name, measure_type: n.name })
+    return (
+      <g key={`${kind}-${n.name}`} className="cursor-pointer" style={{ opacity: on ? 1 : 0.14 }}
+        onClick={() => setSelected(selected?.kind === kind && selected.name === n.name ? null : { kind, name: n.name })}
+        onMouseEnter={(e) => showTip(e, `${n.name}: ${n.total} study uses. Click to highlight connected paths.`)}
+        onMouseMove={moveTip} onMouseLeave={hideTip}>
+        <rect x={n.x} y={n.y} width={14} height={n.h} rx={2} fill={color} />
+        <text x={labelSide === 'left' ? n.x - 8 : n.x + 20} y={n.y + n.h / 2 + 3.5} fontSize={10.5} textAnchor={labelSide === 'left' ? 'end' : 'start'} fill="#0A0A0A">{nodeLabel(n.name, n.total)}</text>
+      </g>
+    )
+  }
+
   return (
     <div>
-      <div className="font-data text-[10px] text-inkfaint mb-1.5">
-        Bar length relative to the largest value shown. n = {nStudies} cognitive-testing studies total (a study can use more than one instrument).
-      </div>
-      <div className="space-y-1.5">
-        {top.map((r) => (
-          <div key={r.instrument} className="flex items-center gap-3 group">
-            <span className="text-[12px] w-52 shrink-0 truncate" title={r.instrument}>{r.instrument}</span>
-            <div className="flex-1 h-4 rounded bg-line/50 overflow-hidden cursor-default"
-              onMouseEnter={(e) => showTip(e, `${r.instrument}: ${r.count} of ${nStudies} cognitive-test studies (${r.domain})`)}
-              onMouseMove={moveTip} onMouseLeave={hideTip}>
-              <div className="h-full group-hover:brightness-110" style={{ width: `${(r.count / max) * 100}%`, background: domainColor(r.domain) }} />
-            </div>
-            <span className="font-data text-[11px] w-16 text-right text-inkmid">{r.count} ({((r.count / nStudies) * 100).toFixed(0)}%)</span>
-          </div>
+      {selected && <button onClick={() => setSelected(null)} className="mb-3 px-2.5 py-1 rounded text-[11px] font-data bg-line/60 text-inkmid hover:bg-line">✕ clear selection ({selected.name})</button>}
+      <svg width={1080} height={H + 24} className="font-data block overflow-visible">
+        <text x={170} y={12} fontSize={10} fill="#8A8A8A" fontWeight="600" textAnchor="middle">MEASURE TYPE</text>
+        <text x={470} y={12} fontSize={10} fill="#8A8A8A" fontWeight="600">DOMAIN</text>
+        <text x={790} y={12} fontSize={10} fill="#8A8A8A" fontWeight="600">INSTRUMENT</text>
+        {links.map((l, i) => (
+          <path key={i} d={pathFor(l)} fill="none" stroke="#0A0A0A" strokeWidth={Math.max(1.2, (l.count / maxFlow) * 22)} opacity={isConnected(l) ? 0.22 : 0.03}
+            onMouseEnter={(e) => showTip(e, `${l.type === 'type-domain' ? `${l.a} → ${l.b}` : `${l.a} → ${l.b}`}: ${l.count} studies`)}
+            onMouseMove={moveTip} onMouseLeave={hideTip} />
         ))}
-      </div>
+        {left.map((n) => renderNode(n, 'type', TYPE_COLORS[n.name] || '#0A0A0A', 'left'))}
+        {mid.map((n) => renderNode(n, 'domain', domainColor(n.name), 'right'))}
+        {right.map((n) => renderNode(n, 'instrument', '#0A0A0A', 'right'))}
+      </svg>
+      <p className="font-data text-[10px] text-inkfaint mt-2">Each flow is counted in unique-study uses. Click a node in any column to isolate all connected paths.</p>
       <TooltipPortal tip={tip} />
     </div>
   )
 }
 
-function CognitiveDomainChart({ domainTotals, nStudies }) {
-  const { tip, showTip, moveTip, hideTip } = useTooltip()
-  const max = domainTotals.reduce((m, r) => (r.count > m ? r.count : m), 1)
-  return (
-    <div>
-      <div className="font-data text-[10px] text-inkfaint mb-1.5">
-        Bar length relative to the largest value shown. n = {nStudies} cognitive-testing studies total (a study can touch more than one domain).
-      </div>
-      <div className="space-y-1.5">
-        {domainTotals.map((r) => (
-          <div key={r.domain} className="flex items-center gap-3 group">
-            <span className="text-[12px] w-56 shrink-0 truncate" title={r.domain}>{r.domain}</span>
-            <div className="flex-1 h-4 rounded bg-line/50 overflow-hidden cursor-default"
-              onMouseEnter={(e) => showTip(e, `${r.domain}: ${r.count} of ${nStudies} cognitive-test studies`)}
-              onMouseMove={moveTip} onMouseLeave={hideTip}>
-              <div className="h-full group-hover:brightness-110" style={{ width: `${(r.count / max) * 100}%`, background: domainColor(r.domain) }} />
-            </div>
-            <span className="font-data text-[11px] w-16 text-right text-inkmid">{r.count} ({((r.count / nStudies) * 100).toFixed(0)}%)</span>
-          </div>
-        ))}
-      </div>
-      <TooltipPortal tip={tip} />
-    </div>
-  )
-}
-
-// How many instruments the typical cognitive-test study applies — a quick
-// indication of whether studies run one targeted task or a full battery.
 function BatterySizeChart({ studyInstruments }) {
   const { tip, showTip, moveTip, hideTip } = useTooltip()
   const counts = studyInstruments.map((s) => s.instrument.length)
@@ -93,8 +143,6 @@ function BatterySizeChart({ studyInstruments }) {
     buckets[key] = (buckets[key] || 0) + 1
   })
   const order = ['1', '2', '3', '4', '5', '6+']
-  // Bug fix: use reduce instead of Math.max(...spread)
-  const max = Object.values(buckets).reduce((m, v) => (v > m ? v : m), 1)
   return (
     <div>
       <div className="font-data text-[10px] text-inkfaint mb-1.5">n = {nStudies} cognitive-testing studies total.</div>
@@ -105,7 +153,7 @@ function BatterySizeChart({ studyInstruments }) {
             <div className="flex-1 h-4 rounded bg-line/50 overflow-hidden cursor-default"
               onMouseEnter={(e) => showTip(e, `${buckets[k]} studies use ${k} instrument${k !== '1' ? 's' : ''}`)}
               onMouseMove={moveTip} onMouseLeave={hideTip}>
-              <div className="h-full group-hover:brightness-110" style={{ width: `${(buckets[k] / max) * 100}%`, background: '#5B5BFF' }} />
+              <div className="h-full group-hover:brightness-110" style={{ width: `${(buckets[k] / Math.max(nStudies, 1)) * 100}%`, background: '#5B5BFF' }} />
             </div>
             <span className="font-data text-[11px] w-16 text-right text-inkmid">{buckets[k]} ({((buckets[k] / nStudies) * 100).toFixed(0)}%)</span>
           </div>
@@ -118,33 +166,26 @@ function BatterySizeChart({ studyInstruments }) {
 
 export default function ChapterCognitive({ data }) {
   const { cognitive_tests } = data
-  const subjectiveCount = cognitive_tests.domain_totals.filter((d) => isSubjective(d.domain)).reduce((a, d) => a + d.count, 0)
-  const performanceCount = cognitive_tests.domain_totals.filter((d) => !isSubjective(d.domain)).reduce((a, d) => a + d.count, 0)
+  const subjectiveCount = cognitive_tests.domain_totals.filter((d) => String(d.domain).startsWith('Subjective scale')).reduce((a, d) => a + d.count, 0)
+  const performanceCount = cognitive_tests.domain_totals.filter((d) => String(d.domain).startsWith('Performance task')).reduce((a, d) => a + d.count, 0)
   const pct = ((cognitive_tests.n_studies_with_cognitive_test / cognitive_tests.n_total_studies) * 100).toFixed(0)
 
   return (
     <div>
       <ChapterHeader
-        eyebrow="Chapter 6 of 8"
-        title="Cognitive and mental-load testing"
+        eyebrow="Chapter 6 of 7"
+        title="Measuring the mental-load"
         framing={
           <>
             <p>
               A minority of studies pair physiological measurement with a cognitive or mental-load
               test — asking not just how the body responds to a thermal condition, but how the mind
-              performs under it. This chapter looks at which instruments are used and what they
-              actually measure.
+              performs under it.
             </p>
             <p>
-              The raw corpus field is free text with no controlled vocabulary — the same task appears
-              as "n-back", "N-back", and "n-back tasks" across different studies, and some entries are
-              full prose descriptions of a multi-part battery rather than a single instrument name. We
-              harmonised every entry into a canonical instrument and, separately, classified each one
-              into an actual performance task (something the participant <em>does</em>, like Stroop or
-              mental arithmetic) versus a subjective self-report scale (something the participant{' '}
-              <em>rates about themselves</em>, like NASA-TLX or the Karolinska Sleepiness Scale) — a
-              distinction the raw field does not make, but that matters for interpreting what
-              "cognitive performance" results actually mean.
+              The raw corpus field is free text with no controlled vocabulary. We harmonised every
+              entry into a canonical instrument and then classified it as a performance task, a
+              subjective self-report scale, or a stress-induction protocol.
             </p>
           </>
         }
@@ -158,14 +199,10 @@ export default function ChapterCognitive({ data }) {
 
       <ChapterSection
         title="What kind of measure is actually used"
-        intro="Performance tasks and subjective self-report scales are lumped into one field in the raw corpus, but they measure fundamentally different things. Arithmetic, working memory, and inhibition/attention tasks are the most common performance domains; subjective workload and sleepiness scales appear almost as often as any single performance domain."
+        intro="Performance tasks and subjective scales are mixed in one raw dataset field, but they are not the same type of evidence. The Sankey makes that split explicit, then shows which domains and instruments each branch contains."
       >
-        <FigureCard title="Cognitive domain measured" plotWidth={680} commentary='Domains prefixed "Performance task" are something the participant does; domains prefixed "Subjective scale" are something the participant rates about themselves.'>
-          <CognitiveDomainChart domainTotals={cognitive_tests.domain_totals} nStudies={cognitive_tests.n_studies_with_cognitive_test} />
-        </FigureCard>
-
-        <FigureCard title="Specific instruments used" plotWidth={680} commentary="Mental arithmetic is the single most-used instrument (18 of 56 cognitive-testing studies, 32%), followed by the Stroop task. Color matches the domain chart above. After harmonising casing and naming variants (e.g. 'n-back', 'N-back', 'n-back tasks' → one entry), the field still hasn't converged on a standard battery — most of the 20 instruments shown appear in fewer than 12 studies each.">
-          <CognitiveInstrumentChart instrumentTotals={cognitive_tests.instrument_totals} nStudies={cognitive_tests.n_studies_with_cognitive_test} />
+        <FigureCard figNumber="33" title="Cognitive measure type → domain → instrument" plotWidth={1080} commentary="The first column distinguishes what the participant does (performance task), what they rate about themselves (subjective scale), or whether the entry is a deliberate stress-induction protocol. Flow width is proportional to unique-study use count.">
+          <CognitiveSankey cognitive={cognitive_tests} />
         </FigureCard>
       </ChapterSection>
 
@@ -173,7 +210,7 @@ export default function ChapterCognitive({ data }) {
         title="One task, or a full battery?"
         intro="Some studies run a single targeted task; others apply a long battery covering several domains at once."
       >
-        <FigureCard title="Instruments applied per study" commentary="13 of 56 studies (23%) use a single targeted instrument, but an equal number (13, 23%) apply six or more in one session — a full battery rather than a focused test. The rest fall in between.">
+        <FigureCard figNumber="34" title="Instruments applied per study" commentary="A substantial minority of studies use just one targeted measure, but another substantial minority apply six or more instruments in one session — effectively a full cognitive battery.">
           <BatterySizeChart studyInstruments={cognitive_tests.study_instruments} />
         </FigureCard>
       </ChapterSection>

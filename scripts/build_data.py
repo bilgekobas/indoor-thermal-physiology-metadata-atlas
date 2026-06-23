@@ -110,6 +110,16 @@ study_cols = ['id-pub-id','id','id-title','id-authors','id-city','id-country',
               'exp-type','exp-spatial-typology','exp-domains','data-avail',
               'pop-no-tot','pop-male-no','pop-fem-no']
 studies = df[study_cols].drop_duplicates(subset=['id']).copy()
+# Add per-experiment signal list for the browse table. Kept comma-separated in
+# display, but the frontend also exposes the distinct tokens as a filter.
+signal_lookup = (
+    df[['id', 'physio-parameter']]
+      .dropna()
+      .assign(**{'physio-parameter': lambda x: x['physio-parameter'].astype(str).str.strip()})
+)
+signal_lookup = signal_lookup[~signal_lookup['physio-parameter'].isin(CODES) & (signal_lookup['physio-parameter'] != 'nan')]
+signal_map = signal_lookup.groupby('id')['physio-parameter'].apply(lambda s: ', '.join(sorted(set(s)))).to_dict()
+studies['signals_measured'] = studies['id'].map(signal_map).fillna('')
 studies = studies.sort_values(['id-pub-id','id'])
 studies_records = studies.to_dict('records')
 with open(OUT_DIR / 'studies.json', 'w') as f:
@@ -995,6 +1005,96 @@ with open(OUT_DIR / 'chapter_completeness.json', 'w') as f:
     json.dump(chapter_completeness, f, indent=2)
 print('chapter_completeness.json written for groups:', list(chapter_completeness.keys()))
 
+
+# ── A7b. Detailed field-level completeness for Chapter 8 ──────────────────
+# Rules:
+#   • MST-specific fields are evaluated only among studies where MST is measured.
+#   • For environment and questionnaire yes/no fields, NR is treated as a
+#     legitimate non-use code rather than missingness; only MNR/NAN/blank count
+#     as missing.
+#   • Participant metadata, selection criteria, and protocol-rigor fields are
+#     excluded from this end-to-end completeness view because they are not
+#     required across all studies.
+
+def _valid_general(s):
+    return s.notna() & ~s.isin(CODES)
+
+def _valid_optional_binary(s):
+    return s.notna() & ~s.isin({'MNR', 'NAN'})
+
+FULL_COMPLETENESS_GROUPS = {
+    'Context & setting': [
+        ('id-city', 'City', 'general'), ('id-country', 'Country', 'general'), ('id-climate-class', 'Climate class', 'general'),
+        ('exp-year-start', 'Experiment year', 'general'), ('exp-seasons', 'Season of testing', 'general'),
+        ('exp-hours', 'Daily start/end time', 'general'), ('exp-session-length', 'Session length', 'general'),
+        ('exp-normalisation-length', 'Normalisation period', 'general'), ('data-avail', 'Data availability statement', 'general'),
+    ],
+    'Population core': [
+        ('pop-sample-size-calc', 'Sample size calculation', 'general'), ('pop-no-tot', 'Total sample size', 'general'),
+        ('pop-male-no', 'Male participants', 'general'), ('pop-fem-no', 'Female participants', 'general'),
+        ('pop-age-mean', 'Age mean', 'general'), ('pop-age-std', 'Age SD', 'general'),
+        ('pop-bmi-mean', 'BMI mean', 'general'), ('pop-bmi-std', 'BMI SD', 'general'),
+    ],
+    'Physiological': [
+        ('physio-sensing-method', 'Sensor type', 'general'), ('physio-sensor-brand', 'Sensor brand', 'general'),
+        ('physio-sensor-model', 'Sensor model', 'general'), ('physio-body-site', 'Body site', 'general'),
+        ('physio-body-site-sagittal', 'Sagittal location', 'general'), ('physio-body-site-surface', 'Surface location', 'general'),
+        ('physio-mst-points', 'Number of MST points', 'mst'), ('physio-mst-formula', 'MST formula used', 'mst'),
+        ('physio-formulas', 'Full formula text', 'mst'), ('physio-mst-weighting', 'Weighting factors per region', 'mst'),
+    ],
+    'Environment': [
+        ('env-tdb', 'Air temperature', 'optional_binary'), ('env-rh', 'Relative humidity', 'optional_binary'),
+        ('env-v', 'Air velocity', 'optional_binary'), ('env-tg', 'Globe temperature', 'optional_binary'),
+        ('env-tsurface', 'Surface temperatures', 'optional_binary'), ('env-twb', 'Wet-bulb temperature', 'optional_binary'),
+        ('env-tout', 'Outdoor temperature', 'optional_binary'), ('env-rhout', 'Outdoor RH', 'optional_binary'),
+        ('env-co2', 'CO₂ concentration', 'optional_binary'), ('env-voc', 'VOC concentration', 'optional_binary'),
+        ('env-illuminance', 'Illuminance', 'optional_binary'), ('env-light-color', 'Light colour/CCT', 'optional_binary'),
+        ('env-solar-rad', 'Solar radiation', 'optional_binary'), ('env-sound-level', 'Sound level', 'optional_binary'),
+    ],
+    'Questionnaires & cognitive': [
+        ('ques-thermal-sensation', 'Thermal sensation', 'optional_binary'), ('ques-thermal-comfort', 'Thermal comfort', 'optional_binary'),
+        ('ques-thermal-prefer', 'Thermal preference', 'optional_binary'), ('ques-thermal-accept', 'Thermal acceptability', 'optional_binary'),
+        ('ques-thermal-satisfaction', 'Thermal satisfaction', 'optional_binary'), ('ques-local-therm-sensation', 'Local thermal sensation', 'optional_binary'),
+        ('ques-airmove-sensation', 'Air movement sensation', 'optional_binary'), ('ques-humidity-sensation', 'Humidity sensation', 'optional_binary'),
+        ('ques-light-sensation', 'Light sensation', 'optional_binary'), ('ques-iaq-sensation', 'IAQ sensation', 'optional_binary'),
+        ('ques-acoustic-sensation', 'Acoustic sensation', 'optional_binary'), ('cognitive-test-done', 'Cognitive test applied', 'optional_binary'),
+        ('cognitive-test-type', 'Cognitive test type', 'optional_binary'),
+    ],
+}
+
+mst_mask = studies_u['physio-mst-calculated'].astype(str).str.strip() == 'Y'
+full_completeness = {}
+for group_name, specs in FULL_COMPLETENESS_GROUPS.items():
+    rows = []
+    for col, label, rule in specs:
+        if col not in studies_u.columns:
+            continue
+        if rule == 'mst':
+            sub = studies_u.loc[mst_mask, col]
+            denom = int(mst_mask.sum())
+            valid = _valid_general(sub)
+        elif rule == 'optional_binary':
+            sub = studies_u[col]
+            denom = len(studies_u)
+            valid = _valid_optional_binary(sub)
+        else:
+            sub = studies_u[col]
+            denom = len(studies_u)
+            valid = _valid_general(sub)
+        count = int(valid.sum())
+        rows.append({
+            'field': label,
+            'count': count,
+            'denominator': int(denom),
+            'pct': round(100 * count / denom, 1) if denom else 0,
+            'rule': rule,
+        })
+    full_completeness[group_name] = {'fields': rows}
+
+with open(OUT_DIR / 'field_completeness_detailed.json', 'w') as f:
+    json.dump(full_completeness, f, indent=2)
+print('field_completeness_detailed.json written for groups:', list(full_completeness.keys()))
+
 # ── A8. Cognitive test harmonization ────────────────────────────────────
 import sys as _sys
 _sys.path.insert(0, str(Path(__file__).parent))
@@ -1025,11 +1125,25 @@ domain_totals = cog_df.groupby('domain')['id'].nunique().reset_index(name='count
 # Per-study list (for a study-level browse view)
 study_instruments = cog_df.groupby('id')['instrument'].apply(list).reset_index()
 
+# Flow data for Sankey: measure type -> domain -> instrument. Counts are
+# unique-study counts, not raw row counts, so a study using the same instrument
+# more than once still contributes only once.
+cog_df['measure_type'] = cog_df['domain'].apply(
+    lambda d: 'Performance task' if str(d).startswith('Performance task') else ('Subjective scale' if str(d).startswith('Subjective scale') else 'Stress induction')
+)
+# Drop the measure-type prefix from the middle column so the Sankey's first and
+# second columns are not redundant.
+cog_df['domain_short'] = cog_df['domain'].apply(lambda d: str(d).split('—', 1)[1].strip() if '—' in str(d) else str(d))
+flow_type_domain = cog_df.groupby(['measure_type', 'domain_short'])['id'].nunique().reset_index(name='count')
+flow_domain_instrument = cog_df.groupby(['domain_short', 'instrument'])['id'].nunique().reset_index(name='count')
+
 with open(OUT_DIR / 'cognitive_tests.json', 'w') as f:
     json.dump({
         'instrument_totals': instrument_totals.to_dict('records'),
         'domain_totals': domain_totals.to_dict('records'),
         'study_instruments': study_instruments.to_dict('records'),
+        'flow_type_domain': flow_type_domain.to_dict('records'),
+        'flow_domain_instrument': flow_domain_instrument.to_dict('records'),
         'n_studies_with_cognitive_test': int(cog_done['id'].nunique()),
         'n_total_studies': len(studies_u),
         'unrecognized_count': len(unrecognized_log),

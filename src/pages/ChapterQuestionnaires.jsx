@@ -1,47 +1,84 @@
+import { useMemo } from 'react'
 import { ChapterHeader, ChapterSection } from '../components/Chapter.jsx'
-import CompletenessStrip from '../components/CompletenessStrip.jsx'
 import FigureCard from '../components/FigureCard.jsx'
 import InteractiveBarChart from '../components/InteractiveBarChart.jsx'
 import { useTooltip, TooltipPortal } from '../components/Tooltip.jsx'
 
-function ScaleAxisPlot({ studies, domain, lowColor, highColor, poleColors }) {
+function isNeutralPoint(value, label) {
+  const l = String(label || '').toLowerCase()
+  return l.includes('neutral') || Math.abs(Number(value)) < 0.001 || Math.abs(Number(value)) === 0.01
+}
+
+function pointColor({ value, label, comfortPole, min, max, lowColor, highColor, poleColors }) {
+  if (isNeutralPoint(value, label)) return '#0A0A0A'
+  if (poleColors && comfortPole) {
+    const lowIsComfort = comfortPole === 'low'
+    return value <= (min + max) / 2
+      ? (lowIsComfort ? poleColors.comfort : poleColors.discomfort)
+      : (lowIsComfort ? poleColors.discomfort : poleColors.comfort)
+  }
+  return value === min ? lowColor : value === max ? highColor : '#8A8A8A'
+}
+
+function ScaleAxisPlot({ studies, domain, lowColor, highColor, poleColors, titleSuffix }) {
   const { tip, showTip, moveTip, hideTip } = useTooltip()
   const [domainMin, domainMax] = domain
-  const width = 560, rowHeight = 3
-  const height = studies.length * rowHeight
-  const xScale = (v) => ((v - domainMin) / (domainMax - domainMin)) * width
+  const width = 640
+  const rowHeight = 7
+  const padLeft = 22
+  const height = Math.max(110, studies.length * rowHeight)
+  const xScale = (v) => padLeft + ((v - domainMin) / (domainMax - domainMin)) * (width - padLeft - 8)
+
+  const ordered = useMemo(() => [...studies].sort((a, b) => {
+    const amin = Math.min(...a.range)
+    const bmin = Math.min(...b.range)
+    if (amin !== bmin) return amin - bmin
+    const amax = Math.max(...a.range)
+    const bmax = Math.max(...b.range)
+    return amax - bmax
+  }), [studies])
+
+  const ticks = Array.from({ length: domainMax - domainMin + 1 }, (_, i) => domainMin + i)
+
   return (
     <div className="overflow-x-auto">
-      <svg width={width} height={height + 24} className="font-data overflow-visible">
-        <line x1={xScale(0)} x2={xScale(0)} y1={0} y2={height} stroke="#D5FF99" strokeWidth={1} opacity={0.4} />
-        {studies.map((s, i) => {
+      <div className="font-data text-[10px] text-inkfaint mb-1.5">
+        Studies are ordered by their minimum scale value. Each row shows every coded point on that study's scale; black marks neutral points where present.
+      </div>
+      <svg width={width} height={height + 28} className="font-data overflow-visible">
+        {ticks.map((v) => (
+          <g key={v}>
+            <line x1={xScale(v)} x2={xScale(v)} y1={0} y2={height} stroke="#E4E4E4" strokeWidth={1} />
+            <text x={xScale(v)} y={height + 15} fontSize={10} fill="#8A8A8A" textAnchor="middle">{v}</text>
+          </g>
+        ))}
+        {ordered.map((s, i) => {
           const y = i * rowHeight + rowHeight / 2
-          const low = Math.min(...s.range), high = Math.max(...s.range)
-          // For TCV, color by semantic meaning (comfort_pole) rather than raw
-          // numeric position — some studies put "comfortable" at the negative
-          // end, others at the positive end. Coloring by number alone would
-          // flip the meaning for ~25% of studies. TSV has no comfort_pole
-          // field (its polarity is consistent, cold always negative) so it
-          // falls back to the simple numeric low/high coloring.
-          let lowDotColor = lowColor, highDotColor = highColor
-          if (poleColors && s.comfort_pole) {
-            const lowIsComfort = s.comfort_pole === 'low'
-            lowDotColor = lowIsComfort ? poleColors.comfort : poleColors.discomfort
-            highDotColor = lowIsComfort ? poleColors.discomfort : poleColors.comfort
-          }
+          const min = Math.min(...s.range)
+          const max = Math.max(...s.range)
           return (
-            <g key={i} className="cursor-default"
-              onMouseEnter={(e) => showTip(e, `${s.id}: ${s.points}-point (${s.labels[0]} → ${s.labels[s.labels.length - 1]})${s.comfort_pole ? `, comfortable end: ${s.comfort_pole === 'low' ? 'low' : 'high'} numbers` : ''}`)}
-              onMouseMove={moveTip} onMouseLeave={hideTip}>
-              <line x1={xScale(low)} x2={xScale(high)} y1={y} y2={y} stroke="#8A8A8A" strokeWidth={0.8} opacity={0.5} />
-              <circle cx={xScale(low)} cy={y} r={1.6} fill={lowDotColor} />
-              <circle cx={xScale(high)} cy={y} r={1.6} fill={highDotColor} />
+            <g key={`${s.id}-${i}`}>
+              <line x1={xScale(min)} x2={xScale(max)} y1={y} y2={y} stroke="#BBBBBB" strokeWidth={0.8} opacity={0.75} />
+              {s.range.map((v, idx) => {
+                const label = s.labels[idx] || String(v)
+                const c = pointColor({ value: v, label, comfortPole: s.comfort_pole, min, max, lowColor, highColor, poleColors })
+                return (
+                  <circle
+                    key={`${s.id}-${idx}`}
+                    cx={xScale(v)}
+                    cy={y}
+                    r={2.4}
+                    fill={c}
+                    className="cursor-default"
+                    onMouseEnter={(e) => showTip(e, `${s.id}${titleSuffix ? ` · ${titleSuffix}` : ''}: ${v} = ${label}`)}
+                    onMouseMove={moveTip}
+                    onMouseLeave={hideTip}
+                  />
+                )
+              })}
             </g>
           )
         })}
-        {Array.from({ length: domainMax - domainMin + 1 }, (_, i) => domainMin + i).map((v) => (
-          <text key={v} x={xScale(v)} y={height + 14} fontSize={10} fill="#8A8A8A" textAnchor="middle">{v}</text>
-        ))}
       </svg>
       <TooltipPortal tip={tip} />
     </div>
@@ -50,7 +87,6 @@ function ScaleAxisPlot({ studies, domain, lowColor, highColor, poleColors }) {
 
 function PointsBar({ distribution, total, color }) {
   const { tip, showTip, moveTip, hideTip } = useTooltip()
-  const max = distribution.reduce((m, d) => (d.count > m ? d.count : m), 1)
   return (
     <div className="space-y-1.5">
       {distribution.map((d) => (
@@ -59,11 +95,12 @@ function PointsBar({ distribution, total, color }) {
           <div className="flex-1 h-5 rounded bg-line/50 overflow-hidden cursor-default"
             onMouseEnter={(e) => showTip(e, `${d.points}-point: ${d.count} of ${total} · ${((d.count / total) * 100).toFixed(1)}%`)}
             onMouseMove={moveTip} onMouseLeave={hideTip}>
-            <div className="h-full group-hover:brightness-110" style={{ width: `${(d.count / max) * 100}%`, background: color }} />
+            <div className="h-full group-hover:brightness-110" style={{ width: `${(d.count / Math.max(total, 1)) * 100}%`, background: color }} />
           </div>
-          <span className="font-data text-[11px] w-10 text-right text-inkmid">{d.count}</span>
+          <span className="font-data text-[11px] w-12 text-right text-inkmid">{d.count}</span>
         </div>
       ))}
+      <div className="font-data text-[10px] text-inkfaint mt-1">Bar length relative to n for that scale family.</div>
       <TooltipPortal tip={tip} />
     </div>
   )
@@ -76,17 +113,17 @@ export default function ChapterQuestionnaires({ data }) {
   return (
     <div>
       <ChapterHeader
-        eyebrow="Chapter 5 of 8"
-        title="What people were asked"
+        eyebrow="Chapter 5 of 7"
+        title="Measuring the perception"
         framing={
           <>
             <p>
-              Subjective questionnaires sit alongside physiological measurement in almost every study.
+              Subjective questionnaires sit alongside physiological measurement in most studies.
               This chapter looks at which questionnaire domains are used, and — for the two most common,
               thermal sensation and thermal comfort — exactly how their scales are worded and structured.
             </p>
             <p>
-              We looked at scale structure specifically because two studies both reporting "TSV = +2" are
+              We looked at scale structure specifically because two studies both reporting “TSV = +2” are
               not necessarily reporting the same thing if their underlying scales differ in point count,
               labels, or polarity. That heterogeneity is invisible unless the scales are laid side by side.
             </p>
@@ -95,20 +132,18 @@ export default function ChapterQuestionnaires({ data }) {
         headline={[
           { value: `${tsvPct}%`, label: 'of studies use a thermal sensation scale', color: '#5B5BFF' },
           { value: '77.8%', label: 'of TSV scales are the standard 7-point', color: '#FB3640' },
-          { value: fig16_tcv_scales.n_total, label: 'distinct comfort-scale studies, no dominant format', color: '#FB3640' },
+          { value: fig16_tcv_scales.n_total, label: 'comfort-scale studies, with no dominant format', color: '#FB3640' },
         ]}
       />
 
-      <CompletenessStrip fields={chapter_completeness.questionnaires.fields} nStudies={chapter_completeness.questionnaires.n_studies} />
-
       <ChapterSection
         title="Questionnaire usage by domain"
-        intro="251 of 269 experiments (93%) include at least one thermal questionnaire. Every other domain is far less common — humidity questionnaires appear in 23 experiments, air movement in 19 — included only when the study's specific focus calls for them."
+        intro="Thermal sensation, comfort, preference, and acceptability dominate, but the full dataset includes a broader tail of domain-specific questionnaire types. Bar length is scaled to the total count for that domain rather than to the largest bar within it."
       >
-        <div className="grid grid-cols-2 gap-x-10 gap-y-8 max-w-4xl">
+        <div className="grid grid-cols-2 gap-x-10 gap-y-8 max-w-5xl">
           {Object.entries(fig14_questionnaire_domains).map(([domain, d]) => (
-            <FigureCard key={domain} title={`${domain} (n=${d.n_any})`} commentary={null}>
-              <InteractiveBarChart data={d.fields.map((f) => ({ label: f.field, count: f.count }))} total={summary.n_experiments} color="#5B5BFF" maxBars={6} height={16} />
+            <FigureCard key={domain} figNumber={domain === Object.keys(fig14_questionnaire_domains)[0] ? "30" : null} title={`${domain} (n=${d.n_any})`} commentary={null}>
+              <InteractiveBarChart data={d.fields.map((f) => ({ label: f.field, count: f.count }))} total={d.n_any} color="#5B5BFF" height={16} />
             </FigureCard>
           ))}
         </div>
@@ -116,18 +151,18 @@ export default function ChapterQuestionnaires({ data }) {
 
       <ChapterSection
         title="Scale heterogeneity: sensation vs. comfort"
-        intro="77.8% of thermal sensation scales use the standard 7-point format — one number accounts for most of the field. Thermal comfort has no equivalent: the most common point-count (6-point) covers only 33 of 114 studies (29%), with 4-, 5-, and 7-point scales each close behind. Point count, labels, and even the direction of the scale vary widely."
+        intro="TSV has a dominant standard format, but the precise point sets still vary. TCV is much more heterogeneous: point count, verbal anchors, and comfort polarity all shift between studies."
       >
-        <FigureCard figNumber="15" title="Thermal Sensation Vote (TSV)" plotWidth={780} commentary={`${fig15_tsv_scales.n_total} studies' scales mapped onto a common axis (cold → hot). One line per study.`}>
+        <FigureCard figNumber="31" title="Thermal Sensation Vote (TSV)" plotWidth={900} commentary={`${fig15_tsv_scales.n_total} studies' scales mapped onto a common cold → hot axis. Each row now shows every coded point entered in the dataset, ordered by the row's minimum value.`}>
           <div className="grid grid-cols-3 gap-6">
-            <div className="col-span-2"><ScaleAxisPlot studies={fig15_tsv_scales.studies} domain={[-4, 8]} lowColor="#5B5BFF" highColor="#FB3640" /></div>
+            <div className="col-span-2"><ScaleAxisPlot studies={fig15_tsv_scales.studies} domain={[-4, 8]} lowColor="#5B5BFF" highColor="#FB3640" titleSuffix="TSV" /></div>
             <div><h4 className="text-[11.5px] font-medium mb-2 text-inkmid">Points per scale</h4><PointsBar distribution={fig15_tsv_scales.points_distribution} total={fig15_tsv_scales.n_total} color="#5B5BFF" /></div>
           </div>
         </FigureCard>
 
-        <FigureCard figNumber="16" title="Thermal Comfort Vote (TCV)" plotWidth={780} commentary={`${fig16_tcv_scales.n_total} studies' scales mapped the same way (most comfortable → least), colored by what each endpoint actually means rather than its raw number — about a quarter of studies put "comfortable" at the negative end, the rest at the positive end, so numeric position alone would mislabel them.`}>
+        <FigureCard figNumber="32" title="Thermal Comfort Vote (TCV)" plotWidth={900} commentary={`${fig16_tcv_scales.n_total} studies' scales mapped onto a common axis. Endpoint colours follow meaning rather than raw number; neutral or near-neutral points are black.`}>
           <div className="grid grid-cols-3 gap-6">
-            <div className="col-span-2"><ScaleAxisPlot studies={fig16_tcv_scales.studies} domain={[-4, 6]} poleColors={{ comfort: '#FB3640', discomfort: '#FB3640' }} /></div>
+            <div className="col-span-2"><ScaleAxisPlot studies={fig16_tcv_scales.studies} domain={[-4, 6]} poleColors={{ comfort: '#5B5BFF', discomfort: '#FB3640' }} titleSuffix="TCV" /></div>
             <div><h4 className="text-[11.5px] font-medium mb-2 text-inkmid">Points per scale</h4><PointsBar distribution={fig16_tcv_scales.points_distribution} total={fig16_tcv_scales.n_total} color="#FB3640" /></div>
           </div>
         </FigureCard>

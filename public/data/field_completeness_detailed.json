@@ -1,0 +1,400 @@
+{
+  "Context & setting": {
+    "fields": [
+      {
+        "field": "City",
+        "count": 251,
+        "denominator": 270,
+        "pct": 93.0,
+        "rule": "general"
+      },
+      {
+        "field": "Country",
+        "count": 264,
+        "denominator": 270,
+        "pct": 97.8,
+        "rule": "general"
+      },
+      {
+        "field": "Climate class",
+        "count": 251,
+        "denominator": 270,
+        "pct": 93.0,
+        "rule": "general"
+      },
+      {
+        "field": "Experiment year",
+        "count": 137,
+        "denominator": 270,
+        "pct": 50.7,
+        "rule": "general"
+      },
+      {
+        "field": "Season of testing",
+        "count": 70,
+        "denominator": 270,
+        "pct": 25.9,
+        "rule": "general"
+      },
+      {
+        "field": "Daily start/end time",
+        "count": 74,
+        "denominator": 270,
+        "pct": 27.4,
+        "rule": "general"
+      },
+      {
+        "field": "Session length",
+        "count": 254,
+        "denominator": 270,
+        "pct": 94.1,
+        "rule": "general"
+      },
+      {
+        "field": "Normalisation period",
+        "count": 225,
+        "denominator": 270,
+        "pct": 83.3,
+        "rule": "general"
+      },
+      {
+        "field": "Data availability statement",
+        "count": 79,
+        "denominator": 270,
+        "pct": 29.3,
+        "rule": "general"
+      }
+    ]
+  },
+  "Population core": {
+    "fields": [
+      {
+        "field": "Sample size calculation",
+        "count": 63,
+        "denominator": 270,
+        "pct": 23.3,
+        "rule": "general"
+      },
+      {
+        "field": "Total sample size",
+        "count": 267,
+        "denominator": 270,
+        "pct": 98.9,
+        "rule": "general"
+      },
+      {
+        "field": "Male participants",
+        "count": 253,
+        "denominator": 270,
+        "pct": 93.7,
+        "rule": "general"
+      },
+      {
+        "field": "Female participants",
+        "count": 253,
+        "denominator": 270,
+        "pct": 93.7,
+        "rule": "general"
+      },
+      {
+        "field": "Age mean",
+        "count": 220,
+        "denominator": 270,
+        "pct": 81.5,
+        "rule": "general"
+      },
+      {
+        "field": "Age SD",
+        "count": 208,
+        "denominator": 270,
+        "pct": 77.0,
+        "rule": "general"
+      },
+      {
+        "field": "BMI mean",
+        "count": 151,
+        "denominator": 270,
+        "pct": 55.9,
+        "rule": "general"
+      },
+      {
+        "field": "BMI SD",
+        "count": 146,
+        "denominator": 270,
+        "pct": 54.1,
+        "rule": "general"
+      }
+    ]
+  },
+  "Physiological": {
+    "fields": [
+      {
+        "field": "Sensor type",
+        "count": 261,
+        "denominator": 270,
+        "pct": 96.7,
+        "rule": "general"
+      },
+      {
+        "field": "Sensor brand",
+        "count": 230,
+        "denominator": 270,
+        "pct": 85.2,
+        "rule": "general"
+      },
+      {
+        "field": "Sensor model",
+        "count": 215,
+        "denominator": 270,
+        "pct": 79.6,
+        "rule": "general"
+      },
+      {
+        "field": "Body site",
+        "count": 261,
+        "denominator": 270,
+        "pct": 96.7,
+        "rule": "general"
+      },
+      {
+        "field": "Sagittal location",
+        "count": 107,
+        "denominator": 270,
+        "pct": 39.6,
+        "rule": "general"
+      },
+      {
+        "field": "Surface location",
+        "count": 169,
+        "denominator": 270,
+        "pct": 62.6,
+        "rule": "general"
+      },
+      {
+        "field": "Number of MST points",
+        "count": 110,
+        "denominator": 111,
+        "pct": 99.1,
+        "rule": "mst"
+      },
+      {
+        "field": "MST formula used",
+        "count": 104,
+        "denominator": 111,
+        "pct": 93.7,
+        "rule": "mst"
+      },
+      {
+        "field": "Full formula text",
+        "count": 92,
+        "denominator": 111,
+        "pct": 82.9,
+        "rule": "mst"
+      },
+      {
+        "field": "Weighting factors per region",
+        "count": 83,
+        "denominator": 111,
+        "pct": 74.8,
+        "rule": "mst"
+      }
+    ]
+  },
+  "Environment": {
+    "fields": [
+      {
+        "field": "Air temperature",
+        "count": 152,
+        "denominator": 270,
+        "pct": 56.3,
+        "rule": "optional_binary"
+      },
+      {
+        "field": "Relative humidity",
+        "count": 148,
+        "denominator": 270,
+        "pct": 54.8,
+        "rule": "optional_binary"
+      },
+      {
+        "field": "Air velocity",
+        "count": 170,
+        "denominator": 270,
+        "pct": 63.0,
+        "rule": "optional_binary"
+      },
+      {
+        "field": "Globe temperature",
+        "count": 183,
+        "denominator": 270,
+        "pct": 67.8,
+        "rule": "optional_binary"
+      },
+      {
+        "field": "Surface temperatures",
+        "count": 203,
+        "denominator": 270,
+        "pct": 75.2,
+        "rule": "optional_binary"
+      },
+      {
+        "field": "Wet-bulb temperature",
+        "count": 224,
+        "denominator": 270,
+        "pct": 83.0,
+        "rule": "optional_binary"
+      },
+      {
+        "field": "Outdoor temperature",
+        "count": 212,
+        "denominator": 270,
+        "pct": 78.5,
+        "rule": "optional_binary"
+      },
+      {
+        "field": "Outdoor RH",
+        "count": 217,
+        "denominator": 270,
+        "pct": 80.4,
+        "rule": "optional_binary"
+      },
+      {
+        "field": "CO\u2082 concentration",
+        "count": 207,
+        "denominator": 270,
+        "pct": 76.7,
+        "rule": "optional_binary"
+      },
+      {
+        "field": "VOC concentration",
+        "count": 220,
+        "denominator": 270,
+        "pct": 81.5,
+        "rule": "optional_binary"
+      },
+      {
+        "field": "Illuminance",
+        "count": 219,
+        "denominator": 270,
+        "pct": 81.1,
+        "rule": "optional_binary"
+      },
+      {
+        "field": "Light colour/CCT",
+        "count": 223,
+        "denominator": 270,
+        "pct": 82.6,
+        "rule": "optional_binary"
+      },
+      {
+        "field": "Solar radiation",
+        "count": 218,
+        "denominator": 270,
+        "pct": 80.7,
+        "rule": "optional_binary"
+      },
+      {
+        "field": "Sound level",
+        "count": 217,
+        "denominator": 270,
+        "pct": 80.4,
+        "rule": "optional_binary"
+      }
+    ]
+  },
+  "Questionnaires & cognitive": {
+    "fields": [
+      {
+        "field": "Thermal sensation",
+        "count": 263,
+        "denominator": 270,
+        "pct": 97.4,
+        "rule": "optional_binary"
+      },
+      {
+        "field": "Thermal comfort",
+        "count": 248,
+        "denominator": 270,
+        "pct": 91.9,
+        "rule": "optional_binary"
+      },
+      {
+        "field": "Thermal preference",
+        "count": 227,
+        "denominator": 270,
+        "pct": 84.1,
+        "rule": "optional_binary"
+      },
+      {
+        "field": "Thermal acceptability",
+        "count": 236,
+        "denominator": 270,
+        "pct": 87.4,
+        "rule": "optional_binary"
+      },
+      {
+        "field": "Thermal satisfaction",
+        "count": 223,
+        "denominator": 270,
+        "pct": 82.6,
+        "rule": "optional_binary"
+      },
+      {
+        "field": "Local thermal sensation",
+        "count": 227,
+        "denominator": 270,
+        "pct": 84.1,
+        "rule": "optional_binary"
+      },
+      {
+        "field": "Air movement sensation",
+        "count": 225,
+        "denominator": 270,
+        "pct": 83.3,
+        "rule": "optional_binary"
+      },
+      {
+        "field": "Humidity sensation",
+        "count": 225,
+        "denominator": 270,
+        "pct": 83.3,
+        "rule": "optional_binary"
+      },
+      {
+        "field": "Light sensation",
+        "count": 223,
+        "denominator": 270,
+        "pct": 82.6,
+        "rule": "optional_binary"
+      },
+      {
+        "field": "IAQ sensation",
+        "count": 222,
+        "denominator": 270,
+        "pct": 82.2,
+        "rule": "optional_binary"
+      },
+      {
+        "field": "Acoustic sensation",
+        "count": 223,
+        "denominator": 270,
+        "pct": 82.6,
+        "rule": "optional_binary"
+      },
+      {
+        "field": "Cognitive test applied",
+        "count": 270,
+        "denominator": 270,
+        "pct": 100.0,
+        "rule": "optional_binary"
+      },
+      {
+        "field": "Cognitive test type",
+        "count": 56,
+        "denominator": 270,
+        "pct": 20.7,
+        "rule": "optional_binary"
+      }
+    ]
+  }
+}

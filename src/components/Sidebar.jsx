@@ -9,35 +9,31 @@ import { NavLink, useLocation } from 'react-router-dom'
 const CHAPTERS = [
   {
     to: '/context', label: 'When, where & how',
-    subtitles: ['When and where research happens', 'Setting and timing', 'How many variables are manipulated at once'],
+    subtitles: ['When and where research happens', 'Setting and timing', 'How many variables are manipulated at once', 'Open data, in practice', 'Protocol & standardisation controls'],
   },
   {
-    to: '/population', label: 'Who was studied',
-    subtitles: ['Demographics', 'Are male and female sub-samples actually matched?', 'Who was excluded, and why', 'What else is known about participants'],
+    to: '/population', label: 'Who is studied',
+    subtitles: ['Demographics', 'Was sample size justified?', 'Who was excluded, and why', 'What else is known about participants'],
   },
   {
-    to: '/body', label: 'Measurements: the body',
+    to: '/body', label: 'Measuring the human',
     subtitles: ["What's measured, and how", 'Signals, sensor types, and brands', 'How sensor choice has shifted over time', 'Skin temperature body sites', 'Where other signals are measured', 'Mean skin temperature'],
   },
   {
-    to: '/environment', label: 'Measurements: the environment',
+    to: '/environment', label: 'Measuring the environment',
     subtitles: ['What gets measured together', 'Where sensors are placed'],
   },
   {
-    to: '/questionnaires', label: 'What people were asked',
+    to: '/questionnaires', label: 'Measuring the perception',
     subtitles: ['Questionnaire usage by domain', 'Scale heterogeneity: sensation vs. comfort'],
   },
   {
-    to: '/cognitive', label: 'Cognitive testing',
+    to: '/cognitive', label: 'Measuring the mental-load',
     subtitles: ['What kind of measure is actually used', 'One task, or a full battery?'],
   },
   {
-    to: '/protocol', label: 'Protocol rigor',
-    subtitles: ['Has rigor improved as the field has grown?', 'Which controls are used, study by study'],
-  },
-  {
-    to: '/reporting', label: 'Reporting completeness',
-    subtitles: ['By metadata category', 'Open data, in practice', 'How sample size was justified'],
+    to: '/reporting', label: 'Data completeness',
+    subtitles: ['Full field-level completeness list'],
   },
 ]
 
@@ -76,19 +72,11 @@ export default function Sidebar({ summary }) {
 
       <nav className="flex-1 overflow-y-auto px-3 py-4">
         <div className="mb-5">
-          <div className="font-data text-[10px] uppercase tracking-wider text-inkfaint px-2 mb-1.5">Overview</div>
           <NavLink to="/" end className={({ isActive }) => `block px-2 py-1.5 rounded text-[13.5px] mb-0.5 transition-colors leading-snug ${isActive ? 'bg-ink text-paper font-medium' : 'text-ink hover:bg-line/60'}`}>
-            Corpus overview
+            Overview
           </NavLink>
-        </div>
-
-        <div className="mb-5">
-          <div className="font-data text-[10px] uppercase tracking-wider text-inkfaint px-2 mb-1.5">Explore</div>
           <NavLink to="/browse" className={({ isActive }) => `block px-2 py-1.5 rounded text-[13.5px] mb-0.5 transition-colors leading-snug ${isActive ? 'bg-ink text-paper font-medium' : 'text-ink hover:bg-line/60'}`}>
             Browse studies
-          </NavLink>
-          <NavLink to="/devices" className={({ isActive }) => `block px-2 py-1.5 rounded text-[13.5px] mb-0.5 transition-colors leading-snug ${isActive ? 'bg-ink text-paper font-medium' : 'text-ink hover:bg-line/60'}`}>
-            Sensor brands & models
           </NavLink>
         </div>
 
@@ -139,7 +127,7 @@ export default function Sidebar({ summary }) {
         <div className="mb-5">
           <div className="font-data text-[10px] uppercase tracking-wider text-inkfaint px-2 mb-1.5">Reference</div>
           <NavLink to="/about" className={({ isActive }) => `block px-2 py-1.5 rounded text-[13.5px] mb-0.5 transition-colors leading-snug ${isActive ? 'bg-ink text-paper font-medium' : 'text-ink hover:bg-line/60'}`}>
-            About & methods
+            About & Methods
           </NavLink>
         </div>
       </nav>

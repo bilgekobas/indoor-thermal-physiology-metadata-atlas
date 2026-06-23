@@ -901,6 +901,435 @@
       ]
     }
   ],
+  "flow_type_domain": [
+    {
+      "measure_type": "Performance task",
+      "domain_short": "arithmetic",
+      "count": 20
+    },
+    {
+      "measure_type": "Performance task",
+      "domain_short": "attention",
+      "count": 13
+    },
+    {
+      "measure_type": "Performance task",
+      "domain_short": "creativity",
+      "count": 1
+    },
+    {
+      "measure_type": "Performance task",
+      "domain_short": "cue utilization/attention",
+      "count": 4
+    },
+    {
+      "measure_type": "Performance task",
+      "domain_short": "executive function",
+      "count": 1
+    },
+    {
+      "measure_type": "Performance task",
+      "domain_short": "inhibition/attention",
+      "count": 18
+    },
+    {
+      "measure_type": "Performance task",
+      "domain_short": "memory",
+      "count": 13
+    },
+    {
+      "measure_type": "Performance task",
+      "domain_short": "multi-domain battery",
+      "count": 8
+    },
+    {
+      "measure_type": "Performance task",
+      "domain_short": "perception",
+      "count": 1
+    },
+    {
+      "measure_type": "Performance task",
+      "domain_short": "planning",
+      "count": 1
+    },
+    {
+      "measure_type": "Performance task",
+      "domain_short": "psychomotor speed",
+      "count": 15
+    },
+    {
+      "measure_type": "Performance task",
+      "domain_short": "reasoning",
+      "count": 12
+    },
+    {
+      "measure_type": "Performance task",
+      "domain_short": "sustained attention",
+      "count": 16
+    },
+    {
+      "measure_type": "Performance task",
+      "domain_short": "working memory",
+      "count": 19
+    },
+    {
+      "measure_type": "Stress induction",
+      "domain_short": "Stress induction protocol",
+      "count": 1
+    },
+    {
+      "measure_type": "Subjective scale",
+      "domain_short": "attention",
+      "count": 2
+    },
+    {
+      "measure_type": "Subjective scale",
+      "domain_short": "fatigue",
+      "count": 2
+    },
+    {
+      "measure_type": "Subjective scale",
+      "domain_short": "mood",
+      "count": 3
+    },
+    {
+      "measure_type": "Subjective scale",
+      "domain_short": "sleepiness/alertness",
+      "count": 12
+    },
+    {
+      "measure_type": "Subjective scale",
+      "domain_short": "work performance",
+      "count": 12
+    },
+    {
+      "measure_type": "Subjective scale",
+      "domain_short": "workload",
+      "count": 9
+    }
+  ],
+  "flow_domain_instrument": [
+    {
+      "domain_short": "Stress induction protocol",
+      "instrument": "Trier Social Stress Test (TSST)",
+      "count": 1
+    },
+    {
+      "domain_short": "arithmetic",
+      "instrument": "Fast-counting task",
+      "count": 2
+    },
+    {
+      "domain_short": "arithmetic",
+      "instrument": "Mental arithmetic",
+      "count": 18
+    },
+    {
+      "domain_short": "arithmetic",
+      "instrument": "Mental arithmetic (with feedback)",
+      "count": 1
+    },
+    {
+      "domain_short": "attention",
+      "instrument": "Overlapping task",
+      "count": 6
+    },
+    {
+      "domain_short": "attention",
+      "instrument": "Redirection task",
+      "count": 11
+    },
+    {
+      "domain_short": "attention",
+      "instrument": "Self-rated attention",
+      "count": 1
+    },
+    {
+      "domain_short": "attention",
+      "instrument": "Self-rated distraction",
+      "count": 1
+    },
+    {
+      "domain_short": "attention",
+      "instrument": "Visual search task",
+      "count": 2
+    },
+    {
+      "domain_short": "attention",
+      "instrument": "Visual search task (digit)",
+      "count": 1
+    },
+    {
+      "domain_short": "attention",
+      "instrument": "Visual search task (letter)",
+      "count": 1
+    },
+    {
+      "domain_short": "creativity",
+      "instrument": "Alternative Uses Task (AUT, creativity)",
+      "count": 1
+    },
+    {
+      "domain_short": "cue utilization/attention",
+      "instrument": "Tsai-Partington test",
+      "count": 4
+    },
+    {
+      "domain_short": "executive function",
+      "instrument": "Trail Making Test",
+      "count": 1
+    },
+    {
+      "domain_short": "fatigue",
+      "instrument": "Self-rated fatigue",
+      "count": 2
+    },
+    {
+      "domain_short": "inhibition/attention",
+      "instrument": "Flanker task",
+      "count": 1
+    },
+    {
+      "domain_short": "inhibition/attention",
+      "instrument": "Go/no-go task",
+      "count": 2
+    },
+    {
+      "domain_short": "inhibition/attention",
+      "instrument": "Stroop task",
+      "count": 17
+    },
+    {
+      "domain_short": "inhibition/attention",
+      "instrument": "Stroop task (with feedback)",
+      "count": 1
+    },
+    {
+      "domain_short": "memory",
+      "instrument": "Short-term memory (pair/word recall)",
+      "count": 1
+    },
+    {
+      "domain_short": "memory",
+      "instrument": "Visual learning task",
+      "count": 12
+    },
+    {
+      "domain_short": "mood",
+      "instrument": "PANAS (mood)",
+      "count": 2
+    },
+    {
+      "domain_short": "mood",
+      "instrument": "Profile of Mood States (POMS)",
+      "count": 1
+    },
+    {
+      "domain_short": "multi-domain battery",
+      "instrument": "Cambridge Brain Sciences (CBS) battery",
+      "count": 4
+    },
+    {
+      "domain_short": "multi-domain battery",
+      "instrument": "Composite/overall score (unspecified battery)",
+      "count": 2
+    },
+    {
+      "domain_short": "multi-domain battery",
+      "instrument": "Corsi Block-Tapping Task + RVIP",
+      "count": 1
+    },
+    {
+      "domain_short": "multi-domain battery",
+      "instrument": "Neurobehavioral battery (visual RT, Stroop, redirection, overlapping, arithmetic, visual learning)",
+      "count": 1
+    },
+    {
+      "domain_short": "perception",
+      "instrument": "Visual trace perception task",
+      "count": 1
+    },
+    {
+      "domain_short": "planning",
+      "instrument": "Hampshire Tree Task",
+      "count": 1
+    },
+    {
+      "domain_short": "psychomotor speed",
+      "instrument": "Choice reaction time",
+      "count": 1
+    },
+    {
+      "domain_short": "psychomotor speed",
+      "instrument": "Stepuru task",
+      "count": 1
+    },
+    {
+      "domain_short": "psychomotor speed",
+      "instrument": "Typing task",
+      "count": 12
+    },
+    {
+      "domain_short": "psychomotor speed",
+      "instrument": "Typing task (with feedback)",
+      "count": 1
+    },
+    {
+      "domain_short": "psychomotor speed",
+      "instrument": "Visual reaction time",
+      "count": 3
+    },
+    {
+      "domain_short": "reasoning",
+      "instrument": "BPR-5 reasoning battery",
+      "count": 3
+    },
+    {
+      "domain_short": "reasoning",
+      "instrument": "Mental rotation task",
+      "count": 2
+    },
+    {
+      "domain_short": "reasoning",
+      "instrument": "Reasoning task (abstract)",
+      "count": 2
+    },
+    {
+      "domain_short": "reasoning",
+      "instrument": "Reasoning task (grammatical)",
+      "count": 4
+    },
+    {
+      "domain_short": "reasoning",
+      "instrument": "Reasoning task (grammatical/deductive/sequential)",
+      "count": 1
+    },
+    {
+      "domain_short": "reasoning",
+      "instrument": "Reasoning task (mechanical)",
+      "count": 2
+    },
+    {
+      "domain_short": "reasoning",
+      "instrument": "Reasoning task (numeric)",
+      "count": 2
+    },
+    {
+      "domain_short": "reasoning",
+      "instrument": "Reasoning task (spatial)",
+      "count": 5
+    },
+    {
+      "domain_short": "sleepiness/alertness",
+      "instrument": "Karolinska Sleepiness Scale (KSS)",
+      "count": 7
+    },
+    {
+      "domain_short": "sleepiness/alertness",
+      "instrument": "Self-rated alertness",
+      "count": 3
+    },
+    {
+      "domain_short": "sleepiness/alertness",
+      "instrument": "Self-rated arousal",
+      "count": 1
+    },
+    {
+      "domain_short": "sleepiness/alertness",
+      "instrument": "Self-rated sleepiness",
+      "count": 1
+    },
+    {
+      "domain_short": "sustained attention",
+      "instrument": "Continuous Performance Test (CPT)",
+      "count": 1
+    },
+    {
+      "domain_short": "sustained attention",
+      "instrument": "Oddball task",
+      "count": 1
+    },
+    {
+      "domain_short": "sustained attention",
+      "instrument": "Schulte grid test",
+      "count": 1
+    },
+    {
+      "domain_short": "sustained attention",
+      "instrument": "Uchida-Kraepelin test",
+      "count": 1
+    },
+    {
+      "domain_short": "sustained attention",
+      "instrument": "Vigilance/PVT",
+      "count": 3
+    },
+    {
+      "domain_short": "sustained attention",
+      "instrument": "d2 Test of Attention",
+      "count": 11
+    },
+    {
+      "domain_short": "work performance",
+      "instrument": "Self-rated efficiency",
+      "count": 1
+    },
+    {
+      "domain_short": "work performance",
+      "instrument": "Self-rated learning performance",
+      "count": 1
+    },
+    {
+      "domain_short": "work performance",
+      "instrument": "Self-rated work motivation",
+      "count": 1
+    },
+    {
+      "domain_short": "work performance",
+      "instrument": "Self-rated work performance",
+      "count": 10
+    },
+    {
+      "domain_short": "work performance",
+      "instrument": "Self-rated work willingness",
+      "count": 2
+    },
+    {
+      "domain_short": "working memory",
+      "instrument": "Digit span task",
+      "count": 6
+    },
+    {
+      "domain_short": "working memory",
+      "instrument": "Digit span task (forward)",
+      "count": 1
+    },
+    {
+      "domain_short": "working memory",
+      "instrument": "N-back task",
+      "count": 9
+    },
+    {
+      "domain_short": "working memory",
+      "instrument": "Operation span task",
+      "count": 1
+    },
+    {
+      "domain_short": "working memory",
+      "instrument": "PASAT",
+      "count": 1
+    },
+    {
+      "domain_short": "working memory",
+      "instrument": "Spatial working memory task",
+      "count": 1
+    },
+    {
+      "domain_short": "workload",
+      "instrument": "NASA-TLX",
+      "count": 9
+    }
+  ],
   "n_studies_with_cognitive_test": 56,
   "n_total_studies": 270,
   "unrecognized_count": 0

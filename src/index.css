@@ -22,13 +22,13 @@ body {
 }
 
 ::selection {
-  background: #5B5BFF;
+  background: #FB3640;
   color: white;
 }
 
 /* Focus visibility for accessibility */
 a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible {
-  outline: 2px solid #5B5BFF;
+  outline: 2px solid #FB3640;
   outline-offset: 2px;
 }
 
@@ -54,3 +54,5 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 ::-webkit-scrollbar-thumb:hover {
   background: #8A8A8A;
 }
+
+svg { overflow: visible; }
