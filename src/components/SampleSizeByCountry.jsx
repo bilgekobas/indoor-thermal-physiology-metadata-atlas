@@ -4,9 +4,8 @@ import { useTooltip, TooltipPortal } from './Tooltip.jsx'
 export default function SampleSizeByCountry({ stats, studies, minCountThreshold }) {
   const { tip, showTip, moveTip, hideTip } = useTooltip()
   const PLOT_W = 560
-  const LABEL_X = 120
-  const ZERO_X = 132
-  const PLOT_X0 = 152
+  const AXIS_X = 148
+  const LABEL_X = AXIS_X - 10
   const domainMin = 1
   const domainMax = 4 // log10(n): 1 to 10000
   const xScale = (n) => ((Math.log10(Math.max(n, 1)) - domainMin) / (domainMax - domainMin)) * PLOT_W
@@ -39,21 +38,20 @@ export default function SampleSizeByCountry({ stats, studies, minCountThreshold 
   return (
     <div className="overflow-x-auto">
       <div className="font-data text-[10px] text-inkfaint mb-2">
-        x-axis: sample size (log scale, 1 to 10,000). Grey dots are individual studies. Countries with fewer than {minCountThreshold} studies are omitted. Country names are aligned to the left of the baseline; dotted lines show the overall median and mean, and the leftmost solid guide marks n=1.
+        x-axis: sample size (log scale, 1 to 10,000). The plot now begins directly at the left baseline; country names sit to the left of that baseline. Grey dots are individual studies. Countries with fewer than {minCountThreshold} studies are omitted.
       </div>
-      <svg width={PLOT_X0 + PLOT_W + 30} height={H + 36} className="font-data overflow-visible">
-        <line x1={ZERO_X} x2={ZERO_X} y1={0} y2={H} stroke="#E4E4E4" strokeWidth={1} />
+      <svg width={AXIS_X + PLOT_W + 30} height={H + 36} className="font-data overflow-visible">
         {[1, 10, 100, 1000, 10000].map((v) => (
           <g key={v}>
-            <line x1={xScale(v) + PLOT_X0} x2={xScale(v) + PLOT_X0} y1={0} y2={H} stroke="#E4E4E4" strokeWidth={1} />
-            <text x={xScale(v) + PLOT_X0} y={H + 14} fontSize={9} fill="#8A8A8A" textAnchor="middle">{v}</text>
+            <line x1={xScale(v) + AXIS_X} x2={xScale(v) + AXIS_X} y1={0} y2={H} stroke="#E4E4E4" strokeWidth={1} />
+            <text x={xScale(v) + AXIS_X} y={H + 14} fontSize={9} fill="#8A8A8A" textAnchor="middle">{v}</text>
           </g>
         ))}
         {refLines.map((r, idx) => (
           <g key={r.key}>
             <line
-              x1={xScale(r.value) + PLOT_X0}
-              x2={xScale(r.value) + PLOT_X0}
+              x1={xScale(r.value) + AXIS_X}
+              x2={xScale(r.value) + AXIS_X}
               y1={-4}
               y2={H}
               stroke={r.stroke}
@@ -67,7 +65,7 @@ export default function SampleSizeByCountry({ stats, studies, minCountThreshold 
             />
             {r.key !== 'n-equals-1' && (
               <text
-                x={xScale(r.value) + PLOT_X0 + (idx === 1 ? -4 : 4)}
+                x={xScale(r.value) + AXIS_X + (idx === 1 ? -4 : 4)}
                 y={H + 28}
                 fontSize={9}
                 fill={r.stroke}
@@ -87,7 +85,7 @@ export default function SampleSizeByCountry({ stats, studies, minCountThreshold 
               {dots.map((n, j) => (
                 <circle
                   key={j}
-                  cx={xScale(n) + PLOT_X0}
+                  cx={xScale(n) + AXIS_X}
                   cy={y}
                   r={2.2}
                   fill="#8A8A8A"
@@ -99,19 +97,19 @@ export default function SampleSizeByCountry({ stats, studies, minCountThreshold 
                 />
               ))}
               <rect
-                x={xScale(s.median) + PLOT_X0 - 3.5}
+                x={xScale(s.median) + AXIS_X - 3.5}
                 y={y - 3.5}
                 width={7}
                 height={7}
                 fill="#5B5BFF"
-                transform={`rotate(45, ${xScale(s.median) + PLOT_X0}, ${y})`}
+                transform={`rotate(45, ${xScale(s.median) + AXIS_X}, ${y})`}
                 className="cursor-default"
                 onMouseEnter={(e) => showTip(e, `${s.country}: median n=${s.median} (across ${s.count} studies)`)}
                 onMouseMove={moveTip}
                 onMouseLeave={hideTip}
               />
               <circle
-                cx={xScale(s.mean) + PLOT_X0}
+                cx={xScale(s.mean) + AXIS_X}
                 cy={y}
                 r={5}
                 fill="none"

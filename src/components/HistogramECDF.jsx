@@ -119,7 +119,7 @@ export default function HistogramECDF({ values, binWidth = 1, xLabel = '', unit 
                 r={2.5}
                 fill="#5B5BFF"
                 className="cursor-default"
-                onMouseEnter={(e) => showTip(e, `Cumulative: ${(y * 100).toFixed(1)}% of studies < ${fmt(bins[i].end)}`)}
+                onMouseEnter={(e) => showTip(e, `Cumulative: ${(y * 100).toFixed(1)}% of studies up to and including ${fmt(bins[i].end)} (end of this bin)`)}
                 onMouseMove={moveTip}
                 onMouseLeave={hideTip}
               />

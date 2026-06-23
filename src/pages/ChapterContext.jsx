@@ -126,20 +126,14 @@ function ClimateTempChart({ studies, climateCounts, tempRanges }) {
   const rows = useMemo(() => {
     return climateOrder.map((grp) => {
       const groupStudies = studies.filter((s) => s.climate_group === grp)
-      const counts = {}
+      const allTemps = []
       groupStudies.forEach((s) => {
         const rawSteps = stepsById.get(s.id) || []
         const values = (rawSteps.length ? rawSteps : [s.min, s.max]).filter((v) => Number.isFinite(v))
-        values.forEach((v) => {
-          const key = Number(v)
-          counts[key] = (counts[key] || 0) + 1
-        })
+        values.forEach((v) => allTemps.push(Number(v)))
       })
-      const grouped = Object.entries(counts)
-        .map(([temp, count]) => ({ temp: Number(temp), count }))
-        .sort((a, b) => a.temp - b.temp)
-      const allTemps = grouped.flatMap((d) => Array.from({ length: d.count }, () => d.temp))
-      return { climate: grp, nStudies: groupStudies.length, grouped, allTemps }
+      allTemps.sort((a, b) => a - b)
+      return { climate: grp, nStudies: groupStudies.length, allTemps }
     })
   }, [studies, climateOrder, stepsById])
 
@@ -150,17 +144,24 @@ function ClimateTempChart({ studies, climateCounts, tempRanges }) {
   const domainMax = Math.ceil(rawMax / 2) * 2 + 1
   const W = 600
   const LABEL_W = 150
-  const rowH = 42
+  const rowH = 46
   const H = rows.length * rowH + 8
   const xScale = (v) => ((v - domainMin) / Math.max(domainMax - domainMin, 1)) * W
   const ticks = []
   const tickStart = Math.ceil(domainMin / 5) * 5
   for (let v = tickStart; v <= domainMax; v += 5) ticks.push(v)
+  const q = (arr, p) => {
+    if (!arr.length) return null
+    const pos = (arr.length - 1) * p
+    const base = Math.floor(pos)
+    const rest = pos - base
+    return arr[base + 1] !== undefined ? arr[base] + rest * (arr[base + 1] - arr[base]) : arr[base]
+  }
 
   return (
     <div className="overflow-x-auto">
       <div className="font-data text-[10px] text-inkfaint mb-1">
-        Each dot is a reported tested temperature value. Repeated values are stacked vertically within each climate row, so the figure now shows the tested setpoints directly rather than per-study min–max lines.
+        Each point is a reported tested temperature value. The boxplot remains as a summary of the distribution within each climate row; points are overlaid at low opacity rather than being spread apart.
       </div>
       <svg width={W + LABEL_W + 10} height={H + 28} className="font-data overflow-visible">
         {ticks.map((v) => (
@@ -171,28 +172,41 @@ function ClimateTempChart({ studies, climateCounts, tempRanges }) {
         ))}
         {rows.map((row, ri) => {
           const yCenter = ri * rowH + rowH / 2
+          const vals = row.allTemps
+          const stats = vals.length ? { min: vals[0], q1: q(vals, 0.25), med: q(vals, 0.5), q3: q(vals, 0.75), max: vals[vals.length - 1] } : null
           return (
             <g key={row.climate}>
               <line x1={LABEL_W} x2={LABEL_W + W} y1={yCenter} y2={yCenter} stroke="#F2F2F2" strokeWidth={1} />
               <text x={LABEL_W - 8} y={yCenter - 4} fontSize={11.5} fill="#0A0A0A" textAnchor="end">{row.climate}</text>
               <text x={LABEL_W - 8} y={yCenter + 10} fontSize={9} fill="#8A8A8A" textAnchor="end">n={row.nStudies} studies</text>
-              {row.grouped.map((d) => {
-                const offsets = Array.from({ length: d.count }, (_, i) => (i - (d.count - 1) / 2) * 6)
-                return offsets.map((off, i) => (
-                  <circle
-                    key={`${row.climate}-${d.temp}-${i}`}
-                    cx={xScale(d.temp) + LABEL_W}
-                    cy={yCenter + off}
-                    r={2.5}
-                    fill="#0A0A0A"
-                    opacity={0.72}
-                    className="cursor-default"
-                    onMouseEnter={(e) => showTip(e, `${row.climate}: ${d.temp}°C (${d.count} reported ${d.count === 1 ? 'occurrence' : 'occurrences'})`)}
-                    onMouseMove={moveTip}
-                    onMouseLeave={hideTip}
-                  />
-                ))
-              })}
+              {vals.map((temp, i) => (
+                <circle
+                  key={`${row.climate}-${i}`}
+                  cx={xScale(temp) + LABEL_W}
+                  cy={yCenter}
+                  r={2.3}
+                  fill="#0A0A0A"
+                  opacity={0.16}
+                  className="cursor-default"
+                  onMouseEnter={(e) => showTip(e, `${row.climate}: ${temp}°C`)}
+                  onMouseMove={moveTip}
+                  onMouseLeave={hideTip}
+                />
+              ))}
+              {stats && (
+                <g
+                  className="cursor-default"
+                  onMouseEnter={(e) => showTip(e, `${row.climate}: median ${stats.med.toFixed(1)}°C, IQR ${stats.q1.toFixed(1)}–${stats.q3.toFixed(1)}°C, range ${stats.min.toFixed(1)}–${stats.max.toFixed(1)}°C`)}
+                  onMouseMove={moveTip}
+                  onMouseLeave={hideTip}
+                >
+                  <line x1={xScale(stats.min) + LABEL_W} x2={xScale(stats.max) + LABEL_W} y1={yCenter} y2={yCenter} stroke="#0A0A0A" strokeWidth={1} />
+                  <line x1={xScale(stats.min) + LABEL_W} x2={xScale(stats.min) + LABEL_W} y1={yCenter - 5} y2={yCenter + 5} stroke="#0A0A0A" strokeWidth={1} />
+                  <line x1={xScale(stats.max) + LABEL_W} x2={xScale(stats.max) + LABEL_W} y1={yCenter - 5} y2={yCenter + 5} stroke="#0A0A0A" strokeWidth={1} />
+                  <rect x={xScale(stats.q1) + LABEL_W} y={yCenter - 7} width={Math.max(1, xScale(stats.q3) - xScale(stats.q1))} height={14} fill="#FFFFFF" stroke="#0A0A0A" strokeWidth={1} />
+                  <line x1={xScale(stats.med) + LABEL_W} x2={xScale(stats.med) + LABEL_W} y1={yCenter - 8} y2={yCenter + 8} stroke="#0A0A0A" strokeWidth={1.2} />
+                </g>
+              )}
             </g>
           )
         })}
@@ -219,58 +233,45 @@ function SettingSankey({ data, total }) {
 
   const layout = useMemo(() => {
     const byType = {}
+    const typologyTotals = {}
     data.forEach((d) => {
       const type = d['exp-type'] || 'NR'
       const typology = d['exp-spatial-typology'] || 'NR'
-      if (!byType[type]) byType[type] = { total: 0, children: [] }
+      if (!byType[type]) byType[type] = { total: 0, children: {} }
       byType[type].total += d.count
-      byType[type].children.push({ name: typology, total: d.count, parent: type })
+      byType[type].children[typology] = (byType[type].children[typology] || 0) + d.count
+      typologyTotals[typology] = (typologyTotals[typology] || 0) + d.count
     })
 
     const leftEntries = Object.entries(byType)
       .map(([name, obj]) => ({ name, total: obj.total, color: TYPE_COLORS[name] || '#BBBBBB' }))
       .sort((a, b) => b.total - a.total)
 
-    const rightEntries = leftEntries.flatMap((type) => {
-      return byType[type.name].children
-        .sort((a, b) => b.total - a.total)
-        .map((child) => ({
-          key: `${type.name}::${child.name}`,
-          name: child.name,
-          total: child.total,
-          parent: type.name,
-          color: '#8A8A8A',
-        }))
-    })
+    const rightEntries = Object.entries(typologyTotals)
+      .map(([name, total]) => ({ key: name, name, total, color: '#D9D9D9' }))
+      .sort((a, b) => b.total - a.total)
 
     const left = layoutColumn(leftEntries, { x: 140, gap: 8, pxPerUnit: 1.2, minH: 18 })
     const right = layoutColumn(rightEntries, { x: 470, gap: 5, pxPerUnit: 1.2, minH: 12 })
     const H = Math.max(left.totalHeight, right.totalHeight) + 24
 
-    const rightByKey = Object.fromEntries(right.nodes.map((n) => [n.key, n]))
     const leftByName = Object.fromEntries(left.nodes.map((n) => [n.name, n]))
+    const rightByName = Object.fromEntries(right.nodes.map((n) => [n.name, n]))
     const leftOffsets = {}
     const rightOffsets = {}
     const links = []
     leftEntries.forEach((type) => {
-      const children = byType[type.name].children.sort((a, b) => b.total - a.total)
-      children.forEach((child) => {
-        const from = leftByName[type.name]
-        const to = rightByKey[`${type.name}::${child.name}`]
-        const sourceOffset = leftOffsets[type.name] || 0
-        const targetOffset = rightOffsets[to.key] || 0
-        links.push({
-          from,
-          to,
-          count: child.total,
-          color: from.color,
-          sourceOffset,
-          targetOffset,
-          label: `${type.name} → ${child.name}`,
+      Object.entries(byType[type.name].children)
+        .sort((a, b) => b[1] - a[1])
+        .forEach(([typology, count]) => {
+          const from = leftByName[type.name]
+          const to = rightByName[typology]
+          const sourceOffset = leftOffsets[type.name] || 0
+          const targetOffset = rightOffsets[typology] || 0
+          links.push({ from, to, count, color: from.color, sourceOffset, targetOffset, label: `${type.name} → ${typology}` })
+          leftOffsets[type.name] = sourceOffset + count * 1.2
+          rightOffsets[typology] = targetOffset + count * 1.2
         })
-        leftOffsets[type.name] = sourceOffset + child.total * 1.2
-        rightOffsets[to.key] = targetOffset + child.total * 1.2
-      })
     })
 
     return { left: left.nodes, right: right.nodes, links, W: 760, H, total: total || leftEntries.reduce((a, d) => a + d.total, 0) }
@@ -279,7 +280,7 @@ function SettingSankey({ data, total }) {
   return (
     <div className="overflow-x-auto">
       <div className="font-data text-[10px] text-inkfaint mb-1">
-        Left column: experimental setting type. Right column: the spatial typologies nested under each setting type.
+        Left column: experimental setting type. Right column: spatial typologies, combined across all setting types rather than repeated.
       </div>
       <svg width={layout.W} height={layout.H + 6} className="font-data overflow-visible">
         {layout.links.map((link, i) => {
@@ -306,36 +307,16 @@ function SettingSankey({ data, total }) {
         })}
         {layout.left.map((n) => (
           <g key={n.name}>
-            <rect
-              x={n.x}
-              y={n.y}
-              width={16}
-              height={n.h}
-              rx={2}
-              fill={n.color}
-              className="cursor-default"
-              onMouseEnter={(e) => showTip(e, `${n.name}: ${n.total} experiments (${((n.total / layout.total) * 100).toFixed(1)}%)`)}
-              onMouseMove={moveTip}
-              onMouseLeave={hideTip}
-            />
+            <rect x={n.x} y={n.y} width={16} height={n.h} rx={2} fill={n.color} className="cursor-default"
+              onMouseEnter={(e) => showTip(e, `${n.name}: ${n.total} experiments (${((n.total / layout.total) * 100).toFixed(1)}%)`)} onMouseMove={moveTip} onMouseLeave={hideTip} />
             <text x={n.x - 8} y={n.y + n.h / 2 + 4} fontSize={11.5} fill="#0A0A0A" textAnchor="end">{n.name}</text>
             <text x={n.x + 22} y={n.y + n.h / 2 + 4} fontSize={10} fill="#8A8A8A">{n.total}</text>
           </g>
         ))}
         {layout.right.map((n) => (
           <g key={n.key}>
-            <rect
-              x={n.x}
-              y={n.y}
-              width={16}
-              height={n.h}
-              rx={2}
-              fill="#D9D9D9"
-              className="cursor-default"
-              onMouseEnter={(e) => showTip(e, `${n.parent} / ${n.name}: ${n.total} experiments`)}
-              onMouseMove={moveTip}
-              onMouseLeave={hideTip}
-            />
+            <rect x={n.x} y={n.y} width={16} height={n.h} rx={2} fill="#D9D9D9" className="cursor-default"
+              onMouseEnter={(e) => showTip(e, `${n.name}: ${n.total} experiments total`)} onMouseMove={moveTip} onMouseLeave={hideTip} />
             <text x={n.x + 22} y={n.y + n.h / 2 + 4} fontSize={11} fill="#0A0A0A">{n.name}</text>
             <text x={n.x + 210} y={n.y + n.h / 2 + 4} fontSize={10} fill="#8A8A8A">{n.total}</text>
           </g>
@@ -471,7 +452,7 @@ export default function ChapterContext({ data }) {
           <PublicationsByYearChart data={fig01_pubs_by_year.data} totalPubs={totalPubs} />
         </FigureCard>
 
-        <FigureCard figNumber="2" title="Geographical distribution" plotWidth={760} commentary="250 of 269 studies (93%) resolve to a specific city; the rest report only a country or province. Research concentrates in a small number of cities — Changsha and Chongqing alone account for 48 studies. China's share has also grown over time, from 55% of studies in 2013–14 to 73% in 2023–24. The country map now supports zooming and annotates the study countries directly.">
+        <FigureCard figNumber="2" title="Geographical distribution" plotWidth={760} commentary="250 of 269 studies (93%) resolve to a specific city; the rest report only a country or province. Research concentrates in a small number of cities — Changsha and Chongqing alone account for 48 studies. China's share has also grown over time, from 55% of studies in 2013–14 to 73% in 2023–24. The country map is shown without country labels or zoom controls to keep the overview cleaner.">
           <GeographyToggle cityData={geo_cities.data} countryData={geo_choropleth.data} />
         </FigureCard>
 
@@ -537,15 +518,6 @@ export default function ChapterContext({ data }) {
 
         <FigureCard title="Which domains are manipulated together" plotWidth={620} commentary="Diagonal cells show the total number of studies manipulating each domain; off-diagonal cells show co-manipulation. This keeps the univariate counts while making the coupled experimental designs visible.">
           <CooccurrenceMatrix labels={domain_cooccurrence.labels} matrix={domain_cooccurrence.matrix} cellSize={38} />
-        </FigureCard>
-
-        <FigureCard title="Detailed intervention tokens" commentary="The comma-separated intervention field reveals a second level of specificity inside the broad domains. Air temperature dominates, but ramps, double-step changes, radiant asymmetries, humidity manipulations, and air-velocity changes are all used as more explicit thermal intervention designs.">
-          <InteractiveBarChart
-            data={detailedDomainRows}
-            total={domain_detail.n_studies}
-            color="#0A0A0A"
-            maxBars={15}
-          />
         </FigureCard>
       </ChapterSection>
     </div>
