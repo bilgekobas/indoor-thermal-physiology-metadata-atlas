@@ -89,7 +89,7 @@ export default function HistogramECDF({ values, binWidth = 1, xLabel = '', unit 
                 onMouseEnter={(e) =>
                   showTip(
                     e,
-                    `${fmt(b.start)}–${fmt(b.end)}: ${b.count} studies · ${((b.count / total) * 100).toFixed(1)}%`
+                    `${fmt(b.start)} to ${fmt(b.end)}: ${b.count} studies in this bin · ${((b.count / total) * 100).toFixed(1)}%`
                   )
                 }
                 onMouseMove={moveTip}
@@ -99,18 +99,16 @@ export default function HistogramECDF({ values, binWidth = 1, xLabel = '', unit 
           })}
           {/* ECDF line */}
           <polyline
-            points={ecdf
-              .map((y, i) => {
-                const x = i * (chartWidth / bins.length) + chartWidth / bins.length / 2
+            points={[`0,${chartHeight}`].concat(ecdf.map((y, i) => {
+                const x = (i + 1) * (chartWidth / bins.length)
                 return `${x},${chartHeight - y * chartHeight}`
-              })
-              .join(' ')}
+              })).join(' ')}
             fill="none"
             stroke="#5B5BFF"
             strokeWidth={1.5}
           />
           {ecdf.map((y, i) => {
-            const x = i * (chartWidth / bins.length) + chartWidth / bins.length / 2
+            const x = (i + 1) * (chartWidth / bins.length)
             return (
               <circle
                 key={i}
@@ -119,7 +117,7 @@ export default function HistogramECDF({ values, binWidth = 1, xLabel = '', unit 
                 r={2.5}
                 fill="#5B5BFF"
                 className="cursor-default"
-                onMouseEnter={(e) => showTip(e, `Cumulative: ${(y * 100).toFixed(1)}% of studies up to and including ${fmt(bins[i].end)} (end of this bin)`)}
+                onMouseEnter={(e) => showTip(e, `Cumulative through this bin: ${(y * 100).toFixed(1)}% of studies ≤ ${fmt(bins[i].end)}`)}
                 onMouseMove={moveTip}
                 onMouseLeave={hideTip}
               />

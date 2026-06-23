@@ -56,7 +56,6 @@ export default function ChoroplethMap({ countryData, cityData, height = 380 }) {
 
   return (
     <div>
-      <div className="font-data text-[10.5px] text-inkfaint mb-2">Static overview map; country labels and zoom controls were removed to reduce clutter.</div>
       <ComposableMap
         projection="geoEqualEarth"
         projectionConfig={{ scale: 130, center: [10, 5] }}

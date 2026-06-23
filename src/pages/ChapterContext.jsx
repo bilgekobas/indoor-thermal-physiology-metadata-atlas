@@ -63,9 +63,6 @@ function TimeOfDayChart({ sessions }) {
 
   return (
     <div className="overflow-x-auto">
-      <div className="font-data text-[10px] text-inkfaint mb-1">
-        Share of reported sessions active at each time of day. The individual session lines were removed here to keep the daily concentration pattern legible.
-      </div>
       <svg width={W + yAxisW} height={H + 28} className="font-data block">
         {[0, 0.5, 1].map((frac) => (
           <g key={frac}>
@@ -142,9 +139,9 @@ function ClimateTempChart({ studies, climateCounts, tempRanges }) {
   const rawMax = everyTemp.length ? Math.max(...everyTemp) : 40
   const domainMin = Math.floor(rawMin / 2) * 2 - 1
   const domainMax = Math.ceil(rawMax / 2) * 2 + 1
-  const W = 600
+  const W = 680
   const LABEL_W = 150
-  const rowH = 46
+  const rowH = 52
   const H = rows.length * rowH + 8
   const xScale = (v) => ((v - domainMin) / Math.max(domainMax - domainMin, 1)) * W
   const ticks = []
@@ -157,12 +154,30 @@ function ClimateTempChart({ studies, climateCounts, tempRanges }) {
     const rest = pos - base
     return arr[base + 1] !== undefined ? arr[base] + rest * (arr[base + 1] - arr[base]) : arr[base]
   }
+  const violinPath = (vals, yCenter) => {
+    if (!vals.length) return ''
+    const binStep = 1
+    const bins = []
+    for (let t = Math.floor(domainMin); t <= Math.ceil(domainMax); t += binStep) bins.push({ t, count: 0 })
+    vals.forEach((v) => {
+      const idx = Math.max(0, Math.min(bins.length - 1, Math.round((v - Math.floor(domainMin)) / binStep)))
+      bins[idx].count += 1
+    })
+    // light smoothing so the violin reads as density rather than as a bar code
+    const smoothed = bins.map((b, i) => {
+      const prev = bins[i - 1]?.count || 0
+      const next = bins[i + 1]?.count || 0
+      return { t: b.t, count: (prev + b.count * 2 + next) / 4 }
+    })
+    const maxC = smoothed.reduce((m, b) => Math.max(m, b.count), 1)
+    const maxHalf = 14
+    const upper = smoothed.map((b) => `${xScale(b.t) + LABEL_W},${yCenter - (b.count / maxC) * maxHalf}`)
+    const lower = [...smoothed].reverse().map((b) => `${xScale(b.t) + LABEL_W},${yCenter + (b.count / maxC) * maxHalf}`)
+    return `M ${upper.concat(lower).join(' L ')} Z`
+  }
 
   return (
     <div className="overflow-x-auto">
-      <div className="font-data text-[10px] text-inkfaint mb-1">
-        Each point is a reported tested temperature value. The boxplot remains as a summary of the distribution within each climate row; points are overlaid at low opacity rather than being spread apart.
-      </div>
       <svg width={W + LABEL_W + 10} height={H + 28} className="font-data overflow-visible">
         {ticks.map((v) => (
           <g key={v}>
@@ -179,14 +194,15 @@ function ClimateTempChart({ studies, climateCounts, tempRanges }) {
               <line x1={LABEL_W} x2={LABEL_W + W} y1={yCenter} y2={yCenter} stroke="#F2F2F2" strokeWidth={1} />
               <text x={LABEL_W - 8} y={yCenter - 4} fontSize={11.5} fill="#0A0A0A" textAnchor="end">{row.climate}</text>
               <text x={LABEL_W - 8} y={yCenter + 10} fontSize={9} fill="#8A8A8A" textAnchor="end">n={row.nStudies} studies</text>
+              {vals.length > 1 && <path d={violinPath(vals, yCenter)} fill="#5B5BFF" opacity={0.14} stroke="#5B5BFF" strokeWidth={0.8} />}
               {vals.map((temp, i) => (
                 <circle
                   key={`${row.climate}-${i}`}
                   cx={xScale(temp) + LABEL_W}
                   cy={yCenter}
-                  r={2.3}
+                  r={2.1}
                   fill="#0A0A0A"
-                  opacity={0.16}
+                  opacity={0.12}
                   className="cursor-default"
                   onMouseEnter={(e) => showTip(e, `${row.climate}: ${temp}°C`)}
                   onMouseMove={moveTip}
@@ -211,6 +227,9 @@ function ClimateTempChart({ studies, climateCounts, tempRanges }) {
           )
         })}
       </svg>
+      <div className="font-data text-[10px] text-inkfaint mt-2">
+        Violin width shows the density of reported tested temperature values within each host-climate row. Low-opacity points are the individual temperature values; the overlaid boxplot summarizes median, IQR, and range.
+      </div>
       <TooltipPortal tip={tip} />
     </div>
   )
@@ -279,9 +298,6 @@ function SettingSankey({ data, total }) {
 
   return (
     <div className="overflow-x-auto">
-      <div className="font-data text-[10px] text-inkfaint mb-1">
-        Left column: experimental setting type. Right column: spatial typologies, combined across all setting types rather than repeated.
-      </div>
       <svg width={layout.W} height={layout.H + 6} className="font-data overflow-visible">
         {layout.links.map((link, i) => {
           const x1 = link.from.x + 16
@@ -299,7 +315,7 @@ function SettingSankey({ data, total }) {
               strokeOpacity={0.28}
               strokeWidth={Math.max(1, link.count * 1.2)}
               className="cursor-default"
-              onMouseEnter={(e) => showTip(e, `${link.label}: ${link.count} experiments`)}
+              onMouseEnter={(e) => showTip(e, `${link.label}: ${link.count} experiments (${((link.count / layout.total) * 100).toFixed(1)}%)`)}
               onMouseMove={moveTip}
               onMouseLeave={hideTip}
             />
@@ -310,7 +326,7 @@ function SettingSankey({ data, total }) {
             <rect x={n.x} y={n.y} width={16} height={n.h} rx={2} fill={n.color} className="cursor-default"
               onMouseEnter={(e) => showTip(e, `${n.name}: ${n.total} experiments (${((n.total / layout.total) * 100).toFixed(1)}%)`)} onMouseMove={moveTip} onMouseLeave={hideTip} />
             <text x={n.x - 8} y={n.y + n.h / 2 + 4} fontSize={11.5} fill="#0A0A0A" textAnchor="end">{n.name}</text>
-            <text x={n.x + 22} y={n.y + n.h / 2 + 4} fontSize={10} fill="#8A8A8A">{n.total}</text>
+            <text x={n.x + 22} y={n.y + n.h / 2 + 4} fontSize={10} fill="#8A8A8A">{n.total} ({((n.total / layout.total) * 100).toFixed(0)}%)</text>
           </g>
         ))}
         {layout.right.map((n) => (
@@ -318,10 +334,11 @@ function SettingSankey({ data, total }) {
             <rect x={n.x} y={n.y} width={16} height={n.h} rx={2} fill="#D9D9D9" className="cursor-default"
               onMouseEnter={(e) => showTip(e, `${n.name}: ${n.total} experiments total`)} onMouseMove={moveTip} onMouseLeave={hideTip} />
             <text x={n.x + 22} y={n.y + n.h / 2 + 4} fontSize={11} fill="#0A0A0A">{n.name}</text>
-            <text x={n.x + 210} y={n.y + n.h / 2 + 4} fontSize={10} fill="#8A8A8A">{n.total}</text>
+            <text x={n.x + 210} y={n.y + n.h / 2 + 4} fontSize={10} fill="#8A8A8A">{n.total} ({((n.total / layout.total) * 100).toFixed(0)}%)</text>
           </g>
         ))}
       </svg>
+      <div className="font-data text-[10px] text-inkfaint mt-2">Left column: experimental setting type. Right column: spatial typologies, combined across all setting types. Node labels show absolute experiment counts and percentages of all experiments in this Sankey.</div>
       <TooltipPortal tip={tip} />
     </div>
   )
@@ -452,7 +469,7 @@ export default function ChapterContext({ data }) {
           <PublicationsByYearChart data={fig01_pubs_by_year.data} totalPubs={totalPubs} />
         </FigureCard>
 
-        <FigureCard figNumber="2" title="Geographical distribution" plotWidth={760} commentary="250 of 269 studies (93%) resolve to a specific city; the rest report only a country or province. Research concentrates in a small number of cities — Changsha and Chongqing alone account for 48 studies. China's share has also grown over time, from 55% of studies in 2013–14 to 73% in 2023–24. The country map is shown without country labels or zoom controls to keep the overview cleaner.">
+        <FigureCard figNumber="2" title="Geographical distribution" plotWidth={760} commentary="250 of 269 studies (93%) resolve to a specific city; the rest report only a country or province. Research concentrates in a small number of cities — Changsha and Chongqing alone account for 48 studies. China's share has also grown over time, from 55% of studies in 2013–14 to 73% in 2023–24. The country map uses a log-scaled color ramp so China's count does not wash out every other country.">
           <GeographyToggle cityData={geo_cities.data} countryData={geo_choropleth.data} />
         </FigureCard>
 

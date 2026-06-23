@@ -6,8 +6,8 @@ export default function SampleSizeByCountry({ stats, studies, minCountThreshold 
   const PLOT_W = 560
   const AXIS_X = 148
   const LABEL_X = AXIS_X - 10
-  const domainMin = 1
-  const domainMax = 4 // log10(n): 1 to 10000
+  const domainMin = 0
+  const domainMax = 4 // log10(n): 1 to 10000; 1 starts at the visual baseline
   const xScale = (n) => ((Math.log10(Math.max(n, 1)) - domainMin) / (domainMax - domainMin)) * PLOT_W
   const rowH = 26
   const H = stats.length * rowH
@@ -37,9 +37,6 @@ export default function SampleSizeByCountry({ stats, studies, minCountThreshold 
 
   return (
     <div className="overflow-x-auto">
-      <div className="font-data text-[10px] text-inkfaint mb-2">
-        x-axis: sample size (log scale, 1 to 10,000). The plot now begins directly at the left baseline; country names sit to the left of that baseline. Grey dots are individual studies. Countries with fewer than {minCountThreshold} studies are omitted.
-      </div>
       <svg width={AXIS_X + PLOT_W + 30} height={H + 36} className="font-data overflow-visible">
         {[1, 10, 100, 1000, 10000].map((v) => (
           <g key={v}>
@@ -124,6 +121,9 @@ export default function SampleSizeByCountry({ stats, studies, minCountThreshold 
           )
         })}
       </svg>
+      <div className="font-data text-[10px] text-inkfaint mt-2 mb-2">
+        x-axis: sample size (log scale, 1 to 10,000). The first gridline is n=1 and marks the visual baseline; country names sit to the left of that line. Grey dots are individual studies. Countries with fewer than {minCountThreshold} studies are omitted.
+      </div>
       <div className="flex flex-wrap gap-x-4 gap-y-1 mt-2 text-[11px] text-inkmid">
         <span className="flex items-center gap-1.5"><span className="w-2 h-2 rounded-full inline-block" style={{ background: '#8A8A8A', opacity: 0.55 }} /> individual study</span>
         <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 inline-block" style={{ background: '#5B5BFF', transform: 'rotate(45deg)' }} /> country median</span>

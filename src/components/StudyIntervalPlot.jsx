@@ -61,7 +61,6 @@ export default function StudyIntervalPlot({
 
   return (
     <div>
-      <div className="font-data text-[10px] text-inkfaint mb-1">{studies.length} studies, sorted ascending by mean. Each line shows mean ± SD; the central point marks the mean. Boxplot below summarizes the distribution of study means.</div>
       <svg width={width} height={totalHeight + 18} className="font-data overflow-visible">
         {tickValues.map((v) => (
           <line key={v} x1={xScale(v)} x2={xScale(v)} y1={0} y2={boxY + 10} stroke="#E4E4E4" strokeWidth={1} />
@@ -101,6 +100,7 @@ export default function StudyIntervalPlot({
         ))}
       </svg>
       {xAxisLabel && <div className="font-data text-[10px] text-inkfaint text-center mt-0.5">{xAxisLabel}</div>}
+      <div className="font-data text-[10px] text-inkfaint mt-2">{studies.length} studies, sorted ascending by mean. Each line shows mean ± SD; the central point marks the mean. Boxplot summarizes the distribution of study means.</div>
       <TooltipPortal tip={tip} />
     </div>
   )

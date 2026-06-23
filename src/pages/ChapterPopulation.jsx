@@ -94,7 +94,7 @@ function SampleSizeHistogramLinear({ studies, maxDisplay = 100, binWidth = 5, co
               r={2.5}
               fill={color}
               className="cursor-default"
-              onMouseEnter={(e) => showTip(e, `Cumulative: ${(y * 100).toFixed(1)}% of studies ≤ ${bins[i].overflow ? `${maxDisplay}+` : bins[i].end} participants`)}
+              onMouseEnter={(e) => showTip(e, `Cumulative: ${(y * 100).toFixed(1)}% of studies up to and including ${bins[i].overflow ? `${maxDisplay}+` : `${bins[i].end} participants`} (end of this bin)`)}
               onMouseMove={moveTip}
               onMouseLeave={hideTip}
             />

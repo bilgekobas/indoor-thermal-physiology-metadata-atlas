@@ -47,10 +47,7 @@ function slugify(title) {
 
 export default function Sidebar({ summary }) {
   const location = useLocation()
-  const [expanded, setExpanded] = useState(() => {
-    const current = CHAPTERS.find((c) => c.to === location.pathname)
-    return current ? new Set([current.to]) : new Set()
-  })
+  const [expanded, setExpanded] = useState(() => new Set(CHAPTERS.map((c) => c.to)))
 
   function toggle(to) {
     setExpanded((prev) => {

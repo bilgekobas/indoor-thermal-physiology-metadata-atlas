@@ -191,6 +191,8 @@ function SignalSensorBrandSankey({ overall, brandModelData }) {
       signal: sigLayout.nodes, sensor: senLayout.nodes, brand: brandLayout.nodes,
       sigSenLinks, senBrandLinks, W: COL_BRAND + 190, H,
       maxFlow: Math.max(...overall.map((r) => r.count), 1),
+      signalDenom: signalEntries.reduce((a, d) => a + d.total, 0) || 1,
+      sensorDenom: sensorEntries.reduce((a, d) => a + d.total, 0) || 1,
       nTotalBrands: new Set(brandModelData.filter((r) => r.brand !== 'NR').map((r) => r.brand)).size,
     }
   }, [overall, brandModelData])
@@ -229,13 +231,6 @@ function SignalSensorBrandSankey({ overall, brandModelData }) {
 
   return (
     <div>
-      <p className="text-[12.5px] text-inkmid mb-2">
-        Flow width and node bar length are both proportional to study count (widest flow ={' '}
-        {layout.maxFlow} studies). No "Other" bucket anywhere — signals and sensor types are shown
-        in full; for brands, each sensor type shows only its top 3 by default ({layout.nTotalBrands}{' '}
-        distinct brands exist in total across the corpus — see the full reference table on the{' '}
-        Sensor brands &amp; models page). Click any signal, sensor, or brand node to isolate its paths.
-      </p>
       {selected && (
         <button
           onClick={() => setSelected(null)}
@@ -267,10 +262,10 @@ function SignalSensorBrandSankey({ overall, brandModelData }) {
               return (
                 <g key={n.name}
                   onClick={() => setSelected(selected?.level === 'signal' && selected.name === n.name ? null : { level: 'signal', name: n.name })}
-                  onMouseEnter={(e) => showTip(e, `${n.name}: ${n.total} studies — click to isolate`)} onMouseMove={moveTip} onMouseLeave={hideTip}
+                  onMouseEnter={(e) => showTip(e, `${n.name}: ${n.total} studies (${((n.total / layout.signalDenom) * 100).toFixed(1)}% of signal-column total) — click to isolate`)} onMouseMove={moveTip} onMouseLeave={hideTip}
                   className="cursor-pointer" style={{ opacity: active ? 1 : 0.2 }}>
                   <rect x={n.x} y={n.y} width={14} height={n.h} fill={n.color} rx={2} />
-                  <text x={n.x + 18} y={n.y + n.h / 2 + 3.5} fontSize={10.5} fill="#0A0A0A">{n.name}, {n.total}</text>
+                  <text x={n.x + 18} y={n.y + n.h / 2 + 3.5} fontSize={10.5} fill="#0A0A0A">{n.name}, {n.total} ({((n.total / layout.signalDenom) * 100).toFixed(0)}%)</text>
                 </g>
               )
             })}
@@ -279,10 +274,10 @@ function SignalSensorBrandSankey({ overall, brandModelData }) {
               return (
                 <g key={n.name}
                   onClick={() => setSelected(selected?.level === 'sensor' && selected.name === n.name ? null : { level: 'sensor', name: n.name })}
-                  onMouseEnter={(e) => showTip(e, `${n.name}: ${n.total} studies — click to isolate`)} onMouseMove={moveTip} onMouseLeave={hideTip}
+                  onMouseEnter={(e) => showTip(e, `${n.name}: ${n.total} studies (${((n.total / layout.sensorDenom) * 100).toFixed(1)}% of sensor-column total) — click to isolate`)} onMouseMove={moveTip} onMouseLeave={hideTip}
                   className="cursor-pointer" style={{ opacity: active ? 1 : 0.2 }}>
                   <rect x={n.x} y={n.y} width={14} height={n.h} fill="#4A4A4A" rx={2} />
-                  <text x={n.x + 18} y={n.y + n.h / 2 + 3.5} fontSize={10} fill="#0A0A0A">{n.name}, {n.total}</text>
+                  <text x={n.x + 18} y={n.y + n.h / 2 + 3.5} fontSize={10} fill="#0A0A0A">{n.name}, {n.total} ({((n.total / layout.sensorDenom) * 100).toFixed(0)}%)</text>
                 </g>
               )
             })}
@@ -306,6 +301,9 @@ function SignalSensorBrandSankey({ overall, brandModelData }) {
           </g>
         </svg>
       </div>
+      <p className="font-data text-[10px] text-inkfaint mt-2">
+        Flow width and node bar length are proportional to study count. Signal and sensor-node labels show absolute counts and percentages of their own Sankey column. Brand percentages are relative to each brand's parent sensor type. Click any signal, sensor, or brand node to isolate its paths.
+      </p>
       <TooltipPortal tip={tip} />
     </div>
   )
