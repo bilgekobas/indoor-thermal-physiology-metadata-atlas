@@ -1,5 +1,4 @@
 import { Link } from 'react-router-dom'
-import { CodeChip } from '../components/CodeChip.jsx'
 
 function StatBlock({ value, label, accent }) {
   return (
@@ -12,8 +11,22 @@ function StatBlock({ value, label, accent }) {
   )
 }
 
-function Finding({ children }) {
-  return <li className="text-[13.5px] text-inkmid leading-relaxed pl-1">{children}</li>
+function FindingCard({ value, unit = '', accent = '#5B5BFF', children, to }) {
+  return (
+    <Link
+      to={to}
+      className="group block border border-line rounded-md bg-white/45 px-5 py-4 hover:border-coreaccent hover:bg-white/70 transition-colors"
+    >
+      <div className="flex items-start gap-4">
+        <div className="font-data text-[32px] leading-none font-semibold shrink-0 min-w-[88px]" style={{ color: accent }}>
+          {value}<span className="text-[18px] align-baseline">{unit}</span>
+        </div>
+        <p className="text-[13.5px] text-inkmid leading-relaxed pt-0.5 group-hover:text-ink">
+          {children} <span className="text-coreaccent whitespace-nowrap">↗</span>
+        </p>
+      </div>
+    </Link>
+  )
 }
 
 export default function Overview({ data }) {
@@ -87,48 +100,31 @@ export default function Overview({ data }) {
 
       <div className="px-10 py-8 border-b border-line bg-white/20">
         <h2 className="text-[16px] font-semibold mb-5">Things worth knowing before you dig in</h2>
-        <ul className="list-disc ml-5 space-y-3 max-w-4xl">
-          <Finding>
-            {latestGeo.pct.toFixed(0)}% of {latestGeo.period} studies are from {latestGeo.top_country} alone. The total share for {firstGeo.period} was {firstGeo.pct.toFixed(0)}%.
-          </Finding>
-          <Finding>
-            {open_data.n_with_real_data_link} of {open_data.n_total} studies share data directly and openly.
-          </Finding>
-          <Finding>
-            Skin temperature is the single most measured signal: {skinPct}% of experiments measure skin temperature, followed by {heartPct}% measuring heart or pulse rate.
-          </Finding>
-          <Finding>
-            55%→25% share of skin-temperature studies using a thermocouple, {firstGeo.period} to {latestGeo.period} — displaced by Thermochron-type loggers such as iButton, which rose from 18% to 52% over the same span.
-          </Finding>
-          <Finding>
-            {sevenPointTSVPct}% of thermal sensation scales use the standard 7-point format, while thermal comfort scales show {tcvScaleDefinitions} distinct coded scale definitions in this corpus.
-          </Finding>
-          <Finding>
-            {standardHeightPct}% of reported air-temperature, humidity, globe-temperature, and air-velocity sensor heights sit at one of the standard 0.1, 0.6, 1.1, or 1.7 m positions.
-          </Finding>
-          <Finding>
-            {fig05_time_of_day.n_reporting} studies ({timeReportingPct}%) report time-of-day information.
-          </Finding>
-          <Finding>
-            {maleOnly} studies ({maleOnlyPct}%) are male-only.
-          </Finding>
-        </ul>
-      </div>
-
-      <div className="px-10 py-8">
-        <div className="flex items-baseline justify-between mb-4">
-          <h2 className="text-[16px] font-semibold">Every field, coded the same way</h2>
-          <span className="font-data text-[11px] text-inkfaint">the corpus's own vocabulary</span>
-        </div>
-        <p className="text-[13.5px] text-inkmid max-w-2xl leading-relaxed mb-5">
-          Each of the {summary.n_variables} variables in this corpus is coded against a fixed, five-value vocabulary distinguishing what studies report from what they measure but leave underspecified. This distinction — particularly between <CodeChip code="NR" /> and <CodeChip code="MNR" /> — is the corpus's central methodological contribution.
-        </p>
-        <div className="grid grid-cols-1 gap-3 max-w-3xl">
-          <div className="flex gap-3 items-start"><CodeChip code="Y" size="md" /><span className="text-[13px] text-inkmid">Yes, explicitly reported.</span></div>
-          <div className="flex gap-3 items-start"><CodeChip code="N" size="md" /><span className="text-[13px] text-inkmid">No, explicitly reported.</span></div>
-          <div className="flex gap-3 items-start"><CodeChip code="NR" size="md" /><span className="text-[13px] text-inkmid">Not reported.</span></div>
-          <div className="flex gap-3 items-start"><CodeChip code="MNR" size="md" /><span className="text-[13px] text-inkmid">Measured, but the value of the field is not reported. For example, air temperature is reported as measured, but the sensor height is not reported.</span></div>
-          <div className="flex gap-3 items-start"><CodeChip code="NC" size="md" /><span className="text-[13px] text-inkmid">Not clear: conflicting or ambiguous statements.</span></div>
+        <div className="grid grid-cols-1 xl:grid-cols-2 gap-3 max-w-6xl">
+          <FindingCard value={latestGeo.pct.toFixed(0)} unit="%" accent="#5B5BFF" to="/context#when-and-where-research-happens">
+            of {latestGeo.period} studies are from {latestGeo.top_country} alone. The total share for {firstGeo.period} was {firstGeo.pct.toFixed(0)}%.
+          </FindingCard>
+          <FindingCard value={open_data.n_with_real_data_link} accent="#FB3640" to="/reporting#open-data-in-practice">
+            of {open_data.n_total} studies share data directly and openly.
+          </FindingCard>
+          <FindingCard value={skinPct} unit="%" accent="#5B5BFF" to="/body#whats-measured-and-how">
+            of experiments measure skin temperature, the single most measured signal, followed by {heartPct}% measuring heart or pulse rate.
+          </FindingCard>
+          <FindingCard value="55→25" unit="%" accent="#0A0A0A" to="/body#how-sensor-choice-has-shifted-over-time">
+            share of skin-temperature studies using a thermocouple, {firstGeo.period} to {latestGeo.period} — displaced by Thermochron-type loggers such as iButton, which rose from 18% to 52% over the same span.
+          </FindingCard>
+          <FindingCard value={sevenPointTSVPct} unit="%" accent="#5B5BFF" to="/questionnaires#scale-heterogeneity-sensation-vs-comfort">
+            of thermal sensation scales use the standard 7-point format, while thermal comfort scales show {tcvScaleDefinitions} distinct coded scale definitions in this corpus.
+          </FindingCard>
+          <FindingCard value={standardHeightPct} unit="%" accent="#0A0A0A" to="/environment#where-sensors-are-placed">
+            of reported air-temperature, humidity, globe-temperature, and air-velocity sensor heights sit at one of the standard 0.1, 0.6, 1.1, or 1.7 m positions.
+          </FindingCard>
+          <FindingCard value={fig05_time_of_day.n_reporting} accent="#5B5BFF" to="/context#setting-and-timing">
+            studies ({timeReportingPct}%) report time-of-day information.
+          </FindingCard>
+          <FindingCard value={maleOnly} accent="#FB3640" to="/population#demographics">
+            studies ({maleOnlyPct}%) are male-only.
+          </FindingCard>
         </div>
       </div>
     </div>
