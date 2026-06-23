@@ -3,6 +3,7 @@ import { ChapterHeader, ChapterSection } from '../components/Chapter.jsx'
 import CompletenessStrip from '../components/CompletenessStrip.jsx'
 import FigureCard from '../components/FigureCard.jsx'
 import InteractiveBarChart from '../components/InteractiveBarChart.jsx'
+import CooccurrenceMatrix from '../components/CooccurrenceMatrix.jsx'
 import HistogramECDF from '../components/HistogramECDF.jsx'
 import ChoroplethMap from '../components/ChoroplethMap.jsx'
 import CityMap from '../components/CityMap.jsx'
@@ -121,40 +122,95 @@ const CLIMATE_COLORS = {
   'Mediterranean': '#D5FF99', 'Humid subtropical': '#5B5BFF', 'Oceanic': '#C5FFFD',
   'Continental': '#8A8A8A', 'Semi-arid (cold)': '#8A8A8A', 'Subarctic': '#4A4A4A', 'Other/Mixed': '#BBBBBB',
 }
-function ClimateTempChart({ studies, climateCounts }) {
+
+function quantile(sorted, q) {
+  if (!sorted.length) return null
+  const pos = (sorted.length - 1) * q
+  const base = Math.floor(pos)
+  const rest = pos - base
+  return sorted[base + 1] !== undefined ? sorted[base] + rest * (sorted[base + 1] - sorted[base]) : sorted[base]
+}
+
+function ClimateTempChart({ studies, climateCounts, tempRanges }) {
   const { tip, showTip, moveTip, hideTip } = useTooltip()
+  const stepsById = useMemo(() => {
+    const m = new Map()
+    ;(tempRanges?.studies || []).forEach((s) => m.set(s.id, s.steps || []))
+    return m
+  }, [tempRanges])
+
+  const enriched = useMemo(() => studies.map((s) => ({ ...s, steps: stepsById.get(s.id) || [] })), [studies, stepsById])
   const climateOrder = Object.keys(climateCounts).sort((a, b) => climateCounts[b] - climateCounts[a])
-  const W = 600, domainMin = 6, domainMax = 44
+  const W = 600
+  const allTemps = enriched.flatMap((s) => [s.min, s.max, ...(s.steps || [])]).filter((v) => Number.isFinite(v))
+  const rawMin = Math.min(...allTemps, 10)
+  const rawMax = Math.max(...allTemps, 40)
+  const domainMin = Math.floor(rawMin / 2) * 2 - 1
+  const domainMax = Math.ceil(rawMax / 2) * 2 + 1
   const xScale = (v) => ((v - domainMin) / (domainMax - domainMin)) * W
-  const rowH = 12, groupGap = 8
-  let y = 10
-  const rows = []
-  climateOrder.forEach((grp) => {
-    studies.filter((s) => s.climate_group === grp).sort((a, b) => a.min - b.min).forEach((s) => {
-      rows.push({ ...s, y, color: CLIMATE_COLORS[grp] || '#BBBBBB' })
-      y += rowH
-    })
-    y += groupGap
-  })
-  const H = y
+  const rowH = 34
+  const H = climateOrder.length * rowH + 14
+  const jitter = (id, idx) => {
+    const str = String(id || idx)
+    let h = 0
+    for (let i = 0; i < str.length; i++) h = (h * 31 + str.charCodeAt(i)) % 997
+    return ((h / 997) - 0.5) * 12
+  }
+  const ticks = []
+  const tickStart = Math.ceil(domainMin / 5) * 5
+  for (let v = tickStart; v <= domainMax; v += 5) ticks.push(v)
+
   return (
     <div className="overflow-x-auto">
       <div className="font-data text-[10px] text-inkfaint mb-1">
-        Each horizontal line is one study's tested range, in °C (x-axis). Rows grouped by climate, sorted by minimum temperature within group.
+        Compact range plot by host climate. Thin horizontal marks show tested min–max ranges; points show the specific temperature steps reported in the dataset. Boxplots below each row summarize all reported temperature steps within that climate class.
       </div>
-      <svg width={W + 20} height={H + 20} className="font-data overflow-visible">
-        {[10, 15, 20, 25, 30, 35, 40].map((v) => (
-          <line key={v} x1={xScale(v)} x2={xScale(v)} y1={0} y2={H} stroke="#E4E4E4" strokeWidth={1} />
+      <svg width={W + 155} height={H + 30} className="font-data overflow-visible">
+        {ticks.map((v) => (
+          <g key={v}>
+            <line x1={xScale(v) + 145} x2={xScale(v) + 145} y1={0} y2={H - 4} stroke="#E4E4E4" strokeWidth={1} />
+            <text x={xScale(v) + 145} y={H + 13} fontSize={10} fill="#8A8A8A" textAnchor="middle">{v}°C</text>
+          </g>
         ))}
-        {rows.map((s, i) => (
-          <line key={i} x1={xScale(s.min)} x2={xScale(s.max)} y1={s.y} y2={s.y} stroke={s.color} strokeWidth={2.5} opacity={0.75}
-            className="cursor-default"
-            onMouseEnter={(e) => showTip(e, `${s.id} (${s.country}, ${s.climate_group}): ${s.min}–${s.max}°C`)}
-            onMouseMove={moveTip} onMouseLeave={hideTip} />
-        ))}
-        {[10, 20, 30, 40].map((v) => (
-          <text key={v} x={xScale(v)} y={H + 14} fontSize={10} fill="#8A8A8A" textAnchor="middle">{v}°C</text>
-        ))}
+        {climateOrder.map((grp, gi) => {
+          const groupStudies = enriched.filter((s) => s.climate_group === grp)
+          const y = gi * rowH + 15
+          const color = CLIMATE_COLORS[grp] || '#BBBBBB'
+          const temps = groupStudies.flatMap((s) => (s.steps && s.steps.length ? s.steps : [s.min, s.max])).filter((v) => Number.isFinite(v)).sort((a, b) => a - b)
+          const q1 = quantile(temps, 0.25)
+          const med = quantile(temps, 0.5)
+          const q3 = quantile(temps, 0.75)
+          const min = temps[0]
+          const max = temps[temps.length - 1]
+          const boxY = y + 9
+          return (
+            <g key={grp}>
+              <text x={138} y={y + 3} fontSize={11.5} fill="#0A0A0A" textAnchor="end">{grp}</text>
+              <text x={138} y={y + 15} fontSize={9} fill="#8A8A8A" textAnchor="end">n={groupStudies.length}</text>
+              {groupStudies.map((s, i) => {
+                const yy = y + jitter(s.id, i)
+                const pts = (s.steps && s.steps.length ? s.steps : [s.min, s.max]).filter((v) => Number.isFinite(v))
+                return (
+                  <g key={s.id} opacity={0.55} className="cursor-default"
+                    onMouseEnter={(e) => showTip(e, `${s.id} (${s.country}, ${s.climate_group}): range ${s.min}–${s.max}°C; steps ${pts.join(', ')}°C`)}
+                    onMouseMove={moveTip} onMouseLeave={hideTip}>
+                    <line x1={xScale(s.min) + 145} x2={xScale(s.max) + 145} y1={yy} y2={yy} stroke={color} strokeWidth={1.4} />
+                    {pts.map((t, j) => <circle key={`${s.id}-${j}-${t}`} cx={xScale(t) + 145} cy={yy} r={2} fill={color} stroke="#0A0A0A" strokeWidth={0.35} />)}
+                  </g>
+                )
+              })}
+              {temps.length > 0 && (
+                <g className="cursor-default" onMouseEnter={(e) => showTip(e, `${grp}: step temperature median ${med.toFixed(1)}°C (IQR ${q1.toFixed(1)}–${q3.toFixed(1)}; range ${min.toFixed(1)}–${max.toFixed(1)})`)} onMouseMove={moveTip} onMouseLeave={hideTip}>
+                  <line x1={xScale(min) + 145} x2={xScale(max) + 145} y1={boxY} y2={boxY} stroke="#0A0A0A" strokeWidth={1} />
+                  <line x1={xScale(min) + 145} x2={xScale(min) + 145} y1={boxY - 3} y2={boxY + 3} stroke="#0A0A0A" strokeWidth={1} />
+                  <line x1={xScale(max) + 145} x2={xScale(max) + 145} y1={boxY - 3} y2={boxY + 3} stroke="#0A0A0A" strokeWidth={1} />
+                  <rect x={xScale(q1) + 145} y={boxY - 5} width={Math.max(1, xScale(q3) - xScale(q1))} height={10} fill="#FFFFFF" stroke="#0A0A0A" strokeWidth={1} />
+                  <line x1={xScale(med) + 145} x2={xScale(med) + 145} y1={boxY - 6} y2={boxY + 6} stroke="#0A0A0A" strokeWidth={1.5} />
+                </g>
+              )}
+            </g>
+          )
+        })}
       </svg>
       <div className="flex flex-wrap gap-x-3 gap-y-1 mt-3">
         {climateOrder.map((g) => (
@@ -163,6 +219,81 @@ function ClimateTempChart({ studies, climateCounts }) {
             {g} (n={climateCounts[g]})
           </div>
         ))}
+      </div>
+      <TooltipPortal tip={tip} />
+    </div>
+  )
+}
+
+function SettingSunburst({ data, total }) {
+  const { tip, showTip, moveTip, hideTip } = useTooltip()
+  const W = 420, H = 420, cx = W / 2, cy = H / 2
+  const innerR = 78, midR = 142, outerR = 198
+  const typeColors = { Lab: '#0A0A0A', Field: '#5B5BFF', 'Living Lab': '#FB3640', Mixed: '#8A8A8A', NR: '#BBBBBB' }
+  const byType = useMemo(() => {
+    const m = new Map()
+    data.forEach((d) => {
+      const type = d['exp-type'] || 'NR'
+      if (!m.has(type)) m.set(type, { label: type, count: 0, children: [] })
+      const item = m.get(type)
+      item.count += d.count
+      item.children.push({ label: d['exp-spatial-typology'] || 'NR', count: d.count })
+    })
+    return [...m.values()].sort((a, b) => b.count - a.count)
+  }, [data])
+  const sum = byType.reduce((a, d) => a + d.count, 0) || total || 1
+  const polar = (r, a) => [cx + r * Math.cos(a - Math.PI / 2), cy + r * Math.sin(a - Math.PI / 2)]
+  const arc = (r0, r1, a0, a1) => {
+    const large = a1 - a0 > Math.PI ? 1 : 0
+    const [x00, y00] = polar(r0, a0), [x01, y01] = polar(r0, a1), [x10, y10] = polar(r1, a0), [x11, y11] = polar(r1, a1)
+    return `M ${x10} ${y10} A ${r1} ${r1} 0 ${large} 1 ${x11} ${y11} L ${x01} ${y01} A ${r0} ${r0} 0 ${large} 0 ${x00} ${y00} Z`
+  }
+  const withOpacity = (hex, opacity) => {
+    const v = hex.replace('#', '')
+    const r = parseInt(v.slice(0, 2), 16), g = parseInt(v.slice(2, 4), 16), b = parseInt(v.slice(4, 6), 16)
+    return `rgba(${r},${g},${b},${opacity})`
+  }
+  let angle = 0
+  const segments = []
+  byType.forEach((type) => {
+    const a0 = angle
+    const a1 = angle + (type.count / sum) * Math.PI * 2
+    const base = typeColors[type.label] || '#BBBBBB'
+    segments.push({ kind: 'type', label: type.label, count: type.count, a0, a1, color: base })
+    let ca = a0
+    type.children.sort((a, b) => b.count - a.count).forEach((child) => {
+      const cb = ca + (child.count / type.count) * (a1 - a0)
+      segments.push({ kind: 'child', parent: type.label, label: child.label, count: child.count, a0: ca, a1: cb, color: withOpacity(base, 0.62) })
+      ca = cb
+    })
+    angle = a1
+  })
+  return (
+    <div className="overflow-x-auto">
+      <div className="font-data text-[10px] text-inkfaint mb-1">Inner ring: experimental setting type. Outer ring: spatial typologies nested within each setting type.</div>
+      <div className="flex flex-col lg:flex-row gap-4 items-start">
+        <svg width={W} height={H} className="font-data overflow-visible">
+          {segments.map((s, i) => (
+            <path key={i} d={s.kind === 'type' ? arc(innerR, midR, s.a0, s.a1) : arc(midR + 3, outerR, s.a0, s.a1)} fill={s.color} stroke="#FFFFFF" strokeWidth={1.5}
+              className="cursor-default"
+              onMouseEnter={(e) => showTip(e, s.kind === 'type' ? `${s.label}: ${s.count} experiments (${((s.count / sum) * 100).toFixed(1)}%)` : `${s.parent} / ${s.label}: ${s.count} experiments`)}
+              onMouseMove={moveTip} onMouseLeave={hideTip} />
+          ))}
+          <circle cx={cx} cy={cy} r={innerR - 8} fill="#FFFFFF" />
+          <text x={cx} y={cy - 4} textAnchor="middle" fontSize={24} fontWeight={600} fill="#0A0A0A">{sum}</text>
+          <text x={cx} y={cy + 14} textAnchor="middle" fontSize={10} fill="#8A8A8A">experiments</text>
+        </svg>
+        <div className="grid grid-cols-1 gap-2 mt-2 min-w-[220px]">
+          {byType.map((t) => (
+            <div key={t.label} className="text-[11px] text-inkmid">
+              <div className="flex items-center gap-1.5 font-data text-ink">
+                <span className="w-2.5 h-2.5 rounded-sm inline-block" style={{ background: typeColors[t.label] || '#BBBBBB' }} />
+                {t.label}: {t.count}
+              </div>
+              <div className="ml-4 text-inkfaint">{t.children.sort((a, b) => b.count - a.count).slice(0, 4).map((c) => `${c.label} ${c.count}`).join(' · ')}</div>
+            </div>
+          ))}
+        </div>
       </div>
       <TooltipPortal tip={tip} />
     </div>
@@ -207,8 +338,8 @@ function PublicationsByYearChart({ data, totalPubs }) {
 export default function ChapterContext({ data }) {
   const {
     fig01_pubs_by_year, fig02_geography, fig03_session_length,
-    fig05_time_of_day, fig06_setting_typology, climate_vs_temp, geo_choropleth, geo_cities,
-    geo_concentration_by_period, domain_comanipulation, sample_size_by_country, chapter_completeness, summary,
+    fig05_time_of_day, fig06_setting_typology, fig07_temperature_ranges, climate_vs_temp, geo_choropleth, geo_cities,
+    geo_concentration_by_period, domain_comanipulation, domain_cooccurrence, sample_size_by_country, chapter_completeness, summary,
   } = data
   const totalPubs = fig01_pubs_by_year.data.reduce((a, d) => a + d.count, 0)
   const [sessionStats, setSessionStats] = useState(null)
@@ -286,7 +417,7 @@ export default function ChapterContext({ data }) {
         </FigureCard>
 
         <FigureCard figNumber="7" title="Tested temperature range by host climate" plotWidth={680} commentary="Humid subtropical and continental climates together account for 67% of studies with a known climate, including most of the warm-condition research. Only 15 of 251 studies (6%) were run in a genuinely hot climate (tropical, hot-arid, or hot-semi-arid) — heat is mostly studied by simulating it in temperate-climate labs, not by testing where it actually occurs.">
-          <ClimateTempChart studies={climate_vs_temp.studies} climateCounts={climate_vs_temp.climate_counts} />
+          <ClimateTempChart studies={climate_vs_temp.studies} climateCounts={climate_vs_temp.climate_counts} tempRanges={fig07_temperature_ranges} />
         </FigureCard>
       </ChapterSection>
 
@@ -294,8 +425,8 @@ export default function ChapterContext({ data }) {
         title="Setting and timing"
         intro="Lab studies dominate; office-like spaces are the most common spatial typology. Sessions cluster under 3 hours, and almost all testing happens in daytime hours."
       >
-        <FigureCard figNumber="6" title="Experimental setting type" commentary="200 of 266 experiments (75%) are run in a lab; Field and Living Lab split the remainder almost evenly (12% each).">
-          <InteractiveBarChart data={typeRollup} total={summary.n_experiments} color="#0A0A0A" />
+        <FigureCard figNumber="6" title="Experimental setting type" plotWidth={760} commentary="200 of 266 experiments (75%) are run in a lab; Field and Living Lab split the remainder almost evenly (12% each). The nested ring adds the spatial typology rather than treating setting type as a single-level count.">
+          <SettingSunburst data={fig06_setting_typology.data} total={summary.n_experiments} />
         </FigureCard>
 
         <FigureCard figNumber="5" title="Time of day distribution" plotWidth={620} commentary="Testing peaks at 15:00, when 88% of the 73 sessions with known timing are active. Sessions in blue explicitly report considering circadian timing effects — most don't; testing concentrated in a narrow daytime window is itself a common way labs implicitly control for circadian variation without saying so.">
@@ -324,12 +455,8 @@ export default function ChapterContext({ data }) {
           />
         </FigureCard>
 
-        <FigureCard title="Which domains are manipulated" commentary="Thermal conditions are manipulated in 257 of 269 studies (95%) — almost universal. Humidity is the next most common at 53 studies (20%), followed by air movement at 24 (9%); CO2, light, acoustics, and IAQ each appear in fewer than 15 studies.">
-          <InteractiveBarChart
-            data={Object.entries(domain_comanipulation.domain_totals).map(([label, count]) => ({ label, count })).sort((a, b) => b.count - a.count)}
-            total={domain_comanipulation.n_studies}
-            color="#0A0A0A"
-          />
+        <FigureCard title="Which domains are manipulated together" plotWidth={620} commentary="Diagonal cells show the total number of studies manipulating each domain; off-diagonal cells show co-manipulation. This keeps the univariate counts while making the coupled experimental designs visible.">
+          <CooccurrenceMatrix labels={domain_cooccurrence.labels} matrix={domain_cooccurrence.matrix} cellSize={38} />
         </FigureCard>
       </ChapterSection>
     </div>
