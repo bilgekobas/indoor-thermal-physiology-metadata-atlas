@@ -397,6 +397,69 @@ strategy than the earlier flat ≥2-studies global threshold, scoped per
 signal instead of globally, since a globally-rare brand can still be a
 signal's #2 or #3 choice and deserves to be visible there.
 
+## 17. Body-site diagram: marker coordinates are estimated, not measured
+
+The signal → sensing-method → body-site Sankey was replaced with a body
+silhouette diagram (`BodySiteMap.jsx`) showing one marker per measurement
+site, sized by study count, toggleable across skin temperature, heart
+rate, and skin conductance/sweat indicators (combined). The provided
+silhouette SVG (`public/images/man_silhouette.svg`) has no labeled regions
+— it's 43 unlabeled decorative anatomical paths — so marker positions are
+**normalized (0–1) coordinate estimates based on standard front-facing-
+figure body proportions, not measured against the actual rendered pixel
+positions of the silhouette**. This environment has no way to visually
+render and check the result. Each site's `(x, y)` pair in `SITE_COORDS` is
+independent, so if any marker visibly sits off the body once rendered, it
+can be corrected without affecting any other site.
+
+Four sites (`Back`, `Lower back`, `Buttocks`, `Sole`) are genuinely
+posterior (back-of-body) locations with no true position on a front-view
+silhouette — these are approximated at the closest front-view analog and
+rendered with a dashed outline plus "(back, approximated)" in their
+tooltip, rather than silently presented as if they were frontally visible.
+
+Three raw site labels are not body locations at all and are excluded from
+the diagram entirely, listed separately instead: `Whole body` (a
+measurement method — most sweat-indicator studies measure total body mass
+loss, not one point), `Urine` (a sample type), and `Limbs` (too
+unspecific — could be any of several distinct sites). All three remain
+visible in the chapter's other site-frequency views (the existing bar
+charts and tables), just not on the silhouette.
+
+The same `SITE_MERGE` consolidation used for skin temperature's 39→23
+canonical sites is now also applied to heart rate, skin conductance, and
+sweat indicators (e.g. heart rate's `Ear`/`Cheek`/`Earlobe` all merge to
+`Face`), so all four signal groups use one consistent site vocabulary.
+
+## 18. Page layout: commentary column and the matrix-width tradeoff
+
+`FigureCard` was restructured so commentary sits in a fixed ~280px left
+column with its own background/border, and the plot starts at the same
+horizontal position for every figure on the page — previously the plot
+came first and commentary trailed it at a variable position depending on
+that figure's own width, so there was no consistent column for the eye to
+track down the page.
+
+This reduces the space available to wide charts, so two were
+deliberately shrunk to fit better within it:
+
+- The signal → sensor type → brand Sankey's column spacing was compressed
+  (signal/sensor/brand columns moved from x=230/560/900 to x=190/440/700,
+  total width 1160px → 890px). Checked against the longest actual label in
+  each column (`Metabolic rate/Gas exchange` for signals,
+  `Silicon-based temperature sensor` for sensor types) to confirm neither
+  overlaps the next column at the new spacing.
+- The protocol/participant-metadata/selection-criteria binary matrices
+  (Fig. 20–22) went from 3px to 2px per study column, with the inter-column
+  gap removed (270 studies: 810px → 540px).
+
+Even after both reductions, the largest binary matrix (270 study columns)
+may still need its own horizontal scroll on narrower viewports — fitting
+270 individually-visible data columns into ~500–600px of available width
+is a hard floor, not a CSS fix; going denser than 2px/column would make
+individual studies impossible to distinguish, which defeats the chart's
+purpose (showing per-study heterogeneity, not just an aggregate).
+
 ## What this file does not cover
 
 This file documents pipeline-level (`build_data.py`) decisions — i.e.,

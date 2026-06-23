@@ -3,12 +3,12 @@
 // dataset's actual reporting-completeness vocabulary (Y / NR / MNR / NAN / NC).
 
 const CODE_STYLES = {
-  Y:   { bg: '#EAF3E4', fg: '#4B6B33', label: 'Y',   title: 'Reported' },
-  N:   { bg: '#F3E9E4', fg: '#8A5A3D', label: 'N',   title: 'Reported absent' },
-  NR:  { bg: '#F1EDE6', fg: '#A8A59C', label: 'NR',  title: 'Not reported' },
-  MNR: { bg: '#FBF1DF', fg: '#B98A2E', label: 'MNR', title: 'Measured, not reported in full' },
-  NAN: { bg: '#F1EDE6', fg: '#C9C6BC', label: '—',   title: 'Not applicable' },
-  NC:  { bg: '#FDEAEA', fg: '#B5453F', label: 'NC',  title: 'Reported unclearly' },
+  Y:   { bg: '#D5FF99', fg: '#D5FF99', label: 'Y',   title: 'Reported' },
+  N:   { bg: '#EFEFEF', fg: '#F1FF71', label: 'N',   title: 'Reported absent' },
+  NR:  { bg: '#EFEFEF', fg: '#8A8A8A', label: 'NR',  title: 'Not reported' },
+  MNR: { bg: '#F1FF71', fg: '#F1FF71', label: 'MNR', title: 'Measured, not reported in full' },
+  NAN: { bg: '#EFEFEF', fg: '#BBBBBB', label: '—',   title: 'Not applicable' },
+  NC:  { bg: '#FB3640', fg: '#FB3640', label: 'NC',  title: 'Reported unclearly' },
 }
 
 export function CodeChip({ code, size = 'sm' }) {

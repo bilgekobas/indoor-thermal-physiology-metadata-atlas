@@ -11,7 +11,7 @@ const ROW_H = 14  // shared row height in px — bar rows and matrix rows must
 // matrix, so the matrix's first row IS the bar chart's first row's raw data,
 // not a separately-laid-out element that happens to be nearby.
 // matrix[i][j] = 1 if field i was reported in study j, else 0.
-export default function BinaryPresenceFigure({ bar, matrix, fields, nStudies, barColor = '#005EF5' }) {
+export default function BinaryPresenceFigure({ bar, matrix, fields, nStudies, barColor = '#5B5BFF' }) {
   const { tip, showTip, moveTip, hideTip } = useTooltip()
   const maxPct = bar.reduce((m, b) => (b.pct > m ? b.pct : m), 1)
 
@@ -42,20 +42,25 @@ export default function BinaryPresenceFigure({ bar, matrix, fields, nStudies, ba
         </div>
 
         {/* Right: binary matrix — rows = fields, columns = studies. Each row
-            is pinned to the same ROW_H as its corresponding bar-chart row. */}
+            is pinned to the same ROW_H as its corresponding bar-chart row.
+            2px per study (no gap) is about as dense as this can get while
+            each column staying individually visible; at this corpus's size
+            (up to 270 studies) the matrix can still need its own horizontal
+            scroll even after this reduction — there's a hard floor on how
+            many distinct columns fit in any reasonable plot width. */}
         <div className="flex-1 overflow-x-auto">
           <div className="font-data text-[10px] text-inkfaint mb-1.5">each column = one study, n = {nStudies} total</div>
-          <div style={{ minWidth: nStudies * 3 }}>
+          <div style={{ minWidth: nStudies * 2 }}>
             {fields.map((field, i) => (
-              <div key={field} className="flex items-center gap-[1px]" style={{ height: ROW_H }}>
+              <div key={field} className="flex items-center" style={{ height: ROW_H }}>
                 {(matrix[i] || []).map((present, j) => (
                   <div
                     key={j}
                     className="shrink-0 cursor-default"
                     style={{
-                      width: 3,
+                      width: 2,
                       height: ROW_H - 3,
-                      background: present ? barColor : '#E4DFDA',
+                      background: present ? barColor : '#E4E4E4',
                     }}
                     onMouseEnter={(e) => showTip(e, `${field}: ${present ? 'reported' : 'not reported'} (study ${j + 1} of ${nStudies})`)}
                     onMouseMove={moveTip}

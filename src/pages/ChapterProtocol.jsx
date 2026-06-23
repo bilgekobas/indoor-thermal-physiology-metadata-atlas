@@ -17,8 +17,8 @@ import { useTooltip, TooltipPortal } from '../components/Tooltip.jsx'
 // here that quietly drifted out of sync with Fig. 20; that's gone now.
 const RIGOR_FIELDS = ['Randomisation', 'Balanced session order', 'Blinding', 'Circadian control', 'Menstrual timing control', 'Time between sessions']
 const RIGOR_COLORS = {
-  'Randomisation': '#005EF5', 'Balanced session order': '#31393C', 'Blinding': '#FF5964',
-  'Circadian control': '#8A8783', 'Menstrual timing control': '#5C6166', 'Time between sessions': '#BBBBBB',
+  'Randomisation': '#5B5BFF', 'Balanced session order': '#0A0A0A', 'Blinding': '#FB3640',
+  'Circadian control': '#8A8A8A', 'Menstrual timing control': '#4A4A4A', 'Time between sessions': '#BBBBBB',
 }
 
 function RigorLines({ periodData, fields, periods }) {
@@ -32,8 +32,8 @@ function RigorLines({ periodData, fields, periods }) {
       <svg width={W + 20} height={H + 24} className="font-data overflow-visible">
         {[0, 25, 50, 75, 100].map((g) => (
           <g key={g}>
-            <line x1={0} x2={W} y1={yScale(g)} y2={yScale(g)} stroke="#E4DFDA" strokeWidth={1} />
-            <text x={W + 4} y={yScale(g) + 3} fontSize={9} fill="#8A8783">{g}%</text>
+            <line x1={0} x2={W} y1={yScale(g)} y2={yScale(g)} stroke="#E4E4E4" strokeWidth={1} />
+            <text x={W + 4} y={yScale(g) + 3} fontSize={9} fill="#8A8A8A">{g}%</text>
           </g>
         ))}
         {fields.map((field) => {
@@ -52,7 +52,7 @@ function RigorLines({ periodData, fields, periods }) {
             </g>
           )
         })}
-        {periods.map((p, i) => (<text key={p} x={i * xStep} y={H + 16} fontSize={10} fill="#8A8783" textAnchor="middle">{p}</text>))}
+        {periods.map((p, i) => (<text key={p} x={i * xStep} y={H + 16} fontSize={10} fill="#8A8A8A" textAnchor="middle">{p}</text>))}
       </svg>
       <div className="flex flex-wrap gap-x-4 gap-y-1 mt-2">
         {fields.map((f) => (
@@ -79,7 +79,7 @@ function RigorOverallBar({ periodData, fields }) {
     <InteractiveBarChart
       data={totals.map((t) => ({ label: t.label, count: t.count }))}
       total={totals[0]?.n || 1}
-      color="#31393C"
+      color="#0A0A0A"
     />
   )
 }
@@ -112,11 +112,11 @@ export default function ChapterProtocol({ data }) {
           </>
         }
         headline={[
-          { value: '77.4%', label: 'fix clothing insulation', color: '#31393C' },
+          { value: '77.4%', label: 'fix clothing insulation', color: '#0A0A0A' },
           {
             value: `${randoChange >= 0 ? '+' : ''}${randoChange.toFixed(0)} pct. pts`,
             label: `change in randomisation rate, ${periods[0]}→${periods[periods.length - 1]}`,
-            color: '#005EF5',
+            color: '#5B5BFF',
           },
         ]}
       />
@@ -145,10 +145,10 @@ export default function ChapterProtocol({ data }) {
           <OverallByPeriod
             minHeight={320}
             renderOverall={() => (
-              <BinaryPresenceFigure bar={fig20_protocol.bar} matrix={fig20_protocol.matrix} fields={fig20_protocol.fields} nStudies={fig20_protocol.n_studies} barColor="#31393C" />
+              <BinaryPresenceFigure bar={fig20_protocol.bar} matrix={fig20_protocol.matrix} fields={fig20_protocol.fields} nStudies={fig20_protocol.n_studies} barColor="#0A0A0A" />
             )}
             renderByPeriod={() => (
-              <PercentLinesByPeriod periodData={protocol_by_period.data} fields={protocol_by_period.fields} periods={protocol_by_period.periods} palette={['#31393C', '#005EF5', '#FF5964', '#8A8783', '#5C6166', '#BBBBBB', '#C9C6BC', '#E4DFDA']} />
+              <PercentLinesByPeriod periodData={protocol_by_period.data} fields={protocol_by_period.fields} periods={protocol_by_period.periods} palette={['#0A0A0A', '#5B5BFF', '#FB3640', '#8A8A8A', '#4A4A4A', '#BBBBBB', '#BBBBBB', '#E4E4E4']} />
             )}
           />
         </FigureCard>

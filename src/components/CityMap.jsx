@@ -7,14 +7,14 @@ import { useTooltip, TooltipPortal } from './Tooltip.jsx'
 // climate-vs-temperature chart, so colors mean the same thing across the site).
 // Country polygons render as a faint grey basemap purely for geographic context.
 const CLIMATE_COLORS = {
-  'Tropical': '#D94F6E', 'Arid (hot)': '#E07820', 'Semi-arid (hot)': '#E0A020',
-  'Mediterranean': '#B8C020', 'Humid subtropical': '#4855C8', 'Oceanic': '#6E8FD9',
-  'Continental': '#8A8A86', 'Semi-arid (cold)': '#A8A59C', 'Subarctic': '#5F5E58',
-  'Polar': '#3A3A38', 'Other/Mixed': '#C9C6BC',
+  'Tropical': '#FB3640', 'Arid (hot)': '#FB3640', 'Semi-arid (hot)': '#FB3640',
+  'Mediterranean': '#D5FF99', 'Humid subtropical': '#5B5BFF', 'Oceanic': '#C5FFFD',
+  'Continental': '#8A8A8A', 'Semi-arid (cold)': '#8A8A8A', 'Subarctic': '#4A4A4A',
+  'Polar': '#0A0A0A', 'Other/Mixed': '#BBBBBB',
 }
 function climateColor(g) { return CLIMATE_COLORS[g] || '#BBBBBB' }
 
-export default function CityMap({ cityData, height = 420 }) {
+export default function CityMap({ cityData, height = 380 }) {
   const { tip, showTip, moveTip, hideTip } = useTooltip()
   const [geoData, setGeoData] = useState(null)
 
@@ -40,15 +40,21 @@ export default function CityMap({ cityData, height = 420 }) {
 
   return (
     <div>
-      <ComposableMap projection="geoEqualEarth" width={800} height={height} style={{ width: '100%', height: 'auto' }}>
+      <ComposableMap
+        projection="geoEqualEarth"
+        projectionConfig={{ scale: 130, center: [10, 5] }}
+        width={800}
+        height={height}
+        style={{ width: '100%', height: 'auto' }}
+      >
         <Geographies geography={geoData}>
           {({ geographies }) =>
             geographies.map((geo) => (
               <Geography
                 key={geo.rsmKey}
                 geography={geo}
-                fill="#F1EDE6"
-                stroke="#E2DED4"
+                fill="#EFEFEF"
+                stroke="#E4E4E4"
                 strokeWidth={0.5}
                 className="outline-none"
                 style={{ default: { outline: 'none' }, hover: { outline: 'none' }, pressed: { outline: 'none' } }}
@@ -62,16 +68,16 @@ export default function CityMap({ cityData, height = 420 }) {
               r={radiusFor(c.count)}
               fill={climateColor(c.climate_group)}
               fillOpacity={0.75}
-              stroke="#FAF8F4"
+              stroke="#FCFCFC"
               strokeWidth={1}
               className="cursor-default hover:fill-opacity-100"
-              onMouseEnter={(e) =>
-                showTip(
-                  e,
-                  `${c.city}, ${c.country}: ${c.count} ${c.count === 1 ? 'study' : 'studies'} · ${c.climate_class} (${c.climate_group})` +
-                    (c.precision !== 'city' ? ` — ${c.precision === 'province' ? 'province/state-level location only' : c.precision === 'institute' ? 'institution name resolved to its host city' : 'one of several sites for this study'}` : '')
-                )
-              }
+              onMouseEnter={(e) => {
+                const base = `${c.city}: ${c.count} ${c.count === 1 ? 'study' : 'studies'}, ${c.climate_group}`
+                const caveat = c.precision !== 'city'
+                  ? (c.precision === 'province' ? ' (province/state-level)' : c.precision === 'institute' ? ' (institution name)' : ' (one of several sites)')
+                  : ''
+                showTip(e, base + caveat)
+              }}
               onMouseMove={moveTip}
               onMouseLeave={hideTip}
             />

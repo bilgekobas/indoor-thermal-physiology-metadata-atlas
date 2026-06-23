@@ -49,13 +49,13 @@ export default function HistogramECDF({ values, binWidth = 1, xLabel = '', unit 
         {/* Y-axis: count scale, so the bar heights have a stated meaning without hovering */}
         {[0, 0.5, 1].map((frac) => (
           <g key={frac}>
-            <line x1={yAxisW} x2={chartWidth + yAxisW} y1={chartHeight * (1 - frac)} y2={chartHeight * (1 - frac)} stroke="#E2DED4" strokeWidth={1} />
-            <text x={yAxisW - 4} y={chartHeight * (1 - frac) + 3} fontSize={9} fill="#A8A59C" textAnchor="end">
+            <line x1={yAxisW} x2={chartWidth + yAxisW} y1={chartHeight * (1 - frac)} y2={chartHeight * (1 - frac)} stroke="#E4E4E4" strokeWidth={1} />
+            <text x={yAxisW - 4} y={chartHeight * (1 - frac) + 3} fontSize={9} fill="#8A8A8A" textAnchor="end">
               {Math.round(maxCount * frac)}
             </text>
           </g>
         ))}
-        <text x={0} y={10} fontSize={9} fill="#A8A59C">studies</text>
+        <text x={0} y={10} fontSize={9} fill="#8A8A8A">studies</text>
 
         <g transform={`translate(${yAxisW}, 0)`}>
           {/* Histogram bars */}
@@ -70,7 +70,7 @@ export default function HistogramECDF({ values, binWidth = 1, xLabel = '', unit 
                 y={chartHeight - barH}
                 width={w}
                 height={barH}
-                fill="#1A1A18"
+                fill="#0A0A0A"
                 opacity={0.85}
                 className="cursor-default hover:opacity-100"
                 onMouseEnter={(e) =>
@@ -93,7 +93,7 @@ export default function HistogramECDF({ values, binWidth = 1, xLabel = '', unit 
               })
               .join(' ')}
             fill="none"
-            stroke="#D94F6E"
+            stroke="#FB3640"
             strokeWidth={1.5}
           />
           {ecdf.map((y, i) => {
@@ -104,7 +104,7 @@ export default function HistogramECDF({ values, binWidth = 1, xLabel = '', unit 
                 cx={x}
                 cy={chartHeight - y * chartHeight}
                 r={2.5}
-                fill="#D94F6E"
+                fill="#FB3640"
                 className="cursor-default"
                 onMouseEnter={(e) => showTip(e, `Cumulative: ${(y * 100).toFixed(1)}% of studies ≤ ${fmt(bins[i].end)}`)}
                 onMouseMove={moveTip}
@@ -117,7 +117,7 @@ export default function HistogramECDF({ values, binWidth = 1, xLabel = '', unit 
             if (i % Math.ceil(bins.length / 10) !== 0) return null
             const x = i * (chartWidth / bins.length)
             return (
-              <text key={i} x={x} y={chartHeight + 16} fontSize={10} fill="#A8A59C">
+              <text key={i} x={x} y={chartHeight + 16} fontSize={10} fill="#8A8A8A">
                 {fmt(b.start)}
               </text>
             )

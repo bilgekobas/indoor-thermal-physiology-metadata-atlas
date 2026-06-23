@@ -30,9 +30,9 @@ export default function ChapterReporting({ data }) {
           </>
         }
         headline={[
-          { value: `${highest.pct_reported}%`, label: `${highest.category} fields reported on average`, color: '#4855C8' },
-          { value: `${lowest.pct_reported}%`, label: `${lowest.category} fields reported on average`, color: '#D94F6E' },
-          { value: open_data.n_with_real_data_link, label: `of ${open_data.n_total} studies share a real open-data link`, color: '#E07820' },
+          { value: `${highest.pct_reported}%`, label: `${highest.category} fields reported on average`, color: '#5B5BFF' },
+          { value: `${lowest.pct_reported}%`, label: `${lowest.category} fields reported on average`, color: '#FB3640' },
+          { value: open_data.n_with_real_data_link, label: `of ${open_data.n_total} studies share a real open-data link`, color: '#FB3640' },
           { value: summary.n_variables, label: 'coded variables across the corpus' },
         ]}
       />
@@ -47,7 +47,7 @@ export default function ChapterReporting({ data }) {
                   <span className="font-data text-[12px] text-inkmid">{c.pct_reported}% · {c.n_fields} fields</span>
                 </div>
                 <div className="h-3 rounded-full bg-line overflow-hidden">
-                  <div className="h-full rounded-full" style={{ width: `${c.pct_reported}%`, background: c.pct_reported < 20 ? '#D94F6E' : c.pct_reported < 50 ? '#E07820' : '#4855C8' }} />
+                  <div className="h-full rounded-full" style={{ width: `${c.pct_reported}%`, background: c.pct_reported < 20 ? '#FB3640' : c.pct_reported < 50 ? '#FB3640' : '#5B5BFF' }} />
                 </div>
               </div>
             ))}
@@ -63,7 +63,7 @@ export default function ChapterReporting({ data }) {
           <InteractiveBarChart
             data={open_data.data_avail_distribution.map((d) => ({ label: d.status, count: d.count }))}
             total={open_data.n_total}
-            color="#4855C8"
+            color="#5B5BFF"
           />
         </FigureCard>
 
@@ -87,7 +87,7 @@ export default function ChapterReporting({ data }) {
           <InteractiveBarChart
             data={sample_justification.calc_type_distribution.map((d) => ({ label: d.type, count: d.count }))}
             total={sample_justification.calc_type_distribution.reduce((a, d) => a + d.count, 0)}
-            color="#E07820"
+            color="#FB3640"
           />
         </FigureCard>
 
@@ -95,7 +95,7 @@ export default function ChapterReporting({ data }) {
           <InteractiveBarChart
             data={sample_justification.payment_distribution.map((d) => ({ label: d.status, count: d.count }))}
             total={sample_justification.n_total}
-            color="#B8C020"
+            color="#D5FF99"
           />
         </FigureCard>
       </ChapterSection>

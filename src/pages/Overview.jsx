@@ -13,42 +13,42 @@ const KEY_FINDINGS = [
     text: <>of 2023–24 studies are from <strong>China alone</strong> — up from 55% a decade earlier. The field hasn't just grown, it's concentrated.</>,
     chapter: 'Ch. 1 — When, where & how',
     to: '/context',
-    color: '#D94F6E',
+    color: '#FB3640',
   },
   {
     stat: '5 of 269',
     text: <>studies link to <strong>actual, working open data</strong>. 180 give no data-availability statement at all.</>,
     chapter: 'Ch. 8 — Reporting completeness',
     to: '/reporting',
-    color: '#4855C8',
+    color: '#5B5BFF',
   },
   {
     stat: '55%→25%',
     text: <>share of skin-temperature studies using a <strong>thermocouple</strong>, 2013–14 to 2023–24 — displaced by Thermochron-type loggers (iButton), which rose from 18% to 52% over the same span.</>,
     chapter: 'Ch. 3 — Measurements: the body',
     to: '/body',
-    color: '#E07820',
+    color: '#FB3640',
   },
   {
     stat: '62%',
     text: <>of skin-temperature studies measure the <strong>lower leg</strong> — the single most-measured site, but no site is measured in every study.</>,
     chapter: 'Ch. 3 — Measurements: the body',
     to: '/body',
-    color: '#B8C020',
+    color: '#D5FF99',
   },
   {
     stat: '0%→29%',
     text: <><strong>Blinding</strong> rose from absent in 2013–14 to nearly a third of studies by 2023–24 — a real gain. Randomisation barely moved over the same period.</>,
     chapter: 'Ch. 7 — Protocol rigor',
     to: '/protocol',
-    color: '#8A8A86',
+    color: '#8A8A8A',
   },
   {
     stat: '78% vs. none',
     text: <>of thermal <em>sensation</em> scales use the standard 7-point format. Thermal <em>comfort</em> scales have no equivalent — point count, labels, and polarity all vary, and roughly a quarter of studies put "comfortable" at the opposite end of the number line from the rest.</>,
     chapter: 'Ch. 5 — What people were asked',
     to: '/questionnaires',
-    color: '#C9698A',
+    color: '#F1FF71',
   },
 ]
 
@@ -86,10 +86,10 @@ export default function Overview({ data }) {
         </p>
 
         <div className="grid grid-cols-4 gap-3 mt-8 max-w-2xl">
-          <StatBlock value={summary.n_publications} label="Publications" accent="#D94F6E" />
-          <StatBlock value={summary.n_experiments} label="Experiments" accent="#4855C8" />
-          <StatBlock value={summary.n_variables} label="Coded variables" accent="#E07820" />
-          <StatBlock value={`${summary.year_max - summary.year_min + 1}y`} label="Span covered" accent="#8A8A86" />
+          <StatBlock value={summary.n_publications} label="Publications" accent="#FB3640" />
+          <StatBlock value={summary.n_experiments} label="Experiments" accent="#5B5BFF" />
+          <StatBlock value={summary.n_variables} label="Coded variables" accent="#FB3640" />
+          <StatBlock value={`${summary.year_max - summary.year_min + 1}y`} label="Span covered" accent="#8A8A8A" />
         </div>
 
         <div className="flex gap-3 mt-8">
@@ -177,7 +177,7 @@ export default function Overview({ data }) {
                   className="h-full rounded-full"
                   style={{
                     width: `${c.pct_reported}%`,
-                    background: c.pct_reported < 20 ? '#D94F6E' : c.pct_reported < 50 ? '#E07820' : '#4855C8',
+                    background: c.pct_reported < 20 ? '#FB3640' : c.pct_reported < 50 ? '#FB3640' : '#5B5BFF',
                   }}
                 />
               </div>

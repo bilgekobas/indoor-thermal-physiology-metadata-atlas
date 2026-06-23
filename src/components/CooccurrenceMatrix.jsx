@@ -12,7 +12,7 @@ export default function CooccurrenceMatrix({ labels, matrix, cellSize = 34 }) {
   const max = matrix.flat().reduce((m, v) => (v > m ? v : m), 1)
 
   const colorFor = (v) => {
-    if (v === 0) return '#F1EDE6'
+    if (v === 0) return '#EFEFEF'
     const t = Math.min(v / max, 1)
     const r = Math.round(241 + (217 - 241) * t)
     const g = Math.round(237 + (79 - 237) * t)
@@ -63,8 +63,8 @@ export default function CooccurrenceMatrix({ labels, matrix, cellSize = 34 }) {
                     width: cellSize,
                     height: cellSize,
                     background: colorFor(v),
-                    color: v / max > 0.55 ? 'white' : '#1A1A18',
-                    outline: i === j ? '1.5px solid #1A1A18' : 'none',
+                    color: v / max > 0.55 ? 'white' : '#0A0A0A',
+                    outline: i === j ? '1.5px solid #0A0A0A' : 'none',
                     outlineOffset: i === j ? '-1.5px' : 0,
                   }}
                   onMouseEnter={(e) =>
@@ -84,12 +84,12 @@ export default function CooccurrenceMatrix({ labels, matrix, cellSize = 34 }) {
       </div>
       <div className="flex flex-wrap items-center gap-4 mt-3 font-data text-[10.5px] text-inkfaint">
         <span className="flex items-center gap-1.5">
-          <span className="w-3 h-3 inline-block" style={{ background: colorFor(max), border: '1.5px solid #1A1A18' }} />
+          <span className="w-3 h-3 inline-block" style={{ background: colorFor(max), border: '1.5px solid #0A0A0A' }} />
           outlined cell = diagonal (single-variable count, n studies measuring that one variable)
         </span>
         <span className="flex items-center gap-2">
           <span>scale:</span>
-          <span className="w-3 h-3 inline-block" style={{ background: '#F1EDE6' }} /> 0
+          <span className="w-3 h-3 inline-block" style={{ background: '#EFEFEF' }} /> 0
           <span className="w-3 h-3 inline-block" style={{ background: colorFor(max * 0.5) }} /> {Math.round(max * 0.5)}
           <span className="w-3 h-3 inline-block" style={{ background: colorFor(max) }} /> {max} (max)
         </span>

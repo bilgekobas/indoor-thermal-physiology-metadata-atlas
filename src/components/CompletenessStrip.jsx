@@ -1,4 +1,3 @@
-import { CodeChip } from './CodeChip.jsx'
 import { useTooltip, TooltipPortal } from './Tooltip.jsx'
 
 // Chapter-scoped data-completeness strip: one row per field in this chapter's
@@ -12,12 +11,7 @@ export default function CompletenessStrip({ fields, nStudies, title = 'Data comp
 
   return (
     <div className="px-10 py-6 bg-paper/60 border-b border-line">
-      <div className="flex items-baseline justify-between mb-3 max-w-3xl">
-        <h3 className="text-[12.5px] font-semibold uppercase tracking-wide text-inkmid">{title}</h3>
-        <span className="font-data text-[11px] text-inkfaint">
-          <CodeChip code="Y" /> reported · <CodeChip code="NR" /> not reported
-        </span>
-      </div>
+      <h3 className="text-[12.5px] font-semibold uppercase tracking-wide text-inkmid mb-3">{title}</h3>
       <div className="grid grid-cols-2 gap-x-10 gap-y-1.5 max-w-3xl">
         {sorted.map((f) => (
           <div key={f.field} className="flex items-center gap-2 group">
@@ -30,7 +24,7 @@ export default function CompletenessStrip({ fields, nStudies, title = 'Data comp
             >
               <div
                 className="h-full rounded-full group-hover:brightness-110"
-                style={{ width: `${(f.pct / maxPct) * 100}%`, background: f.pct < 20 ? '#D94F6E' : f.pct < 50 ? '#E07820' : '#4855C8' }}
+                style={{ width: `${(f.pct / maxPct) * 100}%`, background: f.pct < 50 ? '#FB3640' : '#5B5BFF' }}
               />
             </div>
             <span className="font-data text-[11px] text-inkfaint w-10 text-right">{f.pct}%</span>

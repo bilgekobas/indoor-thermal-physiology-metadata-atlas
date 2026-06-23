@@ -56,7 +56,7 @@ export default function OverallByPeriod({ renderOverall, renderByPeriod, earlies
 // reads as decorative rather than as data. `yUnit` states what `getValue`
 // returns (e.g. "%" or "studies") so the chart is self-explanatory without
 // the surrounding chapter prose.
-export function PeriodBarGroup({ periods, periodN, getValue, getTooltip, color = '#D94F6E', height = 110, yUnit = '', valueFormatter = null }) {
+export function PeriodBarGroup({ periods, periodN, getValue, getTooltip, color = '#FB3640', height = 110, yUnit = '', valueFormatter = null }) {
   const { tip, showTip, moveTip, hideTip } = useTooltip()
   const values = periods.map((p) => getValue(p))
   const max = values.reduce((m, v) => (v > m ? v : m), 1)
@@ -90,7 +90,7 @@ export function PeriodBarGroup({ periods, periodN, getValue, getTooltip, color =
 // each chapter had its own copy-pasted version of this, which had already
 // started to drift; consolidating here so a fix in one place reaches all of
 // them, and so the y-axis is consistently labelled "% of studies in period."
-const DEFAULT_LINE_PALETTE = ['#31393C', '#005EF5', '#FF5964', '#8A8783', '#5C6166', '#BBBBBB', '#C9C6BC', '#E4DFDA']
+const DEFAULT_LINE_PALETTE = ['#0A0A0A', '#5B5BFF', '#FB3640', '#8A8A8A', '#4A4A4A', '#BBBBBB', '#BBBBBB', '#E4E4E4']
 export function PercentLinesByPeriod({ periodData, fields, periods, palette = DEFAULT_LINE_PALETTE }) {
   const { tip, showTip, moveTip, hideTip } = useTooltip()
   const W = 600, H = 170
@@ -99,13 +99,13 @@ export function PercentLinesByPeriod({ periodData, fields, periods, palette = DE
   return (
     <div>
       <svg width={W + 46} height={H + 24} className="font-data overflow-visible">
-        <text x={-6} y={-8} fontSize={9.5} fill="#A8A59C" transform={`rotate(-90, -6, ${H / 2})`} textAnchor="middle">
+        <text x={-6} y={-8} fontSize={9.5} fill="#8A8A8A" transform={`rotate(-90, -6, ${H / 2})`} textAnchor="middle">
           % of studies in that period
         </text>
         {[0, 25, 50, 75, 100].map((g) => (
           <g key={g}>
-            <line x1={0} x2={W} y1={yScale(g)} y2={yScale(g)} stroke="#E2DED4" strokeWidth={1} />
-            <text x={W + 4} y={yScale(g) + 3} fontSize={9} fill="#A8A59C">{g}%</text>
+            <line x1={0} x2={W} y1={yScale(g)} y2={yScale(g)} stroke="#E4E4E4" strokeWidth={1} />
+            <text x={W + 4} y={yScale(g) + 3} fontSize={9} fill="#8A8A8A">{g}%</text>
           </g>
         ))}
         {fields.map((field, fi) => {
@@ -125,7 +125,7 @@ export function PercentLinesByPeriod({ periodData, fields, periods, palette = DE
             </g>
           )
         })}
-        {periods.map((p, i) => (<text key={p} x={i * xStep} y={H + 16} fontSize={10} fill="#A8A59C" textAnchor="middle">{p}</text>))}
+        {periods.map((p, i) => (<text key={p} x={i * xStep} y={H + 16} fontSize={10} fill="#8A8A8A" textAnchor="middle">{p}</text>))}
       </svg>
       <div className="flex flex-wrap gap-x-3 gap-y-1 mt-2">
         {fields.map((f, i) => (

@@ -7,7 +7,7 @@ import { useTooltip, TooltipPortal } from './Tooltip.jsx'
 // and bare numbers on the x-axis would be ambiguous out of context — a BMI
 // axis showing "16, 18, 20…" looks identical to an age or temperature axis
 // unless the unit is printed directly on the chart.
-export default function StudyIntervalPlot({ studies, getLow, getHigh, getLabel, domain, color = '#D94F6E', rowHeight = 3.2, unit = '', xAxisLabel = '' }) {
+export default function StudyIntervalPlot({ studies, getLow, getHigh, getLabel, domain, color = '#FB3640', rowHeight = 3.2, unit = '', xAxisLabel = '' }) {
   const { tip, showTip, moveTip, hideTip } = useTooltip()
   if (!studies.length) return <div className="text-[12px] text-inkfaint">No data available.</div>
 
@@ -22,7 +22,7 @@ export default function StudyIntervalPlot({ studies, getLow, getHigh, getLabel, 
       <svg width={width} height={height + 24} className="font-data overflow-visible">
         {/* gridlines */}
         {Array.from({ length: 8 }, (_, i) => domainMin + (i * (domainMax - domainMin)) / 7).map((v) => (
-          <line key={v} x1={xScale(v)} x2={xScale(v)} y1={0} y2={height} stroke="#E2DED4" strokeWidth={1} />
+          <line key={v} x1={xScale(v)} x2={xScale(v)} y1={0} y2={height} stroke="#E4E4E4" strokeWidth={1} />
         ))}
         {studies.map((s, i) => {
           const low = getLow(s)
@@ -43,7 +43,7 @@ export default function StudyIntervalPlot({ studies, getLow, getHigh, getLabel, 
           )
         })}
         {Array.from({ length: 8 }, (_, i) => domainMin + (i * (domainMax - domainMin)) / 7).map((v) => (
-          <text key={v} x={xScale(v)} y={height + 14} fontSize={10} fill="#A8A59C" textAnchor="middle">
+          <text key={v} x={xScale(v)} y={height + 14} fontSize={10} fill="#8A8A8A" textAnchor="middle">
             {Math.round(v)}{unit}
           </text>
         ))}

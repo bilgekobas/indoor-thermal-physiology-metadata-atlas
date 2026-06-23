@@ -1,13 +1,21 @@
 // Standardised figure container used throughout every chapter.
-// Layout: on wide viewports, plot + commentary sit side-by-side (plot fixed
-// width, commentary fills remaining space); on narrow viewports they stack
-// (plot full width on top, commentary below). This matches how data-journalism
-// outlets present "chart + annotation" pairs at any screen size.
+// Layout: commentary sits in a fixed-width left column with its own soft
+// background/border (visually distinct from the page), and the plot starts
+// immediately after it — at the SAME horizontal position for every figure
+// on the page, regardless of how wide any individual chart's own content
+// is. This is the opposite of the original layout (plot first, then
+// variable-width commentary trailing it), which meant every figure's plot
+// started at a different x-position depending on that figure's own
+// plotWidth — there was no consistent column for the eye to track down the
+// page. On narrow viewports the two stack (commentary above, plot below).
 //
-// `figNumber` and `title` form the caption header; `commentary` is the prose
-// explaining what the reader should take from the chart; `children` is the
-// actual chart component; `plotWidth` lets wide charts (Sankey, matrices)
-// override the default fixed width.
+// `figNumber` and `title` form the caption header; `commentary` is the
+// prose explaining what the reader should take from the chart; `children`
+// is the actual chart component. `plotWidth` no longer constrains where
+// the plot STARTS (that's now fixed by the commentary column width) — it
+// only caps how wide the plot's own content can grow before scrolling.
+const COMMENTARY_COL_WIDTH = 280
+
 export default function FigureCard({ figNumber, title, commentary, children, plotWidth = 640 }) {
   return (
     <div className="mb-10 last:mb-0">
@@ -17,15 +25,21 @@ export default function FigureCard({ figNumber, title, commentary, children, plo
         )}
         <h3 className="text-[14.5px] font-medium">{title}</h3>
       </div>
-      <div className="flex flex-col lg:flex-row gap-5 lg:gap-8 items-start">
-        <div className="shrink-0 overflow-x-auto" style={{ maxWidth: plotWidth, width: '100%' }}>
-          {children}
-        </div>
+      <div className="flex flex-col lg:flex-row gap-5 lg:gap-6 items-start">
         {commentary && (
-          <div className="lg:w-64 shrink-0 text-[12.5px] text-inkmid leading-relaxed lg:pt-1">
+          <div
+            className="shrink-0 text-[12.5px] text-inkmid leading-relaxed bg-line/30 border border-line rounded-md p-4 order-2 lg:order-1"
+            style={{ width: '100%', maxWidth: COMMENTARY_COL_WIDTH }}
+          >
             {commentary}
           </div>
         )}
+        <div
+          className="overflow-x-auto order-1 lg:order-2 min-w-0"
+          style={{ maxWidth: plotWidth, width: '100%' }}
+        >
+          {children}
+        </div>
       </div>
     </div>
   )

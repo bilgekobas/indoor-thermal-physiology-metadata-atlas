@@ -7,7 +7,7 @@ import OverallByPeriod from '../components/OverallByPeriod.jsx'
 import { useTooltip, TooltipPortal } from '../components/Tooltip.jsx'
 
 const VAR_COLORS = {
-  'Air temperature': '#D94F6E', 'Relative humidity': '#4855C8', 'Air velocity': '#E07820', 'Globe temperature': '#B8C020',
+  'Air temperature': '#FB3640', 'Relative humidity': '#5B5BFF', 'Air velocity': '#FB3640', 'Globe temperature': '#D5FF99',
 }
 function SensorHeightChart({ heightData, variables }) {
   const { tip, showTip, moveTip, hideTip } = useTooltip()
@@ -28,13 +28,13 @@ function SensorHeightChart({ heightData, variables }) {
       <svg width={W} height={H + 24} className="font-data block">
         {refHeights.map((r) => (
           <g key={r.h}>
-            <line x1={xScale(r.h)} x2={xScale(r.h)} y1={0} y2={H} stroke="#E2DED4" strokeWidth={1} strokeDasharray="4 2" />
-            <text x={xScale(r.h)} y={H + 18} fontSize={9} fill="#C9C6BC" textAnchor="middle">{r.l}</text>
+            <line x1={xScale(r.h)} x2={xScale(r.h)} y1={0} y2={H} stroke="#E4E4E4" strokeWidth={1} strokeDasharray="4 2" />
+            <text x={xScale(r.h)} y={H + 18} fontSize={9} fill="#BBBBBB" textAnchor="middle">{r.l}</text>
           </g>
         ))}
         {variables.map((v, vi) => {
           const rowH = H / variables.length, rowY = vi * rowH + rowH / 2
-          const color = VAR_COLORS[v] || '#8A8A86'
+          const color = VAR_COLORS[v] || '#8A8A8A'
           return byVar[v].map((h, i) => (
             <circle key={i} cx={xScale(h)} cy={rowY + Math.sin(i * 7.3) * rowH * 0.35} r={3.5} fill={color} opacity={0.55}
               className="cursor-default" onMouseEnter={(e) => showTip(e, `${v}: ${h}m`)} onMouseMove={moveTip} onMouseLeave={hideTip} />
@@ -42,7 +42,7 @@ function SensorHeightChart({ heightData, variables }) {
         })}
         {variables.map((v, vi) => {
           const rowH = H / variables.length
-          return (<text key={v} x={-4} y={vi * rowH + rowH / 2 + 4} fontSize={11} fill="#5F5E58" textAnchor="end">{v}</text>)
+          return (<text key={v} x={-4} y={vi * rowH + rowH / 2 + 4} fontSize={11} fill="#4A4A4A" textAnchor="end">{v}</text>)
         })}
       </svg>
       <TooltipPortal tip={tip} />
@@ -77,7 +77,7 @@ function SensorHeightByPeriod({ heightByPeriodData, variables, periods }) {
     <div className="overflow-x-auto">
       <svg width={W + 100} height={variables.length * rowH + 24} className="font-data block">
         {[0, 0.5, 1, 1.5, 2].map((v) => (
-          <line key={v} x1={xScale(v) + 90} x2={xScale(v) + 90} y1={0} y2={variables.length * rowH} stroke="#E2DED4" strokeWidth={1} />
+          <line key={v} x1={xScale(v) + 90} x2={xScale(v) + 90} y1={0} y2={variables.length * rowH} stroke="#E4E4E4" strokeWidth={1} />
         ))}
         {variables.map((v, vi) => {
           const y = vi * rowH + rowH / 2
@@ -85,12 +85,12 @@ function SensorHeightByPeriod({ heightByPeriodData, variables, periods }) {
           const valid = points.filter((pt) => pt.med !== null)
           return (
             <g key={v}>
-              <text x={0} y={y + 4} fontSize={10.5} fill="#5F5E58">{v}</text>
+              <text x={0} y={y + 4} fontSize={10.5} fill="#4A4A4A">{v}</text>
               {valid.length > 1 && (
-                <polyline points={valid.map((pt) => `${xScale(pt.med) + 90},${y}`).join(' ')} fill="none" stroke="#C9C6BC" strokeWidth={1} />
+                <polyline points={valid.map((pt) => `${xScale(pt.med) + 90},${y}`).join(' ')} fill="none" stroke="#BBBBBB" strokeWidth={1} />
               )}
               {valid.map((pt) => (
-                <circle key={pt.p} cx={xScale(pt.med) + 90} cy={y} r={4} fill={VAR_COLORS[v] || '#8A8A86'}
+                <circle key={pt.p} cx={xScale(pt.med) + 90} cy={y} r={4} fill={VAR_COLORS[v] || '#8A8A8A'}
                   className="cursor-default"
                   onMouseEnter={(e) => showTip(e, `${v}, ${pt.p}: median height ${pt.med}m (n=${pt.n})`)}
                   onMouseMove={moveTip} onMouseLeave={hideTip} />
@@ -99,7 +99,7 @@ function SensorHeightByPeriod({ heightByPeriodData, variables, periods }) {
           )
         })}
         {[0, 0.5, 1, 1.5, 2].map((v) => (
-          <text key={v} x={xScale(v) + 90} y={variables.length * rowH + 16} fontSize={9} fill="#A8A59C" textAnchor="middle">{v}m</text>
+          <text key={v} x={xScale(v) + 90} y={variables.length * rowH + 16} fontSize={9} fill="#8A8A8A" textAnchor="middle">{v}m</text>
         ))}
       </svg>
       <div className="flex flex-wrap gap-x-3 gap-y-1 mt-2 text-[11px] text-inkmid">
@@ -138,9 +138,9 @@ export default function ChapterEnvironment({ data }) {
           </>
         }
         headline={[
-          { value: coreTotal, label: 'studies report air temperature', color: '#D94F6E' },
-          { value: fig13_sensor_heights.data.length, label: 'height observations parsed', color: '#4855C8' },
-          { value: '4', label: 'standard ISO 7726 heights', color: '#E07820' },
+          { value: coreTotal, label: 'studies report air temperature', color: '#FB3640' },
+          { value: fig13_sensor_heights.data.length, label: 'height observations parsed', color: '#5B5BFF' },
+          { value: '4', label: 'standard ISO 7726 heights', color: '#FB3640' },
         ]}
       />
 

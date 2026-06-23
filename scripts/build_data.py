@@ -1292,19 +1292,34 @@ print(f'sample_size_by_country.json: {len(country_stats)} countries with >=3 stu
 # Generalizes the skin-temperature site-prevalence treatment (Ch.3) to three
 # more signals where measurement site reflects a real methodological choice
 # (sensor modality for heart rate; electrode placement convention for skin
-# conductance; whole-body vs. local method for sweat). Unlike skin
-# temperature's 39 raw labels needing consolidation, these signals each have
-# only 8-10 distinct raw site labels — no merging rules needed.
+# conductance; whole-body vs. local method for sweat). The same SITE_MERGE
+# consolidation used for skin temperature (Calf/Shin->Lower leg, Ear->Face,
+# etc.) is applied here too, since those are genuine anatomical synonyms
+# regardless of which signal is being measured.
+#
+# A few raw labels are NOT anatomical locations and can't be placed on a
+# body diagram: 'Whole body' (a measurement method, not a site — almost all
+# sweat-indicator studies use this), 'Urine' (a sample type), and 'Limbs'
+# (too vague to place — could be any of several distinct sites). These are
+# kept in site_totals (so the bar-chart/table views still show them
+# honestly) but flagged via `non_anatomical` so the body-diagram component
+# knows to exclude them from the silhouette and surface them as a separate
+# note instead of silently dropping them or mis-plotting them.
+NON_ANATOMICAL_SITES = {'Whole body', 'Urine', 'Limbs'}
 SITE_SIGNALS = ['Heart/Pulse rate', 'Skin conductance', 'Sweat indicators']
 site_by_signal = {}
 for sig in SITE_SIGNALS:
     sub = df[df['physio-parameter'] == sig][['id', 'physio-body-site']].copy()
     sub['physio-body-site'] = sub['physio-body-site'].astype(str).str.strip()
     sub = sub[~sub['physio-body-site'].isin(CODES) & (sub['physio-body-site'] != 'nan')]
+    sub['physio-body-site'] = sub['physio-body-site'].replace(SITE_MERGE)
     sub_dedup = sub.drop_duplicates(subset=['id', 'physio-body-site'])
     totals = sub_dedup['physio-body-site'].value_counts()
     site_by_signal[sig] = {
-        'site_totals': [{'site': s, 'count': int(c)} for s, c in totals.items()],
+        'site_totals': [
+            {'site': s, 'count': int(c), 'non_anatomical': s in NON_ANATOMICAL_SITES}
+            for s, c in totals.items()
+        ],
         'n_studies_with_site': int(sub_dedup['id'].nunique()),
     }
 
@@ -1315,6 +1330,7 @@ for sig in SITE_SIGNALS:
 hr_sub = df[df['physio-parameter'] == 'Heart/Pulse rate'][['id', 'physio-body-site']].copy()
 hr_sub['physio-body-site'] = hr_sub['physio-body-site'].astype(str).str.strip()
 hr_sub = hr_sub[~hr_sub['physio-body-site'].isin(CODES) & (hr_sub['physio-body-site'] != 'nan')]
+hr_sub['physio-body-site'] = hr_sub['physio-body-site'].replace(SITE_MERGE)
 hr_sub = hr_sub.merge(studies_u[['id', 'period']], on='id', how='left')
 hr_dedup = hr_sub.drop_duplicates(subset=['id', 'physio-body-site'])
 hr_by_period = hr_dedup.groupby(['physio-body-site', 'period']).size().reset_index(name='count')
@@ -1324,6 +1340,27 @@ site_by_signal['Heart/Pulse rate']['by_period'] = {
     'data': hr_by_period.rename(columns={'physio-body-site': 'site'}).to_dict('records'),
     'period_n': {k: int(v) for k, v in hr_period_n.items()},
     'periods': [b[2] for b in BINS],
+}
+
+# Skin conductance and sweat indicators are closely related sudomotor
+# measures (per the appendix's own domain grouping); combine their site
+# totals into one shared view as requested, alongside each signal's own
+# breakdown, summed at the (signal, site) level so the combined totals
+# don't conflate which signal contributed what.
+sudomotor_combined = {}
+for sig in ['Skin conductance', 'Sweat indicators']:
+    for row in site_by_signal[sig]['site_totals']:
+        key = row['site']
+        if key not in sudomotor_combined:
+            sudomotor_combined[key] = {'site': key, 'count': 0, 'non_anatomical': row['non_anatomical'], 'by_signal': {}}
+        sudomotor_combined[key]['count'] += row['count']
+        sudomotor_combined[key]['by_signal'][sig] = row['count']
+site_by_signal['Sudomotor (combined)'] = {
+    'site_totals': sorted(sudomotor_combined.values(), key=lambda r: -r['count']),
+    'n_studies_with_site': len(set(
+        s for sig in ['Skin conductance', 'Sweat indicators']
+        for s in df[(df['physio-parameter'] == sig) & (~df['physio-body-site'].isin(CODES)) & df['physio-body-site'].notna()]['id']
+    )),
 }
 
 with open(OUT_DIR / 'site_by_signal.json', 'w') as f:

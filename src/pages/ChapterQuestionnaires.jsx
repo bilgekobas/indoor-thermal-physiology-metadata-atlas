@@ -13,7 +13,7 @@ function ScaleAxisPlot({ studies, domain, lowColor, highColor, poleColors }) {
   return (
     <div className="overflow-x-auto">
       <svg width={width} height={height + 24} className="font-data overflow-visible">
-        <line x1={xScale(0)} x2={xScale(0)} y1={0} y2={height} stroke="#B8C020" strokeWidth={1} opacity={0.4} />
+        <line x1={xScale(0)} x2={xScale(0)} y1={0} y2={height} stroke="#D5FF99" strokeWidth={1} opacity={0.4} />
         {studies.map((s, i) => {
           const y = i * rowHeight + rowHeight / 2
           const low = Math.min(...s.range), high = Math.max(...s.range)
@@ -33,14 +33,14 @@ function ScaleAxisPlot({ studies, domain, lowColor, highColor, poleColors }) {
             <g key={i} className="cursor-default"
               onMouseEnter={(e) => showTip(e, `${s.id}: ${s.points}-point (${s.labels[0]} → ${s.labels[s.labels.length - 1]})${s.comfort_pole ? `, comfortable end: ${s.comfort_pole === 'low' ? 'low' : 'high'} numbers` : ''}`)}
               onMouseMove={moveTip} onMouseLeave={hideTip}>
-              <line x1={xScale(low)} x2={xScale(high)} y1={y} y2={y} stroke="#A8A59C" strokeWidth={0.8} opacity={0.5} />
+              <line x1={xScale(low)} x2={xScale(high)} y1={y} y2={y} stroke="#8A8A8A" strokeWidth={0.8} opacity={0.5} />
               <circle cx={xScale(low)} cy={y} r={1.6} fill={lowDotColor} />
               <circle cx={xScale(high)} cy={y} r={1.6} fill={highDotColor} />
             </g>
           )
         })}
         {Array.from({ length: domainMax - domainMin + 1 }, (_, i) => domainMin + i).map((v) => (
-          <text key={v} x={xScale(v)} y={height + 14} fontSize={10} fill="#A8A59C" textAnchor="middle">{v}</text>
+          <text key={v} x={xScale(v)} y={height + 14} fontSize={10} fill="#8A8A8A" textAnchor="middle">{v}</text>
         ))}
       </svg>
       <TooltipPortal tip={tip} />
@@ -93,9 +93,9 @@ export default function ChapterQuestionnaires({ data }) {
           </>
         }
         headline={[
-          { value: `${tsvPct}%`, label: 'of studies use a thermal sensation scale', color: '#4855C8' },
-          { value: '77.8%', label: 'of TSV scales are the standard 7-point', color: '#D94F6E' },
-          { value: fig16_tcv_scales.n_total, label: 'distinct comfort-scale studies, no dominant format', color: '#E07820' },
+          { value: `${tsvPct}%`, label: 'of studies use a thermal sensation scale', color: '#5B5BFF' },
+          { value: '77.8%', label: 'of TSV scales are the standard 7-point', color: '#FB3640' },
+          { value: fig16_tcv_scales.n_total, label: 'distinct comfort-scale studies, no dominant format', color: '#FB3640' },
         ]}
       />
 
@@ -108,7 +108,7 @@ export default function ChapterQuestionnaires({ data }) {
         <div className="grid grid-cols-2 gap-x-10 gap-y-8 max-w-4xl">
           {Object.entries(fig14_questionnaire_domains).map(([domain, d]) => (
             <FigureCard key={domain} title={`${domain} (n=${d.n_any})`} commentary={null}>
-              <InteractiveBarChart data={d.fields.map((f) => ({ label: f.field, count: f.count }))} total={summary.n_experiments} color="#4855C8" maxBars={6} height={16} />
+              <InteractiveBarChart data={d.fields.map((f) => ({ label: f.field, count: f.count }))} total={summary.n_experiments} color="#5B5BFF" maxBars={6} height={16} />
             </FigureCard>
           ))}
         </div>
@@ -120,15 +120,15 @@ export default function ChapterQuestionnaires({ data }) {
       >
         <FigureCard figNumber="15" title="Thermal Sensation Vote (TSV)" plotWidth={780} commentary={`${fig15_tsv_scales.n_total} studies' scales mapped onto a common axis (cold → hot). One line per study.`}>
           <div className="grid grid-cols-3 gap-6">
-            <div className="col-span-2"><ScaleAxisPlot studies={fig15_tsv_scales.studies} domain={[-4, 8]} lowColor="#4855C8" highColor="#D94F6E" /></div>
-            <div><h4 className="text-[11.5px] font-medium mb-2 text-inkmid">Points per scale</h4><PointsBar distribution={fig15_tsv_scales.points_distribution} total={fig15_tsv_scales.n_total} color="#4855C8" /></div>
+            <div className="col-span-2"><ScaleAxisPlot studies={fig15_tsv_scales.studies} domain={[-4, 8]} lowColor="#5B5BFF" highColor="#FB3640" /></div>
+            <div><h4 className="text-[11.5px] font-medium mb-2 text-inkmid">Points per scale</h4><PointsBar distribution={fig15_tsv_scales.points_distribution} total={fig15_tsv_scales.n_total} color="#5B5BFF" /></div>
           </div>
         </FigureCard>
 
         <FigureCard figNumber="16" title="Thermal Comfort Vote (TCV)" plotWidth={780} commentary={`${fig16_tcv_scales.n_total} studies' scales mapped the same way (most comfortable → least), colored by what each endpoint actually means rather than its raw number — about a quarter of studies put "comfortable" at the negative end, the rest at the positive end, so numeric position alone would mislabel them.`}>
           <div className="grid grid-cols-3 gap-6">
-            <div className="col-span-2"><ScaleAxisPlot studies={fig16_tcv_scales.studies} domain={[-4, 6]} poleColors={{ comfort: '#E0B020', discomfort: '#D94F6E' }} /></div>
-            <div><h4 className="text-[11.5px] font-medium mb-2 text-inkmid">Points per scale</h4><PointsBar distribution={fig16_tcv_scales.points_distribution} total={fig16_tcv_scales.n_total} color="#D94F6E" /></div>
+            <div className="col-span-2"><ScaleAxisPlot studies={fig16_tcv_scales.studies} domain={[-4, 6]} poleColors={{ comfort: '#FB3640', discomfort: '#FB3640' }} /></div>
+            <div><h4 className="text-[11.5px] font-medium mb-2 text-inkmid">Points per scale</h4><PointsBar distribution={fig16_tcv_scales.points_distribution} total={fig16_tcv_scales.n_total} color="#FB3640" /></div>
           </div>
         </FigureCard>
       </ChapterSection>

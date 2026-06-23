@@ -1,4 +1,5 @@
-import { Routes, Route } from 'react-router-dom'
+import { Routes, Route, useLocation } from 'react-router-dom'
+import { useEffect } from 'react'
 import Sidebar from './components/Sidebar.jsx'
 import { useCorpusData } from './useCorpusData.js'
 
@@ -15,11 +16,38 @@ import ChapterProtocol from './pages/ChapterProtocol.jsx'
 import ChapterReporting from './pages/ChapterReporting.jsx'
 import About from './pages/About.jsx'
 
+// React Router doesn't scroll to a #hash on navigation by itself, and the
+// chapter content this hash points into loads asynchronously (the bundle
+// fetch in useCorpusData), so the target section's DOM node may not exist
+// yet at the instant this effect first runs. Retries briefly rather than
+// giving up after one failed lookup, since "the data hasn't arrived yet"
+// is the common case on a fresh page load via a sidebar subtitle link.
+function ScrollToHash() {
+  const location = useLocation()
+  useEffect(() => {
+    if (!location.hash) return
+    const id = location.hash.slice(1)
+    let attempts = 0
+    const tryScroll = () => {
+      const el = document.getElementById(id)
+      if (el) {
+        el.scrollIntoView({ behavior: 'smooth', block: 'start' })
+      } else if (attempts < 20) {
+        attempts += 1
+        setTimeout(tryScroll, 100)
+      }
+    }
+    tryScroll()
+  }, [location.pathname, location.hash])
+  return null
+}
+
 export default function App() {
   const { data, error, loading } = useCorpusData()
 
   return (
     <div className="flex min-h-screen bg-paper text-ink">
+      <ScrollToHash />
       <Sidebar summary={data?.summary} />
       <main className="flex-1 min-w-0">
         {loading && (

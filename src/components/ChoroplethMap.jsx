@@ -4,8 +4,8 @@ import { useTooltip, TooltipPortal } from './Tooltip.jsx'
 
 // World choropleth for study counts by country. Loads the topojson once
 // (bundled locally in public/data/, no external CDN dependency) and colors
-// each country by its study count using the corpus's peripheral-pink ramp.
-export default function ChoroplethMap({ countryData, height = 380 }) {
+// each country by its study count, blue accent ramp.
+export default function ChoroplethMap({ countryData, cityData, height = 380 }) {
   const { tip, showTip, moveTip, hideTip } = useTooltip()
   const [geoData, setGeoData] = useState(null)
 
@@ -23,13 +23,33 @@ export default function ChoroplethMap({ countryData, height = 380 }) {
     return m
   }, [countryData])
 
+  // Dominant climate group per country, weighted by study count — a country
+  // can genuinely span several Köppen zones (China alone has tropical,
+  // humid-subtropical, continental, and semi-arid cities in this corpus),
+  // so "the" climate for a whole country is a most-common summary, not a
+  // single fact the way it is for one city.
+  const dominantClimateByCountry = useMemo(() => {
+    const byCountry = {}
+    ;(cityData || []).forEach((c) => {
+      if (!c.climate_group) return
+      if (!byCountry[c.country]) byCountry[c.country] = {}
+      byCountry[c.country][c.climate_group] = (byCountry[c.country][c.climate_group] || 0) + c.count
+    })
+    const result = {}
+    Object.entries(byCountry).forEach(([country, groups]) => {
+      result[country] = Object.entries(groups).sort((a, b) => b[1] - a[1])[0]?.[0]
+    })
+    return result
+  }, [cityData])
+
   const maxCount = countryData.reduce((m, r) => (r.count > m ? r.count : m), 1)
 
   const colorFor = (count) => {
-    if (!count) return '#F1EDE6'
+    if (!count) return '#EFEFEF'
     const t = Math.min(Math.log(count + 1) / Math.log(maxCount + 1), 1) // log scale: China shouldn't wash out everything else
-    const r1 = 241, g1 = 237, b1 = 230
-    const r2 = 217, g2 = 79, b2 = 110
+    // Blue accent ramp: light track color -> primary blue
+    const r1 = 239, g1 = 239, b1 = 239
+    const r2 = 91, g2 = 91, b2 = 255
     const r = Math.round(r1 + (r2 - r1) * t)
     const g = Math.round(g1 + (g2 - g1) * t)
     const b = Math.round(b1 + (b2 - b1) * t)
@@ -50,24 +70,32 @@ export default function ChoroplethMap({ countryData, height = 380 }) {
 
   return (
     <div>
-      <ComposableMap projection="geoEqualEarth" width={800} height={height} style={{ width: '100%', height: 'auto' }}>
+      <ComposableMap
+        projection="geoEqualEarth"
+        projectionConfig={{ scale: 130, center: [10, 5] }}
+        width={800}
+        height={height}
+        style={{ width: '100%', height: 'auto' }}
+      >
         <Geographies geography={geoData}>
           {({ geographies }) =>
             geographies.map((geo) => {
               const entry = countByName[geo.properties.name]
               const count = entry?.count || 0
+              const climate = dominantClimateByCountry[geo.properties.name]
               return (
                 <Geography
                   key={geo.rsmKey}
                   geography={geo}
                   fill={colorFor(count)}
-                  stroke="#FAF8F4"
+                  stroke="#FCFCFC"
                   strokeWidth={0.5}
                   className="cursor-default outline-none"
                   onMouseEnter={(e) => {
-                    const label = entry
-                      ? `${entry.raw_labels.join(' + ')}: ${count} ${count === 1 ? 'study' : 'studies'}`
-                      : `${geo.properties.name}: 0 studies`
+                    const place = entry ? entry.raw_labels.join(' + ') : geo.properties.name
+                    const label = climate
+                      ? `${place}: ${count} ${count === 1 ? 'study' : 'studies'}, ${climate}`
+                      : `${place}: ${count} ${count === 1 ? 'study' : 'studies'}`
                     showTip(e, label)
                   }}
                   onMouseMove={moveTip}
@@ -92,7 +120,7 @@ export default function ChoroplethMap({ countryData, height = 380 }) {
           </span>
         ))}
         <span className="flex items-center gap-1.5">
-          <span className="w-3 h-3 rounded-sm inline-block border border-line" style={{ background: '#F1EDE6' }} />
+          <span className="w-3 h-3 rounded-sm inline-block border border-line" style={{ background: '#EFEFEF' }} />
           <span className="font-data text-[10.5px] text-inkmid">0</span>
         </span>
       </div>

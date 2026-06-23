@@ -3,27 +3,27 @@ import FigureCard from '../components/FigureCard.jsx'
 import { useTooltip, TooltipPortal } from '../components/Tooltip.jsx'
 
 const DOMAIN_PALETTE = {
-  'Performance task — arithmetic': '#D94F6E',
-  'Performance task — working memory': '#4855C8',
-  'Performance task — inhibition/attention': '#E07820',
-  'Performance task — sustained attention': '#B8C020',
-  'Performance task — psychomotor speed': '#8A8A86',
-  'Performance task — memory': '#C9698A',
-  'Performance task — attention': '#7A8FD9',
-  'Performance task — reasoning': '#E0A020',
-  'Performance task — multi-domain battery': '#5F5E58',
-  'Performance task — cue utilization/attention': '#A8A59C',
-  'Performance task — creativity': '#C9C6BC',
-  'Performance task — executive function': '#9B6B8F',
-  'Performance task — perception': '#6E8FD9',
-  'Performance task — planning': '#4B6B33',
-  'Subjective scale — sleepiness/alertness': '#D9B3BE',
-  'Subjective scale — work performance': '#B3BEDC',
-  'Subjective scale — workload': '#E0C9A0',
-  'Subjective scale — mood': '#C9D9A0',
-  'Subjective scale — fatigue': '#E0D0D0',
-  'Subjective scale — attention': '#D0D0E0',
-  'Stress induction protocol': '#1A1A18',
+  'Performance task — arithmetic': '#FB3640',
+  'Performance task — working memory': '#5B5BFF',
+  'Performance task — inhibition/attention': '#FB3640',
+  'Performance task — sustained attention': '#D5FF99',
+  'Performance task — psychomotor speed': '#8A8A8A',
+  'Performance task — memory': '#F1FF71',
+  'Performance task — attention': '#C5FFFD',
+  'Performance task — reasoning': '#FB3640',
+  'Performance task — multi-domain battery': '#4A4A4A',
+  'Performance task — cue utilization/attention': '#8A8A8A',
+  'Performance task — creativity': '#BBBBBB',
+  'Performance task — executive function': '#F1FF71',
+  'Performance task — perception': '#C5FFFD',
+  'Performance task — planning': '#D5FF99',
+  'Subjective scale — sleepiness/alertness': '#FB3640',
+  'Subjective scale — work performance': '#C5FFFD',
+  'Subjective scale — workload': '#F1FF71',
+  'Subjective scale — mood': '#D5FF99',
+  'Subjective scale — fatigue': '#FB3640',
+  'Subjective scale — attention': '#C5FFFD',
+  'Stress induction protocol': '#0A0A0A',
 }
 function domainColor(d) { return DOMAIN_PALETTE[d] || '#BBBBBB' }
 const isSubjective = (d) => d.startsWith('Subjective scale')
@@ -105,7 +105,7 @@ function BatterySizeChart({ studyInstruments }) {
             <div className="flex-1 h-4 rounded bg-line/50 overflow-hidden cursor-default"
               onMouseEnter={(e) => showTip(e, `${buckets[k]} studies use ${k} instrument${k !== '1' ? 's' : ''}`)}
               onMouseMove={moveTip} onMouseLeave={hideTip}>
-              <div className="h-full group-hover:brightness-110" style={{ width: `${(buckets[k] / max) * 100}%`, background: '#4855C8' }} />
+              <div className="h-full group-hover:brightness-110" style={{ width: `${(buckets[k] / max) * 100}%`, background: '#5B5BFF' }} />
             </div>
             <span className="font-data text-[11px] w-16 text-right text-inkmid">{buckets[k]} ({((buckets[k] / nStudies) * 100).toFixed(0)}%)</span>
           </div>
@@ -149,10 +149,10 @@ export default function ChapterCognitive({ data }) {
           </>
         }
         headline={[
-          { value: `${pct}%`, label: 'of studies apply a cognitive test', color: '#4855C8' },
-          { value: cognitive_tests.instrument_totals.length, label: 'canonical instruments after harmonisation', color: '#D94F6E' },
-          { value: performanceCount, label: 'performance-task uses', color: '#E07820' },
-          { value: subjectiveCount, label: 'subjective-scale uses', color: '#8A8A86' },
+          { value: `${pct}%`, label: 'of studies apply a cognitive test', color: '#5B5BFF' },
+          { value: cognitive_tests.instrument_totals.length, label: 'canonical instruments after harmonisation', color: '#FB3640' },
+          { value: performanceCount, label: 'performance-task uses', color: '#FB3640' },
+          { value: subjectiveCount, label: 'subjective-scale uses', color: '#8A8A8A' },
         ]}
       />
 
