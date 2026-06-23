@@ -1,10 +1,8 @@
 import { ChapterHeader, ChapterSection } from '../components/Chapter.jsx'
 import CompletenessStrip from '../components/CompletenessStrip.jsx'
 import FigureCard from '../components/FigureCard.jsx'
-import BinaryPresenceFigure from '../components/BinaryPresenceFigure.jsx'
 import InteractiveBarChart from '../components/InteractiveBarChart.jsx'
-import OverallByPeriod, { PercentLinesByPeriod } from '../components/OverallByPeriod.jsx'
-import { useTooltip, TooltipPortal } from '../components/Tooltip.jsx'
+import OverallByPeriod, { PeriodHeatmap } from '../components/OverallByPeriod.jsx'
 
 // The "rigor over time" narrative focuses on these six fields specifically
 // (out of protocol_by_period's full set) — picked for the line chart
@@ -16,55 +14,6 @@ import { useTooltip, TooltipPortal } from '../components/Tooltip.jsx'
 // numbers — there used to be a second, independently computed field set
 // here that quietly drifted out of sync with Fig. 20; that's gone now.
 const RIGOR_FIELDS = ['Randomisation', 'Balanced session order', 'Blinding', 'Circadian control', 'Menstrual timing control', 'Time between sessions']
-const RIGOR_COLORS = {
-  'Randomisation': '#5B5BFF', 'Balanced session order': '#0A0A0A', 'Blinding': '#FB3640',
-  'Circadian control': '#8A8A8A', 'Menstrual timing control': '#4A4A4A', 'Time between sessions': '#BBBBBB',
-}
-
-function RigorLines({ periodData, fields, periods }) {
-  const { tip, showTip, moveTip, hideTip } = useTooltip()
-  const W = 600, H = 170
-  const xStep = W / (periods.length - 1)
-  const yScale = (pct) => H - (pct / 100) * H
-  return (
-    <div>
-      <div className="font-data text-[10px] text-inkfaint mb-1">y-axis: % of studies in that period reporting the control</div>
-      <svg width={W + 20} height={H + 24} className="font-data overflow-visible">
-        {[0, 25, 50, 75, 100].map((g) => (
-          <g key={g}>
-            <line x1={0} x2={W} y1={yScale(g)} y2={yScale(g)} stroke="#E4E4E4" strokeWidth={1} />
-            <text x={W + 4} y={yScale(g) + 3} fontSize={9} fill="#8A8A8A">{g}%</text>
-          </g>
-        ))}
-        {fields.map((field) => {
-          const points = periods.map((p, i) => {
-            const r = periodData.find((d) => d.period === p && d.field === field)
-            return { x: i * xStep, y: yScale(r?.pct || 0), pct: r?.pct || 0, count: r?.count || 0, n: r?.n || 0 }
-          })
-          return (
-            <g key={field}>
-              <polyline points={points.map((p) => `${p.x},${p.y}`).join(' ')} fill="none" stroke={RIGOR_COLORS[field]} strokeWidth={1.8} />
-              {points.map((p, i) => (
-                <circle key={i} cx={p.x} cy={p.y} r={3} fill={RIGOR_COLORS[field]} className="cursor-default"
-                  onMouseEnter={(e) => showTip(e, `${field}, ${periods[i]}: ${p.count} of ${p.n} · ${p.pct}%`)}
-                  onMouseMove={moveTip} onMouseLeave={hideTip} />
-              ))}
-            </g>
-          )
-        })}
-        {periods.map((p, i) => (<text key={p} x={i * xStep} y={H + 16} fontSize={10} fill="#8A8A8A" textAnchor="middle">{p}</text>))}
-      </svg>
-      <div className="flex flex-wrap gap-x-4 gap-y-1 mt-2">
-        {fields.map((f) => (
-          <div key={f} className="flex items-center gap-1.5 text-[11px] text-inkmid">
-            <span className="w-2.5 h-2.5 rounded-sm inline-block" style={{ background: RIGOR_COLORS[f] }} />{f}
-          </div>
-        ))}
-      </div>
-      <TooltipPortal tip={tip} />
-    </div>
-  )
-}
 
 // Overall summary bar for the same 6 rigor fields shown by-period below —
 // gives a single-glance baseline before toggling to see the trend.
@@ -132,23 +81,47 @@ export default function ChapterProtocol({ data }) {
             minHeight={260}
             earliestPeriodCaveat="2013–14 and 2015–16 have few studies; read early-period percentages cautiously."
             renderOverall={() => <RigorOverallBar periodData={protocol_by_period.data} fields={RIGOR_FIELDS} />}
-            renderByPeriod={() => <RigorLines periodData={protocol_by_period.data} fields={RIGOR_FIELDS} periods={periods} />}
+            renderByPeriod={() => {
+              const periodN = Object.fromEntries(periods.map((p) => [p, protocol_by_period.data.find((d) => d.period === p)?.n || 0]))
+              const totals = Object.fromEntries(RIGOR_FIELDS.map((f) => [f, protocol_by_period.data.filter((d) => d.field === f).reduce((a, d) => a + d.count, 0)]))
+              return (
+                <PeriodHeatmap
+                  rows={RIGOR_FIELDS}
+                  periods={periods}
+                  periodN={periodN}
+                  rowTotals={totals}
+                  getCount={(field, p) => protocol_by_period.data.find((d) => d.field === field && d.period === p)?.count || 0}
+                />
+              )
+            }}
           />
         </FigureCard>
       </ChapterSection>
 
       <ChapterSection
-        title="Which controls are used, study by study"
-        intro="Fixed clothing insulation (209 of 269 studies, 77%) and a defined activity protocol (191, 71%) are the most common controls by far. Blinding, randomisation, and circadian/menstrual timing control each appear in well under half of studies. Each column in the matrix on the right is one study, row-aligned with the bar to its left."
+        title="Which controls are used"
+        intro="Fixed clothing insulation (209 of 269 studies, 77%) and a defined activity protocol (191, 71%) are the most common controls by far. Blinding, randomisation, and circadian/menstrual timing control each appear in well under half of studies. The overall view shows corpus-wide counts; the period view uses the same row-aligned heatmap style as the rest of the atlas."
       >
         <FigureCard figNumber="20" title="Protocol & standardisation controls" plotWidth={900} commentary={null}>
           <OverallByPeriod
             minHeight={320}
             renderOverall={() => (
-              <BinaryPresenceFigure bar={fig20_protocol.bar} matrix={fig20_protocol.matrix} fields={fig20_protocol.fields} nStudies={fig20_protocol.n_studies} barColor="#0A0A0A" />
+              <InteractiveBarChart data={fig20_protocol.bar.map((d) => ({ label: d.field, count: d.count }))} total={fig20_protocol.n_studies} color="#0A0A0A" />
             )}
             renderByPeriod={() => (
-              <PercentLinesByPeriod periodData={protocol_by_period.data} fields={protocol_by_period.fields} periods={protocol_by_period.periods} palette={['#0A0A0A', '#5B5BFF', '#FB3640', '#8A8A8A', '#4A4A4A', '#BBBBBB', '#BBBBBB', '#E4E4E4']} />
+              (() => {
+                const periodN = Object.fromEntries(protocol_by_period.periods.map((p) => [p, protocol_by_period.data.find((d) => d.period === p)?.n || 0]))
+                const totals = Object.fromEntries(protocol_by_period.fields.map((f) => [f, fig20_protocol.bar.find((d) => d.field === f)?.count || 0]))
+                return (
+                  <PeriodHeatmap
+                    rows={protocol_by_period.fields}
+                    periods={protocol_by_period.periods}
+                    periodN={periodN}
+                    rowTotals={totals}
+                    getCount={(field, p) => protocol_by_period.data.find((d) => d.field === field && d.period === p)?.count || 0}
+                  />
+                )
+              })()
             )}
           />
         </FigureCard>

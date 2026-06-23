@@ -43,6 +43,7 @@ export default function Overview({ data }) {
   } = data
 
   const n = summary.n_experiments
+  const openDataPct = ((open_data.n_with_real_data_link / open_data.n_total) * 100).toFixed(0)
   const latestGeo = geo_concentration_by_period.data[geo_concentration_by_period.data.length - 1]
   const firstGeo = geo_concentration_by_period.data[0]
   const skin = fig17_physio_params.data.find((d) => d.parameter === 'Skin temperature')
@@ -104,8 +105,8 @@ export default function Overview({ data }) {
           <FindingCard value={latestGeo.pct.toFixed(0)} unit="%" accent="#5B5BFF" to="/context#when-and-where-research-happens">
             of {latestGeo.period} studies are from {latestGeo.top_country} alone. The total share for {firstGeo.period} was {firstGeo.pct.toFixed(0)}%.
           </FindingCard>
-          <FindingCard value={open_data.n_with_real_data_link} accent="#FB3640" to="/reporting#open-data-in-practice">
-            of {open_data.n_total} studies share data directly and openly.
+          <FindingCard value={openDataPct} unit="%" accent="#FB3640" to="/reporting#open-data-in-practice">
+            of studies share data directly and openly ({open_data.n_with_real_data_link} of {open_data.n_total}).
           </FindingCard>
           <FindingCard value={skinPct} unit="%" accent="#5B5BFF" to="/body#whats-measured-and-how">
             of experiments measure skin temperature, the single most measured signal, followed by {heartPct}% measuring heart or pulse rate.
@@ -119,11 +120,11 @@ export default function Overview({ data }) {
           <FindingCard value={standardHeightPct} unit="%" accent="#0A0A0A" to="/environment#where-sensors-are-placed">
             of reported air-temperature, humidity, globe-temperature, and air-velocity sensor heights sit at one of the standard 0.1, 0.6, 1.1, or 1.7 m positions.
           </FindingCard>
-          <FindingCard value={fig05_time_of_day.n_reporting} accent="#5B5BFF" to="/context#setting-and-timing">
-            studies ({timeReportingPct}%) report time-of-day information.
+          <FindingCard value={timeReportingPct} unit="%" accent="#5B5BFF" to="/context#setting-and-timing">
+            of studies report time-of-day information ({fig05_time_of_day.n_reporting} of {n}).
           </FindingCard>
-          <FindingCard value={maleOnly} accent="#FB3640" to="/population#demographics">
-            studies ({maleOnlyPct}%) are male-only.
+          <FindingCard value={maleOnlyPct} unit="%" accent="#FB3640" to="/population#demographics">
+            of studies are male-only ({maleOnly} of {n}).
           </FindingCard>
         </div>
       </div>

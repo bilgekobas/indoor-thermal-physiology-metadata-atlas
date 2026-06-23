@@ -5,7 +5,7 @@ import FigureCard from '../components/FigureCard.jsx'
 import InteractiveBarChart from '../components/InteractiveBarChart.jsx'
 import CooccurrenceMatrix from '../components/CooccurrenceMatrix.jsx'
 import BodySiteMap from '../components/BodySiteMap.jsx'
-import OverallByPeriod, { PeriodBarGroup } from '../components/OverallByPeriod.jsx'
+import OverallByPeriod, { PeriodHeatmap } from '../components/OverallByPeriod.jsx'
 import { useTooltip, TooltipPortal } from '../components/Tooltip.jsx'
 
 const SENSOR_PALETTE = ['#5B5BFF', '#0A0A0A', '#FB3640', '#8A8A8A', '#BBBBBB', '#4A4A4A', '#BBBBBB']
@@ -510,25 +510,17 @@ export default function ChapterBody({ data }) {
               <InteractiveBarChart data={fig17_physio_params.data.map((d) => ({ label: d.parameter, count: d.count }))} total={summary.n_experiments} color="#5B5BFF" maxBars={12} />
             )}
             renderByPeriod={() => {
-              const topSignalNames = fig17_physio_params.data.slice(0, 6).map((d) => d.parameter)
-              const periods = signal_freq_by_period.periods
+              const topSignalNames = fig17_physio_params.data.slice(0, 8).map((d) => d.parameter)
+              const totals = Object.fromEntries(topSignalNames.map((sig) => [sig, fig17_physio_params.data.find((d) => d.parameter === sig)?.count || 0]))
               return (
-                <div className="space-y-5">
-                  {topSignalNames.map((sig) => (
-                    <div key={sig}>
-                      <h4 className="text-[12px] font-medium mb-1.5 text-inkmid">{sig}</h4>
-                      <PeriodBarGroup
-                        periods={periods}
-                        periodN={signal_freq_by_period.period_n}
-                        getValue={(p) => signal_freq_by_period.data.find((r) => r.signal === sig && r.period === p)?.count || 0}
-                        getTooltip={(p, v) => `${sig}, ${p}: ${v} of ${signal_freq_by_period.period_n[p]} studies · ${signal_freq_by_period.period_n[p] ? ((v / signal_freq_by_period.period_n[p]) * 100).toFixed(1) : 0}%`}
-                        color="#0A0A0A"
-                        height={70}
-                        yUnit=" studies"
-                      />
-                    </div>
-                  ))}
-                </div>
+                <PeriodHeatmap
+                  rows={topSignalNames}
+                  periods={signal_freq_by_period.periods}
+                  periodN={signal_freq_by_period.period_n}
+                  rowTotals={totals}
+                  getCount={(sig, p) => signal_freq_by_period.data.find((r) => r.signal === sig && r.period === p)?.count || 0}
+                  labelWidth={180}
+                />
               )
             }}
           />
@@ -634,23 +626,16 @@ export default function ChapterBody({ data }) {
             renderByPeriod={() => {
               const hr = site_by_signal['Heart/Pulse rate'].by_period
               const topSites = ['Chest', 'Wrist', 'Upper arm', 'Finger']
+              const totals = Object.fromEntries(topSites.map((site) => [site, site_by_signal['Heart/Pulse rate'].site_totals.find((d) => d.site === site)?.count || 0]))
               return (
-                <div className="space-y-5">
-                  {topSites.map((site) => (
-                    <div key={site}>
-                      <h4 className="text-[12px] font-medium mb-1.5 text-inkmid">{site}</h4>
-                      <PeriodBarGroup
-                        periods={hr.periods}
-                        periodN={hr.period_n}
-                        getValue={(p) => hr.data.find((r) => r.site === site && r.period === p)?.count || 0}
-                        getTooltip={(p, v) => `${site}, ${p}: ${v} of ${hr.period_n[p] || 0} heart-rate studies · ${hr.period_n[p] ? ((v / hr.period_n[p]) * 100).toFixed(0) : 0}%`}
-                        color="#0A0A0A"
-                        height={64}
-                        yUnit=" studies"
-                      />
-                    </div>
-                  ))}
-                </div>
+                <PeriodHeatmap
+                  rows={topSites}
+                  periods={hr.periods}
+                  periodN={hr.period_n}
+                  rowTotals={totals}
+                  getCount={(site, p) => hr.data.find((r) => r.site === site && r.period === p)?.count || 0}
+                  labelWidth={120}
+                />
               )
             }}
           />

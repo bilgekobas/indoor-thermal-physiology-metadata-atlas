@@ -1,7 +1,7 @@
 import { useMemo } from 'react'
 import { useTooltip, TooltipPortal } from './Tooltip.jsx'
 
-export default function SampleSizeByCountry({ stats, studies, minCountThreshold }) {
+export default function SampleSizeByCountry({ stats, studies, minCountThreshold, overallStudies = null }) {
   const { tip, showTip, moveTip, hideTip } = useTooltip()
   const PLOT_W = 560
   const AXIS_X = 148
@@ -22,12 +22,13 @@ export default function SampleSizeByCountry({ stats, studies, minCountThreshold 
   }, [studies])
 
   const overall = useMemo(() => {
-    const vals = studies.map((s) => Number(s.n)).filter((n) => Number.isFinite(n) && n > 0).sort((a, b) => a - b)
+    const source = overallStudies || studies
+    const vals = source.map((s) => Number(s.n)).filter((n) => Number.isFinite(n) && n > 0).sort((a, b) => a - b)
     const mean = vals.reduce((a, v) => a + v, 0) / Math.max(vals.length, 1)
     const mid = Math.floor(vals.length / 2)
     const median = vals.length % 2 ? vals[mid] : (vals[mid - 1] + vals[mid]) / 2
     return { n: vals.length, mean, median }
-  }, [studies])
+  }, [studies, overallStudies])
 
   const refLines = [
     { key: 'n-equals-1', label: 'n = 1', value: 1, stroke: '#BBBBBB', dashed: false },

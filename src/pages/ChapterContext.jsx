@@ -404,6 +404,7 @@ export default function ChapterContext({ data }) {
     domain_cooccurrence,
     domain_detail,
     sample_size_by_country,
+    fig11_sample_size,
     chapter_completeness,
     summary,
   } = data
@@ -478,6 +479,7 @@ export default function ChapterContext({ data }) {
             stats={sample_size_by_country.stats}
             studies={sample_size_by_country.studies}
             minCountThreshold={sample_size_by_country.min_count_threshold}
+            overallStudies={fig11_sample_size.studies}
           />
         </FigureCard>
 
