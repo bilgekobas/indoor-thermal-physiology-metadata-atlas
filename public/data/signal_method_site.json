@@ -903,6 +903,12 @@
     {
       "signal": "Skin temperature",
       "sensing_method": "Heat flux/Heat flow",
+      "site": "Arm",
+      "count": 2
+    },
+    {
+      "signal": "Skin temperature",
+      "sensing_method": "Heat flux/Heat flow",
       "site": "Back",
       "count": 1
     },
@@ -939,6 +945,12 @@
     {
       "signal": "Skin temperature",
       "sensing_method": "Heat flux/Heat flow",
+      "site": "Leg",
+      "count": 1
+    },
+    {
+      "signal": "Skin temperature",
+      "sensing_method": "Heat flux/Heat flow",
       "site": "Lower leg",
       "count": 5
     },
@@ -952,12 +964,12 @@
       "signal": "Skin temperature",
       "sensing_method": "Heat flux/Heat flow",
       "site": "Upper arm",
-      "count": 3
+      "count": 1
     },
     {
       "signal": "Skin temperature",
       "sensing_method": "Hygrochron",
-      "site": "Face",
+      "site": "Temple",
       "count": 1
     },
     {
@@ -975,7 +987,25 @@
     {
       "signal": "Skin temperature",
       "sensing_method": "Infrared camera",
+      "site": "Cheek",
+      "count": 6
+    },
+    {
+      "signal": "Skin temperature",
+      "sensing_method": "Infrared camera",
       "site": "Chest",
+      "count": 3
+    },
+    {
+      "signal": "Skin temperature",
+      "sensing_method": "Infrared camera",
+      "site": "Chin",
+      "count": 1
+    },
+    {
+      "signal": "Skin temperature",
+      "sensing_method": "Infrared camera",
+      "site": "Ear",
       "count": 3
     },
     {
@@ -987,8 +1017,14 @@
     {
       "signal": "Skin temperature",
       "sensing_method": "Infrared camera",
+      "site": "Eye",
+      "count": 1
+    },
+    {
+      "signal": "Skin temperature",
+      "sensing_method": "Infrared camera",
       "site": "Face",
-      "count": 14
+      "count": 7
     },
     {
       "signal": "Skin temperature",
@@ -1023,6 +1059,12 @@
     {
       "signal": "Skin temperature",
       "sensing_method": "Infrared camera",
+      "site": "Head",
+      "count": 1
+    },
+    {
+      "signal": "Skin temperature",
+      "sensing_method": "Infrared camera",
       "site": "Lower back",
       "count": 1
     },
@@ -1035,8 +1077,20 @@
     {
       "signal": "Skin temperature",
       "sensing_method": "Infrared camera",
+      "site": "Mouth",
+      "count": 2
+    },
+    {
+      "signal": "Skin temperature",
+      "sensing_method": "Infrared camera",
       "site": "Neck",
       "count": 2
+    },
+    {
+      "signal": "Skin temperature",
+      "sensing_method": "Infrared camera",
+      "site": "Nose",
+      "count": 6
     },
     {
       "signal": "Skin temperature",
@@ -1065,8 +1119,20 @@
     {
       "signal": "Skin temperature",
       "sensing_method": "Infrared thermometer",
-      "site": "Face",
+      "site": "Cheek",
       "count": 4
+    },
+    {
+      "signal": "Skin temperature",
+      "sensing_method": "Infrared thermometer",
+      "site": "Ear",
+      "count": 3
+    },
+    {
+      "signal": "Skin temperature",
+      "sensing_method": "Infrared thermometer",
+      "site": "Face",
+      "count": 1
     },
     {
       "signal": "Skin temperature",
@@ -1084,6 +1150,12 @@
       "signal": "Skin temperature",
       "sensing_method": "Infrared thermometer",
       "site": "Hand",
+      "count": 3
+    },
+    {
+      "signal": "Skin temperature",
+      "sensing_method": "Infrared thermometer",
+      "site": "Nose",
       "count": 3
     },
     {
@@ -1137,12 +1209,6 @@
     {
       "signal": "Skin temperature",
       "sensing_method": "RTD",
-      "site": "Face",
-      "count": 2
-    },
-    {
-      "signal": "Skin temperature",
-      "sensing_method": "RTD",
       "site": "Foot",
       "count": 4
     },
@@ -1163,6 +1229,12 @@
       "sensing_method": "RTD",
       "site": "Hand",
       "count": 4
+    },
+    {
+      "signal": "Skin temperature",
+      "sensing_method": "RTD",
+      "site": "Head",
+      "count": 2
     },
     {
       "signal": "Skin temperature",
@@ -1209,8 +1281,20 @@
     {
       "signal": "Skin temperature",
       "sensing_method": "Thermistor",
+      "site": "Arm",
+      "count": 1
+    },
+    {
+      "signal": "Skin temperature",
+      "sensing_method": "Thermistor",
       "site": "Back",
       "count": 10
+    },
+    {
+      "signal": "Skin temperature",
+      "sensing_method": "Thermistor",
+      "site": "Cheek",
+      "count": 1
     },
     {
       "signal": "Skin temperature",
@@ -1221,8 +1305,8 @@
     {
       "signal": "Skin temperature",
       "sensing_method": "Thermistor",
-      "site": "Face",
-      "count": 2
+      "site": "Chin",
+      "count": 1
     },
     {
       "signal": "Skin temperature",
@@ -1257,6 +1341,12 @@
     {
       "signal": "Skin temperature",
       "sensing_method": "Thermistor",
+      "site": "Head",
+      "count": 1
+    },
+    {
+      "signal": "Skin temperature",
+      "sensing_method": "Thermistor",
       "site": "Lower back",
       "count": 1
     },
@@ -1282,7 +1372,7 @@
       "signal": "Skin temperature",
       "sensing_method": "Thermistor",
       "site": "Upper arm",
-      "count": 12
+      "count": 11
     },
     {
       "signal": "Skin temperature",
@@ -1311,6 +1401,12 @@
     {
       "signal": "Skin temperature",
       "sensing_method": "Thermochron",
+      "site": "Arm",
+      "count": 3
+    },
+    {
+      "signal": "Skin temperature",
+      "sensing_method": "Thermochron",
       "site": "Axilla",
       "count": 1
     },
@@ -1329,13 +1425,37 @@
     {
       "signal": "Skin temperature",
       "sensing_method": "Thermochron",
+      "site": "Cheek",
+      "count": 4
+    },
+    {
+      "signal": "Skin temperature",
+      "sensing_method": "Thermochron",
       "site": "Chest",
       "count": 59
     },
     {
       "signal": "Skin temperature",
       "sensing_method": "Thermochron",
+      "site": "Chin",
+      "count": 2
+    },
+    {
+      "signal": "Skin temperature",
+      "sensing_method": "Thermochron",
       "site": "Clavicle",
+      "count": 1
+    },
+    {
+      "signal": "Skin temperature",
+      "sensing_method": "Thermochron",
+      "site": "Ear",
+      "count": 1
+    },
+    {
+      "signal": "Skin temperature",
+      "sensing_method": "Thermochron",
+      "site": "Earlobe",
       "count": 1
     },
     {
@@ -1348,7 +1468,7 @@
       "signal": "Skin temperature",
       "sensing_method": "Thermochron",
       "site": "Face",
-      "count": 16
+      "count": 1
     },
     {
       "signal": "Skin temperature",
@@ -1395,14 +1515,32 @@
     {
       "signal": "Skin temperature",
       "sensing_method": "Thermochron",
+      "site": "Mouth",
+      "count": 1
+    },
+    {
+      "signal": "Skin temperature",
+      "sensing_method": "Thermochron",
       "site": "Neck",
       "count": 15
     },
     {
       "signal": "Skin temperature",
       "sensing_method": "Thermochron",
+      "site": "Nose",
+      "count": 3
+    },
+    {
+      "signal": "Skin temperature",
+      "sensing_method": "Thermochron",
       "site": "Sole",
       "count": 1
+    },
+    {
+      "signal": "Skin temperature",
+      "sensing_method": "Thermochron",
+      "site": "Temple",
+      "count": 11
     },
     {
       "signal": "Skin temperature",
@@ -1414,7 +1552,7 @@
       "signal": "Skin temperature",
       "sensing_method": "Thermochron",
       "site": "Upper arm",
-      "count": 48
+      "count": 45
     },
     {
       "signal": "Skin temperature",
@@ -1437,6 +1575,12 @@
     {
       "signal": "Skin temperature",
       "sensing_method": "Thermocouple",
+      "site": "Arm",
+      "count": 4
+    },
+    {
+      "signal": "Skin temperature",
+      "sensing_method": "Thermocouple",
       "site": "Back",
       "count": 22
     },
@@ -1449,14 +1593,20 @@
     {
       "signal": "Skin temperature",
       "sensing_method": "Thermocouple",
+      "site": "Cheek",
+      "count": 7
+    },
+    {
+      "signal": "Skin temperature",
+      "sensing_method": "Thermocouple",
       "site": "Chest",
       "count": 37
     },
     {
       "signal": "Skin temperature",
       "sensing_method": "Thermocouple",
-      "site": "Face",
-      "count": 7
+      "site": "Ear",
+      "count": 1
     },
     {
       "signal": "Skin temperature",
@@ -1491,6 +1641,12 @@
     {
       "signal": "Skin temperature",
       "sensing_method": "Thermocouple",
+      "site": "Leg",
+      "count": 2
+    },
+    {
+      "signal": "Skin temperature",
+      "sensing_method": "Thermocouple",
       "site": "Lower back",
       "count": 2
     },
@@ -1516,7 +1672,7 @@
       "signal": "Skin temperature",
       "sensing_method": "Thermocouple",
       "site": "Upper arm",
-      "count": 38
+      "count": 34
     },
     {
       "signal": "Skin temperature",

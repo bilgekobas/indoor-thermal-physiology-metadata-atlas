@@ -692,7 +692,7 @@ export default function ChapterBody({ data }) {
         <FigureCard title="Where on the body each signal is measured" plotWidth={900} commentary="Skin temperature is measured across the body fairly evenly (no single dominant site). Heart rate concentrates at the chest (44 of 99 studies, ECG-strap territory) and wrist (25, optical wearables). The sudomotor signals split sharply by method: 27 sweat-indicator studies measure the whole body at once (not shown on the diagram, see the list at right), while skin conductance is almost always local — 11 studies at the wrist, 9 at the finger.">
           <BodySiteToggle
             skinTempSites={skintemp_sites.site_totals}
-            skinTempN={218}
+            skinTempN={skintemp_sites.n_studies_with_site}
             hrSites={site_by_signal['Heart/Pulse rate'].site_totals}
             hrN={site_by_signal['Heart/Pulse rate'].n_studies_with_site}
             sudomotorSites={site_by_signal['Sudomotor (combined)'].site_totals}
@@ -712,7 +712,7 @@ export default function ChapterBody({ data }) {
 
       <ChapterSection
         title="Skin temperature body sites"
-        intro="Where on the body skin temperature is measured, and how that has shifted across the decade — consolidated from 23 raw terminology variants (e.g. calf/shin → lower leg)."
+        intro="Where on the body skin temperature is measured, and how that has shifted across the decade. Only near-synonymous labels are collapsed (e.g. calf/shin → lower leg); distinct face sub-sites remain separate."
       >
         <FigureCard title="Site prevalence by period" plotWidth={980} commentary="Lower leg is the single most-measured site (136 of 218 skin-temperature studies, 62%), followed closely by hand, thigh, chest, and forehead (all 123–130 studies). No one site is measured in every study — choice of body site is still inconsistent across the field.">
           <PeriodHeatmap

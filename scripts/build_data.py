@@ -146,12 +146,16 @@ with open(OUT_DIR / 'physio_signal_sensor.json', 'w') as f:
     }, f, indent=2, default=str)
 print(f'physio_signal_sensor.json written: {len(signal_sensor_counts)} signal-sensor pairs')
 
-# ── 5. Skin temperature body sites (merged) — prevalence by period ────────
+# ── 5. Skin temperature body sites — prevalence by period ─────────────────
+# Only collapse near-synonymous anatomical labels. We deliberately keep
+# face sub-sites (cheek, earlobe, temple, forehead, etc.) separate so the
+# atlas never implies a more generic location than the paper actually used.
 SITE_MERGE = {
-    'Lower arm':'Forearm','Calf':'Lower leg','Shin':'Lower leg','Arm':'Upper arm',
-    'Leg':'Thigh','Lumbar':'Lower back','Lower back':'Lower back','Scapula':'Back',
-    'Cheek':'Face','Nose':'Face','Chin':'Face','Mouth':'Face','Temple':'Face',
-    'Ear':'Face','Head':'Face','Eye':'Face','Earlobe':'Face',
+    'Lower arm':'Forearm',
+    'Calf':'Lower leg',
+    'Shin':'Lower leg',
+    'Lumbar':'Lower back',
+    'Scapula':'Back',
 }
 skin = df[df['physio-parameter']=='Skin temperature'][['id','period','physio-body-site']].copy()
 skin = skin[~skin['physio-body-site'].isin(CODES)]
@@ -169,10 +173,11 @@ with open(OUT_DIR / 'skintemp_sites.json', 'w') as f:
     json.dump({
         'site_period_counts': site_period_counts.to_dict('records'),
         'site_totals': site_totals.to_dict('records'),
+        'n_studies_with_site': int(skin_dedup['id'].nunique()),
         'period_n': period_study_n.to_dict('records'),
         'periods': [b[2] for b in BINS],
     }, f, indent=2, default=str)
-print(f'skintemp_sites.json written: {len(site_totals)} merged sites')
+print(f'skintemp_sites.json written: {len(site_totals)} sites')
 
 # ── 6. MST: calculated Y/N/NR by period, points, formula ──────────────────
 studies_mst = df.drop_duplicates(subset=['id'])[
@@ -1374,10 +1379,10 @@ print(f'sample_size_by_country.json: {len(country_stats)} countries with >=3 stu
 # Generalizes the skin-temperature site-prevalence treatment (Ch.3) to three
 # more signals where measurement site reflects a real methodological choice
 # (sensor modality for heart rate; electrode placement convention for skin
-# conductance; whole-body vs. local method for sweat). The same SITE_MERGE
-# consolidation used for skin temperature (Calf/Shin->Lower leg, Ear->Face,
-# etc.) is applied here too, since those are genuine anatomical synonyms
-# regardless of which signal is being measured.
+# conductance; whole-body vs. local method for sweat). We only collapse near-
+# synonymous anatomical labels (e.g. calf/shin -> lower leg); distinct face
+# sub-sites stay distinct so the figure never claims a signal was measured on
+# the generic 'face' when the paper actually reported earlobe, temple, etc.
 #
 # A few raw labels are NOT anatomical locations and can't be placed on a
 # body diagram: 'Whole body' (a measurement method, not a site — almost all

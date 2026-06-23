@@ -56,6 +56,31 @@
       "count": 3
     },
     {
+      "site": "Arm",
+      "period": "2013\u201314",
+      "count": 2
+    },
+    {
+      "site": "Arm",
+      "period": "2015\u201316",
+      "count": 2
+    },
+    {
+      "site": "Arm",
+      "period": "2019\u201320",
+      "count": 1
+    },
+    {
+      "site": "Arm",
+      "period": "2021\u201322",
+      "count": 2
+    },
+    {
+      "site": "Arm",
+      "period": "2023\u201324",
+      "count": 4
+    },
+    {
       "site": "Axilla",
       "period": "2013\u201314",
       "count": 1
@@ -101,6 +126,36 @@
       "count": 3
     },
     {
+      "site": "Cheek",
+      "period": "2013\u201314",
+      "count": 1
+    },
+    {
+      "site": "Cheek",
+      "period": "2015\u201316",
+      "count": 1
+    },
+    {
+      "site": "Cheek",
+      "period": "2017\u201318",
+      "count": 3
+    },
+    {
+      "site": "Cheek",
+      "period": "2019\u201320",
+      "count": 4
+    },
+    {
+      "site": "Cheek",
+      "period": "2021\u201322",
+      "count": 7
+    },
+    {
+      "site": "Cheek",
+      "period": "2023\u201324",
+      "count": 6
+    },
+    {
       "site": "Chest",
       "period": "2013\u201314",
       "count": 9
@@ -131,8 +186,48 @@
       "count": 26
     },
     {
+      "site": "Chin",
+      "period": "2021\u201322",
+      "count": 3
+    },
+    {
+      "site": "Chin",
+      "period": "2023\u201324",
+      "count": 1
+    },
+    {
       "site": "Clavicle",
       "period": "2021\u201322",
+      "count": 1
+    },
+    {
+      "site": "Ear",
+      "period": "2015\u201316",
+      "count": 1
+    },
+    {
+      "site": "Ear",
+      "period": "2017\u201318",
+      "count": 2
+    },
+    {
+      "site": "Ear",
+      "period": "2019\u201320",
+      "count": 2
+    },
+    {
+      "site": "Ear",
+      "period": "2021\u201322",
+      "count": 2
+    },
+    {
+      "site": "Ear",
+      "period": "2023\u201324",
+      "count": 1
+    },
+    {
+      "site": "Earlobe",
+      "period": "2023\u201324",
       "count": 1
     },
     {
@@ -156,34 +251,24 @@
       "count": 1
     },
     {
-      "site": "Face",
-      "period": "2013\u201314",
-      "count": 4
-    },
-    {
-      "site": "Face",
-      "period": "2015\u201316",
+      "site": "Eye",
+      "period": "2021\u201322",
       "count": 1
     },
     {
       "site": "Face",
       "period": "2017\u201318",
-      "count": 5
+      "count": 2
     },
     {
       "site": "Face",
       "period": "2019\u201320",
-      "count": 13
+      "count": 5
     },
     {
       "site": "Face",
       "period": "2021\u201322",
-      "count": 14
-    },
-    {
-      "site": "Face",
-      "period": "2023\u201324",
-      "count": 9
+      "count": 2
     },
     {
       "site": "Finger",
@@ -336,6 +421,36 @@
       "count": 24
     },
     {
+      "site": "Head",
+      "period": "2013\u201314",
+      "count": 2
+    },
+    {
+      "site": "Head",
+      "period": "2017\u201318",
+      "count": 1
+    },
+    {
+      "site": "Head",
+      "period": "2019\u201320",
+      "count": 1
+    },
+    {
+      "site": "Leg",
+      "period": "2013\u201314",
+      "count": 1
+    },
+    {
+      "site": "Leg",
+      "period": "2017\u201318",
+      "count": 1
+    },
+    {
+      "site": "Leg",
+      "period": "2019\u201320",
+      "count": 1
+    },
+    {
       "site": "Lower back",
       "period": "2013\u201314",
       "count": 4
@@ -386,6 +501,21 @@
       "count": 27
     },
     {
+      "site": "Mouth",
+      "period": "2017\u201318",
+      "count": 1
+    },
+    {
+      "site": "Mouth",
+      "period": "2019\u201320",
+      "count": 1
+    },
+    {
+      "site": "Mouth",
+      "period": "2021\u201322",
+      "count": 1
+    },
+    {
       "site": "Neck",
       "period": "2013\u201314",
       "count": 3
@@ -416,6 +546,36 @@
       "count": 3
     },
     {
+      "site": "Nose",
+      "period": "2013\u201314",
+      "count": 1
+    },
+    {
+      "site": "Nose",
+      "period": "2015\u201316",
+      "count": 1
+    },
+    {
+      "site": "Nose",
+      "period": "2017\u201318",
+      "count": 2
+    },
+    {
+      "site": "Nose",
+      "period": "2019\u201320",
+      "count": 2
+    },
+    {
+      "site": "Nose",
+      "period": "2021\u201322",
+      "count": 3
+    },
+    {
+      "site": "Nose",
+      "period": "2023\u201324",
+      "count": 3
+    },
+    {
       "site": "Shoulder",
       "period": "2017\u201318",
       "count": 1
@@ -424,6 +584,21 @@
       "site": "Sole",
       "period": "2017\u201318",
       "count": 1
+    },
+    {
+      "site": "Temple",
+      "period": "2019\u201320",
+      "count": 3
+    },
+    {
+      "site": "Temple",
+      "period": "2021\u201322",
+      "count": 6
+    },
+    {
+      "site": "Temple",
+      "period": "2023\u201324",
+      "count": 3
     },
     {
       "site": "Thigh",
@@ -458,12 +633,12 @@
     {
       "site": "Upper arm",
       "period": "2013\u201314",
-      "count": 10
+      "count": 8
     },
     {
       "site": "Upper arm",
       "period": "2015\u201316",
-      "count": 7
+      "count": 5
     },
     {
       "site": "Upper arm",
@@ -473,17 +648,17 @@
     {
       "site": "Upper arm",
       "period": "2019\u201320",
-      "count": 18
+      "count": 17
     },
     {
       "site": "Upper arm",
       "period": "2021\u201322",
-      "count": 39
+      "count": 37
     },
     {
       "site": "Upper arm",
       "period": "2023\u201324",
-      "count": 23
+      "count": 19
     },
     {
       "site": "Waist",
@@ -544,7 +719,7 @@
     },
     {
       "site": "Upper arm",
-      "total": 114
+      "total": 103
     },
     {
       "site": "Forearm",
@@ -563,10 +738,6 @@
       "total": 49
     },
     {
-      "site": "Face",
-      "total": 46
-    },
-    {
       "site": "Abdomen",
       "total": 42
     },
@@ -575,8 +746,24 @@
       "total": 30
     },
     {
+      "site": "Cheek",
+      "total": 22
+    },
+    {
       "site": "Finger",
       "total": 19
+    },
+    {
+      "site": "Nose",
+      "total": 12
+    },
+    {
+      "site": "Temple",
+      "total": 12
+    },
+    {
+      "site": "Arm",
+      "total": 11
     },
     {
       "site": "Ankle",
@@ -587,12 +774,40 @@
       "total": 10
     },
     {
+      "site": "Face",
+      "total": 9
+    },
+    {
+      "site": "Ear",
+      "total": 8
+    },
+    {
       "site": "Elbow",
       "total": 5
     },
     {
+      "site": "Chin",
+      "total": 4
+    },
+    {
       "site": "Buttocks",
       "total": 4
+    },
+    {
+      "site": "Head",
+      "total": 4
+    },
+    {
+      "site": "Mouth",
+      "total": 3
+    },
+    {
+      "site": "Leg",
+      "total": 3
+    },
+    {
+      "site": "Eye",
+      "total": 1
     },
     {
       "site": "Clavicle",
@@ -613,8 +828,13 @@
     {
       "site": "Axilla",
       "total": 1
+    },
+    {
+      "site": "Earlobe",
+      "total": 1
     }
   ],
+  "n_studies_with_site": 218,
   "period_n": [
     {
       "period": "2013\u201314",

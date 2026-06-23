@@ -22,8 +22,8 @@
         "non_anatomical": false
       },
       {
-        "site": "Face",
-        "count": 6,
+        "site": "Ear",
+        "count": 4,
         "non_anatomical": false
       },
       {
@@ -32,7 +32,17 @@
         "non_anatomical": true
       },
       {
+        "site": "Earlobe",
+        "count": 1,
+        "non_anatomical": false
+      },
+      {
         "site": "Hand",
+        "count": 1,
+        "non_anatomical": false
+      },
+      {
+        "site": "Cheek",
         "count": 1,
         "non_anatomical": false
       }
@@ -40,6 +50,11 @@
     "n_studies_with_site": 100,
     "by_period": {
       "data": [
+        {
+          "site": "Cheek",
+          "period": "2017\u201318",
+          "count": 1
+        },
         {
           "site": "Chest",
           "period": "2015\u201316",
@@ -66,19 +81,19 @@
           "count": 13
         },
         {
-          "site": "Face",
-          "period": "2017\u201318",
+          "site": "Ear",
+          "period": "2019\u201320",
           "count": 1
         },
         {
-          "site": "Face",
-          "period": "2019\u201320",
-          "count": 2
-        },
-        {
-          "site": "Face",
+          "site": "Ear",
           "period": "2021\u201322",
           "count": 3
+        },
+        {
+          "site": "Earlobe",
+          "period": "2019\u201320",
+          "count": 1
         },
         {
           "site": "Finger",
@@ -207,7 +222,7 @@
         "non_anatomical": false
       },
       {
-        "site": "Face",
+        "site": "Temple",
         "count": 2,
         "non_anatomical": false
       },
@@ -257,7 +272,7 @@
         "non_anatomical": true
       },
       {
-        "site": "Face",
+        "site": "Temple",
         "count": 1,
         "non_anatomical": false
       },
@@ -267,7 +282,7 @@
         "non_anatomical": false
       },
       {
-        "site": "Upper arm",
+        "site": "Arm",
         "count": 1,
         "non_anatomical": false
       },
@@ -332,7 +347,7 @@
         }
       },
       {
-        "site": "Face",
+        "site": "Temple",
         "count": 3,
         "non_anatomical": false,
         "by_signal": {
@@ -350,7 +365,7 @@
         }
       },
       {
-        "site": "Upper arm",
+        "site": "Back",
         "count": 2,
         "non_anatomical": false,
         "by_signal": {
@@ -359,12 +374,11 @@
         }
       },
       {
-        "site": "Back",
-        "count": 2,
+        "site": "Upper arm",
+        "count": 1,
         "non_anatomical": false,
         "by_signal": {
-          "Skin conductance": 1,
-          "Sweat indicators": 1
+          "Skin conductance": 1
         }
       },
       {
@@ -379,6 +393,14 @@
         "site": "Urine",
         "count": 1,
         "non_anatomical": true,
+        "by_signal": {
+          "Sweat indicators": 1
+        }
+      },
+      {
+        "site": "Arm",
+        "count": 1,
+        "non_anatomical": false,
         "by_signal": {
           "Sweat indicators": 1
         }

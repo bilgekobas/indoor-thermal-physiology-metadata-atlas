@@ -6,19 +6,7 @@
       "median": 24.0,
       "mean": 56.12328767123287,
       "min": 2.0,
-      "max": 2110.0,
-      "sample_total": 8194.0,
-      "sample_pct": 68.14703925482368
-    },
-    {
-      "country": "Republic of Korea",
-      "count": 15,
-      "median": 30.0,
-      "mean": 36.2,
-      "min": 7.0,
-      "max": 141.0,
-      "sample_total": 543.0,
-      "sample_pct": 4.515968063872256
+      "max": 2110.0
     },
     {
       "country": "USA",
@@ -26,59 +14,15 @@
       "median": 16.0,
       "mean": 23.17391304347826,
       "min": 10.0,
-      "max": 86.0,
-      "sample_total": 533.0,
-      "sample_pct": 4.432801064537592
+      "max": 86.0
     },
     {
-      "country": "Brazil",
-      "count": 3,
-      "median": 82.0,
-      "mean": 156.66666666666666,
-      "min": 28.0,
-      "max": 360.0,
-      "sample_total": 470.0,
-      "sample_pct": 3.9088489687292083
-    },
-    {
-      "country": "Iran",
-      "count": 4,
+      "country": "Republic of Korea",
+      "count": 15,
       "median": 30.0,
-      "mean": 72.25,
-      "min": 24.0,
-      "max": 205.0,
-      "sample_total": 289.0,
-      "sample_pct": 2.4035262807717896
-    },
-    {
-      "country": "Italy",
-      "count": 9,
-      "median": 20.0,
-      "mean": 28.555555555555557,
-      "min": 8.0,
-      "max": 76.0,
-      "sample_total": 257.0,
-      "sample_pct": 2.137391882900865
-    },
-    {
-      "country": "Singapore",
-      "count": 9,
-      "median": 20.0,
-      "mean": 27.444444444444443,
-      "min": 10.0,
-      "max": 89.0,
-      "sample_total": 247.0,
-      "sample_pct": 2.054224883566201
-    },
-    {
-      "country": "Turkey",
-      "count": 1,
-      "median": 216.0,
-      "mean": 216.0,
-      "min": 216.0,
-      "max": 216.0,
-      "sample_total": 216.0,
-      "sample_pct": 1.7964071856287425
+      "mean": 36.2,
+      "min": 7.0,
+      "max": 141.0
     },
     {
       "country": "Japan",
@@ -86,19 +30,23 @@
       "median": 17.0,
       "mean": 15.090909090909092,
       "min": 8.0,
-      "max": 24.0,
-      "sample_total": 166.0,
-      "sample_pct": 1.3805721889554226
+      "max": 24.0
     },
     {
-      "country": "Switzerland",
-      "count": 3,
-      "median": 75.0,
-      "mean": 55.0,
-      "min": 6.0,
-      "max": 84.0,
-      "sample_total": 165.0,
-      "sample_pct": 1.372255489021956
+      "country": "Italy",
+      "count": 9,
+      "median": 20.0,
+      "mean": 28.555555555555557,
+      "min": 8.0,
+      "max": 76.0
+    },
+    {
+      "country": "Singapore",
+      "count": 9,
+      "median": 20.0,
+      "mean": 27.444444444444443,
+      "min": 10.0,
+      "max": 89.0
     },
     {
       "country": "Denmark",
@@ -106,9 +54,7 @@
       "median": 25.0,
       "mean": 21.142857142857142,
       "min": 12.0,
-      "max": 25.0,
-      "sample_total": 148.0,
-      "sample_pct": 1.2308715901530274
+      "max": 25.0
     },
     {
       "country": "Germany",
@@ -116,9 +62,7 @@
       "median": 31.0,
       "mean": 24.8,
       "min": 5.0,
-      "max": 48.0,
-      "sample_total": 124.0,
-      "sample_pct": 1.0312707917498336
+      "max": 48.0
     },
     {
       "country": "Netherlands",
@@ -126,9 +70,15 @@
       "median": 20.0,
       "mean": 23.0,
       "min": 16.0,
-      "max": 43.0,
-      "sample_total": 115.0,
-      "sample_pct": 0.956420492348636
+      "max": 43.0
+    },
+    {
+      "country": "Iran",
+      "count": 4,
+      "median": 30.0,
+      "mean": 72.25,
+      "min": 24.0,
+      "max": 205.0
     },
     {
       "country": "Australia",
@@ -136,9 +86,23 @@
       "median": 22.0,
       "mean": 28.25,
       "min": 13.0,
-      "max": 56.0,
-      "sample_total": 113.0,
-      "sample_pct": 0.9397870924817033
+      "max": 56.0
+    },
+    {
+      "country": "Brazil",
+      "count": 3,
+      "median": 82.0,
+      "mean": 156.66666666666666,
+      "min": 28.0,
+      "max": 360.0
+    },
+    {
+      "country": "Switzerland",
+      "count": 3,
+      "median": 75.0,
+      "mean": 55.0,
+      "min": 6.0,
+      "max": 84.0
     }
   ],
   "studies": [
@@ -486,11 +450,6 @@
       "id": "71_2",
       "country": "Republic of Korea",
       "n": 66.0
-    },
-    {
-      "id": "72_1",
-      "country": "Turkey",
-      "n": 216.0
     },
     {
       "id": "73_1",
@@ -1368,10 +1327,5 @@
       "n": 12.0
     }
   ],
-  "min_count_threshold": 3,
-  "sample_share_threshold": 1.0,
-  "selection_rule": "countries with at least 3 studies or at least 1% of the total participant sample",
-  "total_sample_size_all_countries": 12024.0,
-  "n_countries_all": 26,
-  "n_countries_shown": 14
+  "min_count_threshold": 3
 }
