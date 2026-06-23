@@ -199,7 +199,7 @@ function ClimateTempChart({ studies, climateCounts, tempRanges }) {
                   <line x1={xScale(stats.med) + LABEL_W} x2={xScale(stats.med) + LABEL_W} y1={yCenter - 9} y2={yCenter + 9} stroke="#0A0A0A" strokeWidth={1.35} />
                   <line x1={xScale(stats.q3) + LABEL_W} x2={xScale(stats.q3) + LABEL_W} y1={yCenter - 8} y2={yCenter + 8} stroke="#0A0A0A" strokeWidth={0.9} opacity={0.65} />
                   {stats.outliers.map((temp, oi) => (
-                    <circle key={`out-${row.climate}-${oi}`} cx={xScale(temp) + LABEL_W} cy={yCenter} r={3.4} fill="none" stroke="#FB3640" strokeWidth={1.2}
+                    <circle key={`out-${row.climate}-${oi}`} cx={xScale(temp) + LABEL_W} cy={yCenter} r={2.8} fill="#0A0A0A" opacity={0.9}
                       onMouseEnter={(e) => showTip(e, `${row.climate}: ${temp}°C outlier (>1.5×IQR)`)} onMouseMove={moveTip} onMouseLeave={hideTip} />
                   ))}
                 </g>
@@ -209,7 +209,7 @@ function ClimateTempChart({ studies, climateCounts, tempRanges }) {
         })}
       </svg>
       <div className="font-data text-[10px] text-inkfaint mt-2">
-        Violin width shows the density of reported tested temperature values within each host-climate row. Low-opacity points are individual temperature values; open red circles are 1.5×IQR outliers. The boxplot is unfilled so the violin remains visible. Negative tested temperatures are retained as coded and listed in public/data/tested_temperature_negative_values.csv for checking.
+        Violin width shows the density of reported tested temperature values within each host-climate row. Low-opacity points are individual temperature values; darker black points are 1.5×IQR outliers. The boxplot is unfilled so the violin remains visible. Negative tested temperatures are retained as coded and listed in public/data/tested_temperature_negative_values.csv for checking.
       </div>
       <TooltipPortal tip={tip} />
     </div>

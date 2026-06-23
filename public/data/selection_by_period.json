@@ -57,6 +57,153 @@
       "n": 11
     },
     {
+      "period": "2013\u201314",
+      "field": "BMI range",
+      "pct": 9.1,
+      "count": 1,
+      "n": 11
+    },
+    {
+      "period": "2013\u201314",
+      "field": "No active/recent illness",
+      "pct": 9.1,
+      "count": 1,
+      "n": 11
+    },
+    {
+      "period": "2013\u201314",
+      "field": "No immune-related disease",
+      "pct": 9.1,
+      "count": 1,
+      "n": 11
+    },
+    {
+      "period": "2013\u201314",
+      "field": "Language skills",
+      "pct": 0.0,
+      "count": 0,
+      "n": 11
+    },
+    {
+      "period": "2013\u201314",
+      "field": "No neuro disease",
+      "pct": 0.0,
+      "count": 0,
+      "n": 11
+    },
+    {
+      "period": "2013\u201314",
+      "field": "Alcohol",
+      "pct": 0.0,
+      "count": 0,
+      "n": 11
+    },
+    {
+      "period": "2013\u201314",
+      "field": "No metabolic syndrome",
+      "pct": 0.0,
+      "count": 0,
+      "n": 11
+    },
+    {
+      "period": "2013\u201314",
+      "field": "Activity level",
+      "pct": 18.2,
+      "count": 2,
+      "n": 11
+    },
+    {
+      "period": "2013\u201314",
+      "field": "Chronotype",
+      "pct": 0.0,
+      "count": 0,
+      "n": 11
+    },
+    {
+      "period": "2013\u201314",
+      "field": "Dominant hand",
+      "pct": 0.0,
+      "count": 0,
+      "n": 11
+    },
+    {
+      "period": "2013\u201314",
+      "field": "No previous knowledge",
+      "pct": 0.0,
+      "count": 0,
+      "n": 11
+    },
+    {
+      "period": "2013\u201314",
+      "field": "Neurodivergent",
+      "pct": 0.0,
+      "count": 0,
+      "n": 11
+    },
+    {
+      "period": "2013\u201314",
+      "field": "Hearing",
+      "pct": 0.0,
+      "count": 0,
+      "n": 11
+    },
+    {
+      "period": "2013\u201314",
+      "field": "Emotionally stable",
+      "pct": 0.0,
+      "count": 0,
+      "n": 11
+    },
+    {
+      "period": "2013\u201314",
+      "field": "Contraceptive type",
+      "pct": 9.1,
+      "count": 1,
+      "n": 11
+    },
+    {
+      "period": "2013\u201314",
+      "field": "Pregnancy",
+      "pct": 0.0,
+      "count": 0,
+      "n": 11
+    },
+    {
+      "period": "2013\u201314",
+      "field": "Thermal sensitivity",
+      "pct": 0.0,
+      "count": 0,
+      "n": 11
+    },
+    {
+      "period": "2013\u201314",
+      "field": "Diet/weight change",
+      "pct": 0.0,
+      "count": 0,
+      "n": 11
+    },
+    {
+      "period": "2013\u201314",
+      "field": "No medical implant",
+      "pct": 0.0,
+      "count": 0,
+      "n": 11
+    },
+    {
+      "period": "2013\u201314",
+      "field": "Menopause",
+      "pct": 0.0,
+      "count": 0,
+      "n": 11
+    },
+    {
+      "period": "2013\u201314",
+      "field": "Hormone therapy",
+      "pct": 0.0,
+      "count": 0,
+      "n": 11
+    },
+    {
       "period": "2015\u201316",
       "field": "Healthy",
       "pct": 53.3,
@@ -110,6 +257,153 @@
       "field": "Sex",
       "pct": 20.0,
       "count": 3,
+      "n": 15
+    },
+    {
+      "period": "2015\u201316",
+      "field": "BMI range",
+      "pct": 13.3,
+      "count": 2,
+      "n": 15
+    },
+    {
+      "period": "2015\u201316",
+      "field": "No active/recent illness",
+      "pct": 6.7,
+      "count": 1,
+      "n": 15
+    },
+    {
+      "period": "2015\u201316",
+      "field": "No immune-related disease",
+      "pct": 13.3,
+      "count": 2,
+      "n": 15
+    },
+    {
+      "period": "2015\u201316",
+      "field": "Language skills",
+      "pct": 0.0,
+      "count": 0,
+      "n": 15
+    },
+    {
+      "period": "2015\u201316",
+      "field": "No neuro disease",
+      "pct": 6.7,
+      "count": 1,
+      "n": 15
+    },
+    {
+      "period": "2015\u201316",
+      "field": "Alcohol",
+      "pct": 0.0,
+      "count": 0,
+      "n": 15
+    },
+    {
+      "period": "2015\u201316",
+      "field": "No metabolic syndrome",
+      "pct": 0.0,
+      "count": 0,
+      "n": 15
+    },
+    {
+      "period": "2015\u201316",
+      "field": "Activity level",
+      "pct": 0.0,
+      "count": 0,
+      "n": 15
+    },
+    {
+      "period": "2015\u201316",
+      "field": "Chronotype",
+      "pct": 0.0,
+      "count": 0,
+      "n": 15
+    },
+    {
+      "period": "2015\u201316",
+      "field": "Dominant hand",
+      "pct": 0.0,
+      "count": 0,
+      "n": 15
+    },
+    {
+      "period": "2015\u201316",
+      "field": "No previous knowledge",
+      "pct": 6.7,
+      "count": 1,
+      "n": 15
+    },
+    {
+      "period": "2015\u201316",
+      "field": "Neurodivergent",
+      "pct": 0.0,
+      "count": 0,
+      "n": 15
+    },
+    {
+      "period": "2015\u201316",
+      "field": "Hearing",
+      "pct": 0.0,
+      "count": 0,
+      "n": 15
+    },
+    {
+      "period": "2015\u201316",
+      "field": "Emotionally stable",
+      "pct": 0.0,
+      "count": 0,
+      "n": 15
+    },
+    {
+      "period": "2015\u201316",
+      "field": "Contraceptive type",
+      "pct": 6.7,
+      "count": 1,
+      "n": 15
+    },
+    {
+      "period": "2015\u201316",
+      "field": "Pregnancy",
+      "pct": 0.0,
+      "count": 0,
+      "n": 15
+    },
+    {
+      "period": "2015\u201316",
+      "field": "Thermal sensitivity",
+      "pct": 0.0,
+      "count": 0,
+      "n": 15
+    },
+    {
+      "period": "2015\u201316",
+      "field": "Diet/weight change",
+      "pct": 0.0,
+      "count": 0,
+      "n": 15
+    },
+    {
+      "period": "2015\u201316",
+      "field": "No medical implant",
+      "pct": 0.0,
+      "count": 0,
+      "n": 15
+    },
+    {
+      "period": "2015\u201316",
+      "field": "Menopause",
+      "pct": 0.0,
+      "count": 0,
+      "n": 15
+    },
+    {
+      "period": "2015\u201316",
+      "field": "Hormone therapy",
+      "pct": 0.0,
+      "count": 0,
       "n": 15
     },
     {
@@ -169,6 +463,153 @@
       "n": 47
     },
     {
+      "period": "2017\u201318",
+      "field": "BMI range",
+      "pct": 12.8,
+      "count": 6,
+      "n": 47
+    },
+    {
+      "period": "2017\u201318",
+      "field": "No active/recent illness",
+      "pct": 6.4,
+      "count": 3,
+      "n": 47
+    },
+    {
+      "period": "2017\u201318",
+      "field": "No immune-related disease",
+      "pct": 6.4,
+      "count": 3,
+      "n": 47
+    },
+    {
+      "period": "2017\u201318",
+      "field": "Language skills",
+      "pct": 4.3,
+      "count": 2,
+      "n": 47
+    },
+    {
+      "period": "2017\u201318",
+      "field": "No neuro disease",
+      "pct": 4.3,
+      "count": 2,
+      "n": 47
+    },
+    {
+      "period": "2017\u201318",
+      "field": "Alcohol",
+      "pct": 6.4,
+      "count": 3,
+      "n": 47
+    },
+    {
+      "period": "2017\u201318",
+      "field": "No metabolic syndrome",
+      "pct": 2.1,
+      "count": 1,
+      "n": 47
+    },
+    {
+      "period": "2017\u201318",
+      "field": "Activity level",
+      "pct": 0.0,
+      "count": 0,
+      "n": 47
+    },
+    {
+      "period": "2017\u201318",
+      "field": "Chronotype",
+      "pct": 2.1,
+      "count": 1,
+      "n": 47
+    },
+    {
+      "period": "2017\u201318",
+      "field": "Dominant hand",
+      "pct": 2.1,
+      "count": 1,
+      "n": 47
+    },
+    {
+      "period": "2017\u201318",
+      "field": "No previous knowledge",
+      "pct": 2.1,
+      "count": 1,
+      "n": 47
+    },
+    {
+      "period": "2017\u201318",
+      "field": "Neurodivergent",
+      "pct": 4.3,
+      "count": 2,
+      "n": 47
+    },
+    {
+      "period": "2017\u201318",
+      "field": "Hearing",
+      "pct": 0.0,
+      "count": 0,
+      "n": 47
+    },
+    {
+      "period": "2017\u201318",
+      "field": "Emotionally stable",
+      "pct": 0.0,
+      "count": 0,
+      "n": 47
+    },
+    {
+      "period": "2017\u201318",
+      "field": "Contraceptive type",
+      "pct": 0.0,
+      "count": 0,
+      "n": 47
+    },
+    {
+      "period": "2017\u201318",
+      "field": "Pregnancy",
+      "pct": 2.1,
+      "count": 1,
+      "n": 47
+    },
+    {
+      "period": "2017\u201318",
+      "field": "Thermal sensitivity",
+      "pct": 0.0,
+      "count": 0,
+      "n": 47
+    },
+    {
+      "period": "2017\u201318",
+      "field": "Diet/weight change",
+      "pct": 0.0,
+      "count": 0,
+      "n": 47
+    },
+    {
+      "period": "2017\u201318",
+      "field": "No medical implant",
+      "pct": 0.0,
+      "count": 0,
+      "n": 47
+    },
+    {
+      "period": "2017\u201318",
+      "field": "Menopause",
+      "pct": 0.0,
+      "count": 0,
+      "n": 47
+    },
+    {
+      "period": "2017\u201318",
+      "field": "Hormone therapy",
+      "pct": 0.0,
+      "count": 0,
+      "n": 47
+    },
+    {
       "period": "2019\u201320",
       "field": "Healthy",
       "pct": 68.3,
@@ -222,6 +663,153 @@
       "field": "Sex",
       "pct": 9.5,
       "count": 6,
+      "n": 63
+    },
+    {
+      "period": "2019\u201320",
+      "field": "BMI range",
+      "pct": 9.5,
+      "count": 6,
+      "n": 63
+    },
+    {
+      "period": "2019\u201320",
+      "field": "No active/recent illness",
+      "pct": 4.8,
+      "count": 3,
+      "n": 63
+    },
+    {
+      "period": "2019\u201320",
+      "field": "No immune-related disease",
+      "pct": 6.3,
+      "count": 4,
+      "n": 63
+    },
+    {
+      "period": "2019\u201320",
+      "field": "Language skills",
+      "pct": 6.3,
+      "count": 4,
+      "n": 63
+    },
+    {
+      "period": "2019\u201320",
+      "field": "No neuro disease",
+      "pct": 9.5,
+      "count": 6,
+      "n": 63
+    },
+    {
+      "period": "2019\u201320",
+      "field": "Alcohol",
+      "pct": 7.9,
+      "count": 5,
+      "n": 63
+    },
+    {
+      "period": "2019\u201320",
+      "field": "No metabolic syndrome",
+      "pct": 1.6,
+      "count": 1,
+      "n": 63
+    },
+    {
+      "period": "2019\u201320",
+      "field": "Activity level",
+      "pct": 0.0,
+      "count": 0,
+      "n": 63
+    },
+    {
+      "period": "2019\u201320",
+      "field": "Chronotype",
+      "pct": 3.2,
+      "count": 2,
+      "n": 63
+    },
+    {
+      "period": "2019\u201320",
+      "field": "Dominant hand",
+      "pct": 3.2,
+      "count": 2,
+      "n": 63
+    },
+    {
+      "period": "2019\u201320",
+      "field": "No previous knowledge",
+      "pct": 0.0,
+      "count": 0,
+      "n": 63
+    },
+    {
+      "period": "2019\u201320",
+      "field": "Neurodivergent",
+      "pct": 0.0,
+      "count": 0,
+      "n": 63
+    },
+    {
+      "period": "2019\u201320",
+      "field": "Hearing",
+      "pct": 3.2,
+      "count": 2,
+      "n": 63
+    },
+    {
+      "period": "2019\u201320",
+      "field": "Emotionally stable",
+      "pct": 0.0,
+      "count": 0,
+      "n": 63
+    },
+    {
+      "period": "2019\u201320",
+      "field": "Contraceptive type",
+      "pct": 0.0,
+      "count": 0,
+      "n": 63
+    },
+    {
+      "period": "2019\u201320",
+      "field": "Pregnancy",
+      "pct": 0.0,
+      "count": 0,
+      "n": 63
+    },
+    {
+      "period": "2019\u201320",
+      "field": "Thermal sensitivity",
+      "pct": 3.2,
+      "count": 2,
+      "n": 63
+    },
+    {
+      "period": "2019\u201320",
+      "field": "Diet/weight change",
+      "pct": 1.6,
+      "count": 1,
+      "n": 63
+    },
+    {
+      "period": "2019\u201320",
+      "field": "No medical implant",
+      "pct": 0.0,
+      "count": 0,
+      "n": 63
+    },
+    {
+      "period": "2019\u201320",
+      "field": "Menopause",
+      "pct": 0.0,
+      "count": 0,
+      "n": 63
+    },
+    {
+      "period": "2019\u201320",
+      "field": "Hormone therapy",
+      "pct": 0.0,
+      "count": 0,
       "n": 63
     },
     {
@@ -281,6 +869,153 @@
       "n": 79
     },
     {
+      "period": "2021\u201322",
+      "field": "BMI range",
+      "pct": 6.3,
+      "count": 5,
+      "n": 79
+    },
+    {
+      "period": "2021\u201322",
+      "field": "No active/recent illness",
+      "pct": 7.6,
+      "count": 6,
+      "n": 79
+    },
+    {
+      "period": "2021\u201322",
+      "field": "No immune-related disease",
+      "pct": 8.9,
+      "count": 7,
+      "n": 79
+    },
+    {
+      "period": "2021\u201322",
+      "field": "Language skills",
+      "pct": 6.3,
+      "count": 5,
+      "n": 79
+    },
+    {
+      "period": "2021\u201322",
+      "field": "No neuro disease",
+      "pct": 7.6,
+      "count": 6,
+      "n": 79
+    },
+    {
+      "period": "2021\u201322",
+      "field": "Alcohol",
+      "pct": 5.1,
+      "count": 4,
+      "n": 79
+    },
+    {
+      "period": "2021\u201322",
+      "field": "No metabolic syndrome",
+      "pct": 3.8,
+      "count": 3,
+      "n": 79
+    },
+    {
+      "period": "2021\u201322",
+      "field": "Activity level",
+      "pct": 6.3,
+      "count": 5,
+      "n": 79
+    },
+    {
+      "period": "2021\u201322",
+      "field": "Chronotype",
+      "pct": 2.5,
+      "count": 2,
+      "n": 79
+    },
+    {
+      "period": "2021\u201322",
+      "field": "Dominant hand",
+      "pct": 3.8,
+      "count": 3,
+      "n": 79
+    },
+    {
+      "period": "2021\u201322",
+      "field": "No previous knowledge",
+      "pct": 1.3,
+      "count": 1,
+      "n": 79
+    },
+    {
+      "period": "2021\u201322",
+      "field": "Neurodivergent",
+      "pct": 2.5,
+      "count": 2,
+      "n": 79
+    },
+    {
+      "period": "2021\u201322",
+      "field": "Hearing",
+      "pct": 2.5,
+      "count": 2,
+      "n": 79
+    },
+    {
+      "period": "2021\u201322",
+      "field": "Emotionally stable",
+      "pct": 3.8,
+      "count": 3,
+      "n": 79
+    },
+    {
+      "period": "2021\u201322",
+      "field": "Contraceptive type",
+      "pct": 0.0,
+      "count": 0,
+      "n": 79
+    },
+    {
+      "period": "2021\u201322",
+      "field": "Pregnancy",
+      "pct": 1.3,
+      "count": 1,
+      "n": 79
+    },
+    {
+      "period": "2021\u201322",
+      "field": "Thermal sensitivity",
+      "pct": 0.0,
+      "count": 0,
+      "n": 79
+    },
+    {
+      "period": "2021\u201322",
+      "field": "Diet/weight change",
+      "pct": 0.0,
+      "count": 0,
+      "n": 79
+    },
+    {
+      "period": "2021\u201322",
+      "field": "No medical implant",
+      "pct": 1.3,
+      "count": 1,
+      "n": 79
+    },
+    {
+      "period": "2021\u201322",
+      "field": "Menopause",
+      "pct": 0.0,
+      "count": 0,
+      "n": 79
+    },
+    {
+      "period": "2021\u201322",
+      "field": "Hormone therapy",
+      "pct": 0.0,
+      "count": 0,
+      "n": 79
+    },
+    {
       "period": "2023\u201324",
       "field": "Healthy",
       "pct": 72.7,
@@ -335,6 +1070,153 @@
       "pct": 9.1,
       "count": 5,
       "n": 55
+    },
+    {
+      "period": "2023\u201324",
+      "field": "BMI range",
+      "pct": 10.9,
+      "count": 6,
+      "n": 55
+    },
+    {
+      "period": "2023\u201324",
+      "field": "No active/recent illness",
+      "pct": 16.4,
+      "count": 9,
+      "n": 55
+    },
+    {
+      "period": "2023\u201324",
+      "field": "No immune-related disease",
+      "pct": 9.1,
+      "count": 5,
+      "n": 55
+    },
+    {
+      "period": "2023\u201324",
+      "field": "Language skills",
+      "pct": 14.5,
+      "count": 8,
+      "n": 55
+    },
+    {
+      "period": "2023\u201324",
+      "field": "No neuro disease",
+      "pct": 5.5,
+      "count": 3,
+      "n": 55
+    },
+    {
+      "period": "2023\u201324",
+      "field": "Alcohol",
+      "pct": 9.1,
+      "count": 5,
+      "n": 55
+    },
+    {
+      "period": "2023\u201324",
+      "field": "No metabolic syndrome",
+      "pct": 7.3,
+      "count": 4,
+      "n": 55
+    },
+    {
+      "period": "2023\u201324",
+      "field": "Activity level",
+      "pct": 3.6,
+      "count": 2,
+      "n": 55
+    },
+    {
+      "period": "2023\u201324",
+      "field": "Chronotype",
+      "pct": 3.6,
+      "count": 2,
+      "n": 55
+    },
+    {
+      "period": "2023\u201324",
+      "field": "Dominant hand",
+      "pct": 1.8,
+      "count": 1,
+      "n": 55
+    },
+    {
+      "period": "2023\u201324",
+      "field": "No previous knowledge",
+      "pct": 3.6,
+      "count": 2,
+      "n": 55
+    },
+    {
+      "period": "2023\u201324",
+      "field": "Neurodivergent",
+      "pct": 1.8,
+      "count": 1,
+      "n": 55
+    },
+    {
+      "period": "2023\u201324",
+      "field": "Hearing",
+      "pct": 0.0,
+      "count": 0,
+      "n": 55
+    },
+    {
+      "period": "2023\u201324",
+      "field": "Emotionally stable",
+      "pct": 1.8,
+      "count": 1,
+      "n": 55
+    },
+    {
+      "period": "2023\u201324",
+      "field": "Contraceptive type",
+      "pct": 3.6,
+      "count": 2,
+      "n": 55
+    },
+    {
+      "period": "2023\u201324",
+      "field": "Pregnancy",
+      "pct": 3.6,
+      "count": 2,
+      "n": 55
+    },
+    {
+      "period": "2023\u201324",
+      "field": "Thermal sensitivity",
+      "pct": 1.8,
+      "count": 1,
+      "n": 55
+    },
+    {
+      "period": "2023\u201324",
+      "field": "Diet/weight change",
+      "pct": 1.8,
+      "count": 1,
+      "n": 55
+    },
+    {
+      "period": "2023\u201324",
+      "field": "No medical implant",
+      "pct": 1.8,
+      "count": 1,
+      "n": 55
+    },
+    {
+      "period": "2023\u201324",
+      "field": "Menopause",
+      "pct": 1.8,
+      "count": 1,
+      "n": 55
+    },
+    {
+      "period": "2023\u201324",
+      "field": "Hormone therapy",
+      "pct": 0.0,
+      "count": 0,
+      "n": 55
     }
   ],
   "fields": [
@@ -345,7 +1227,28 @@
     "Smoking status",
     "Colour weak./eyesight",
     "Age range",
-    "Sex"
+    "Sex",
+    "BMI range",
+    "No active/recent illness",
+    "No immune-related disease",
+    "Language skills",
+    "No neuro disease",
+    "Alcohol",
+    "No metabolic syndrome",
+    "Activity level",
+    "Chronotype",
+    "Dominant hand",
+    "No previous knowledge",
+    "Neurodivergent",
+    "Hearing",
+    "Emotionally stable",
+    "Contraceptive type",
+    "Pregnancy",
+    "Thermal sensitivity",
+    "Diet/weight change",
+    "No medical implant",
+    "Menopause",
+    "Hormone therapy"
   ],
   "periods": [
     "2013\u201314",

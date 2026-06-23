@@ -29,7 +29,7 @@ export default function StudyIntervalPlot({
   const [domainMin, domainMax] = domain
   const plotHeight = studies.length * rowHeight
   const boxY = plotHeight + 22
-  const totalHeight = plotHeight + 74
+  const totalHeight = plotHeight + 70
   const xScale = (v) => ((v - domainMin) / (domainMax - domainMin)) * width
 
   const tickValues = useMemo(() => {
@@ -62,9 +62,22 @@ export default function StudyIntervalPlot({
 
   return (
     <div>
-      <svg width={width} height={totalHeight + 18} className="font-data overflow-visible block">
+      <svg width={width + 26} height={totalHeight + 24} className="font-data overflow-visible block">
         {tickValues.map((v) => (
           <line key={v} x1={xScale(v)} x2={xScale(v)} y1={0} y2={boxY + 12} stroke="#E4E4E4" strokeWidth={1} />
+        ))}
+        {boxStats && [boxStats.q1, boxStats.med, boxStats.q3, boxStats.mean].map((v, i) => (
+          <line
+            key={`summary-${i}`}
+            x1={xScale(v)}
+            x2={xScale(v)}
+            y1={0}
+            y2={boxY + 12}
+            stroke={i === 1 ? '#0A0A0A' : color}
+            strokeWidth={i === 1 ? 1.1 : 1}
+            strokeDasharray="3 3"
+            opacity={i === 1 ? 0.55 : 0.65}
+          />
         ))}
         {studies.map((s, i) => {
           const low = getLow(s)
@@ -108,16 +121,15 @@ export default function StudyIntervalPlot({
               strokeWidth={0.8}
               transform={`rotate(45 ${xScale(boxStats.mean)} ${boxY})`}
             />
-            <text x={width - 2} y={boxY - 11} fontSize={9} fill="#8A8A8A" textAnchor="end">boxplot of study means</text>
           </g>
         )}
         {tickValues.map((v) => (
           <text key={`t-${v}`} x={xScale(v)} y={totalHeight + 12} fontSize={10} fill="#8A8A8A" textAnchor="middle">{v}</text>
         ))}
-        {xAxisLabel && <text x={width} y={totalHeight + 28} fontSize={11} fill="#8A8A8A" textAnchor="end">{xAxisLabel}</text>}
+        {xAxisLabel && <text x={width + 8} y={totalHeight + 12} fontSize={10} fill="#8A8A8A" textAnchor="start">{xAxisLabel}</text>}
       </svg>
       <div className="font-data text-[10.5px] text-inkfaint mt-1">
-        {studies.length} studies, sorted ascending by mean. Each line shows mean ± SD; the central point marks the mean. Boxplot summarizes the distribution of study means.
+        {studies.length} studies, sorted ascending by mean. Each line shows mean ± SD; the central point marks the mean. Boxplot summarizes the distribution of study means; dotted vertical guides mark Q1, median, Q3, and mean.
       </div>
       <TooltipPortal tip={tip} />
     </div>

@@ -1102,13 +1102,14 @@ with open(OUT_DIR / 'sensor_heights_by_period.json', 'w') as f:
 print(f'sensor_heights_by_period.json: {len(height_rows_with_period)} height observations with period')
 
 # ── B3. Protocol / participant / selection completeness by period ─────────
-def binary_matrix_by_period(prefix, top_n=8, extra_cols=None):
+def binary_matrix_by_period(prefix, top_n=None, extra_cols=None):
     cols = [c for c in studies_u.columns if c.startswith(prefix)]
     reported = ~studies_u[cols].isin(CODES) & studies_u[cols].notna()
-    # restrict to the same top fields already shown in the overall bar chart,
-    # so the by-period view is a direct breakdown of the same fields
+    # Use all fields by default so the heatmap is a complete by-period companion
+    # to the full overall metadata set. If top_n is provided, it can still be
+    # used to make a deliberately restricted view.
     overall_pct = reported.mean().sort_values(ascending=False)
-    top_cols = overall_pct.head(top_n).index.tolist()
+    top_cols = overall_pct.index.tolist() if top_n is None else overall_pct.head(top_n).index.tolist()
     # extra_cols: fields that must appear even if they fall outside the
     # natural top-N by completeness — used so the "has rigor improved"
     # narrative (which specifically discusses blinding, circadian, and
@@ -1131,19 +1132,19 @@ def binary_matrix_by_period(prefix, top_n=8, extra_cols=None):
     return {'data': rows, 'fields': [pretty_name(c, prefix) for c in top_cols], 'periods': [b[2] for b in BINS]}
 
 protocol_by_period = binary_matrix_by_period(
-    'protocol-', top_n=8,
+    'protocol-', top_n=None,
     extra_cols=['protocol-blinded', 'protocol-circadian', 'protocol-mens-timing'],
 )
 with open(OUT_DIR / 'protocol_by_period.json', 'w') as f:
     json.dump(protocol_by_period, f, indent=2)
 print(f'protocol_by_period.json: {len(protocol_by_period["data"])} rows')
 
-participant_by_period = binary_matrix_by_period('part-')
+participant_by_period = binary_matrix_by_period('part-', top_n=None)
 with open(OUT_DIR / 'participant_by_period.json', 'w') as f:
     json.dump(participant_by_period, f, indent=2)
 print(f'participant_by_period.json: {len(participant_by_period["data"])} rows')
 
-selection_by_period = binary_matrix_by_period('select-')
+selection_by_period = binary_matrix_by_period('select-', top_n=None)
 with open(OUT_DIR / 'selection_by_period.json', 'w') as f:
     json.dump(selection_by_period, f, indent=2)
 print(f'selection_by_period.json: {len(selection_by_period["data"])} rows')

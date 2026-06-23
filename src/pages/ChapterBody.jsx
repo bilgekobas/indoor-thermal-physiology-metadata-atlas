@@ -349,36 +349,43 @@ function SignalSensorBrandSankey({ overall, brandModelData }) {
 
 
 
+
 function MstSankey({ mst, totalExperiments }) {
   const { tip, showTip, moveTip, hideTip } = useTooltip()
   const [selected, setSelected] = useState(null)
+
   const statusCounts = mst.calc_rate_by_period.reduce((acc, r) => {
-    const k = r['physio-mst-calculated'] === 'Y' ? 'Y' : 'N/NR'
+    const raw = String(r['physio-mst-calculated'] || '').trim()
+    const k = raw === 'Y' ? 'Y' : 'N/NR'
     acc[k] = (acc[k] || 0) + r.count
     return acc
   }, {})
   const yCount = statusCounts.Y || mst.n_mst_studies
   const nonYCount = statusCounts['N/NR'] || Math.max((totalExperiments || 0) - yCount, 0)
+
   const pointTotals = {}
   const formulaTotals = {}
   const pointFormulaLinks = []
   mst.points_by_formula.forEach((r) => {
-    pointTotals[r.pt_bucket] = (pointTotals[r.pt_bucket] || 0) + r.count
-    formulaTotals[r.formula_grp] = (formulaTotals[r.formula_grp] || 0) + r.count
-    pointFormulaLinks.push({ point: r.pt_bucket, formula: r.formula_grp, count: r.count })
+    const point = String(r.pt_bucket || 'NR points')
+    const formula = String(r.formula_grp || 'NR')
+    pointTotals[point] = (pointTotals[point] || 0) + r.count
+    formulaTotals[formula] = (formulaTotals[formula] || 0) + r.count
+    pointFormulaLinks.push({ point, formula, count: r.count })
   })
-  const missingPoint = Math.max(yCount - Object.values(pointTotals).reduce((a, v) => a + v, 0), 0)
-  if (missingPoint > 0) pointTotals['NR points'] = (pointTotals['NR points'] || 0) + missingPoint
+  const knownPointTotal = Object.values(pointTotals).reduce((a, v) => a + v, 0)
+  const missingPoint = Math.max(yCount - knownPointTotal, 0)
+  if (missingPoint > 0) {
+    pointTotals['NR points'] = (pointTotals['NR points'] || 0) + missingPoint
+    formulaTotals.NR = (formulaTotals.NR || 0) + missingPoint
+    pointFormulaLinks.push({ point: 'NR points', formula: 'NR', count: missingPoint })
+  }
 
-  const points = Object.entries(pointTotals)
-    .map(([name, total]) => ({ name, total }))
-    .sort((a, b) => b.total - a.total)
-  const formulas = Object.entries(formulaTotals)
-    .map(([name, total]) => ({ name, total }))
-    .sort((a, b) => b.total - a.total)
+  const points = Object.entries(pointTotals).map(([name, total]) => ({ name, total })).sort((a, b) => b.total - a.total)
+  const formulas = Object.entries(formulaTotals).map(([name, total]) => ({ name, total })).sort((a, b) => b.total - a.total)
 
-  const layoutNodes = (entries, x, px = 2.0, minH = 12, gap = 7) => {
-    let y = 8
+  const layoutNodes = (entries, x, px = 1.25, minH = 14, gap = 8) => {
+    let y = 26
     return entries.map((e) => {
       const h = Math.max(minH, e.total * px)
       const n = { ...e, x, y, h }
@@ -386,58 +393,56 @@ function MstSankey({ mst, totalExperiments }) {
       return n
     })
   }
-  const left = layoutNodes([{ name: 'MST calculated: Y', total: yCount }, { name: 'MST not calculated / NR', total: nonYCount }], 120, 1.0, 24, 12)
-  const mid = layoutNodes(points, 410, 1.35, 14, 6)
-  const right = layoutNodes(formulas, 700, 1.35, 14, 6)
-  const h = Math.max(210, ...[...left, ...mid, ...right].map((n) => n.y + n.h)) + 20
+  const left = layoutNodes([{ name: 'MST measured: Y', total: yCount }, { name: 'MST measured: N/NR', total: nonYCount }], 160, 1.05, 24, 14)
+  const mid = layoutNodes(points, 430, 1.15, 14, 7)
+  const right = layoutNodes(formulas, 710, 1.15, 14, 7)
+  const H = Math.max(230, ...[...left, ...mid, ...right].map((n) => n.y + n.h)) + 18
   const maxFlow = Math.max(yCount, nonYCount, ...pointFormulaLinks.map((l) => l.count), 1)
 
-  const midBy = Object.fromEntries(mid.map((n) => [n.name, n]))
-  const rightBy = Object.fromEntries(right.map((n) => [n.name, n]))
+  const pointBy = Object.fromEntries(mid.map((n) => [n.name, n]))
+  const formulaBy = Object.fromEntries(right.map((n) => [n.name, n]))
   const yNode = left[0]
   const nonYNode = left[1]
-  const pointOffsets = {}
-  const formulaOffsets = {}
   const links = []
-  let yOff = 0
-  mid.forEach((p) => {
-    links.push({ from: yNode, to: p, count: p.total, kind: 'ypoint', point: p.name, color: '#5B5BFF', sourceOffset: yOff, targetOffset: 0 })
-    yOff += p.total * 1.0
-  })
+  mid.forEach((p) => links.push({ from: yNode, to: p, count: p.total, kind: 'ypoint', status: 'MST measured: Y', point: p.name, color: '#0A0A0A' }))
   pointFormulaLinks.forEach((l) => {
-    const from = midBy[l.point]
-    const to = rightBy[l.formula]
-    if (!from || !to) return
-    const sourceOffset = pointOffsets[l.point] || 0
-    const targetOffset = formulaOffsets[l.formula] || 0
-    links.push({ from, to, count: l.count, kind: 'formula', point: l.point, formula: l.formula, color: '#5B5BFF', sourceOffset, targetOffset })
-    pointOffsets[l.point] = sourceOffset + l.count * 1.35
-    formulaOffsets[l.formula] = targetOffset + l.count * 1.35
+    const from = pointBy[l.point]
+    const to = formulaBy[l.formula]
+    if (from && to) links.push({ from, to, count: l.count, kind: 'formula', point: l.point, formula: l.formula, color: '#0A0A0A' })
   })
 
-  const active = (obj) => {
+  const connected = (obj) => {
     if (!selected) return true
-    if (selected.type === 'status') return obj.status === selected.name || obj.kind === 'ypoint' || obj.kind === 'formula'
-    if (selected.type === 'point') return obj.point === selected.name || obj.name === selected.name
-    if (selected.type === 'formula') return obj.formula === selected.name || obj.name === selected.name
+    if (selected.type === 'status') {
+      if (selected.name === 'MST measured: N/NR') return obj.name === selected.name || obj.status === selected.name
+      return obj.name === selected.name || obj.status === selected.name || obj.kind === 'ypoint' || obj.kind === 'formula'
+    }
+    if (selected.type === 'point') return obj.name === selected.name || obj.point === selected.name
+    if (selected.type === 'formula') return obj.name === selected.name || obj.formula === selected.name || (obj.point && pointFormulaLinks.some((l) => l.point === obj.point && l.formula === selected.name))
     return true
   }
-  const path = (l) => {
+
+  const pathFor = (l) => {
     const x1 = l.from.x + 14
-    const y1 = l.from.y + (l.sourceOffset || 0) + Math.max(1, (l.count / maxFlow) * 22) / 2
+    const y1 = l.from.y + l.from.h / 2
     const x2 = l.to.x
-    const y2 = l.to.y + (l.targetOffset || 0) + Math.max(1, (l.count / maxFlow) * 22) / 2
+    const y2 = l.to.y + l.to.h / 2
     const mx = (x1 + x2) / 2
     return `M ${x1} ${y1} C ${mx} ${y1}, ${mx} ${y2}, ${x2} ${y2}`
   }
+
   const node = (n, type, color, denom) => {
-    const isOn = !selected || active({ name: n.name, [type]: n.name })
+    const isOn = connected({ name: n.name, [type]: n.name })
+    const pct = denom ? (n.total / denom) * 100 : 0
+    const label = type === 'status' && n.name === 'MST measured: Y'
+      ? `${n.name}, ${n.total}`
+      : `${n.name}, ${n.total} (${pct.toFixed(0)}%)`
     return (
       <g key={`${type}-${n.name}`} className="cursor-pointer" style={{ opacity: isOn ? 1 : 0.18 }}
         onClick={() => setSelected(selected?.type === type && selected.name === n.name ? null : { type, name: n.name })}
-        onMouseEnter={(e) => showTip(e, `${n.name}: ${n.total} (${((n.total / denom) * 100).toFixed(0)}%)`)} onMouseMove={moveTip} onMouseLeave={hideTip}>
+        onMouseEnter={(e) => showTip(e, `${n.name}: ${n.total} studies${type !== 'status' ? ` (${pct.toFixed(1)}% of parent denominator)` : ''}. Click to isolate connected paths.`)} onMouseMove={moveTip} onMouseLeave={hideTip}>
         <rect x={n.x} y={n.y} width={14} height={n.h} rx={2} fill={color} />
-        <text x={n.x + 20} y={n.y + n.h / 2 + 3.5} fontSize={10.5} fill="#0A0A0A">{n.name}, {n.total} ({((n.total / denom) * 100).toFixed(0)}%)</text>
+        <text x={type === 'status' ? n.x - 8 : n.x + 20} y={n.y + n.h / 2 + 3.5} fontSize={10.5} fill="#0A0A0A" textAnchor={type === 'status' ? 'end' : 'start'}>{label}</text>
       </g>
     )
   }
@@ -445,22 +450,20 @@ function MstSankey({ mst, totalExperiments }) {
   return (
     <div>
       {selected && <button onClick={() => setSelected(null)} className="mb-3 px-2.5 py-1 rounded text-[11px] font-data bg-line/60 text-inkmid hover:bg-line">✕ clear selection ({selected.name})</button>}
-      <svg width={920} height={h + 28} className="font-data block overflow-visible">
-        <text x={120} y={10} fontSize={10} fill="#8A8A8A" fontWeight="600">MST STATUS</text>
-        <text x={410} y={10} fontSize={10} fill="#8A8A8A" fontWeight="600">NUMBER OF POINTS</text>
-        <text x={700} y={10} fontSize={10} fill="#8A8A8A" fontWeight="600">FORMULA</text>
-        <g transform="translate(0,18)">
-          {links.map((l, i) => (
-            <path key={i} d={path(l)} fill="none" stroke={l.color} strokeWidth={Math.max(1, (l.count / maxFlow) * 28)} opacity={active(l) ? 0.28 : 0.04}
-              onMouseEnter={(e) => showTip(e, `${l.kind === 'ypoint' ? 'MST calculated Y → ' + l.point : l.point + ' points → ' + l.formula}: ${l.count} studies`)} onMouseMove={moveTip} onMouseLeave={hideTip} />
-          ))}
-          {node(yNode, 'status', '#5B5BFF', yCount + nonYCount)}
-          {node(nonYNode, 'status', '#BBBBBB', yCount + nonYCount)}
-          {mid.map((n) => node(n, 'point', '#5B5BFF', yCount))}
-          {right.map((n) => node(n, 'formula', '#8A63FF', Object.values(formulaTotals).reduce((a, v) => a + v, 0) || 1))}
-        </g>
+      <svg width={980} height={H + 24} className="font-data block overflow-visible">
+        <text x={160} y={12} fontSize={10} fill="#8A8A8A" fontWeight="600" textAnchor="middle">MST STATUS</text>
+        <text x={430} y={12} fontSize={10} fill="#8A8A8A" fontWeight="600">NUMBER OF POINTS</text>
+        <text x={710} y={12} fontSize={10} fill="#8A8A8A" fontWeight="600">FORMULA</text>
+        {links.map((l, i) => (
+          <path key={i} d={pathFor(l)} fill="none" stroke={l.color} strokeWidth={Math.max(1.2, (l.count / maxFlow) * 30)} opacity={connected(l) ? 0.24 : 0.035}
+            onMouseEnter={(e) => showTip(e, `${l.kind === 'ypoint' ? 'MST measured Y → ' + l.point : l.point + ' points → ' + l.formula}: ${l.count} studies`)} onMouseMove={moveTip} onMouseLeave={hideTip} />
+        ))}
+        {node(yNode, 'status', '#0A0A0A', yCount + nonYCount)}
+        {node(nonYNode, 'status', '#BBBBBB', yCount + nonYCount)}
+        {mid.map((n) => node(n, 'point', '#0A0A0A', yCount))}
+        {right.map((n) => node(n, 'formula', '#0A0A0A', Object.values(formulaTotals).reduce((a, v) => a + v, 0) || 1))}
       </svg>
-      <p className="font-data text-[10px] text-inkfaint mt-2">MST-specific denominator: {yCount} studies with MST calculated. One study can be missing the number-of-points or formula detail, so downstream totals can be slightly lower than the MST-Y total.</p>
+      <p className="font-data text-[10px] text-inkfaint mt-2">MST-specific denominator: {yCount} studies with MST calculated. Click any status, point-count, or formula node to isolate all connected paths.</p>
       <TooltipPortal tip={tip} />
     </div>
   )
@@ -748,22 +751,6 @@ export default function ChapterBody({ data }) {
               />
             )
           })()}
-        </FigureCard>
-
-        <FigureCard title="Skin conductance measurement site" commentary="Wrist (11 of 25 studies) and finger (8) — the classic GSR electrode sites — dominate, with a long tail of one-off placements (thigh, shin, temple) reflecting study-specific designs.">
-          <InteractiveBarChart
-            data={site_by_signal['Skin conductance'].site_totals.map((d) => ({ label: d.site, count: d.count }))}
-            total={site_by_signal['Skin conductance'].n_studies_with_site}
-            color="#0A0A0A"
-          />
-        </FigureCard>
-
-        <FigureCard title="Sweat indicator measurement site" commentary="27 of 35 studies (77%) measure sweat across the whole body rather than at a local site — typically via mass-loss methods, not a local sensor. This is a fundamentally different kind of measurement from the local placements (forearm, finger, back) making up the rest, even though both share the 'sweat indicators' label.">
-          <InteractiveBarChart
-            data={site_by_signal['Sweat indicators'].site_totals.map((d) => ({ label: d.site, count: d.count }))}
-            total={site_by_signal['Sweat indicators'].n_studies_with_site}
-            color="#0A0A0A"
-          />
         </FigureCard>
       </ChapterSection>
 
