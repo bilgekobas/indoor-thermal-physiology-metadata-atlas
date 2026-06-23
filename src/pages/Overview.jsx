@@ -1,57 +1,6 @@
 import { Link } from 'react-router-dom'
 import { CodeChip } from '../components/CodeChip.jsx'
 
-// Six citable, number-verified findings — each pulled from a chapter's own
-// live-computed data (see that chapter for the exact derivation), not
-// independently asserted here. Picked to span different chapters and
-// different kinds of finding (concentration, transparency, methods drift,
-// measurement convention, rigor, scale heterogeneity) rather than six
-// variations on "X% don't report Y."
-const KEY_FINDINGS = [
-  {
-    stat: '73%',
-    text: <>of 2023–24 studies are from <strong>China alone</strong> — up from 55% a decade earlier. The field hasn't just grown, it's concentrated.</>,
-    chapter: 'Ch. 1 — When, where & how',
-    to: '/context',
-    color: '#FB3640',
-  },
-  {
-    stat: '5 of 269',
-    text: <>studies link to <strong>actual, working open data</strong>. 180 give no data-availability statement at all.</>,
-    chapter: 'Ch. 8 — Reporting completeness',
-    to: '/reporting',
-    color: '#5B5BFF',
-  },
-  {
-    stat: '55%→25%',
-    text: <>share of skin-temperature studies using a <strong>thermocouple</strong>, 2013–14 to 2023–24 — displaced by Thermochron-type loggers (iButton), which rose from 18% to 52% over the same span.</>,
-    chapter: 'Ch. 3 — Measurements: the body',
-    to: '/body',
-    color: '#FB3640',
-  },
-  {
-    stat: '62%',
-    text: <>of skin-temperature studies measure the <strong>lower leg</strong> — the single most-measured site, but no site is measured in every study.</>,
-    chapter: 'Ch. 3 — Measurements: the body',
-    to: '/body',
-    color: '#D5FF99',
-  },
-  {
-    stat: '0%→29%',
-    text: <><strong>Blinding</strong> rose from absent in 2013–14 to nearly a third of studies by 2023–24 — a real gain. Randomisation barely moved over the same period.</>,
-    chapter: 'Ch. 7 — Protocol rigor',
-    to: '/protocol',
-    color: '#8A8A8A',
-  },
-  {
-    stat: '78% vs. none',
-    text: <>of thermal <em>sensation</em> scales use the standard 7-point format. Thermal <em>comfort</em> scales have no equivalent — point count, labels, and polarity all vary, and roughly a quarter of studies put "comfortable" at the opposite end of the number line from the rest.</>,
-    chapter: 'Ch. 5 — What people were asked',
-    to: '/questionnaires',
-    color: '#F1FF71',
-  },
-]
-
 function StatBlock({ value, label, accent }) {
   return (
     <div className="border border-line rounded-md px-5 py-4 bg-white/40">
@@ -63,31 +12,65 @@ function StatBlock({ value, label, accent }) {
   )
 }
 
+function Finding({ children }) {
+  return <li className="text-[13.5px] text-inkmid leading-relaxed pl-1">{children}</li>
+}
+
 export default function Overview({ data }) {
-  const { summary, completeness } = data
-  const sorted = [...completeness.data].sort((a, b) => a.pct_reported - b.pct_reported)
-  const lowest = sorted[0]
-  const highest = sorted[sorted.length - 1]
+  const {
+    summary,
+    geo_concentration_by_period,
+    open_data,
+    fig17_physio_params,
+    fig13_sensor_heights,
+    fig15_tsv_scales,
+    fig16_tcv_scales,
+    fig05_time_of_day,
+    fig10_sex_distribution,
+  } = data
+
+  const n = summary.n_experiments
+  const latestGeo = geo_concentration_by_period.data[geo_concentration_by_period.data.length - 1]
+  const firstGeo = geo_concentration_by_period.data[0]
+  const skin = fig17_physio_params.data.find((d) => d.parameter === 'Skin temperature')
+  const heart = fig17_physio_params.data.find((d) => d.parameter === 'Heart/Pulse rate')
+  const skinPct = ((skin.count / n) * 100).toFixed(0)
+  const heartPct = ((heart.count / n) * 100).toFixed(0)
+  const sevenPointTSV = fig15_tsv_scales.points_distribution.find((d) => d.points === 7)?.count || 0
+  const sevenPointTSVPct = ((sevenPointTSV / fig15_tsv_scales.n_total) * 100).toFixed(0)
+  const tcvScaleDefinitions = new Set(
+    fig16_tcv_scales.studies.map((s) => `${JSON.stringify(s.range || [])}|${JSON.stringify((s.labels || []).map((x) => String(x).toLowerCase()))}`)
+  ).size
+  const standardHeights = new Set([0.1, 0.6, 1.1, 1.7])
+  const heightRows = fig13_sensor_heights.data || []
+  const standardHeightCount = heightRows.filter((r) => standardHeights.has(Number(Number(r.height).toFixed(2)))).length
+  const standardHeightPct = heightRows.length ? ((standardHeightCount / heightRows.length) * 100).toFixed(0) : '0'
+  const timeReportingPct = ((fig05_time_of_day.n_reporting / n) * 100).toFixed(0)
+  const maleOnly = fig10_sex_distribution.studies.filter((s) => s.male > 0 && s.female === 0).length
+  const maleOnlyPct = ((maleOnly / n) * 100).toFixed(0)
 
   return (
     <div>
-      {/* Hero */}
       <div className="px-10 pt-12 pb-10 border-b border-line bg-white/30">
         <div className="font-data text-[11px] uppercase tracking-wider text-coreaccent mb-3">
           Living metadata corpus · updated yearly
         </div>
         <h1 className="text-[34px] font-semibold leading-[1.15] tracking-tight max-w-3xl">
-          How indoor thermal-physiology research<br />actually measures the body
+          How indoor thermal-physiology research is structured
         </h1>
-        <p className="text-[15px] text-inkmid mt-4 max-w-xl leading-relaxed">
-          A structured, re-extractable record of {summary.n_publications} published experiments
-          ({summary.year_min}–{summary.year_max}), documenting what was measured, how, where on
-          the body, and what was left unreported.
+        <p className="text-[16px] text-inkmid mt-4 max-w-2xl leading-relaxed">
+          Who runs the experiments, where, when, for how long, measuring which populations, and with what.
+        </p>
+        <p className="text-[14px] text-inkmid mt-4 max-w-2xl leading-relaxed">
+          A structured, re-extractable record of published experiments between {summary.year_min}–{summary.year_max} illustrating the landscape of the field.{' '}
+          <Link to="/about" className="text-coreaccent hover:underline">
+            Read more on how the current corpus is selected.
+          </Link>
         </p>
 
         <div className="grid grid-cols-4 gap-3 mt-8 max-w-2xl">
           <StatBlock value={summary.n_publications} label="Publications" accent="#FB3640" />
-          <StatBlock value={summary.n_experiments} label="Experiments" accent="#5B5BFF" />
+          <StatBlock value={summary.n_experiments} label="Unique experiments" accent="#5B5BFF" />
           <StatBlock value={summary.n_variables} label="Coded variables" accent="#FB3640" />
           <StatBlock value={`${summary.year_max - summary.year_min + 1}y`} label="Span covered" accent="#8A8A8A" />
         </div>
@@ -97,101 +80,56 @@ export default function Overview({ data }) {
             to="/browse"
             className="inline-flex items-center px-4 py-2 rounded-md bg-ink text-paper text-[13.5px] font-medium hover:bg-coreaccent transition-colors"
           >
-            Browse the corpus →
-          </Link>
-          <Link
-            to="/reporting"
-            className="inline-flex items-center px-4 py-2 rounded-md border border-line text-[13.5px] font-medium hover:border-ink transition-colors"
-          >
-            See what's missing
+            Browse the entire corpus →
           </Link>
         </div>
       </div>
 
-      {/* Key findings — six citable, number-backed facts, each linking to its chapter */}
       <div className="px-10 py-8 border-b border-line bg-white/20">
-        <div className="flex items-baseline justify-between mb-5">
-          <h2 className="text-[16px] font-semibold">Six things worth knowing before you dig in</h2>
-          <span className="font-data text-[11px] text-inkfaint">each links to where it comes from</span>
-        </div>
-        <div className="grid grid-cols-2 gap-x-8 gap-y-5 max-w-4xl">
-          {KEY_FINDINGS.map((f) => (
-            <Link
-              key={f.to}
-              to={f.to}
-              className="group flex gap-3 p-3 -m-3 rounded-md hover:bg-white/60 transition-colors"
-            >
-              <div
-                className="font-data text-[20px] font-semibold leading-none shrink-0 w-20"
-                style={{ color: f.color }}
-              >
-                {f.stat}
-              </div>
-              <div className="text-[13px] text-inkmid leading-snug">
-                {f.text}
-                <span className="block font-data text-[10.5px] text-coreaccent mt-1 opacity-0 group-hover:opacity-100 transition-opacity">
-                  {f.chapter} →
-                </span>
-              </div>
-            </Link>
-          ))}
-        </div>
+        <h2 className="text-[16px] font-semibold mb-5">Things worth knowing before you dig in</h2>
+        <ul className="list-disc ml-5 space-y-3 max-w-4xl">
+          <Finding>
+            {latestGeo.pct.toFixed(0)}% of {latestGeo.period} studies are from {latestGeo.top_country} alone. The total share for {firstGeo.period} was {firstGeo.pct.toFixed(0)}%.
+          </Finding>
+          <Finding>
+            {open_data.n_with_real_data_link} of {open_data.n_total} studies share data directly and openly.
+          </Finding>
+          <Finding>
+            Skin temperature is the single most measured signal: {skinPct}% of experiments measure skin temperature, followed by {heartPct}% measuring heart or pulse rate.
+          </Finding>
+          <Finding>
+            55%→25% share of skin-temperature studies using a thermocouple, {firstGeo.period} to {latestGeo.period} — displaced by Thermochron-type loggers such as iButton, which rose from 18% to 52% over the same span.
+          </Finding>
+          <Finding>
+            {sevenPointTSVPct}% of thermal sensation scales use the standard 7-point format, while thermal comfort scales show {tcvScaleDefinitions} distinct coded scale definitions in this corpus.
+          </Finding>
+          <Finding>
+            {standardHeightPct}% of reported air-temperature, humidity, globe-temperature, and air-velocity sensor heights sit at one of the standard 0.1, 0.6, 1.1, or 1.7 m positions.
+          </Finding>
+          <Finding>
+            {fig05_time_of_day.n_reporting} studies ({timeReportingPct}%) report time-of-day information.
+          </Finding>
+          <Finding>
+            {maleOnly} studies ({maleOnlyPct}%) are male-only.
+          </Finding>
+        </ul>
       </div>
 
-      {/* Signature: the coding vocabulary, made visible */}
-      <div className="px-10 py-8 border-b border-line">
+      <div className="px-10 py-8">
         <div className="flex items-baseline justify-between mb-4">
           <h2 className="text-[16px] font-semibold">Every field, coded the same way</h2>
           <span className="font-data text-[11px] text-inkfaint">the corpus's own vocabulary</span>
         </div>
         <p className="text-[13.5px] text-inkmid max-w-2xl leading-relaxed mb-5">
-          Each of the {summary.n_variables} variables in this corpus is coded against a fixed,
-          five-value vocabulary distinguishing what studies report from what they measure but
-          leave underspecified. This distinction — particularly between{' '}
-          <CodeChip code="NR" /> and <CodeChip code="MNR" /> — is the corpus's central
-          methodological contribution.
+          Each of the {summary.n_variables} variables in this corpus is coded against a fixed, five-value vocabulary distinguishing what studies report from what they measure but leave underspecified. This distinction — particularly between <CodeChip code="NR" /> and <CodeChip code="MNR" /> — is the corpus's central methodological contribution.
         </p>
-        <div className="flex gap-6 flex-wrap">
-          {['Y', 'N', 'NR', 'MNR', 'NC'].map((code) => (
-            <div key={code} className="flex items-center gap-2">
-              <CodeChip code={code} size="md" />
-            </div>
-          ))}
+        <div className="grid grid-cols-1 gap-3 max-w-3xl">
+          <div className="flex gap-3 items-start"><CodeChip code="Y" size="md" /><span className="text-[13px] text-inkmid">Yes, explicitly reported.</span></div>
+          <div className="flex gap-3 items-start"><CodeChip code="N" size="md" /><span className="text-[13px] text-inkmid">No, explicitly reported.</span></div>
+          <div className="flex gap-3 items-start"><CodeChip code="NR" size="md" /><span className="text-[13px] text-inkmid">Not reported.</span></div>
+          <div className="flex gap-3 items-start"><CodeChip code="MNR" size="md" /><span className="text-[13px] text-inkmid">Measured, but the value of the field is not reported. For example, air temperature is reported as measured, but the sensor height is not reported.</span></div>
+          <div className="flex gap-3 items-start"><CodeChip code="NC" size="md" /><span className="text-[13px] text-inkmid">Not clear: conflicting or ambiguous statements.</span></div>
         </div>
-      </div>
-
-      {/* Quick completeness teaser */}
-      <div className="px-10 py-8">
-        <div className="flex items-baseline justify-between mb-4">
-          <h2 className="text-[16px] font-semibold">Reporting is wildly uneven across categories</h2>
-          <Link to="/reporting" className="font-data text-[11px] text-coreaccent hover:underline">
-            full breakdown →
-          </Link>
-        </div>
-        <div className="grid grid-cols-2 gap-x-10 gap-y-3 max-w-3xl">
-          {[...completeness.data].sort((a,b) => b.pct_reported - a.pct_reported).map((c) => (
-            <div key={c.category} className="flex items-center gap-3">
-              <span className="text-[13px] w-44 shrink-0">{c.category}</span>
-              <div className="flex-1 h-2 rounded-full bg-line overflow-hidden">
-                <div
-                  className="h-full rounded-full"
-                  style={{
-                    width: `${c.pct_reported}%`,
-                    background: c.pct_reported < 20 ? '#FB3640' : c.pct_reported < 50 ? '#FB3640' : '#5B5BFF',
-                  }}
-                />
-              </div>
-              <span className="font-data text-[12px] text-inkmid w-12 text-right">
-                {c.pct_reported}%
-              </span>
-            </div>
-          ))}
-        </div>
-        <p className="text-[13px] text-inkfaint mt-5 max-w-2xl leading-relaxed">
-          {highest.category} fields are reported in {highest.pct_reported}% of studies on average;
-          {' '}{lowest.category.toLowerCase()} fields, only {lowest.pct_reported}%. The gap itself
-          is a finding.
-        </p>
       </div>
     </div>
   )
