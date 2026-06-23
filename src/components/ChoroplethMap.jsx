@@ -1,13 +1,12 @@
 import { useState, useEffect, useMemo } from 'react'
-import { ComposableMap, Geographies, Geography } from 'react-simple-maps'
+import { ComposableMap, Geographies, Geography, ZoomableGroup, Marker } from 'react-simple-maps'
+import { geoCentroid } from 'd3-geo'
 import { useTooltip, TooltipPortal } from './Tooltip.jsx'
 
-// World choropleth for study counts by country. Loads the topojson once
-// (bundled locally in public/data/, no external CDN dependency) and colors
-// each country by its study count, blue accent ramp.
 export default function ChoroplethMap({ countryData, cityData, height = 380 }) {
   const { tip, showTip, moveTip, hideTip } = useTooltip()
   const [geoData, setGeoData] = useState(null)
+  const [view, setView] = useState({ coordinates: [10, 5], zoom: 1 })
 
   useEffect(() => {
     const base = import.meta.env.BASE_URL
@@ -23,11 +22,6 @@ export default function ChoroplethMap({ countryData, cityData, height = 380 }) {
     return m
   }, [countryData])
 
-  // Dominant climate group per country, weighted by study count — a country
-  // can genuinely span several Köppen zones (China alone has tropical,
-  // humid-subtropical, continental, and semi-arid cities in this corpus),
-  // so "the" climate for a whole country is a most-common summary, not a
-  // single fact the way it is for one city.
   const dominantClimateByCountry = useMemo(() => {
     const byCountry = {}
     ;(cityData || []).forEach((c) => {
@@ -46,8 +40,7 @@ export default function ChoroplethMap({ countryData, cityData, height = 380 }) {
 
   const colorFor = (count) => {
     if (!count) return '#EFEFEF'
-    const t = Math.min(Math.log(count + 1) / Math.log(maxCount + 1), 1) // log scale: China shouldn't wash out everything else
-    // Blue accent ramp: light track color -> primary blue
+    const t = Math.min(Math.log(count + 1) / Math.log(maxCount + 1), 1)
     const r1 = 239, g1 = 239, b1 = 239
     const r2 = 91, g2 = 91, b2 = 255
     const r = Math.round(r1 + (r2 - r1) * t)
@@ -56,20 +49,23 @@ export default function ChoroplethMap({ countryData, cityData, height = 380 }) {
     return `rgb(${r},${g},${b})`
   }
 
+  const legendStops = [1, 2, 5, 10, 25, Math.round(maxCount)]
+    .filter((v, i, arr) => v <= maxCount && arr.indexOf(v) === i)
+
   if (!geoData) {
     return <div className="font-data text-[12px] text-inkfaint" style={{ height }}>Loading map…</div>
   }
 
-  // Legend: shows the actual color ramp with real study-count values at each
-  // stop, and states explicitly that the scale is logarithmic — without this,
-  // there is no way for a reader to tell what a given shade of pink means, or
-  // that the scale compresses high counts (chosen specifically so China's 149
-  // studies don't make every other country render as indistinguishable pale).
-  const legendStops = [1, 2, 5, 10, 25, Math.round(maxCount)]
-    .filter((v, i, arr) => v <= maxCount && arr.indexOf(v) === i)
-
   return (
     <div>
+      <div className="flex items-center justify-between gap-3 mb-2 flex-wrap">
+        <div className="font-data text-[10.5px] text-inkfaint">Use + / − to zoom. Country labels are shown for all study countries.</div>
+        <div className="flex items-center gap-1.5">
+          <button className="px-2 py-1 rounded bg-line/60 text-[11px] font-data hover:bg-line" onClick={() => setView((v) => ({ ...v, zoom: Math.min(v.zoom * 1.4, 8) }))}>+</button>
+          <button className="px-2 py-1 rounded bg-line/60 text-[11px] font-data hover:bg-line" onClick={() => setView((v) => ({ ...v, zoom: Math.max(v.zoom / 1.4, 1) }))}>−</button>
+          <button className="px-2 py-1 rounded bg-line/60 text-[11px] font-data hover:bg-line" onClick={() => setView({ coordinates: [10, 5], zoom: 1 })}>Reset</button>
+        </div>
+      </div>
       <ComposableMap
         projection="geoEqualEarth"
         projectionConfig={{ scale: 130, center: [10, 5] }}
@@ -77,39 +73,69 @@ export default function ChoroplethMap({ countryData, cityData, height = 380 }) {
         height={height}
         style={{ width: '100%', height: 'auto' }}
       >
-        <Geographies geography={geoData}>
-          {({ geographies }) =>
-            geographies.map((geo) => {
-              const entry = countByName[geo.properties.name]
-              const count = entry?.count || 0
-              const climate = dominantClimateByCountry[geo.properties.name]
-              return (
-                <Geography
-                  key={geo.rsmKey}
-                  geography={geo}
-                  fill={colorFor(count)}
-                  stroke="#FCFCFC"
-                  strokeWidth={0.5}
-                  className="cursor-default outline-none"
-                  onMouseEnter={(e) => {
-                    const place = entry ? entry.raw_labels.join(' + ') : geo.properties.name
-                    const label = climate
-                      ? `${place}: ${count} ${count === 1 ? 'study' : 'studies'}, ${climate}`
-                      : `${place}: ${count} ${count === 1 ? 'study' : 'studies'}`
-                    showTip(e, label)
-                  }}
-                  onMouseMove={moveTip}
-                  onMouseLeave={hideTip}
-                  style={{
-                    default: { outline: 'none' },
-                    hover: { outline: 'none', filter: count ? 'brightness(1.1)' : 'none' },
-                    pressed: { outline: 'none' },
-                  }}
-                />
-              )
-            })
-          }
-        </Geographies>
+        <ZoomableGroup
+          center={view.coordinates}
+          zoom={view.zoom}
+          onMoveEnd={(pos) => setView({ coordinates: pos.coordinates, zoom: pos.zoom })}
+        >
+          <Geographies geography={geoData}>
+            {({ geographies }) => (
+              <>
+                {geographies.map((geo) => {
+                  const entry = countByName[geo.properties.name]
+                  const count = entry?.count || 0
+                  const climate = dominantClimateByCountry[geo.properties.name]
+                  return (
+                    <Geography
+                      key={geo.rsmKey}
+                      geography={geo}
+                      fill={colorFor(count)}
+                      stroke="#FCFCFC"
+                      strokeWidth={0.5}
+                      className="cursor-default outline-none"
+                      onMouseEnter={(e) => {
+                        const place = entry ? entry.raw_labels.join(' + ') : geo.properties.name
+                        const label = climate
+                          ? `${place}: ${count} ${count === 1 ? 'study' : 'studies'}, ${climate}`
+                          : `${place}: ${count} ${count === 1 ? 'study' : 'studies'}`
+                        showTip(e, label)
+                      }}
+                      onMouseMove={moveTip}
+                      onMouseLeave={hideTip}
+                      style={{
+                        default: { outline: 'none' },
+                        hover: { outline: 'none', filter: count ? 'brightness(1.08)' : 'none' },
+                        pressed: { outline: 'none' },
+                      }}
+                    />
+                  )
+                })}
+                {geographies
+                  .filter((geo) => countByName[geo.properties.name]?.count > 0)
+                  .map((geo) => {
+                    const centroid = geoCentroid(geo)
+                    if (!Number.isFinite(centroid[0]) || !Number.isFinite(centroid[1])) return null
+                    const label = countByName[geo.properties.name]?.country || geo.properties.name
+                    return (
+                      <Marker key={`label-${geo.rsmKey}`} coordinates={centroid}>
+                        <text
+                          textAnchor="middle"
+                          fontSize={7.5}
+                          fill="#2F2F2F"
+                          stroke="#FFFFFF"
+                          strokeWidth={0.8}
+                          paintOrder="stroke"
+                          style={{ pointerEvents: 'none' }}
+                        >
+                          {label}
+                        </text>
+                      </Marker>
+                    )
+                  })}
+              </>
+            )}
+          </Geographies>
+        </ZoomableGroup>
       </ComposableMap>
       <div className="flex items-center gap-3 mt-2 flex-wrap">
         <span className="font-data text-[10.5px] text-inkfaint">Studies (log scale):</span>

@@ -1,16 +1,15 @@
 import { useMemo } from 'react'
 import { useTooltip, TooltipPortal } from './Tooltip.jsx'
 
-// Per-country sample-size distribution on a log scale, with country-level
-// median/mean and corpus-level median/mean reference lines. The corpus-level
-// lines are calculated from all plotted study sample sizes so they remain
-// synchronized with data updates.
 export default function SampleSizeByCountry({ stats, studies, minCountThreshold }) {
   const { tip, showTip, moveTip, hideTip } = useTooltip()
-  const W = 600
-  const PAD_X = 120
-  const domainMin = 1, domainMax = 4 // log10(n): 10^1=10 to 10^4=10000
-  const xScale = (n) => ((Math.log10(Math.max(n, 1)) - domainMin) / (domainMax - domainMin)) * W
+  const PLOT_W = 560
+  const LABEL_X = 120
+  const ZERO_X = 132
+  const PLOT_X0 = 152
+  const domainMin = 1
+  const domainMax = 4 // log10(n): 1 to 10000
+  const xScale = (n) => ((Math.log10(Math.max(n, 1)) - domainMin) / (domainMax - domainMin)) * PLOT_W
   const rowH = 26
   const H = stats.length * rowH
 
@@ -32,48 +31,51 @@ export default function SampleSizeByCountry({ stats, studies, minCountThreshold 
   }, [studies])
 
   const refLines = [
-    { key: 'overall-median', label: 'overall median', value: overall.median, stroke: '#5B5BFF' },
-    { key: 'overall-mean', label: 'overall mean', value: overall.mean, stroke: '#FB3640' },
+    { key: 'n-equals-1', label: 'n = 1', value: 1, stroke: '#BBBBBB', dashed: false },
+    { key: 'overall-median', label: 'overall median', value: overall.median, stroke: '#5B5BFF', dashed: true },
+    { key: 'overall-mean', label: 'overall mean', value: overall.mean, stroke: '#FB3640', dashed: true },
   ]
 
   return (
     <div className="overflow-x-auto">
       <div className="font-data text-[10px] text-inkfaint mb-2">
-        x-axis: sample size (log scale, 10 to 10,000). Grey dots are individual studies. Countries with fewer than{' '}
-        {minCountThreshold} studies are omitted. Dotted vertical lines show the overall median and mean across all included studies in this panel.
+        x-axis: sample size (log scale, 1 to 10,000). Grey dots are individual studies. Countries with fewer than {minCountThreshold} studies are omitted. Country names are aligned to the left of the baseline; dotted lines show the overall median and mean, and the leftmost solid guide marks n=1.
       </div>
-      <svg width={W + 150} height={H + 36} className="font-data overflow-visible">
-        {[10, 100, 1000, 10000].map((v) => (
+      <svg width={PLOT_X0 + PLOT_W + 30} height={H + 36} className="font-data overflow-visible">
+        <line x1={ZERO_X} x2={ZERO_X} y1={0} y2={H} stroke="#E4E4E4" strokeWidth={1} />
+        {[1, 10, 100, 1000, 10000].map((v) => (
           <g key={v}>
-            <line x1={xScale(v) + PAD_X} x2={xScale(v) + PAD_X} y1={0} y2={H} stroke="#E4E4E4" strokeWidth={1} />
-            <text x={xScale(v) + PAD_X} y={H + 14} fontSize={9} fill="#8A8A8A" textAnchor="middle">{v}</text>
+            <line x1={xScale(v) + PLOT_X0} x2={xScale(v) + PLOT_X0} y1={0} y2={H} stroke="#E4E4E4" strokeWidth={1} />
+            <text x={xScale(v) + PLOT_X0} y={H + 14} fontSize={9} fill="#8A8A8A" textAnchor="middle">{v}</text>
           </g>
         ))}
         {refLines.map((r, idx) => (
           <g key={r.key}>
             <line
-              x1={xScale(r.value) + PAD_X}
-              x2={xScale(r.value) + PAD_X}
+              x1={xScale(r.value) + PLOT_X0}
+              x2={xScale(r.value) + PLOT_X0}
               y1={-4}
               y2={H}
               stroke={r.stroke}
-              strokeWidth={1.4}
-              strokeDasharray="4 3"
-              opacity={0.9}
+              strokeWidth={r.key === 'n-equals-1' ? 1.2 : 1.4}
+              strokeDasharray={r.dashed ? '4 3' : undefined}
+              opacity={0.95}
               className="cursor-default"
-              onMouseEnter={(e) => showTip(e, `${r.label}: n=${r.value.toFixed(1)} across ${overall.n} studies`)}
+              onMouseEnter={(e) => showTip(e, r.key === 'n-equals-1' ? 'n = 1' : `${r.label}: n=${r.value.toFixed(1)} across ${overall.n} studies`)}
               onMouseMove={moveTip}
               onMouseLeave={hideTip}
             />
-            <text
-              x={xScale(r.value) + PAD_X + (idx === 0 ? -4 : 4)}
-              y={H + 28}
-              fontSize={9}
-              fill={r.stroke}
-              textAnchor={idx === 0 ? 'end' : 'start'}
-            >
-              {r.label} {r.value.toFixed(1)}
-            </text>
+            {r.key !== 'n-equals-1' && (
+              <text
+                x={xScale(r.value) + PLOT_X0 + (idx === 1 ? -4 : 4)}
+                y={H + 28}
+                fontSize={9}
+                fill={r.stroke}
+                textAnchor={idx === 1 ? 'end' : 'start'}
+              >
+                {r.label} {r.value.toFixed(1)}
+              </text>
+            )}
           </g>
         ))}
         {stats.map((s, i) => {
@@ -81,22 +83,45 @@ export default function SampleSizeByCountry({ stats, studies, minCountThreshold 
           const dots = studiesByCountry[s.country] || []
           return (
             <g key={s.country}>
-              <text x={116} y={y + 3} fontSize={11.5} textAnchor="end" fill="#0A0A0A">{s.country}</text>
+              <text x={LABEL_X} y={y + 3} fontSize={11.5} textAnchor="end" fill="#0A0A0A">{s.country}</text>
               {dots.map((n, j) => (
-                <circle key={j} cx={xScale(n) + PAD_X} cy={y} r={2.2} fill="#8A8A8A" opacity={0.55}
+                <circle
+                  key={j}
+                  cx={xScale(n) + PLOT_X0}
+                  cy={y}
+                  r={2.2}
+                  fill="#8A8A8A"
+                  opacity={0.55}
                   className="cursor-default"
                   onMouseEnter={(e) => showTip(e, `${s.country}: n=${n}`)}
-                  onMouseMove={moveTip} onMouseLeave={hideTip} />
+                  onMouseMove={moveTip}
+                  onMouseLeave={hideTip}
+                />
               ))}
-              <rect x={xScale(s.median) + PAD_X - 3.5} y={y - 3.5} width={7} height={7} fill="#5B5BFF"
-                transform={`rotate(45, ${xScale(s.median) + PAD_X}, ${y})`}
+              <rect
+                x={xScale(s.median) + PLOT_X0 - 3.5}
+                y={y - 3.5}
+                width={7}
+                height={7}
+                fill="#5B5BFF"
+                transform={`rotate(45, ${xScale(s.median) + PLOT_X0}, ${y})`}
                 className="cursor-default"
                 onMouseEnter={(e) => showTip(e, `${s.country}: median n=${s.median} (across ${s.count} studies)`)}
-                onMouseMove={moveTip} onMouseLeave={hideTip} />
-              <circle cx={xScale(s.mean) + PAD_X} cy={y} r={5} fill="none" stroke="#FB3640" strokeWidth={1.6}
+                onMouseMove={moveTip}
+                onMouseLeave={hideTip}
+              />
+              <circle
+                cx={xScale(s.mean) + PLOT_X0}
+                cy={y}
+                r={5}
+                fill="none"
+                stroke="#FB3640"
+                strokeWidth={1.6}
                 className="cursor-default"
                 onMouseEnter={(e) => showTip(e, `${s.country}: mean n=${s.mean.toFixed(1)} (across ${s.count} studies, max ${s.max})`)}
-                onMouseMove={moveTip} onMouseLeave={hideTip} />
+                onMouseMove={moveTip}
+                onMouseLeave={hideTip}
+              />
             </g>
           )
         })}
