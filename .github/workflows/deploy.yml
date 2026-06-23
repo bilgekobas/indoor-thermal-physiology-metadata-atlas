@@ -27,10 +27,14 @@ jobs:
           cache: npm
 
       - name: Install dependencies
-        run: npm ci --include=dev --prefer-offline --no-audit --no-fund --loglevel=notice
+        run: |
+          rm -f package-lock.json
+          npm install --no-audit --no-fund
+          npm ls vite || true
+          npx --yes vite@5.4.21 --version
 
       - name: Build
-        run: npm run build
+        run: npx --yes vite@5.4.21 build
 
       - uses: actions/upload-pages-artifact@v3
         with:
