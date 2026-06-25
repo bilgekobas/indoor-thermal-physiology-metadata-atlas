@@ -4,7 +4,7 @@ import { useTooltip, TooltipPortal } from '../components/Tooltip.jsx'
 
 function FieldCompletenessGroup({ title, rows }) {
   const { tip, showTip, moveTip, hideTip } = useTooltip()
-  const sorted = [...rows].sort((a, b) => b.pct - a.pct || a.field.localeCompare(b.field))
+  const sorted = rows
   return (
     <div>
       <h4 className="text-[14px] font-medium mb-3">{title}</h4>
@@ -48,9 +48,7 @@ export default function ChapterReporting({ data }) {
             </p>
             <p>
               A field counts as “complete” if it holds a substantive value rather than a missing code.
-              For environment and questionnaire yes/no fields, NR is treated as a
-              legitimate non-use code rather than missingness, whereas MNR still
-              counts as missing. MST-specific fields are evaluated only among studies where MST was
+              For environment and questionnaire fields, NR is treated as a legitimate non-use code and is excluded from the denominator; MNR is treated as missing among fields that should have been resolved. MST-specific fields are evaluated only among studies where MST was
               actually calculated. Participant metadata, inclusion criteria, and protocol-rigor fields
               are excluded here because they are not required across all studies.
             </p>
@@ -65,7 +63,7 @@ export default function ChapterReporting({ data }) {
       />
 
       <ChapterSection title="Full field-level completeness list" intro="Bars are scaled directly to the reported percentage for that field. Counts and denominators are shown explicitly at right, so special cases such as MST-specific fields remain legible.">
-        <FigureCard figNumber="35" title="Evaluated reporting fields" plotWidth={980} commentary="Groups are arranged by chapter logic rather than by rank. Within each group, fields are sorted from highest to lowest completeness.">
+        <FigureCard figNumber="35" title="Evaluated reporting fields" plotWidth={980} commentary="Groups are arranged by chapter logic rather than by rank. Within each group, fields follow the dataset column order so the display can be checked against the coding sheet.">
           <div className="space-y-8 max-w-5xl">
             {groups.map(([group, obj]) => (
               <FieldCompletenessGroup key={group} title={group} rows={obj.fields} />

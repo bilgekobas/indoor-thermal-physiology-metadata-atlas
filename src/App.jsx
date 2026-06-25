@@ -81,6 +81,11 @@ export default function App() {
           </div>
         )}
         {data && <RoutedPages data={data} />}
+        {data && (
+          <footer className="px-10 pt-8 pb-16 border-t border-line text-[11px] font-data text-inkfaint leading-relaxed">
+            Indoor Thermal Physiology Corpus · Living atlas · Counts update from the current corpus bundle.
+          </footer>
+        )}
       </main>
     </div>
   )

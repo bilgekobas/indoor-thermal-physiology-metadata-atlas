@@ -204,195 +204,181 @@
     "fields": [
       {
         "field": "Air temperature",
-        "count": 152,
-        "denominator": 270,
+        "count": 151,
+        "denominator": 268,
         "pct": 56.3,
         "rule": "optional_binary"
       },
       {
         "field": "Relative humidity",
-        "count": 148,
-        "denominator": 270,
-        "pct": 54.8,
+        "count": 124,
+        "denominator": 239,
+        "pct": 51.9,
         "rule": "optional_binary"
       },
       {
         "field": "Air velocity",
-        "count": 170,
-        "denominator": 270,
-        "pct": 63.0,
+        "count": 105,
+        "denominator": 184,
+        "pct": 57.1,
         "rule": "optional_binary"
       },
       {
         "field": "Globe temperature",
-        "count": 183,
-        "denominator": 270,
-        "pct": 67.8,
+        "count": 84,
+        "denominator": 144,
+        "pct": 58.3,
         "rule": "optional_binary"
       },
       {
         "field": "Surface temperatures",
-        "count": 203,
-        "denominator": 270,
-        "pct": 75.2,
+        "count": 6,
+        "denominator": 28,
+        "pct": 21.4,
         "rule": "optional_binary"
       },
       {
         "field": "Wet-bulb temperature",
-        "count": 224,
-        "denominator": 270,
-        "pct": 83.0,
-        "rule": "optional_binary"
-      },
-      {
-        "field": "Outdoor temperature",
-        "count": 212,
-        "denominator": 270,
-        "pct": 78.5,
-        "rule": "optional_binary"
-      },
-      {
-        "field": "Outdoor RH",
-        "count": 217,
-        "denominator": 270,
-        "pct": 80.4,
-        "rule": "optional_binary"
-      },
-      {
-        "field": "CO\u2082 concentration",
-        "count": 207,
-        "denominator": 270,
-        "pct": 76.7,
-        "rule": "optional_binary"
-      },
-      {
-        "field": "VOC concentration",
-        "count": 220,
-        "denominator": 270,
-        "pct": 81.5,
-        "rule": "optional_binary"
-      },
-      {
-        "field": "Illuminance",
-        "count": 219,
-        "denominator": 270,
-        "pct": 81.1,
-        "rule": "optional_binary"
-      },
-      {
-        "field": "Light colour/CCT",
-        "count": 223,
-        "denominator": 270,
-        "pct": 82.6,
-        "rule": "optional_binary"
-      },
-      {
-        "field": "Solar radiation",
-        "count": 218,
-        "denominator": 270,
-        "pct": 80.7,
-        "rule": "optional_binary"
-      },
-      {
-        "field": "Sound level",
-        "count": 217,
-        "denominator": 270,
-        "pct": 80.4,
-        "rule": "optional_binary"
-      }
-    ]
-  },
-  "Questionnaires & cognitive": {
-    "fields": [
-      {
-        "field": "Thermal sensation",
-        "count": 263,
-        "denominator": 270,
-        "pct": 97.4,
-        "rule": "optional_binary"
-      },
-      {
-        "field": "Thermal comfort",
-        "count": 248,
-        "denominator": 270,
-        "pct": 91.9,
-        "rule": "optional_binary"
-      },
-      {
-        "field": "Thermal preference",
-        "count": 227,
-        "denominator": 270,
-        "pct": 84.1,
-        "rule": "optional_binary"
-      },
-      {
-        "field": "Thermal acceptability",
-        "count": 236,
-        "denominator": 270,
-        "pct": 87.4,
-        "rule": "optional_binary"
-      },
-      {
-        "field": "Thermal satisfaction",
-        "count": 223,
-        "denominator": 270,
-        "pct": 82.6,
-        "rule": "optional_binary"
-      },
-      {
-        "field": "Local thermal sensation",
-        "count": 227,
-        "denominator": 270,
-        "pct": 84.1,
-        "rule": "optional_binary"
-      },
-      {
-        "field": "Air movement sensation",
-        "count": 225,
-        "denominator": 270,
-        "pct": 83.3,
-        "rule": "optional_binary"
-      },
-      {
-        "field": "Humidity sensation",
-        "count": 225,
-        "denominator": 270,
-        "pct": 83.3,
-        "rule": "optional_binary"
-      },
-      {
-        "field": "Light sensation",
-        "count": 223,
-        "denominator": 270,
-        "pct": 82.6,
-        "rule": "optional_binary"
-      },
-      {
-        "field": "IAQ sensation",
-        "count": 222,
-        "denominator": 270,
-        "pct": 82.2,
-        "rule": "optional_binary"
-      },
-      {
-        "field": "Acoustic sensation",
-        "count": 223,
-        "denominator": 270,
-        "pct": 82.6,
-        "rule": "optional_binary"
-      },
-      {
-        "field": "Cognitive test applied",
-        "count": 270,
-        "denominator": 270,
+        "count": 8,
+        "denominator": 8,
         "pct": 100.0,
         "rule": "optional_binary"
       },
       {
-        "field": "Cognitive test type",
-        "count": 56,
-        "denominator": 270,
-        "pct": 20.7,
+        "field": "Outdoor temperature",
+        "count": 1,
+        "denominator": 14,
+        "pct": 7.1,
+        "rule": "optional_binary"
+      },
+      {
+        "field": "Outdoor RH",
+        "count": 0,
+        "denominator": 6,
+        "pct": 0.0,
+        "rule": "optional_binary"
+      },
+      {
+        "field": "CO\u2082 concentration",
+        "count": 28,
+        "denominator": 58,
+        "pct": 48.3,
+        "rule": "optional_binary"
+      },
+      {
+        "field": "VOC concentration",
+        "count": 3,
+        "denominator": 7,
+        "pct": 42.9,
+        "rule": "optional_binary"
+      },
+      {
+        "field": "Illuminance",
+        "count": 29,
+        "denominator": 45,
+        "pct": 64.4,
+        "rule": "optional_binary"
+      },
+      {
+        "field": "Light colour/CCT",
+        "count": 2,
+        "denominator": 4,
+        "pct": 50.0,
+        "rule": "optional_binary"
+      },
+      {
+        "field": "Solar radiation",
+        "count": 2,
+        "denominator": 9,
+        "pct": 22.2,
+        "rule": "optional_binary"
+      },
+      {
+        "field": "Sound level",
+        "count": 5,
+        "denominator": 13,
+        "pct": 38.5,
+        "rule": "optional_binary"
+      }
+    ]
+  },
+  "Questionnaires": {
+    "fields": [
+      {
+        "field": "Thermal sensation",
+        "count": 237,
+        "denominator": 238,
+        "pct": 99.6,
+        "rule": "optional_binary"
+      },
+      {
+        "field": "Thermal comfort",
+        "count": 146,
+        "denominator": 152,
+        "pct": 96.1,
+        "rule": "optional_binary"
+      },
+      {
+        "field": "Thermal preference",
+        "count": 58,
+        "denominator": 60,
+        "pct": 96.7,
+        "rule": "optional_binary"
+      },
+      {
+        "field": "Thermal acceptability",
+        "count": 77,
+        "denominator": 81,
+        "pct": 95.1,
+        "rule": "optional_binary"
+      },
+      {
+        "field": "Thermal satisfaction",
+        "count": 15,
+        "denominator": 15,
+        "pct": 100.0,
+        "rule": "optional_binary"
+      },
+      {
+        "field": "Local thermal sensation",
+        "count": 31,
+        "denominator": 31,
+        "pct": 100.0,
+        "rule": "optional_binary"
+      },
+      {
+        "field": "Air movement sensation",
+        "count": 12,
+        "denominator": 12,
+        "pct": 100.0,
+        "rule": "optional_binary"
+      },
+      {
+        "field": "Humidity sensation",
+        "count": 21,
+        "denominator": 21,
+        "pct": 100.0,
+        "rule": "optional_binary"
+      },
+      {
+        "field": "Light sensation",
+        "count": 7,
+        "denominator": 9,
+        "pct": 77.8,
+        "rule": "optional_binary"
+      },
+      {
+        "field": "IAQ sensation",
+        "count": 8,
+        "denominator": 9,
+        "pct": 88.9,
+        "rule": "optional_binary"
+      },
+      {
+        "field": "Acoustic sensation",
+        "count": 3,
+        "denominator": 3,
+        "pct": 100.0,
         "rule": "optional_binary"
       }
     ]

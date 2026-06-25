@@ -23,8 +23,8 @@ function pointColor({ value, label, comfortPole, min, max, lowColor, highColor, 
 function ScaleAxisPlot({ studies, domain, lowColor, highColor, poleColors, titleSuffix }) {
   const { tip, showTip, moveTip, hideTip } = useTooltip()
   const [domainMin, domainMax] = domain
-  const width = 640
-  const rowHeight = 7
+  const width = 700
+  const rowHeight = 5.8
   const padLeft = 22
   const height = Math.max(110, studies.length * rowHeight)
   const xScale = (v) => padLeft + ((v - domainMin) / (domainMax - domainMin)) * (width - padLeft - 8)
@@ -45,7 +45,7 @@ function ScaleAxisPlot({ studies, domain, lowColor, highColor, poleColors, title
       <div className="font-data text-[10px] text-inkfaint mb-1.5">
         Studies are ordered by their minimum scale value. Each row shows every coded point on that study's scale; black marks neutral points where present.
       </div>
-      <svg width={width} height={height + 28} className="font-data overflow-visible">
+      <svg width={width} height={height + 30} className="font-data block" style={{ overflow: 'hidden' }}>
         {ticks.map((v) => (
           <g key={v}>
             <line x1={xScale(v)} x2={xScale(v)} y1={0} y2={height} stroke="#E4E4E4" strokeWidth={1} />
@@ -153,17 +153,17 @@ export default function ChapterQuestionnaires({ data }) {
         title="Scale heterogeneity: sensation vs. comfort"
         intro="TSV has a dominant standard format, but the precise point sets still vary. TCV is much more heterogeneous: point count, verbal anchors, and comfort polarity all shift between studies."
       >
-        <FigureCard figNumber="31" title="Thermal Sensation Vote (TSV)" plotWidth={900} commentary={`${fig15_tsv_scales.n_total} studies' scales mapped onto a common cold → hot axis. Each row now shows every coded point entered in the dataset, ordered by the row's minimum value.`}>
-          <div className="grid grid-cols-3 gap-6">
-            <div className="col-span-2"><ScaleAxisPlot studies={fig15_tsv_scales.studies} domain={[-4, 8]} lowColor="#5B5BFF" highColor="#FB3640" titleSuffix="TSV" /></div>
-            <div><h4 className="text-[11.5px] font-medium mb-2 text-inkmid">Points per scale</h4><PointsBar distribution={fig15_tsv_scales.points_distribution} total={fig15_tsv_scales.n_total} color="#0A0A0A" /></div>
+        <FigureCard figNumber="31" title="Thermal Sensation Vote (TSV)" plotWidth={1120} commentary={`${fig15_tsv_scales.n_total} studies' scales mapped onto a common cold → hot axis. Each row now shows every coded point entered in the dataset, ordered by the row's minimum value.`}>
+          <div className="flex gap-10 items-start">
+            <div className="shrink-0 w-[700px]"><ScaleAxisPlot studies={fig15_tsv_scales.studies} domain={[-4, 8]} lowColor="#5B5BFF" highColor="#FB3640" titleSuffix="TSV" /></div>
+            <div className="w-72 shrink-0"><h4 className="text-[11.5px] font-medium mb-2 text-inkmid">Points per scale</h4><PointsBar distribution={fig15_tsv_scales.points_distribution} total={fig15_tsv_scales.n_total} color="#0A0A0A" /></div>
           </div>
         </FigureCard>
 
-        <FigureCard figNumber="32" title="Thermal Comfort Vote (TCV)" plotWidth={900} commentary={`${fig16_tcv_scales.n_total} studies' scales mapped onto a common axis. Endpoint colours follow meaning rather than raw number; neutral or near-neutral points are black.`}>
-          <div className="grid grid-cols-3 gap-6">
-            <div className="col-span-2"><ScaleAxisPlot studies={fig16_tcv_scales.studies} domain={[-4, 6]} poleColors={{ comfort: '#5B5BFF', discomfort: '#FB3640' }} titleSuffix="TCV" /></div>
-            <div><h4 className="text-[11.5px] font-medium mb-2 text-inkmid">Points per scale</h4><PointsBar distribution={fig16_tcv_scales.points_distribution} total={fig16_tcv_scales.n_total} color="#0A0A0A" /></div>
+        <FigureCard figNumber="32" title="Thermal Comfort Vote (TCV)" plotWidth={1120} commentary={`${fig16_tcv_scales.n_total} studies' scales mapped onto a common axis. Endpoint colours follow meaning rather than raw number; neutral or near-neutral points are black.`}>
+          <div className="flex gap-10 items-start">
+            <div className="shrink-0 w-[700px]"><ScaleAxisPlot studies={fig16_tcv_scales.studies} domain={[-4, 6]} poleColors={{ comfort: '#5B5BFF', discomfort: '#FB3640' }} titleSuffix="TCV" /></div>
+            <div className="w-72 shrink-0"><h4 className="text-[11.5px] font-medium mb-2 text-inkmid">Points per scale</h4><PointsBar distribution={fig16_tcv_scales.points_distribution} total={fig16_tcv_scales.n_total} color="#0A0A0A" /></div>
           </div>
         </FigureCard>
       </ChapterSection>

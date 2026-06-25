@@ -1019,7 +1019,12 @@ def _valid_general(s):
     return s.notna() & ~s.isin(CODES)
 
 def _valid_optional_binary(s):
-    return s.notna() & ~s.isin({'MNR', 'NAN'})
+    # Optional Y/N or free-text fields: NR means the study explicitly did not use/report this item
+    # and is excluded from the applicability denominator. MNR/NAN/blank remain missing.
+    st = s.astype(str).str.strip()
+    applicable = s.notna() & ~st.isin({'NR', 'NAN', ''})
+    valid = applicable & ~st.isin({'MNR'})
+    return valid, applicable
 
 FULL_COMPLETENESS_GROUPS = {
     'Context & setting': [
@@ -1050,14 +1055,13 @@ FULL_COMPLETENESS_GROUPS = {
         ('env-illuminance', 'Illuminance', 'optional_binary'), ('env-light-color', 'Light colour/CCT', 'optional_binary'),
         ('env-solar-rad', 'Solar radiation', 'optional_binary'), ('env-sound-level', 'Sound level', 'optional_binary'),
     ],
-    'Questionnaires & cognitive': [
+    'Questionnaires': [
         ('ques-thermal-sensation', 'Thermal sensation', 'optional_binary'), ('ques-thermal-comfort', 'Thermal comfort', 'optional_binary'),
         ('ques-thermal-prefer', 'Thermal preference', 'optional_binary'), ('ques-thermal-accept', 'Thermal acceptability', 'optional_binary'),
         ('ques-thermal-satisfaction', 'Thermal satisfaction', 'optional_binary'), ('ques-local-therm-sensation', 'Local thermal sensation', 'optional_binary'),
         ('ques-airmove-sensation', 'Air movement sensation', 'optional_binary'), ('ques-humidity-sensation', 'Humidity sensation', 'optional_binary'),
         ('ques-light-sensation', 'Light sensation', 'optional_binary'), ('ques-iaq-sensation', 'IAQ sensation', 'optional_binary'),
-        ('ques-acoustic-sensation', 'Acoustic sensation', 'optional_binary'), ('cognitive-test-done', 'Cognitive test applied', 'optional_binary'),
-        ('cognitive-test-type', 'Cognitive test type', 'optional_binary'),
+        ('ques-acoustic-sensation', 'Acoustic sensation', 'optional_binary'),
     ],
 }
 
@@ -1074,8 +1078,8 @@ for group_name, specs in FULL_COMPLETENESS_GROUPS.items():
             valid = _valid_general(sub)
         elif rule == 'optional_binary':
             sub = studies_u[col]
-            denom = len(studies_u)
-            valid = _valid_optional_binary(sub)
+            valid, applicable = _valid_optional_binary(sub)
+            denom = int(applicable.sum())
         else:
             sub = studies_u[col]
             denom = len(studies_u)

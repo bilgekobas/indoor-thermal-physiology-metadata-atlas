@@ -9,14 +9,7 @@ const TYPE_COLORS = {
   'Stress induction': '#0A0A0A',
 }
 
-function domainColor(domain) {
-  if (String(domain).toLowerCase().includes('working memory')) return '#5B5BFF'
-  if (String(domain).toLowerCase().includes('attention')) return '#FB3640'
-  if (String(domain).toLowerCase().includes('arithmetic')) return '#FB3640'
-  if (String(domain).toLowerCase().includes('workload')) return '#D5FF99'
-  if (String(domain).toLowerCase().includes('sleepiness')) return '#8A8A8A'
-  return '#BBBBBB'
-}
+function domainColor() { return '#0A0A0A' }
 
 function CognitiveSankey({ cognitive }) {
   const { tip, showTip, moveTip, hideTip } = useTooltip()
@@ -83,7 +76,9 @@ function CognitiveSankey({ cognitive }) {
         (instrumentToDomains[obj.name] || []).includes(selected.name) || domainToType[obj.name] === selected.name
     }
     if (selected.kind === 'instrument') {
-      return obj.name === selected.name || obj.b === selected.name || (instrumentToDomains[selected.name] || []).includes(obj.name)
+      const domains = instrumentToDomains[selected.name] || []
+      const types = new Set(domains.map((d) => domainToType[d]))
+      return obj.name === selected.name || obj.b === selected.name || domains.includes(obj.name) || domains.includes(obj.a) || domains.includes(obj.b) || types.has(obj.name) || types.has(obj.a)
     }
     return true
   }
@@ -199,7 +194,7 @@ export default function ChapterCognitive({ data }) {
 
       <ChapterSection
         title="What kind of measure is actually used"
-        intro="Performance tasks and subjective scales are mixed in one raw dataset field, but they are not the same type of evidence. The Sankey makes that split explicit, then shows which domains and instruments each branch contains."
+        intro="Performance tasks and subjective scales are mixed in one raw dataset field, but they are not the same type of evidence. The Sankey makes that split explicit, then shows which domains and instruments each branch contains. Colours are intentionally not used as a second encoding; all nodes are black and links scale only by count."
       >
         <FigureCard figNumber="33" title="Cognitive measure type → domain → instrument" plotWidth={1080} commentary="The first column distinguishes what the participant does (performance task), what they rate about themselves (subjective scale), or whether the entry is a deliberate stress-induction protocol. Flow width is proportional to unique-study use count.">
           <CognitiveSankey cognitive={cognitive_tests} />
