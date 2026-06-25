@@ -206,14 +206,7 @@ export default function ChapterCognitive({ data }) {
         </FigureCard>
       </ChapterSection>
 
-      <ChapterSection
-        title="One task, or a full battery?"
-        intro="Some studies run a single targeted task; others apply a long battery covering several domains at once."
-      >
-        <FigureCard figNumber="34" title="Instruments applied per study" commentary="A substantial minority of studies use just one targeted measure, but another substantial minority apply six or more instruments in one session — effectively a full cognitive battery.">
-          <BatterySizeChart studyInstruments={cognitive_tests.study_instruments} />
-        </FigureCard>
-      </ChapterSection>
+
     </div>
   )
 }

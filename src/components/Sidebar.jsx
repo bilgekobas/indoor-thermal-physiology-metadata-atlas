@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { NavLink, useLocation } from 'react-router-dom'
+import { Link, NavLink, useLocation } from 'react-router-dom'
 
 // Subtitles are each chapter's actual <ChapterSection title="..."> values —
 // kept in sync by hand here, but the anchor each one points to is generated
@@ -9,7 +9,7 @@ import { NavLink, useLocation } from 'react-router-dom'
 const CHAPTERS = [
   {
     to: '/context', label: 'When, where & how',
-    subtitles: ['When and where research happens', 'Setting and timing', 'How many variables are manipulated at once', 'Open data, in practice', 'Protocol & standardisation controls'],
+    subtitles: ['Authorship as field structure', 'When and where research happens', 'Setting and timing', 'How many variables are manipulated at once', 'Open data, in practice', 'Protocol & standardisation controls'],
   },
   {
     to: '/population', label: 'Who is studied',
@@ -29,7 +29,7 @@ const CHAPTERS = [
   },
   {
     to: '/cognitive', label: 'Measuring the mental-load',
-    subtitles: ['What kind of measure is actually used', 'One task, or a full battery?'],
+    subtitles: ['What kind of measure is actually used'],
   },
   {
     to: '/reporting', label: 'Data completeness',
@@ -56,19 +56,19 @@ export default function Sidebar({ summary }) {
 
   return (
     <aside className="w-64 shrink-0 border-r border-line h-screen sticky top-0 flex flex-col">
-      <div className="px-5 pt-6 pb-5 border-b border-line">
+      <Link to="/" className="block px-5 pt-6 pb-5 border-b border-line hover:bg-white/50 transition-colors">
         <div className="font-data text-[11px] text-inkmid tracking-wide uppercase">
           Living corpus
         </div>
-        <h1 className="font-semibold text-[15px] leading-snug mt-1">
-          Indoor Thermal<br />Physiology Corpus
+        <h1 className="font-semibold text-[14px] leading-snug mt-1">
+          How indoor thermal-physiology research is structured
         </h1>
         {summary && (
           <div className="font-data text-[11px] text-inkfaint mt-2">
             {summary.n_publications} studies · {summary.year_min}–{summary.year_max}
           </div>
         )}
-      </div>
+      </Link>
 
       <nav className="flex-1 overflow-y-auto px-3 py-4">
         <div className="mb-5">

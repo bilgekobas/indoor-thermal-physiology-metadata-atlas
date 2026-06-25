@@ -1,6 +1,5 @@
 import { ChapterHeader, ChapterSection } from '../components/Chapter.jsx'
 import FigureCard from '../components/FigureCard.jsx'
-import { CodeChip } from '../components/CodeChip.jsx'
 import { useTooltip, TooltipPortal } from '../components/Tooltip.jsx'
 
 function FieldCompletenessGroup({ title, rows }) {
@@ -16,7 +15,7 @@ function FieldCompletenessGroup({ title, rows }) {
             <div className="flex-1 h-4 rounded bg-line/50 overflow-hidden cursor-default"
               onMouseEnter={(e) => showTip(e, `${r.field}: ${r.count} of ${r.denominator} · ${r.pct}%`)}
               onMouseMove={moveTip} onMouseLeave={hideTip}>
-              <div className="h-full group-hover:brightness-110" style={{ width: `${r.pct}%`, background: r.pct >= 75 ? '#5B5BFF' : r.pct >= 40 ? '#0A0A0A' : '#FB3640' }} />
+              <div className="h-full group-hover:brightness-110" style={{ width: `${r.pct}%`, background: '#0A0A0A' }} />
             </div>
             <span className="font-data text-[11px] w-20 text-right text-inkmid">{r.count}/{r.denominator}</span>
             <span className="font-data text-[11px] w-12 text-right text-inkfaint">{r.pct}%</span>
@@ -49,8 +48,8 @@ export default function ChapterReporting({ data }) {
             </p>
             <p>
               A field counts as “complete” if it holds a substantive value rather than a missing code.
-              For environment and questionnaire yes/no fields, <CodeChip code="NR" /> is treated as a
-              legitimate non-use code rather than missingness, whereas <CodeChip code="MNR" /> still
+              For environment and questionnaire yes/no fields, NR is treated as a
+              legitimate non-use code rather than missingness, whereas MNR still
               counts as missing. MST-specific fields are evaluated only among studies where MST was
               actually calculated. Participant metadata, inclusion criteria, and protocol-rigor fields
               are excluded here because they are not required across all studies.

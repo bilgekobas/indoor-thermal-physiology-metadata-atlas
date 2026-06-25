@@ -1,6 +1,7 @@
 import { Routes, Route, useLocation } from 'react-router-dom'
 import { useEffect } from 'react'
 import Sidebar from './components/Sidebar.jsx'
+import ErrorBoundary from './components/ErrorBoundary.jsx'
 import { useCorpusData } from './useCorpusData.js'
 
 import Overview from './pages/Overview.jsx'
@@ -40,6 +41,26 @@ function ScrollToHash() {
   return null
 }
 
+function RoutedPages({ data }) {
+  const location = useLocation()
+  return (
+    <ErrorBoundary key={location.pathname}>
+      <Routes>
+        <Route path="/" element={<Overview data={data} />} />
+        <Route path="/browse" element={<Browse data={data} />} />
+        <Route path="/context" element={<ChapterContext data={data} />} />
+        <Route path="/population" element={<ChapterPopulation data={data} />} />
+        <Route path="/body" element={<ChapterBody data={data} />} />
+        <Route path="/environment" element={<ChapterEnvironment data={data} />} />
+        <Route path="/questionnaires" element={<ChapterQuestionnaires data={data} />} />
+        <Route path="/cognitive" element={<ChapterCognitive data={data} />} />
+        <Route path="/reporting" element={<ChapterReporting data={data} />} />
+        <Route path="/about" element={<About data={data} />} />
+      </Routes>
+    </ErrorBoundary>
+  )
+}
+
 export default function App() {
   const { data, error, loading } = useCorpusData()
 
@@ -56,20 +77,7 @@ export default function App() {
             Could not load corpus data: {error}
           </div>
         )}
-        {data && (
-          <Routes>
-            <Route path="/" element={<Overview data={data} />} />
-            <Route path="/browse" element={<Browse data={data} />} />
-            <Route path="/context" element={<ChapterContext data={data} />} />
-            <Route path="/population" element={<ChapterPopulation data={data} />} />
-            <Route path="/body" element={<ChapterBody data={data} />} />
-            <Route path="/environment" element={<ChapterEnvironment data={data} />} />
-            <Route path="/questionnaires" element={<ChapterQuestionnaires data={data} />} />
-            <Route path="/cognitive" element={<ChapterCognitive data={data} />} />
-            <Route path="/reporting" element={<ChapterReporting data={data} />} />
-            <Route path="/about" element={<About data={data} />} />
-          </Routes>
-        )}
+        {data && <RoutedPages data={data} />}
       </main>
     </div>
   )

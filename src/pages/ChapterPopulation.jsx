@@ -112,9 +112,6 @@ function SexDistributionChart({ studies, width = 960 }) {
   const barW = Math.max(1.3, barSlot * 0.82)
   return (
     <div>
-      <div className="font-data text-[10px] text-inkfaint mb-1">
-        Each thin bar is one study's reported sex split (100% stacked); studies sorted left→right by ascending % male.
-      </div>
       <svg width={width + yAxisW} height={H + 2} style={{ display: 'block' }}>
         {[0, 50, 100].map((pct) => {
           const y = H - (pct / 100) * H
@@ -138,7 +135,7 @@ function SexDistributionChart({ studies, width = 960 }) {
                 className="cursor-default"
               >
                 <rect x={x} y={0} width={barW} height={malePx} fill="#E4E4E4" />
-                <rect x={x} y={malePx} width={barW} height={H - malePx} fill="#5B5BFF" />
+                <rect x={x} y={malePx} width={barW} height={H - malePx} fill="#0A0A0A" />
               </g>
             )
           })}
@@ -146,7 +143,10 @@ function SexDistributionChart({ studies, width = 960 }) {
       </svg>
       <div className="flex gap-4 mt-2 text-[11px] text-inkmid">
         <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 inline-block rounded-sm" style={{ background: '#E4E4E4' }} /> Male</span>
-        <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 inline-block rounded-sm" style={{ background: '#5B5BFF' }} /> Female</span>
+        <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 inline-block rounded-sm" style={{ background: '#0A0A0A' }} /> Female</span>
+      </div>
+      <div className="font-data text-[10px] text-inkfaint mt-1">
+        Each thin bar is one study's reported sex split (100% stacked); studies are sorted left→right by ascending % male.
       </div>
       <TooltipPortal tip={tip} />
     </div>

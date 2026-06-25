@@ -31,14 +31,25 @@ function stats(values) {
   }
 }
 
+function densityProfile(values, domainMin, domainMax, bins = 90) {
+  if (!values.length) return []
+  const bw = (domainMax - domainMin) / bins
+  const sd = Math.max(0.06, (quantile([...values].sort((a, b) => a - b), 0.75) - quantile([...values].sort((a, b) => a - b), 0.25)) / 5 || 0.12)
+  return Array.from({ length: bins + 1 }, (_, i) => {
+    const xv = domainMin + i * bw
+    const d = values.reduce((a, v) => a + Math.exp(-0.5 * ((xv - v) / sd) ** 2), 0)
+    return { x: xv, d }
+  })
+}
+
 function SensorHeightOverallChart({ heightData, variables }) {
   const { tip, showTip, moveTip, hideTip } = useTooltip()
-  const W = 760
+  const W = 780
   const left = 170
-  const right = 28
-  const top = 20
-  const rowH = 52
-  const H = top + variables.length * rowH + 34
+  const right = 54
+  const top = 28
+  const rowH = 62
+  const H = top + variables.length * rowH + 58
   const domainMin = 0
   const domainMax = 3.5
   const x = (v) => left + ((v - domainMin) / (domainMax - domainMin)) * W
@@ -54,36 +65,39 @@ function SensorHeightOverallChart({ heightData, variables }) {
   const ticks = Array.from({ length: 8 }, (_, i) => i * 0.5)
 
   return (
-    <div className="overflow-x-auto">
-      <div className="font-data text-[10px] text-inkfaint mb-2">
-        Each dot is one reported sensor height. Black boxplots summarize the row distribution; dotted guide lines mark the four standard 0.1, 0.6, 1.1, and 1.7 m heights.
-      </div>
+    <div>
       <svg width={left + W + right} height={H} className="font-data block overflow-visible">
         {ticks.map((t) => (
           <g key={t}>
-            <line x1={x(t)} x2={x(t)} y1={top - 8} y2={H - 28} stroke="#E4E4E4" strokeWidth={1} />
-            <text x={x(t)} y={H - 10} fontSize={9.5} fill="#8A8A8A" textAnchor="middle">{t.toFixed(1)}</text>
+            <line x1={x(t)} x2={x(t)} y1={top - 14} y2={H - 44} stroke="#E4E4E4" strokeWidth={1} />
+            <text x={x(t)} y={H - 24} fontSize={9.5} fill="#8A8A8A" textAnchor="middle">{t.toFixed(1)}</text>
           </g>
         ))}
         {refHeights.map((h) => (
-          <line key={`ref-${h}`} x1={x(h)} x2={x(h)} y1={top - 8} y2={H - 28} stroke="#BBBBBB" strokeWidth={1} strokeDasharray="3 3" />
+          <line key={`ref-${h}`} x1={x(h)} x2={x(h)} y1={top - 14} y2={H - 44} stroke="#BBBBBB" strokeWidth={1} strokeDasharray="3 3" />
         ))}
         {variables.map((v, vi) => {
           const rowY = top + vi * rowH + rowH / 2
           const vals = byVar[v].map((d) => d.height).filter((d) => Number.isFinite(d))
           const s = stats(vals)
+          const profile = densityProfile(vals, domainMin, domainMax)
+          const maxD = Math.max(...profile.map((p) => p.d), 1)
+          const halfMax = 15
+          const upper = profile.map((p) => `${x(p.x)},${rowY - (p.d / maxD) * halfMax}`).join(' ')
+          const lower = [...profile].reverse().map((p) => `${x(p.x)},${rowY + (p.d / maxD) * halfMax}`).join(' ')
           return (
             <g key={v}>
               <text x={left - 10} y={rowY + 3.5} fontSize={11} fill="#4A4A4A" textAnchor="end">{v}</text>
               <line x1={left} x2={left + W} y1={rowY} y2={rowY} stroke="#F4F4F4" />
+              {vals.length > 1 && <polygon points={`${upper} ${lower}`} fill="#D9D9D9" opacity={0.55} />}
               {byVar[v].map((d, i) => (
                 <circle
                   key={`${d.id}-${i}`}
                   cx={x(d.height)}
-                  cy={rowY + Math.sin(i * 7.17) * 8}
-                  r={3.2}
+                  cy={rowY + Math.sin(i * 7.17) * 9}
+                  r={2.6}
                   fill="#0A0A0A"
-                  opacity={0.33}
+                  opacity={0.28}
                   className="cursor-default"
                   onMouseEnter={(e) => showTip(e, `${v}: ${d.height} m (${d.id})`)}
                   onMouseMove={moveTip}
@@ -92,18 +106,21 @@ function SensorHeightOverallChart({ heightData, variables }) {
               ))}
               {s && (
                 <g>
-                  <line x1={x(s.min)} x2={x(s.max)} y1={rowY} y2={rowY} stroke="#0A0A0A" strokeWidth={1.4} />
-                  <line x1={x(s.min)} x2={x(s.min)} y1={rowY - 7} y2={rowY + 7} stroke="#0A0A0A" strokeWidth={1.2} />
-                  <line x1={x(s.max)} x2={x(s.max)} y1={rowY - 7} y2={rowY + 7} stroke="#0A0A0A" strokeWidth={1.2} />
-                  <rect x={x(s.q1)} y={rowY - 10} width={Math.max(1, x(s.q3) - x(s.q1))} height={20} fill="none" stroke="#0A0A0A" strokeWidth={1.4} />
-                  <line x1={x(s.med)} x2={x(s.med)} y1={rowY - 10} y2={rowY + 10} stroke="#0A0A0A" strokeWidth={1.6} />
+                  <line x1={x(s.min)} x2={x(s.max)} y1={rowY} y2={rowY} stroke="#0A0A0A" strokeWidth={1.25} />
+                  <line x1={x(s.min)} x2={x(s.min)} y1={rowY - 7} y2={rowY + 7} stroke="#0A0A0A" strokeWidth={1.1} />
+                  <line x1={x(s.max)} x2={x(s.max)} y1={rowY - 7} y2={rowY + 7} stroke="#0A0A0A" strokeWidth={1.1} />
+                  <rect x={x(s.q1)} y={rowY - 10} width={Math.max(1, x(s.q3) - x(s.q1))} height={20} fill="none" stroke="#0A0A0A" strokeWidth={1.35} />
+                  <line x1={x(s.med)} x2={x(s.med)} y1={rowY - 11} y2={rowY + 11} stroke="#0A0A0A" strokeWidth={1.6} />
                 </g>
               )}
             </g>
           )
         })}
-        <text x={left + W / 2} y={H - 2} fontSize={10.5} fill="#8A8A8A" textAnchor="middle">Sensor height (m)</text>
+        <text x={left + W / 2} y={H - 4} fontSize={10.5} fill="#8A8A8A" textAnchor="middle">Sensor height (m)</text>
       </svg>
+      <div className="font-data text-[10px] text-inkfaint mt-1">
+        Dots are individual reported heights; the light violin estimates their distribution. Unfilled boxplots show IQR, median, and non-outlier range. Dotted vertical lines mark 0.1, 0.6, 1.1, and 1.7 m.
+      </div>
       <TooltipPortal tip={tip} />
     </div>
   )

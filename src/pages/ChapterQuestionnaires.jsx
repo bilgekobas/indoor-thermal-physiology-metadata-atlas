@@ -85,7 +85,7 @@ function ScaleAxisPlot({ studies, domain, lowColor, highColor, poleColors, title
   )
 }
 
-function PointsBar({ distribution, total, color }) {
+function PointsBar({ distribution, total, color = '#0A0A0A' }) {
   const { tip, showTip, moveTip, hideTip } = useTooltip()
   return (
     <div className="space-y-1.5">
@@ -95,12 +95,12 @@ function PointsBar({ distribution, total, color }) {
           <div className="flex-1 h-5 rounded bg-line/50 overflow-hidden cursor-default"
             onMouseEnter={(e) => showTip(e, `${d.points}-point: ${d.count} of ${total} · ${((d.count / total) * 100).toFixed(1)}%`)}
             onMouseMove={moveTip} onMouseLeave={hideTip}>
-            <div className="h-full group-hover:brightness-110" style={{ width: `${(d.count / Math.max(total, 1)) * 100}%`, background: color }} />
+            <div className="h-full group-hover:brightness-110" style={{ width: `${(d.count / Math.max(total, 1)) * 100}%`, background: '#0A0A0A' }} />
           </div>
-          <span className="font-data text-[11px] w-12 text-right text-inkmid">{d.count}</span>
+          <span className="font-data text-[11px] w-16 text-right text-inkmid">{d.count} ({((d.count / total) * 100).toFixed(0)}%)</span>
         </div>
       ))}
-      <div className="font-data text-[10px] text-inkfaint mt-1">Bar length relative to n for that scale family.</div>
+      <div className="font-data text-[10px] text-inkfaint mt-1">n = {total} scales</div>
       <TooltipPortal tip={tip} />
     </div>
   )
@@ -138,12 +138,12 @@ export default function ChapterQuestionnaires({ data }) {
 
       <ChapterSection
         title="Questionnaire usage by domain"
-        intro="Thermal sensation, comfort, preference, and acceptability dominate, but the full dataset includes a broader tail of domain-specific questionnaire types. Bar length is scaled to the total count for that domain rather than to the largest bar within it."
+        intro="Thermal sensation, comfort, preference, and acceptability dominate, but the full dataset includes a broader tail of domain-specific questionnaire types. Counts and percentages are shown within each questionnaire domain."
       >
         <div className="grid grid-cols-2 gap-x-10 gap-y-8 max-w-5xl">
           {Object.entries(fig14_questionnaire_domains).map(([domain, d]) => (
             <FigureCard key={domain} figNumber={domain === Object.keys(fig14_questionnaire_domains)[0] ? "30" : null} title={`${domain} (n=${d.n_any})`} commentary={null}>
-              <InteractiveBarChart data={d.fields.map((f) => ({ label: f.field, count: f.count }))} total={d.n_any} color="#5B5BFF" height={16} />
+              <InteractiveBarChart data={d.fields.map((f) => ({ label: f.field, count: f.count }))} total={d.n_any} color="#0A0A0A" height={16} />
             </FigureCard>
           ))}
         </div>
@@ -156,14 +156,14 @@ export default function ChapterQuestionnaires({ data }) {
         <FigureCard figNumber="31" title="Thermal Sensation Vote (TSV)" plotWidth={900} commentary={`${fig15_tsv_scales.n_total} studies' scales mapped onto a common cold → hot axis. Each row now shows every coded point entered in the dataset, ordered by the row's minimum value.`}>
           <div className="grid grid-cols-3 gap-6">
             <div className="col-span-2"><ScaleAxisPlot studies={fig15_tsv_scales.studies} domain={[-4, 8]} lowColor="#5B5BFF" highColor="#FB3640" titleSuffix="TSV" /></div>
-            <div><h4 className="text-[11.5px] font-medium mb-2 text-inkmid">Points per scale</h4><PointsBar distribution={fig15_tsv_scales.points_distribution} total={fig15_tsv_scales.n_total} color="#5B5BFF" /></div>
+            <div><h4 className="text-[11.5px] font-medium mb-2 text-inkmid">Points per scale</h4><PointsBar distribution={fig15_tsv_scales.points_distribution} total={fig15_tsv_scales.n_total} color="#0A0A0A" /></div>
           </div>
         </FigureCard>
 
         <FigureCard figNumber="32" title="Thermal Comfort Vote (TCV)" plotWidth={900} commentary={`${fig16_tcv_scales.n_total} studies' scales mapped onto a common axis. Endpoint colours follow meaning rather than raw number; neutral or near-neutral points are black.`}>
           <div className="grid grid-cols-3 gap-6">
             <div className="col-span-2"><ScaleAxisPlot studies={fig16_tcv_scales.studies} domain={[-4, 6]} poleColors={{ comfort: '#5B5BFF', discomfort: '#FB3640' }} titleSuffix="TCV" /></div>
-            <div><h4 className="text-[11.5px] font-medium mb-2 text-inkmid">Points per scale</h4><PointsBar distribution={fig16_tcv_scales.points_distribution} total={fig16_tcv_scales.n_total} color="#FB3640" /></div>
+            <div><h4 className="text-[11.5px] font-medium mb-2 text-inkmid">Points per scale</h4><PointsBar distribution={fig16_tcv_scales.points_distribution} total={fig16_tcv_scales.n_total} color="#0A0A0A" /></div>
           </div>
         </FigureCard>
       </ChapterSection>

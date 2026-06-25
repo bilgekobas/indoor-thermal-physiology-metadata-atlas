@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 function StatBlock({ value, label, accent }) {
   return (
     <div className="border border-line rounded-md px-5 py-4 bg-white/40">
-      <div className="font-data text-[28px] font-semibold leading-none" style={{ color: accent }}>
+      <div className="font-data text-[28px] font-semibold leading-none" style={{ color: '#FB3640' }}>
         {value}
       </div>
       <div className="text-[12.5px] text-inkmid mt-1.5">{label}</div>
@@ -11,14 +11,14 @@ function StatBlock({ value, label, accent }) {
   )
 }
 
-function FindingCard({ value, unit = '', accent = '#5B5BFF', children, to }) {
+function FindingCard({ value, unit = '', accent = '#FB3640', children, to }) {
   return (
     <Link
       to={to}
       className="group block border border-line rounded-md bg-white/45 px-5 py-4 hover:border-coreaccent hover:bg-white/70 transition-colors"
     >
       <div className="flex items-start gap-4">
-        <div className="font-data text-[32px] leading-none font-semibold shrink-0 min-w-[88px]" style={{ color: accent }}>
+        <div className="font-data text-[32px] leading-none font-semibold shrink-0 min-w-[88px]" style={{ color: '#FB3640' }}>
           {value}<span className="text-[18px] align-baseline">{unit}</span>
         </div>
         <p className="text-[13.5px] text-inkmid leading-relaxed pt-0.5 group-hover:text-ink">
@@ -67,7 +67,7 @@ export default function Overview({ data }) {
     <div>
       <div className="px-10 pt-12 pb-10 border-b border-line bg-white/30">
         <div className="font-data text-[11px] uppercase tracking-wider text-coreaccent mb-3">
-          Living metadata corpus · updated yearly
+          Living metadata corpus
         </div>
         <h1 className="text-[34px] font-semibold leading-[1.15] tracking-tight max-w-3xl">
           How indoor thermal-physiology research is structured
@@ -105,7 +105,7 @@ export default function Overview({ data }) {
           <FindingCard value={latestGeo.pct.toFixed(0)} unit="%" accent="#5B5BFF" to="/context#when-and-where-research-happens">
             of {latestGeo.period} studies are from {latestGeo.top_country} alone. The total share for {firstGeo.period} was {firstGeo.pct.toFixed(0)}%.
           </FindingCard>
-          <FindingCard value={openDataPct} unit="%" accent="#FB3640" to="/reporting#open-data-in-practice">
+          <FindingCard value={openDataPct} unit="%" accent="#FB3640" to="/context#open-data-in-practice">
             of studies share data directly and openly ({open_data.n_with_real_data_link} of {open_data.n_total}).
           </FindingCard>
           <FindingCard value={skinPct} unit="%" accent="#5B5BFF" to="/body#whats-measured-and-how">

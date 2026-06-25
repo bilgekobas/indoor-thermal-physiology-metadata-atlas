@@ -1,8 +1,5 @@
 import { useTooltip, TooltipPortal, fmtCountPct } from './Tooltip.jsx'
 
-// Horizontal frequency bar chart. When a total is supplied, bar length is
-// relative to that denominator (not just the biggest visible bar), so the
-// visual length and the printed percentage refer to the same quantity.
 export default function InteractiveBarChart({ data, total, color = '#0A0A0A', maxBars = null, height = 22, unitLabel = 'studies' }) {
   const { tip, showTip, moveTip, hideTip } = useTooltip()
   const rows = maxBars ? data.slice(0, maxBars) : data
@@ -29,15 +26,15 @@ export default function InteractiveBarChart({ data, total, color = '#0A0A0A', ma
                 style={{ width: `${Math.min(100, (row.count / Math.max(denom, 1)) * 100)}%`, background: color }}
               />
             </div>
-            <span className="font-data text-[11.5px] w-16 text-right text-inkmid shrink-0">
-              {row.count} ({total ? ((row.count / total) * 100).toFixed(0) : 0}%)
+            <span className="font-data text-[11.5px] w-20 text-right text-inkmid shrink-0">
+              {row.count}{total ? ` (${((row.count / total) * 100).toFixed(0)}%)` : ''}
             </span>
           </div>
         ))}
       </div>
       {total != null && (
         <div className="font-data text-[10.5px] text-inkfaint mt-2">
-          Bar length relative to the total shown denominator. n = {total} {unitLabel} total; count and % of that total shown at right.
+          n = {total} {unitLabel}
         </div>
       )}
       <TooltipPortal tip={tip} />

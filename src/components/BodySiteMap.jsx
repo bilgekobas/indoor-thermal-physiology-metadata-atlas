@@ -55,7 +55,7 @@ const NON_PLACEABLE_NOTE = {
   'Limbs': 'too unspecific to place (could be any limb)',
 }
 
-export default function BodySiteMap({ siteData, totalLabel, color = '#5B5BFF', height = 460 }) {
+export default function BodySiteMap({ siteData, totalLabel, color = '#5B5BFF', height = 620 }) {
   const { tip, showTip, moveTip, hideTip } = useTooltip()
   const [svgMarkup, setSvgMarkup] = useState(null)
 
@@ -90,16 +90,17 @@ export default function BodySiteMap({ siteData, totalLabel, color = '#5B5BFF', h
   const radiusFor = (count) => 6 + Math.sqrt(count / maxCount) * 15
 
   const VB_W = 603.04, VB_H = 742.93
-  const renderW = height * (VB_W / VB_H)
+  const displayHeight = Math.max(height, Math.min(820, 320 + normalized.length * 13))
+  const renderW = displayHeight * (VB_W / VB_H)
 
   return (
     <div>
       <div className="flex gap-8 items-start">
-        <div className="relative shrink-0" style={{ width: renderW, height }}>
+        <div className="relative shrink-0" style={{ width: renderW, height: displayHeight }}>
           {svgMarkup ? (
             <div
               className="absolute inset-0 opacity-[0.16]"
-              style={{ width: renderW, height }}
+              style={{ width: renderW, height: displayHeight }}
               dangerouslySetInnerHTML={{ __html: svgMarkup.replace('<svg', '<svg width="100%" height="100%"') }}
             />
           ) : (
@@ -107,11 +108,11 @@ export default function BodySiteMap({ siteData, totalLabel, color = '#5B5BFF', h
               Loading diagram…
             </div>
           )}
-          <svg width={renderW} height={height} className="absolute inset-0 overflow-visible">
+          <svg width={renderW} height={displayHeight} className="absolute inset-0 overflow-visible">
             {placeable.map((s) => {
               const [fx, fy] = SITE_COORDS[s.site]
               const cx = fx * renderW
-              const cy = fy * height
+              const cy = fy * displayHeight
               const pct = totalLabel?.n ? ((s.count / totalLabel.n) * 100).toFixed(0) : '0'
               return (
                 <g key={s.site}>
