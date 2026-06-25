@@ -63,8 +63,8 @@ a { color:var(--blue); }
 <div class="controls">
   <div class="control-block mono">View
     <button id="clusterBtn" class="toggle active">groups</button>
-    <button id="authorBtn" class="toggle">authors</button>
-    <button id="egoBtn" class="toggle">ego</button>
+    <button id="authorBtn" class="toggle">author group</button>
+    <button id="egoBtn" class="toggle">searched author</button>
   </div>
   <label class="control-block">Minimum shared studies
     <input type="range" id="weightSlider" min="1" max="10" value="4" />
@@ -78,8 +78,9 @@ a { color:var(--blue); }
     <input id="search" type="search" list="authors" placeholder="e.g. Baizhan Li" />
     <datalist id="authors"></datalist>
   </label>
-  <button id="searchBtn" class="primary">show ego</button>
+  <button id="searchBtn" class="primary">show searched author</button>
   <button id="clearBtn">clear</button>
+  <div class="control-block mono">Zoom <button id="zoomInBtn">+</button><button id="zoomOutBtn">−</button><button id="zoomResetBtn">reset</button></div>
   <span id="countLabel" class="mono" style="font-size:11px;color:var(--faint)"></span>
 </div>
 <div id="layout">
@@ -103,6 +104,8 @@ const DATA = {"nodes":[{"name":"A Dipasquale","n_studies":1,"country":"Italy"},{
 const W = 980, H = 720;
 const svg = d3.select('#chart');
 const root = svg.append('g');
+const zoom = d3.zoom().scaleExtent([0.45, 6]).on('zoom', (event) => root.attr('transform', event.transform));
+svg.call(zoom).on('dblclick.zoom', null);
 const linkLayer = root.append('g');
 const nodeLayer = root.append('g');
 const labelLayer = root.append('g');
@@ -204,7 +207,7 @@ function renderClusters(comps) {
     .force('collide', d3.forceCollide(d=>d.r+8).iterations(5))
     .stop();
   for(let i=0;i<500;i++) sim.tick();
-  const g=nodeLayer.selectAll('g.cluster').data(nodes).join('g').attr('class','cluster').attr('transform',d=>'translate('+d.x+','+d.y+')');
+  const g=nodeLayer.selectAll('g.cluster').data(nodes).join('g').attr('class','cluster').attr('transform',d=>'translate('+Math.max(d.r+6, Math.min(W-d.r-6, d.x))+','+Math.max(d.r+6, Math.min(H-d.r-6, d.y))+')');
   g.append('circle').attr('class','cluster-bubble').attr('r',d=>d.r).attr('fill',d=>d.color).attr('fill-opacity',.82)
     .on('click',(event,d)=>{ selectedComponent=d.id; mode='authors'; updateModeButtons(); render(); })
     .on('mouseenter',(event,d)=>showTooltip(event,'<b>'+d.topAuthor.name+'</b><br>'+d.nAuthors+' authors · '+d.nPairs+' pairs<br>Dominant country: '+d.dominantCountry+'<br>Click to open group'))
@@ -244,9 +247,9 @@ function renderAuthorGraph(graph, ego=false) {
   clearSvg();
   const nodes = graph.nodes.map(d=>({...d}));
   const edges = graph.edges.map(d=>({...d}));
-  const title = ego ? 'Ego network' : 'Author network';
+  const title = ego ? 'Searched-author network' : 'Author-group network';
   document.getElementById('sideTitle').textContent = graph.comp ? title + ': ' + graph.comp.topAuthor.name : title;
-  document.getElementById('sideHelp').textContent = ego ? 'Ego view shows the selected author, direct collaborators, and collaborators-of-collaborators at the current threshold.' : 'Author-level view is restricted to one collaboration group for readability. Use the group list or search to change focus.';
+  document.getElementById('sideHelp').textContent = ego ? 'Searched-author view shows the selected author, direct collaborators, and collaborators-of-collaborators at the current threshold.' : 'Author-group view shows one connected collaboration component at author level. Use the group list or search to change focus.';
   setCounts(nodes.length+' authors, '+edges.length+' pairs shown');
   renderSide(currentComponents);
   if(!nodes.length) { nodeLayer.append('text').attr('x',W/2).attr('y',H/2).attr('text-anchor','middle').attr('fill','#8A8A8A').text('No author graph at this threshold.'); return; }
@@ -267,7 +270,7 @@ function renderAuthorGraph(graph, ego=false) {
     .force('collide', d3.forceCollide(d=>radiusFor(d)+6).iterations(2))
     .on('tick',()=>{
       linkSel.attr('x1',d=>d.source.x).attr('y1',d=>d.source.y).attr('x2',d=>d.target.x).attr('y2',d=>d.target.y);
-      nodeSel.attr('transform',d=>'translate('+d.x+','+d.y+')');
+      nodeSel.attr('transform',d=>'translate('+Math.max(d.r+6, Math.min(W-d.r-6, d.x))+','+Math.max(d.r+6, Math.min(H-d.r-6, d.y))+')');
       labels.attr('x',d=>d.x).attr('y',d=>d.y+radiusFor(d)+12);
     });
 }
@@ -295,6 +298,9 @@ document.getElementById('authorSlider').addEventListener('input',e=>{ minAuthorS
 document.getElementById('searchBtn').onclick=()=>{ const q=document.getElementById('search').value.trim(); if(nodeByName.has(q)) { selectedAuthor=q; mode='ego'; updateModeButtons(); render(); } };
 document.getElementById('search').addEventListener('keydown',e=>{ if(e.key==='Enter') document.getElementById('searchBtn').click(); });
 document.getElementById('clearBtn').onclick=()=>{ selectedAuthor=null; selectedComponent=null; document.getElementById('search').value=''; mode='clusters'; updateModeButtons(); render(); };
+document.getElementById('zoomInBtn').onclick=()=>svg.transition().duration(160).call(zoom.scaleBy, 1.25);
+document.getElementById('zoomOutBtn').onclick=()=>svg.transition().duration(160).call(zoom.scaleBy, 0.8);
+document.getElementById('zoomResetBtn').onclick=()=>svg.transition().duration(160).call(zoom.transform, d3.zoomIdentity);
 render();
 </script>
 </body>

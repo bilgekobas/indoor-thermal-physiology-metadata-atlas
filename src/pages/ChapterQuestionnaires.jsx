@@ -41,7 +41,7 @@ function ScaleAxisPlot({ studies, domain, lowColor, highColor, poleColors, title
   const ticks = Array.from({ length: domainMax - domainMin + 1 }, (_, i) => domainMin + i)
 
   return (
-    <div className="overflow-x-auto">
+    <div className="no-horizontal-scroll">
       <div className="font-data text-[10px] text-inkfaint mb-1.5">
         Studies are ordered by their minimum scale value. Each row shows every coded point on that study's scale; black marks neutral points where present.
       </div>
@@ -141,8 +141,8 @@ export default function ChapterQuestionnaires({ data }) {
         intro="Thermal sensation, comfort, preference, and acceptability dominate, but the full dataset includes a broader tail of domain-specific questionnaire types. Counts and percentages are shown within each questionnaire domain."
       >
         <div className="grid grid-cols-2 gap-x-10 gap-y-8 max-w-5xl">
-          {Object.entries(fig14_questionnaire_domains).map(([domain, d]) => (
-            <FigureCard key={domain} figNumber={domain === Object.keys(fig14_questionnaire_domains)[0] ? "30" : null} title={`${domain} (n=${d.n_any})`} commentary={null}>
+          {Object.entries(fig14_questionnaire_domains).map(([domain, d], i) => (
+            <FigureCard key={domain} figNumber={`30${String.fromCharCode(97 + i)}`} title={`${domain} (n=${d.n_any})`} commentary={null}>
               <InteractiveBarChart data={d.fields.map((f) => ({ label: f.field, count: f.count }))} total={d.n_any} color="#0A0A0A" height={16} />
             </FigureCard>
           ))}

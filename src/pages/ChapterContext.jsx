@@ -293,7 +293,7 @@ function SettingSankey({ data, total }) {
   }, [data, total])
 
   return (
-    <div className="overflow-x-auto">
+    <div className="no-horizontal-scroll">
       <svg width={layout.W} height={layout.H + 6} className="font-data overflow-visible">
         {layout.links.map((link, i) => {
           const x1 = link.from.x + 16
@@ -351,7 +351,7 @@ function PublicationsByYearChart({ data, totalPubs }) {
   const barW = (W - barGap * (data.length - 1)) / data.length
   const yScale = (v) => H - (v / gridMax) * H
   return (
-    <div className="overflow-x-auto">
+    <div className="no-horizontal-scroll">
       <svg width={W + 30} height={H + 24} className="font-data overflow-visible">
         {Array.from({ length: gridMax / gridStep + 1 }, (_, i) => i * gridStep).map((v) => (
           <g key={v}>

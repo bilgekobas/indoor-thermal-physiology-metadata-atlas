@@ -217,9 +217,9 @@ mst_only['formula'] = mst_only['physio-mst-formula'].apply(clean_formula)
 TOP_FORMULAS = ['Ramanathan (1964)','Hardy & DuBois (1938)','ISO 9886: 2004',
                 'Colin & Houdas (1982)','Ouyang (1985)','McIntyre (1980)']
 def formula_group(f):
-    if f in TOP_FORMULAS: return f
-    if f == 'NR': return 'NR'
-    return 'Other/Multiple'
+    # Keep formula labels disaggregated. The atlas view sorts them by count rather
+    # than hiding long-tail formulas under an 'Other' bucket.
+    return f or 'NR'
 mst_only['formula_grp'] = mst_only['formula'].apply(formula_group)
 
 formula_by_period = mst_only.groupby(['period','formula_grp']).size().reset_index(name='count')
@@ -227,7 +227,6 @@ formula_by_period = mst_only.groupby(['period','formula_grp']).size().reset_inde
 def bucket_pt(p):
     if p is None or (isinstance(p, float) and np.isnan(p)):
         return None
-    if p >= 12: return '≥12'
     return str(int(p))
 mst_only['pt_bucket'] = mst_only['pts'].apply(bucket_pt)
 points_by_formula = mst_only.dropna(subset=['pt_bucket']).groupby(['pt_bucket','formula_grp']).size().reset_index(name='count')
@@ -237,7 +236,7 @@ with open(OUT_DIR / 'mst.json', 'w') as f:
         'calc_rate_by_period': mst_rate.to_dict('records'),
         'formula_by_period': formula_by_period.to_dict('records'),
         'points_by_formula': points_by_formula.to_dict('records'),
-        'formula_order': TOP_FORMULAS + ['Other/Multiple','NR'],
+        'formula_order': sorted(mst_only['formula_grp'].dropna().unique().tolist()),
         'periods': [b[2] for b in BINS],
         'n_mst_studies': int(len(mst_only)),
     }, f, indent=2, default=str)

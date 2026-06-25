@@ -90,7 +90,7 @@ export default function BodySiteMap({ siteData, totalLabel, color = '#5B5BFF', h
   const radiusFor = (count) => 6 + Math.sqrt(count / maxCount) * 15
 
   const VB_W = 603.04, VB_H = 742.93
-  const displayHeight = Math.max(height, Math.min(820, 320 + normalized.length * 13))
+  const displayHeight = height
   const renderW = displayHeight * (VB_W / VB_H)
 
   return (

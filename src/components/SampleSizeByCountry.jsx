@@ -4,7 +4,7 @@ import { useTooltip, TooltipPortal } from './Tooltip.jsx'
 export default function SampleSizeByCountry({ stats, studies, minCountThreshold, overallStudies = null, sampleShareThreshold = 1, totalSampleSizeAllCountries = null, selectionRule = null }) {
   const { tip, showTip, moveTip, hideTip } = useTooltip()
   const PLOT_W = 620
-  const TABLE_GAP = 170
+  const TABLE_GAP = 120
   const AXIS_X = 160
   const LABEL_X = AXIS_X - 12
   const domainMin = 0
@@ -31,7 +31,7 @@ export default function SampleSizeByCountry({ stats, studies, minCountThreshold,
     return { n: vals.length, mean, median }
   }, [studies, overallStudies])
 
-  const totalSample = totalSampleSizeAllCountries || stats.reduce((a, s) => a + (s.sample_total || 0), 0)
+  const totalSample = totalSampleSizeAllCountries || studies.reduce((a, s) => a + (Number(s.n) || 0), 0)
   const refLines = [
     { key: 'n-equals-1', label: 'n = 1', value: 1, stroke: '#BBBBBB', dashed: false },
     { key: 'overall-median', label: 'overall median', value: overall.median, stroke: '#5B5BFF', dashed: true },
@@ -40,7 +40,7 @@ export default function SampleSizeByCountry({ stats, studies, minCountThreshold,
 
   return (
     <div>
-      <svg width={AXIS_X + PLOT_W + TABLE_GAP + 112} height={H + 40} className="font-data overflow-visible block">
+      <svg width={AXIS_X + PLOT_W + TABLE_GAP + 112} height={H + 40} viewBox={`0 -16 ${AXIS_X + PLOT_W + TABLE_GAP + 112} ${H + 64}`} className="font-data overflow-visible block">
         {[1, 10, 100, 1000, 10000].map((v) => (
           <g key={v}>
             <line x1={xScale(v) + AXIS_X} x2={xScale(v) + AXIS_X} y1={0} y2={H} stroke="#E4E4E4" strokeWidth={1} />
@@ -81,7 +81,8 @@ export default function SampleSizeByCountry({ stats, studies, minCountThreshold,
         {stats.map((s, i) => {
           const y = i * rowH + rowH / 2
           const dots = studiesByCountry[s.country] || []
-          const samplePct = totalSample ? ((s.sample_total || 0) / totalSample) * 100 : (s.sample_pct || 0)
+          const countrySampleTotal = Number.isFinite(Number(s.sample_total)) ? Number(s.sample_total) : dots.reduce((a, n) => a + (Number(n) || 0), 0)
+          const samplePct = totalSample ? (countrySampleTotal / totalSample) * 100 : (s.sample_pct || 0)
           return (
             <g key={s.country}>
               <text x={LABEL_X} y={y + 3} fontSize={11.5} textAnchor="end" fill="#0A0A0A">{s.country}</text>
@@ -123,7 +124,7 @@ export default function SampleSizeByCountry({ stats, studies, minCountThreshold,
                 onMouseMove={moveTip}
                 onMouseLeave={hideTip}
               />
-              <text x={AXIS_X + PLOT_W + TABLE_GAP + 28} y={y + 3} fontSize={10.5} fill="#0A0A0A" textAnchor="end">{Math.round(s.sample_total || 0).toLocaleString()}</text>
+              <text x={AXIS_X + PLOT_W + TABLE_GAP + 28} y={y + 3} fontSize={10.5} fill="#0A0A0A" textAnchor="end">{Math.round(countrySampleTotal).toLocaleString()}</text>
               <text x={AXIS_X + PLOT_W + TABLE_GAP + 98} y={y + 3} fontSize={10.5} fill="#8A8A8A" textAnchor="end">{samplePct.toFixed(1)}%</text>
             </g>
           )

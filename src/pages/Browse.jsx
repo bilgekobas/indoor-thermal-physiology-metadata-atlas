@@ -110,7 +110,7 @@ export default function Browse({ data }) {
         <span className="font-data text-[12px] text-inkfaint ml-auto">{filtered.length} of {studies.length} experiments</span>
       </div>
 
-      <div className="overflow-x-auto">
+      <div className="no-horizontal-scroll">
         <table className="w-full text-[13px]">
           <thead>
             <tr className="border-b border-line text-left text-inkfaint font-data text-[11px] uppercase tracking-wide">

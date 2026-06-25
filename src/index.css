@@ -56,3 +56,16 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 }
 
 svg { overflow: visible; }
+
+
+/* Figure-level sizing: figures may use more horizontal room than prose, but should not create page-level horizontal scrollbars. */
+.atlas-figure-plot svg {
+  max-width: 100%;
+  height: auto;
+}
+.atlas-figure-plot .no-horizontal-scroll {
+  overflow-x: visible;
+}
+@media (max-width: 900px) {
+  .atlas-figure-plot { width: 100% !important; }
+}

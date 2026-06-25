@@ -75,7 +75,7 @@ export default function Devices({ data }) {
         </span>
       </div>
 
-      <div className="overflow-x-auto">
+      <div className="no-horizontal-scroll">
         <table className="w-full text-[13px]">
           <thead>
             <tr className="border-b border-line text-left text-inkfaint font-data text-[11px] uppercase tracking-wide">

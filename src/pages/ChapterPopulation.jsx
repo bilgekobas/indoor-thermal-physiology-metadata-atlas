@@ -269,7 +269,7 @@ export default function ChapterPopulation({ data }) {
           <InteractiveBarChart
             data={sample_justification.calc_type_distribution.map((d) => ({ label: d.type, count: d.count }))}
             total={sample_justification.calc_type_distribution.reduce((a, d) => a + d.count, 0)}
-            color="#FB3640"
+            color="#0A0A0A"
           />
         </FigureCard>
       </ChapterSection>

@@ -91,12 +91,13 @@ export default function WorldMapExplorer({ cityData, countryData, height = 430 }
           <button className="px-2 py-1 rounded bg-line/60 text-[11px] font-data hover:bg-line" onClick={() => setView({ coordinates: [10, 10], zoom: 1 })}>Reset</button>
         </div>
       </div>
+      <div className="relative overflow-hidden border border-line/40 rounded-sm">
       <ComposableMap
         projection="geoEqualEarth"
         projectionConfig={{ scale: 135, center: [10, 5] }}
         width={900}
         height={height}
-        style={{ width: '100%', height: 'auto' }}
+        style={{ width: '100%', height: 'auto', overflow: 'hidden' }}
       >
         <ZoomableGroup
           center={view.coordinates}
@@ -166,6 +167,7 @@ export default function WorldMapExplorer({ cityData, countryData, height = 430 }
           ))}
         </ZoomableGroup>
       </ComposableMap>
+      </div>
       {mode === 'city' ? (
         <div>
           <div className="flex flex-wrap gap-3 mt-3">

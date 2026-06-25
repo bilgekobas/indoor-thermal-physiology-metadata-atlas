@@ -44,15 +44,17 @@ function densityProfile(values, domainMin, domainMax, bins = 90) {
 
 function SensorHeightOverallChart({ heightData, variables }) {
   const { tip, showTip, moveTip, hideTip } = useTooltip()
-  const W = 780
-  const left = 170
-  const right = 54
-  const top = 28
-  const rowH = 62
-  const H = top + variables.length * rowH + 58
+  const W = 820
+  const Hplot = 480
+  const left = 92
+  const right = 38
+  const top = 22
+  const bottom = 50
   const domainMin = 0
   const domainMax = 3.5
-  const x = (v) => left + ((v - domainMin) / (domainMax - domainMin)) * W
+  const y = (v) => top + (1 - (v - domainMin) / (domainMax - domainMin)) * Hplot
+  const colW = W / Math.max(variables.length, 1)
+  const xCenter = (i) => left + colW * i + colW / 2
 
   const byVar = useMemo(() => {
     const map = {}
@@ -66,35 +68,35 @@ function SensorHeightOverallChart({ heightData, variables }) {
 
   return (
     <div>
-      <svg width={left + W + right} height={H} className="font-data block overflow-visible">
+      <svg width={left + W + right} height={top + Hplot + bottom} viewBox={`0 0 ${left + W + right} ${top + Hplot + bottom}`} className="font-data block overflow-visible">
         {ticks.map((t) => (
           <g key={t}>
-            <line x1={x(t)} x2={x(t)} y1={top - 14} y2={H - 44} stroke="#E4E4E4" strokeWidth={1} />
-            <text x={x(t)} y={H - 24} fontSize={9.5} fill="#8A8A8A" textAnchor="middle">{t.toFixed(1)}</text>
+            <line x1={left - 8} x2={left + W} y1={y(t)} y2={y(t)} stroke="#E4E4E4" strokeWidth={1} />
+            <text x={left - 14} y={y(t) + 3} fontSize={9.5} fill="#8A8A8A" textAnchor="end">{t.toFixed(1)}</text>
           </g>
         ))}
         {refHeights.map((h) => (
-          <line key={`ref-${h}`} x1={x(h)} x2={x(h)} y1={top - 14} y2={H - 44} stroke="#BBBBBB" strokeWidth={1} strokeDasharray="3 3" />
+          <line key={`ref-${h}`} x1={left - 8} x2={left + W} y1={y(h)} y2={y(h)} stroke="#BBBBBB" strokeWidth={1} strokeDasharray="3 3" />
         ))}
         {variables.map((v, vi) => {
-          const rowY = top + vi * rowH + rowH / 2
+          const cx = xCenter(vi)
           const vals = byVar[v].map((d) => d.height).filter((d) => Number.isFinite(d))
           const s = stats(vals)
           const profile = densityProfile(vals, domainMin, domainMax)
           const maxD = Math.max(...profile.map((p) => p.d), 1)
-          const halfMax = 15
-          const upper = profile.map((p) => `${x(p.x)},${rowY - (p.d / maxD) * halfMax}`).join(' ')
-          const lower = [...profile].reverse().map((p) => `${x(p.x)},${rowY + (p.d / maxD) * halfMax}`).join(' ')
+          const halfMax = Math.min(32, colW * 0.23)
+          const leftSide = profile.map((p) => `${cx - (p.d / maxD) * halfMax},${y(p.x)}`).join(' ')
+          const rightSide = [...profile].reverse().map((p) => `${cx + (p.d / maxD) * halfMax},${y(p.x)}`).join(' ')
           return (
             <g key={v}>
-              <text x={left - 10} y={rowY + 3.5} fontSize={11} fill="#4A4A4A" textAnchor="end">{v}</text>
-              <line x1={left} x2={left + W} y1={rowY} y2={rowY} stroke="#F4F4F4" />
-              {vals.length > 1 && <polygon points={`${upper} ${lower}`} fill="#D9D9D9" opacity={0.55} />}
+              <line x1={cx} x2={cx} y1={top} y2={top + Hplot} stroke="#F2F2F2" />
+              <text x={cx} y={top + Hplot + 22} fontSize={10.5} fill="#4A4A4A" textAnchor="middle">{v}</text>
+              {vals.length > 1 && <polygon points={`${leftSide} ${rightSide}`} fill="#D9D9D9" opacity={0.55} />}
               {byVar[v].map((d, i) => (
                 <circle
                   key={`${d.id}-${i}`}
-                  cx={x(d.height)}
-                  cy={rowY + Math.sin(i * 7.17) * 9}
+                  cx={cx + Math.sin(i * 7.17) * Math.min(19, colW * 0.18)}
+                  cy={y(d.height)}
                   r={2.6}
                   fill="#0A0A0A"
                   opacity={0.28}
@@ -106,20 +108,20 @@ function SensorHeightOverallChart({ heightData, variables }) {
               ))}
               {s && (
                 <g>
-                  <line x1={x(s.min)} x2={x(s.max)} y1={rowY} y2={rowY} stroke="#0A0A0A" strokeWidth={1.25} />
-                  <line x1={x(s.min)} x2={x(s.min)} y1={rowY - 7} y2={rowY + 7} stroke="#0A0A0A" strokeWidth={1.1} />
-                  <line x1={x(s.max)} x2={x(s.max)} y1={rowY - 7} y2={rowY + 7} stroke="#0A0A0A" strokeWidth={1.1} />
-                  <rect x={x(s.q1)} y={rowY - 10} width={Math.max(1, x(s.q3) - x(s.q1))} height={20} fill="none" stroke="#0A0A0A" strokeWidth={1.35} />
-                  <line x1={x(s.med)} x2={x(s.med)} y1={rowY - 11} y2={rowY + 11} stroke="#0A0A0A" strokeWidth={1.6} />
+                  <line x1={cx} x2={cx} y1={y(s.min)} y2={y(s.max)} stroke="#0A0A0A" strokeWidth={1.25} />
+                  <line x1={cx - 8} x2={cx + 8} y1={y(s.min)} y2={y(s.min)} stroke="#0A0A0A" strokeWidth={1.1} />
+                  <line x1={cx - 8} x2={cx + 8} y1={y(s.max)} y2={y(s.max)} stroke="#0A0A0A" strokeWidth={1.1} />
+                  <rect x={cx - 12} y={y(s.q3)} width={24} height={Math.max(1, y(s.q1) - y(s.q3))} fill="none" stroke="#0A0A0A" strokeWidth={1.35} />
+                  <line x1={cx - 14} x2={cx + 14} y1={y(s.med)} y2={y(s.med)} stroke="#0A0A0A" strokeWidth={1.6} />
                 </g>
               )}
             </g>
           )
         })}
-        <text x={left + W / 2} y={H - 4} fontSize={10.5} fill="#8A8A8A" textAnchor="middle">Sensor height (m)</text>
+        <text x={20} y={top + Hplot / 2} fontSize={10.5} fill="#8A8A8A" textAnchor="middle" transform={`rotate(-90 20 ${top + Hplot / 2})`}>Sensor height (m)</text>
       </svg>
       <div className="font-data text-[10px] text-inkfaint mt-1">
-        Dots are individual reported heights; the light violin estimates their distribution. Unfilled boxplots show IQR, median, and non-outlier range. Dotted vertical lines mark 0.1, 0.6, 1.1, and 1.7 m.
+        Dots are individual reported heights; the light violin estimates their distribution. Unfilled vertical boxplots show IQR, median, and non-outlier range. Dotted horizontal lines mark 0.1, 0.6, 1.1, and 1.7 m.
       </div>
       <TooltipPortal tip={tip} />
     </div>
@@ -163,7 +165,7 @@ export default function ChapterEnvironment({ data }) {
         intro="Air temperature, relative humidity, air velocity, and globe temperature form the field's standard environmental core. Other variables — surface temperature, CO₂, light, sound — appear much more selectively."
       >
         <FigureCard figNumber="28" title="Environmental variable co-occurrence" plotWidth={760} commentary="Air temperature is the anchor variable; relative humidity, air velocity, and globe temperature cluster tightly around it. Everything else is a minority add-on, included only when a study's specific question calls for it.">
-          <CooccurrenceMatrix labels={fig12_env_cooccurrence.labels} matrix={fig12_env_cooccurrence.matrix} cellSize={28} />
+          <CooccurrenceMatrix labels={fig12_env_cooccurrence.labels} matrix={fig12_env_cooccurrence.matrix} cellSize={38} />
         </FigureCard>
       </ChapterSection>
 

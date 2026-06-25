@@ -48,7 +48,7 @@ export default function BinaryPresenceFigure({ bar, matrix, fields, nStudies, ba
             (up to 270 studies) the matrix can still need its own horizontal
             scroll even after this reduction — there's a hard floor on how
             many distinct columns fit in any reasonable plot width. */}
-        <div className="flex-1 overflow-x-auto">
+        <div className="flex-1 no-horizontal-scroll">
           <div className="font-data text-[10px] text-inkfaint mb-1.5">each column = one study, n = {nStudies} total</div>
           <div style={{ minWidth: nStudies * 2 }}>
             {fields.map((field, i) => (

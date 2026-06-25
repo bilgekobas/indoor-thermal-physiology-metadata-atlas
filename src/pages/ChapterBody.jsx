@@ -283,7 +283,7 @@ function SignalSensorBrandSankey({ overall, brandModelData }) {
           </div>
         ))}
       </div>
-      <div className="overflow-x-auto">
+      <div className="no-horizontal-scroll">
         <svg width={layout.W} height={layout.H + 24} className="font-data block">
           {/* Column headers, given their own row above the chart so they
               never overlap the topmost node regardless of column height. */}
@@ -291,8 +291,8 @@ function SignalSensorBrandSankey({ overall, brandModelData }) {
           <text x={440} y={14} fontSize={10} fill="#8A8A8A" fontWeight="600">SENSOR TYPE</text>
           <text x={700} y={14} fontSize={10} fill="#8A8A8A" fontWeight="600">SENSOR BRAND (top 3 per sensor type)</text>
           <g transform="translate(0, 24)">
-            {layout.sigSenLinks.map((l, i) => (<FlowPath key={`ss-${i}`} link={l} color={l.color || l.from.color} maxFlow={layout.maxFlow} />))}
-            {layout.senBrandLinks.map((l, i) => (<FlowPath key={`sb-${i}`} link={l} color={l.color || '#8A8A8A'} maxFlow={layout.maxFlow} />))}
+            {layout.sigSenLinks.map((l, i) => (<FlowPath key={`ss-${i}`} link={l} color="#0A0A0A" maxFlow={layout.maxFlow} />))}
+            {layout.senBrandLinks.map((l, i) => (<FlowPath key={`sb-${i}`} link={l} color="#0A0A0A" maxFlow={layout.maxFlow} />))}
             {layout.signal.map((n) => {
               const active = isActive({ signal: n.name })
               return (
@@ -300,7 +300,7 @@ function SignalSensorBrandSankey({ overall, brandModelData }) {
                   onClick={() => setSelected(selected?.level === 'signal' && selected.name === n.name ? null : { level: 'signal', name: n.name })}
                   onMouseEnter={(e) => showTip(e, `${n.name}: ${n.total} studies — click to isolate all connected sensor types and brands`)} onMouseMove={moveTip} onMouseLeave={hideTip}
                   className="cursor-pointer" style={{ opacity: active ? 1 : 0.2 }}>
-                  <rect x={n.x} y={n.y} width={14} height={n.h} fill={n.color} rx={2} />
+                  <rect x={n.x} y={n.y} width={14} height={n.h} fill="#0A0A0A" rx={2} />
                   <text x={n.x - 8} y={n.y + n.h / 2 + 3.5} fontSize={10.5} fill="#0A0A0A" textAnchor="end">{n.name}</text>
                   <text x={n.x + 18} y={n.y + n.h / 2 + 3.5} fontSize={10} fill="#8A8A8A">{n.total}</text>
                 </g>
@@ -313,7 +313,7 @@ function SignalSensorBrandSankey({ overall, brandModelData }) {
                   onClick={() => setSelected(selected?.level === 'sensor' && selected.name === n.name ? null : { level: 'sensor', name: n.name })}
                   onMouseEnter={(e) => showTip(e, `${n.name}: ${n.total} studies total; hover links for % of parent signal — click to isolate connected signals and brands`)} onMouseMove={moveTip} onMouseLeave={hideTip}
                   className="cursor-pointer" style={{ opacity: active ? 1 : 0.2 }}>
-                  <rect x={n.x} y={n.y} width={14} height={n.h} fill={n.color || '#4A4A4A'} rx={2} />
+                  <rect x={n.x} y={n.y} width={14} height={n.h} fill="#0A0A0A" rx={2} />
                   <text x={n.x + 18} y={n.y + n.h / 2 + 3.5} fontSize={10} fill="#0A0A0A">{n.name}, {n.total}</text>
                 </g>
               )
@@ -328,7 +328,7 @@ function SignalSensorBrandSankey({ overall, brandModelData }) {
                   onMouseEnter={(e) => showTip(e, `${n.name}: ${n.total} studies (${pct}% of ${n.sensorType}) — click to isolate`)}
                   onMouseMove={moveTip} onMouseLeave={hideTip}
                   className="cursor-pointer" style={{ opacity: active ? 1 : 0.2 }}>
-                  <rect x={n.x} y={n.y} width={14} height={n.h} fill={n.color || '#8A8A8A'} rx={2} />
+                  <rect x={n.x} y={n.y} width={14} height={n.h} fill="#0A0A0A" rx={2} />
                   <text x={n.x + 18} y={n.y + n.h / 2 + 3.5} fontSize={10} fill="#0A0A0A">
                     {n.name}, {n.total} ({pct}%)
                   </text>
@@ -339,7 +339,7 @@ function SignalSensorBrandSankey({ overall, brandModelData }) {
         </svg>
       </div>
       <p className="font-data text-[10px] text-inkfaint mt-2">
-        Flow width and node height are proportional to study count. Signal labels show absolute counts only. Link hover reports the percentage relative to the parent node (signal → sensor uses the signal total; sensor → brand uses the sensor-type total). Brand labels also show percentage of their parent sensor type. Click any signal, sensor type, or brand to highlight all connected paths and rows across all three columns.
+        Flow width and node height are proportional to study count; all nodes are black so colour does not imply an additional grouping. Signal labels show absolute counts only. Link hover reports the percentage relative to the parent node (signal → sensor uses the signal total; sensor → brand uses the sensor-type total). Brand labels also show percentage of their parent sensor type. Click any signal, sensor type, or brand to highlight all connected paths and rows across all three columns.
       </p>
       <TooltipPortal tip={tip} />
     </div>
@@ -675,7 +675,7 @@ export default function ChapterBody({ data }) {
         </FigureCard>
 
         <FigureCard figNumber="21" title="Which signals get measured together" plotWidth={680} commentary="Skin temperature (218 studies) and heart/pulse rate (135) are individually the most common signals, and 103 studies measure both together — about half of all heart-rate studies also track skin temperature.">
-          <CooccurrenceMatrix labels={fig18_physio_cooccurrence.labels} matrix={fig18_physio_cooccurrence.matrix} colorScheme="blue" />
+          <CooccurrenceMatrix labels={fig18_physio_cooccurrence.labels} matrix={fig18_physio_cooccurrence.matrix} cellSize={38} colorScheme="blue" />
         </FigureCard>
       </ChapterSection>
 
