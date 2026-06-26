@@ -53,7 +53,7 @@ function TimeOfDayChart({ sessions }) {
 
   return (
     <div>
-      <svg width={W + yAxisW} height={H + 28} className="font-data block">
+      <svg width={W + yAxisW} height={H + 44} className="font-data block">
         {[0, 0.5, 1].map((frac) => (
           <g key={frac}>
             <line x1={yAxisW} x2={W + yAxisW} y1={H - frac * H} y2={H - frac * H} stroke="#E4E4E4" strokeWidth={1} />
@@ -168,11 +168,11 @@ function ClimateTempChart({ studies, climateCounts, tempRanges }) {
 
   return (
     <div>
-      <svg width={W + LABEL_W + 10} height={H + 28} className="font-data overflow-visible">
+      <svg width={W + LABEL_W + 10} height={H + 44} className="font-data overflow-visible">
         {ticks.map((v) => (
           <g key={v}>
             <line x1={xScale(v) + LABEL_W} x2={xScale(v) + LABEL_W} y1={0} y2={H - 2} stroke="#E4E4E4" strokeWidth={1} />
-            <text x={xScale(v) + LABEL_W} y={H + 14} fontSize={10} fill="#8A8A8A" textAnchor="middle">{v}°C</text>
+            <text x={xScale(v) + LABEL_W} y={H + 22} fontSize={10} fill="#8A8A8A" textAnchor="middle">{v}°C</text>
           </g>
         ))}
         {rows.map((row, ri) => {
@@ -223,7 +223,7 @@ function ClimateTempChart({ studies, climateCounts, tempRanges }) {
           )
         })}
       </svg>
-      <div className="font-data text-[10px] text-inkfaint mt-2">
+      <div className="font-data text-[10px] text-inkfaint mt-5 figure-note">
         Violin width shows the density of reported tested temperature values within each host-climate row. Low-opacity points are individual temperature values; darker black points are 1.5×IQR outliers. The boxplot is unfilled so the violin remains visible. Negative tested temperatures are retained as coded and listed in public/data/tested_temperature_negative_values.csv for checking.
       </div>
       <TooltipPortal tip={tip} />
@@ -375,7 +375,7 @@ function PublicationsByYearChart({ data, totalPubs }) {
                 onMouseMove={moveTip}
                 onMouseLeave={hideTip}
               />
-              <text x={x + barW / 2} y={H + 14} fontSize={10} fill="#8A8A8A" textAnchor="middle">{d.year}</text>
+              <text x={x + barW / 2} y={H + 22} fontSize={10} fill="#8A8A8A" textAnchor="middle">{d.year}</text>
             </g>
           )
         })}
@@ -460,7 +460,7 @@ export default function ChapterContext({ data }) {
         title="Authorship as field structure"
         intro="Before treating the corpus as a neutral pool of studies, it is useful to inspect the social structure behind it. Co-authorship does not measure scientific quality, but it does reveal repeated research lineages, dominant collaboration clusters, and the extent to which the evidence base is produced by a small number of connected groups."
       >
-        <FigureCard figNumber="1" title="Author co-authorship network" plotWidth={1120} commentary="Nodes are authors and links are co-authorship pairs. The default grouped view reduces the dense 711-author graph to connected collaboration components; the threshold controls can then expose either stable core groups or weaker one-study links. Colours identify collaboration clusters, not national origin.">
+        <FigureCard figNumber="1" title="Author co-authorship network" size="wide" commentary="Nodes are authors and links are co-authorship pairs. The default grouped view reduces the dense 711-author graph to connected collaboration components; the threshold controls can then expose either stable core groups or weaker one-study links. Colours identify collaboration clusters, not national origin.">
           <AuthorNetworkEmbed />
         </FigureCard>
       </ChapterSection>
@@ -469,15 +469,15 @@ export default function ChapterContext({ data }) {
         title="When and where research happens"
         intro="Publication volume has risen steadily, with a dip during 2020–21. Research is geographically concentrated, and that concentration shapes more than just where studies happen — sample size patterns differ by country too, and the climate a study is conducted in often doesn't match the temperature values it tests."
       >
-        <FigureCard figNumber="2" title="Publications by year" commentary="A clear upward trend with a COVID-era dip, consistent with the appendix's own account.">
+        <FigureCard figNumber="2" title="Publications by year" size="wide" commentary="A clear upward trend with a COVID-era dip, consistent with the appendix's own account.">
           <PublicationsByYearChart data={fig01_pubs_by_year.data} totalPubs={totalPubs} />
         </FigureCard>
 
-        <FigureCard figNumber="3" title="Geographical distribution" plotWidth={760} commentary="250 of 269 studies (93%) resolve to a specific city; the rest report only a country or province. Research concentrates in a small number of cities — Changsha and Chongqing alone account for 48 studies. China's share has also grown over time, from 55% of studies in 2013–14 to 73% in 2023–24. The country map uses a log-scaled color ramp so China's count does not wash out every other country.">
+        <FigureCard figNumber="3" title="Geographical distribution" size="wide" commentary="250 of 269 studies (93%) resolve to a specific city; the rest report only a country or province. Research concentrates in a small number of cities — Changsha and Chongqing alone account for 48 studies. China's share has also grown over time, from 55% of studies in 2013–14 to 73% in 2023–24. The country map uses a log-scaled color ramp so China's count does not wash out every other country.">
           <GeographyToggle cityData={geo_cities.data} countryData={geo_choropleth.data} />
         </FigureCard>
 
-        <FigureCard figNumber="4" title="Sample size by country" plotWidth={760} commentary="China's median study (24 participants) looks like everywhere else — but its mean (56) is pulled up by a handful of large field studies, including one with 2,110 participants. Brazil and Switzerland show the opposite pattern: few studies, but typically large ones (medians of 82 and 75). Mean and median diverge enough here that either one alone would mislead.">
+        <FigureCard figNumber="4" title="Sample size by country" size="wide" commentary="China's median study (24 participants) looks like everywhere else — but its mean (56) is pulled up by a handful of large field studies, including one with 2,110 participants. Brazil and Switzerland show the opposite pattern: few studies, but typically large ones (medians of 82 and 75). Mean and median diverge enough here that either one alone would mislead.">
           <SampleSizeByCountry
             stats={sample_size_by_country.stats}
             studies={sample_size_by_country.studies}
@@ -489,7 +489,7 @@ export default function ChapterContext({ data }) {
           />
         </FigureCard>
 
-        <FigureCard figNumber="5" title="Tested temperature values by host climate" plotWidth={980} commentary="Humid subtropical and continental climates together account for most studies with a known climate, including much of the warm-condition research. Only a small minority were run in genuinely hot climates. The figure now focuses on the actual tested temperature values rather than per-study min–max spans, making the setpoint clustering easier to see.">
+        <FigureCard figNumber="5" title="Tested temperature values by host climate" size="wide" commentary="Humid subtropical and continental climates together account for most studies with a known climate, including much of the warm-condition research. Only a small minority were run in genuinely hot climates. The figure now focuses on the actual tested temperature values rather than per-study min–max spans, making the setpoint clustering easier to see.">
           <ClimateTempChart
             studies={climate_vs_temp.studies}
             climateCounts={climate_vs_temp.climate_counts}
@@ -506,11 +506,11 @@ export default function ChapterContext({ data }) {
           <SettingSankey data={fig06_setting_typology.data} total={summary.n_experiments} />
         </FigureCard>
 
-        <FigureCard figNumber="7" title="Time of day distribution" plotWidth={980} commentary={`Testing peaks in the mid-afternoon. ${fig05_time_of_day.n_circadian_considered} of ${fig05_time_of_day.n_reporting} reporting studies explicitly mention circadian timing; the rest mostly standardize implicitly by testing during a fairly narrow daytime window.`}>
+        <FigureCard figNumber="7" title="Time of day distribution" size="wide" commentary={`Testing peaks in the mid-afternoon. ${fig05_time_of_day.n_circadian_considered} of ${fig05_time_of_day.n_reporting} reporting studies explicitly mention circadian timing; the rest mostly standardize implicitly by testing during a fairly narrow daytime window.`}>
           <TimeOfDayChart sessions={fig05_time_of_day.sessions} />
         </FigureCard>
 
-        <FigureCard figNumber="8" title="Session length" plotWidth={980} commentary={sessionStats ? `Minutes per session, capped at 600. ${sessionUnder180Pct}% of the ${sessionStats.n} studies with known session length run under 180 minutes. Median ${sessionStats.median} min (IQR ${sessionStats.q25}–${sessionStats.q75}), range ${sessionStats.min}–${sessionStats.max} min.` : 'Minutes per session, capped at 600.'}>
+        <FigureCard figNumber="8" title="Session length" size="wide" commentary={sessionStats ? `Minutes per session, capped at 600. ${sessionUnder180Pct}% of the ${sessionStats.n} studies with known session length run under 180 minutes. Median ${sessionStats.median} min (IQR ${sessionStats.q25}–${sessionStats.q75}), range ${sessionStats.min}–${sessionStats.max} min.` : 'Minutes per session, capped at 600.'}>
           <HistogramECDF
             values={sessionValuesCapped}
             binWidth={15}
@@ -521,7 +521,7 @@ export default function ChapterContext({ data }) {
           />
         </FigureCard>
 
-        <FigureCard figNumber="9" title="Normalization length" plotWidth={980} commentary={normStats ? `Minutes spent in normalization / stabilization before testing, capped at 600. ${normUnder60Pct}% of the ${normStats.n} studies with reported normalization time stay at or below 60 minutes. Median ${normStats.median} min (IQR ${normStats.q25}–${normStats.q75}), range ${normStats.min}–${normStats.max} min.` : 'Minutes spent in normalization / stabilization before testing, capped at 600.'}>
+        <FigureCard figNumber="9" title="Normalization length" size="wide" commentary={normStats ? `Minutes spent in normalization / stabilization before testing, capped at 600. ${normUnder60Pct}% of the ${normStats.n} studies with reported normalization time stay at or below 60 minutes. Median ${normStats.median} min (IQR ${normStats.q25}–${normStats.q75}), range ${normStats.min}–${normStats.max} min.` : 'Minutes spent in normalization / stabilization before testing, capped at 600.'}>
           <HistogramECDF
             values={normValuesCapped}
             binWidth={10}

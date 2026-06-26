@@ -14,6 +14,7 @@ import ChapterQuestionnaires from './pages/ChapterQuestionnaires.jsx'
 import ChapterCognitive from './pages/ChapterCognitive.jsx'
 import ChapterReporting from './pages/ChapterReporting.jsx'
 import About from './pages/About.jsx'
+import Methodology from './pages/Methodology.jsx'
 
 // React Router doesn't scroll to a #hash on navigation by itself, and the
 // chapter content this hash points into loads asynchronously (the bundle
@@ -59,6 +60,7 @@ function RoutedPages({ data }) {
         <Route path="/cognitive" element={<ChapterCognitive data={data} />} />
         <Route path="/reporting" element={<ChapterReporting data={data} />} />
         <Route path="/about" element={<About data={data} />} />
+        <Route path="/methodology" element={<Methodology data={data} />} />
       </Routes>
     </ErrorBoundary>
   )

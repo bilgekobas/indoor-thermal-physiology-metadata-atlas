@@ -7,10 +7,11 @@ import BodySiteMap from '../components/BodySiteMap.jsx'
 import OverallByPeriod, { PeriodHeatmap } from '../components/OverallByPeriod.jsx'
 import { useTooltip, TooltipPortal } from '../components/Tooltip.jsx'
 
-const SENSOR_PALETTE = ['#5B5BFF', '#0A0A0A', '#FB3640', '#8A8A8A', '#BBBBBB', '#4A4A4A', '#BBBBBB']
+const SENSOR_PALETTE = ['#5B5BFF', '#0A0A0A', '#FB3640', '#79FFFB', '#D5FF99', '#8A8A8A', '#4A4A4A', '#BBBBBB']
 
 function SensorStackChart({ signalData, periods }) {
   const { tip, showTip, moveTip, hideTip } = useTooltip()
+  const [scaleMode, setScaleMode] = useState('absolute')
   const { data, sensor_order, period_totals } = signalData
   const byPeriod = useMemo(() => {
     const map = {}
@@ -18,23 +19,27 @@ function SensorStackChart({ signalData, periods }) {
     data.forEach((r) => { if (map[r.period]) map[r.period][r.sensor_grp] = r.count })
     return map
   }, [data, periods])
+  const maxTotal = Math.max(...periods.map((p) => period_totals[p] || 0), 1)
   return (
     <div>
-      <div className="font-data text-[10px] text-inkfaint mb-1">y-axis: % of that period's studies (measuring this signal) using each sensor type</div>
-      <div className="flex gap-3 items-end h-28 mb-2">
+      <div className="font-data text-[10px] text-inkfaint mb-1">
+        y-axis: {scaleMode === 'absolute' ? 'absolute study count; all columns share the same count scale' : "% of that period's studies (measuring this signal) using each sensor type"}
+      </div>
+      <div className="flex gap-3 items-end h-36 mb-2">
         {periods.map((p) => {
           const total = period_totals[p] || 0
           const m = byPeriod[p]
+          const denom = scaleMode === 'relative' ? Math.max(total, 1) : maxTotal
           return (
             <div key={p} className="flex-1 flex flex-col items-center">
-              <div className="w-full flex flex-col-reverse h-20 rounded-sm overflow-hidden">
+              <div className="w-full flex flex-col-reverse h-28 rounded-sm overflow-hidden bg-line/35">
                 {sensor_order.map((sensor, si) => {
                   const c = m[sensor] || 0
-                  if (c === 0 || total === 0) return null
+                  if (c === 0 || denom === 0) return null
                   return (
-                    <div key={sensor} style={{ height: `${(c / total) * 100}%`, background: SENSOR_PALETTE[si % SENSOR_PALETTE.length] }}
+                    <div key={sensor} style={{ height: `${(c / denom) * 100}%`, background: SENSOR_PALETTE[si % SENSOR_PALETTE.length] }}
                       className="cursor-default hover:brightness-110"
-                      onMouseEnter={(e) => showTip(e, `${sensor}, ${p}: ${c} of ${total} · ${((c / total) * 100).toFixed(1)}%`)}
+                      onMouseEnter={(e) => showTip(e, `${sensor}, ${p}: ${c} of ${total} · ${((c / Math.max(total, 1)) * 100).toFixed(1)}%`)}
                       onMouseMove={moveTip} onMouseLeave={hideTip} />
                   )
                 })}
@@ -50,6 +55,11 @@ function SensorStackChart({ signalData, periods }) {
           <div key={s} className="flex items-center gap-1.5 text-[11px] text-inkmid">
             <span className="w-2.5 h-2.5 rounded-sm inline-block" style={{ background: SENSOR_PALETTE[i % SENSOR_PALETTE.length] }} />{s}
           </div>
+        ))}
+      </div>
+      <div className="flex gap-1.5 mt-4">
+        {['absolute', 'relative'].map((m) => (
+          <button key={m} onClick={() => setScaleMode(m)} className={`px-3 py-1 rounded text-[11px] font-data transition-colors ${scaleMode === m ? 'bg-ink text-paper' : 'bg-line/50 text-inkmid hover:bg-line'}`}>{m}</button>
         ))}
       </div>
       <TooltipPortal tip={tip} />
@@ -301,8 +311,7 @@ function SignalSensorBrandSankey({ overall, brandModelData }) {
                   onMouseEnter={(e) => showTip(e, `${n.name}: ${n.total} studies — click to isolate all connected sensor types and brands`)} onMouseMove={moveTip} onMouseLeave={hideTip}
                   className="cursor-pointer" style={{ opacity: active ? 1 : 0.2 }}>
                   <rect x={n.x} y={n.y} width={14} height={n.h} fill={n.color} rx={2} />
-                  <text x={n.x - 8} y={n.y + n.h / 2 + 3.5} fontSize={10.5} fill="#0A0A0A" textAnchor="end">{n.name}</text>
-                  <text x={n.x + 18} y={n.y + n.h / 2 + 3.5} fontSize={10} fill="#8A8A8A">{n.total}</text>
+                  <text x={n.x - 8} y={n.y + n.h / 2 + 3.5} fontSize={10.5} fill="#0A0A0A" textAnchor="end">{`${n.name}, ${n.total} (${((n.total / layout.signalDenom) * 100).toFixed(0)}%)`}</text>
                 </g>
               )
             })}
@@ -314,7 +323,7 @@ function SignalSensorBrandSankey({ overall, brandModelData }) {
                   onMouseEnter={(e) => showTip(e, `${n.name}: ${n.total} studies total; hover links for % of parent signal — click to isolate connected signals and brands`)} onMouseMove={moveTip} onMouseLeave={hideTip}
                   className="cursor-pointer" style={{ opacity: active ? 1 : 0.2 }}>
                   <rect x={n.x} y={n.y} width={14} height={n.h} fill={n.color} rx={2} />
-                  <text x={n.x + 18} y={n.y + n.h / 2 + 3.5} fontSize={10} fill="#0A0A0A">{n.name}, {n.total}</text>
+                  <text x={n.x + 18} y={n.y + n.h / 2 + 3.5} fontSize={10} fill="#0A0A0A">{`${n.name}, ${n.total} (${((n.total / layout.sensorDenom) * 100).toFixed(0)}%)`}</text>
                 </g>
               )
             })}
@@ -339,7 +348,7 @@ function SignalSensorBrandSankey({ overall, brandModelData }) {
         </svg>
       </div>
       <p className="font-data text-[10px] text-inkfaint mt-2">
-        Flow width and node height are proportional to study count; node and link colours mark physiological signal families; the central thermal-state family is highlighted in yellow. Signal labels show absolute counts only. Link hover reports the percentage relative to the parent node (signal → sensor uses the signal total; sensor → brand uses the sensor-type total). Brand labels also show percentage of their parent sensor type. Click any signal, sensor type, or brand to highlight all connected paths and rows across all three columns.
+        Flow width and node height are proportional to study count; node and link colours mark physiological signal families; the central thermal-state family is highlighted in yellow. Node labels use one format throughout: name, study count, and percentage in parentheses. Signal and sensor-type percentages are within their displayed column; brand percentages are relative to the parent sensor type. Link hover reports the percentage relative to the immediate parent node. Click any signal, sensor type, or brand to highlight all connected paths and rows across all three columns.
       </p>
       <TooltipPortal tip={tip} />
     </div>
@@ -710,7 +719,7 @@ export default function ChapterBody({ data }) {
         title="How sensor choice has shifted over time"
         intro="For skin temperature, thermocouples made up 55% of sensors in 2013–14 but only 25% by 2023–24, while Thermochron-type dataloggers (e.g. iButton) rose from 18% to 52% over the same span — the field's main displacement story. Each column below is normalised to 100% of that period's studies measuring the signal."
       >
-        <FigureCard figNumber="24" title="Sensor choice by signal" plotWidth={980} commentary="Use the signal toggles to compare how sensor-type composition changed over time. Each column is normalized within the studies measuring the selected signal in that 2-year period.">
+        <FigureCard figNumber="24" title="Sensor choice by signal" size="wide" commentary="Use the signal toggles to compare how sensor-type composition changed over time. Each column is normalized within the studies measuring the selected signal in that 2-year period.">
           <SensorEvolutionToggle signals={evoSignals} evoData={evo_signal_sensor} periods={evo_signal_sensor.periods} />
         </FigureCard>
       </ChapterSection>

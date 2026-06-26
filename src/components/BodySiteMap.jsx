@@ -50,6 +50,21 @@ const NON_PLACEABLE_NOTE = {
   'Limbs': 'too unspecific to place (could be any limb)',
 }
 
+const SITE_ALIASES = {
+  'lowerback': 'Lower back',
+  'lower back': 'Lower back',
+  'lowerleg': 'Lower leg',
+  'lower leg': 'Lower leg',
+  'upperarm': 'Upper arm',
+  'upper arm': 'Upper arm',
+  'heart rate chest': 'Chest',
+}
+
+function canonicalSite(site) {
+  const raw = String(site || '').trim()
+  return SITE_ALIASES[raw.toLowerCase()] || raw
+}
+
 export default function BodySiteMap({ siteData, totalLabel, color = '#5B5BFF', height = 760 }) {
   const { tip, showTip, moveTip, hideTip } = useTooltip()
   const [svgMarkup, setSvgMarkup] = useState(null)
@@ -62,11 +77,15 @@ export default function BodySiteMap({ siteData, totalLabel, color = '#5B5BFF', h
       .catch(() => setSvgMarkup(null))
   }, [])
 
-  const normalized = useMemo(() => siteData.map((s) => ({
-    ...s,
-    count: s.count ?? s.total ?? 0,
-    non_anatomical: Boolean(s.non_anatomical),
-  })), [siteData])
+  const normalized = useMemo(() => siteData.map((s) => {
+    const site = canonicalSite(s.site)
+    return {
+      ...s,
+      site,
+      count: s.count ?? s.total ?? 0,
+      non_anatomical: Boolean(s.non_anatomical),
+    }
+  }), [siteData])
 
   const { placeable, unplaceable, maxCount } = useMemo(() => {
     const placeable = []
@@ -131,13 +150,13 @@ export default function BodySiteMap({ siteData, totalLabel, color = '#5B5BFF', h
 
         <div className="flex-1 pt-2">
           <div className="font-data text-[10px] text-inkfaint mb-3">
-            Marker area ∝ study count.
+            Marker area ∝ study count. Table values use count (% of parent signal).
           </div>
           <div className="space-y-1">
             {[...placeable].sort((a, b) => b.count - a.count).map((s) => (
               <div key={s.site} className="flex items-center justify-between text-[12px] gap-3">
                 <span className="text-inkmid">{s.site}</span>
-                <span className="font-data text-inkfaint">{s.count}</span>
+                <span className="font-data text-inkfaint">{s.count} ({totalLabel?.n ? ((s.count / totalLabel.n) * 100).toFixed(0) : 0}%)</span>
               </div>
             ))}
           </div>

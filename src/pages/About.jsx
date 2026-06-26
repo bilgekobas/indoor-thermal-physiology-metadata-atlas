@@ -5,25 +5,36 @@ export default function About({ data }) {
   const { summary } = data
   return (
     <div>
-      <PageHeader eyebrow="Reference" title="About & methods" />
+      <PageHeader eyebrow="Reference" title="About" />
 
       <div className="px-10 py-8 max-w-2xl space-y-8">
         <section>
           <h2 className="text-[15px] font-semibold mb-2">What this is</h2>
           <p className="text-[13.5px] text-inkmid leading-relaxed">
-            A structured metadata corpus of indoor thermal-physiology experiments published
-            between {summary.year_min} and {summary.year_max}. It documents how studies report
-            their experimental design, environment, physiological measurements, questionnaires,
-            participant characteristics, and protocol controls — not the physiological results
-            themselves.
+            A living atlas and structured metadata corpus of indoor thermal-physiology experiments
+            published between {summary.year_min} and {summary.year_max}. It documents how studies
+            report their experimental design, environment, physiological measurements,
+            questionnaires, participant characteristics, and protocol controls — not the
+            physiological results themselves.
           </p>
         </section>
 
         <section>
-          <h2 className="text-[15px] font-semibold mb-2">Coding vocabulary</h2>
+          <h2 className="text-[15px] font-semibold mb-2">Authorship</h2>
+          <p className="text-[13.5px] text-inkmid leading-relaxed">
+            The website was built by Bilge Kobas. The underlying review and metadata work were
+            conducted by Bilge Kobas, Tobias Kramer (CBE Berkeley), Jian Pan (RWTH Aachen), Cynthia
+            Ly (Maastricht), and Matteo Favero (EPFL). OSF registration, Zenodo, and manuscript links
+            will be added here once the corresponding records are public and stable.
+          </p>
+        </section>
+
+        <section>
+          <h2 className="text-[15px] font-semibold mb-2">Reading the atlas</h2>
           <p className="text-[13.5px] text-inkmid leading-relaxed mb-3">
-            Every field uses a fixed controlled vocabulary so completeness is comparable
-            across categories and over time.
+            The atlas uses a controlled coding vocabulary so completeness can be compared
+            across categories and over time. The detailed search, screening, inclusion/exclusion,
+            and coding logic now live on the separate Methodology page.
           </p>
           <CodeLegend />
         </section>

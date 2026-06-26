@@ -108,7 +108,7 @@ function PointsBar({ distribution, total, color = '#0A0A0A' }) {
 
 
 function MostUsedScaleLabels({ studies, title = 'Most used scale labels', maxRows = 13 }) {
-  const common = useMemo(() => {
+  const scaleSummary = useMemo(() => {
     const map = new Map()
     studies.forEach((s) => {
       const range = (s.range || []).map((v) => Number(v)).join('|')
@@ -118,22 +118,36 @@ function MostUsedScaleLabels({ studies, title = 'Most used scale labels', maxRow
       existing.count += 1
       map.set(key, existing)
     })
-    return [...map.values()].sort((a, b) => b.count - a.count || b.range.length - a.range.length)[0]
+    return [...map.values()].sort((a, b) => b.count - a.count || b.range.length - a.range.length)
   }, [studies])
-  if (!common) return null
-  const rows = common.range.map((v, i) => ({ value: v, label: common.labels[i] || '' })).slice(0, maxRows)
+  if (!scaleSummary.length) return null
+
+  const ScaleBlock = ({ item, label }) => {
+    const rows = item.range.map((v, i) => ({ value: v, label: item.labels[i] || '' })).slice(0, maxRows)
+    return (
+      <div className="mt-4">
+        <div className="font-data text-[10px] text-inkfaint mb-2">{label}, n = {item.count} scales.</div>
+        <div className="grid grid-cols-[34px_1fr] gap-x-2 gap-y-1 max-w-[260px]">
+          {rows.map((r, i) => (
+            <div key={`${label}-${r.value}-${i}`} className="contents">
+              <span className="font-data text-[11px] text-right text-ink">{r.value}</span>
+              <span className="text-[11px] text-inkmid truncate" title={r.label}>{r.label || 'unlabelled'}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+    )
+  }
+
   return (
     <div className="mt-8 pt-4 border-t border-line/70">
       <h4 className="text-[11.5px] font-medium mb-2 text-inkmid">{title}</h4>
-      <div className="font-data text-[10px] text-inkfaint mb-2">Most frequent exact label set, n = {common.count} scales.</div>
-      <div className="grid grid-cols-[34px_1fr] gap-x-2 gap-y-1 max-w-[260px]">
-        {rows.map((r, i) => (
-          <div key={`${r.value}-${i}`} className="contents">
-            <span className="font-data text-[11px] text-right text-ink">{r.value}</span>
-            <span className="text-[11px] text-inkmid truncate" title={r.label}>{r.label || 'unlabelled'}</span>
-          </div>
-        ))}
+      <div className="flex items-center justify-between gap-3 py-2 border-b border-line/70">
+        <span className="text-[11px] text-inkmid">Different exact scale definitions</span>
+        <span className="font-data text-[11px] text-ink">{scaleSummary.length}</span>
       </div>
+      <ScaleBlock item={scaleSummary[0]} label="Most frequent exact label set" />
+      {scaleSummary[1] && <ScaleBlock item={scaleSummary[1]} label="Second-most frequent exact label set" />}
     </div>
   )
 }

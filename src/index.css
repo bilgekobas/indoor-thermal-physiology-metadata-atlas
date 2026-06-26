@@ -69,3 +69,9 @@ svg { overflow: visible; }
 @media (max-width: 900px) {
   .atlas-figure-plot { width: 100% !important; }
 }
+
+
+/* Shared figure-width tokens used to keep the atlas visually stable. */
+.atlas-figure-wide { max-width: 1120px; }
+.atlas-figure-standard { max-width: 760px; }
+.figure-note { margin-top: 12px; line-height: 1.45; }

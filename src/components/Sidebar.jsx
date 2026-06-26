@@ -76,7 +76,13 @@ export default function Sidebar({ summary }) {
             Overview
           </NavLink>
           <NavLink to="/browse" className={({ isActive }) => `block px-2 py-1.5 rounded text-[13.5px] mb-0.5 transition-colors leading-snug ${isActive ? 'bg-ink text-paper font-medium' : 'text-ink hover:bg-line/60'}`}>
-            Browse studies
+            Browse
+          </NavLink>
+          <NavLink to="/about" className={({ isActive }) => `block px-2 py-1.5 rounded text-[13.5px] mb-0.5 transition-colors leading-snug ${isActive ? 'bg-ink text-paper font-medium' : 'text-ink hover:bg-line/60'}`}>
+            About
+          </NavLink>
+          <NavLink to="/methodology" className={({ isActive }) => `block px-2 py-1.5 rounded text-[13.5px] mb-0.5 transition-colors leading-snug ${isActive ? 'bg-ink text-paper font-medium' : 'text-ink hover:bg-line/60'}`}>
+            Methodology
           </NavLink>
         </div>
 
@@ -124,12 +130,6 @@ export default function Sidebar({ summary }) {
           })}
         </div>
 
-        <div className="mb-5">
-          <div className="font-data text-[10px] uppercase tracking-wider text-inkfaint px-2 mb-1.5">Reference</div>
-          <NavLink to="/about" className={({ isActive }) => `block px-2 py-1.5 rounded text-[13.5px] mb-0.5 transition-colors leading-snug ${isActive ? 'bg-ink text-paper font-medium' : 'text-ink hover:bg-line/60'}`}>
-            About & Methods
-          </NavLink>
-        </div>
       </nav>
 
       <div className="px-5 py-4 border-t border-line">

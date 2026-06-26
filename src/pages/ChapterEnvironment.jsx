@@ -91,7 +91,7 @@ function SensorHeightOverallChart({ heightData, variables }) {
             <g key={v}>
               <line x1={cx} x2={cx} y1={top} y2={top + Hplot} stroke="#F2F2F2" />
               <text x={cx} y={top + Hplot + 22} fontSize={10.5} fill="#4A4A4A" textAnchor="middle">{v}</text>
-              {vals.length > 1 && <polygon points={`${leftSide} ${rightSide}`} fill="#D9D9D9" opacity={0.55} />}
+              {vals.length > 1 && <polygon points={`${leftSide} ${rightSide}`} fill="#5B5BFF" opacity={0.16} stroke="#5B5BFF" strokeWidth={0.6} />}
               {byVar[v].map((d, i) => (
                 <circle
                   key={`${d.id}-${i}`}
@@ -121,7 +121,7 @@ function SensorHeightOverallChart({ heightData, variables }) {
         <text x={20} y={top + Hplot / 2} fontSize={10.5} fill="#8A8A8A" textAnchor="middle" transform={`rotate(-90 20 ${top + Hplot / 2})`}>Sensor height (m)</text>
       </svg>
       <div className="font-data text-[10px] text-inkfaint mt-1">
-        Dots are individual reported heights; the light violin estimates their distribution. Unfilled vertical boxplots show IQR, median, and non-outlier range. Dotted horizontal lines mark 0.1, 0.6, 1.1, and 1.7 m.
+        Dots are individual reported heights; the blue violin estimates their distribution. Unfilled vertical boxplots show IQR, median, and non-outlier range. Dotted horizontal lines mark 0.1, 0.6, 1.1, and 1.7 m.
       </div>
       <TooltipPortal tip={tip} />
     </div>
