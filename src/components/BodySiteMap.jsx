@@ -5,47 +5,47 @@ import { useTooltip, TooltipPortal } from './Tooltip.jsx'
 // Distinct sub-sites are kept distinct wherever the underlying dataset reports them.
 const SITE_COORDS = {
   // Coordinates normalized to the two-body silhouette viewBox (603.04 × 742.93).
-  // They follow the attached anatomical taxonomy: anterior/front body on the left,
-  // posterior/back body on the right. For bilateral sites reported without laterality,
-  // one representative central/left-side marker is used so the count remains a single
-  // aggregate value rather than being visually double-counted.
-  'Head': [150 / 603.04, 36 / 742.93],
+  // These are anchored to the anatomical taxonomy supplied for the atlas:
+  // anterior/front body on the left, posterior/back body on the right. The aim is
+  // not to show every bilateral sub-point separately; it is to place the aggregate
+  // table categories at their anatomical region centroids.
+  'Head': [150 / 603.04, 37 / 742.93],
   'Forehead': [150 / 603.04, 40 / 742.93],
-  'Temple': [128 / 603.04, 65 / 742.93],
-  'Eye': [140 / 603.04, 68 / 742.93],
-  'Ear': [112 / 603.04, 80 / 742.93],
-  'Earlobe': [112 / 603.04, 95 / 742.93],
-  'Cheek': [134 / 603.04, 91 / 742.93],
-  'Nose': [150 / 603.04, 82 / 742.93],
-  'Mouth': [150 / 603.04, 102 / 742.93],
-  'Chin': [150 / 603.04, 116 / 742.93],
-  'Face': [150 / 603.04, 84 / 742.93],
+  'Temple': [126 / 603.04, 72 / 742.93],
+  'Eye': [140 / 603.04, 76 / 742.93],
+  'Ear': [112 / 603.04, 78 / 742.93],
+  'Earlobe': [112 / 603.04, 96 / 742.93],
+  'Cheek': [135 / 603.04, 96 / 742.93],
+  'Nose': [150 / 603.04, 86 / 742.93],
+  'Mouth': [150 / 603.04, 105 / 742.93],
+  'Chin': [150 / 603.04, 121 / 742.93],
+  'Face': [150 / 603.04, 88 / 742.93],
 
-  'Neck': [150 / 603.04, 145 / 742.93],
-  'Clavicle': [126 / 603.04, 165 / 742.93],
-  'Shoulder': [100 / 603.04, 182 / 742.93],
+  'Neck': [150 / 603.04, 148 / 742.93],
+  'Clavicle': [116 / 603.04, 170 / 742.93],
+  'Shoulder': [96 / 603.04, 185 / 742.93],
   'Chest': [150 / 603.04, 218 / 742.93],
-  'Axilla': [104 / 603.04, 224 / 742.93],
-  'Abdomen': [150 / 603.04, 325 / 742.93],
-  'Waist': [150 / 603.04, 372 / 742.93],
+  'Axilla': [98 / 603.04, 235 / 742.93],
+  'Abdomen': [150 / 603.04, 324 / 742.93],
+  'Waist': [150 / 603.04, 360 / 742.93],
 
   'Back': [430 / 603.04, 220 / 742.93],
   'Lower back': [430 / 603.04, 345 / 742.93],
   'Buttocks': [430 / 603.04, 386 / 742.93],
   'Sole': [438 / 603.04, 722 / 742.93],
 
-  'Upper arm': [88 / 603.04, 250 / 742.93],
-  'Arm': [76 / 603.04, 305 / 742.93],
-  'Elbow': [62 / 603.04, 352 / 742.93],
-  'Forearm': [58 / 603.04, 420 / 742.93],
-  'Wrist': [54 / 603.04, 478 / 742.93],
+  'Upper arm': [76 / 603.04, 258 / 742.93],
+  'Arm': [72 / 603.04, 310 / 742.93],
+  'Elbow': [56 / 603.04, 351 / 742.93],
+  'Forearm': [62 / 603.04, 420 / 742.93],
+  'Wrist': [58 / 603.04, 478 / 742.93],
   'Hand': [72 / 603.04, 516 / 742.93],
-  'Finger': [74 / 603.04, 545 / 742.93],
+  'Finger': [74 / 603.04, 548 / 742.93],
 
-  'Thigh': [152 / 603.04, 500 / 742.93],
-  'Leg': [152 / 603.04, 580 / 742.93],
-  'Lower leg': [150 / 603.04, 635 / 742.93],
-  'Ankle': [142 / 603.04, 692 / 742.93],
+  'Thigh': [150 / 603.04, 478 / 742.93],
+  'Leg': [150 / 603.04, 565 / 742.93],
+  'Lower leg': [150 / 603.04, 628 / 742.93],
+  'Ankle': [143 / 603.04, 690 / 742.93],
   'Foot': [137 / 603.04, 720 / 742.93],
 }
 const NON_PLACEABLE_NOTE = {

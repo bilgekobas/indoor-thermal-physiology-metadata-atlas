@@ -41,14 +41,17 @@ export default function HistogramECDF({ values, binWidth = 1, xLabel = '', unit 
   })
 
   const chartHeight = 180
-  const chartWidth = Math.max(width, bins.length * 18, 320)
+  // Keep the assigned atlas plot width fixed. Previously the number of bins could
+  // enlarge the SVG, so figures with the same FigureCard size still ended at
+  // different x positions.
+  const chartWidth = Math.max(width, 320)
   const yAxisW = 34
   const xStep = chartWidth / bins.length
   const xTickEvery = Math.max(1, Math.ceil(bins.length / 10))
 
   return (
     <div>
-      <svg width={chartWidth + yAxisW} height={chartHeight + 34} className="font-data block overflow-visible">
+      <svg width={chartWidth + yAxisW} height={chartHeight + 34} viewBox={`0 0 ${chartWidth + yAxisW} ${chartHeight + 34}`} className="font-data block overflow-visible atlas-fixed-svg">
         {[0, 0.5, 1].map((frac) => (
           <g key={frac}>
             <line x1={yAxisW} x2={chartWidth + yAxisW} y1={chartHeight * (1 - frac)} y2={chartHeight * (1 - frac)} stroke="#E4E4E4" strokeWidth={1} />

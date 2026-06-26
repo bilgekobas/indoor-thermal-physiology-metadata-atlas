@@ -11,6 +11,7 @@
   --accent:#FB3640; --blue:#5B5BFF; --lime:#D5FF99; --cyan:#C5FFFD; --yellow:#F1FF71;
 }
 * { box-sizing:border-box; }
+html, body { max-width:100%; overflow-x:hidden; }
 body { margin:0; font-family:'IBM Plex Sans',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif; background:var(--paper); color:var(--ink); }
 .mono { font-family:'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
 header { padding:22px 28px 18px; border-bottom:1px solid var(--line); max-width:1320px; }
@@ -24,10 +25,10 @@ button { height:28px; border:0; border-radius:5px; padding:4px 10px; font-size:1
 button:hover { background:rgba(0,0,0,.12); }
 button.primary { background:var(--ink); color:var(--paper); }
 button.toggle.active { background:var(--ink); color:var(--paper); }
-#layout { display:grid; grid-template-columns:minmax(760px, 1fr) 340px; gap:18px; padding:18px 28px 22px; max-width:1400px; }
+#layout { display:grid; grid-template-columns:minmax(0, 1fr) 340px; gap:18px; padding:18px 28px 22px; max-width:1400px; }
 #chartPanel { min-width:0; }
 svg { width:100%; height:auto; display:block; border:1px solid var(--line); border-radius:7px; background:var(--paper); }
-#chart { height:720px; }
+#chart { height:720px; max-width:100%; }
 #side { border-left:1px solid var(--line); padding-left:16px; min-width:0; }
 .panel-title { font-size:13px; font-weight:650; margin:0 0 8px; }
 .help { font-size:11.5px; line-height:1.45; color:var(--faint); margin:8px 0 14px; }
@@ -74,8 +75,8 @@ a { color:var(--blue); }
     <button id="egoBtn" class="toggle">ego</button>
   </div>
   <label class="control-block">Minimum shared studies
-    <input type="range" id="weightSlider" min="1" max="10" value="4" />
-    <span id="weightVal" class="mono">4+</span>
+    <input type="range" id="weightSlider" min="1" max="10" value="1" />
+    <span id="weightVal" class="mono">1+</span>
   </label>
   <label class="control-block">Minimum author studies
     <input type="range" id="authorSlider" min="1" max="10" value="1" />
@@ -116,7 +117,7 @@ const labelLayer = root.append('g');
 const tooltip = d3.select('#tooltip');
 const PALETTE = ['#FB3640','#5B5BFF','#0A0A0A','#8A8A8A','#D5FF99','#C5FFFD','#F1FF71','#BBBBBB','#7A5CFA','#E08D3C','#3CA0E0','#E03C8D','#4A4A4A'];
 let mode = 'clusters';
-let minWeight = 4;
+let minWeight = 1;
 let minAuthorStudies = 1;
 let selectedComponent = null;
 let selectedAuthor = null;
