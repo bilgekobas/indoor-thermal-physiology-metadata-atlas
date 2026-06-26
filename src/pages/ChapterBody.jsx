@@ -91,8 +91,12 @@ function SensorEvolutionToggle({ signals, evoData, periods }) {
 
 // ── Sankey (signal -> sensor type -> brand) ────────────────────────────
 const DOMAIN_ORDER = [
-  'CARDIOVASCULAR HEAT TRANSPORT', 'PERIPHERAL THERMAL EXCHANGE', 'SUDOMOTOR / ELECTRODERMAL',
-  'CENTRAL THERMAL STATE', 'NEURO-MUSCULAR ELECTROPHYSIOLOGY', 'METABOLIC & BIOCHEMICAL',
+  'PERIPHERAL THERMAL EXCHANGE',
+  'CARDIOVASCULAR HEAT TRANSPORT',
+  'CENTRAL THERMAL STATE',
+  'SUDOMOTOR / ELECTRODERMAL',
+  'NEURO-MUSCULAR ELECTROPHYSIOLOGY',
+  'METABOLIC & BIOCHEMICAL',
 ]
 const DOMAIN_GROUPS = {
   'PERIPHERAL THERMAL EXCHANGE': { color: '#5B5BFF', signals: ['Skin temperature', 'Near body temperature', 'Heat flux', 'Skin blood flow'] },

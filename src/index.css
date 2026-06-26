@@ -58,20 +58,33 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 svg { overflow: visible; }
 
 
-/* Figure-level sizing: figures may use more horizontal room than prose, but should not create page-level horizontal scrollbars. */
-.atlas-figure-plot svg {
+/* Figure-level sizing: each plot now expands to one of two reusable widths.
+   This keeps the right edge aligned within a chapter while avoiding page-level horizontal scroll. */
+.atlas-figure-plot {
+  max-width: min(var(--figure-width, 980px), calc(100vw - 320px));
+}
+.atlas-figure-wide { --figure-width: 1120px; }
+.atlas-figure-standard { --figure-width: 760px; }
+
+/* Most plot components draw a single intrinsic-width SVG. Make that SVG fill
+   the figure token instead of stopping at its internal pixel width. */
+.atlas-figure-plot > svg,
+.atlas-figure-plot > div > svg,
+.atlas-figure-plot > .recharts-responsive-container {
+  width: 100% !important;
   max-width: 100%;
   height: auto;
 }
+
 .atlas-figure-plot .no-horizontal-scroll {
   overflow-x: visible;
 }
 @media (max-width: 900px) {
-  .atlas-figure-plot { width: 100% !important; }
+  .atlas-figure-plot {
+    width: 100% !important;
+    max-width: 100%;
+    padding-right: 0 !important;
+  }
 }
 
-
-/* Shared figure-width tokens used to keep the atlas visually stable. */
-.atlas-figure-wide { max-width: 1120px; }
-.atlas-figure-standard { max-width: 760px; }
 .figure-note { margin-top: 12px; line-height: 1.45; }

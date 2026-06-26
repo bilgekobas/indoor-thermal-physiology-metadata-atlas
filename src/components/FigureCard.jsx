@@ -4,6 +4,7 @@
 // in the same column.
 export default function FigureCard({ figNumber, title, commentary, children, plotWidth = 960, size = null }) {
   const resolvedWidth = size === 'wide' ? 1120 : size === 'standard' ? 760 : plotWidth
+  const widthClass = size === 'wide' || resolvedWidth >= 980 ? 'atlas-figure-wide' : 'atlas-figure-standard'
 
   return (
     <div className="mb-10 last:mb-0">
@@ -16,7 +17,7 @@ export default function FigureCard({ figNumber, title, commentary, children, plo
       {commentary && (
         <p className="text-[13px] text-inkmid leading-relaxed mb-4 max-w-3xl">{commentary}</p>
       )}
-      <div className="min-w-0 overflow-visible atlas-figure-plot" style={{ width: 'min(100%, calc(100vw - 300px))', maxWidth: resolvedWidth || '100%', padding: '14px 24px 60px 0' }}>
+      <div className={`min-w-0 overflow-visible atlas-figure-plot ${widthClass}`} style={{ width: '100%', maxWidth: resolvedWidth || '100%', padding: '14px 24px 60px 0' }}>
         {children}
       </div>
     </div>
