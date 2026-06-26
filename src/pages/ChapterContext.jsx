@@ -11,13 +11,13 @@ import { useTooltip, TooltipPortal } from '../components/Tooltip.jsx'
 
 
 function AuthorNetworkEmbed() {
-  const src = `${import.meta.env.BASE_URL}author-network.html?v=42`
+  const src = `${import.meta.env.BASE_URL}author-network.html?v=45`
   return (
-    <div className="border border-line rounded-md bg-white overflow-hidden max-w-[1120px]">
+    <div className="bg-white overflow-hidden max-w-[1120px]">
       <iframe
         title="Interactive co-authorship network of the indoor thermal physiology corpus"
         src={src}
-        className="block w-full h-[860px] bg-paper"
+        className="block w-full h-[980px] bg-paper border-0"
         loading="lazy"
       />
     </div>
@@ -111,7 +111,7 @@ function ClimateTempChart({ studies, climateCounts, tempRanges }) {
   )
 
   const rows = useMemo(() => {
-    return climateOrder.map((grp) => {
+    const climateRows = climateOrder.map((grp) => {
       const groupStudies = studies.filter((s) => s.climate_group === grp)
       const allTemps = []
       groupStudies.forEach((s) => {
@@ -122,6 +122,18 @@ function ClimateTempChart({ studies, climateCounts, tempRanges }) {
       allTemps.sort((a, b) => a - b)
       return { climate: grp, nStudies: groupStudies.length, allTemps }
     })
+
+    const overallTemps = []
+    let overallStudies = 0
+    studies.forEach((s) => {
+      const rawSteps = stepsById.get(s.id) || []
+      const values = (rawSteps.length ? rawSteps : [s.min, s.max]).filter((v) => Number.isFinite(v)).map(Number)
+      if (values.length) overallStudies += 1
+      values.forEach((v) => overallTemps.push(v))
+    })
+    overallTemps.sort((a, b) => a - b)
+
+    return [...climateRows, { climate: 'Overall', nStudies: overallStudies, allTemps: overallTemps }]
   }, [studies, climateOrder, stepsById])
 
   const everyTemp = rows.flatMap((r) => r.allTemps)

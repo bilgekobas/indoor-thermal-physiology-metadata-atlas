@@ -102,37 +102,46 @@ export default function BodySiteMap({ siteData, totalLabel, color = '#5B5BFF', h
 
   const radiusFor = (count) => 6 + Math.sqrt(count / maxCount) * 15
 
-  const displayHeight = height
-  const renderW = displayHeight
+  const mapSize = Math.min(height, 690)
 
   return (
     <div>
       <div className="flex gap-6 items-start">
-        <div className="relative shrink-0" style={{ width: renderW, height: displayHeight }}>
-          <img
-            src={taxonomySrc}
-            alt="Anatomical taxonomy used for body-site placement"
-            className="absolute inset-0 w-full h-full object-contain opacity-[0.22] select-none"
-            draggable="false"
-          />
-          <svg width={renderW} height={displayHeight} className="absolute inset-0 overflow-visible">
+        <div className="shrink-0" style={{ width: mapSize, height: mapSize }}>
+          <svg
+            width={mapSize}
+            height={mapSize}
+            viewBox={`0 0 ${TAX_W} ${TAX_H}`}
+            preserveAspectRatio="xMidYMid meet"
+            className="block overflow-visible"
+          >
+            <image
+              href={taxonomySrc}
+              x={0}
+              y={0}
+              width={TAX_W}
+              height={TAX_H}
+              opacity={0.24}
+              preserveAspectRatio="xMidYMid meet"
+            />
             {placeable.map((s) => {
               const [fx, fy] = SITE_COORDS[s.site]
-              const cx = fx * renderW
-              const cy = fy * displayHeight
+              const cx = fx * TAX_W
+              const cy = fy * TAX_H
+              const r = 18 + Math.sqrt(s.count / maxCount) * 46
               const pct = totalLabel?.n ? ((s.count / totalLabel.n) * 100).toFixed(0) : '0'
               return (
                 <g key={s.site}>
                   <circle
-                    cx={cx} cy={cy} r={radiusFor(s.count)}
-                    fill={color} fillOpacity={0.65}
-                    stroke="#FCFCFC" strokeWidth={1.5}
+                    cx={cx} cy={cy} r={r}
+                    fill={color} fillOpacity={0.68}
+                    stroke="#FCFCFC" strokeWidth={5}
                     className="cursor-default hover:fill-opacity-90 transition-[fill-opacity]"
                     onMouseEnter={(e) => showTip(e, `${s.site}: ${s.count} studies (${pct}% of ${totalLabel.n})`)}
                     onMouseMove={moveTip}
                     onMouseLeave={hideTip}
                   />
-                  <text x={cx} y={cy + 3.5} fontSize={9} fill="#FCFCFC" textAnchor="middle" className="pointer-events-none font-data font-medium">
+                  <text x={cx} y={cy + 11} fontSize={28} fill="#FCFCFC" textAnchor="middle" className="pointer-events-none font-data font-medium">
                     {s.count}
                   </text>
                 </g>
@@ -141,15 +150,15 @@ export default function BodySiteMap({ siteData, totalLabel, color = '#5B5BFF', h
           </svg>
         </div>
 
-        <div className="flex-1 pt-2">
+        <div className="w-64 shrink-0 pt-2">
           <div className="font-data text-[10px] text-inkfaint mb-3">
             Marker area ∝ study count. Table values use count (% of parent signal).
           </div>
           <div className="space-y-1">
             {[...placeable].sort((a, b) => b.count - a.count).map((s) => (
-              <div key={s.site} className="flex items-center justify-between text-[12px] gap-3">
-                <span className="text-inkmid">{s.site}</span>
-                <span className="font-data text-inkfaint">{s.count} ({totalLabel?.n ? ((s.count / totalLabel.n) * 100).toFixed(0) : 0}%)</span>
+              <div key={s.site} className="grid grid-cols-[1fr_auto] items-baseline gap-4 text-[12px]">
+                <span className="text-inkmid whitespace-nowrap">{s.site}</span>
+                <span className="font-data text-inkfaint whitespace-nowrap tabular-nums">{s.count} ({totalLabel?.n ? ((s.count / totalLabel.n) * 100).toFixed(0) : 0}%)</span>
               </div>
             ))}
           </div>

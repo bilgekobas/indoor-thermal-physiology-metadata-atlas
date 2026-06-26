@@ -619,7 +619,7 @@ function BodySiteToggle({ skinTempSites, skinTempN, hrSites, hrN, sudomotorSites
         ))}
       </div>
       <div style={{ minHeight: 760 }}>
-        <BodySiteMap siteData={current.siteData} totalLabel={current.totalLabel} height={760} />
+        <BodySiteMap siteData={current.siteData} totalLabel={current.totalLabel} height={690} />
       </div>
     </div>
   )

@@ -4,13 +4,16 @@ import FigureCard from '../components/FigureCard.jsx'
 import InteractiveBarChart from '../components/InteractiveBarChart.jsx'
 import { useTooltip, TooltipPortal } from '../components/Tooltip.jsx'
 
-function isNeutralPoint(value, label) {
-  const l = String(label || '').toLowerCase()
-  return l.includes('neutral') || Math.abs(Number(value)) < 0.001 || Math.abs(Number(value)) === 0.01
+function isNeutralPoint(value, label, min, max, { treatComfortAsNeutral = false } = {}) {
+  const l = String(label || '').trim().toLowerCase()
+  if (l.includes('neutral')) return true
+  if (treatComfortAsNeutral && l === 'comfortable') return true
+  const crossesZero = Number(min) < 0 && Number(max) > 0
+  return crossesZero && (Math.abs(Number(value)) < 0.001 || Math.abs(Number(value)) === 0.01)
 }
 
-function pointColor({ value, label, comfortPole, min, max, lowColor, highColor, poleColors }) {
-  if (isNeutralPoint(value, label)) return '#0A0A0A'
+function pointColor({ value, label, comfortPole, min, max, lowColor, highColor, poleColors, treatComfortAsNeutral = false }) {
+  if (isNeutralPoint(value, label, min, max, { treatComfortAsNeutral })) return '#0A0A0A'
   if (poleColors && comfortPole) {
     const lowIsComfort = comfortPole === 'low'
     return value <= (min + max) / 2
@@ -20,7 +23,7 @@ function pointColor({ value, label, comfortPole, min, max, lowColor, highColor, 
   return value === min ? lowColor : value === max ? highColor : '#8A8A8A'
 }
 
-function ScaleAxisPlot({ studies, domain, lowColor, highColor, poleColors, titleSuffix }) {
+function ScaleAxisPlot({ studies, domain, lowColor, highColor, poleColors, titleSuffix, treatComfortAsNeutral = false }) {
   const { tip, showTip, moveTip, hideTip } = useTooltip()
   const [domainMin, domainMax] = domain
   const width = 700
@@ -61,7 +64,7 @@ function ScaleAxisPlot({ studies, domain, lowColor, highColor, poleColors, title
               <line x1={xScale(min)} x2={xScale(max)} y1={y} y2={y} stroke="#BBBBBB" strokeWidth={0.8} opacity={0.75} />
               {s.range.map((v, idx) => {
                 const label = s.labels[idx] || String(v)
-                const c = pointColor({ value: v, label, comfortPole: s.comfort_pole, min, max, lowColor, highColor, poleColors })
+                const c = pointColor({ value: v, label, comfortPole: s.comfort_pole, min, max, lowColor, highColor, poleColors, treatComfortAsNeutral })
                 return (
                   <circle
                     key={`${s.id}-${idx}`}
@@ -201,7 +204,7 @@ export default function ChapterQuestionnaires({ data }) {
       >
         <FigureCard figNumber="31" title="Thermal Sensation Vote (TSV)" plotWidth={1120} commentary={`${fig15_tsv_scales.n_total} studies' scales mapped onto a common cold → hot axis. Each row now shows every coded point entered in the dataset, ordered by the row's minimum value.`}>
           <div className="flex gap-10 items-start">
-            <div className="shrink-0 w-[700px]"><ScaleAxisPlot studies={fig15_tsv_scales.studies} domain={[-4, 8]} lowColor="#5B5BFF" highColor="#FB3640" titleSuffix="TSV" /></div>
+            <div className="shrink-0 w-[700px]"><ScaleAxisPlot studies={fig15_tsv_scales.studies} domain={[-4, 8]} lowColor="#5B5BFF" highColor="#FB3640" titleSuffix="TSV" treatComfortAsNeutral /></div>
             <div className="w-72 shrink-0"><h4 className="text-[11.5px] font-medium mb-2 text-inkmid">Points per scale</h4><PointsBar distribution={fig15_tsv_scales.points_distribution} total={fig15_tsv_scales.n_total} color="#0A0A0A" /><MostUsedScaleLabels studies={fig15_tsv_scales.studies} title="Most used TSV labels" /></div>
           </div>
         </FigureCard>
