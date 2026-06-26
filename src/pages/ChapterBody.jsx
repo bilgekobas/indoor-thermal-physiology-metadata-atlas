@@ -81,14 +81,14 @@ function SensorEvolutionToggle({ signals, evoData, periods }) {
 
 // ── Sankey (signal -> sensor type -> brand) ────────────────────────────
 const DOMAIN_ORDER = [
-  'PERIPHERAL THERMAL EXCHANGE', 'CARDIOVASCULAR HEAT TRANSPORT', 'CENTRAL THERMAL STATE',
-  'SUDOMOTOR / ELECTRODERMAL', 'NEURO-MUSCULAR ELECTROPHYSIOLOGY', 'METABOLIC & BIOCHEMICAL',
+  'CARDIOVASCULAR HEAT TRANSPORT', 'PERIPHERAL THERMAL EXCHANGE', 'SUDOMOTOR / ELECTRODERMAL',
+  'CENTRAL THERMAL STATE', 'NEURO-MUSCULAR ELECTROPHYSIOLOGY', 'METABOLIC & BIOCHEMICAL',
 ]
 const DOMAIN_GROUPS = {
   'PERIPHERAL THERMAL EXCHANGE': { color: '#5B5BFF', signals: ['Skin temperature', 'Near body temperature', 'Heat flux', 'Skin blood flow'] },
   'CARDIOVASCULAR HEAT TRANSPORT': { color: '#FF4DA6', signals: ['Heart/Pulse rate', 'Blood pressure', 'Oxygen saturation'] },
   'CENTRAL THERMAL STATE': { color: '#F1FF71', signals: ['Core/Body temperature', 'Exhaled breath temperature'] },
-  'SUDOMOTOR / ELECTRODERMAL': { color: '#8A63FF', signals: ['Sweat indicators', 'Skin conductance'] },
+  'SUDOMOTOR / ELECTRODERMAL': { color: '#79FFFB', signals: ['Sweat indicators', 'Skin conductance'] },
   'NEURO-MUSCULAR ELECTROPHYSIOLOGY': { color: '#4A4A4A', signals: ['EEG', 'EMG', 'EOG', 'Movement', 'Respiration'] },
   'METABOLIC & BIOCHEMICAL': { color: '#BBBBBB', signals: ['Metabolic rate/Gas exchange', 'Biomarkers'] },
 }
@@ -605,8 +605,8 @@ function BodySiteToggle({ skinTempSites, skinTempN, hrSites, hrN, sudomotorSites
           </button>
         ))}
       </div>
-      <div style={{ minHeight: 480 }}>
-        <BodySiteMap siteData={current.siteData} totalLabel={current.totalLabel} height={660} />
+      <div style={{ minHeight: 760 }}>
+        <BodySiteMap siteData={current.siteData} totalLabel={current.totalLabel} height={760} />
       </div>
     </div>
   )

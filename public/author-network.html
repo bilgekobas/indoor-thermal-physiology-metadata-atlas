@@ -249,20 +249,21 @@ function renderAuthorGraph(graph, ego=false) {
   const edges = graph.edges.map(d=>({...d}));
   const title = ego ? 'Searched-author network' : 'Author-group network';
   document.getElementById('sideTitle').textContent = graph.comp ? title + ': ' + graph.comp.topAuthor.name : title;
-  document.getElementById('sideHelp').textContent = ego ? 'Searched-author view shows the selected author, direct collaborators, and collaborators-of-collaborators at the current threshold.' : 'Author-group view shows one connected collaboration component at author level. Use the group list or search to change focus.';
+  document.getElementById('sideHelp').textContent = ego ? 'Searched-author view shows the selected author, direct collaborators, and collaborators-of-collaborators at the current threshold.' : 'Author-group view shows one connected collaboration component at author level. Each circle is one author; links are shared studies. Use the group list or search to change focus.';
   setCounts(nodes.length+' authors, '+edges.length+' pairs shown');
   renderSide(currentComponents);
   if(!nodes.length) { nodeLayer.append('text').attr('x',W/2).attr('y',H/2).attr('text-anchor','middle').attr('fill','#8A8A8A').text('No author graph at this threshold.'); return; }
-  const radiusFor = d => (ego && d.distance===0 ? 13 : 6 + Math.sqrt(d.n_studies)*2.6);
-  const linkSel=linkLayer.selectAll('line').data(edges).join('line').attr('class','link').attr('stroke-width',d=>Math.min(1+d.shared_studies*.55,7)).attr('opacity',.20)
-    .on('mouseenter',(event,d)=>showTooltip(event,d.source+' ↔ '+d.target+'<br>'+d.shared_studies+' shared studies')).on('mousemove',moveTooltip).on('mouseleave',hideTooltip);
+  const radiusFor = d => Math.max(9, ego && d.distance===0 ? 15 : 7 + Math.sqrt(d.n_studies)*2.8);
+  const nameOf = v => typeof v === 'string' ? v : (v?.name || 'unknown author');
+  const linkSel=linkLayer.selectAll('line').data(edges).join('line').attr('class','link').attr('stroke-width',d=>Math.min(1.25+d.shared_studies*.65,8)).attr('opacity',.28)
+    .on('mouseenter',(event,d)=>showTooltip(event,nameOf(d.source)+' ↔ '+nameOf(d.target)+'<br>'+d.shared_studies+' shared studies')).on('mousemove',moveTooltip).on('mouseleave',hideTooltip);
   const nodeSel=nodeLayer.selectAll('g.node').data(nodes,d=>d.name).join('g').attr('class','node');
-  nodeSel.append('circle').attr('r',radiusFor).attr('fill',d=>d.color).attr('fill-opacity',d=>ego && d.distance===0 ? 1 : .86)
+  nodeSel.append('circle').attr('r',radiusFor).attr('fill',d=>d.color).attr('fill-opacity',d=>ego && d.distance===0 ? 1 : .94).attr('stroke','#FCFCFC').attr('stroke-width',2)
     .on('click',(event,d)=>{ selectedAuthor=d.name; mode='ego'; document.getElementById('search').value=d.name; updateModeButtons(); render(); })
-    .on('mouseenter',(event,d)=>showTooltip(event,'<b>'+d.name+'</b><br>'+d.n_studies+' studies<br>'+normalizeCountry(d.country)+'<br>Click for ego network'))
+    .on('mouseenter',(event,d)=>showTooltip(event,'<b>'+d.name+'</b><br>'+d.n_studies+' studies<br>'+normalizeCountry(d.country)+'<br>Circle = one author. Click for ego network.'))
     .on('mousemove',moveTooltip).on('mouseleave',hideTooltip);
-  const labelNodes = nodes.filter(d => d.n_studies >= 5 || (ego && d.distance <= 1));
-  const labels=labelLayer.selectAll('text').data(labelNodes,d=>d.name).join('text').attr('class','bubble-label').attr('text-anchor','middle').style('font-size','10px').text(d=>d.name);
+  const labelNodes = nodes.filter(d => nodes.length <= 25 || d.n_studies >= 5 || (ego && d.distance <= 1));
+  const labels=labelLayer.selectAll('text').data(labelNodes,d=>d.name).join('text').attr('class','bubble-label').attr('text-anchor','middle').style('font-size','10px').style('font-weight',d=>ego && d.distance===0 ? 700 : 500).text(d=>d.name.length>24 ? d.name.slice(0,22)+'…' : d.name);
   simulation = d3.forceSimulation(nodes)
     .force('link', d3.forceLink(edges).id(d=>d.name).distance(d=>ego ? 68 : 75).strength(.35))
     .force('charge', d3.forceManyBody().strength(ego ? -145 : -115))
@@ -270,8 +271,8 @@ function renderAuthorGraph(graph, ego=false) {
     .force('collide', d3.forceCollide(d=>radiusFor(d)+6).iterations(2))
     .on('tick',()=>{
       linkSel.attr('x1',d=>d.source.x).attr('y1',d=>d.source.y).attr('x2',d=>d.target.x).attr('y2',d=>d.target.y);
-      nodeSel.attr('transform',d=>'translate('+Math.max(d.r+6, Math.min(W-d.r-6, d.x))+','+Math.max(d.r+6, Math.min(H-d.r-6, d.y))+')');
-      labels.attr('x',d=>d.x).attr('y',d=>d.y+radiusFor(d)+12);
+      nodeSel.attr('transform',d=>{ const r=radiusFor(d); d.x=Math.max(r+8, Math.min(W-r-8, d.x)); d.y=Math.max(r+8, Math.min(H-r-8, d.y)); return 'translate('+d.x+','+d.y+')'; });
+      labels.attr('x',d=>Math.max(28, Math.min(W-28, d.x))).attr('y',d=>Math.max(18, Math.min(H-10, d.y+radiusFor(d)+14)));
     });
 }
 

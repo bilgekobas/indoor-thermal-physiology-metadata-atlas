@@ -50,7 +50,7 @@ const NON_PLACEABLE_NOTE = {
   'Limbs': 'too unspecific to place (could be any limb)',
 }
 
-export default function BodySiteMap({ siteData, totalLabel, color = '#5B5BFF', height = 620 }) {
+export default function BodySiteMap({ siteData, totalLabel, color = '#5B5BFF', height = 760 }) {
   const { tip, showTip, moveTip, hideTip } = useTooltip()
   const [svgMarkup, setSvgMarkup] = useState(null)
 
@@ -90,7 +90,7 @@ export default function BodySiteMap({ siteData, totalLabel, color = '#5B5BFF', h
 
   return (
     <div>
-      <div className="flex gap-8 items-start">
+      <div className="flex gap-6 items-start">
         <div className="relative shrink-0" style={{ width: renderW, height: displayHeight }}>
           {svgMarkup ? (
             <div

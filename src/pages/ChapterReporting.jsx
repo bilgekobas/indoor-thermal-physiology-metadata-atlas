@@ -2,25 +2,31 @@ import { ChapterHeader, ChapterSection } from '../components/Chapter.jsx'
 import FigureCard from '../components/FigureCard.jsx'
 import { useTooltip, TooltipPortal } from '../components/Tooltip.jsx'
 
-function FieldCompletenessGroup({ title, rows }) {
+function FieldCompletenessGroup({ title, rows, maxDenominator }) {
   const { tip, showTip, moveTip, hideTip } = useTooltip()
   const sorted = rows
   return (
     <div>
       <h4 className="text-[14px] font-medium mb-3">{title}</h4>
       <div className="space-y-1.5">
-        {sorted.map((r) => (
-          <div key={r.field} className="flex items-center gap-3 group">
-            <span className="text-[12px] w-52 shrink-0 truncate" title={r.field}>{r.field}</span>
-            <div className="flex-1 h-4 rounded bg-line/50 overflow-hidden cursor-default"
-              onMouseEnter={(e) => showTip(e, `${r.field}: ${r.count} of ${r.denominator} · ${r.pct}%`)}
-              onMouseMove={moveTip} onMouseLeave={hideTip}>
-              <div className="h-full group-hover:brightness-110" style={{ width: `${r.pct}%`, background: '#0A0A0A' }} />
+        {sorted.map((r) => {
+          const denomWidth = `${(r.denominator / Math.max(maxDenominator || r.denominator, 1)) * 100}%`
+          const fillWidth = `${(r.count / Math.max(r.denominator || 1, 1)) * 100}%`
+          return (
+            <div key={r.field} className="flex items-center gap-3 group">
+              <span className="text-[12px] w-52 shrink-0 truncate" title={r.field}>{r.field}</span>
+              <div className="flex-1 h-4 cursor-default"
+                onMouseEnter={(e) => showTip(e, `${r.field}: ${r.count} of ${r.denominator} · ${r.pct}%; denominator scaled to corpus n`)}
+                onMouseMove={moveTip} onMouseLeave={hideTip}>
+                <div className="h-full rounded bg-line/50 overflow-hidden" style={{ width: denomWidth }}>
+                  <div className="h-full group-hover:brightness-110" style={{ width: fillWidth, background: '#0A0A0A' }} />
+                </div>
+              </div>
+              <span className="font-data text-[11px] w-20 text-right text-inkmid">{r.count}/{r.denominator}</span>
+              <span className="font-data text-[11px] w-12 text-right text-inkfaint">{r.pct}%</span>
             </div>
-            <span className="font-data text-[11px] w-20 text-right text-inkmid">{r.count}/{r.denominator}</span>
-            <span className="font-data text-[11px] w-12 text-right text-inkfaint">{r.pct}%</span>
-          </div>
-        ))}
+          )
+        })}
       </div>
       <TooltipPortal tip={tip} />
     </div>
@@ -33,6 +39,7 @@ export default function ChapterReporting({ data }) {
   const flat = groups.flatMap(([group, obj]) => obj.fields.map((f) => ({ ...f, group })))
   const highest = [...flat].sort((a, b) => b.pct - a.pct)[0]
   const lowest = [...flat].sort((a, b) => a.pct - b.pct)[0]
+  const maxDenominator = Math.max(summary.n_experiments || 0, ...flat.map((f) => f.denominator || 0), 1)
 
   return (
     <div>
@@ -62,11 +69,11 @@ export default function ChapterReporting({ data }) {
         ]}
       />
 
-      <ChapterSection title="Full field-level completeness list" intro="Bars are scaled directly to the reported percentage for that field. Counts and denominators are shown explicitly at right, so special cases such as MST-specific fields remain legible.">
+      <ChapterSection title="Full field-level completeness list" intro="Tracks are scaled to each field’s applicable denominator, then filled by reported count. This means one study has the same visual width everywhere, while denominator changes remain visible.">
         <FigureCard figNumber="35" title="Evaluated reporting fields" plotWidth={980} commentary="Groups are arranged by chapter logic rather than by rank. Within each group, fields follow the dataset column order so the display can be checked against the coding sheet.">
           <div className="space-y-8 max-w-5xl">
             {groups.map(([group, obj]) => (
-              <FieldCompletenessGroup key={group} title={group} rows={obj.fields} />
+              <FieldCompletenessGroup key={group} title={group} rows={obj.fields} maxDenominator={maxDenominator} />
             ))}
           </div>
         </FigureCard>

@@ -106,6 +106,38 @@ function PointsBar({ distribution, total, color = '#0A0A0A' }) {
   )
 }
 
+
+function MostUsedScaleLabels({ studies, title = 'Most used scale labels', maxRows = 13 }) {
+  const common = useMemo(() => {
+    const map = new Map()
+    studies.forEach((s) => {
+      const range = (s.range || []).map((v) => Number(v)).join('|')
+      const labels = (s.labels || []).map((l) => String(l || '').trim()).join('|')
+      const key = `${range}__${labels}`
+      const existing = map.get(key) || { count: 0, range: s.range || [], labels: s.labels || [] }
+      existing.count += 1
+      map.set(key, existing)
+    })
+    return [...map.values()].sort((a, b) => b.count - a.count || b.range.length - a.range.length)[0]
+  }, [studies])
+  if (!common) return null
+  const rows = common.range.map((v, i) => ({ value: v, label: common.labels[i] || '' })).slice(0, maxRows)
+  return (
+    <div className="mt-8 pt-4 border-t border-line/70">
+      <h4 className="text-[11.5px] font-medium mb-2 text-inkmid">{title}</h4>
+      <div className="font-data text-[10px] text-inkfaint mb-2">Most frequent exact label set, n = {common.count} scales.</div>
+      <div className="grid grid-cols-[34px_1fr] gap-x-2 gap-y-1 max-w-[260px]">
+        {rows.map((r, i) => (
+          <div key={`${r.value}-${i}`} className="contents">
+            <span className="font-data text-[11px] text-right text-ink">{r.value}</span>
+            <span className="text-[11px] text-inkmid truncate" title={r.label}>{r.label || 'unlabelled'}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  )
+}
+
 export default function ChapterQuestionnaires({ data }) {
   const { fig14_questionnaire_domains, fig15_tsv_scales, fig16_tcv_scales, chapter_completeness, summary } = data
   const tsvPct = ((fig15_tsv_scales.n_total / summary.n_experiments) * 100).toFixed(0)
@@ -156,14 +188,14 @@ export default function ChapterQuestionnaires({ data }) {
         <FigureCard figNumber="31" title="Thermal Sensation Vote (TSV)" plotWidth={1120} commentary={`${fig15_tsv_scales.n_total} studies' scales mapped onto a common cold → hot axis. Each row now shows every coded point entered in the dataset, ordered by the row's minimum value.`}>
           <div className="flex gap-10 items-start">
             <div className="shrink-0 w-[700px]"><ScaleAxisPlot studies={fig15_tsv_scales.studies} domain={[-4, 8]} lowColor="#5B5BFF" highColor="#FB3640" titleSuffix="TSV" /></div>
-            <div className="w-72 shrink-0"><h4 className="text-[11.5px] font-medium mb-2 text-inkmid">Points per scale</h4><PointsBar distribution={fig15_tsv_scales.points_distribution} total={fig15_tsv_scales.n_total} color="#0A0A0A" /></div>
+            <div className="w-72 shrink-0"><h4 className="text-[11.5px] font-medium mb-2 text-inkmid">Points per scale</h4><PointsBar distribution={fig15_tsv_scales.points_distribution} total={fig15_tsv_scales.n_total} color="#0A0A0A" /><MostUsedScaleLabels studies={fig15_tsv_scales.studies} title="Most used TSV labels" /></div>
           </div>
         </FigureCard>
 
         <FigureCard figNumber="32" title="Thermal Comfort Vote (TCV)" plotWidth={1120} commentary={`${fig16_tcv_scales.n_total} studies' scales mapped onto a common axis. Endpoint colours follow meaning rather than raw number; neutral or near-neutral points are black.`}>
           <div className="flex gap-10 items-start">
             <div className="shrink-0 w-[700px]"><ScaleAxisPlot studies={fig16_tcv_scales.studies} domain={[-4, 6]} poleColors={{ comfort: '#5B5BFF', discomfort: '#FB3640' }} titleSuffix="TCV" /></div>
-            <div className="w-72 shrink-0"><h4 className="text-[11.5px] font-medium mb-2 text-inkmid">Points per scale</h4><PointsBar distribution={fig16_tcv_scales.points_distribution} total={fig16_tcv_scales.n_total} color="#0A0A0A" /></div>
+            <div className="w-72 shrink-0"><h4 className="text-[11.5px] font-medium mb-2 text-inkmid">Points per scale</h4><PointsBar distribution={fig16_tcv_scales.points_distribution} total={fig16_tcv_scales.n_total} color="#0A0A0A" /><MostUsedScaleLabels studies={fig16_tcv_scales.studies} title="Most used TCV labels" /></div>
           </div>
         </FigureCard>
       </ChapterSection>
