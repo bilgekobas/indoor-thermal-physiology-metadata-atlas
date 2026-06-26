@@ -1,60 +1,65 @@
 import { useMemo } from 'react'
 import { useTooltip, TooltipPortal } from './Tooltip.jsx'
 
-// Coordinates are normalized to the full two-body SVG (front at left, back at right).
-// Distinct sub-sites are kept distinct wherever the underlying dataset reports them.
 const TAX_W = 2048
 const TAX_H = 2048
 
 // Coordinates are normalized to the supplied anatomical taxonomy image
-// (anterior body on the left, posterior body on the right). Aggregated
-// categories are placed on the corresponding labelled taxonomy point or, when
-// the category spans bilateral/surface-specific subpoints, at the centroid of
-// the relevant labelled region.
+// (anterior body on the left, posterior body on the right). Each value was
+// read directly off the labelled dots in that image (anatomical-taxonomy.jpg,
+// 2048x2048px) rather than estimated, so markers line up with the actual
+// numbered measurement points (e.g. "8AM" Chest, "5R" Earlobe) instead of a
+// guessed silhouette position. Bilateral sites (e.g. "2AR"/"2AL" Temple) only
+// have one labelled point on the chart used per category — left vs. right
+// is arbitrary here since the dataset doesn't distinguish sides.
 const SITE_COORDS = {
-  'Head': [650 / TAX_W, 115 / TAX_H],
-  'Forehead': [650 / TAX_W, 150 / TAX_H],
-  'Temple': [592 / TAX_W, 195 / TAX_H],
-  'Eye': [650 / TAX_W, 213 / TAX_H],
-  'Ear': [562 / TAX_W, 225 / TAX_H],
-  'Earlobe': [1168 / TAX_W, 220 / TAX_H],
-  'Cheek': [625 / TAX_W, 265 / TAX_H],
-  'Nose': [650 / TAX_W, 240 / TAX_H],
-  'Mouth': [650 / TAX_W, 305 / TAX_H],
-  'Chin': [650 / TAX_W, 330 / TAX_H],
-  'Face': [650 / TAX_W, 250 / TAX_H],
+  'Forehead': [652 / TAX_W, 156 / TAX_H],   // 1AM
+  'Temple': [734 / TAX_W, 199 / TAX_H],     // 2AL
+  'Nose': [652 / TAX_W, 248 / TAX_H],       // 3AM
+  'Cheek': [615 / TAX_W, 280 / TAX_H],      // 4AR
+  'Ear': [1400 / TAX_W, 232 / TAX_H],       // mid-ear, just above 5R (earlobe)
+  'Earlobe': [1400 / TAX_W, 281 / TAX_H],   // 5R
 
-  'Neck': [650 / TAX_W, 370 / TAX_H],
-  'Clavicle': [585 / TAX_W, 425 / TAX_H],
-  'Shoulder': [560 / TAX_W, 475 / TAX_H],
-  'Chest': [650 / TAX_W, 555 / TAX_H],
-  'Axilla': [510 / TAX_W, 608 / TAX_H],
-  'Abdomen': [650 / TAX_W, 805 / TAX_H],
-  'Waist': [650 / TAX_W, 875 / TAX_H],
+  'Neck': [603 / TAX_W, 360 / TAX_H],       // 6AR
+  'Clavicle': [540 / TAX_W, 420 / TAX_H],   // 7AR
+  'Chest': [648 / TAX_W, 509 / TAX_H],      // 8AM
+  'Axilla': [484 / TAX_W, 539 / TAX_H],     // 10R
+  'Abdomen': [648 / TAX_W, 782 / TAX_H],    // 13AM
 
-  'Back': [1360 / TAX_W, 555 / TAX_H],
-  'Lower back': [1360 / TAX_W, 805 / TAX_H],
-  'Buttocks': [1360 / TAX_W, 900 / TAX_H],
-  'Sole': [1370 / TAX_W, 1895 / TAX_H],
+  'Back': [1340 / TAX_W, 521 / TAX_H],      // 9PM
+  'Lower back': [1340 / TAX_W, 760 / TAX_H],// 14PM (lumbar)
+  'Buttocks': [1441 / TAX_W, 859 / TAX_H],  // 16PR
+  'Sole': [1380 / TAX_W, 1700 / TAX_H],     // 24PR (plantar)
 
-  'Upper arm': [480 / TAX_W, 650 / TAX_H],
-  'Arm': [480 / TAX_W, 740 / TAX_H],
-  'Elbow': [500 / TAX_W, 805 / TAX_H],
-  'Forearm': [505 / TAX_W, 925 / TAX_H],
-  'Wrist': [430 / TAX_W, 995 / TAX_H],
-  'Hand': [430 / TAX_W, 1080 / TAX_H],
-  'Finger': [430 / TAX_W, 1185 / TAX_H],
+  'Upper arm': [478 / TAX_W, 580 / TAX_H],  // 11AR
+  'Elbow': [476 / TAX_W, 700 / TAX_H],      // 12AR
+  'Forearm': [420 / TAX_W, 808 / TAX_H],    // 15R
+  'Wrist': [413 / TAX_W, 888 / TAX_H],      // 17R
+  'Hand': [440 / TAX_W, 963 / TAX_H],       // 18AR
+  'Finger': [365 / TAX_W, 1058 / TAX_H],    // 19AR
 
-  'Thigh': [650 / TAX_W, 1250 / TAX_H],
-  'Leg': [650 / TAX_W, 1430 / TAX_H],
-  'Lower leg': [620 / TAX_W, 1535 / TAX_H],
-  'Ankle': [620 / TAX_W, 1780 / TAX_H],
-  'Foot': [620 / TAX_W, 1905 / TAX_H],
+  'Thigh': [589 / TAX_W, 1120 / TAX_H],     // 20AR
+  'Lower leg': [589 / TAX_W, 1420 / TAX_H], // 21AR (shin)
+  'Ankle': [589 / TAX_W, 1605 / TAX_H],     // 22AR
+  'Foot': [595 / TAX_W, 1690 / TAX_H],      // 23AR
 }
+// Sites that genuinely can't be pinned to one point on this taxonomy —
+// either they're not a skin-surface location at all (sample types, core-
+// temperature methods), or they're too generic to place without implying
+// more precision than the source paper reported.
 const NON_PLACEABLE_NOTE = {
   'Whole body': 'measured as a whole-body total, not a single point',
   'Urine': 'a sample type, not a body location',
   'Limbs': 'too unspecific to place (could be any limb)',
+  'Arm': 'too unspecific to place (could be upper arm or forearm)',
+  'Leg': 'too unspecific to place (could be thigh or lower leg)',
+  'Head': 'too unspecific to place (could be any part of the head)',
+  'Face': 'too unspecific to place (could be forehead, cheek, temple, or nose)',
+  'Eye': 'not a labelled site on this taxonomy',
+  'Mouth': 'an oral-region site, not part of this skin-site taxonomy',
+  'Chin': 'not a labelled site on this taxonomy',
+  'Shoulder': 'not a distinct labelled site on this taxonomy',
+  'Waist': 'not a labelled site on this taxonomy',
 }
 
 const SITE_ALIASES = {
