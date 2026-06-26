@@ -11,13 +11,13 @@ import { useTooltip, TooltipPortal } from '../components/Tooltip.jsx'
 
 
 function AuthorNetworkEmbed() {
-  const src = `${import.meta.env.BASE_URL}author-network.html`
+  const src = `${import.meta.env.BASE_URL}author-network.html?v=42`
   return (
-    <div className="border border-line rounded-md bg-white overflow-hidden">
+    <div className="border border-line rounded-md bg-white overflow-hidden max-w-[1120px]">
       <iframe
         title="Interactive co-authorship network of the indoor thermal physiology corpus"
         src={src}
-        className="block w-full h-[920px] bg-paper"
+        className="block w-full h-[860px] bg-paper"
         loading="lazy"
       />
     </div>
@@ -516,7 +516,7 @@ export default function ChapterContext({ data }) {
             binWidth={15}
             unit=" min"
             xLabel="minutes per session"
-            width={920}
+            width={1080}
             onStats={setSessionStats}
           />
         </FigureCard>
@@ -527,7 +527,7 @@ export default function ChapterContext({ data }) {
             binWidth={10}
             unit=" min"
             xLabel="normalization / stabilization time (minutes)"
-            width={920}
+            width={1080}
             onStats={setNormStats}
           />
         </FigureCard>

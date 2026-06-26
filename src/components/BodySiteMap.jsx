@@ -1,52 +1,55 @@
-import { useState, useEffect, useMemo } from 'react'
+import { useMemo } from 'react'
 import { useTooltip, TooltipPortal } from './Tooltip.jsx'
 
 // Coordinates are normalized to the full two-body SVG (front at left, back at right).
 // Distinct sub-sites are kept distinct wherever the underlying dataset reports them.
+const TAX_W = 2048
+const TAX_H = 2048
+
+// Coordinates are normalized to the supplied anatomical taxonomy image
+// (anterior body on the left, posterior body on the right). Aggregated
+// categories are placed on the corresponding labelled taxonomy point or, when
+// the category spans bilateral/surface-specific subpoints, at the centroid of
+// the relevant labelled region.
 const SITE_COORDS = {
-  // Coordinates normalized to the two-body silhouette viewBox (603.04 × 742.93).
-  // These are anchored to the anatomical taxonomy supplied for the atlas:
-  // anterior/front body on the left, posterior/back body on the right. The aim is
-  // not to show every bilateral sub-point separately; it is to place the aggregate
-  // table categories at their anatomical region centroids.
-  'Head': [150 / 603.04, 37 / 742.93],
-  'Forehead': [150 / 603.04, 40 / 742.93],
-  'Temple': [126 / 603.04, 72 / 742.93],
-  'Eye': [140 / 603.04, 76 / 742.93],
-  'Ear': [112 / 603.04, 78 / 742.93],
-  'Earlobe': [112 / 603.04, 96 / 742.93],
-  'Cheek': [135 / 603.04, 96 / 742.93],
-  'Nose': [150 / 603.04, 86 / 742.93],
-  'Mouth': [150 / 603.04, 105 / 742.93],
-  'Chin': [150 / 603.04, 121 / 742.93],
-  'Face': [150 / 603.04, 88 / 742.93],
+  'Head': [650 / TAX_W, 115 / TAX_H],
+  'Forehead': [650 / TAX_W, 150 / TAX_H],
+  'Temple': [592 / TAX_W, 195 / TAX_H],
+  'Eye': [650 / TAX_W, 213 / TAX_H],
+  'Ear': [562 / TAX_W, 225 / TAX_H],
+  'Earlobe': [1168 / TAX_W, 220 / TAX_H],
+  'Cheek': [625 / TAX_W, 265 / TAX_H],
+  'Nose': [650 / TAX_W, 240 / TAX_H],
+  'Mouth': [650 / TAX_W, 305 / TAX_H],
+  'Chin': [650 / TAX_W, 330 / TAX_H],
+  'Face': [650 / TAX_W, 250 / TAX_H],
 
-  'Neck': [150 / 603.04, 148 / 742.93],
-  'Clavicle': [116 / 603.04, 170 / 742.93],
-  'Shoulder': [96 / 603.04, 185 / 742.93],
-  'Chest': [150 / 603.04, 218 / 742.93],
-  'Axilla': [98 / 603.04, 235 / 742.93],
-  'Abdomen': [150 / 603.04, 324 / 742.93],
-  'Waist': [150 / 603.04, 360 / 742.93],
+  'Neck': [650 / TAX_W, 370 / TAX_H],
+  'Clavicle': [585 / TAX_W, 425 / TAX_H],
+  'Shoulder': [560 / TAX_W, 475 / TAX_H],
+  'Chest': [650 / TAX_W, 555 / TAX_H],
+  'Axilla': [510 / TAX_W, 608 / TAX_H],
+  'Abdomen': [650 / TAX_W, 805 / TAX_H],
+  'Waist': [650 / TAX_W, 875 / TAX_H],
 
-  'Back': [430 / 603.04, 220 / 742.93],
-  'Lower back': [430 / 603.04, 345 / 742.93],
-  'Buttocks': [430 / 603.04, 386 / 742.93],
-  'Sole': [438 / 603.04, 722 / 742.93],
+  'Back': [1360 / TAX_W, 555 / TAX_H],
+  'Lower back': [1360 / TAX_W, 805 / TAX_H],
+  'Buttocks': [1360 / TAX_W, 900 / TAX_H],
+  'Sole': [1370 / TAX_W, 1895 / TAX_H],
 
-  'Upper arm': [76 / 603.04, 258 / 742.93],
-  'Arm': [72 / 603.04, 310 / 742.93],
-  'Elbow': [56 / 603.04, 351 / 742.93],
-  'Forearm': [62 / 603.04, 420 / 742.93],
-  'Wrist': [58 / 603.04, 478 / 742.93],
-  'Hand': [72 / 603.04, 516 / 742.93],
-  'Finger': [74 / 603.04, 548 / 742.93],
+  'Upper arm': [480 / TAX_W, 650 / TAX_H],
+  'Arm': [480 / TAX_W, 740 / TAX_H],
+  'Elbow': [500 / TAX_W, 805 / TAX_H],
+  'Forearm': [505 / TAX_W, 925 / TAX_H],
+  'Wrist': [430 / TAX_W, 995 / TAX_H],
+  'Hand': [430 / TAX_W, 1080 / TAX_H],
+  'Finger': [430 / TAX_W, 1185 / TAX_H],
 
-  'Thigh': [150 / 603.04, 478 / 742.93],
-  'Leg': [150 / 603.04, 565 / 742.93],
-  'Lower leg': [150 / 603.04, 628 / 742.93],
-  'Ankle': [143 / 603.04, 690 / 742.93],
-  'Foot': [137 / 603.04, 720 / 742.93],
+  'Thigh': [650 / TAX_W, 1250 / TAX_H],
+  'Leg': [650 / TAX_W, 1430 / TAX_H],
+  'Lower leg': [620 / TAX_W, 1535 / TAX_H],
+  'Ankle': [620 / TAX_W, 1780 / TAX_H],
+  'Foot': [620 / TAX_W, 1905 / TAX_H],
 }
 const NON_PLACEABLE_NOTE = {
   'Whole body': 'measured as a whole-body total, not a single point',
@@ -71,15 +74,7 @@ function canonicalSite(site) {
 
 export default function BodySiteMap({ siteData, totalLabel, color = '#5B5BFF', height = 760 }) {
   const { tip, showTip, moveTip, hideTip } = useTooltip()
-  const [svgMarkup, setSvgMarkup] = useState(null)
-
-  useEffect(() => {
-    const base = import.meta.env.BASE_URL
-    fetch(`${base}images/man_silhouette.svg`)
-      .then((r) => r.text())
-      .then(setSvgMarkup)
-      .catch(() => setSvgMarkup(null))
-  }, [])
+  const taxonomySrc = `${import.meta.env.BASE_URL}images/anatomical-taxonomy.jpg`
 
   const normalized = useMemo(() => siteData.map((s) => {
     const site = canonicalSite(s.site)
@@ -107,25 +102,19 @@ export default function BodySiteMap({ siteData, totalLabel, color = '#5B5BFF', h
 
   const radiusFor = (count) => 6 + Math.sqrt(count / maxCount) * 15
 
-  const VB_W = 603.04, VB_H = 742.93
   const displayHeight = height
-  const renderW = displayHeight * (VB_W / VB_H)
+  const renderW = displayHeight
 
   return (
     <div>
       <div className="flex gap-6 items-start">
         <div className="relative shrink-0" style={{ width: renderW, height: displayHeight }}>
-          {svgMarkup ? (
-            <div
-              className="absolute inset-0 opacity-[0.16]"
-              style={{ width: renderW, height: displayHeight }}
-              dangerouslySetInnerHTML={{ __html: svgMarkup.replace('<svg', '<svg width="100%" height="100%"') }}
-            />
-          ) : (
-            <div className="absolute inset-0 flex items-center justify-center text-inkfaint text-[11px] font-data">
-              Loading diagram…
-            </div>
-          )}
+          <img
+            src={taxonomySrc}
+            alt="Anatomical taxonomy used for body-site placement"
+            className="absolute inset-0 w-full h-full object-contain opacity-[0.22] select-none"
+            draggable="false"
+          />
           <svg width={renderW} height={displayHeight} className="absolute inset-0 overflow-visible">
             {placeable.map((s) => {
               const [fx, fy] = SITE_COORDS[s.site]
