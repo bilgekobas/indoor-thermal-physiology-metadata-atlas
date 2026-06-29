@@ -32,8 +32,11 @@ jobs:
           npm ls vite || true
           npx --yes vite@5.4.21 --version
 
+      - name: Install Python dependencies
+        run: python3 -m pip install pandas numpy
+
       - name: Build
-        run: npx --yes vite@5.4.21 build
+        run: npm run build
 
       - uses: actions/upload-pages-artifact@v3
         with:

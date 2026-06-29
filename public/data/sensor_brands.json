@@ -25,11 +25,11 @@
       "count": 14
     },
     {
-      "brand": "Suunto",
+      "brand": "BIOPAC",
       "count": 12
     },
     {
-      "brand": "BIOPAC",
+      "brand": "Suunto",
       "count": 12
     },
     {
@@ -41,11 +41,11 @@
       "count": 11
     },
     {
-      "brand": "Perimed",
+      "brand": "Onset",
       "count": 7
     },
     {
-      "brand": "Onset",
+      "brand": "Perimed",
       "count": 7
     },
     {
@@ -57,18 +57,6 @@
       "count": 6
     },
     {
-      "brand": "Testo",
-      "count": 5
-    },
-    {
-      "brand": "HOBO",
-      "count": 5
-    },
-    {
-      "brand": "KERN",
-      "count": 5
-    },
-    {
       "brand": "Kyoto Electronics Manufacturing",
       "count": 5
     },
@@ -77,11 +65,19 @@
       "count": 5
     },
     {
-      "brand": "OMEGA",
-      "count": 4
+      "brand": "KERN",
+      "count": 5
     },
     {
-      "brand": "fitbit",
+      "brand": "HOBO",
+      "count": 5
+    },
+    {
+      "brand": "Testo",
+      "count": 5
+    },
+    {
+      "brand": "OMEGA",
       "count": 4
     },
     {
@@ -97,19 +93,15 @@
       "count": 4
     },
     {
+      "brand": "fitbit",
+      "count": 4
+    },
+    {
+      "brand": "Libelium Co.",
+      "count": 3
+    },
+    {
       "brand": "ADInstruments",
-      "count": 3
-    },
-    {
-      "brand": "COSMED",
-      "count": 3
-    },
-    {
-      "brand": "NIPPON",
-      "count": 3
-    },
-    {
-      "brand": "Shimmer Sensing",
       "count": 3
     },
     {
@@ -121,15 +113,11 @@
       "count": 3
     },
     {
-      "brand": "HQ",
+      "brand": "Shimmer Sensing",
       "count": 3
     },
     {
-      "brand": "Libelium Co.",
-      "count": 3
-    },
-    {
-      "brand": "S&ME Company",
+      "brand": "COSMED",
       "count": 3
     },
     {
@@ -141,6 +129,22 @@
       "count": 3
     },
     {
+      "brand": "S&ME Company",
+      "count": 3
+    },
+    {
+      "brand": "HQ",
+      "count": 3
+    },
+    {
+      "brand": "NIPPON",
+      "count": 3
+    },
+    {
+      "brand": "Neurosky",
+      "count": 2
+    },
+    {
       "brand": "ANDON",
       "count": 2
     },
@@ -149,27 +153,7 @@
       "count": 2
     },
     {
-      "brand": "Neurosky",
-      "count": 2
-    },
-    {
-      "brand": "Samsung",
-      "count": 2
-    },
-    {
-      "brand": "PLUX",
-      "count": 2
-    },
-    {
-      "brand": "Tanita",
-      "count": 2
-    },
-    {
       "brand": "TCSA",
-      "count": 2
-    },
-    {
-      "brand": "InterAxon",
       "count": 2
     },
     {
@@ -177,19 +161,11 @@
       "count": 2
     },
     {
-      "brand": "Nikkiso-Therm",
-      "count": 2
-    },
-    {
       "brand": "A&D Corporation",
       "count": 2
     },
     {
-      "brand": "DMS",
-      "count": 2
-    },
-    {
-      "brand": "Zephyr",
+      "brand": "Nikkiso-Therm",
       "count": 2
     },
     {
@@ -201,19 +177,19 @@
       "count": 2
     },
     {
+      "brand": "DMS",
+      "count": 2
+    },
+    {
+      "brand": "Zephyr",
+      "count": 2
+    },
+    {
       "brand": "HeaLink",
       "count": 2
     },
     {
       "brand": "Beurer",
-      "count": 2
-    },
-    {
-      "brand": "Nonin Medical",
-      "count": 2
-    },
-    {
-      "brand": "FluxTeq",
       "count": 2
     },
     {
@@ -225,6 +201,14 @@
       "count": 2
     },
     {
+      "brand": "InterAxon",
+      "count": 2
+    },
+    {
+      "brand": "PLUX",
+      "count": 2
+    },
+    {
       "brand": "KEM",
       "count": 2
     },
@@ -233,51 +217,27 @@
       "count": 2
     },
     {
-      "brand": "TXZ",
-      "count": 1
+      "brand": "Nonin Medical",
+      "count": 2
     },
     {
-      "brand": "Oxycon",
-      "count": 1
+      "brand": "FluxTeq",
+      "count": 2
     },
     {
-      "brand": "Courage-Khazaka MPA-5",
-      "count": 1
+      "brand": "Tanita",
+      "count": 2
     },
     {
-      "brand": "Dr. Diary Plus",
-      "count": 1
-    },
-    {
-      "brand": "Agilent",
-      "count": 1
-    },
-    {
-      "brand": "DynaSense",
-      "count": 1
-    },
-    {
-      "brand": "Careshine Electronic",
-      "count": 1
-    },
-    {
-      "brand": "Yumo",
-      "count": 1
-    },
-    {
-      "brand": "Cosinuss",
-      "count": 1
+      "brand": "Samsung",
+      "count": 2
     },
     {
       "brand": "BodyCap",
       "count": 1
     },
     {
-      "brand": "Seeed Studio",
-      "count": 1
-    },
-    {
-      "brand": "Murata",
+      "brand": "Cosinuss",
       "count": 1
     },
     {
@@ -289,19 +249,19 @@
       "count": 1
     },
     {
-      "brand": "EMFIT",
+      "brand": "Spirit-Mind",
       "count": 1
     },
     {
-      "brand": "Intercross",
+      "brand": "Tianjin Jingjin",
       "count": 1
     },
     {
-      "brand": "EXTECH Instruments",
+      "brand": "Promise Technology",
       "count": 1
     },
     {
-      "brand": "Xiaomi",
+      "brand": "Kofoe",
       "count": 1
     },
     {
@@ -313,39 +273,43 @@
       "count": 1
     },
     {
-      "brand": "Kofoe",
+      "brand": "Seeed Studio",
       "count": 1
     },
     {
-      "brand": "Promise Technology",
+      "brand": "Murata",
       "count": 1
     },
     {
-      "brand": "Tianjin Jingjin",
+      "brand": "Courage-Khazaka MPA-5",
       "count": 1
     },
     {
-      "brand": "Spirit-Mind",
+      "brand": "Dr. Diary Plus",
       "count": 1
     },
     {
-      "brand": "Maastricht Instruments",
+      "brand": "Oxycon",
       "count": 1
     },
     {
-      "brand": "Movisens",
+      "brand": "TXZ",
       "count": 1
     },
     {
-      "brand": "CMM",
+      "brand": "Agilent",
       "count": 1
     },
     {
-      "brand": "Hesvit",
+      "brand": "DynaSense",
       "count": 1
     },
     {
-      "brand": "O2HEALTH",
+      "brand": "Yumo",
+      "count": 1
+    },
+    {
+      "brand": "Careshine Electronic",
       "count": 1
     },
     {
@@ -353,19 +317,39 @@
       "count": 1
     },
     {
-      "brand": "Tyco Healthcare Group LP",
+      "brand": "O2HEALTH",
       "count": 1
     },
     {
-      "brand": "POSH Mobile Ltd.",
+      "brand": "Hesvit",
       "count": 1
     },
     {
-      "brand": "National",
+      "brand": "CMM",
       "count": 1
     },
     {
-      "brand": "MedAir AB",
+      "brand": "Movisens",
+      "count": 1
+    },
+    {
+      "brand": "Maastricht Instruments",
+      "count": 1
+    },
+    {
+      "brand": "Intercross",
+      "count": 1
+    },
+    {
+      "brand": "EMFIT",
+      "count": 1
+    },
+    {
+      "brand": "Xiaomi",
+      "count": 1
+    },
+    {
+      "brand": "EXTECH Instruments",
       "count": 1
     },
     {
@@ -377,7 +361,11 @@
       "count": 1
     },
     {
-      "brand": "Yukai",
+      "brand": "POSH Mobile Ltd.",
+      "count": 1
+    },
+    {
+      "brand": "National",
       "count": 1
     },
     {
@@ -385,15 +373,7 @@
       "count": 1
     },
     {
-      "brand": "Innpitron",
-      "count": 1
-    },
-    {
-      "brand": "Teclock",
-      "count": 1
-    },
-    {
-      "brand": "TECNIMED SRL",
+      "brand": "Yukai",
       "count": 1
     },
     {
@@ -401,11 +381,15 @@
       "count": 1
     },
     {
-      "brand": "Measurement Specialities",
+      "brand": "TECNIMED SRL",
       "count": 1
     },
     {
-      "brand": "Pocket-Pal",
+      "brand": "Teclock",
+      "count": 1
+    },
+    {
+      "brand": "Innpitron",
       "count": 1
     },
     {
@@ -413,7 +397,7 @@
       "count": 1
     },
     {
-      "brand": "Lattron",
+      "brand": "Pocket-Pal",
       "count": 1
     },
     {
@@ -421,15 +405,23 @@
       "count": 1
     },
     {
+      "brand": "Measurement Specialities",
+      "count": 1
+    },
+    {
+      "brand": "Lattron",
+      "count": 1
+    },
+    {
       "brand": "Fluke",
       "count": 1
     },
     {
-      "brand": "Colin",
+      "brand": "Advance",
       "count": 1
     },
     {
-      "brand": "Advance",
+      "brand": "Colin",
       "count": 1
     },
     {
@@ -441,7 +433,11 @@
       "count": 1
     },
     {
-      "brand": "Recipe",
+      "brand": "MedAir AB",
+      "count": 1
+    },
+    {
+      "brand": "Tyco Healthcare Group LP",
       "count": 1
     },
     {
@@ -449,11 +445,7 @@
       "count": 1
     },
     {
-      "brand": "BEC-Ca",
-      "count": 1
-    },
-    {
-      "brand": "O&R Medical",
+      "brand": "Recipe",
       "count": 1
     },
     {
@@ -461,7 +453,7 @@
       "count": 1
     },
     {
-      "brand": "Logitech",
+      "brand": "BEC-Ca",
       "count": 1
     },
     {
@@ -477,6 +469,10 @@
       "count": 1
     },
     {
+      "brand": "O&R Medical",
+      "count": 1
+    },
+    {
       "brand": "MR&D Pulse",
       "count": 1
     },
@@ -485,11 +481,11 @@
       "count": 1
     },
     {
-      "brand": "Medisana",
+      "brand": "Abbott",
       "count": 1
     },
     {
-      "brand": "Abbott",
+      "brand": "Medisana",
       "count": 1
     },
     {
@@ -505,6 +501,10 @@
       "count": 1
     },
     {
+      "brand": "Logitech",
+      "count": 1
+    },
+    {
       "brand": "CorTemp",
       "count": 1
     },
@@ -513,11 +513,11 @@
       "count": 1
     },
     {
-      "brand": "Nikkiso-YSI",
+      "brand": "Omegawave Inc.",
       "count": 1
     },
     {
-      "brand": "Omegawave Inc.",
+      "brand": "Nikkiso-YSI",
       "count": 1
     },
     {
@@ -647,6 +647,16 @@
       "count": 11
     },
     {
+      "physio-sensor-brand": "Kyoto Electronics Manufacturing",
+      "physio-parameter": "Heat flux",
+      "count": 5
+    },
+    {
+      "physio-sensor-brand": "Kyoto Electronics Manufacturing",
+      "physio-parameter": "Skin temperature",
+      "count": 4
+    },
+    {
       "physio-sensor-brand": "Melexis",
       "physio-parameter": "Skin temperature",
       "count": 6
@@ -710,11 +720,6 @@
       "physio-sensor-brand": "Suunto",
       "physio-parameter": "Heart/Pulse rate",
       "count": 12
-    },
-    {
-      "physio-sensor-brand": "Testo",
-      "physio-parameter": "Skin temperature",
-      "count": 5
     },
     {
       "physio-sensor-brand": "iButton",

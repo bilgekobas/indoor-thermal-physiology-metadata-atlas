@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "npx --yes vite@5.4.21 build",
+    "build": "npm run build:data && npx --yes vite@5.4.21 build",
     "preview": "vite preview",
     "build:data": "python3 scripts/build_data.py"
   },

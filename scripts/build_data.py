@@ -1634,3 +1634,44 @@ bm_grouped = bm_grouped.sort_values(['signal', 'count'], ascending=[True, False]
 with open(OUT_DIR / 'brand_model_reference.json', 'w') as f:
     json.dump({'data': bm_grouped.to_dict('records'), 'n_models': bm_grouped['model'].nunique()}, f, indent=2, default=str)
 print(f'brand_model_reference.json: {len(bm_grouped)} signal-method-brand-model rows, {bm_grouped["model"].nunique()} distinct models')
+
+
+# ── D6. Runtime bundle for the React frontend ─────────────────────────────
+# The site fetches public/data/bundle.json at runtime rather than fetching each
+# generated JSON artifact separately. Therefore every corpus rebuild must end by
+# refreshing bundle.json, otherwise the local/generated figure JSON files can be
+# current while the deployed site still displays stale values from an older
+# bundle.
+def _sanitize_for_json(obj):
+    """Recursively convert pandas/numpy values and non-finite floats to JSON-safe values."""
+    if isinstance(obj, dict):
+        return {str(k): _sanitize_for_json(v) for k, v in obj.items()}
+    if isinstance(obj, list):
+        return [_sanitize_for_json(v) for v in obj]
+    if isinstance(obj, tuple):
+        return [_sanitize_for_json(v) for v in obj]
+    if isinstance(obj, (np.integer,)):
+        return int(obj)
+    if isinstance(obj, (np.floating,)):
+        if not np.isfinite(obj):
+            return None
+        return float(obj)
+    if isinstance(obj, float):
+        if not np.isfinite(obj):
+            return None
+        return obj
+    if isinstance(obj, (pd.Timestamp,)):
+        return obj.isoformat()
+    return obj
+
+bundle = {}
+for path in sorted(OUT_DIR.glob('*.json')):
+    if path.name == 'bundle.json':
+        continue
+    with open(path, 'r', encoding='utf-8') as f:
+        bundle[path.stem] = json.load(f)
+
+with open(OUT_DIR / 'bundle.json', 'w', encoding='utf-8') as f:
+    json.dump(_sanitize_for_json(bundle), f, indent=2, ensure_ascii=False)
+
+print(f'bundle.json written with {len(bundle)} datasets')
