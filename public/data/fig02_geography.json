@@ -17,11 +17,11 @@
       "count": 11
     },
     {
-      "country": "Italy",
+      "country": "Singapore",
       "count": 9
     },
     {
-      "country": "Singapore",
+      "country": "Italy",
       "count": 9
     },
     {
@@ -45,11 +45,11 @@
       "count": 4
     },
     {
-      "country": "Brazil",
+      "country": "Switzerland",
       "count": 3
     },
     {
-      "country": "Switzerland",
+      "country": "Brazil",
       "count": 3
     },
     {
@@ -57,7 +57,7 @@
       "count": 2
     },
     {
-      "country": "India",
+      "country": "Portugal",
       "count": 2
     },
     {
@@ -65,7 +65,7 @@
       "count": 2
     },
     {
-      "country": "Portugal",
+      "country": "India",
       "count": 2
     },
     {
@@ -77,15 +77,15 @@
       "count": 1
     },
     {
-      "country": "Croatia",
-      "count": 1
-    },
-    {
       "country": "Turkey",
       "count": 1
     },
     {
       "country": "Spain",
+      "count": 1
+    },
+    {
+      "country": "Croatia",
       "count": 1
     },
     {

@@ -49,11 +49,11 @@
       "count": 9
     },
     {
-      "parameter": "Heat flux",
+      "parameter": "Near body temperature",
       "count": 8
     },
     {
-      "parameter": "Near body temperature",
+      "parameter": "Heat flux",
       "count": 8
     },
     {
@@ -65,7 +65,7 @@
       "count": 3
     },
     {
-      "parameter": "Glucose",
+      "parameter": "EMG",
       "count": 2
     },
     {
@@ -73,7 +73,7 @@
       "count": 2
     },
     {
-      "parameter": "Biomarkers: Heat shock protein (HSP)",
+      "parameter": "Glucose",
       "count": 2
     },
     {
@@ -81,15 +81,7 @@
       "count": 2
     },
     {
-      "parameter": "EMG",
-      "count": 2
-    },
-    {
       "parameter": "Exhaled breath temperature",
-      "count": 2
-    },
-    {
-      "parameter": "Biomarkers: Free thyroxine (FT4)",
       "count": 2
     },
     {
@@ -97,7 +89,15 @@
       "count": 2
     },
     {
+      "parameter": "Biomarkers: Heat shock protein (HSP)",
+      "count": 2
+    },
+    {
       "parameter": "Biomarkers: Thyroid-stimulating hormone (TSH)",
+      "count": 2
+    },
+    {
+      "parameter": "Biomarkers: Free thyroxine (FT4)",
       "count": 2
     },
     {
@@ -105,19 +105,19 @@
       "count": 1
     },
     {
-      "parameter": "Sensory nerve\nconduction velocity",
-      "count": 1
-    },
-    {
       "parameter": "Skin hardness",
       "count": 1
     },
     {
-      "parameter": "Biomarkers: Progesterone",
+      "parameter": "Sensory nerve\nconduction velocity",
       "count": 1
     },
     {
       "parameter": "Biomarkers: Estradiol",
+      "count": 1
+    },
+    {
+      "parameter": "Biomarkers: Progesterone",
       "count": 1
     },
     {

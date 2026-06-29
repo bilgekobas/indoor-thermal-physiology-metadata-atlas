@@ -5222,8 +5222,8 @@
     "climate_counts": {
       "Humid subtropical": 117,
       "Continental": 51,
-      "Semi-arid (cold)": 25,
       "Oceanic": 25,
+      "Semi-arid (cold)": 25,
       "Mediterranean": 16,
       "Tropical": 14,
       "Subarctic": 2,
@@ -6837,6 +6837,10 @@
         "count": 3
       },
       {
+        "token": "Airflow direction",
+        "count": 3
+      },
+      {
         "token": "Clothing",
         "count": 3
       },
@@ -6850,10 +6854,6 @@
       },
       {
         "token": "Humidity: Ramp",
-        "count": 3
-      },
-      {
-        "token": "Airflow direction",
         "count": 3
       },
       {
@@ -6873,11 +6873,11 @@
         "count": 1
       },
       {
-        "token": "Radiant temperature: Ramp",
+        "token": "Air velocity: Ramp",
         "count": 1
       },
       {
-        "token": "Air velocity: Ramp",
+        "token": "Radiant temperature: Ramp",
         "count": 1
       },
       {
@@ -9458,11 +9458,11 @@
         "count": 11
       },
       {
-        "country": "Italy",
+        "country": "Singapore",
         "count": 9
       },
       {
-        "country": "Singapore",
+        "country": "Italy",
         "count": 9
       },
       {
@@ -9486,11 +9486,11 @@
         "count": 4
       },
       {
-        "country": "Brazil",
+        "country": "Switzerland",
         "count": 3
       },
       {
-        "country": "Switzerland",
+        "country": "Brazil",
         "count": 3
       },
       {
@@ -9498,7 +9498,7 @@
         "count": 2
       },
       {
-        "country": "India",
+        "country": "Portugal",
         "count": 2
       },
       {
@@ -9506,7 +9506,7 @@
         "count": 2
       },
       {
-        "country": "Portugal",
+        "country": "India",
         "count": 2
       },
       {
@@ -9518,15 +9518,15 @@
         "count": 1
       },
       {
-        "country": "Croatia",
-        "count": 1
-      },
-      {
         "country": "Turkey",
         "count": 1
       },
       {
         "country": "Spain",
+        "count": 1
+      },
+      {
+        "country": "Croatia",
         "count": 1
       },
       {
@@ -28794,11 +28794,11 @@
         "count": 9
       },
       {
-        "parameter": "Heat flux",
+        "parameter": "Near body temperature",
         "count": 8
       },
       {
-        "parameter": "Near body temperature",
+        "parameter": "Heat flux",
         "count": 8
       },
       {
@@ -28810,7 +28810,7 @@
         "count": 3
       },
       {
-        "parameter": "Glucose",
+        "parameter": "EMG",
         "count": 2
       },
       {
@@ -28818,7 +28818,7 @@
         "count": 2
       },
       {
-        "parameter": "Biomarkers: Heat shock protein (HSP)",
+        "parameter": "Glucose",
         "count": 2
       },
       {
@@ -28826,15 +28826,7 @@
         "count": 2
       },
       {
-        "parameter": "EMG",
-        "count": 2
-      },
-      {
         "parameter": "Exhaled breath temperature",
-        "count": 2
-      },
-      {
-        "parameter": "Biomarkers: Free thyroxine (FT4)",
         "count": 2
       },
       {
@@ -28842,7 +28834,15 @@
         "count": 2
       },
       {
+        "parameter": "Biomarkers: Heat shock protein (HSP)",
+        "count": 2
+      },
+      {
         "parameter": "Biomarkers: Thyroid-stimulating hormone (TSH)",
+        "count": 2
+      },
+      {
+        "parameter": "Biomarkers: Free thyroxine (FT4)",
         "count": 2
       },
       {
@@ -28850,19 +28850,19 @@
         "count": 1
       },
       {
-        "parameter": "Sensory nerve\nconduction velocity",
-        "count": 1
-      },
-      {
         "parameter": "Skin hardness",
         "count": 1
       },
       {
-        "parameter": "Biomarkers: Progesterone",
+        "parameter": "Sensory nerve\nconduction velocity",
         "count": 1
       },
       {
         "parameter": "Biomarkers: Estradiol",
+        "count": 1
+      },
+      {
+        "parameter": "Biomarkers: Progesterone",
         "count": 1
       },
       {
@@ -58313,11 +58313,11 @@
         "count": 14
       },
       {
-        "brand": "BIOPAC",
+        "brand": "Suunto",
         "count": 12
       },
       {
-        "brand": "Suunto",
+        "brand": "BIOPAC",
         "count": 12
       },
       {
@@ -58329,11 +58329,11 @@
         "count": 11
       },
       {
-        "brand": "Onset",
+        "brand": "Perimed",
         "count": 7
       },
       {
-        "brand": "Perimed",
+        "brand": "Onset",
         "count": 7
       },
       {
@@ -58345,6 +58345,18 @@
         "count": 6
       },
       {
+        "brand": "Testo",
+        "count": 5
+      },
+      {
+        "brand": "HOBO",
+        "count": 5
+      },
+      {
+        "brand": "KERN",
+        "count": 5
+      },
+      {
         "brand": "Kyoto Electronics Manufacturing",
         "count": 5
       },
@@ -58353,19 +58365,11 @@
         "count": 5
       },
       {
-        "brand": "KERN",
-        "count": 5
-      },
-      {
-        "brand": "HOBO",
-        "count": 5
-      },
-      {
-        "brand": "Testo",
-        "count": 5
-      },
-      {
         "brand": "OMEGA",
+        "count": 4
+      },
+      {
+        "brand": "fitbit",
         "count": 4
       },
       {
@@ -58381,15 +58385,19 @@
         "count": 4
       },
       {
-        "brand": "fitbit",
-        "count": 4
-      },
-      {
-        "brand": "Libelium Co.",
+        "brand": "ADInstruments",
         "count": 3
       },
       {
-        "brand": "ADInstruments",
+        "brand": "COSMED",
+        "count": 3
+      },
+      {
+        "brand": "NIPPON",
+        "count": 3
+      },
+      {
+        "brand": "Shimmer Sensing",
         "count": 3
       },
       {
@@ -58401,11 +58409,15 @@
         "count": 3
       },
       {
-        "brand": "Shimmer Sensing",
+        "brand": "HQ",
         "count": 3
       },
       {
-        "brand": "COSMED",
+        "brand": "Libelium Co.",
+        "count": 3
+      },
+      {
+        "brand": "S&ME Company",
         "count": 3
       },
       {
@@ -58417,22 +58429,6 @@
         "count": 3
       },
       {
-        "brand": "S&ME Company",
-        "count": 3
-      },
-      {
-        "brand": "HQ",
-        "count": 3
-      },
-      {
-        "brand": "NIPPON",
-        "count": 3
-      },
-      {
-        "brand": "Neurosky",
-        "count": 2
-      },
-      {
         "brand": "ANDON",
         "count": 2
       },
@@ -58441,7 +58437,27 @@
         "count": 2
       },
       {
+        "brand": "Neurosky",
+        "count": 2
+      },
+      {
+        "brand": "Samsung",
+        "count": 2
+      },
+      {
+        "brand": "PLUX",
+        "count": 2
+      },
+      {
+        "brand": "Tanita",
+        "count": 2
+      },
+      {
         "brand": "TCSA",
+        "count": 2
+      },
+      {
+        "brand": "InterAxon",
         "count": 2
       },
       {
@@ -58449,19 +58465,11 @@
         "count": 2
       },
       {
-        "brand": "A&D Corporation",
-        "count": 2
-      },
-      {
         "brand": "Nikkiso-Therm",
         "count": 2
       },
       {
-        "brand": "Bitalino",
-        "count": 2
-      },
-      {
-        "brand": "LifeSense",
+        "brand": "A&D Corporation",
         "count": 2
       },
       {
@@ -58473,35 +58481,19 @@
         "count": 2
       },
       {
+        "brand": "Bitalino",
+        "count": 2
+      },
+      {
+        "brand": "LifeSense",
+        "count": 2
+      },
+      {
         "brand": "HeaLink",
         "count": 2
       },
       {
         "brand": "Beurer",
-        "count": 2
-      },
-      {
-        "brand": "CompuMedics Ltd.",
-        "count": 2
-      },
-      {
-        "brand": "Honeywell",
-        "count": 2
-      },
-      {
-        "brand": "InterAxon",
-        "count": 2
-      },
-      {
-        "brand": "PLUX",
-        "count": 2
-      },
-      {
-        "brand": "KEM",
-        "count": 2
-      },
-      {
-        "brand": "Philips",
         "count": 2
       },
       {
@@ -58513,59 +58505,27 @@
         "count": 2
       },
       {
-        "brand": "Tanita",
+        "brand": "CompuMedics Ltd.",
         "count": 2
       },
       {
-        "brand": "Samsung",
+        "brand": "Honeywell",
         "count": 2
       },
       {
-        "brand": "BodyCap",
+        "brand": "KEM",
+        "count": 2
+      },
+      {
+        "brand": "Philips",
+        "count": 2
+      },
+      {
+        "brand": "TXZ",
         "count": 1
       },
       {
-        "brand": "Cosinuss",
-        "count": 1
-      },
-      {
-        "brand": "R211A",
-        "count": 1
-      },
-      {
-        "brand": "Brain Products",
-        "count": 1
-      },
-      {
-        "brand": "Spirit-Mind",
-        "count": 1
-      },
-      {
-        "brand": "Tianjin Jingjin",
-        "count": 1
-      },
-      {
-        "brand": "Promise Technology",
-        "count": 1
-      },
-      {
-        "brand": "Kofoe",
-        "count": 1
-      },
-      {
-        "brand": "Medtronic",
-        "count": 1
-      },
-      {
-        "brand": "PESA",
-        "count": 1
-      },
-      {
-        "brand": "Seeed Studio",
-        "count": 1
-      },
-      {
-        "brand": "Murata",
+        "brand": "Oxycon",
         "count": 1
       },
       {
@@ -58577,14 +58537,6 @@
         "count": 1
       },
       {
-        "brand": "Oxycon",
-        "count": 1
-      },
-      {
-        "brand": "TXZ",
-        "count": 1
-      },
-      {
         "brand": "Agilent",
         "count": 1
       },
@@ -58593,39 +58545,35 @@
         "count": 1
       },
       {
-        "brand": "Yumo",
-        "count": 1
-      },
-      {
         "brand": "Careshine Electronic",
         "count": 1
       },
       {
-        "brand": "Ambient labs",
+        "brand": "Yumo",
         "count": 1
       },
       {
-        "brand": "O2HEALTH",
+        "brand": "Cosinuss",
         "count": 1
       },
       {
-        "brand": "Hesvit",
+        "brand": "BodyCap",
         "count": 1
       },
       {
-        "brand": "CMM",
+        "brand": "Seeed Studio",
         "count": 1
       },
       {
-        "brand": "Movisens",
+        "brand": "Murata",
         "count": 1
       },
       {
-        "brand": "Maastricht Instruments",
+        "brand": "R211A",
         "count": 1
       },
       {
-        "brand": "Intercross",
+        "brand": "Brain Products",
         "count": 1
       },
       {
@@ -58633,7 +58581,7 @@
         "count": 1
       },
       {
-        "brand": "Xiaomi",
+        "brand": "Intercross",
         "count": 1
       },
       {
@@ -58641,11 +58589,59 @@
         "count": 1
       },
       {
-        "brand": "Microsoft",
+        "brand": "Xiaomi",
         "count": 1
       },
       {
-        "brand": "Gigarise",
+        "brand": "Medtronic",
+        "count": 1
+      },
+      {
+        "brand": "PESA",
+        "count": 1
+      },
+      {
+        "brand": "Kofoe",
+        "count": 1
+      },
+      {
+        "brand": "Promise Technology",
+        "count": 1
+      },
+      {
+        "brand": "Tianjin Jingjin",
+        "count": 1
+      },
+      {
+        "brand": "Spirit-Mind",
+        "count": 1
+      },
+      {
+        "brand": "Maastricht Instruments",
+        "count": 1
+      },
+      {
+        "brand": "Movisens",
+        "count": 1
+      },
+      {
+        "brand": "CMM",
+        "count": 1
+      },
+      {
+        "brand": "Hesvit",
+        "count": 1
+      },
+      {
+        "brand": "O2HEALTH",
+        "count": 1
+      },
+      {
+        "brand": "Ambient labs",
+        "count": 1
+      },
+      {
+        "brand": "Tyco Healthcare Group LP",
         "count": 1
       },
       {
@@ -58657,7 +58653,15 @@
         "count": 1
       },
       {
-        "brand": "Moor",
+        "brand": "MedAir AB",
+        "count": 1
+      },
+      {
+        "brand": "Microsoft",
+        "count": 1
+      },
+      {
+        "brand": "Gigarise",
         "count": 1
       },
       {
@@ -58665,15 +58669,7 @@
         "count": 1
       },
       {
-        "brand": "CEM",
-        "count": 1
-      },
-      {
-        "brand": "TECNIMED SRL",
-        "count": 1
-      },
-      {
-        "brand": "Teclock",
+        "brand": "Moor",
         "count": 1
       },
       {
@@ -58681,15 +58677,15 @@
         "count": 1
       },
       {
-        "brand": "G.tech",
+        "brand": "Teclock",
         "count": 1
       },
       {
-        "brand": "Pocket-Pal",
+        "brand": "TECNIMED SRL",
         "count": 1
       },
       {
-        "brand": "Avio",
+        "brand": "CEM",
         "count": 1
       },
       {
@@ -58697,7 +58693,19 @@
         "count": 1
       },
       {
+        "brand": "Pocket-Pal",
+        "count": 1
+      },
+      {
+        "brand": "G.tech",
+        "count": 1
+      },
+      {
         "brand": "Lattron",
+        "count": 1
+      },
+      {
+        "brand": "Avio",
         "count": 1
       },
       {
@@ -58705,11 +58713,11 @@
         "count": 1
       },
       {
-        "brand": "Advance",
+        "brand": "Colin",
         "count": 1
       },
       {
-        "brand": "Colin",
+        "brand": "Advance",
         "count": 1
       },
       {
@@ -58721,11 +58729,7 @@
         "count": 1
       },
       {
-        "brand": "MedAir AB",
-        "count": 1
-      },
-      {
-        "brand": "Tyco Healthcare Group LP",
+        "brand": "Recipe",
         "count": 1
       },
       {
@@ -58733,7 +58737,11 @@
         "count": 1
       },
       {
-        "brand": "Recipe",
+        "brand": "BEC-Ca",
+        "count": 1
+      },
+      {
+        "brand": "O&R Medical",
         "count": 1
       },
       {
@@ -58741,7 +58749,7 @@
         "count": 1
       },
       {
-        "brand": "BEC-Ca",
+        "brand": "Logitech",
         "count": 1
       },
       {
@@ -58757,10 +58765,6 @@
         "count": 1
       },
       {
-        "brand": "O&R Medical",
-        "count": 1
-      },
-      {
         "brand": "MR&D Pulse",
         "count": 1
       },
@@ -58769,11 +58773,11 @@
         "count": 1
       },
       {
-        "brand": "Abbott",
+        "brand": "Medisana",
         "count": 1
       },
       {
-        "brand": "Medisana",
+        "brand": "Abbott",
         "count": 1
       },
       {
@@ -58789,10 +58793,6 @@
         "count": 1
       },
       {
-        "brand": "Logitech",
-        "count": 1
-      },
-      {
         "brand": "CorTemp",
         "count": 1
       },
@@ -58801,11 +58801,11 @@
         "count": 1
       },
       {
-        "brand": "Omegawave Inc.",
+        "brand": "Nikkiso-YSI",
         "count": 1
       },
       {
-        "brand": "Nikkiso-YSI",
+        "brand": "Omegawave Inc.",
         "count": 1
       },
       {
@@ -58935,16 +58935,6 @@
         "count": 11
       },
       {
-        "physio-sensor-brand": "Kyoto Electronics Manufacturing",
-        "physio-parameter": "Heat flux",
-        "count": 5
-      },
-      {
-        "physio-sensor-brand": "Kyoto Electronics Manufacturing",
-        "physio-parameter": "Skin temperature",
-        "count": 4
-      },
-      {
         "physio-sensor-brand": "Melexis",
         "physio-parameter": "Skin temperature",
         "count": 6
@@ -59008,6 +58998,11 @@
         "physio-sensor-brand": "Suunto",
         "physio-parameter": "Heart/Pulse rate",
         "count": 12
+      },
+      {
+        "physio-sensor-brand": "Testo",
+        "physio-parameter": "Skin temperature",
+        "count": 5
       },
       {
         "physio-sensor-brand": "iButton",
@@ -68335,11 +68330,11 @@
         "total": 12
       },
       {
-        "site": "Arm",
+        "site": "Ankle",
         "total": 11
       },
       {
-        "site": "Ankle",
+        "site": "Arm",
         "total": 11
       },
       {
@@ -74122,7 +74117,7 @@
     "n_variables": 205,
     "year_min": 2013,
     "year_max": 2024,
-    "generated_at": "2026-06-29T12:26:51.573407"
+    "generated_at": "2026-06-29T16:20:16.700905"
   },
   "world-countries-110m": {
     "type": "Topology",
