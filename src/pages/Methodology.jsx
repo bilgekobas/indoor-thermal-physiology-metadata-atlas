@@ -27,9 +27,10 @@ export default function Methodology({ data }) {
             The current methodology appendix describes searches across Web of Science, Scopus,
             PubMed, and ScienceDirect for peer-reviewed English-language publications from 2013 to
             2024. Search terms were grouped around thermal-comfort constructs, experimental context,
-            and physiological measurement. Records were deduplicated, screened at title/abstract
-            stage, and then assessed through full-text review against explicit inclusion and
-            exclusion criteria.
+            and physiological measurement. The initial search results yielded 6592 records across four databases. 
+            After duplicate removal and title/abstract screening, 358 publications remained for full-text review. 
+            Of these, 278 studies met all inclusion and exclusion criteria. 
+            The current corpus contains {summary.study_count} studies published between {summary.year_min} and {summary.year_max}.
           </p>
         </section>
 
@@ -45,17 +46,6 @@ export default function Methodology({ data }) {
             children-only or elderly-only samples, VR/AR settings, clinical admissions or immersion
             protocols, exercise physiology, sleep-only physiology, and localised partial-body thermal
             treatments.
-          </p>
-        </section>
-
-        <section>
-          <h2 className="text-[15px] font-semibold mb-2">Corpus construction</h2>
-          <p className="text-[13.5px] text-inkmid leading-relaxed">
-            The appendix reports 6,592 initial records, 358 publications retained for full-text
-            review, 322 eligible studies, and a 250-study corpus selected for detailed metadata
-            extraction. The website currently uses the live corpus bundle shown in the sidebar
-            ({summary.n_publications} studies; {summary.year_min}–{summary.year_max}) and will be
-            updated as the OSF registration, Zenodo record, and journal paper become final.
           </p>
         </section>
 

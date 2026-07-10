@@ -20,38 +20,6 @@ export default function About({ data }) {
         </section>
 
         <section>
-          <h2 className="text-[15px] font-semibold mb-2">How the corpus was selected</h2>
-          <div className="text-[13.5px] text-inkmid leading-relaxed space-y-3">
-            <p>
-              The corpus was assembled through a systematic literature search of Web of Science,
-              Scopus, PubMed, and ScienceDirect. Searches covered peer-reviewed journal articles
-              published in English between {summary.year_min} and {summary.year_max}, using Boolean
-              combinations of terms relating to thermal comfort, experimental settings, and
-              physiological measurement. Database-specific search strings were adapted while
-              preserving the same conceptual structure.
-            </p>
-
-            <p>
-              Records were deduplicated and screened first by title and abstract, then by full text.
-              Studies were eligible when they examined real adult participants indoors, reported at
-              least one thermophysiological parameter, and represented sedentary or otherwise
-              real-life indoor contexts in laboratory, field, living-lab, or mixed settings. The
-              corpus includes all studies that met the predefined eligibility criteria; no further
-              sampling was applied after full-text screening.
-            </p>
-
-            <p>
-              Studies were excluded when they were conducted outdoors; relied only on simulations,
-              manikins, or subjective thermal questionnaires; focused exclusively on children, older
-              adults, clinical or other special populations; centred on exercise, sleep, immersion,
-              altered gravity, VR/AR, or localised body-part exposures; or otherwise fell outside the
-              intended scope of indoor whole-body thermal-physiology research. Full search strings,
-              screening rules, and coding definitions are documented in the repository methodology.
-            </p>
-          </div>
-        </section>
-
-        <section>
           <h2 className="text-[15px] font-semibold mb-2">Authorship</h2>
 
           <div className="text-[13.5px] text-inkmid leading-relaxed">
