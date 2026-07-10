@@ -29,8 +29,8 @@ export default function Methodology({ data }) {
             2024. Search terms were grouped around thermal-comfort constructs, experimental context,
             and physiological measurement. The initial search results yielded 6592 records across four databases. 
             After duplicate removal and title/abstract screening, 358 publications remained for full-text review. 
-            Of these, 278 studies met all inclusion and exclusion criteria. 
-            The current corpus contains {summary.study_count} studies published between {summary.year_min} and {summary.year_max}.
+            Of these, 278 studies met all inclusion and exclusion criteria. <br></br>
+            The current corpus contains {summary.n_publications} studies published between {summary.year_min} and {summary.year_max}.
           </p>
         </section>
 
