@@ -140,13 +140,18 @@ export default function BodySiteMap({ siteData, totalLabel, color = '#5B5BFF', h
       .map(([name]) => name)
   }, [normalized])
 
+  const allSensorsMaxCount = useMemo(() => {
+    const placeableAll = normalized.filter((s) => SITE_COORDS[s.site] || SITE_COORDS_ESTIMATED[s.site])
+    return placeableAll.reduce((m, s) => (s.count > m ? s.count : m), 1)
+  }, [normalized])
+
   const filtered = useMemo(() => normalized.map((s) => {
     if (activeSensor === 'all') return s
     const count = s.sensors.find((d) => d.sensor === activeSensor)?.count ?? 0
     return { ...s, count }
   }).filter((s) => s.count > 0), [normalized, activeSensor])
 
-  const { placeable, unplaceable, maxCount } = useMemo(() => {
+  const { placeable, unplaceable } = useMemo(() => {
     const placeable = []
     const unplaceable = []
     filtered.forEach((s) => {
@@ -158,8 +163,7 @@ export default function BodySiteMap({ siteData, totalLabel, color = '#5B5BFF', h
         unplaceable.push(s)
       }
     })
-    const maxCount = placeable.reduce((m, s) => (s.count > m ? s.count : m), 1)
-    return { placeable, unplaceable, maxCount }
+    return { placeable, unplaceable }
   }, [filtered])
 
   const SCALE = 1.1
@@ -213,7 +217,7 @@ export default function BodySiteMap({ siteData, totalLabel, color = '#5B5BFF', h
               const [fx, fy] = s.estimated ? SITE_COORDS_ESTIMATED[s.site] : SITE_COORDS[s.site]
               const cx = fx * TAX_W
               const cy = fy * TAX_H
-              const r = 18 + Math.sqrt(s.count / maxCount) * 46
+              const r = 18 + Math.sqrt(s.count / allSensorsMaxCount) * 46
               const pct = totalLabel?.n ? ((s.count / totalLabel.n) * 100).toFixed(0) : '0'
               const sensorDetail = activeSensor !== 'all' ? ` — ${activeSensor}` : ''
               const tipText = `${s.site}: ${s.count} studies (${pct}% of ${totalLabel?.n ?? 0})${sensorDetail}${s.estimated ? ' — position estimated, not a labelled point on the taxonomy' : ''}`
