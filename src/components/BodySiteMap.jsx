@@ -90,13 +90,13 @@ const SENSOR_PALETTE = [
 ]
 
 function sensorEntries(row) {
-  const source = row.sensors ?? row.sensor_types ?? row.sensorTypes ?? row.by_sensor ?? row.bySensor
+  const source = row.sensingMethods ?? row.sensing_methods ?? row.by_sensing_method ?? row['physio-sensing-method'] ?? row.sensors ?? row.sensor_types ?? row.sensorTypes ?? row.by_sensor ?? row.bySensor
   if (!source) return []
 
   if (Array.isArray(source)) {
     return source
       .map((d) => ({
-        sensor: String(d.sensor ?? d.type ?? d.name ?? '').trim(),
+        sensor: String(d.sensing_method ?? d.method ?? d.sensor ?? d.type ?? d.name ?? '').trim(),
         count: Number(d.count ?? d.total ?? d.n ?? 0),
       }))
       .filter((d) => d.sensor && d.count > 0)
@@ -126,7 +126,7 @@ function canonicalSite(site) {
   return SITE_ALIASES[raw.toLowerCase()] || raw
 }
 
-export default function BodySiteMap({ siteData, totalLabel, color = '#5B5BFF', height = 760, sensorColors = {} }) {
+export default function BodySiteMap({ siteData, totalLabel, color = '#5B5BFF', height = 760, sensingMethodColors = {}, sensorColors = {} }) {
   const { tip, showTip, moveTip, hideTip } = useTooltip()
   const [activeSensor, setActiveSensor] = useState('all')
   const taxonomySrc = `${import.meta.env.BASE_URL}images/anatomical-taxonomy.jpg`
@@ -151,8 +151,8 @@ export default function BodySiteMap({ siteData, totalLabel, color = '#5B5BFF', h
   }, [normalized])
 
   const sensorColorMap = useMemo(() => Object.fromEntries(
-    sensorNames.map((name, i) => [name, sensorColors[name] || SENSOR_PALETTE[i % SENSOR_PALETTE.length]])
-  ), [sensorNames, sensorColors])
+    sensorNames.map((name, i) => [name, sensingMethodColors[name] || sensorColors[name] || SENSOR_PALETTE[i % SENSOR_PALETTE.length]])
+  ), [sensorNames, sensingMethodColors, sensorColors])
 
   const filtered = useMemo(() => normalized.map((s) => {
     if (activeSensor === 'all') return s
@@ -190,7 +190,7 @@ export default function BodySiteMap({ siteData, totalLabel, color = '#5B5BFF', h
             onClick={() => setActiveSensor('all')}
             className={`rounded-full border px-3 py-1.5 text-[11px] transition-colors ${activeSensor === 'all' ? 'border-ink bg-ink text-paper' : 'border-line text-inkmid hover:border-inkfaint'}`}
           >
-            All sensors
+            All sensing methods
           </button>
           {sensorNames.map((sensor) => (
             <button
@@ -288,7 +288,7 @@ export default function BodySiteMap({ siteData, totalLabel, color = '#5B5BFF', h
 
         <div className="w-64 shrink-0 pt-2">
           <div className="font-data text-[10px] text-inkfaint mb-3">
-            Marker area ∝ study count. {hasSensorBreakdown && activeSensor === 'all' ? 'Pie slices show sensor-type composition.' : 'Table values use count (% of parent signal).'}
+            Marker area ∝ study count. {hasSensorBreakdown && activeSensor === 'all' ? 'Pie slices show sensing-method composition.' : 'Table values use count (% of parent signal).'}
           </div>
           {hasSensorBreakdown && activeSensor === 'all' && (
             <div className="mb-3 space-y-1">

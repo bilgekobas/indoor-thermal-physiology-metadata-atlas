@@ -208,7 +208,7 @@ def split_hand_foot_surface(frame):
     )
     frame.loc[frame['physio-body-site'].astype(str).str.strip() == 'Sole', 'physio-body-site'] = 'Foot (plantar)'
     return frame
-skin = df[df['physio-parameter']=='Skin temperature'][['id','period','physio-body-site','physio-body-site-surface']].copy()
+skin = df[df['physio-parameter']=='Skin temperature'][['id','period','physio-body-site','physio-body-site-surface','physio-sensing-method']].copy()
 skin = skin[~skin['physio-body-site'].isin(CODES)]
 skin = skin[skin['physio-body-site'].notna()]
 skin['physio-body-site'] = skin['physio-body-site'].astype(str).str.strip()
@@ -221,6 +221,29 @@ skin_dedup = skin.drop_duplicates(subset=['id','site'])
 site_period_counts = skin_dedup.groupby(['site','period']).size().reset_index(name='count')
 site_totals = skin_dedup['site'].value_counts().reset_index()
 site_totals.columns = ['site','total']
+
+# Keep the sensing-method composition at each body site. Counts use the same
+# study-level denominator as the site circles: one study contributes at most
+# once to a given site-method combination.
+skin_methods = skin.copy()
+skin_methods['physio-sensing-method'] = skin_methods['physio-sensing-method'].astype(str).str.strip().replace({
+    'Digital Sphygmomanometer': 'Digital sphygmomanometer',
+    'Laser doppler': 'Laser Doppler',
+})
+skin_methods = skin_methods[
+    ~skin_methods['physio-sensing-method'].isin(CODES)
+    & (skin_methods['physio-sensing-method'] != 'nan')
+]
+skin_method_counts = (
+    skin_methods.drop_duplicates(subset=['id', 'site', 'physio-sensing-method'])
+    .groupby(['site', 'physio-sensing-method'])['id'].nunique()
+    .reset_index(name='count')
+)
+skin_method_map = {}
+for _, row in skin_method_counts.iterrows():
+    skin_method_map.setdefault(row['site'], {})[row['physio-sensing-method']] = int(row['count'])
+site_totals['sensingMethods'] = site_totals['site'].map(lambda site: skin_method_map.get(site, {}))
+
 period_study_n = skin_dedup.groupby('period')['id'].nunique().reset_index(name='n_studies')
 
 with open(OUT_DIR / 'skintemp_sites.json', 'w') as f:
@@ -1558,16 +1581,40 @@ NON_ANATOMICAL_SITES = {'Whole body', 'Urine', 'Limbs'}
 SITE_SIGNALS = ['Heart/Pulse rate', 'Skin conductance', 'Sweat indicators']
 site_by_signal = {}
 for sig in SITE_SIGNALS:
-    sub = df[df['physio-parameter'] == sig][['id', 'physio-body-site', 'physio-body-site-surface']].copy()
+    sub = df[df['physio-parameter'] == sig][
+        ['id', 'physio-body-site', 'physio-body-site-surface', 'physio-sensing-method']
+    ].copy()
     sub['physio-body-site'] = sub['physio-body-site'].astype(str).str.strip()
+    sub['physio-sensing-method'] = sub['physio-sensing-method'].astype(str).str.strip().replace({
+        'Digital Sphygmomanometer': 'Digital sphygmomanometer',
+        'Laser doppler': 'Laser Doppler',
+    })
     sub = sub[~sub['physio-body-site'].isin(CODES) & (sub['physio-body-site'] != 'nan')]
     sub = split_hand_foot_surface(sub)
     sub['physio-body-site'] = sub['physio-body-site'].replace(SITE_MERGE)
     sub_dedup = sub.drop_duplicates(subset=['id', 'physio-body-site'])
     totals = sub_dedup['physio-body-site'].value_counts()
+
+    method_rows = sub[
+        ~sub['physio-sensing-method'].isin(CODES)
+        & (sub['physio-sensing-method'] != 'nan')
+    ].drop_duplicates(subset=['id', 'physio-body-site', 'physio-sensing-method'])
+    method_counts = (
+        method_rows.groupby(['physio-body-site', 'physio-sensing-method'])['id']
+        .nunique().reset_index(name='count')
+    )
+    method_map = {}
+    for _, row in method_counts.iterrows():
+        method_map.setdefault(row['physio-body-site'], {})[row['physio-sensing-method']] = int(row['count'])
+
     site_by_signal[sig] = {
         'site_totals': [
-            {'site': s, 'count': int(c), 'non_anatomical': s in NON_ANATOMICAL_SITES}
+            {
+                'site': s,
+                'count': int(c),
+                'non_anatomical': s in NON_ANATOMICAL_SITES,
+                'sensingMethods': method_map.get(s, {}),
+            }
             for s, c in totals.items()
         ],
         'n_studies_with_site': int(sub_dedup['id'].nunique()),
@@ -1603,9 +1650,16 @@ for sig in ['Skin conductance', 'Sweat indicators']:
     for row in site_by_signal[sig]['site_totals']:
         key = row['site']
         if key not in sudomotor_combined:
-            sudomotor_combined[key] = {'site': key, 'count': 0, 'non_anatomical': row['non_anatomical'], 'by_signal': {}}
+            sudomotor_combined[key] = {
+                'site': key, 'count': 0, 'non_anatomical': row['non_anatomical'],
+                'by_signal': {}, 'sensingMethods': {},
+            }
         sudomotor_combined[key]['count'] += row['count']
         sudomotor_combined[key]['by_signal'][sig] = row['count']
+        for method, count in row.get('sensingMethods', {}).items():
+            sudomotor_combined[key]['sensingMethods'][method] = (
+                sudomotor_combined[key]['sensingMethods'].get(method, 0) + count
+            )
 site_by_signal['Sudomotor (combined)'] = {
     'site_totals': sorted(sudomotor_combined.values(), key=lambda r: -r['count']),
     'n_studies_with_site': len(set(

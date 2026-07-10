@@ -67143,42 +67143,74 @@
         {
           "site": "Chest",
           "count": 44,
-          "non_anatomical": false
+          "non_anatomical": false,
+          "sensingMethods": {
+            "ECG": 44
+          }
         },
         {
           "site": "Wrist",
           "count": 25,
-          "non_anatomical": false
+          "non_anatomical": false,
+          "sensingMethods": {
+            "Digital sphygmomanometer": 3,
+            "ECG": 1,
+            "OHR/PPG": 18,
+            "Pulse oximeter": 2
+          }
         },
         {
           "site": "Upper arm",
           "count": 15,
-          "non_anatomical": false
+          "non_anatomical": false,
+          "sensingMethods": {
+            "Digital sphygmomanometer": 13,
+            "ECG": 1,
+            "OHR/PPG": 1
+          }
         },
         {
           "site": "Finger",
           "count": 10,
-          "non_anatomical": false
+          "non_anatomical": false,
+          "sensingMethods": {
+            "Digital sphygmomanometer": 1,
+            "ECG": 1,
+            "OHR/PPG": 1,
+            "Pulse oximeter": 7
+          }
         },
         {
           "site": "Earlobe",
           "count": 5,
-          "non_anatomical": false
+          "non_anatomical": false,
+          "sensingMethods": {
+            "OHR/PPG": 5
+          }
         },
         {
           "site": "Limbs",
           "count": 1,
-          "non_anatomical": true
+          "non_anatomical": true,
+          "sensingMethods": {
+            "ECG": 1
+          }
         },
         {
           "site": "Hand (surface not reported)",
           "count": 1,
-          "non_anatomical": false
+          "non_anatomical": false,
+          "sensingMethods": {
+            "Pulse oximeter": 1
+          }
         },
         {
           "site": "Cheek",
           "count": 1,
-          "non_anatomical": false
+          "non_anatomical": false,
+          "sensingMethods": {
+            "OHR/PPG": 1
+          }
         }
       ],
       "n_studies_with_site": 100,
@@ -67328,52 +67360,85 @@
         {
           "site": "Wrist",
           "count": 11,
-          "non_anatomical": false
+          "non_anatomical": false,
+          "sensingMethods": {
+            "GSR/EDA": 11
+          }
         },
         {
           "site": "Finger",
           "count": 8,
-          "non_anatomical": false
+          "non_anatomical": false,
+          "sensingMethods": {
+            "GSR/EDA": 8
+          }
         },
         {
           "site": "Chest",
           "count": 4,
-          "non_anatomical": false
+          "non_anatomical": false,
+          "sensingMethods": {
+            "GSR/EDA": 1,
+            "Hygrochron": 3
+          }
         },
         {
           "site": "Thigh",
           "count": 3,
-          "non_anatomical": false
+          "non_anatomical": false,
+          "sensingMethods": {
+            "Hygrochron": 3
+          }
         },
         {
           "site": "Lower leg",
           "count": 3,
-          "non_anatomical": false
+          "non_anatomical": false,
+          "sensingMethods": {
+            "Hygrochron": 3
+          }
         },
         {
           "site": "Temple",
           "count": 2,
-          "non_anatomical": false
+          "non_anatomical": false,
+          "sensingMethods": {
+            "Hygrochron": 1,
+            "Thermochron": 1
+          }
         },
         {
           "site": "Forearm",
           "count": 2,
-          "non_anatomical": false
+          "non_anatomical": false,
+          "sensingMethods": {
+            "GSR/EDA": 1,
+            "Hygrochron": 1
+          }
         },
         {
           "site": "Upper arm",
           "count": 1,
-          "non_anatomical": false
+          "non_anatomical": false,
+          "sensingMethods": {
+            "Hygrochron": 1
+          }
         },
         {
           "site": "Hand (dorsal)",
           "count": 1,
-          "non_anatomical": false
+          "non_anatomical": false,
+          "sensingMethods": {
+            "GSR/EDA": 1
+          }
         },
         {
           "site": "Back",
           "count": 1,
-          "non_anatomical": false
+          "non_anatomical": false,
+          "sensingMethods": {
+            "Hygrochron": 1
+          }
         }
       ],
       "n_studies_with_site": 26
@@ -67383,42 +67448,67 @@
         {
           "site": "Whole body",
           "count": 27,
-          "non_anatomical": true
+          "non_anatomical": true,
+          "sensingMethods": {
+            "High precision scale": 27
+          }
         },
         {
           "site": "Forearm",
           "count": 1,
-          "non_anatomical": false
+          "non_anatomical": false,
+          "sensingMethods": {
+            "Corneometer": 1,
+            "Tewameter": 1
+          }
         },
         {
           "site": "Finger",
           "count": 1,
-          "non_anatomical": false
+          "non_anatomical": false,
+          "sensingMethods": {
+            "Microscope": 1
+          }
         },
         {
           "site": "Urine",
           "count": 1,
-          "non_anatomical": true
+          "non_anatomical": true,
+          "sensingMethods": {
+            "Osmometer": 1
+          }
         },
         {
           "site": "Temple",
           "count": 1,
-          "non_anatomical": false
+          "non_anatomical": false,
+          "sensingMethods": {
+            "Hygrochron": 1
+          }
         },
         {
           "site": "Back",
           "count": 1,
-          "non_anatomical": false
+          "non_anatomical": false,
+          "sensingMethods": {
+            "TEWL": 1
+          }
         },
         {
           "site": "Arm",
           "count": 1,
-          "non_anatomical": false
+          "non_anatomical": false,
+          "sensingMethods": {
+            "TEWL": 1
+          }
         },
         {
           "site": "Lower leg",
           "count": 1,
-          "non_anatomical": false
+          "non_anatomical": false,
+          "sensingMethods": {
+            "TEWL": 1
+          }
         }
       ],
       "n_studies_with_site": 32
@@ -67431,6 +67521,9 @@
           "non_anatomical": true,
           "by_signal": {
             "Sweat indicators": 27
+          },
+          "sensingMethods": {
+            "High precision scale": 27
           }
         },
         {
@@ -67439,6 +67532,9 @@
           "non_anatomical": false,
           "by_signal": {
             "Skin conductance": 11
+          },
+          "sensingMethods": {
+            "GSR/EDA": 11
           }
         },
         {
@@ -67448,6 +67544,10 @@
           "by_signal": {
             "Skin conductance": 8,
             "Sweat indicators": 1
+          },
+          "sensingMethods": {
+            "GSR/EDA": 8,
+            "Microscope": 1
           }
         },
         {
@@ -67456,6 +67556,10 @@
           "non_anatomical": false,
           "by_signal": {
             "Skin conductance": 4
+          },
+          "sensingMethods": {
+            "GSR/EDA": 1,
+            "Hygrochron": 3
           }
         },
         {
@@ -67465,6 +67569,10 @@
           "by_signal": {
             "Skin conductance": 3,
             "Sweat indicators": 1
+          },
+          "sensingMethods": {
+            "Hygrochron": 3,
+            "TEWL": 1
           }
         },
         {
@@ -67473,6 +67581,9 @@
           "non_anatomical": false,
           "by_signal": {
             "Skin conductance": 3
+          },
+          "sensingMethods": {
+            "Hygrochron": 3
           }
         },
         {
@@ -67482,6 +67593,10 @@
           "by_signal": {
             "Skin conductance": 2,
             "Sweat indicators": 1
+          },
+          "sensingMethods": {
+            "Hygrochron": 2,
+            "Thermochron": 1
           }
         },
         {
@@ -67491,6 +67606,12 @@
           "by_signal": {
             "Skin conductance": 2,
             "Sweat indicators": 1
+          },
+          "sensingMethods": {
+            "GSR/EDA": 1,
+            "Hygrochron": 1,
+            "Corneometer": 1,
+            "Tewameter": 1
           }
         },
         {
@@ -67500,6 +67621,10 @@
           "by_signal": {
             "Skin conductance": 1,
             "Sweat indicators": 1
+          },
+          "sensingMethods": {
+            "Hygrochron": 1,
+            "TEWL": 1
           }
         },
         {
@@ -67508,6 +67633,9 @@
           "non_anatomical": false,
           "by_signal": {
             "Skin conductance": 1
+          },
+          "sensingMethods": {
+            "Hygrochron": 1
           }
         },
         {
@@ -67516,6 +67644,9 @@
           "non_anatomical": false,
           "by_signal": {
             "Skin conductance": 1
+          },
+          "sensingMethods": {
+            "GSR/EDA": 1
           }
         },
         {
@@ -67524,6 +67655,9 @@
           "non_anatomical": true,
           "by_signal": {
             "Sweat indicators": 1
+          },
+          "sensingMethods": {
+            "Osmometer": 1
           }
         },
         {
@@ -67532,6 +67666,9 @@
           "non_anatomical": false,
           "by_signal": {
             "Sweat indicators": 1
+          },
+          "sensingMethods": {
+            "TEWL": 1
           }
         }
       ],
@@ -68329,147 +68466,377 @@
     "site_totals": [
       {
         "site": "Lower leg",
-        "total": 136
+        "total": 136,
+        "sensingMethods": {
+          "Dermal patch": 3,
+          "Heat flux/Heat flow": 5,
+          "Infrared camera": 2,
+          "RTD": 4,
+          "Thermistor": 12,
+          "Thermochron": 66,
+          "Thermocouple": 41
+        }
       },
       {
         "site": "Thigh",
-        "total": 128
+        "total": 128,
+        "sensingMethods": {
+          "Dermal patch": 3,
+          "Heat flux/Heat flow": 6,
+          "Infrared camera": 3,
+          "RTD": 4,
+          "Thermistor": 12,
+          "Thermochron": 58,
+          "Thermocouple": 40
+        }
       },
       {
         "site": "Chest",
-        "total": 127
+        "total": 127,
+        "sensingMethods": {
+          "Dermal patch": 3,
+          "Heat flux/Heat flow": 6,
+          "Infrared camera": 3,
+          "RTD": 4,
+          "Thermistor": 12,
+          "Thermochron": 59,
+          "Thermocouple": 37
+        }
       },
       {
         "site": "Forehead",
-        "total": 123
+        "total": 123,
+        "sensingMethods": {
+          "Dermal patch": 3,
+          "Heat flux/Heat flow": 3,
+          "Infrared camera": 10,
+          "Infrared thermometer": 8,
+          "RTD": 4,
+          "Thermistor": 13,
+          "Thermochron": 45,
+          "Thermocouple": 33,
+          "Thermometer": 2
+        }
       },
       {
         "site": "Upper arm",
-        "total": 103
+        "total": 103,
+        "sensingMethods": {
+          "Dermal patch": 3,
+          "Heat flux/Heat flow": 1,
+          "Infrared camera": 2,
+          "RTD": 5,
+          "Thermistor": 11,
+          "Thermochron": 45,
+          "Thermocouple": 34
+        }
       },
       {
         "site": "Forearm",
-        "total": 100
+        "total": 100,
+        "sensingMethods": {
+          "Dermal patch": 3,
+          "Heat flux/Heat flow": 3,
+          "Infrared camera": 3,
+          "RTD": 4,
+          "Thermistor": 10,
+          "Thermochron": 41,
+          "Thermocouple": 31,
+          "Thermometer": 2
+        }
       },
       {
         "site": "Hand (dorsal)",
-        "total": 82
+        "total": 82,
+        "sensingMethods": {
+          "Dermal patch": 3,
+          "Infrared camera": 4,
+          "Infrared thermometer": 3,
+          "Probe": 3,
+          "RTD": 2,
+          "Thermistor": 6,
+          "Thermochron": 33,
+          "Thermocouple": 24,
+          "Thermometer": 1
+        }
       },
       {
         "site": "Back",
-        "total": 79
+        "total": 79,
+        "sensingMethods": {
+          "Dermal patch": 3,
+          "Heat flux/Heat flow": 1,
+          "Infrared camera": 1,
+          "RTD": 4,
+          "Thermistor": 10,
+          "Thermochron": 36,
+          "Thermocouple": 22
+        }
       },
       {
         "site": "Wrist",
-        "total": 49
+        "total": 49,
+        "sensingMethods": {
+          "Infrared camera": 1,
+          "Infrared thermometer": 5,
+          "Infrared thermopile": 10,
+          "RTD": 1,
+          "Thermistor": 5,
+          "Thermochron": 16,
+          "Thermocouple": 9
+        }
       },
       {
         "site": "Abdomen",
-        "total": 42
+        "total": 42,
+        "sensingMethods": {
+          "Heat flux/Heat flow": 1,
+          "Infrared camera": 1,
+          "RTD": 4,
+          "Thermistor": 6,
+          "Thermochron": 16,
+          "Thermocouple": 15
+        }
       },
       {
         "site": "Hand (surface not reported)",
-        "total": 40
+        "total": 40,
+        "sensingMethods": {
+          "Heat flux/Heat flow": 2,
+          "Infrared camera": 1,
+          "Thermistor": 4,
+          "Thermochron": 22,
+          "Thermocouple": 11
+        }
       },
       {
         "site": "Foot (dorsal)",
-        "total": 35
+        "total": 35,
+        "sensingMethods": {
+          "Heat flux/Heat flow": 1,
+          "Infrared camera": 1,
+          "RTD": 4,
+          "Thermistor": 2,
+          "Thermochron": 15,
+          "Thermocouple": 12
+        }
       },
       {
         "site": "Neck",
-        "total": 30
+        "total": 30,
+        "sensingMethods": {
+          "Infrared camera": 2,
+          "RTD": 2,
+          "Thermistor": 3,
+          "Thermochron": 15,
+          "Thermocouple": 9
+        }
       },
       {
         "site": "Cheek",
-        "total": 22
+        "total": 22,
+        "sensingMethods": {
+          "Infrared camera": 6,
+          "Infrared thermometer": 4,
+          "Thermistor": 1,
+          "Thermochron": 4,
+          "Thermocouple": 7
+        }
       },
       {
         "site": "Foot (surface not reported)",
-        "total": 19
+        "total": 19,
+        "sensingMethods": {
+          "Heat flux/Heat flow": 2,
+          "Thermistor": 4,
+          "Thermochron": 8,
+          "Thermocouple": 5
+        }
       },
       {
         "site": "Finger",
-        "total": 19
+        "total": 19,
+        "sensingMethods": {
+          "Infrared camera": 1,
+          "Infrared thermometer": 1,
+          "Thermistor": 1,
+          "Thermochron": 7,
+          "Thermocouple": 8
+        }
       },
       {
         "site": "Nose",
-        "total": 12
+        "total": 12,
+        "sensingMethods": {
+          "Infrared camera": 6,
+          "Infrared thermometer": 3,
+          "Thermochron": 3
+        }
       },
       {
         "site": "Temple",
-        "total": 12
+        "total": 12,
+        "sensingMethods": {
+          "Hygrochron": 1,
+          "Thermochron": 11
+        }
       },
       {
         "site": "Hand (palmar)",
-        "total": 11
+        "total": 11,
+        "sensingMethods": {
+          "Heat flux/Heat flow": 1,
+          "Infrared camera": 1,
+          "RTD": 2,
+          "Thermochron": 3,
+          "Thermocouple": 5
+        }
       },
       {
         "site": "Ankle",
-        "total": 11
+        "total": 11,
+        "sensingMethods": {
+          "Dermal patch": 3,
+          "RTD": 1,
+          "Thermochron": 5,
+          "Thermocouple": 2
+        }
       },
       {
         "site": "Arm",
-        "total": 11
+        "total": 11,
+        "sensingMethods": {
+          "Heat flux/Heat flow": 2,
+          "Thermistor": 1,
+          "Thermochron": 3,
+          "Thermocouple": 4
+        }
       },
       {
         "site": "Lower back",
-        "total": 10
+        "total": 10,
+        "sensingMethods": {
+          "Infrared camera": 1,
+          "RTD": 3,
+          "Thermistor": 1,
+          "Thermochron": 4,
+          "Thermocouple": 2
+        }
       },
       {
         "site": "Earlobe",
-        "total": 9
+        "total": 9,
+        "sensingMethods": {
+          "Infrared camera": 3,
+          "Infrared thermometer": 3,
+          "Thermochron": 2,
+          "Thermocouple": 1
+        }
       },
       {
         "site": "Face",
-        "total": 9
+        "total": 9,
+        "sensingMethods": {
+          "Infrared camera": 7,
+          "Infrared thermometer": 1,
+          "Thermochron": 1
+        }
       },
       {
         "site": "Foot (plantar)",
-        "total": 7
+        "total": 7,
+        "sensingMethods": {
+          "Infrared camera": 1,
+          "RTD": 1,
+          "Thermochron": 4,
+          "Thermocouple": 2
+        }
       },
       {
         "site": "Elbow",
-        "total": 5
+        "total": 5,
+        "sensingMethods": {
+          "Infrared camera": 1,
+          "Thermochron": 4
+        }
       },
       {
         "site": "Chin",
-        "total": 4
+        "total": 4,
+        "sensingMethods": {
+          "Infrared camera": 1,
+          "Thermistor": 1,
+          "Thermochron": 2
+        }
       },
       {
         "site": "Buttocks",
-        "total": 4
+        "total": 4,
+        "sensingMethods": {
+          "RTD": 1,
+          "Thermochron": 2,
+          "Thermocouple": 1
+        }
       },
       {
         "site": "Head",
-        "total": 4
+        "total": 4,
+        "sensingMethods": {
+          "Infrared camera": 1,
+          "RTD": 2,
+          "Thermistor": 1
+        }
       },
       {
         "site": "Mouth",
-        "total": 3
+        "total": 3,
+        "sensingMethods": {
+          "Infrared camera": 2,
+          "Thermochron": 1
+        }
       },
       {
         "site": "Leg",
-        "total": 3
+        "total": 3,
+        "sensingMethods": {
+          "Heat flux/Heat flow": 1,
+          "Thermocouple": 2
+        }
       },
       {
         "site": "Eye",
-        "total": 1
+        "total": 1,
+        "sensingMethods": {
+          "Infrared camera": 1
+        }
       },
       {
         "site": "Clavicle",
-        "total": 1
+        "total": 1,
+        "sensingMethods": {
+          "Thermochron": 1
+        }
       },
       {
         "site": "Shoulder",
-        "total": 1
+        "total": 1,
+        "sensingMethods": {
+          "Infrared camera": 1
+        }
       },
       {
         "site": "Waist",
-        "total": 1
+        "total": 1,
+        "sensingMethods": {
+          "Thermistor": 1
+        }
       },
       {
         "site": "Axilla",
-        "total": 1
+        "total": 1,
+        "sensingMethods": {
+          "Thermochron": 1
+        }
       }
     ],
     "n_studies_with_site": 218,
@@ -74187,7 +74554,7 @@
     "n_variables": 205,
     "year_min": 2013,
     "year_max": 2024,
-    "generated_at": "2026-07-10T17:59:59.242143"
+    "generated_at": "2026-07-10T18:25:49.567604"
   },
   "world-countries-110m": {
     "type": "Topology",

@@ -789,147 +789,377 @@
   "site_totals": [
     {
       "site": "Lower leg",
-      "total": 136
+      "total": 136,
+      "sensingMethods": {
+        "Dermal patch": 3,
+        "Heat flux/Heat flow": 5,
+        "Infrared camera": 2,
+        "RTD": 4,
+        "Thermistor": 12,
+        "Thermochron": 66,
+        "Thermocouple": 41
+      }
     },
     {
       "site": "Thigh",
-      "total": 128
+      "total": 128,
+      "sensingMethods": {
+        "Dermal patch": 3,
+        "Heat flux/Heat flow": 6,
+        "Infrared camera": 3,
+        "RTD": 4,
+        "Thermistor": 12,
+        "Thermochron": 58,
+        "Thermocouple": 40
+      }
     },
     {
       "site": "Chest",
-      "total": 127
+      "total": 127,
+      "sensingMethods": {
+        "Dermal patch": 3,
+        "Heat flux/Heat flow": 6,
+        "Infrared camera": 3,
+        "RTD": 4,
+        "Thermistor": 12,
+        "Thermochron": 59,
+        "Thermocouple": 37
+      }
     },
     {
       "site": "Forehead",
-      "total": 123
+      "total": 123,
+      "sensingMethods": {
+        "Dermal patch": 3,
+        "Heat flux/Heat flow": 3,
+        "Infrared camera": 10,
+        "Infrared thermometer": 8,
+        "RTD": 4,
+        "Thermistor": 13,
+        "Thermochron": 45,
+        "Thermocouple": 33,
+        "Thermometer": 2
+      }
     },
     {
       "site": "Upper arm",
-      "total": 103
+      "total": 103,
+      "sensingMethods": {
+        "Dermal patch": 3,
+        "Heat flux/Heat flow": 1,
+        "Infrared camera": 2,
+        "RTD": 5,
+        "Thermistor": 11,
+        "Thermochron": 45,
+        "Thermocouple": 34
+      }
     },
     {
       "site": "Forearm",
-      "total": 100
+      "total": 100,
+      "sensingMethods": {
+        "Dermal patch": 3,
+        "Heat flux/Heat flow": 3,
+        "Infrared camera": 3,
+        "RTD": 4,
+        "Thermistor": 10,
+        "Thermochron": 41,
+        "Thermocouple": 31,
+        "Thermometer": 2
+      }
     },
     {
       "site": "Hand (dorsal)",
-      "total": 82
+      "total": 82,
+      "sensingMethods": {
+        "Dermal patch": 3,
+        "Infrared camera": 4,
+        "Infrared thermometer": 3,
+        "Probe": 3,
+        "RTD": 2,
+        "Thermistor": 6,
+        "Thermochron": 33,
+        "Thermocouple": 24,
+        "Thermometer": 1
+      }
     },
     {
       "site": "Back",
-      "total": 79
+      "total": 79,
+      "sensingMethods": {
+        "Dermal patch": 3,
+        "Heat flux/Heat flow": 1,
+        "Infrared camera": 1,
+        "RTD": 4,
+        "Thermistor": 10,
+        "Thermochron": 36,
+        "Thermocouple": 22
+      }
     },
     {
       "site": "Wrist",
-      "total": 49
+      "total": 49,
+      "sensingMethods": {
+        "Infrared camera": 1,
+        "Infrared thermometer": 5,
+        "Infrared thermopile": 10,
+        "RTD": 1,
+        "Thermistor": 5,
+        "Thermochron": 16,
+        "Thermocouple": 9
+      }
     },
     {
       "site": "Abdomen",
-      "total": 42
+      "total": 42,
+      "sensingMethods": {
+        "Heat flux/Heat flow": 1,
+        "Infrared camera": 1,
+        "RTD": 4,
+        "Thermistor": 6,
+        "Thermochron": 16,
+        "Thermocouple": 15
+      }
     },
     {
       "site": "Hand (surface not reported)",
-      "total": 40
+      "total": 40,
+      "sensingMethods": {
+        "Heat flux/Heat flow": 2,
+        "Infrared camera": 1,
+        "Thermistor": 4,
+        "Thermochron": 22,
+        "Thermocouple": 11
+      }
     },
     {
       "site": "Foot (dorsal)",
-      "total": 35
+      "total": 35,
+      "sensingMethods": {
+        "Heat flux/Heat flow": 1,
+        "Infrared camera": 1,
+        "RTD": 4,
+        "Thermistor": 2,
+        "Thermochron": 15,
+        "Thermocouple": 12
+      }
     },
     {
       "site": "Neck",
-      "total": 30
+      "total": 30,
+      "sensingMethods": {
+        "Infrared camera": 2,
+        "RTD": 2,
+        "Thermistor": 3,
+        "Thermochron": 15,
+        "Thermocouple": 9
+      }
     },
     {
       "site": "Cheek",
-      "total": 22
+      "total": 22,
+      "sensingMethods": {
+        "Infrared camera": 6,
+        "Infrared thermometer": 4,
+        "Thermistor": 1,
+        "Thermochron": 4,
+        "Thermocouple": 7
+      }
     },
     {
       "site": "Foot (surface not reported)",
-      "total": 19
+      "total": 19,
+      "sensingMethods": {
+        "Heat flux/Heat flow": 2,
+        "Thermistor": 4,
+        "Thermochron": 8,
+        "Thermocouple": 5
+      }
     },
     {
       "site": "Finger",
-      "total": 19
+      "total": 19,
+      "sensingMethods": {
+        "Infrared camera": 1,
+        "Infrared thermometer": 1,
+        "Thermistor": 1,
+        "Thermochron": 7,
+        "Thermocouple": 8
+      }
     },
     {
       "site": "Nose",
-      "total": 12
+      "total": 12,
+      "sensingMethods": {
+        "Infrared camera": 6,
+        "Infrared thermometer": 3,
+        "Thermochron": 3
+      }
     },
     {
       "site": "Temple",
-      "total": 12
+      "total": 12,
+      "sensingMethods": {
+        "Hygrochron": 1,
+        "Thermochron": 11
+      }
     },
     {
       "site": "Hand (palmar)",
-      "total": 11
+      "total": 11,
+      "sensingMethods": {
+        "Heat flux/Heat flow": 1,
+        "Infrared camera": 1,
+        "RTD": 2,
+        "Thermochron": 3,
+        "Thermocouple": 5
+      }
     },
     {
       "site": "Ankle",
-      "total": 11
+      "total": 11,
+      "sensingMethods": {
+        "Dermal patch": 3,
+        "RTD": 1,
+        "Thermochron": 5,
+        "Thermocouple": 2
+      }
     },
     {
       "site": "Arm",
-      "total": 11
+      "total": 11,
+      "sensingMethods": {
+        "Heat flux/Heat flow": 2,
+        "Thermistor": 1,
+        "Thermochron": 3,
+        "Thermocouple": 4
+      }
     },
     {
       "site": "Lower back",
-      "total": 10
+      "total": 10,
+      "sensingMethods": {
+        "Infrared camera": 1,
+        "RTD": 3,
+        "Thermistor": 1,
+        "Thermochron": 4,
+        "Thermocouple": 2
+      }
     },
     {
       "site": "Earlobe",
-      "total": 9
+      "total": 9,
+      "sensingMethods": {
+        "Infrared camera": 3,
+        "Infrared thermometer": 3,
+        "Thermochron": 2,
+        "Thermocouple": 1
+      }
     },
     {
       "site": "Face",
-      "total": 9
+      "total": 9,
+      "sensingMethods": {
+        "Infrared camera": 7,
+        "Infrared thermometer": 1,
+        "Thermochron": 1
+      }
     },
     {
       "site": "Foot (plantar)",
-      "total": 7
+      "total": 7,
+      "sensingMethods": {
+        "Infrared camera": 1,
+        "RTD": 1,
+        "Thermochron": 4,
+        "Thermocouple": 2
+      }
     },
     {
       "site": "Elbow",
-      "total": 5
+      "total": 5,
+      "sensingMethods": {
+        "Infrared camera": 1,
+        "Thermochron": 4
+      }
     },
     {
       "site": "Chin",
-      "total": 4
+      "total": 4,
+      "sensingMethods": {
+        "Infrared camera": 1,
+        "Thermistor": 1,
+        "Thermochron": 2
+      }
     },
     {
       "site": "Buttocks",
-      "total": 4
+      "total": 4,
+      "sensingMethods": {
+        "RTD": 1,
+        "Thermochron": 2,
+        "Thermocouple": 1
+      }
     },
     {
       "site": "Head",
-      "total": 4
+      "total": 4,
+      "sensingMethods": {
+        "Infrared camera": 1,
+        "RTD": 2,
+        "Thermistor": 1
+      }
     },
     {
       "site": "Mouth",
-      "total": 3
+      "total": 3,
+      "sensingMethods": {
+        "Infrared camera": 2,
+        "Thermochron": 1
+      }
     },
     {
       "site": "Leg",
-      "total": 3
+      "total": 3,
+      "sensingMethods": {
+        "Heat flux/Heat flow": 1,
+        "Thermocouple": 2
+      }
     },
     {
       "site": "Eye",
-      "total": 1
+      "total": 1,
+      "sensingMethods": {
+        "Infrared camera": 1
+      }
     },
     {
       "site": "Clavicle",
-      "total": 1
+      "total": 1,
+      "sensingMethods": {
+        "Thermochron": 1
+      }
     },
     {
       "site": "Shoulder",
-      "total": 1
+      "total": 1,
+      "sensingMethods": {
+        "Infrared camera": 1
+      }
     },
     {
       "site": "Waist",
-      "total": 1
+      "total": 1,
+      "sensingMethods": {
+        "Thermistor": 1
+      }
     },
     {
       "site": "Axilla",
-      "total": 1
+      "total": 1,
+      "sensingMethods": {
+        "Thermochron": 1
+      }
     }
   ],
   "n_studies_with_site": 218,
