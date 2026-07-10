@@ -1,4 +1,4 @@
-import { useMemo } from 'react'
+import { useMemo, useState } from 'react'
 import { useTooltip, TooltipPortal } from './Tooltip.jsx'
 
 const TAX_W = 2048
@@ -30,12 +30,14 @@ const SITE_COORDS = {
   'Lower back': [1340 / TAX_W, 760 / TAX_H],// 14PM (lumbar)
   'Buttocks': [1441 / TAX_W, 859 / TAX_H],  // 16PR
   'Foot (plantar)': [1380 / TAX_W, 1700 / TAX_H], // 24PR, posterior panel, explicitly labelled PLANTAR
+  'Waist': [721 / TAX_W, 786 / TAX_H],      // 13AL, lateral to Abdomen (13AM)
 
   'Upper arm': [478 / TAX_W, 580 / TAX_H],  // 11AR
   'Elbow': [476 / TAX_W, 700 / TAX_H],      // 12AR
   'Forearm': [420 / TAX_W, 808 / TAX_H],    // 15R
   'Wrist': [413 / TAX_W, 888 / TAX_H],      // 17R
   'Hand (palmar)': [440 / TAX_W, 963 / TAX_H], // 18AR, anterior panel = palm-facing
+  'Hand (dorsal)': [1589 / TAX_W, 969 / TAX_H], // 18PR, posterior panel = back-of-hand
   'Finger': [365 / TAX_W, 1058 / TAX_H],    // 19AR
 
   'Thigh': [589 / TAX_W, 1120 / TAX_H],     // 20AR
@@ -54,13 +56,6 @@ const SITE_COORDS_ESTIMATED = {
   'Mouth': [652 / TAX_W, 292 / TAX_H],    // below Nose (3AM), above chin line
   'Chin': [652 / TAX_W, 325 / TAX_H],     // below Mouth estimate
   'Shoulder': [460 / TAX_W, 460 / TAX_H], // lateral to Clavicle (7AR), above Axilla (10R)
-  'Waist': [648 / TAX_W, 650 / TAX_H],    // midway between Chest (8AM) and Abdomen (13AM)
-  // Lower confidence than the rest of this table: there's no PALMAR/DORSAL
-  // legend text next to a dot the way there is for Hand/Foot's anterior
-  // panel, so this was located via pixel-cluster detection on the posterior
-  // panel rather than read off a clearly labelled point. Worth a visual
-  // sanity check against the taxonomy image before treating it as final.
-  'Hand (dorsal)': [1589 / TAX_W, 969 / TAX_H], // posterior panel, candidate 18PR position
 }
 // Sites that genuinely can't be pinned to one point on this taxonomy —
 // either they're not a skin-surface location at all (sample types, core-
@@ -96,6 +91,7 @@ function canonicalSite(site) {
 export default function BodySiteMap({ siteData, totalLabel, color = '#5B5BFF', height = 760 }) {
   const { tip, showTip, moveTip, hideTip } = useTooltip()
   const taxonomySrc = `${import.meta.env.BASE_URL}images/anatomical-taxonomy.jpg`
+  const [viewMode, setViewMode] = useState('size') // 'size' | 'heatmap'
 
   const normalized = useMemo(() => siteData.map((s) => {
     const site = canonicalSite(s.site)
@@ -123,12 +119,47 @@ export default function BodySiteMap({ siteData, totalLabel, color = '#5B5BFF', h
     return { placeable, unplaceable, maxCount }
   }, [normalized])
 
-  const radiusFor = (count) => 6 + Math.sqrt(count / maxCount) * 15
+  const SCALE = 1.3
+  const mapSize = Math.min(height, 690) * SCALE
 
-  const mapSize = Math.min(height, 690)
+  // Heatmap-view color: fixed marker size, count encoded as fill intensity
+  // instead of radius (same light-to-brand-color ramp used elsewhere in the
+  // atlas, e.g. the co-occurrence matrix), so the two views tell the same
+  // story through a different visual channel rather than two unrelated ideas.
+  const heatColorFor = (count) => {
+    const t = Math.min(count / maxCount, 1)
+    const r = Math.round(239 + (91 - 239) * t)
+    const g = Math.round(239 + (91 - 239) * t)
+    const b = Math.round(239 + (255 - 239) * t)
+    return `rgb(${r},${g},${b})`
+  }
+  const HEAT_R = 42
+  const ToggleGroup = ({ value, onChange, options }) => (
+    <div className="flex gap-1">
+      {options.map((opt) => (
+        <button
+          key={opt.value}
+          onClick={() => onChange(opt.value)}
+          className={`px-2 py-0.5 rounded text-[10.5px] font-data transition-colors ${
+            value === opt.value ? 'bg-ink text-paper' : 'bg-line/50 text-inkmid hover:bg-line'
+          }`}
+        >
+          {opt.label}
+        </button>
+      ))}
+    </div>
+  )
 
   return (
     <div>
+      <div className="flex items-center gap-2 mb-3">
+        <span className="text-[10.5px] text-inkfaint font-data">view:</span>
+        <ToggleGroup
+          value={viewMode}
+          onChange={setViewMode}
+          options={[{ value: 'size', label: 'circle size' }, { value: 'heatmap', label: 'heatmap' }]}
+        />
+      </div>
       <div className="flex gap-6 items-start">
         <div className="shrink-0" style={{ width: mapSize, height: mapSize }}>
           <svg
@@ -151,13 +182,16 @@ export default function BodySiteMap({ siteData, totalLabel, color = '#5B5BFF', h
               const [fx, fy] = s.estimated ? SITE_COORDS_ESTIMATED[s.site] : SITE_COORDS[s.site]
               const cx = fx * TAX_W
               const cy = fy * TAX_H
-              const r = 18 + Math.sqrt(s.count / maxCount) * 46
+              const r = viewMode === 'heatmap' ? HEAT_R : 18 + Math.sqrt(s.count / maxCount) * 46
+              const fill = viewMode === 'heatmap' ? heatColorFor(s.count) : color
+              const fillOpacity = viewMode === 'heatmap' ? 1 : 0.68
               const pct = totalLabel?.n ? ((s.count / totalLabel.n) * 100).toFixed(0) : '0'
+              const textColor = viewMode === 'heatmap' && s.count / maxCount <= 0.55 ? '#0A0A0A' : '#FCFCFC'
               return (
                 <g key={s.site}>
                   <circle
                     cx={cx} cy={cy} r={r}
-                    fill={color} fillOpacity={0.68}
+                    fill={fill} fillOpacity={fillOpacity}
                     stroke="#FCFCFC" strokeWidth={5}
                     strokeDasharray={s.estimated ? '10 6' : undefined}
                     className="cursor-default hover:fill-opacity-90 transition-[fill-opacity]"
@@ -167,7 +201,7 @@ export default function BodySiteMap({ siteData, totalLabel, color = '#5B5BFF', h
                     onMouseMove={moveTip}
                     onMouseLeave={hideTip}
                   />
-                  <text x={cx} y={cy + 11} fontSize={28} fill="#FCFCFC" textAnchor="middle" className="pointer-events-none font-data font-medium">
+                  <text x={cx} y={cy + 11} fontSize={28} fill={textColor} textAnchor="middle" className="pointer-events-none font-data font-medium">
                     {s.count}
                   </text>
                 </g>
@@ -178,8 +212,17 @@ export default function BodySiteMap({ siteData, totalLabel, color = '#5B5BFF', h
 
         <div className="w-64 shrink-0 pt-2">
           <div className="font-data text-[10px] text-inkfaint mb-3">
-            Marker area ∝ study count. Table values use count (% of parent signal).
+            {viewMode === 'heatmap'
+              ? 'Marker color ∝ study count. Table values use count (% of parent signal).'
+              : 'Marker area ∝ study count. Table values use count (% of parent signal).'}
           </div>
+          {viewMode === 'heatmap' && (
+            <div className="flex items-center gap-2 mb-3 font-data text-[10px] text-inkfaint">
+              <span className="w-3 h-3 inline-block" style={{ background: heatColorFor(0) }} /> 0
+              <span className="w-3 h-3 inline-block" style={{ background: heatColorFor(maxCount * 0.5) }} /> {Math.round(maxCount * 0.5)}
+              <span className="w-3 h-3 inline-block" style={{ background: heatColorFor(maxCount) }} /> {maxCount} (max)
+            </div>
+          )}
           {placeable.some((s) => s.estimated) && (
             <div className="font-data text-[10px] text-inkfaint mb-3 flex items-center gap-1.5">
               <svg width="14" height="14"><circle cx="7" cy="7" r="5" fill="none" stroke="#5B5BFF" strokeWidth="1.5" strokeDasharray="3 2" /></svg>
