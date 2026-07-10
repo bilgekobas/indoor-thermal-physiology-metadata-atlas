@@ -21,23 +21,79 @@ export default function About({ data }) {
 
         <section>
           <h2 className="text-[15px] font-semibold mb-2">Authorship</h2>
-          <p className="text-[13.5px] text-inkmid leading-relaxed">
-            The underlying review and metadata work were conducted by the following researchers: 
-            <a
-              href="https://www.researchgate.net/profile/Bilge-Kobas"
-              className="text-coreaccent hover:underline"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Bilge Kobas
-            </a>; Technical University of Munich, Chair of Building Technology and Climate Responsive Design,
-            Tobias Kramer; UC Berkeley, Center for the Built Environment, 
-            Jian Pan; RWTH Aachen, Healthy Living Spaces Research Group, 
-            Cynthia Ly; Maastricht University, Faculty of Health, Medicine and Life Sciences,
-            Matteo Favero; EPFL, Human-Oriented Built Environment Lab.
-            
-            OSF registration, Zenodo, and manuscript links will be added here once the corresponding records are public and stable.
-          </p>
+
+          <div className="text-[13.5px] text-inkmid leading-relaxed">
+            <p className="mb-2">
+              The underlying review and metadata work were conducted by the following
+              researchers:
+            </p>
+
+            <p>
+              <a
+                href="https://www.arc.ed.tum.de/klima/team/bilge-kobas/"
+                className="text-coreaccent hover:underline"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Bilge Kobas
+              </a>
+              ; Technical University of Munich, Chair of Building Technology and
+              Climate Responsive Design
+            </p>
+
+            <p>
+              <a
+                href="https://cbe.berkeley.edu/about-us/people/tobias-kramer/"
+                className="text-coreaccent hover:underline"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Tobias Kramer
+              </a>
+              ; UC Berkeley, Center for the Built Environment
+            </p>
+
+            <p>
+              <a
+                href="https://www.ukaachen.de/kliniken-institute/institut-fuer-arbeits-sozial-und-umweltmedizin/institut/team/wissenschaftliches-personal/jian-pan/"
+                className="text-coreaccent hover:underline"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Jian Pan
+              </a>
+              ; RWTH Aachen, Healthy Living Spaces Research Group
+            </p>
+
+            <p>
+              <a
+                href="https://cris.maastrichtuniversity.nl/en/persons/cynthia-ly/"
+                className="text-coreaccent hover:underline"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Cynthia Ly
+              </a>
+              ; Maastricht University, Faculty of Health, Medicine and Life Sciences
+            </p>
+
+            <p>
+              <a
+                href="https://people.epfl.ch/matteo.favero"
+                className="text-coreaccent hover:underline"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Matteo Favero
+              </a>
+              ; EPFL, Human-Oriented Built Environment Lab
+            </p>
+
+            <p className="mt-3">
+              OSF registration, Zenodo, and manuscript links will be added here once
+              the corresponding records are public and stable.
+            </p>
+          </div>
         </section>
 
         <section>
