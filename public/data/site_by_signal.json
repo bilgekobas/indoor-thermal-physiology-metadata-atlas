@@ -22,19 +22,14 @@
         "non_anatomical": false
       },
       {
-        "site": "Ear",
-        "count": 4,
+        "site": "Earlobe",
+        "count": 5,
         "non_anatomical": false
       },
       {
         "site": "Limbs",
         "count": 1,
         "non_anatomical": true
-      },
-      {
-        "site": "Earlobe",
-        "count": 1,
-        "non_anatomical": false
       },
       {
         "site": "Hand",
@@ -81,19 +76,14 @@
           "count": 13
         },
         {
-          "site": "Ear",
+          "site": "Earlobe",
           "period": "2019\u201320",
-          "count": 1
-        },
-        {
-          "site": "Ear",
-          "period": "2021\u201322",
-          "count": 3
+          "count": 2
         },
         {
           "site": "Earlobe",
-          "period": "2019\u201320",
-          "count": 1
+          "period": "2021\u201322",
+          "count": 3
         },
         {
           "site": "Finger",

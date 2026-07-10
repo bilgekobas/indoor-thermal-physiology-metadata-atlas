@@ -11,13 +11,13 @@
       "count": 17
     },
     {
-      "instrument": "Typing task",
-      "domain": "Performance task \u2014 psychomotor speed",
+      "instrument": "Visual learning task",
+      "domain": "Performance task \u2014 memory",
       "count": 12
     },
     {
-      "instrument": "Visual learning task",
-      "domain": "Performance task \u2014 memory",
+      "instrument": "Typing task",
+      "domain": "Performance task \u2014 psychomotor speed",
       "count": 12
     },
     {
@@ -36,13 +36,13 @@
       "count": 10
     },
     {
-      "instrument": "N-back task",
-      "domain": "Performance task \u2014 working memory",
+      "instrument": "NASA-TLX",
+      "domain": "Subjective scale \u2014 workload",
       "count": 9
     },
     {
-      "instrument": "NASA-TLX",
-      "domain": "Subjective scale \u2014 workload",
+      "instrument": "N-back task",
+      "domain": "Performance task \u2014 working memory",
       "count": 9
     },
     {
@@ -51,19 +51,24 @@
       "count": 7
     },
     {
-      "instrument": "Digit span task",
-      "domain": "Performance task \u2014 working memory",
+      "instrument": "Overlapping task",
+      "domain": "Performance task \u2014 attention",
       "count": 6
     },
     {
-      "instrument": "Overlapping task",
-      "domain": "Performance task \u2014 attention",
+      "instrument": "Digit span task",
+      "domain": "Performance task \u2014 working memory",
       "count": 6
     },
     {
       "instrument": "Reasoning task (spatial)",
       "domain": "Performance task \u2014 reasoning",
       "count": 5
+    },
+    {
+      "instrument": "Cambridge Brain Sciences (CBS) battery",
+      "domain": "Performance task \u2014 multi-domain battery",
+      "count": 4
     },
     {
       "instrument": "Tsai-Partington test",
@@ -76,13 +81,13 @@
       "count": 4
     },
     {
-      "instrument": "Cambridge Brain Sciences (CBS) battery",
-      "domain": "Performance task \u2014 multi-domain battery",
-      "count": 4
-    },
-    {
       "instrument": "Self-rated alertness",
       "domain": "Subjective scale \u2014 sleepiness/alertness",
+      "count": 3
+    },
+    {
+      "instrument": "Visual reaction time",
+      "domain": "Performance task \u2014 psychomotor speed",
       "count": 3
     },
     {
@@ -96,23 +101,8 @@
       "count": 3
     },
     {
-      "instrument": "Visual reaction time",
-      "domain": "Performance task \u2014 psychomotor speed",
-      "count": 3
-    },
-    {
-      "instrument": "Self-rated fatigue",
-      "domain": "Subjective scale \u2014 fatigue",
-      "count": 2
-    },
-    {
-      "instrument": "Visual search task",
-      "domain": "Performance task \u2014 attention",
-      "count": 2
-    },
-    {
-      "instrument": "Reasoning task (mechanical)",
-      "domain": "Performance task \u2014 reasoning",
+      "instrument": "Composite/overall score (unspecified battery)",
+      "domain": "Performance task \u2014 multi-domain battery",
       "count": 2
     },
     {
@@ -126,8 +116,18 @@
       "count": 2
     },
     {
+      "instrument": "Reasoning task (mechanical)",
+      "domain": "Performance task \u2014 reasoning",
+      "count": 2
+    },
+    {
       "instrument": "Reasoning task (abstract)",
       "domain": "Performance task \u2014 reasoning",
+      "count": 2
+    },
+    {
+      "instrument": "Self-rated fatigue",
+      "domain": "Subjective scale \u2014 fatigue",
       "count": 2
     },
     {
@@ -141,153 +141,23 @@
       "count": 2
     },
     {
-      "instrument": "Mental rotation task",
-      "domain": "Performance task \u2014 reasoning",
-      "count": 2
-    },
-    {
       "instrument": "Fast-counting task",
       "domain": "Performance task \u2014 arithmetic",
       "count": 2
     },
     {
-      "instrument": "Composite/overall score (unspecified battery)",
-      "domain": "Performance task \u2014 multi-domain battery",
+      "instrument": "Mental rotation task",
+      "domain": "Performance task \u2014 reasoning",
       "count": 2
     },
     {
-      "instrument": "Digit span task (forward)",
-      "domain": "Performance task \u2014 working memory",
-      "count": 1
-    },
-    {
-      "instrument": "Reasoning task (grammatical/deductive/sequential)",
-      "domain": "Performance task \u2014 reasoning",
-      "count": 1
-    },
-    {
-      "instrument": "PASAT",
-      "domain": "Performance task \u2014 working memory",
-      "count": 1
-    },
-    {
-      "instrument": "Profile of Mood States (POMS)",
-      "domain": "Subjective scale \u2014 mood",
-      "count": 1
-    },
-    {
-      "instrument": "Oddball task",
-      "domain": "Performance task \u2014 sustained attention",
-      "count": 1
-    },
-    {
-      "instrument": "Operation span task",
-      "domain": "Performance task \u2014 working memory",
-      "count": 1
-    },
-    {
-      "instrument": "Neurobehavioral battery (visual RT, Stroop, redirection, overlapping, arithmetic, visual learning)",
-      "domain": "Performance task \u2014 multi-domain battery",
-      "count": 1
-    },
-    {
-      "instrument": "Hampshire Tree Task",
-      "domain": "Performance task \u2014 planning",
-      "count": 1
-    },
-    {
-      "instrument": "Mental arithmetic (with feedback)",
-      "domain": "Performance task \u2014 arithmetic",
-      "count": 1
-    },
-    {
-      "instrument": "Corsi Block-Tapping Task + RVIP",
-      "domain": "Performance task \u2014 multi-domain battery",
-      "count": 1
-    },
-    {
-      "instrument": "Continuous Performance Test (CPT)",
-      "domain": "Performance task \u2014 sustained attention",
-      "count": 1
-    },
-    {
-      "instrument": "Alternative Uses Task (AUT, creativity)",
-      "domain": "Performance task \u2014 creativity",
-      "count": 1
-    },
-    {
-      "instrument": "Choice reaction time",
-      "domain": "Performance task \u2014 psychomotor speed",
-      "count": 1
-    },
-    {
-      "instrument": "Flanker task",
-      "domain": "Performance task \u2014 inhibition/attention",
-      "count": 1
-    },
-    {
-      "instrument": "Self-rated attention",
-      "domain": "Subjective scale \u2014 attention",
-      "count": 1
-    },
-    {
-      "instrument": "Self-rated arousal",
-      "domain": "Subjective scale \u2014 sleepiness/alertness",
-      "count": 1
-    },
-    {
-      "instrument": "Schulte grid test",
-      "domain": "Performance task \u2014 sustained attention",
-      "count": 1
-    },
-    {
-      "instrument": "Stepuru task",
-      "domain": "Performance task \u2014 psychomotor speed",
-      "count": 1
-    },
-    {
-      "instrument": "Spatial working memory task",
-      "domain": "Performance task \u2014 working memory",
-      "count": 1
+      "instrument": "Visual search task",
+      "domain": "Performance task \u2014 attention",
+      "count": 2
     },
     {
       "instrument": "Short-term memory (pair/word recall)",
       "domain": "Performance task \u2014 memory",
-      "count": 1
-    },
-    {
-      "instrument": "Self-rated work motivation",
-      "domain": "Subjective scale \u2014 work performance",
-      "count": 1
-    },
-    {
-      "instrument": "Self-rated learning performance",
-      "domain": "Subjective scale \u2014 work performance",
-      "count": 1
-    },
-    {
-      "instrument": "Self-rated sleepiness",
-      "domain": "Subjective scale \u2014 sleepiness/alertness",
-      "count": 1
-    },
-    {
-      "instrument": "Self-rated distraction",
-      "domain": "Subjective scale \u2014 attention",
-      "count": 1
-    },
-    {
-      "instrument": "Self-rated efficiency",
-      "domain": "Subjective scale \u2014 work performance",
-      "count": 1
-    },
-    {
-      "instrument": "Uchida-Kraepelin test",
-      "domain": "Performance task \u2014 sustained attention",
-      "count": 1
-    },
-    {
-      "instrument": "Typing task (with feedback)",
-      "domain": "Performance task \u2014 psychomotor speed",
       "count": 1
     },
     {
@@ -296,13 +166,38 @@
       "count": 1
     },
     {
-      "instrument": "Trier Social Stress Test (TSST)",
-      "domain": "Stress induction protocol",
+      "instrument": "Spatial working memory task",
+      "domain": "Performance task \u2014 working memory",
       "count": 1
     },
     {
       "instrument": "Stroop task (with feedback)",
       "domain": "Performance task \u2014 inhibition/attention",
+      "count": 1
+    },
+    {
+      "instrument": "Stepuru task",
+      "domain": "Performance task \u2014 psychomotor speed",
+      "count": 1
+    },
+    {
+      "instrument": "Corsi Block-Tapping Task + RVIP",
+      "domain": "Performance task \u2014 multi-domain battery",
+      "count": 1
+    },
+    {
+      "instrument": "Trier Social Stress Test (TSST)",
+      "domain": "Stress induction protocol",
+      "count": 1
+    },
+    {
+      "instrument": "Typing task (with feedback)",
+      "domain": "Performance task \u2014 psychomotor speed",
+      "count": 1
+    },
+    {
+      "instrument": "Uchida-Kraepelin test",
+      "domain": "Performance task \u2014 sustained attention",
       "count": 1
     },
     {
@@ -318,6 +213,111 @@
     {
       "instrument": "Visual trace perception task",
       "domain": "Performance task \u2014 perception",
+      "count": 1
+    },
+    {
+      "instrument": "Choice reaction time",
+      "domain": "Performance task \u2014 psychomotor speed",
+      "count": 1
+    },
+    {
+      "instrument": "Self-rated arousal",
+      "domain": "Subjective scale \u2014 sleepiness/alertness",
+      "count": 1
+    },
+    {
+      "instrument": "Self-rated work motivation",
+      "domain": "Subjective scale \u2014 work performance",
+      "count": 1
+    },
+    {
+      "instrument": "Operation span task",
+      "domain": "Performance task \u2014 working memory",
+      "count": 1
+    },
+    {
+      "instrument": "Digit span task (forward)",
+      "domain": "Performance task \u2014 working memory",
+      "count": 1
+    },
+    {
+      "instrument": "Flanker task",
+      "domain": "Performance task \u2014 inhibition/attention",
+      "count": 1
+    },
+    {
+      "instrument": "Hampshire Tree Task",
+      "domain": "Performance task \u2014 planning",
+      "count": 1
+    },
+    {
+      "instrument": "Continuous Performance Test (CPT)",
+      "domain": "Performance task \u2014 sustained attention",
+      "count": 1
+    },
+    {
+      "instrument": "Mental arithmetic (with feedback)",
+      "domain": "Performance task \u2014 arithmetic",
+      "count": 1
+    },
+    {
+      "instrument": "Neurobehavioral battery (visual RT, Stroop, redirection, overlapping, arithmetic, visual learning)",
+      "domain": "Performance task \u2014 multi-domain battery",
+      "count": 1
+    },
+    {
+      "instrument": "Oddball task",
+      "domain": "Performance task \u2014 sustained attention",
+      "count": 1
+    },
+    {
+      "instrument": "PASAT",
+      "domain": "Performance task \u2014 working memory",
+      "count": 1
+    },
+    {
+      "instrument": "Self-rated sleepiness",
+      "domain": "Subjective scale \u2014 sleepiness/alertness",
+      "count": 1
+    },
+    {
+      "instrument": "Profile of Mood States (POMS)",
+      "domain": "Subjective scale \u2014 mood",
+      "count": 1
+    },
+    {
+      "instrument": "Reasoning task (grammatical/deductive/sequential)",
+      "domain": "Performance task \u2014 reasoning",
+      "count": 1
+    },
+    {
+      "instrument": "Schulte grid test",
+      "domain": "Performance task \u2014 sustained attention",
+      "count": 1
+    },
+    {
+      "instrument": "Self-rated attention",
+      "domain": "Subjective scale \u2014 attention",
+      "count": 1
+    },
+    {
+      "instrument": "Self-rated distraction",
+      "domain": "Subjective scale \u2014 attention",
+      "count": 1
+    },
+    {
+      "instrument": "Self-rated efficiency",
+      "domain": "Subjective scale \u2014 work performance",
+      "count": 1
+    },
+    {
+      "instrument": "Self-rated learning performance",
+      "domain": "Subjective scale \u2014 work performance",
+      "count": 1
+    },
+    {
+      "instrument": "Alternative Uses Task (AUT, creativity)",
+      "domain": "Performance task \u2014 creativity",
       "count": 1
     }
   ],
@@ -351,11 +351,11 @@
       "count": 13
     },
     {
-      "domain": "Subjective scale \u2014 sleepiness/alertness",
+      "domain": "Performance task \u2014 reasoning",
       "count": 12
     },
     {
-      "domain": "Performance task \u2014 reasoning",
+      "domain": "Subjective scale \u2014 sleepiness/alertness",
       "count": 12
     },
     {
@@ -387,10 +387,6 @@
       "count": 2
     },
     {
-      "domain": "Performance task \u2014 creativity",
-      "count": 1
-    },
-    {
       "domain": "Performance task \u2014 executive function",
       "count": 1
     },
@@ -400,6 +396,10 @@
     },
     {
       "domain": "Performance task \u2014 planning",
+      "count": 1
+    },
+    {
+      "domain": "Performance task \u2014 creativity",
       "count": 1
     },
     {

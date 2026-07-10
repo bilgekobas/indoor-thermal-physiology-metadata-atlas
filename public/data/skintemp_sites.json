@@ -201,34 +201,29 @@
       "count": 1
     },
     {
-      "site": "Ear",
+      "site": "Earlobe",
       "period": "2015\u201316",
       "count": 1
     },
     {
-      "site": "Ear",
+      "site": "Earlobe",
       "period": "2017\u201318",
       "count": 2
     },
     {
-      "site": "Ear",
+      "site": "Earlobe",
       "period": "2019\u201320",
       "count": 2
     },
     {
-      "site": "Ear",
+      "site": "Earlobe",
       "period": "2021\u201322",
       "count": 2
     },
     {
-      "site": "Ear",
-      "period": "2023\u201324",
-      "count": 1
-    },
-    {
       "site": "Earlobe",
       "period": "2023\u201324",
-      "count": 1
+      "count": 2
     },
     {
       "site": "Elbow",
@@ -774,12 +769,12 @@
       "total": 10
     },
     {
-      "site": "Face",
+      "site": "Earlobe",
       "total": 9
     },
     {
-      "site": "Ear",
-      "total": 8
+      "site": "Face",
+      "total": 9
     },
     {
       "site": "Elbow",
@@ -827,10 +822,6 @@
     },
     {
       "site": "Axilla",
-      "total": 1
-    },
-    {
-      "site": "Earlobe",
       "total": 1
     }
   ],

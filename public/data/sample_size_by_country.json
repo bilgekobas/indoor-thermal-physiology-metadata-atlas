@@ -73,20 +73,20 @@
       "max": 43.0
     },
     {
-      "country": "Iran",
-      "count": 4,
-      "median": 30.0,
-      "mean": 72.25,
-      "min": 24.0,
-      "max": 205.0
-    },
-    {
       "country": "Australia",
       "count": 4,
       "median": 22.0,
       "mean": 28.25,
       "min": 13.0,
       "max": 56.0
+    },
+    {
+      "country": "Iran",
+      "count": 4,
+      "median": 30.0,
+      "mean": 72.25,
+      "min": 24.0,
+      "max": 205.0
     },
     {
       "country": "Brazil",

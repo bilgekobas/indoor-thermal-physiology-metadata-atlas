@@ -375,14 +375,8 @@
     {
       "signal": "Heart/Pulse rate",
       "sensing_method": "OHR/PPG",
-      "site": "Ear",
-      "count": 4
-    },
-    {
-      "signal": "Heart/Pulse rate",
-      "sensing_method": "OHR/PPG",
       "site": "Earlobe",
-      "count": 1
+      "count": 5
     },
     {
       "signal": "Heart/Pulse rate",
@@ -687,7 +681,7 @@
     {
       "signal": "Respiration",
       "sensing_method": "BCG",
-      "site": "Ear",
+      "site": "Earlobe",
       "count": 1
     },
     {
@@ -1005,7 +999,7 @@
     {
       "signal": "Skin temperature",
       "sensing_method": "Infrared camera",
-      "site": "Ear",
+      "site": "Earlobe",
       "count": 3
     },
     {
@@ -1125,7 +1119,7 @@
     {
       "signal": "Skin temperature",
       "sensing_method": "Infrared thermometer",
-      "site": "Ear",
+      "site": "Earlobe",
       "count": 3
     },
     {
@@ -1449,14 +1443,8 @@
     {
       "signal": "Skin temperature",
       "sensing_method": "Thermochron",
-      "site": "Ear",
-      "count": 1
-    },
-    {
-      "signal": "Skin temperature",
-      "sensing_method": "Thermochron",
       "site": "Earlobe",
-      "count": 1
+      "count": 2
     },
     {
       "signal": "Skin temperature",
@@ -1605,7 +1593,7 @@
     {
       "signal": "Skin temperature",
       "sensing_method": "Thermocouple",
-      "site": "Ear",
+      "site": "Earlobe",
       "count": 1
     },
     {
