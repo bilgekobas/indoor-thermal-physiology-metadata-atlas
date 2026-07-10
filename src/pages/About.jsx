@@ -97,16 +97,6 @@ export default function About({ data }) {
         </section>
 
         <section>
-          <h2 className="text-[15px] font-semibold mb-2">Reading the atlas</h2>
-          <p className="text-[13.5px] text-inkmid leading-relaxed mb-3">
-            The atlas uses a controlled coding vocabulary so completeness can be compared
-            across categories and over time. The detailed search, screening, inclusion/exclusion,
-            and coding logic now live on the separate Methodology page.
-          </p>
-          <CodeLegend />
-        </section>
-
-        <section>
           <h2 className="text-[15px] font-semibold mb-2">Updating the corpus</h2>
           <p className="text-[13.5px] text-inkmid leading-relaxed">
             This corpus is intended to be re-extracted periodically following the same inclusion criteria 

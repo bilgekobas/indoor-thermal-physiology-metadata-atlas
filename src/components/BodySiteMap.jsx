@@ -84,11 +84,6 @@ const SITE_ALIASES = {
 }
 
 
-const SENSOR_PALETTE = [
-  '#5B5BFF', '#E76F51', '#2A9D8F', '#E9C46A', '#8E63CE',
-  '#F4A261', '#3A86FF', '#D45087', '#4D908E', '#90BE6D',
-]
-
 function sensorEntries(row) {
   const source = row.sensingMethods ?? row.sensing_methods ?? row.by_sensing_method ?? row['physio-sensing-method'] ?? row.sensors ?? row.sensor_types ?? row.sensorTypes ?? row.by_sensor ?? row.bySensor
   if (!source) return []
@@ -110,23 +105,12 @@ function sensorEntries(row) {
     .filter((d) => d.sensor && d.count > 0)
 }
 
-function piePath(cx, cy, r, startAngle, endAngle) {
-  const polar = (angle) => ({
-    x: cx + r * Math.cos(angle - Math.PI / 2),
-    y: cy + r * Math.sin(angle - Math.PI / 2),
-  })
-  const start = polar(endAngle)
-  const end = polar(startAngle)
-  const largeArc = endAngle - startAngle > Math.PI ? 1 : 0
-  return `M ${cx} ${cy} L ${start.x} ${start.y} A ${r} ${r} 0 ${largeArc} 0 ${end.x} ${end.y} Z`
-}
-
 function canonicalSite(site) {
   const raw = String(site || '').trim()
   return SITE_ALIASES[raw.toLowerCase()] || raw
 }
 
-export default function BodySiteMap({ siteData, totalLabel, color = '#5B5BFF', height = 760, sensingMethodColors = {}, sensorColors = {} }) {
+export default function BodySiteMap({ siteData, totalLabel, color = '#5B5BFF', height = 760 }) {
   const { tip, showTip, moveTip, hideTip } = useTooltip()
   const [activeSensor, setActiveSensor] = useState('all')
   const taxonomySrc = `${import.meta.env.BASE_URL}images/anatomical-taxonomy.jpg`
@@ -145,14 +129,16 @@ export default function BodySiteMap({ siteData, totalLabel, color = '#5B5BFF', h
   }), [siteData])
 
   const sensorNames = useMemo(() => {
-    const names = new Set()
-    normalized.forEach((s) => s.sensors.forEach((d) => names.add(d.sensor)))
-    return [...names].sort((a, b) => a.localeCompare(b))
+    const totals = new Map()
+    normalized.forEach((s) => {
+      s.sensors.forEach((d) => {
+        totals.set(d.sensor, (totals.get(d.sensor) || 0) + d.count)
+      })
+    })
+    return [...totals.entries()]
+      .sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]))
+      .map(([name]) => name)
   }, [normalized])
-
-  const sensorColorMap = useMemo(() => Object.fromEntries(
-    sensorNames.map((name, i) => [name, sensingMethodColors[name] || sensorColors[name] || SENSOR_PALETTE[i % SENSOR_PALETTE.length]])
-  ), [sensorNames, sensingMethodColors, sensorColors])
 
   const filtered = useMemo(() => normalized.map((s) => {
     if (activeSensor === 'all') return s
@@ -179,7 +165,7 @@ export default function BodySiteMap({ siteData, totalLabel, color = '#5B5BFF', h
   const SCALE = 1.1
   const mapSize = Math.min(height, 690) * SCALE
   const hasSensorBreakdown = sensorNames.length > 0
-  const activeColor = activeSensor === 'all' ? color : sensorColorMap[activeSensor]
+  const activeColor = color
 
   return (
     <div>
@@ -197,9 +183,8 @@ export default function BodySiteMap({ siteData, totalLabel, color = '#5B5BFF', h
               key={sensor}
               type="button"
               onClick={() => setActiveSensor(sensor)}
-              className={`flex items-center gap-1.5 rounded-full border px-3 py-1.5 text-[11px] transition-colors ${activeSensor === sensor ? 'border-ink bg-ink text-paper' : 'border-line text-inkmid hover:border-inkfaint'}`}
+              className={`rounded-full border px-3 py-1.5 text-[11px] transition-colors ${activeSensor === sensor ? 'border-ink bg-ink text-paper' : 'border-line text-inkmid hover:border-inkfaint'}`}
             >
-              <span className="inline-block h-2 w-2 rounded-full" style={{ backgroundColor: sensorColorMap[sensor] }} />
               {sensor}
             </button>
           ))}
@@ -230,14 +215,8 @@ export default function BodySiteMap({ siteData, totalLabel, color = '#5B5BFF', h
               const cy = fy * TAX_H
               const r = 18 + Math.sqrt(s.count / maxCount) * 46
               const pct = totalLabel?.n ? ((s.count / totalLabel.n) * 100).toFixed(0) : '0'
-              const slices = activeSensor === 'all' ? s.sensors.filter((d) => d.count > 0) : []
-              const sliceTotal = slices.reduce((sum, d) => sum + d.count, 0)
-              const sensorDetail = slices.length
-                ? slices.map((d) => `${d.sensor}: ${d.count}`).join(' · ')
-                : activeSensor !== 'all' ? activeSensor : ''
-              const tipText = `${s.site}: ${s.count} studies (${pct}% of ${totalLabel?.n ?? 0})${sensorDetail ? ` — ${sensorDetail}` : ''}${s.estimated ? ' — position estimated, not a labelled point on the taxonomy' : ''}`
-
-              let angle = 0
+              const sensorDetail = activeSensor !== 'all' ? ` — ${activeSensor}` : ''
+              const tipText = `${s.site}: ${s.count} studies (${pct}% of ${totalLabel?.n ?? 0})${sensorDetail}${s.estimated ? ' — position estimated, not a labelled point on the taxonomy' : ''}`
               return (
                 <g
                   key={s.site}
@@ -246,37 +225,13 @@ export default function BodySiteMap({ siteData, totalLabel, color = '#5B5BFF', h
                   onMouseMove={moveTip}
                   onMouseLeave={hideTip}
                 >
-                  {activeSensor === 'all' && sliceTotal > 0 ? (
-                    <>
-                      {slices.map((slice) => {
-                        const startAngle = angle
-                        const endAngle = angle + (slice.count / sliceTotal) * Math.PI * 2
-                        angle = endAngle
-                        return (
-                          <path
-                            key={slice.sensor}
-                            d={piePath(cx, cy, r, startAngle, endAngle)}
-                            fill={sensorColorMap[slice.sensor]}
-                            fillOpacity={0.82}
-                          />
-                        )
-                      })}
-                      <circle
-                        cx={cx} cy={cy} r={r}
-                        fill="none"
-                        stroke="#FCFCFC" strokeWidth={5}
-                        strokeDasharray={s.estimated ? '10 6' : undefined}
-                      />
-                    </>
-                  ) : (
-                    <circle
-                      cx={cx} cy={cy} r={r}
-                      fill={activeColor} fillOpacity={0.68}
-                      stroke="#FCFCFC" strokeWidth={5}
-                      strokeDasharray={s.estimated ? '10 6' : undefined}
-                      className="hover:fill-opacity-90 transition-[fill-opacity]"
-                    />
-                  )}
+                  <circle
+                    cx={cx} cy={cy} r={r}
+                    fill={activeColor} fillOpacity={0.68}
+                    stroke="#FCFCFC" strokeWidth={5}
+                    strokeDasharray={s.estimated ? '10 6' : undefined}
+                    className="hover:fill-opacity-90 transition-[fill-opacity]"
+                  />
                   <text x={cx} y={cy + 11} fontSize={28} fill="#FCFCFC" stroke="rgba(0,0,0,0.2)" strokeWidth={2} paintOrder="stroke" textAnchor="middle" className="pointer-events-none font-data font-medium">
                     {s.count}
                   </text>
@@ -288,18 +243,8 @@ export default function BodySiteMap({ siteData, totalLabel, color = '#5B5BFF', h
 
         <div className="w-64 shrink-0 pt-2">
           <div className="font-data text-[10px] text-inkfaint mb-3">
-            Marker area ∝ study count. {hasSensorBreakdown && activeSensor === 'all' ? 'Pie slices show sensing-method composition.' : 'Table values use count (% of parent signal).'}
+            Marker area ∝ study count. Table values use count (% of parent signal).
           </div>
-          {hasSensorBreakdown && activeSensor === 'all' && (
-            <div className="mb-3 space-y-1">
-              {sensorNames.map((sensor) => (
-                <div key={sensor} className="flex items-center gap-1.5 text-[10px] text-inkfaint">
-                  <span className="inline-block h-2.5 w-2.5 rounded-sm" style={{ backgroundColor: sensorColorMap[sensor] }} />
-                  {sensor}
-                </div>
-              ))}
-            </div>
-          )}
           {placeable.some((s) => s.estimated) && (
             <div className="font-data text-[10px] text-inkfaint mb-3 flex items-center gap-1.5">
               <svg width="14" height="14"><circle cx="7" cy="7" r="5" fill="none" stroke={activeColor} strokeWidth="1.5" strokeDasharray="3 2" /></svg>
