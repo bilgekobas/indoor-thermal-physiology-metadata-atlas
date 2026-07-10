@@ -29,19 +29,38 @@ const SITE_COORDS = {
   'Back': [1340 / TAX_W, 521 / TAX_H],      // 9PM
   'Lower back': [1340 / TAX_W, 760 / TAX_H],// 14PM (lumbar)
   'Buttocks': [1441 / TAX_W, 859 / TAX_H],  // 16PR
-  'Sole': [1380 / TAX_W, 1700 / TAX_H],     // 24PR (plantar)
+  'Foot (plantar)': [1380 / TAX_W, 1700 / TAX_H], // 24PR, posterior panel, explicitly labelled PLANTAR
 
   'Upper arm': [478 / TAX_W, 580 / TAX_H],  // 11AR
   'Elbow': [476 / TAX_W, 700 / TAX_H],      // 12AR
   'Forearm': [420 / TAX_W, 808 / TAX_H],    // 15R
   'Wrist': [413 / TAX_W, 888 / TAX_H],      // 17R
-  'Hand': [440 / TAX_W, 963 / TAX_H],       // 18AR
+  'Hand (palmar)': [440 / TAX_W, 963 / TAX_H], // 18AR, anterior panel = palm-facing
   'Finger': [365 / TAX_W, 1058 / TAX_H],    // 19AR
 
   'Thigh': [589 / TAX_W, 1120 / TAX_H],     // 20AR
   'Lower leg': [589 / TAX_W, 1420 / TAX_H], // 21AR (shin)
   'Ankle': [589 / TAX_W, 1605 / TAX_H],     // 22AR
-  'Foot': [595 / TAX_W, 1690 / TAX_H],      // 23AR
+  'Foot (dorsal)': [595 / TAX_W, 1690 / TAX_H], // 23AR, anterior panel = top-of-foot
+}
+// Sites below were NOT part of the taxonomy's own numbered sensor-placement
+// points — they're specific enough to place, but there's no labelled dot to
+// read pixel coordinates from, so these are estimated relative to the
+// nearest sourced points above (e.g. Mouth sits between the sourced Nose and
+// Cheek/jaw line). Kept separate from SITE_COORDS to make that distinction
+// visible in code, even though they render identically on the map.
+const SITE_COORDS_ESTIMATED = {
+  'Eye': [660 / TAX_W, 205 / TAX_H],      // between Forehead (1AM) and Nose (3AM)
+  'Mouth': [652 / TAX_W, 292 / TAX_H],    // below Nose (3AM), above chin line
+  'Chin': [652 / TAX_W, 325 / TAX_H],     // below Mouth estimate
+  'Shoulder': [460 / TAX_W, 460 / TAX_H], // lateral to Clavicle (7AR), above Axilla (10R)
+  'Waist': [648 / TAX_W, 650 / TAX_H],    // midway between Chest (8AM) and Abdomen (13AM)
+  // Lower confidence than the rest of this table: there's no PALMAR/DORSAL
+  // legend text next to a dot the way there is for Hand/Foot's anterior
+  // panel, so this was located via pixel-cluster detection on the posterior
+  // panel rather than read off a clearly labelled point. Worth a visual
+  // sanity check against the taxonomy image before treating it as final.
+  'Hand (dorsal)': [1589 / TAX_W, 969 / TAX_H], // posterior panel, candidate 18PR position
 }
 // Sites that genuinely can't be pinned to one point on this taxonomy —
 // either they're not a skin-surface location at all (sample types, core-
@@ -55,11 +74,8 @@ const NON_PLACEABLE_NOTE = {
   'Leg': 'too unspecific to place (could be thigh or lower leg)',
   'Head': 'too unspecific to place (could be any part of the head)',
   'Face': 'too unspecific to place (could be forehead, cheek, temple, or nose)',
-  'Eye': 'not a labelled site on this taxonomy',
-  'Mouth': 'an oral-region site, not part of this skin-site taxonomy',
-  'Chin': 'not a labelled site on this taxonomy',
-  'Shoulder': 'not a distinct labelled site on this taxonomy',
-  'Waist': 'not a labelled site on this taxonomy',
+  'Hand (surface not reported)': "measured on the hand, but whether it's the back (dorsal) or palm side isn't specified in the source paper",
+  'Foot (surface not reported)': "measured on the foot, but whether it's the top (dorsal) or sole side isn't specified in the source paper",
 }
 
 const SITE_ALIASES = {
@@ -95,10 +111,12 @@ export default function BodySiteMap({ siteData, totalLabel, color = '#5B5BFF', h
     const placeable = []
     const unplaceable = []
     normalized.forEach((s) => {
-      if (s.non_anatomical || !SITE_COORDS[s.site]) {
-        unplaceable.push(s)
+      if (SITE_COORDS[s.site]) {
+        placeable.push({ ...s, estimated: false })
+      } else if (SITE_COORDS_ESTIMATED[s.site]) {
+        placeable.push({ ...s, estimated: true })
       } else {
-        placeable.push(s)
+        unplaceable.push(s)
       }
     })
     const maxCount = placeable.reduce((m, s) => (s.count > m ? s.count : m), 1)
@@ -130,7 +148,7 @@ export default function BodySiteMap({ siteData, totalLabel, color = '#5B5BFF', h
               preserveAspectRatio="xMidYMid meet"
             />
             {placeable.map((s) => {
-              const [fx, fy] = SITE_COORDS[s.site]
+              const [fx, fy] = s.estimated ? SITE_COORDS_ESTIMATED[s.site] : SITE_COORDS[s.site]
               const cx = fx * TAX_W
               const cy = fy * TAX_H
               const r = 18 + Math.sqrt(s.count / maxCount) * 46
@@ -141,8 +159,11 @@ export default function BodySiteMap({ siteData, totalLabel, color = '#5B5BFF', h
                     cx={cx} cy={cy} r={r}
                     fill={color} fillOpacity={0.68}
                     stroke="#FCFCFC" strokeWidth={5}
+                    strokeDasharray={s.estimated ? '10 6' : undefined}
                     className="cursor-default hover:fill-opacity-90 transition-[fill-opacity]"
-                    onMouseEnter={(e) => showTip(e, `${s.site}: ${s.count} studies (${pct}% of ${totalLabel.n})`)}
+                    onMouseEnter={(e) => showTip(e, s.estimated
+                      ? `${s.site}: ${s.count} studies (${pct}% of ${totalLabel.n}) — position estimated, not a labelled point on the taxonomy`
+                      : `${s.site}: ${s.count} studies (${pct}% of ${totalLabel.n})`)}
                     onMouseMove={moveTip}
                     onMouseLeave={hideTip}
                   />
@@ -159,6 +180,12 @@ export default function BodySiteMap({ siteData, totalLabel, color = '#5B5BFF', h
           <div className="font-data text-[10px] text-inkfaint mb-3">
             Marker area ∝ study count. Table values use count (% of parent signal).
           </div>
+          {placeable.some((s) => s.estimated) && (
+            <div className="font-data text-[10px] text-inkfaint mb-3 flex items-center gap-1.5">
+              <svg width="14" height="14"><circle cx="7" cy="7" r="5" fill="none" stroke="#5B5BFF" strokeWidth="1.5" strokeDasharray="3 2" /></svg>
+              dashed outline = position estimated (not a labelled taxonomy point)
+            </div>
+          )}
           <div className="space-y-1">
             {[...placeable].sort((a, b) => b.count - a.count).map((s) => (
               <div key={s.site} className="grid grid-cols-[1fr_auto] items-baseline gap-4 text-[12px]">
