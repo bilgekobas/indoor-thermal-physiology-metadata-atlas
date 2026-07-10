@@ -22,10 +22,21 @@ export default function About({ data }) {
         <section>
           <h2 className="text-[15px] font-semibold mb-2">Authorship</h2>
           <p className="text-[13.5px] text-inkmid leading-relaxed">
-            The website was built by Bilge Kobas. The underlying review and metadata work were
-            conducted by Bilge Kobas, Tobias Kramer (CBE Berkeley), Jian Pan (RWTH Aachen), Cynthia
-            Ly (Maastricht), and Matteo Favero (EPFL). OSF registration, Zenodo, and manuscript links
-            will be added here once the corresponding records are public and stable.
+            The underlying review and metadata work were conducted by the following researchers: 
+            <a
+              href="https://www.researchgate.net/profile/Bilge-Kobas"
+              className="text-coreaccent hover:underline"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Bilge Kobas
+            </a>; Technical University of Munich, Chair of Building Technology and Climate Responsive Design,
+            Tobias Kramer; UC Berkeley, Center for the Built Environment, 
+            Jian Pan; RWTH Aachen, Healthy Living Spaces Research Group, 
+            Cynthia Ly; Maastricht University, Faculty of Health, Medicine and Life Sciences,
+            Matteo Favero; EPFL, Human-Oriented Built Environment Lab.
+            
+            OSF registration, Zenodo, and manuscript links will be added here once the corresponding records are public and stable.
           </p>
         </section>
 
