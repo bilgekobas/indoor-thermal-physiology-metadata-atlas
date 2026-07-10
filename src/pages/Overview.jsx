@@ -77,7 +77,7 @@ export default function Overview({ data }) {
         </p>
         <p className="text-[14px] text-inkmid mt-4 max-w-2xl leading-relaxed">
           A structured, re-extractable record of published experiments between {summary.year_min}–{summary.year_max} illustrating the landscape of the field.{' '}
-          <Link to="/about" className="text-coreaccent hover:underline">
+          <Link to="/Methodology" className="text-coreaccent hover:underline">
             Read more on how the current corpus is selected.
           </Link>
         </p>
