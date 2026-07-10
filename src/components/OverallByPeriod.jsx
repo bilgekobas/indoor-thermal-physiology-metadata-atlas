@@ -63,8 +63,11 @@ export function PeriodBarGroup({ periods, periodN, getValue, getTooltip, color =
 
 export function PeriodHeatmap({ rows, periods, periodN, getCount, rowTotals = null, labelWidth = 220, cellWidth = 68, cellHeight = 30, totalLabel = 'Total' }) {
   const { tip, showTip, moveTip, hideTip } = useTooltip()
+  const [cellMode, setCellMode] = useState('pct') // 'pct' | 'count'
+  const [totalMode, setTotalMode] = useState('count') // 'count' | 'pct'
   const totals = rowTotals || Object.fromEntries(rows.map((row) => [row, periods.reduce((a, p) => a + (getCount(row, p) || 0), 0)]))
   const maxTotal = Math.max(...rows.map((row) => totals[row] || 0), 1)
+  const grandTotalN = periodN ? Object.values(periodN).reduce((a, n) => a + n, 0) : null
   const barW = 140
   const colorFor = (pct) => {
     if (!pct) return '#EFEFEF'
@@ -74,8 +77,42 @@ export function PeriodHeatmap({ rows, periods, periodN, getCount, rowTotals = nu
     const b = Math.round(239 + (255 - 239) * t)
     return `rgb(${r},${g},${b})`
   }
+  const lowN = periods.filter((p) => (periodN?.[p] || 0) < 5)
+  const ToggleGroup = ({ value, onChange, options }) => (
+    <div className="flex gap-1">
+      {options.map((opt) => (
+        <button
+          key={opt.value}
+          onClick={() => onChange(opt.value)}
+          className={`px-2 py-0.5 rounded text-[10.5px] font-data transition-colors ${
+            value === opt.value ? 'bg-ink text-paper' : 'bg-line/50 text-inkmid hover:bg-line'
+          }`}
+        >
+          {opt.label}
+        </button>
+      ))}
+    </div>
+  )
   return (
     <div>
+      <div className="flex items-center gap-5 mb-3 flex-wrap">
+        <div className="flex items-center gap-2">
+          <span className="text-[10.5px] text-inkfaint font-data">matrix cells:</span>
+          <ToggleGroup value={cellMode} onChange={setCellMode} options={[{ value: 'pct', label: '%' }, { value: 'count', label: 'count' }]} />
+        </div>
+        <div className="flex items-center gap-2">
+          <span className="text-[10.5px] text-inkfaint font-data">totals:</span>
+          <ToggleGroup value={totalMode} onChange={setTotalMode} options={[{ value: 'count', label: 'count' }, { value: 'pct', label: '% of corpus' }]} />
+        </div>
+        {cellMode === 'pct' && lowN.length > 0 && (
+          <button
+            onClick={() => setCellMode('count')}
+            className="text-[10.5px] font-data text-inkfaint underline decoration-dotted hover:text-ink"
+          >
+            n&lt;5 in {lowN.join(', ')} — view as count?
+          </button>
+        )}
+      </div>
       <div className="inline-block">
         <div className="flex items-end" style={{ marginLeft: labelWidth }}>
           {periods.map((p) => (
@@ -102,24 +139,32 @@ export function PeriodHeatmap({ rows, periods, periodN, getCount, rowTotals = nu
                   onMouseMove={moveTip}
                   onMouseLeave={hideTip}
                 >
-                  {pct > 0 ? `${Math.round(pct)}%` : '–'}
+                  {cellMode === 'count' ? (count > 0 ? count : '–') : (pct > 0 ? `${Math.round(pct)}%` : '–')}
                 </div>
               )
             })}
             <div className="shrink-0 flex items-center gap-2 border-l border-line ml-3 pl-3" style={{ width: barW + 38, height: cellHeight }}>
               <div className="h-4 rounded-sm bg-[#5B5BFF]" style={{ width: `${((totals[row] || 0) / maxTotal) * barW}px` }} />
-              <div className="font-data text-[10px] text-inkmid w-8 text-right">{totals[row] || 0}</div>
+              <div className="font-data text-[10px] text-inkmid w-8 text-right">
+                {totalMode === 'count'
+                  ? (totals[row] || 0)
+                  : `${grandTotalN ? Math.round(((totals[row] || 0) / grandTotalN) * 100) : 0}%`}
+              </div>
             </div>
           </div>
         ))}
       </div>
       <div className="flex items-center gap-4 mt-3 font-data text-[10.5px] text-inkfaint flex-wrap">
-        <span className="flex items-center gap-2">
-          <span>period cell scale:</span>
-          <span className="w-3 h-3 inline-block" style={{ background: '#EFEFEF' }} /> 0%
-          <span className="w-3 h-3 inline-block" style={{ background: colorFor(50) }} /> 50%
-          <span className="w-3 h-3 inline-block" style={{ background: colorFor(100) }} /> 100%
-        </span>
+        {cellMode === 'pct' ? (
+          <span className="flex items-center gap-2">
+            <span>period cell scale:</span>
+            <span className="w-3 h-3 inline-block" style={{ background: '#EFEFEF' }} /> 0%
+            <span className="w-3 h-3 inline-block" style={{ background: colorFor(50) }} /> 50%
+            <span className="w-3 h-3 inline-block" style={{ background: colorFor(100) }} /> 100%
+          </span>
+        ) : (
+          <span>period cell scale: shading still reflects % of that period's studies; numbers show raw count</span>
+        )}
       </div>
       <TooltipPortal tip={tip} />
     </div>
