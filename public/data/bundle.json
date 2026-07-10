@@ -66869,7 +66869,7 @@
         "signal": "Skin temperature",
         "sensing_method": "Thermochron",
         "site": "Foot",
-        "count": 25
+        "count": 26
       },
       {
         "signal": "Skin temperature",
@@ -66918,12 +66918,6 @@
         "sensing_method": "Thermochron",
         "site": "Nose",
         "count": 3
-      },
-      {
-        "signal": "Skin temperature",
-        "sensing_method": "Thermochron",
-        "site": "Sole",
-        "count": 1
       },
       {
         "signal": "Skin temperature",
@@ -67177,7 +67171,7 @@
           "non_anatomical": true
         },
         {
-          "site": "Hand",
+          "site": "Hand (surface not reported)",
           "count": 1,
           "non_anatomical": false
         },
@@ -67251,7 +67245,7 @@
             "count": 4
           },
           {
-            "site": "Hand",
+            "site": "Hand (surface not reported)",
             "period": "2017–18",
             "count": 1
           },
@@ -67372,7 +67366,7 @@
           "non_anatomical": false
         },
         {
-          "site": "Hand",
+          "site": "Hand (dorsal)",
           "count": 1,
           "non_anatomical": false
         },
@@ -67517,7 +67511,7 @@
           }
         },
         {
-          "site": "Hand",
+          "site": "Hand (dorsal)",
           "count": 1,
           "non_anatomical": false,
           "by_signal": {
@@ -67842,34 +67836,79 @@
         "count": 5
       },
       {
-        "site": "Foot",
+        "site": "Foot (dorsal)",
         "period": "2013–14",
         "count": 6
       },
       {
-        "site": "Foot",
+        "site": "Foot (dorsal)",
         "period": "2015–16",
-        "count": 5
+        "count": 3
       },
       {
-        "site": "Foot",
+        "site": "Foot (dorsal)",
+        "period": "2019–20",
+        "count": 4
+      },
+      {
+        "site": "Foot (dorsal)",
+        "period": "2021–22",
+        "count": 14
+      },
+      {
+        "site": "Foot (dorsal)",
+        "period": "2023–24",
+        "count": 8
+      },
+      {
+        "site": "Foot (plantar)",
+        "period": "2013–14",
+        "count": 1
+      },
+      {
+        "site": "Foot (plantar)",
+        "period": "2015–16",
+        "count": 1
+      },
+      {
+        "site": "Foot (plantar)",
         "period": "2017–18",
         "count": 1
       },
       {
-        "site": "Foot",
+        "site": "Foot (plantar)",
         "period": "2019–20",
-        "count": 13
+        "count": 1
       },
       {
-        "site": "Foot",
+        "site": "Foot (plantar)",
         "period": "2021–22",
-        "count": 21
+        "count": 3
       },
       {
-        "site": "Foot",
+        "site": "Foot (surface not reported)",
+        "period": "2015–16",
+        "count": 2
+      },
+      {
+        "site": "Foot (surface not reported)",
+        "period": "2017–18",
+        "count": 1
+      },
+      {
+        "site": "Foot (surface not reported)",
+        "period": "2019–20",
+        "count": 8
+      },
+      {
+        "site": "Foot (surface not reported)",
+        "period": "2021–22",
+        "count": 6
+      },
+      {
+        "site": "Foot (surface not reported)",
         "period": "2023–24",
-        "count": 10
+        "count": 2
       },
       {
         "site": "Forearm",
@@ -67932,34 +67971,89 @@
         "count": 24
       },
       {
-        "site": "Hand",
+        "site": "Hand (dorsal)",
         "period": "2013–14",
+        "count": 7
+      },
+      {
+        "site": "Hand (dorsal)",
+        "period": "2015–16",
+        "count": 6
+      },
+      {
+        "site": "Hand (dorsal)",
+        "period": "2017–18",
+        "count": 11
+      },
+      {
+        "site": "Hand (dorsal)",
+        "period": "2019–20",
         "count": 10
       },
       {
-        "site": "Hand",
-        "period": "2015–16",
-        "count": 9
-      },
-      {
-        "site": "Hand",
-        "period": "2017–18",
-        "count": 21
-      },
-      {
-        "site": "Hand",
-        "period": "2019–20",
-        "count": 24
-      },
-      {
-        "site": "Hand",
+        "site": "Hand (dorsal)",
         "period": "2021–22",
-        "count": 42
+        "count": 34
       },
       {
-        "site": "Hand",
+        "site": "Hand (dorsal)",
         "period": "2023–24",
-        "count": 24
+        "count": 14
+      },
+      {
+        "site": "Hand (palmar)",
+        "period": "2013–14",
+        "count": 3
+      },
+      {
+        "site": "Hand (palmar)",
+        "period": "2015–16",
+        "count": 1
+      },
+      {
+        "site": "Hand (palmar)",
+        "period": "2019–20",
+        "count": 2
+      },
+      {
+        "site": "Hand (palmar)",
+        "period": "2021–22",
+        "count": 2
+      },
+      {
+        "site": "Hand (palmar)",
+        "period": "2023–24",
+        "count": 3
+      },
+      {
+        "site": "Hand (surface not reported)",
+        "period": "2013–14",
+        "count": 1
+      },
+      {
+        "site": "Hand (surface not reported)",
+        "period": "2015–16",
+        "count": 3
+      },
+      {
+        "site": "Hand (surface not reported)",
+        "period": "2017–18",
+        "count": 10
+      },
+      {
+        "site": "Hand (surface not reported)",
+        "period": "2019–20",
+        "count": 12
+      },
+      {
+        "site": "Hand (surface not reported)",
+        "period": "2021–22",
+        "count": 7
+      },
+      {
+        "site": "Hand (surface not reported)",
+        "period": "2023–24",
+        "count": 7
       },
       {
         "site": "Head",
@@ -68122,11 +68216,6 @@
         "count": 1
       },
       {
-        "site": "Sole",
-        "period": "2017–18",
-        "count": 1
-      },
-      {
         "site": "Temple",
         "period": "2019–20",
         "count": 3
@@ -68243,10 +68332,6 @@
         "total": 136
       },
       {
-        "site": "Hand",
-        "total": 130
-      },
-      {
         "site": "Thigh",
         "total": 128
       },
@@ -68267,12 +68352,12 @@
         "total": 100
       },
       {
-        "site": "Back",
-        "total": 79
+        "site": "Hand (dorsal)",
+        "total": 82
       },
       {
-        "site": "Foot",
-        "total": 56
+        "site": "Back",
+        "total": 79
       },
       {
         "site": "Wrist",
@@ -68283,12 +68368,24 @@
         "total": 42
       },
       {
+        "site": "Hand (surface not reported)",
+        "total": 40
+      },
+      {
+        "site": "Foot (dorsal)",
+        "total": 35
+      },
+      {
         "site": "Neck",
         "total": 30
       },
       {
         "site": "Cheek",
         "total": 22
+      },
+      {
+        "site": "Foot (surface not reported)",
+        "total": 19
       },
       {
         "site": "Finger",
@@ -68301,6 +68398,10 @@
       {
         "site": "Temple",
         "total": 12
+      },
+      {
+        "site": "Hand (palmar)",
+        "total": 11
       },
       {
         "site": "Ankle",
@@ -68321,6 +68422,10 @@
       {
         "site": "Face",
         "total": 9
+      },
+      {
+        "site": "Foot (plantar)",
+        "total": 7
       },
       {
         "site": "Elbow",
@@ -68356,10 +68461,6 @@
       },
       {
         "site": "Shoulder",
-        "total": 1
-      },
-      {
-        "site": "Sole",
         "total": 1
       },
       {
@@ -74086,7 +74187,7 @@
     "n_variables": 205,
     "year_min": 2013,
     "year_max": 2024,
-    "generated_at": "2026-07-10T16:33:56.524509"
+    "generated_at": "2026-07-10T17:00:59.662068"
   },
   "world-countries-110m": {
     "type": "Topology",

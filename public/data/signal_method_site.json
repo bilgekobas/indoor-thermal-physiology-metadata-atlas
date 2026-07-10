@@ -1468,7 +1468,7 @@
       "signal": "Skin temperature",
       "sensing_method": "Thermochron",
       "site": "Foot",
-      "count": 25
+      "count": 26
     },
     {
       "signal": "Skin temperature",
@@ -1517,12 +1517,6 @@
       "sensing_method": "Thermochron",
       "site": "Nose",
       "count": 3
-    },
-    {
-      "signal": "Skin temperature",
-      "sensing_method": "Thermochron",
-      "site": "Sole",
-      "count": 1
     },
     {
       "signal": "Skin temperature",

@@ -167,11 +167,55 @@ SITE_MERGE = {
     'Lumbar':'Lower back',
     'Scapula':'Back',
 }
-skin = df[df['physio-parameter']=='Skin temperature'][['id','period','physio-body-site']].copy()
+
+# Hand and Foot are measured on genuinely different surfaces (back-of-hand
+# vs. palm; top-of-foot vs. sole) that the body-diagram should show as
+# distinct points rather than one averaged location. `physio-body-site-
+# surface` carries this (Dorsal / Palmar-Plantar / Anterior / Posterior /
+# NR / NAN). A handful of Hand/Foot rows use Anterior/Posterior instead of
+# the anatomically-correct Dorsal/Palmar-Plantar terms for an extremity —
+# this looks like the same kind of inconsistent-vocabulary issue as the
+# known NAN-vs-NR data-entry quirk, not a distinct third surface, so we
+# fold them in (Anterior=Palmar for a hand, front of a standing foot;
+# Posterior=Dorsal for a hand, back of a standing foot). Rows with NR/NAN
+# surface keep an honest 'surface not reported' label rather than guessing.
+HAND_FOOT_SURFACE_MAP = {
+    ('Hand', 'Dorsal'): 'Hand (dorsal)', ('Hand', 'Posterior'): 'Hand (dorsal)',
+    ('Hand', 'Palmar/Plantar'): 'Hand (palmar)', ('Hand', 'Anterior'): 'Hand (palmar)',
+    ('Foot', 'Dorsal'): 'Foot (dorsal)', ('Foot', 'Anterior'): 'Foot (dorsal)',
+    ('Foot', 'Palmar/Plantar'): 'Foot (plantar)', ('Foot', 'Posterior'): 'Foot (plantar)',
+}
+
+def split_hand_foot_surface(frame):
+    """Combine physio-body-site + physio-body-site-surface into a distinct
+    dorsal/palmar(-plantar) site label for Hand and Foot rows. Leaves every
+    other site untouched. Also folds the rare literal 'Sole' label straight
+    into 'Foot (plantar)', since the raw site name already tells us the
+    surface regardless of what the surface column says."""
+    frame = frame.copy()
+    frame['physio-body-site-surface'] = frame.get('physio-body-site-surface', pd.Series(index=frame.index, dtype=object))
+    key = list(zip(frame['physio-body-site'], frame['physio-body-site-surface']))
+    mapped = [HAND_FOOT_SURFACE_MAP.get(k) for k in key]
+    is_hand_foot = frame['physio-body-site'].isin(['Hand', 'Foot'])
+    fallback = np.where(
+        frame['physio-body-site'] == 'Hand', 'Hand (surface not reported)',
+        np.where(frame['physio-body-site'] == 'Foot', 'Foot (surface not reported)', frame['physio-body-site']),
+    )
+    frame['physio-body-site'] = np.where(
+        is_hand_foot,
+        [m if m else f for m, f in zip(mapped, fallback)],
+        frame['physio-body-site'],
+    )
+    frame.loc[frame['physio-body-site'].astype(str).str.strip() == 'Sole', 'physio-body-site'] = 'Foot (plantar)'
+    return frame
+skin = df[df['physio-parameter']=='Skin temperature'][['id','period','physio-body-site','physio-body-site-surface']].copy()
 skin = skin[~skin['physio-body-site'].isin(CODES)]
 skin = skin[skin['physio-body-site'].notna()]
 skin['physio-body-site'] = skin['physio-body-site'].astype(str).str.strip()
+skin = split_hand_foot_surface(skin)
 skin['site'] = skin['physio-body-site'].replace(SITE_MERGE)
+hf_check = skin[skin['site'].astype(str).str.startswith(('Hand (', 'Foot ('))]
+print(f"hand/foot surface split: {hf_check['site'].value_counts().to_dict()}")
 skin_dedup = skin.drop_duplicates(subset=['id','site'])
 
 site_period_counts = skin_dedup.groupby(['site','period']).size().reset_index(name='count')
@@ -1514,9 +1558,10 @@ NON_ANATOMICAL_SITES = {'Whole body', 'Urine', 'Limbs'}
 SITE_SIGNALS = ['Heart/Pulse rate', 'Skin conductance', 'Sweat indicators']
 site_by_signal = {}
 for sig in SITE_SIGNALS:
-    sub = df[df['physio-parameter'] == sig][['id', 'physio-body-site']].copy()
+    sub = df[df['physio-parameter'] == sig][['id', 'physio-body-site', 'physio-body-site-surface']].copy()
     sub['physio-body-site'] = sub['physio-body-site'].astype(str).str.strip()
     sub = sub[~sub['physio-body-site'].isin(CODES) & (sub['physio-body-site'] != 'nan')]
+    sub = split_hand_foot_surface(sub)
     sub['physio-body-site'] = sub['physio-body-site'].replace(SITE_MERGE)
     sub_dedup = sub.drop_duplicates(subset=['id', 'physio-body-site'])
     totals = sub_dedup['physio-body-site'].value_counts()
@@ -1532,9 +1577,10 @@ for sig in SITE_SIGNALS:
 # skin conductance (25) and sweat indicators (32) would average under 5
 # studies per two-year bin, too thin to split six ways — shown overall only,
 # same reasoning already applied to the environmental co-occurrence matrix.
-hr_sub = df[df['physio-parameter'] == 'Heart/Pulse rate'][['id', 'physio-body-site']].copy()
+hr_sub = df[df['physio-parameter'] == 'Heart/Pulse rate'][['id', 'physio-body-site', 'physio-body-site-surface']].copy()
 hr_sub['physio-body-site'] = hr_sub['physio-body-site'].astype(str).str.strip()
 hr_sub = hr_sub[~hr_sub['physio-body-site'].isin(CODES) & (hr_sub['physio-body-site'] != 'nan')]
+hr_sub = split_hand_foot_surface(hr_sub)
 hr_sub['physio-body-site'] = hr_sub['physio-body-site'].replace(SITE_MERGE)
 hr_sub = hr_sub.merge(studies_u[['id', 'period']], on='id', how='left')
 hr_dedup = hr_sub.drop_duplicates(subset=['id', 'physio-body-site'])

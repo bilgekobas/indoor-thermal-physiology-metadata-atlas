@@ -32,7 +32,7 @@
         "non_anatomical": true
       },
       {
-        "site": "Hand",
+        "site": "Hand (surface not reported)",
         "count": 1,
         "non_anatomical": false
       },
@@ -106,7 +106,7 @@
           "count": 4
         },
         {
-          "site": "Hand",
+          "site": "Hand (surface not reported)",
           "period": "2017\u201318",
           "count": 1
         },
@@ -227,7 +227,7 @@
         "non_anatomical": false
       },
       {
-        "site": "Hand",
+        "site": "Hand (dorsal)",
         "count": 1,
         "non_anatomical": false
       },
@@ -372,7 +372,7 @@
         }
       },
       {
-        "site": "Hand",
+        "site": "Hand (dorsal)",
         "count": 1,
         "non_anatomical": false,
         "by_signal": {
