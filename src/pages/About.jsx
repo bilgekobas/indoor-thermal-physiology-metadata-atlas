@@ -42,9 +42,8 @@ export default function About({ data }) {
         <section>
           <h2 className="text-[15px] font-semibold mb-2">Updating the corpus</h2>
           <p className="text-[13.5px] text-inkmid leading-relaxed">
-            This corpus is intended to be re-extracted periodically (roughly every five years)
-            following the same inclusion criteria and coding conventions documented in the
-            repository's <code className="font-data text-[12px]">README.md</code> and{' '}
+            This corpus is intended to be re-extracted periodically following the same inclusion criteria 
+            and coding conventions documented in the repository's <code className="font-data text-[12px]">README.md</code> and{' '}
             <code className="font-data text-[12px]">variable_dictionary.csv</code>. Each release
             is versioned; this site always reflects the latest committed dataset.
           </p>
