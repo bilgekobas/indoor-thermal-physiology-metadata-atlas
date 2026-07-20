@@ -98,16 +98,11 @@
     {
       "signal": "Blood pressure",
       "physio-sensing-method": "Digital sphygmomanometer",
-      "count": 40
+      "count": 41
     },
     {
       "signal": "Blood pressure",
       "physio-sensing-method": "Sonomic pick-up",
-      "count": 1
-    },
-    {
-      "signal": "Blood pressure",
-      "physio-sensing-method": "Sphygmomanometer",
       "count": 1
     },
     {
@@ -238,12 +233,7 @@
     {
       "signal": "Heart/Pulse rate",
       "physio-sensing-method": "OHR/PPG",
-      "count": 29
-    },
-    {
-      "signal": "Heart/Pulse rate",
-      "physio-sensing-method": "PPG",
-      "count": 1
+      "count": 30
     },
     {
       "signal": "Heart/Pulse rate",
@@ -372,13 +362,8 @@
     },
     {
       "signal": "Skin conductance",
-      "physio-sensing-method": "EDA",
-      "count": 1
-    },
-    {
-      "signal": "Skin conductance",
       "physio-sensing-method": "EDA/GSR",
-      "count": 1
+      "count": 2
     },
     {
       "signal": "Skin conductance",
@@ -423,7 +408,7 @@
     {
       "signal": "Skin temperature",
       "physio-sensing-method": "Infrared thermopile",
-      "count": 12
+      "count": 13
     },
     {
       "signal": "Skin temperature",
@@ -443,7 +428,7 @@
     {
       "signal": "Skin temperature",
       "physio-sensing-method": "Thermochron",
-      "count": 76
+      "count": 75
     },
     {
       "signal": "Skin temperature",
@@ -674,18 +659,12 @@
       "signal": "Blood pressure",
       "physio-sensing-method": "Digital sphygmomanometer",
       "period": "2023\u201324",
-      "count": 14
+      "count": 15
     },
     {
       "signal": "Blood pressure",
       "physio-sensing-method": "Sonomic pick-up",
       "period": "2015\u201316",
-      "count": 1
-    },
-    {
-      "signal": "Blood pressure",
-      "physio-sensing-method": "Sphygmomanometer",
-      "period": "2023\u201324",
       "count": 1
     },
     {
@@ -1094,13 +1073,7 @@
       "signal": "Heart/Pulse rate",
       "physio-sensing-method": "OHR/PPG",
       "period": "2023\u201324",
-      "count": 12
-    },
-    {
-      "signal": "Heart/Pulse rate",
-      "physio-sensing-method": "PPG",
-      "period": "2023\u201324",
-      "count": 1
+      "count": 13
     },
     {
       "signal": "Heart/Pulse rate",
@@ -1428,15 +1401,9 @@
     },
     {
       "signal": "Skin conductance",
-      "physio-sensing-method": "EDA",
-      "period": "2023\u201324",
-      "count": 1
-    },
-    {
-      "signal": "Skin conductance",
       "physio-sensing-method": "EDA/GSR",
       "period": "2023\u201324",
-      "count": 1
+      "count": 2
     },
     {
       "signal": "Skin conductance",
@@ -1598,7 +1565,7 @@
       "signal": "Skin temperature",
       "physio-sensing-method": "Infrared thermopile",
       "period": "2023\u201324",
-      "count": 7
+      "count": 8
     },
     {
       "signal": "Skin temperature",
@@ -1700,7 +1667,7 @@
       "signal": "Skin temperature",
       "physio-sensing-method": "Thermochron",
       "period": "2023\u201324",
-      "count": 26
+      "count": 25
     },
     {
       "signal": "Skin temperature",

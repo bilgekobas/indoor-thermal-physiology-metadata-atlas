@@ -177,6 +177,11 @@
     },
     {
       "physio-sensing-method": "Digital sphygmomanometer",
+      "physio-sensor-brand": "ADInstruments",
+      "count": 1
+    },
+    {
+      "physio-sensing-method": "Digital sphygmomanometer",
       "physio-sensor-brand": "Andon",
       "count": 2
     },
@@ -311,14 +316,9 @@
       "count": 2
     },
     {
-      "physio-sensing-method": "EDA",
-      "physio-sensor-brand": "Empatica",
-      "count": 1
-    },
-    {
       "physio-sensing-method": "EDA/GSR",
       "physio-sensor-brand": "Empatica",
-      "count": 1
+      "count": 2
     },
     {
       "physio-sensing-method": "EMG",
@@ -568,7 +568,7 @@
     {
       "physio-sensing-method": "Infrared thermopile",
       "physio-sensor-brand": "Empatica",
-      "count": 12
+      "count": 13
     },
     {
       "physio-sensing-method": "Ingestible pill",
@@ -668,7 +668,7 @@
     {
       "physio-sensing-method": "OHR/PPG",
       "physio-sensor-brand": "Empatica",
-      "count": 13
+      "count": 14
     },
     {
       "physio-sensing-method": "OHR/PPG",
@@ -728,11 +728,6 @@
     {
       "physio-sensing-method": "Osmometer",
       "physio-sensor-brand": "Pocket-Pal",
-      "count": 1
-    },
-    {
-      "physio-sensing-method": "PPG",
-      "physio-sensor-brand": "Empatica",
       "count": 1
     },
     {
@@ -856,11 +851,6 @@
       "count": 1
     },
     {
-      "physio-sensing-method": "Sphygmomanometer",
-      "physio-sensor-brand": "ADInstruments",
-      "count": 1
-    },
-    {
       "physio-sensing-method": "Step count",
       "physio-sensor-brand": "Fitbit",
       "count": 1
@@ -934,11 +924,6 @@
       "physio-sensing-method": "Thermistor",
       "physio-sensor-brand": "Vernier",
       "count": 4
-    },
-    {
-      "physio-sensing-method": "Thermochron",
-      "physio-sensor-brand": "Empatica",
-      "count": 1
     },
     {
       "physio-sensing-method": "Thermochron",

@@ -122,6 +122,14 @@ function SignalSensorBrandSankey({ overall, brandModelData }) {
   // Selection state for click-to-isolate: null = nothing selected (show
   // everything at normal opacity). Otherwise { level: 'signal'|'sensor'|'brand', name }.
   const [selected, setSelected] = useState(null)
+  // 'bySensor' = brand's real parent is its sensor type, so the same brand
+  // name can appear as several separate nodes if it's sold under more than
+  // one sensor type (e.g. a brand making both wrist PPG and chest-strap ECG
+  // devices). 'collapsed' merges those into a single node per brand name,
+  // trading the sensor-type-accurate parentage for an at-a-glance "which
+  // brands dominate overall" view.
+  const [brandMode, setBrandMode] = useState('bySensor')
+  const COLLAPSED_TOP_N = 15
 
   const layout = useMemo(() => {
     const sigTotals = {}
@@ -179,16 +187,67 @@ function SignalSensorBrandSankey({ overall, brandModelData }) {
     // shown as a node, but remain visible via the sensor-type node's own
     // total and the chapter's brand reference table (/devices) for anyone
     // who needs the full list.
-    const brandEntries = []
-    const brandLinksRaw = [] // { sensorType, brandKey, count }
-    sensorEntries.forEach((sen) => {
-      const brands = brandsBySensorType[sen.name] || {}
-      const sorted = Object.entries(brands).sort((a, b) => b[1] - a[1]).slice(0, 3)
-      sorted.forEach(([name, count]) => {
-        const key = `${sen.name}::${name}`
-        brandEntries.push({ key, name, total: count, sensorType: sen.name, color: sen.color })
-        brandLinksRaw.push({ sensorType: sen.name, brandKey: key, count })
+    let brandEntries = []
+    let brandLinksRaw = [] // { sensorType, brandKey, count }
+
+    if (brandMode === 'bySensor') {
+      sensorEntries.forEach((sen) => {
+        const brands = brandsBySensorType[sen.name] || {}
+        const sorted = Object.entries(brands).sort((a, b) => b[1] - a[1]).slice(0, 3)
+        sorted.forEach(([name, count]) => {
+          const key = `${sen.name}::${name}`
+          brandEntries.push({ key, name, total: count, sensorType: sen.name, color: sen.color })
+          brandLinksRaw.push({ sensorType: sen.name, brandKey: key, count })
+        })
       })
+    } else {
+      // Collapsed: same underlying per-(sensor type, brand) counts, but now
+      // summed across ALL sensor types a brand appears under before ranking
+      // -- this is the whole point of the toggle, so a brand split across
+      // several sensor-type paths (e.g. a wearable maker selling both PPG
+      // and skin-temperature devices) shows up as one node sized by its
+      // true combined total, not fragmented into several smaller ones.
+      const collapsedTotals = {} // brand -> total across all sensor types
+      Object.values(brandsBySensorType).forEach((brands) => {
+        Object.entries(brands).forEach(([name, count]) => {
+          collapsedTotals[name] = (collapsedTotals[name] || 0) + count
+        })
+      })
+      const topBrandNames = Object.entries(collapsedTotals)
+        .sort((a, b) => b[1] - a[1])
+        .slice(0, COLLAPSED_TOP_N)
+        .map(([name]) => name)
+
+      topBrandNames.forEach((name) => {
+        // Colour/primary sensor type: whichever sensor type contributes the
+        // largest share of this brand's total (matches the same
+        // "primary domain" convention already used for sensorEntries above).
+        const perSensor = sensorEntries
+          .map((sen) => ({ sen, count: (brandsBySensorType[sen.name] || {})[name] || 0 }))
+          .filter((r) => r.count > 0)
+          .sort((a, b) => b.count - a.count)
+        const primarySensor = perSensor[0]?.sen
+        const key = `collapsed::${name}`
+        brandEntries.push({
+          key, name, total: collapsedTotals[name], color: primarySensor?.color || '#8A8A8A',
+          sensorType: primarySensor?.name, contributingSensors: perSensor.map((r) => r.sen.name),
+        })
+        // One link per contributing sensor type, so the fan-in is visible
+        // rather than collapsing the incoming paths too.
+        perSensor.forEach(({ sen, count }) => {
+          brandLinksRaw.push({ sensorType: sen.name, brandKey: key, count })
+        })
+      })
+    }
+
+    // brandKey -> [contributing sensor type names]. Built from the actual
+    // links rather than by parsing the key string, since collapsed keys
+    // ('collapsed::Brand') don't encode a sensor type the way bySensor keys
+    // ('SensorType::Brand') do -- this keeps isActive() correct in both modes.
+    const brandSensorMap = {}
+    brandLinksRaw.forEach((r) => {
+      if (!brandSensorMap[r.brandKey]) brandSensorMap[r.brandKey] = []
+      brandSensorMap[r.brandKey].push(r.sensorType)
     })
 
     const COL_SIGNAL = 190, COL_SENSOR = 440, COL_BRAND = 700
@@ -229,8 +288,11 @@ function SignalSensorBrandSankey({ overall, brandModelData }) {
       signalDenom: signalEntries.reduce((a, d) => a + d.total, 0) || 1,
       sensorDenom: sensorEntries.reduce((a, d) => a + d.total, 0) || 1,
       nTotalBrands: new Set(brandModelData.filter((r) => r.brand !== 'NR').map((r) => r.brand)).size,
+      brandDenom: brandEntries.reduce((a, d) => a + d.total, 0) || 1,
+      brandSensorMap,
+      brandMode,
     }
-  }, [overall, brandModelData])
+  }, [overall, brandModelData, brandMode])
 
   // Is a given link/node "active" under the current selection? Returns
   // true if nothing is selected (show everything normally) or if the
@@ -244,22 +306,22 @@ function SignalSensorBrandSankey({ overall, brandModelData }) {
       if (obj.signal === selected.name) return true
       if (obj.sensor && connectedSensors.has(obj.sensor)) return true
       if (obj.brandKey) {
-        const sensorOfBrand = obj.brandKey.split('::')[0]
-        return connectedSensors.has(sensorOfBrand)
+        const sensorsOfBrand = layout.brandSensorMap[obj.brandKey] || []
+        return sensorsOfBrand.some((s) => connectedSensors.has(s))
       }
       return false
     }
     if (selected.level === 'sensor') {
       if (obj.sensor === selected.name) return true
       if (obj.signal) return layout.sigSenLinks.some((l) => l.sensor === selected.name && l.signal === obj.signal)
-      if (obj.brandKey) return obj.brandKey.split('::')[0] === selected.name
+      if (obj.brandKey) return (layout.brandSensorMap[obj.brandKey] || []).includes(selected.name)
       return false
     }
     if (selected.level === 'brand') {
-      const sensorOfBrand = selected.name.split('::')[0]
+      const sensorsOfSelectedBrand = layout.brandSensorMap[selected.name] || []
       if (obj.brandKey === selected.name) return true
-      if (obj.sensor === sensorOfBrand) return true
-      if (obj.signal) return layout.sigSenLinks.some((l) => l.sensor === sensorOfBrand && l.signal === obj.signal)
+      if (obj.sensor && sensorsOfSelectedBrand.includes(obj.sensor)) return true
+      if (obj.signal) return sensorsOfSelectedBrand.some((s) => layout.sigSenLinks.some((l) => l.sensor === s && l.signal === obj.signal))
       return false
     }
     return true
@@ -289,6 +351,27 @@ function SignalSensorBrandSankey({ overall, brandModelData }) {
           ✕ clear selection ({selected.name})
         </button>
       )}
+      <div className="flex items-center gap-2 mb-3">
+        <span className="text-[10.5px] text-inkfaint font-data">brand column:</span>
+        <div className="flex gap-1">
+          <button
+            onClick={() => { setBrandMode('bySensor'); setSelected(null) }}
+            className={`px-2 py-0.5 rounded text-[10.5px] font-data transition-colors ${
+              brandMode === 'bySensor' ? 'bg-ink text-paper' : 'bg-line/50 text-inkmid hover:bg-line'
+            }`}
+          >
+            by sensor type
+          </button>
+          <button
+            onClick={() => { setBrandMode('collapsed'); setSelected(null) }}
+            className={`px-2 py-0.5 rounded text-[10.5px] font-data transition-colors ${
+              brandMode === 'collapsed' ? 'bg-ink text-paper' : 'bg-line/50 text-inkmid hover:bg-line'
+            }`}
+          >
+            collapsed by brand
+          </button>
+        </div>
+      </div>
       <div className="flex flex-wrap gap-3 mb-4">
         {DOMAIN_ORDER.map((name) => (
           <div key={name} className="flex items-center gap-1.5 text-[11px] text-inkmid">
@@ -303,7 +386,9 @@ function SignalSensorBrandSankey({ overall, brandModelData }) {
               never overlap the topmost node regardless of column height. */}
           <text x={190} y={14} fontSize={10} fill="#8A8A8A" fontWeight="600">SIGNAL</text>
           <text x={440} y={14} fontSize={10} fill="#8A8A8A" fontWeight="600">SENSOR TYPE</text>
-          <text x={700} y={14} fontSize={10} fill="#8A8A8A" fontWeight="600">SENSOR BRAND (top 3 per sensor type)</text>
+          <text x={700} y={14} fontSize={10} fill="#8A8A8A" fontWeight="600">
+            {brandMode === 'bySensor' ? 'SENSOR BRAND (top 3 per sensor type)' : `SENSOR BRAND (top ${COLLAPSED_TOP_N}, collapsed across sensor types)`}
+          </text>
           <g transform="translate(0, 24)">
             {layout.sigSenLinks.map((l, i) => (<FlowPath key={`ss-${i}`} link={l} color={l.color} maxFlow={layout.maxFlow} />))}
             {layout.senBrandLinks.map((l, i) => (<FlowPath key={`sb-${i}`} link={l} color={l.color} maxFlow={layout.maxFlow} />))}
@@ -333,12 +418,20 @@ function SignalSensorBrandSankey({ overall, brandModelData }) {
             })}
             {layout.brand.map((n) => {
               const active = isActive({ sensor: n.sensorType, brandKey: n.key })
-              const senTotal = layout.sensor.find((s) => s.name === n.sensorType)?.total || n.total
-              const pct = ((n.total / senTotal) * 100).toFixed(0)
+              const sensorsOfBrand = layout.brandSensorMap[n.key] || []
+              const pct = brandMode === 'bySensor'
+                ? (() => {
+                    const senTotal = layout.sensor.find((s) => s.name === n.sensorType)?.total || n.total
+                    return ((n.total / senTotal) * 100).toFixed(0)
+                  })()
+                : ((n.total / layout.brandDenom) * 100).toFixed(0)
+              const tipText = brandMode === 'bySensor'
+                ? `${n.name}: ${n.total} studies (${pct}% of ${n.sensorType}) — click to isolate`
+                : `${n.name}: ${n.total} studies across ${sensorsOfBrand.length} sensor type${sensorsOfBrand.length === 1 ? '' : 's'} (${sensorsOfBrand.join(', ')}) — click to isolate`
               return (
                 <g key={n.key}
                   onClick={() => setSelected(selected?.level === 'brand' && selected.name === n.key ? null : { level: 'brand', name: n.key })}
-                  onMouseEnter={(e) => showTip(e, `${n.name}: ${n.total} studies (${pct}% of ${n.sensorType}) — click to isolate`)}
+                  onMouseEnter={(e) => showTip(e, tipText)}
                   onMouseMove={moveTip} onMouseLeave={hideTip}
                   className="cursor-pointer" style={{ opacity: active ? 1 : 0.2 }}>
                   <rect x={n.x} y={n.y} width={14} height={n.h} fill={n.color} rx={2} />
@@ -352,7 +445,8 @@ function SignalSensorBrandSankey({ overall, brandModelData }) {
         </svg>
       </div>
       <p className="font-data text-[10px] text-inkfaint mt-2">
-        Flow width and node height are proportional to study count; node and link colours mark physiological signal families; the central thermal-state family is highlighted in yellow. Node labels use one format throughout: name, study count, and percentage in parentheses. Signal and sensor-type percentages are within their displayed column; brand percentages are relative to the parent sensor type. Link hover reports the percentage relative to the immediate parent node. Click any signal, sensor type, or brand to highlight all connected paths and rows across all three columns.
+        Flow width and node height are proportional to study count; node and link colours mark physiological signal families; the central thermal-state family is highlighted in yellow. Node labels use one format throughout: name, study count, and percentage in parentheses. Signal and sensor-type percentages are within their displayed column. Link hover reports the percentage relative to the immediate parent node. Click any signal, sensor type, or brand to highlight all connected paths and rows across all three columns.
+        {' '}The brand-column toggle above switches between two parentages for the same underlying counts: "by sensor type" keeps each brand's node scoped to one sensor type (so a brand sold under two sensor types appears as two smaller nodes, and its brand percentage is relative to that one sensor type's total); "collapsed by brand" merges those into a single node per brand name with links fanning in from every sensor type it's used under (brand percentage is then relative to the top-{COLLAPSED_TOP_N} brands shown, not to any one sensor type).
       </p>
       <TooltipPortal tip={tip} />
     </div>

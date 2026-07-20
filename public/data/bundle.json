@@ -125,6 +125,16 @@
       {
         "signal": "Blood pressure",
         "sensing_method": "Digital sphygmomanometer",
+        "brand": "ADInstruments",
+        "model": "LTS2060",
+        "count": 1,
+        "study_ids": [
+          "1207_1"
+        ]
+      },
+      {
+        "signal": "Blood pressure",
+        "sensing_method": "Digital sphygmomanometer",
         "brand": "Andon",
         "model": "BP-5",
         "count": 1,
@@ -330,16 +340,6 @@
         "count": 1,
         "study_ids": [
           "1012_1"
-        ]
-      },
-      {
-        "signal": "Blood pressure",
-        "sensing_method": "Sphygmomanometer",
-        "brand": "ADInstruments",
-        "model": "LTS2060",
-        "count": 1,
-        "study_ids": [
-          "1207_1"
         ]
       },
       {
@@ -888,7 +888,7 @@
         "sensing_method": "OHR/PPG",
         "brand": "Empatica",
         "model": "E4",
-        "count": 13,
+        "count": 14,
         "study_ids": [
           "1040_1",
           "1045_1",
@@ -897,6 +897,7 @@
           "1155_1",
           "1157_1",
           "1218_1",
+          "1230_1",
           "1234_1",
           "1235_1",
           "1243_1",
@@ -1525,16 +1526,6 @@
         "count": 1,
         "study_ids": [
           "1132_1"
-        ]
-      },
-      {
-        "signal": "Heart/Pulse rate",
-        "sensing_method": "PPG",
-        "brand": "Empatica",
-        "model": "E4",
-        "count": 1,
-        "study_ids": [
-          "1230_1"
         ]
       },
       {
@@ -2244,6 +2235,17 @@
       },
       {
         "signal": "Skin conductance",
+        "sensing_method": "EDA/GSR",
+        "brand": "Empatica",
+        "model": "E4",
+        "count": 2,
+        "study_ids": [
+          "1230_1",
+          "1271_1"
+        ]
+      },
+      {
+        "signal": "Skin conductance",
         "sensing_method": "GSR/EDA",
         "brand": "Shimmer Sensing",
         "model": "Shimmer 3 GSR+",
@@ -2251,26 +2253,6 @@
         "study_ids": [
           "1122_1",
           "1201_1"
-        ]
-      },
-      {
-        "signal": "Skin conductance",
-        "sensing_method": "EDA",
-        "brand": "Empatica",
-        "model": "E4",
-        "count": 1,
-        "study_ids": [
-          "1230_1"
-        ]
-      },
-      {
-        "signal": "Skin conductance",
-        "sensing_method": "EDA/GSR",
-        "brand": "Empatica",
-        "model": "E4",
-        "count": 1,
-        "study_ids": [
-          "1271_1"
         ]
       },
       {
@@ -2406,7 +2388,7 @@
         "sensing_method": "Infrared thermopile",
         "brand": "Empatica",
         "model": "E4",
-        "count": 12,
+        "count": 13,
         "study_ids": [
           "1045_1",
           "1056_1",
@@ -2419,6 +2401,7 @@
           "1235_1",
           "1243_1",
           "1262_1",
+          "1271_1",
           "1272_1"
         ]
       },
@@ -3074,16 +3057,6 @@
         "count": 1,
         "study_ids": [
           "1238_1"
-        ]
-      },
-      {
-        "signal": "Skin temperature",
-        "sensing_method": "Thermochron",
-        "brand": "Empatica",
-        "model": "E4",
-        "count": 1,
-        "study_ids": [
-          "1271_1"
         ]
       },
       {
@@ -7795,7 +7768,7 @@
           {
             "period": "2023–24",
             "sensor_grp": "Other",
-            "count": 10
+            "count": 11
           },
           {
             "period": "2023–24",
@@ -7805,7 +7778,7 @@
           {
             "period": "2023–24",
             "sensor_grp": "Thermochron",
-            "count": 26
+            "count": 25
           },
           {
             "period": "2023–24",
@@ -7921,12 +7894,7 @@
           {
             "period": "2023–24",
             "sensor_grp": "OHR/PPG",
-            "count": 12
-          },
-          {
-            "period": "2023–24",
-            "sensor_grp": "PPG",
-            "count": 1
+            "count": 13
           },
           {
             "period": "2023–24",
@@ -7938,8 +7906,7 @@
           "ECG",
           "OHR/PPG",
           "Digital sphygmomanometer",
-          "Pulse oximeter",
-          "PPG"
+          "Pulse oximeter"
         ],
         "period_totals": {
           "2013–14": 1,
@@ -8095,13 +8062,8 @@
           },
           {
             "period": "2023–24",
-            "sensor_grp": "EDA",
-            "count": 1
-          },
-          {
-            "period": "2023–24",
             "sensor_grp": "EDA/GSR",
-            "count": 1
+            "count": 2
           },
           {
             "period": "2023–24",
@@ -8111,9 +8073,8 @@
         ],
         "sensor_order": [
           "GSR/EDA",
-          "Hygrochron",
-          "EDA",
-          "EDA/GSR"
+          "EDA/GSR",
+          "Hygrochron"
         ],
         "period_totals": {
           "2017–18": 4,
@@ -59501,16 +59462,11 @@
       {
         "signal": "Blood pressure",
         "physio-sensing-method": "Digital sphygmomanometer",
-        "count": 40
+        "count": 41
       },
       {
         "signal": "Blood pressure",
         "physio-sensing-method": "Sonomic pick-up",
-        "count": 1
-      },
-      {
-        "signal": "Blood pressure",
-        "physio-sensing-method": "Sphygmomanometer",
         "count": 1
       },
       {
@@ -59641,12 +59597,7 @@
       {
         "signal": "Heart/Pulse rate",
         "physio-sensing-method": "OHR/PPG",
-        "count": 29
-      },
-      {
-        "signal": "Heart/Pulse rate",
-        "physio-sensing-method": "PPG",
-        "count": 1
+        "count": 30
       },
       {
         "signal": "Heart/Pulse rate",
@@ -59775,13 +59726,8 @@
       },
       {
         "signal": "Skin conductance",
-        "physio-sensing-method": "EDA",
-        "count": 1
-      },
-      {
-        "signal": "Skin conductance",
         "physio-sensing-method": "EDA/GSR",
-        "count": 1
+        "count": 2
       },
       {
         "signal": "Skin conductance",
@@ -59826,7 +59772,7 @@
       {
         "signal": "Skin temperature",
         "physio-sensing-method": "Infrared thermopile",
-        "count": 12
+        "count": 13
       },
       {
         "signal": "Skin temperature",
@@ -59846,7 +59792,7 @@
       {
         "signal": "Skin temperature",
         "physio-sensing-method": "Thermochron",
-        "count": 76
+        "count": 75
       },
       {
         "signal": "Skin temperature",
@@ -60077,18 +60023,12 @@
         "signal": "Blood pressure",
         "physio-sensing-method": "Digital sphygmomanometer",
         "period": "2023–24",
-        "count": 14
+        "count": 15
       },
       {
         "signal": "Blood pressure",
         "physio-sensing-method": "Sonomic pick-up",
         "period": "2015–16",
-        "count": 1
-      },
-      {
-        "signal": "Blood pressure",
-        "physio-sensing-method": "Sphygmomanometer",
-        "period": "2023–24",
         "count": 1
       },
       {
@@ -60497,13 +60437,7 @@
         "signal": "Heart/Pulse rate",
         "physio-sensing-method": "OHR/PPG",
         "period": "2023–24",
-        "count": 12
-      },
-      {
-        "signal": "Heart/Pulse rate",
-        "physio-sensing-method": "PPG",
-        "period": "2023–24",
-        "count": 1
+        "count": 13
       },
       {
         "signal": "Heart/Pulse rate",
@@ -60831,15 +60765,9 @@
       },
       {
         "signal": "Skin conductance",
-        "physio-sensing-method": "EDA",
-        "period": "2023–24",
-        "count": 1
-      },
-      {
-        "signal": "Skin conductance",
         "physio-sensing-method": "EDA/GSR",
         "period": "2023–24",
-        "count": 1
+        "count": 2
       },
       {
         "signal": "Skin conductance",
@@ -61001,7 +60929,7 @@
         "signal": "Skin temperature",
         "physio-sensing-method": "Infrared thermopile",
         "period": "2023–24",
-        "count": 7
+        "count": 8
       },
       {
         "signal": "Skin temperature",
@@ -61103,7 +61031,7 @@
         "signal": "Skin temperature",
         "physio-sensing-method": "Thermochron",
         "period": "2023–24",
-        "count": 26
+        "count": 25
       },
       {
         "signal": "Skin temperature",
@@ -69934,6 +69862,11 @@
       },
       {
         "physio-sensing-method": "Digital sphygmomanometer",
+        "physio-sensor-brand": "ADInstruments",
+        "count": 1
+      },
+      {
+        "physio-sensing-method": "Digital sphygmomanometer",
         "physio-sensor-brand": "Andon",
         "count": 2
       },
@@ -70068,14 +70001,9 @@
         "count": 2
       },
       {
-        "physio-sensing-method": "EDA",
-        "physio-sensor-brand": "Empatica",
-        "count": 1
-      },
-      {
         "physio-sensing-method": "EDA/GSR",
         "physio-sensor-brand": "Empatica",
-        "count": 1
+        "count": 2
       },
       {
         "physio-sensing-method": "EMG",
@@ -70325,7 +70253,7 @@
       {
         "physio-sensing-method": "Infrared thermopile",
         "physio-sensor-brand": "Empatica",
-        "count": 12
+        "count": 13
       },
       {
         "physio-sensing-method": "Ingestible pill",
@@ -70425,7 +70353,7 @@
       {
         "physio-sensing-method": "OHR/PPG",
         "physio-sensor-brand": "Empatica",
-        "count": 13
+        "count": 14
       },
       {
         "physio-sensing-method": "OHR/PPG",
@@ -70485,11 +70413,6 @@
       {
         "physio-sensing-method": "Osmometer",
         "physio-sensor-brand": "Pocket-Pal",
-        "count": 1
-      },
-      {
-        "physio-sensing-method": "PPG",
-        "physio-sensor-brand": "Empatica",
         "count": 1
       },
       {
@@ -70613,11 +70536,6 @@
         "count": 1
       },
       {
-        "physio-sensing-method": "Sphygmomanometer",
-        "physio-sensor-brand": "ADInstruments",
-        "count": 1
-      },
-      {
         "physio-sensing-method": "Step count",
         "physio-sensor-brand": "Fitbit",
         "count": 1
@@ -70691,11 +70609,6 @@
         "physio-sensing-method": "Thermistor",
         "physio-sensor-brand": "Vernier",
         "count": 4
-      },
-      {
-        "physio-sensing-method": "Thermochron",
-        "physio-sensor-brand": "Empatica",
-        "count": 1
       },
       {
         "physio-sensing-method": "Thermochron",
@@ -72800,7 +72713,7 @@
         "signal": "Blood pressure",
         "sensing_method": "Digital sphygmomanometer",
         "site": "Upper arm",
-        "count": 19
+        "count": 20
       },
       {
         "signal": "Blood pressure",
@@ -72811,12 +72724,6 @@
       {
         "signal": "Blood pressure",
         "sensing_method": "Sonomic pick-up",
-        "site": "Upper arm",
-        "count": 1
-      },
-      {
-        "signal": "Blood pressure",
-        "sensing_method": "Sphygmomanometer",
         "site": "Upper arm",
         "count": 1
       },
@@ -73142,13 +73049,7 @@
         "signal": "Heart/Pulse rate",
         "sensing_method": "OHR/PPG",
         "site": "Wrist",
-        "count": 21
-      },
-      {
-        "signal": "Heart/Pulse rate",
-        "sensing_method": "PPG",
-        "site": "Wrist",
-        "count": 1
+        "count": 22
       },
       {
         "signal": "Heart/Pulse rate",
@@ -73488,15 +73389,9 @@
       },
       {
         "signal": "Skin conductance",
-        "sensing_method": "EDA",
-        "site": "Wrist",
-        "count": 1
-      },
-      {
-        "signal": "Skin conductance",
         "sensing_method": "EDA/GSR",
         "site": "Wrist",
-        "count": 1
+        "count": 2
       },
       {
         "signal": "Skin conductance",
@@ -73976,7 +73871,7 @@
         "signal": "Skin temperature",
         "sensing_method": "Infrared thermopile",
         "site": "Wrist",
-        "count": 12
+        "count": 13
       },
       {
         "signal": "Skin temperature",
@@ -74366,7 +74261,7 @@
         "signal": "Skin temperature",
         "sensing_method": "Thermochron",
         "site": "Wrist",
-        "count": 16
+        "count": 15
       },
       {
         "signal": "Skin temperature",
@@ -74646,8 +74541,7 @@
           "sensingMethods": {
             "Digital sphygmomanometer": 4,
             "ECG": 1,
-            "OHR/PPG": 21,
-            "PPG": 1,
+            "OHR/PPG": 22,
             "Pulse oximeter": 2
           }
         },
@@ -74854,8 +74748,7 @@
           "count": 14,
           "non_anatomical": false,
           "sensingMethods": {
-            "EDA": 1,
-            "EDA/GSR": 1,
+            "EDA/GSR": 2,
             "GSR/EDA": 12
           }
         },
@@ -75044,8 +74937,7 @@
             "Skin conductance": 14
           },
           "sensingMethods": {
-            "EDA": 1,
-            "EDA/GSR": 1,
+            "EDA/GSR": 2,
             "GSR/EDA": 12
           }
         },
@@ -76162,10 +76054,10 @@
           "Hygrochron": 1,
           "Infrared camera": 1,
           "Infrared thermometer": 5,
-          "Infrared thermopile": 12,
+          "Infrared thermopile": 13,
           "RTD": 1,
           "Thermistor": 6,
-          "Thermochron": 16,
+          "Thermochron": 15,
           "Thermocouple": 9
         }
       },
@@ -82696,7 +82588,7 @@
     "n_variables": 206,
     "year_min": 2013,
     "year_max": 2024,
-    "generated_at": "2026-07-20T12:51:58.444439"
+    "generated_at": "2026-07-20T14:32:45.459906"
   },
   "world-countries-110m": {
     "type": "Topology",

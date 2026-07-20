@@ -941,10 +941,10 @@
         "Hygrochron": 1,
         "Infrared camera": 1,
         "Infrared thermometer": 5,
-        "Infrared thermopile": 12,
+        "Infrared thermopile": 13,
         "RTD": 1,
         "Thermistor": 6,
-        "Thermochron": 16,
+        "Thermochron": 15,
         "Thermocouple": 9
       }
     },

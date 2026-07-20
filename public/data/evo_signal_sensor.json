@@ -170,7 +170,7 @@
         {
           "period": "2023\u201324",
           "sensor_grp": "Other",
-          "count": 10
+          "count": 11
         },
         {
           "period": "2023\u201324",
@@ -180,7 +180,7 @@
         {
           "period": "2023\u201324",
           "sensor_grp": "Thermochron",
-          "count": 26
+          "count": 25
         },
         {
           "period": "2023\u201324",
@@ -296,12 +296,7 @@
         {
           "period": "2023\u201324",
           "sensor_grp": "OHR/PPG",
-          "count": 12
-        },
-        {
-          "period": "2023\u201324",
-          "sensor_grp": "PPG",
-          "count": 1
+          "count": 13
         },
         {
           "period": "2023\u201324",
@@ -313,8 +308,7 @@
         "ECG",
         "OHR/PPG",
         "Digital sphygmomanometer",
-        "Pulse oximeter",
-        "PPG"
+        "Pulse oximeter"
       ],
       "period_totals": {
         "2013\u201314": 1,
@@ -470,13 +464,8 @@
         },
         {
           "period": "2023\u201324",
-          "sensor_grp": "EDA",
-          "count": 1
-        },
-        {
-          "period": "2023\u201324",
           "sensor_grp": "EDA/GSR",
-          "count": 1
+          "count": 2
         },
         {
           "period": "2023\u201324",
@@ -486,9 +475,8 @@
       ],
       "sensor_order": [
         "GSR/EDA",
-        "Hygrochron",
-        "EDA",
-        "EDA/GSR"
+        "EDA/GSR",
+        "Hygrochron"
       ],
       "period_totals": {
         "2017\u201318": 4,

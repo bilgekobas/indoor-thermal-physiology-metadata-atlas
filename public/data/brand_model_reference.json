@@ -124,6 +124,16 @@
     {
       "signal": "Blood pressure",
       "sensing_method": "Digital sphygmomanometer",
+      "brand": "ADInstruments",
+      "model": "LTS2060",
+      "count": 1,
+      "study_ids": [
+        "1207_1"
+      ]
+    },
+    {
+      "signal": "Blood pressure",
+      "sensing_method": "Digital sphygmomanometer",
       "brand": "Andon",
       "model": "BP-5",
       "count": 1,
@@ -329,16 +339,6 @@
       "count": 1,
       "study_ids": [
         "1012_1"
-      ]
-    },
-    {
-      "signal": "Blood pressure",
-      "sensing_method": "Sphygmomanometer",
-      "brand": "ADInstruments",
-      "model": "LTS2060",
-      "count": 1,
-      "study_ids": [
-        "1207_1"
       ]
     },
     {
@@ -887,7 +887,7 @@
       "sensing_method": "OHR/PPG",
       "brand": "Empatica",
       "model": "E4",
-      "count": 13,
+      "count": 14,
       "study_ids": [
         "1040_1",
         "1045_1",
@@ -896,6 +896,7 @@
         "1155_1",
         "1157_1",
         "1218_1",
+        "1230_1",
         "1234_1",
         "1235_1",
         "1243_1",
@@ -1524,16 +1525,6 @@
       "count": 1,
       "study_ids": [
         "1132_1"
-      ]
-    },
-    {
-      "signal": "Heart/Pulse rate",
-      "sensing_method": "PPG",
-      "brand": "Empatica",
-      "model": "E4",
-      "count": 1,
-      "study_ids": [
-        "1230_1"
       ]
     },
     {
@@ -2243,6 +2234,17 @@
     },
     {
       "signal": "Skin conductance",
+      "sensing_method": "EDA/GSR",
+      "brand": "Empatica",
+      "model": "E4",
+      "count": 2,
+      "study_ids": [
+        "1230_1",
+        "1271_1"
+      ]
+    },
+    {
+      "signal": "Skin conductance",
       "sensing_method": "GSR/EDA",
       "brand": "Shimmer Sensing",
       "model": "Shimmer 3 GSR+",
@@ -2250,26 +2252,6 @@
       "study_ids": [
         "1122_1",
         "1201_1"
-      ]
-    },
-    {
-      "signal": "Skin conductance",
-      "sensing_method": "EDA",
-      "brand": "Empatica",
-      "model": "E4",
-      "count": 1,
-      "study_ids": [
-        "1230_1"
-      ]
-    },
-    {
-      "signal": "Skin conductance",
-      "sensing_method": "EDA/GSR",
-      "brand": "Empatica",
-      "model": "E4",
-      "count": 1,
-      "study_ids": [
-        "1271_1"
       ]
     },
     {
@@ -2405,7 +2387,7 @@
       "sensing_method": "Infrared thermopile",
       "brand": "Empatica",
       "model": "E4",
-      "count": 12,
+      "count": 13,
       "study_ids": [
         "1045_1",
         "1056_1",
@@ -2418,6 +2400,7 @@
         "1235_1",
         "1243_1",
         "1262_1",
+        "1271_1",
         "1272_1"
       ]
     },
@@ -3073,16 +3056,6 @@
       "count": 1,
       "study_ids": [
         "1238_1"
-      ]
-    },
-    {
-      "signal": "Skin temperature",
-      "sensing_method": "Thermochron",
-      "brand": "Empatica",
-      "model": "E4",
-      "count": 1,
-      "study_ids": [
-        "1271_1"
       ]
     },
     {

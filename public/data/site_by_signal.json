@@ -16,8 +16,7 @@
         "sensingMethods": {
           "Digital sphygmomanometer": 4,
           "ECG": 1,
-          "OHR/PPG": 21,
-          "PPG": 1,
+          "OHR/PPG": 22,
           "Pulse oximeter": 2
         }
       },
@@ -224,8 +223,7 @@
         "count": 14,
         "non_anatomical": false,
         "sensingMethods": {
-          "EDA": 1,
-          "EDA/GSR": 1,
+          "EDA/GSR": 2,
           "GSR/EDA": 12
         }
       },
@@ -414,8 +412,7 @@
           "Skin conductance": 14
         },
         "sensingMethods": {
-          "EDA": 1,
-          "EDA/GSR": 1,
+          "EDA/GSR": 2,
           "GSR/EDA": 12
         }
       },

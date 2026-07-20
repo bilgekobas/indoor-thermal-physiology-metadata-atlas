@@ -76,7 +76,7 @@
       "signal": "Blood pressure",
       "sensing_method": "Digital sphygmomanometer",
       "site": "Upper arm",
-      "count": 19
+      "count": 20
     },
     {
       "signal": "Blood pressure",
@@ -87,12 +87,6 @@
     {
       "signal": "Blood pressure",
       "sensing_method": "Sonomic pick-up",
-      "site": "Upper arm",
-      "count": 1
-    },
-    {
-      "signal": "Blood pressure",
-      "sensing_method": "Sphygmomanometer",
       "site": "Upper arm",
       "count": 1
     },
@@ -418,13 +412,7 @@
       "signal": "Heart/Pulse rate",
       "sensing_method": "OHR/PPG",
       "site": "Wrist",
-      "count": 21
-    },
-    {
-      "signal": "Heart/Pulse rate",
-      "sensing_method": "PPG",
-      "site": "Wrist",
-      "count": 1
+      "count": 22
     },
     {
       "signal": "Heart/Pulse rate",
@@ -764,15 +752,9 @@
     },
     {
       "signal": "Skin conductance",
-      "sensing_method": "EDA",
-      "site": "Wrist",
-      "count": 1
-    },
-    {
-      "signal": "Skin conductance",
       "sensing_method": "EDA/GSR",
       "site": "Wrist",
-      "count": 1
+      "count": 2
     },
     {
       "signal": "Skin conductance",
@@ -1252,7 +1234,7 @@
       "signal": "Skin temperature",
       "sensing_method": "Infrared thermopile",
       "site": "Wrist",
-      "count": 12
+      "count": 13
     },
     {
       "signal": "Skin temperature",
@@ -1642,7 +1624,7 @@
       "signal": "Skin temperature",
       "sensing_method": "Thermochron",
       "site": "Wrist",
-      "count": 16
+      "count": 15
     },
     {
       "signal": "Skin temperature",
