@@ -855,8 +855,8 @@
         "Infrared camera": 3,
         "RTD": 4,
         "Thermistor": 12,
-        "Thermochron": 52,
-        "Thermocouple": 42
+        "Thermochron": 53,
+        "Thermocouple": 41
       }
     },
     {
@@ -1139,7 +1139,7 @@
         "Infrared camera": 1,
         "RTD": 2,
         "Thermistor": 1,
-        "Thermocouple": 1
+        "Thermochron": 1
       }
     },
     {

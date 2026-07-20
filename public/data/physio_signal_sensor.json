@@ -433,7 +433,7 @@
     {
       "signal": "Skin temperature",
       "physio-sensing-method": "Thermocouple",
-      "count": 60
+      "count": 59
     },
     {
       "signal": "Skin temperature",
@@ -1703,7 +1703,7 @@
       "signal": "Skin temperature",
       "physio-sensing-method": "Thermocouple",
       "period": "2023\u201324",
-      "count": 17
+      "count": 16
     },
     {
       "signal": "Skin temperature",

@@ -3190,16 +3190,6 @@
     },
     {
       "signal": "Skin temperature",
-      "sensing_method": "Thermocouple",
-      "brand": "Opulus",
-      "model": "Pyrobutton",
-      "count": 1,
-      "study_ids": [
-        "1263_1"
-      ]
-    },
-    {
-      "signal": "Skin temperature",
       "sensing_method": "Thermometer",
       "brand": "Gigarise",
       "model": "SG 900",

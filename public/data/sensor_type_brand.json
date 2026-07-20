@@ -987,11 +987,6 @@
     },
     {
       "physio-sensing-method": "Thermocouple",
-      "physio-sensor-brand": "Opulus",
-      "count": 1
-    },
-    {
-      "physio-sensing-method": "Thermocouple",
       "physio-sensor-brand": "TCSA",
       "count": 2
     },

@@ -1504,7 +1504,7 @@
       "signal": "Skin temperature",
       "sensing_method": "Thermochron",
       "site": "Chest",
-      "count": 52
+      "count": 53
     },
     {
       "signal": "Skin temperature",
@@ -1559,6 +1559,12 @@
       "sensing_method": "Thermochron",
       "site": "Hand",
       "count": 50
+    },
+    {
+      "signal": "Skin temperature",
+      "sensing_method": "Thermochron",
+      "site": "Head",
+      "count": 1
     },
     {
       "signal": "Skin temperature",
@@ -1666,7 +1672,7 @@
       "signal": "Skin temperature",
       "sensing_method": "Thermocouple",
       "site": "Chest",
-      "count": 42
+      "count": 41
     },
     {
       "signal": "Skin temperature",
@@ -1703,12 +1709,6 @@
       "sensing_method": "Thermocouple",
       "site": "Hand",
       "count": 39
-    },
-    {
-      "signal": "Skin temperature",
-      "sensing_method": "Thermocouple",
-      "site": "Head",
-      "count": 1
     },
     {
       "signal": "Skin temperature",
