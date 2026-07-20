@@ -14419,13 +14419,6 @@
   "fig08_age": {
     "studies": [
       {
-        "id": "1241_1",
-        "mean": 16.3,
-        "std": null,
-        "std_reported": false,
-        "pooled_from_subgroups": 20
-      },
-      {
         "id": "1093_1",
         "mean": 18.7,
         "std": null,
@@ -14620,6 +14613,13 @@
         "std": 2.5,
         "std_reported": true,
         "pooled_from_subgroups": null
+      },
+      {
+        "id": "1241_1",
+        "mean": 20.8,
+        "std": null,
+        "std_reported": false,
+        "pooled_from_subgroups": 20
       },
       {
         "id": "1013_1",
@@ -82573,7 +82573,7 @@
     "n_variables": 206,
     "year_min": 2013,
     "year_max": 2024,
-    "generated_at": "2026-07-20T15:42:59.496000"
+    "generated_at": "2026-07-20T18:20:12.610797"
   },
   "world-countries-110m": {
     "type": "Topology",
