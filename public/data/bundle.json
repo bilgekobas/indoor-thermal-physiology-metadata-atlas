@@ -3530,8 +3530,8 @@
         },
         {
           "field": "Data availability statement",
-          "count": 94,
-          "pct": 31.9
+          "count": 93,
+          "pct": 31.5
         }
       ],
       "n_studies": 295
@@ -9757,9 +9757,9 @@
         },
         {
           "field": "Data availability statement",
-          "count": 94,
+          "count": 93,
           "denominator": 295,
-          "pct": 31.9,
+          "pct": 31.5,
           "rule": "general"
         }
       ]
@@ -58228,23 +58228,15 @@
       },
       {
         "status": "Not available for sharing",
-        "count": 23
+        "count": 25
       },
       {
         "status": "NC",
-        "count": 11
+        "count": 12
       },
       {
         "status": "Available",
         "count": 6
-      },
-      {
-        "status": "Not available",
-        "count": 2
-      },
-      {
-        "status": "Article",
-        "count": 1
       }
     ],
     "n_with_real_data_link": 6,
@@ -76589,7 +76581,7 @@
       "id-pub-id": 1005,
       "id": "1005_1",
       "id-title": "The influence of different cooling techniques and gender on thermal perception",
-      "id-authors": "Lisje Schellen, Marcel Loomans, Martin de Wit, Wouter van Marken Lichtenbelt",
+      "id-authors": "Lisje Schellen, Marcel Loomans, Martin de Wit, Wouter D. van Marken Lichtenbelt",
       "id-city": "Eindhoven",
       "id-country": "Netherlands",
       "id-climate-class": "Cfb",
@@ -76988,7 +76980,7 @@
       "id-pub-id": 1024,
       "id": "1024_1",
       "id-title": "Thermal comfort of people in the hot and humid area of China-impacts of season, climate, and thermal history",
-      "id-authors": "Y. Zhang, H. Chen, J. Wang, Q. Meng",
+      "id-authors": "Yufeng Zhang, Huimei Chen, Jinyong Wang, Qinglin Meng",
       "id-city": "Guangzhou",
       "id-country": "China",
       "id-climate-class": "Cwa",
@@ -77219,7 +77211,7 @@
       "id-pub-id": 1033,
       "id": "1033_1",
       "id-title": "Indoor human thermal adaptation: dynamic processes and weighting factors",
-      "id-authors": "M. Luo, B. Cao, Q. Ouyang, Y. Zhu",
+      "id-authors": "Maohui Luo, Bin Cao, Qin Ouyang, Yingxin Zhu",
       "id-city": "Beijing",
       "id-country": "China",
       "id-climate-class": "Dwa",
@@ -78185,7 +78177,7 @@
       "id-pub-id": 1075,
       "id": "1075_1",
       "id-title": "Effects of different classroom temperatures on cardiac autonomic control and cognitive performances in undergraduate students",
-      "id-authors": "F Barbic, M Minonzio, B Cairo, D Shiffer, A Dipasquale, L Cerina, A Vatteroni, V Urechie, P Verzeletti, F Badilini, M Vaglio, R Iatrino, A Porta, M Santambrogio, R Gatti, R Furlan",
+      "id-authors": "Franca Barbic, M Minonzio, Beatrice Cairo, Dana Shiffer, Angelo Dipasquale, Luca Cerina, A Vatteroni, Vasile Urechie, P Verzeletti, Fabio Badilini, Martino Vaglio, R Iatrino, Alberto Porta, Marco D. Santambrogio, R Gatti, Raffaello Furlan",
       "id-city": "Milan",
       "id-country": "Italy",
       "id-climate-class": "Cfa",
@@ -78815,7 +78807,7 @@
       "id-pub-id": 1102,
       "id": "1102_1",
       "id-title": "Combined effects of noise and air temperature on human neurophysiological responses in a simulated indoor environment",
-      "id-authors": "Ali Mohammad Abbasi, Majid Motamedzade, Mohsen Aliabadi, Rostam Golmohammadi, Leili Tapak",
+      "id-authors": "Ali Mohammad Abbasi, Majid Motamedzadeh, Mohsen Aliabadi, Rostam Golmohammadi, Leili Tapak",
       "id-city": "Hamadan",
       "id-country": "Iran",
       "id-climate-class": "BSk",
@@ -79907,7 +79899,7 @@
       "id-pub-id": 1149,
       "id": "1149_1",
       "id-title": "The influence of a moderate temperature drift on thermal physiology and perception",
-      "id-authors": "Yoanna M. Ivanova, Hannah Pallubinsky, Rick Kramer, Wouter van Marken Lichtenbelt",
+      "id-authors": "Yoanna M. Ivanova, Hannah Pallubinsky, Rick Kramer, Wouter D. van Marken Lichtenbelt",
       "id-city": "Maastricht",
       "id-country": "Netherlands",
       "id-climate-class": "Cfb",
@@ -80138,7 +80130,7 @@
       "id-pub-id": 1160,
       "id": "1160_1",
       "id-title": "Cognitive performance was reduced by higher air temperature even when thermal comfort was maintained over the 24-28°C range",
-      "id-authors": "Li Lan, Jieyu Tang, Pawel Wargocki, David P Wyon, Zhiwei Lian",
+      "id-authors": "Li Lan, Jieyu Tang, Pawel Wargocki, David P. Wyon, Zhiwei Lian",
       "id-city": "Shanghai",
       "id-country": "China",
       "id-climate-class": "Cfa",
@@ -80747,7 +80739,7 @@
       "id-pub-id": 1189,
       "id": "1189_1",
       "id-title": "Physiological comfort evaluation under different airflow directions in a heating environment",
-      "id-authors": "Kaori Tamura, Sayaka Matsumoto, Yu Hsuan Tseng, Takayuki Kobayashi, Jun’ichi Miwa, Ken’ichi Miyazawa, Soichiro Matsumoto, Seiji Hiramatsu, Hiroyuki Otake, Tsuyoshi Okamoto",
+      "id-authors": "Kaori Tamura, Sayaka Matsumoto, Yu Hsuan Tseng, Takayuki Kobayashi, Jun'ichi Miwa, Ken'ichi Miyazawa, Soichiro Matsumoto, Seiji Hiramatsu, Hiroyuki Otake, Tsuyoshi Okamoto",
       "id-city": "Aichi",
       "id-country": "Japan",
       "id-climate-class": "Cfa",
@@ -81293,7 +81285,7 @@
       "id-pub-id": 1214,
       "id": "1214_1",
       "id-title": "Effects of correlated color temperature of light on thermal comfort, thermophysiology and cognitive performance",
-      "id-authors": "Wei Luo, Rick Kramer, Maaike Kompier, Karin Smolders, Yvonne de Kort, Wouter van Marken Lichtenbelt",
+      "id-authors": "Wei Luo, Rick Kramer, Maaike Kompier, Karin Smolders, Yvonne de Kort, Wouter D. van Marken Lichtenbelt",
       "id-city": "Maastricht",
       "id-country": "Netherlands",
       "id-climate-class": "Cfb",
@@ -81325,7 +81317,7 @@
       "exp-type": "Lab",
       "exp-spatial-typology": "Office/Workstations",
       "exp-domains": "Air temperature, Humidity, Air velocity",
-      "data-avail": "Not available",
+      "data-avail": "Not available for sharing",
       "pop-no-tot": "36",
       "pop-male-no": "18",
       "pop-fem-no": "18",
@@ -81650,7 +81642,7 @@
       "id-pub-id": 1229,
       "id": "1229_1",
       "id-title": "Personal control of correlated color temperature of light: Effects on thermal comfort, visual comfort, and cognitive performance",
-      "id-authors": "Wei Luo, Rick Kramer, Maaike Kompier, Karin Smolders, Yvonne de Kort, Wouter van Marken Lichtenbelt",
+      "id-authors": "Wei Luo, Rick Kramer, Maaike Kompier, Karin Smolders, Yvonne de Kort, Wouter D. van Marken Lichtenbelt",
       "id-city": "Maastricht",
       "id-country": "Netherlands",
       "id-climate-class": "Cfb",
@@ -82291,7 +82283,7 @@
       "exp-type": "Living lab",
       "exp-spatial-typology": "Office/Workstations",
       "exp-domains": "Air temperature, Illumination, Light colour",
-      "data-avail": "Not available",
+      "data-avail": "Not available for sharing",
       "pop-no-tot": "52",
       "pop-male-no": "24",
       "pop-fem-no": "28",
@@ -82333,7 +82325,7 @@
       "exp-type": "Field",
       "exp-spatial-typology": "Residential",
       "exp-domains": "NR",
-      "data-avail": "Article",
+      "data-avail": "NC",
       "pop-no-tot": "954",
       "pop-male-no": "464",
       "pop-fem-no": "490",
@@ -82704,7 +82696,7 @@
     "n_variables": 206,
     "year_min": 2013,
     "year_max": 2024,
-    "generated_at": "2026-07-20T11:35:49.973926"
+    "generated_at": "2026-07-20T12:51:58.444439"
   },
   "world-countries-110m": {
     "type": "Topology",

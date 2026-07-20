@@ -61,6 +61,30 @@ export function PeriodBarGroup({ periods, periodN, getValue, getTooltip, color =
   )
 }
 
+// Hoisted to module scope deliberately: defining this inside PeriodHeatmap's
+// render body would make it a brand-new function (and therefore, to React, a
+// brand-new component type) on every render -- including the render
+// triggered by clicking the toggle itself. That causes React to unmount and
+// remount the whole toggle group on every click, which is what made the
+// buttons intermittently behave as if they weren't clickable.
+function ToggleGroup({ value, onChange, options }) {
+  return (
+    <div className="flex gap-1">
+      {options.map((opt) => (
+        <button
+          key={opt.value}
+          onClick={() => onChange(opt.value)}
+          className={`px-2 py-0.5 rounded text-[10.5px] font-data transition-colors ${
+            value === opt.value ? 'bg-ink text-paper' : 'bg-line/50 text-inkmid hover:bg-line'
+          }`}
+        >
+          {opt.label}
+        </button>
+      ))}
+    </div>
+  )
+}
+
 export function PeriodHeatmap({ rows, periods, periodN, getCount, rowTotals = null, labelWidth = 220, cellWidth = 68, cellHeight = 30, totalLabel = 'Total' }) {
   const { tip, showTip, moveTip, hideTip } = useTooltip()
   const [cellMode, setCellMode] = useState('pct') // 'pct' | 'count'
@@ -78,21 +102,6 @@ export function PeriodHeatmap({ rows, periods, periodN, getCount, rowTotals = nu
     return `rgb(${r},${g},${b})`
   }
   const lowN = periods.filter((p) => (periodN?.[p] || 0) < 5)
-  const ToggleGroup = ({ value, onChange, options }) => (
-    <div className="flex gap-1">
-      {options.map((opt) => (
-        <button
-          key={opt.value}
-          onClick={() => onChange(opt.value)}
-          className={`px-2 py-0.5 rounded text-[10.5px] font-data transition-colors ${
-            value === opt.value ? 'bg-ink text-paper' : 'bg-line/50 text-inkmid hover:bg-line'
-          }`}
-        >
-          {opt.label}
-        </button>
-      ))}
-    </div>
-  )
   return (
     <div>
       <div className="flex items-center gap-5 mb-3 flex-wrap">

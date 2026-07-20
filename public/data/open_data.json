@@ -10,23 +10,15 @@
     },
     {
       "status": "Not available for sharing",
-      "count": 23
+      "count": 25
     },
     {
       "status": "NC",
-      "count": 11
+      "count": 12
     },
     {
       "status": "Available",
       "count": 6
-    },
-    {
-      "status": "Not available",
-      "count": 2
-    },
-    {
-      "status": "Article",
-      "count": 1
     }
   ],
   "n_with_real_data_link": 6,

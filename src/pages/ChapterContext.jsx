@@ -408,6 +408,7 @@ export default function ChapterContext({ data }) {
     climate_vs_temp,
     geo_choropleth,
     geo_cities,
+    geo_concentration_by_period,
     domain_comanipulation,
     domain_cooccurrence,
     domain_detail,
@@ -442,6 +443,31 @@ export default function ChapterContext({ data }) {
   const peakYear = fig01_pubs_by_year.data.reduce((best, d) => (d.count > best.count ? d : best))
   const topCountryShare = ((geo_choropleth.data[0].count / summary.n_publications) * 100).toFixed(0)
 
+  // Fig 3 commentary inputs (city resolution rate, top-2 cities, China's
+  // share of studies from earliest to latest 2-year period). Computed from
+  // the same data feeding the figure itself, rather than hardcoded, so this
+  // text can't drift out of sync with the corpus again.
+  const cityResolvedPct = Math.round((geo_cities.n_studies_mapped / geo_cities.n_studies_total) * 100)
+  const topTwoCities = [...geo_cities.data].sort((a, b) => b.count - a.count).slice(0, 2)
+  const topTwoCitiesTotal = topTwoCities.reduce((a, c) => a + c.count, 0)
+  const geoPeriods = geo_concentration_by_period.data
+  const chinaShareEarliest = Math.round(geoPeriods[0].pct)
+  const chinaShareLatest = Math.round(geoPeriods[geoPeriods.length - 1].pct)
+
+  // Fig 4 commentary inputs (China/Brazil/Switzerland mean & median), read
+  // directly from sample_size_by_country.stats rather than hardcoded.
+  const bigThreeCountries = ['China', 'Brazil', 'Switzerland']
+  const [chinaStat, brazilStat, switzerlandStat] = bigThreeCountries.map(
+    (c) => sample_size_by_country.stats.find((s) => s.country === c)
+  )
+
+  // Fig 6 commentary inputs (lab-experiment share), from fig06_setting_typology.
+  const labCount = fig06_setting_typology.data
+    .filter((d) => d['exp-type'] === 'Lab')
+    .reduce((a, d) => a + d.count, 0)
+  const settingTotal = fig06_setting_typology.data.reduce((a, d) => a + d.count, 0)
+  const labPct = Math.round((labCount / settingTotal) * 100)
+
   return (
     <div>
       <ChapterHeader
@@ -472,9 +498,15 @@ export default function ChapterContext({ data }) {
         title="Authorship as field structure"
         intro="Before treating the corpus as a neutral pool of studies, it is useful to inspect the social structure behind it. Co-authorship does not measure scientific quality, but it does reveal repeated research lineages, dominant collaboration clusters, and the extent to which the evidence base is produced by a small number of connected groups."
       >
-        <FigureCard figNumber="1" title="Author co-authorship network" size="wide" commentary="Nodes are authors and links are co-authorship pairs. The default grouped view reduces the dense 711-author graph to connected collaboration components; the threshold controls can then expose either stable core groups or weaker one-study links. Colours identify collaboration clusters, not national origin.">
+        <FigureCard figNumber="1" title="Author co-authorship network" size="wide" commentary="Nodes are authors and links are co-authorship pairs. The default grouped view reduces the dense 808-author graph to connected collaboration components; the threshold controls can then expose either stable core groups or weaker one-study links. Colours identify collaboration clusters, not national origin.">
           <AuthorNetworkEmbed />
         </FigureCard>
+        <p className="text-[11px] text-inkfaint mt-1.5 max-w-3xl">
+          Author count above is synced to the last run of <code>scripts/build_author_network.py</code> —
+          it lives in a separate static file (<code>public/author-network.html</code>), not the main data
+          bundle, so this number needs a manual update after that script runs, unlike the other figures on
+          this page.
+        </p>
       </ChapterSection>
 
       <ChapterSection
@@ -485,11 +517,11 @@ export default function ChapterContext({ data }) {
           <PublicationsByYearChart data={fig01_pubs_by_year.data} totalPubs={totalPubs} />
         </FigureCard>
 
-        <FigureCard figNumber="3" title="Geographical distribution" size="wide" commentary="250 of 269 studies (93%) resolve to a specific city; the rest report only a country or province. Research concentrates in a small number of cities — Changsha and Chongqing alone account for 48 studies. China's share has also grown over time, from 55% of studies in 2013–14 to 73% in 2023–24. The country map uses a log-scaled color ramp so China's count does not wash out every other country.">
+        <FigureCard figNumber="3" title="Geographical distribution" size="wide" commentary={`${geo_cities.n_studies_mapped} of ${geo_cities.n_studies_total} studies (${cityResolvedPct}%) resolve to a specific city; the rest report only a country or province. Research concentrates in a small number of cities — ${topTwoCities[0].city} and ${topTwoCities[1].city} alone account for ${topTwoCitiesTotal} studies. China's share has also grown over time, from ${chinaShareEarliest}% of studies in ${geoPeriods[0].period} to ${chinaShareLatest}% in ${geoPeriods[geoPeriods.length - 1].period}. The country map uses a log-scaled color ramp so China's count does not wash out every other country.`}>
           <GeographyToggle cityData={geo_cities.data} countryData={geo_choropleth.data} />
         </FigureCard>
 
-        <FigureCard figNumber="4" title="Sample size by country" size="wide" commentary="China's median study (24 participants) looks like everywhere else — but its mean (56) is pulled up by a handful of large field studies, including one with 2,110 participants. Brazil and Switzerland show the opposite pattern: few studies, but typically large ones (medians of 82 and 75). Mean and median diverge enough here that either one alone would mislead.">
+        <FigureCard figNumber="4" title="Sample size by country" size="wide" commentary={`China's median study (${chinaStat.median} participants) looks like everywhere else — but its mean (${Math.round(chinaStat.mean)}) is pulled up by a handful of large field studies, including one with ${chinaStat.max.toLocaleString()} participants. Brazil and Switzerland show the opposite pattern: few studies, but typically large ones (medians of ${brazilStat.median} and ${switzerlandStat.median}). Mean and median diverge enough here that either one alone would mislead.`}>
           <SampleSizeByCountry
             stats={sample_size_by_country.stats}
             studies={sample_size_by_country.studies}
@@ -514,7 +546,7 @@ export default function ChapterContext({ data }) {
         title="Setting and timing"
         intro="Lab studies dominate; office-like spaces are the most common spatial typology. Sessions cluster under 3 hours, normalization periods are often short, and almost all testing happens in daytime hours."
       >
-        <FigureCard figNumber="6" title="Experimental setting type" plotWidth={760} commentary="200 of 266 experiments (75%) are run in a lab; Field and Living Lab split the remainder almost evenly. The Sankey makes the spatial typologies legible without flattening them into a single categorical count.">
+        <FigureCard figNumber="6" title="Experimental setting type" plotWidth={760} commentary={`${labCount} of ${settingTotal} experiments (${labPct}%) are run in a lab; Field and Living Lab split the remainder almost evenly. The Sankey makes the spatial typologies legible without flattening them into a single categorical count.`}>
           <SettingSankey data={fig06_setting_typology.data} total={summary.n_experiments} />
         </FigureCard>
 
