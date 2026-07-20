@@ -2,42 +2,42 @@
   "data": [
     {
       "category": "Population",
-      "pct_reported": 61.3,
+      "pct_reported": 60.4,
       "n_fields": 18
     },
     {
       "category": "Physiological",
-      "pct_reported": 64.7,
+      "pct_reported": 65.0,
       "n_fields": 12
     },
     {
       "category": "Environment",
-      "pct_reported": 14.5,
+      "pct_reported": 14.7,
       "n_fields": 14
     },
     {
       "category": "Questionnaires",
-      "pct_reported": 6.5,
+      "pct_reported": 6.9,
       "n_fields": 43
     },
     {
       "category": "Cognitive",
-      "pct_reported": 60.4,
-      "n_fields": 2
+      "pct_reported": 41.2,
+      "n_fields": 3
     },
     {
       "category": "Selection criteria",
-      "pct_reported": 9.0,
+      "pct_reported": 9.3,
       "n_fields": 29
     },
     {
       "category": "Participant metadata",
-      "pct_reported": 23.4,
+      "pct_reported": 24.7,
       "n_fields": 26
     },
     {
       "category": "Protocol",
-      "pct_reported": 24.7,
+      "pct_reported": 24.8,
       "n_fields": 21
     }
   ]

@@ -16,7 +16,7 @@
     },
     {
       "atlas_name": "China",
-      "count": 149,
+      "count": 166,
       "raw_labels": [
         "China",
         "Hong Kong"
@@ -59,21 +59,21 @@
     },
     {
       "atlas_name": "Iran",
-      "count": 4,
+      "count": 5,
       "raw_labels": [
         "Iran"
       ]
     },
     {
       "atlas_name": "Italy",
-      "count": 9,
+      "count": 10,
       "raw_labels": [
         "Italy"
       ]
     },
     {
       "atlas_name": "Japan",
-      "count": 11,
+      "count": 12,
       "raw_labels": [
         "Japan"
       ]
@@ -87,7 +87,7 @@
     },
     {
       "atlas_name": "Netherlands",
-      "count": 6,
+      "count": 7,
       "raw_labels": [
         "Netherlands"
       ]
@@ -114,17 +114,25 @@
       ]
     },
     {
+      "atlas_name": "Serbia",
+      "count": 1,
+      "raw_labels": [
+        "Serbia"
+      ]
+    },
+    {
       "atlas_name": "Singapore",
-      "count": 9,
+      "count": 10,
       "raw_labels": [
         "Singapore"
       ]
     },
     {
       "atlas_name": "South Korea",
-      "count": 15,
+      "count": 16,
       "raw_labels": [
-        "Republic of Korea"
+        "Republic of Korea",
+        "South Korea"
       ]
     },
     {
@@ -165,7 +173,7 @@
     },
     {
       "atlas_name": "United States of America",
-      "count": 23,
+      "count": 24,
       "raw_labels": [
         "USA"
       ]

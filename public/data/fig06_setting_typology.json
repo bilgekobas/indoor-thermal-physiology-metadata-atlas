@@ -8,7 +8,7 @@
     {
       "exp-type": "Field",
       "exp-spatial-typology": "Desk&Chair",
-      "count": 1
+      "count": 2
     },
     {
       "exp-type": "Field",
@@ -18,12 +18,12 @@
     {
       "exp-type": "Field",
       "exp-spatial-typology": "Office/Workstations",
-      "count": 23
+      "count": 24
     },
     {
       "exp-type": "Field",
       "exp-spatial-typology": "Residential",
-      "count": 2
+      "count": 3
     },
     {
       "exp-type": "Field",
@@ -38,7 +38,7 @@
     {
       "exp-type": "Lab",
       "exp-spatial-typology": "Desk&Chair",
-      "count": 48
+      "count": 50
     },
     {
       "exp-type": "Lab",
@@ -48,27 +48,27 @@
     {
       "exp-type": "Lab",
       "exp-spatial-typology": "Office/Workstations",
-      "count": 83
+      "count": 89
     },
     {
       "exp-type": "Lab",
       "exp-spatial-typology": "Seating",
-      "count": 25
+      "count": 33
     },
     {
       "exp-type": "Living Lab",
       "exp-spatial-typology": "Classroom/Study room",
-      "count": 4
+      "count": 6
     },
     {
       "exp-type": "Living Lab",
       "exp-spatial-typology": "Desk&Chair",
-      "count": 1
+      "count": 2
     },
     {
       "exp-type": "Living Lab",
       "exp-spatial-typology": "Office/Workstations",
-      "count": 23
+      "count": 25
     },
     {
       "exp-type": "Living Lab",
@@ -93,7 +93,7 @@
     {
       "exp-type": "Mixed",
       "exp-spatial-typology": "Seating",
-      "count": 1
+      "count": 2
     }
   ]
 }

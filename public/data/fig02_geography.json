@@ -2,11 +2,11 @@
   "data": [
     {
       "country": "China",
-      "count": 148
+      "count": 165
     },
     {
       "country": "USA",
-      "count": 23
+      "count": 24
     },
     {
       "country": "Republic of Korea",
@@ -14,26 +14,30 @@
     },
     {
       "country": "Japan",
-      "count": 11
-    },
-    {
-      "country": "Singapore",
-      "count": 9
+      "count": 12
     },
     {
       "country": "Italy",
-      "count": 9
+      "count": 10
+    },
+    {
+      "country": "Singapore",
+      "count": 10
+    },
+    {
+      "country": "Netherlands",
+      "count": 7
     },
     {
       "country": "Denmark",
       "count": 7
     },
     {
-      "country": "Netherlands",
-      "count": 6
+      "country": "Germany",
+      "count": 5
     },
     {
-      "country": "Germany",
+      "country": "Iran",
       "count": 5
     },
     {
@@ -41,23 +45,19 @@
       "count": 4
     },
     {
-      "country": "Iran",
-      "count": 4
+      "country": "Brazil",
+      "count": 3
     },
     {
       "country": "Switzerland",
       "count": 3
     },
     {
-      "country": "Brazil",
-      "count": 3
-    },
-    {
-      "country": "Taiwan",
+      "country": "India",
       "count": 2
     },
     {
-      "country": "Portugal",
+      "country": "Taiwan",
       "count": 2
     },
     {
@@ -65,15 +65,19 @@
       "count": 2
     },
     {
-      "country": "India",
+      "country": "Portugal",
       "count": 2
     },
     {
-      "country": "Great Britain",
+      "country": "Malaysia",
       "count": 1
     },
     {
-      "country": "France",
+      "country": "UK",
+      "count": 1
+    },
+    {
+      "country": "Croatia",
       "count": 1
     },
     {
@@ -85,23 +89,27 @@
       "count": 1
     },
     {
-      "country": "Croatia",
-      "count": 1
-    },
-    {
-      "country": "UK",
-      "count": 1
-    },
-    {
-      "country": "Malaysia",
-      "count": 1
-    },
-    {
       "country": "Qatar",
       "count": 1
     },
     {
+      "country": "Great Britain",
+      "count": 1
+    },
+    {
+      "country": "France",
+      "count": 1
+    },
+    {
       "country": "Hong Kong",
+      "count": 1
+    },
+    {
+      "country": "South Korea",
+      "count": 1
+    },
+    {
+      "country": "Serbia",
       "count": 1
     }
   ]

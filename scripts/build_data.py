@@ -16,6 +16,25 @@ OUT_DIR.mkdir(parents=True, exist_ok=True)
 df = pd.read_csv(SRC, encoding='utf-8-sig', low_memory=False)
 df = df.replace({np.nan: None})
 
+# Data-quality normalization: 46 studies (a contiguous id block, 198_1-240_1 —
+# one extraction batch, not a publication-year cohort) code every missing
+# env-/ques- value as "NAN" ("not applicable") instead of "NR" ("not
+# reported"). Confirmed this is a data-entry habit, not a real semantic
+# distinction: across all 269 studies, a study is either 100% NR-for-missing
+# or 100% NAN-for-missing within these two column groups, never mixed, and
+# there's no legitimate "not applicable" case for a top-level questionnaire
+# or environment-measurement field (unlike domain-conditional columns
+# elsewhere in the corpus, where NAN genuinely means the domain wasn't part
+# of the study design). This was already confirmed as a known issue to fix
+# at the source when new entries are added; until then, normalize here so
+# the NR/MNR/NC breakdown in fig14/15/16 reflects it correctly rather than
+# silently absorbing these into "other_missing". Does not change any
+# previously-reported completeness percentage, since NAN and NR were already
+# both treated as "not reported" by is_missing_code()/CODES.
+for prefix in ('env-', 'ques-'):
+    cols = [c for c in df.columns if c.startswith(prefix)]
+    df[cols] = df[cols].replace({'NAN': 'NR'})
+
 # Shared pretty-name lookup, defined once near the top so every function that
 # builds a protocol/participant-metadata/selection-criteria view (overall AND
 # by-period) uses the identical label for the same underlying column. Without
@@ -392,7 +411,85 @@ def clean_num(v):
             return None
         return result
     except (ValueError, TypeError):
-        return None
+        pass
+    # Fallback: a handful of manually-entered numeric cells use a comma as
+    # the decimal separator (e.g. '1,30' instead of '1.30' — a data-entry
+    # slip, not a real thousands-separator convention anywhere in this
+    # corpus, since no value here is large enough to need one).
+    if isinstance(v, str):
+        try:
+            result = float(v.strip().replace(',', '.'))
+            if result == result:
+                return result
+        except (ValueError, TypeError):
+            pass
+    return None
+
+
+_SUBGROUP_RE = re.compile(r'\[\s*(\d+)\s*:\s*([\d.,]+)\s*\]')
+
+
+def parse_subgroup_pooled(mean_str, std_str):
+    """Pool subgroup-level mean±SD into a single overall mean±SD.
+
+    Some studies don't report an overall age/BMI mean±SD, only per-subgroup
+    values, entered like:
+        pop-age-mean: '[10: 23.90], [10:23.50]'
+        pop-age-std:  '[10: 1.00], [10: 1,30]'
+    i.e. two subgroups of n=10, means 23.90/23.50, SDs 1.00/1.30 (note the
+    comma-decimal typo in the second SD — handled the same way as
+    clean_num's fallback).
+
+    Pooled mean uses: pooled_mean = sum(n_i * m_i) / sum(n_i)
+    Pooled SD (only computed if the SD string's subgroup n's exactly match
+    the mean string's) uses the standard combined-groups formula, which
+    accounts for BOTH the within-subgroup spread and the spread *between*
+    subgroup means:
+        pooled_var = [sum((n_i-1)*s_i^2) + sum(n_i*(m_i-pooled_mean)^2)]
+                     / (sum(n_i) - 1)
+
+    Returns (pooled_mean, pooled_std, total_n, issue) where `issue` is a
+    short string describing why pooled_std is None (mismatched subgroup n's,
+    a malformed number, or SD simply not reported) — surfaced for manual
+    review rather than silently guessing which SD belongs to which subgroup.
+    pooled_mean is returned whenever the mean string itself parses cleanly,
+    independently of whatever went wrong with the SD.
+    """
+    mean_groups = _SUBGROUP_RE.findall(str(mean_str)) if mean_str else []
+    if not mean_groups:
+        return None, None, None, None
+    try:
+        ns = [int(n) for n, _ in mean_groups]
+        means = [float(v.replace(',', '.')) for _, v in mean_groups]
+    except ValueError:
+        return None, None, None, 'unparseable subgroup mean value'
+    total_n = sum(ns)
+    if total_n <= 0:
+        return None, None, None, 'zero total n'
+    pooled_mean = round(sum(n * m for n, m in zip(ns, means)) / total_n, 2)
+
+    pooled_std, issue = None, None
+    std_groups = _SUBGROUP_RE.findall(str(std_str)) if std_str else []
+    if not std_groups:
+        issue = 'SD not reported per subgroup'
+    else:
+        try:
+            ns_std = [int(n) for n, _ in std_groups]
+            stds = [float(v.replace(',', '.')) for _, v in std_groups]
+        except ValueError:
+            issue = 'unparseable subgroup SD value'
+            ns_std = None
+        if ns_std is not None:
+            if ns_std != ns:
+                issue = f'subgroup n mismatch: mean groups={ns}, SD groups={ns_std}'
+            elif total_n <= 1:
+                issue = 'total n <= 1'
+            else:
+                within = sum((n - 1) * s**2 for n, s in zip(ns, stds))
+                between = sum(n * (m - pooled_mean)**2 for n, m in zip(ns, means))
+                pooled_var = (within + between) / (total_n - 1)
+                pooled_std = round(pooled_var ** 0.5, 2)
+    return pooled_mean, pooled_std, total_n, issue
 
 # ── Fig 1. Publications by year ────────────────────────────────────────
 pubs_by_year = df.drop_duplicates(subset=['id-pub-id'])['pub-year'].value_counts().sort_index()
@@ -518,25 +615,56 @@ with open(OUT_DIR / 'fig07_temperature_ranges.json', 'w') as f:
 print(f'fig07_temperature_ranges.json: {len(temp_rows)} studies with parseable temps')
 
 # ── Fig 8 & 9. Age and BMI mean±SD per study ───────────────────────────
+# Some studies only report per-subgroup mean±SD (e.g. male/female split)
+# rather than an overall figure, entered as '[10: 23.90], [10: 23.50]' —
+# see parse_subgroup_pooled() for how these get combined into one estimate.
 age_rows = []
+age_pooled_count = 0
+subgroup_pooling_issues = []
 for _, row in studies_u.iterrows():
     mean = clean_num(row['pop-age-mean'])
     std_raw = clean_num(row['pop-age-std'])
+    pooled_n = None
+    if mean is None:
+        mean, std_raw, pooled_n, issue = parse_subgroup_pooled(row['pop-age-mean'], row['pop-age-std'])
+        if mean is not None:
+            age_pooled_count += 1
+        if issue:
+            subgroup_pooling_issues.append({'id': row['id'], 'field': 'age', 'issue': issue,
+                                             'mean_raw': row['pop-age-mean'], 'std_raw': row['pop-age-std']})
     if mean is not None:
-        age_rows.append({'id': row['id'], 'mean': mean, 'std': std_raw, 'std_reported': std_raw is not None})
+        age_rows.append({'id': row['id'], 'mean': mean, 'std': std_raw,
+                          'std_reported': std_raw is not None, 'pooled_from_subgroups': pooled_n})
 
 bmi_rows = []
+bmi_pooled_count = 0
 for _, row in studies_u.iterrows():
     mean = clean_num(row['pop-bmi-mean'])
     std_raw = clean_num(row['pop-bmi-std'])
+    pooled_n = None
+    if mean is None:
+        mean, std_raw, pooled_n, issue = parse_subgroup_pooled(row['pop-bmi-mean'], row['pop-bmi-std'])
+        if mean is not None:
+            bmi_pooled_count += 1
+        if issue:
+            subgroup_pooling_issues.append({'id': row['id'], 'field': 'bmi', 'issue': issue,
+                                             'mean_raw': row['pop-bmi-mean'], 'std_raw': row['pop-bmi-std']})
     if mean is not None:
-        bmi_rows.append({'id': row['id'], 'mean': mean, 'std': std_raw, 'std_reported': std_raw is not None})
+        bmi_rows.append({'id': row['id'], 'mean': mean, 'std': std_raw,
+                          'std_reported': std_raw is not None, 'pooled_from_subgroups': pooled_n})
 
 with open(OUT_DIR / 'fig08_age.json', 'w') as f:
     json.dump({'studies': sorted(age_rows, key=lambda r: r['mean'])}, f, indent=2)
 with open(OUT_DIR / 'fig09_bmi.json', 'w') as f:
     json.dump({'studies': sorted(bmi_rows, key=lambda r: r['mean'])}, f, indent=2)
-print(f'fig08/09: {len(age_rows)} age, {len(bmi_rows)} BMI studies')
+print(f'fig08/09: {len(age_rows)} age ({age_pooled_count} pooled from subgroups), '
+      f'{len(bmi_rows)} BMI ({bmi_pooled_count} pooled from subgroups)')
+if subgroup_pooling_issues:
+    print(f'  \u26a0 {len(subgroup_pooling_issues)} subgroup entries need manual review '
+          f'(mean was still pooled where possible; SD was not):')
+    for iss in subgroup_pooling_issues:
+        print(f'    id={iss["id"]}  [{iss["field"]}]  {iss["issue"]}')
+        print(f'      mean={iss["mean_raw"]!r}  std={iss["std_raw"]!r}')
 
 # ── Fig 10 & 11. Sex distribution and sample size ──────────────────────
 sex_rows = []
@@ -636,25 +764,81 @@ with open(OUT_DIR / 'fig18_physio_cooccurrence.json', 'w') as f:
 print('fig18_physio_cooccurrence.json written')
 
 # ── Fig 15 & 16. Questionnaire scale heterogeneity ─────────────────────
+vas_unplaceable_log = []  # VAS/continuous entries with no extractable numeric range
+vas_typo_log = []  # entries recovered despite a data-entry typo, flagged for source cleanup
+
+def _try_numeric_list(s):
+    try:
+        return [float(x.strip().replace('+', '')) for x in s.split(',')]
+    except (ValueError, AttributeError):
+        return None
+
 def parse_scale(text, kind):
-    """Parse 'points=N; range=(...); scale=(...)' strings into structured scale data."""
+    """Parse 'points=N; range=(...); scale=(...)' strings into structured scale data.
+
+    Also handles VAS / continuous scales (points=VAS or points=continuous[,
+    with break]), which don't have a fixed point count. These sometimes have
+    the range=/scale= fields swapped (numeric bounds under 'scale=', verbal
+    anchors under 'range=') rather than the usual numeric-range/text-labels
+    convention — detected here by checking which field's content actually
+    parses as numbers, rather than assuming the field name always means the
+    same content type. A handful have NO numeric range at all (just two
+    verbal anchors, e.g. "too dry"/"too humid") — these can't be placed on a
+    shared numeric axis and are logged to vas_unplaceable_log instead of
+    silently dropped or guessed at.
+    """
     if text is None or str(text).strip() in CODES:
         return None
     text = str(text)
-    pts_m = re.search(r'points=(\d+)', text)
-    pts = int(pts_m.group(1)) if pts_m else None
-    range_m = re.search(r'range=\(([^)]*)\)', text)
-    labels_m = re.search(r'scale=\(([^)]*)\)', text)
-    if not range_m or not labels_m:
+    pts_m = re.search(r'points\s*=\s*(\d+)', text)
+    vas_m = re.search(r'points\s*=\s*(VAS|continuous(?:\s+with\s+break)?)', text, re.I)
+    if not pts_m and not vas_m:
         return None
-    try:
-        range_vals = [float(x.strip().replace('+', '')) for x in range_m.group(1).split(',')]
-    except ValueError:
+    scale_type = 'discrete' if pts_m else vas_m.group(1).strip().lower()
+
+    range_m = re.search(r'range\s*=\s*\(([^)]*)\)', text)
+    scale_m = re.search(r'scale\s*=\s*\(([^)]*)\)', text)
+    if not range_m:
+        # data-entry typo seen in a few VAS/continuous entries: "range(...)"
+        # missing the '=' — tolerate it, but flag for source-file cleanup.
+        range_bad_m = re.search(r'\brange\s*\(([^)]*)\)', text)
+        if range_bad_m:
+            range_m = range_bad_m
+            vas_typo_log.append({'raw': text, 'issue': "'range(' missing '='"})
+    if not range_m or not scale_m:
+        if vas_m:
+            vas_unplaceable_log.append({'raw': text, 'issue': 'no range=(...) and/or scale=(...) block found'})
         return None
-    labels = [x.strip().strip('"').strip("'") for x in labels_m.group(1).split(',')]
-    if len(range_vals) != len(labels) or pts is None:
+
+    if pts_m:
+        # Standard discrete scale: range=numbers, scale=text labels (original,
+        # unconditional behavior — unchanged for backward compatibility).
+        range_vals = _try_numeric_list(range_m.group(1))
+        if range_vals is None:
+            return None
+        labels = [x.strip().strip('"').strip("'") for x in scale_m.group(1).split(',')]
+        pts = int(pts_m.group(1))
+    else:
+        # VAS/continuous: don't assume which field is numeric — some entries
+        # have it swapped (numeric bounds under 'scale=', verbal anchors
+        # under 'range='). Try both, use whichever actually parses as numbers.
+        range_as_num = _try_numeric_list(range_m.group(1))
+        scale_as_num = _try_numeric_list(scale_m.group(1))
+        if range_as_num is not None:
+            range_vals = range_as_num
+            labels = [x.strip().strip('"').strip("'") for x in scale_m.group(1).split(',')]
+        elif scale_as_num is not None:
+            range_vals = scale_as_num
+            labels = [x.strip().strip('"').strip("'") for x in range_m.group(1).split(',')]
+            vas_typo_log.append({'raw': text, 'issue': "range=/scale= fields swapped (numbers under 'scale=')"})
+        else:
+            vas_unplaceable_log.append({'raw': text, 'issue': 'neither range= nor scale= contains a numeric list'})
+            return None
+        pts = None
+
+    if len(range_vals) != len(labels):
         return None
-    return {'points': pts, 'range': range_vals, 'labels': labels}
+    return {'points': pts, 'scale_type': scale_type, 'range': range_vals, 'labels': labels}
 
 # IMPORTANT: for TCV specifically, "low number" does NOT reliably mean
 # "uncomfortable" — the appendix's own Fig. 16 finding is that polarity
@@ -702,21 +886,49 @@ for _, row in studies_u.iterrows():
 tsv_pts_dist = pd.Series([p['points'] for p in tsv_parsed]).value_counts().sort_index()
 tcv_pts_dist = pd.Series([p['points'] for p in tcv_parsed]).value_counts().sort_index()
 
+def code_breakdown(col):
+    return {
+        'mnr': int((col == 'MNR').sum()),
+        'nr': int((col == 'NR').sum()),
+        'nc': int((col == 'NC').sum()),
+    }
+
 with open(OUT_DIR / 'fig15_tsv_scales.json', 'w') as f:
     json.dump({
         'studies': tsv_parsed,
         'points_distribution': [{'points': int(k), 'count': int(v)} for k, v in tsv_pts_dist.items()],
         'n_total': len(tsv_parsed),
+        'code_breakdown': code_breakdown(studies_u['ques-thermal-sensation']),
     }, f, indent=2)
 with open(OUT_DIR / 'fig16_tcv_scales.json', 'w') as f:
     json.dump({
         'studies': tcv_parsed,
         'points_distribution': [{'points': int(k), 'count': int(v)} for k, v in tcv_pts_dist.items()],
         'n_total': len(tcv_parsed),
+        'code_breakdown': code_breakdown(studies_u['ques-thermal-comfort']),
+        'vas_unplaceable': vas_unplaceable_log,
     }, f, indent=2)
 print(f'fig15/16: {len(tsv_parsed)} TSV scales, {len(tcv_parsed)} TCV scales parsed')
+if vas_typo_log:
+    print(f'  \u26a0 {len(vas_typo_log)} VAS/continuous entries recovered despite a source typo (worth cleaning up):')
+    for t in vas_typo_log:
+        print(f'    [{t["issue"]}]  {t["raw"]!r}')
+if vas_unplaceable_log:
+    print(f'  \u26a0 {len(vas_unplaceable_log)} VAS/continuous entries have no numeric range and cannot be plotted on the shared axis:')
+    for t in vas_unplaceable_log:
+        print(f'    [{t["issue"]}]  {t["raw"]!r}')
 
 # ── Fig 14. Questionnaire usage grouped by domain ──────────────────────
+# Data-quality note: two publications appear to be double-coded rather than
+# genuinely distinct experiments — pub 109 (Marchenko et al. 2020, DOI
+# 10.3390/app10207315) has a second entry under id "#N/A" with near-identical
+# content (same n, same physio parameters) but a different TSV point-count;
+# and pub 76 / pub 229 share DOI 10.1016/j.buildenv.2021.107589 with
+# identical n/temp-range/physio rows but a different TSV point-count. Both
+# should be checked against the source PDFs and reconciled to one experiment
+# each before treating n_experiments as final; the current pipeline
+# incidentally drops the "#N/A" row (via studies_u's notna() filter) but has
+# no equivalent check for the 76/229 pair, so it is currently double-counted.
 QUES_DOMAINS = {
     'Thermal': ['ques-thermal-sensation','ques-thermal-comfort','ques-thermal-prefer','ques-thermal-accept',
                 'ques-thermal-satisfaction','ques-thermal-pleasure-pleasantness','ques-local-therm-sensation',
@@ -757,11 +969,30 @@ PRETTY_FIELD = {
     'ques-acoustic-satisfaction':'Acoustic satisfaction',
 }
 ques_domain_data = {}
+n_studies_total = len(studies_u)
 for domain, cols in QUES_DOMAINS.items():
     cols_present = [c for c in cols if c in studies_u.columns]
     reported = ~studies_u[cols_present].isin(CODES) & studies_u[cols_present].notna()
     any_in_domain = reported.any(axis=1).sum()
-    field_counts = [{'field': PRETTY_FIELD.get(c, c), 'count': int(reported[c].sum())} for c in cols_present]
+    field_counts = []
+    for c in cols_present:
+        col = studies_u[c]
+        rep = int(reported[c].sum())
+        mnr = int((col == 'MNR').sum())
+        nr = int((col == 'NR').sum())
+        nc = int((col == 'NC').sum())
+        # Anything left over (blank/None/"NAN" not-applicable) isn't reported,
+        # MNR, NR, or NC, but should still be visible so the four counts plus
+        # this remainder sum to n_studies_total.
+        other_missing = n_studies_total - rep - mnr - nr - nc
+        field_counts.append({
+            'field': PRETTY_FIELD.get(c, c),
+            'count': rep,
+            'mnr': mnr,
+            'nr': nr,
+            'nc': nc,
+            'other_missing': int(other_missing),
+        })
     field_counts.sort(key=lambda r: -r['count'])
     ques_domain_data[domain] = {'n_any': int(any_in_domain), 'fields': field_counts}
 
@@ -1166,24 +1397,62 @@ with open(OUT_DIR / 'field_completeness_detailed.json', 'w') as f:
 print('field_completeness_detailed.json written for groups:', list(full_completeness.keys()))
 
 # ── A8. Cognitive test harmonization ────────────────────────────────────
+# As of the 2026-07 corpus update, the old single free-text
+# `cognitive-test-type` column was retired and replaced by two purpose-built
+# columns: `cognitive-domain-performance` (objective performance tasks) and
+# `cognitive-domain-subjective` (self-report scales, each hand-tagged with
+# an explicit measurement domain in parentheses, e.g. 'NASA-TLX (workload)').
+# Because the subjective column now states its own domain directly, we use
+# that tag rather than DOMAIN_MAP's guess for those rows; DOMAIN_MAP is still
+# used for the performance column, where the domain isn't given in the data.
 import sys as _sys
 _sys.path.insert(0, str(Path(__file__).parent))
-from cognitive_taxonomy import split_cognitive_tests, canonicalize_token
+from cognitive_taxonomy import split_cognitive_tests, canonicalize_token, split_domain_tag
 
 cog_done = studies_u[studies_u['cognitive-test-done'] == 'Y'].copy()
 cog_rows = []
 unrecognized_log = []
+flagged_for_review = []  # raw tokens the data-enterer themselves flagged (e.g. "verify")
+
 for _, row in cog_done.iterrows():
-    tokens = split_cognitive_tests(row['cognitive-test-type'])
     seen_in_study = set()
-    for t in tokens:
+    # Performance tasks: domain comes from DOMAIN_MAP (via canonicalize_token)
+    for t in split_cognitive_tests(row['cognitive-domain-performance']):
+        if t == 'NAN' or not t:
+            continue
         canon, domain, ok = canonicalize_token(t)
         if not ok:
-            unrecognized_log.append({'id': row['id'], 'raw': t})
+            unrecognized_log.append({'id': row['id'], 'raw': t, 'column': 'performance'})
+        if any(w in t.lower() for w in ('verify', 'unclear')):
+            flagged_for_review.append({'id': row['id'], 'raw': t, 'column': 'performance'})
         if canon in seen_in_study:
-            continue  # avoid double-counting the same instrument within one study
+            continue
         seen_in_study.add(canon)
-        cog_rows.append({'id': row['id'], 'period': row['period'], 'instrument': canon, 'domain': domain, 'raw': t})
+        cog_rows.append({'id': row['id'], 'period': row['period'], 'instrument': canon,
+                          'domain': domain, 'raw': t, 'measure_type': 'Performance task'})
+    # Subjective scales: domain comes from the explicit trailing tag
+    # (workload/mood/stress) hand-coded onto each entry, not from DOMAIN_MAP.
+    for t in split_cognitive_tests(row['cognitive-domain-subjective']):
+        if t == 'NAN' or not t:
+            continue
+        base, tag = split_domain_tag(t)
+        canon, fallback_domain, ok = canonicalize_token(base)
+        if not ok:
+            unrecognized_log.append({'id': row['id'], 'raw': t, 'column': 'subjective'})
+        if any(w in t.lower() for w in ('verify', 'unclear')):
+            flagged_for_review.append({'id': row['id'], 'raw': t, 'column': 'subjective'})
+        # TSST is a stress-induction protocol, not a self-report scale, even
+        # though it's tagged '(stress)' alongside the rest of this column.
+        if canon == 'Trier Social Stress Test (TSST)':
+            measure_type, domain = 'Stress induction', 'Stress induction protocol'
+        else:
+            measure_type = 'Subjective scale'
+            domain = f'Subjective scale — {tag}' if tag else fallback_domain
+        if canon in seen_in_study:
+            continue
+        seen_in_study.add(canon)
+        cog_rows.append({'id': row['id'], 'period': row['period'], 'instrument': canon,
+                          'domain': domain, 'raw': t, 'measure_type': measure_type})
 
 cog_df = pd.DataFrame(cog_rows)
 instrument_totals = cog_df.groupby(['instrument', 'domain']).agg(
@@ -1197,10 +1466,8 @@ study_instruments = cog_df.groupby('id')['instrument'].apply(list).reset_index()
 
 # Flow data for Sankey: measure type -> domain -> instrument. Counts are
 # unique-study counts, not raw row counts, so a study using the same instrument
-# more than once still contributes only once.
-cog_df['measure_type'] = cog_df['domain'].apply(
-    lambda d: 'Performance task' if str(d).startswith('Performance task') else ('Subjective scale' if str(d).startswith('Subjective scale') else 'Stress induction')
-)
+# more than once still contributes only once. measure_type is now assigned
+# directly per-row above rather than inferred from the domain string.
 # Drop the measure-type prefix from the middle column so the Sankey's first and
 # second columns are not redundant.
 cog_df['domain_short'] = cog_df['domain'].apply(lambda d: str(d).split('—', 1)[1].strip() if '—' in str(d) else str(d))
@@ -1217,9 +1484,14 @@ with open(OUT_DIR / 'cognitive_tests.json', 'w') as f:
         'n_studies_with_cognitive_test': int(cog_done['id'].nunique()),
         'n_total_studies': len(studies_u),
         'unrecognized_count': len(unrecognized_log),
+        'flagged_for_review': flagged_for_review,
     }, f, indent=2, default=str)
 print(f'cognitive_tests.json: {len(instrument_totals)} canonical instruments, '
       f'{cog_done["id"].nunique()} studies, {len(unrecognized_log)} unrecognized tokens')
+if flagged_for_review:
+    print(f'  \u26a0 {len(flagged_for_review)} entries self-flagged for manual verification:')
+    for f_ in flagged_for_review:
+        print(f'    id={f_["id"]}  ({f_["column"]})  {f_["raw"]!r}')
 
 # ── A9. Country -> world-atlas name crosswalk for choropleth map ──────────
 # The corpus's free-text country names don't match world-atlas's polygon

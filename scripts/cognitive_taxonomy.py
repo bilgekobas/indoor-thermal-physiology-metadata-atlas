@@ -109,6 +109,71 @@ CANONICAL_MAP = {
     'fast-counting': 'Fast-counting task', 'fast-counting test': 'Fast-counting task',
     'non-feedback stepuru test': 'Stepuru task',
     'typing': 'Typing task', 'typing test': 'Typing task', 'typing with feedback': 'Typing task (with feedback)',
+    # New variants added when the 2026-07 batch started appending a
+    # parenthetical domain/description tag to already-known instrument
+    # names (see strip_trailing_parenthetical() below for the general fix;
+    # these are cases where the *base* string still didn't match anything
+    # existing, usually because of an extra word like "test"/"task" or a
+    # hyphen/spacing difference).
+    'stroop color-word test': 'Stroop task',
+    'backward digit span test': 'Digit span task (backward)',
+    '2-back': 'N-back task (2-back)',
+    'mental arithmetic test': 'Mental arithmetic',
+    'fast counting test': 'Fast-counting task',
+    'mental rotation test': 'Mental rotation task',
+    'karolinska sleepiness scale': 'Karolinska Sleepiness Scale (KSS)',
+    'positive and negative affect schedule': 'PANAS (mood)',
+    'go/no-go visual reaction test': 'Go/no-go task',
+    '2-back test': 'N-back task (2-back)',
+    'n-back test': 'N-back task',
+    'digit span task': 'Digit span task',
+
+    # ── cognitive-domain-performance: new/renamed instruments introduced
+    # when this column was split out of the old free-text cognitive-test-type
+    # field (2026-07) ──────────────────────────────────────────────────────
+    'agility': 'Agility task (hand-eye coordination)',
+    'aim trainer': 'Aim trainer',
+    'bpr-5 reasoning battery': 'BPR-5 reasoning battery',
+    'cambridge brain sciences (cbs) battery': 'Cambridge Brain Sciences (CBS) battery',
+    'computer adaptive test (cat, wonderlic-style)': 'Computer Adaptive Test (CAT, Wonderlic-style)',
+    'digit recall': 'Digit recall task',
+    'graphical reasoning': 'Reasoning task (graphical)',
+    'hand-eye coordination': 'Hand-eye coordination task',
+    'matb-ii': 'MATB-II (Multi-Attribute Task Battery)',
+    'mental / spatial rotation': 'Mental rotation task',
+    'neuropsychological test battery': 'Neuropsychological test battery (unspecified)',
+    'number memory': 'Number memory task',
+    'rvip': 'Rapid Visual Information Processing (RVIP)',
+    'reaction time': 'Reaction time task (unspecified)',
+    'reading comprehension': 'Reading comprehension task',
+    'searching task (ascending order)': 'Searching task (ascending-order number click)',
+    'short-term memory': 'Short-term memory task (unspecified)',
+    'stepuru': 'Stepuru task',
+    'trail making': 'Trail Making Test',
+    'uchida-kraepelin test': 'Uchida-Kraepelin test',
+    'unspecified paper-based performance': 'Unspecified performance test (paper-based)',
+    'visual perception': 'Visual perception task (unspecified)',
+    'word-search': 'Word search task',
+
+    # ── cognitive-domain-subjective: instrument names (domain for this
+    # column now comes from the explicit trailing tag -- see
+    # split_domain_tag() -- so these entries only need to canonicalize the
+    # NAME, not guess a domain) ────────────────────────────────────────────
+    'distraction rating (self-report)': 'Self-rated distraction',
+    'efficiency rating (self-report)': 'Self-rated efficiency',
+    'excitement vote (ev)': 'Excitement Vote (EV)',
+    'fatigue rating (vas/self-report)': 'Self-rated fatigue',
+    'focus level vas': 'Self-rated focus (VAS)',
+    'groningen sleep quality scale': 'Groningen Sleep Quality Scale (GSQS)',
+    'motivation scale': 'Motivation scale',
+    'physical condition vas': 'Self-rated physical condition (VAS)',
+    'relaxation level vas': 'Self-rated relaxation (VAS)',
+    'self-assessment manikin (sam)': 'Self-Assessment Manikin (SAM)',
+    'self-rated performance / concentration': 'Self-rated performance/concentration',
+    'sleepiness rating (self-report)': 'Self-rated sleepiness',
+    'stress level vas': 'Self-rated stress (VAS)',
+    'studying efficiency vote (sev)': 'Studying Efficiency Vote (SEV)',
+    'work progress vas': 'Self-rated work progress (VAS)',
     # Subjective workload / mood / alertness scales (NOT performance tasks —
     # kept in CANONICAL_MAP but tagged with a different domain below)
     'nasa-tlx': 'NASA-TLX', 'nasa task load index (tlx)': 'NASA-TLX',
@@ -207,15 +272,143 @@ DOMAIN_MAP = {
     'Self-rated work performance': 'Subjective scale — work performance',
     'Self-rated work willingness': 'Subjective scale — work performance',
     'Self-rated work motivation': 'Subjective scale — work performance',
+
+    'Digit span task (backward)': 'Performance task — working memory',
+    'N-back task (2-back)': 'Performance task — working memory',
+
+    # ── new instruments from the 2026-07 cognitive-domain-performance /
+    # cognitive-domain-subjective split ────────────────────────────────────
+    'Agility task (hand-eye coordination)': 'Performance task — psychomotor coordination',
+    'Aim trainer': 'Performance task — psychomotor speed',
+    'Cambridge Brain Sciences (CBS) battery': 'Performance task — multi-domain battery',
+    'Computer Adaptive Test (CAT, Wonderlic-style)': 'Performance task — multi-domain battery',
+    'Digit recall task': 'Performance task — memory',
+    'Hand-eye coordination task': 'Performance task — psychomotor coordination',
+    'MATB-II (Multi-Attribute Task Battery)': 'Performance task — multi-domain battery',
+    'Neuropsychological test battery (unspecified)': 'Performance task — multi-domain battery',
+    'Number memory task': 'Performance task — memory',
+    'Rapid Visual Information Processing (RVIP)': 'Performance task — sustained attention',
+    'Reaction time task (unspecified)': 'Performance task — psychomotor speed',
+    'Reading comprehension task': 'Performance task — verbal comprehension',
+    'Searching task (ascending-order number click)': 'Performance task — attention',
+    'Short-term memory task (unspecified)': 'Performance task — memory',
+    'Unspecified performance test (paper-based)': 'Performance task — unspecified',
+    'Visual perception task (unspecified)': 'Performance task — perception',
+    'Word search task': 'Performance task — attention',
+
+    # Subjective-scale canonical names: domain here is mostly superseded by
+    # the explicit tag on cognitive-domain-subjective (see split_domain_tag
+    # in canonicalize_token's caller), but filled in for consistency in case
+    # this function is used standalone.
+    'Excitement Vote (EV)': 'Subjective scale — mood',
+    'Self-rated focus (VAS)': 'Subjective scale — attention',
+    'Groningen Sleep Quality Scale (GSQS)': 'Subjective scale — sleep quality',
+    'Motivation scale': 'Subjective scale — mood',
+    'Self-rated physical condition (VAS)': 'Subjective scale — physical condition',
+    'Self-rated relaxation (VAS)': 'Subjective scale — mood',
+    'Self-Assessment Manikin (SAM)': 'Subjective scale — mood',
+    'Self-rated performance/concentration': 'Subjective scale — work performance',
+    'Self-rated stress (VAS)': 'Subjective scale — stress',
+    'Studying Efficiency Vote (SEV)': 'Subjective scale — work performance',
+    'Self-rated work progress (VAS)': 'Subjective scale — work performance',
 }
+
+
+def strip_trailing_parenthetical(s):
+    """Strip a single trailing '(...)' segment, if the string ends with one.
+
+    Added for the 2026-07 batch, which started appending a domain/scale
+    descriptor in parentheses onto already-known instrument names (e.g.
+    'Stroop test (attention)', 'N-back test (working memory)'). Exact-match
+    lookup breaks on these even though the instrument itself is recognized.
+    Only strips ONE trailing parenthetical (not nested/multiple ones) so it
+    doesn't over-eagerly mangle multi-clause descriptions; those still fall
+    through to the unrecognized path for manual review, which is the safer
+    failure mode.
+    """
+    s = s.strip()
+    m = re.match(r'^(.*?)\s*\([^()]*\)$', s)
+    if m and m.group(1).strip():
+        return m.group(1).strip()
+    return None
+
+
+_TRAILING_SUFFIX_WORDS = ('tasks', 'task', 'tests', 'test')
+
+
+def strip_trailing_suffix_word(s):
+    """Strip one trailing 'task(s)'/'test(s)' word, if present.
+
+    Added when the corpus split cognitive-test-type into
+    cognitive-domain-performance / cognitive-domain-subjective (2026-07):
+    the new columns consistently suffix instrument names with "Task" or
+    "Test" (e.g. 'Redirection Task', 'Choice Reaction Task') where the old
+    free-text column often didn't ('redirection', 'choice reaction'). Rather
+    than hand-adding an alias for every existing instrument, this lets the
+    existing bare-name keys keep matching under the new convention.
+    """
+    s = s.strip()
+    for suf in _TRAILING_SUFFIX_WORDS:
+        if s.lower().endswith(' ' + suf):
+            return s[: -(len(suf) + 1)].strip()
+    return None
+
+
+# Explicit measurement-domain tags now hand-coded onto every entry in
+# cognitive-domain-subjective (e.g. 'NASA-TLX (workload)', 'KSS (Karolinska
+# Sleepiness Scale) (workload)'). Because the domain is now given directly
+# in the data, canonicalize_token no longer needs to *guess* the subjective
+# sub-domain from DOMAIN_MAP for this column -- only the instrument name
+# still needs canonicalizing. This also fixes the earlier failure mode where
+# paren-stripping could match a specific instrument to an over-generic
+# existing label (e.g. an Alertness-via-KSS write-up collapsing to generic
+# 'Self-rated alertness').
+DOMAIN_TAGS = {'workload', 'mood', 'stress'}
+
+
+def split_domain_tag(token):
+    """Split a trailing explicit tag like 'NASA-TLX (workload)' into
+    (base_instrument_text, tag). Only strips the LAST parenthetical, and
+    only if its content is exactly one of the known tags -- an acronym
+    expansion like 'KSS (Karolinska Sleepiness Scale)' is left alone here,
+    since that inner parenthetical isn't a domain tag; canonicalize_token's
+    own paren-stripping handles that separately, after this function has
+    already pulled off the real domain tag.
+    Returns (token, None) if there's no recognized trailing tag.
+    """
+    s = token.strip()
+    m = re.match(r'^(.*)\(([^()]*)\)\s*$', s)
+    if m:
+        tag = m.group(2).strip().lower()
+        if tag in DOMAIN_TAGS:
+            return m.group(1).strip(), tag
+    return s, None
 
 
 def canonicalize_token(token):
     """Returns (canonical_name, domain, was_recognized)."""
     key = token.strip().lower().rstrip('.')
-    if key in CANONICAL_MAP:
-        canon = CANONICAL_MAP[key]
-        domain = DOMAIN_MAP.get(canon, 'Unclassified')
-        return canon, domain, True
+    candidates = [key]
+    paren_stripped = strip_trailing_parenthetical(key)
+    if paren_stripped:
+        candidates.append(paren_stripped)
+    suffix_stripped = strip_trailing_suffix_word(key)
+    if suffix_stripped:
+        candidates.append(suffix_stripped)
+        # also try stripping a parenthetical AFTER removing the suffix word,
+        # e.g. 'stepuru test (non-feedback)' -> 'stepuru test' -> 'stepuru'
+        further = strip_trailing_parenthetical(suffix_stripped)
+        if further:
+            candidates.append(further)
+    if paren_stripped:
+        # and the reverse order: paren first, then suffix word
+        further = strip_trailing_suffix_word(paren_stripped)
+        if further:
+            candidates.append(further)
+    for c in candidates:
+        if c in CANONICAL_MAP:
+            canon = CANONICAL_MAP[c]
+            domain = DOMAIN_MAP.get(canon, 'Unclassified')
+            return canon, domain, True
     # Unrecognized: fall back to title-cased raw text, flagged for review
     return token.strip(), 'Unclassified (not in taxonomy)', False

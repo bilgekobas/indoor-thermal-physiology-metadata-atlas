@@ -3,238 +3,238 @@
     "fields": [
       {
         "field": "City",
-        "count": 251,
-        "pct": 93.0
+        "count": 275,
+        "pct": 93.2
       },
       {
         "field": "Country",
-        "count": 264,
-        "pct": 97.8
+        "count": 289,
+        "pct": 98.0
       },
       {
         "field": "Climate class",
-        "count": 251,
-        "pct": 93.0
+        "count": 272,
+        "pct": 92.2
       },
       {
         "field": "Experiment year",
-        "count": 137,
-        "pct": 50.7
+        "count": 151,
+        "pct": 51.2
       },
       {
         "field": "Season of testing",
-        "count": 70,
-        "pct": 25.9
+        "count": 88,
+        "pct": 29.8
       },
       {
         "field": "Daily start/end time",
-        "count": 74,
-        "pct": 27.4
+        "count": 84,
+        "pct": 28.5
       },
       {
         "field": "Session length",
-        "count": 254,
-        "pct": 94.1
+        "count": 278,
+        "pct": 94.2
       },
       {
         "field": "Normalisation period",
-        "count": 225,
-        "pct": 83.3
+        "count": 245,
+        "pct": 83.1
       },
       {
         "field": "Data availability statement",
-        "count": 79,
-        "pct": 29.3
+        "count": 94,
+        "pct": 31.9
       }
     ],
-    "n_studies": 270
+    "n_studies": 295
   },
   "population": {
     "fields": [
       {
         "field": "Sample size calculation",
-        "count": 63,
-        "pct": 23.3
+        "count": 73,
+        "pct": 24.7
       },
       {
         "field": "Total sample size",
-        "count": 267,
-        "pct": 98.9
+        "count": 292,
+        "pct": 99.0
       },
       {
         "field": "Male participants",
-        "count": 253,
-        "pct": 93.7
+        "count": 275,
+        "pct": 93.2
       },
       {
         "field": "Female participants",
-        "count": 253,
-        "pct": 93.7
+        "count": 275,
+        "pct": 93.2
       },
       {
         "field": "Age mean",
-        "count": 220,
-        "pct": 81.5
+        "count": 240,
+        "pct": 81.4
       },
       {
         "field": "Age SD",
-        "count": 208,
-        "pct": 77.0
+        "count": 224,
+        "pct": 75.9
       },
       {
         "field": "BMI mean",
-        "count": 151,
+        "count": 165,
         "pct": 55.9
       },
       {
         "field": "BMI SD",
-        "count": 146,
-        "pct": 54.1
+        "count": 157,
+        "pct": 53.2
       },
       {
         "field": "Healthy participant requirement",
-        "count": 191,
-        "pct": 70.7
+        "count": 212,
+        "pct": 71.9
       },
       {
         "field": "Thermal history assessed",
-        "count": 86,
-        "pct": 31.9
+        "count": 98,
+        "pct": 33.2
       },
       {
         "field": "Thermal history collected",
-        "count": 88,
-        "pct": 32.6
+        "count": 100,
+        "pct": 33.9
       },
       {
         "field": "Smoking behaviour collected",
-        "count": 9,
-        "pct": 3.3
+        "count": 10,
+        "pct": 3.4
       },
       {
         "field": "Menstrual timing collected",
         "count": 8,
-        "pct": 3.0
+        "pct": 2.7
       },
       {
         "field": "Chronotype collected",
-        "count": 6,
-        "pct": 2.2
+        "count": 7,
+        "pct": 2.4
       }
     ],
-    "n_studies": 270
+    "n_studies": 295
   },
   "physio_measurement": {
     "fields": [
       {
         "field": "Sensor type",
-        "count": 261,
-        "pct": 96.7
+        "count": 285,
+        "pct": 96.6
       },
       {
         "field": "Sensor brand",
-        "count": 230,
-        "pct": 85.2
+        "count": 252,
+        "pct": 85.4
       },
       {
         "field": "Sensor model",
-        "count": 215,
-        "pct": 79.6
+        "count": 237,
+        "pct": 80.3
       },
       {
         "field": "Body site",
-        "count": 261,
-        "pct": 96.7
+        "count": 286,
+        "pct": 96.9
       },
       {
         "field": "Sagittal location",
-        "count": 107,
-        "pct": 39.6
+        "count": 117,
+        "pct": 39.7
       },
       {
         "field": "Surface location",
-        "count": 169,
-        "pct": 62.6
+        "count": 184,
+        "pct": 62.4
       },
       {
         "field": "Number of MST points",
-        "count": 110,
-        "pct": 40.7
+        "count": 122,
+        "pct": 41.4
       },
       {
         "field": "MST formula used",
-        "count": 104,
-        "pct": 38.5
+        "count": 111,
+        "pct": 37.6
       },
       {
         "field": "Full formula text",
-        "count": 93,
-        "pct": 34.4
+        "count": 103,
+        "pct": 34.9
       },
       {
         "field": "Weighting factors per region",
-        "count": 83,
-        "pct": 30.7
+        "count": 93,
+        "pct": 31.5
       }
     ],
-    "n_studies": 270
+    "n_studies": 295
   },
   "env_measurement": {
     "fields": [
       {
         "field": "Air temperature",
-        "count": 151,
-        "pct": 55.9
+        "count": 167,
+        "pct": 56.6
       },
       {
         "field": "Relative humidity",
-        "count": 124,
-        "pct": 45.9
+        "count": 139,
+        "pct": 47.1
       },
       {
         "field": "Air velocity",
-        "count": 105,
-        "pct": 38.9
+        "count": 117,
+        "pct": 39.7
       },
       {
         "field": "Globe temperature",
-        "count": 84,
-        "pct": 31.1
+        "count": 90,
+        "pct": 30.5
       },
       {
         "field": "Surface temperatures",
         "count": 6,
-        "pct": 2.2
+        "pct": 2.0
       },
       {
         "field": "Wet-bulb temperature",
-        "count": 8,
-        "pct": 3.0
+        "count": 9,
+        "pct": 3.1
       },
       {
         "field": "Outdoor temperature",
-        "count": 1,
-        "pct": 0.4
+        "count": 2,
+        "pct": 0.7
       },
       {
         "field": "Outdoor RH",
-        "count": 0,
-        "pct": 0.0
+        "count": 1,
+        "pct": 0.3
       },
       {
         "field": "CO2 concentration",
-        "count": 28,
-        "pct": 10.4
+        "count": 31,
+        "pct": 10.5
       },
       {
         "field": "VOC concentration",
         "count": 3,
-        "pct": 1.1
+        "pct": 1.0
       },
       {
         "field": "Illuminance",
-        "count": 29,
-        "pct": 10.7
+        "count": 31,
+        "pct": 10.5
       },
       {
         "field": "Light colour/CCT",
@@ -243,180 +243,180 @@
       },
       {
         "field": "Solar radiation",
-        "count": 2,
-        "pct": 0.7
+        "count": 3,
+        "pct": 1.0
       },
       {
         "field": "Sound level",
         "count": 5,
-        "pct": 1.9
+        "pct": 1.7
       }
     ],
-    "n_studies": 270
+    "n_studies": 295
   },
   "questionnaires": {
     "fields": [
       {
         "field": "Thermal sensation",
-        "count": 236,
-        "pct": 87.4
+        "count": 257,
+        "pct": 87.1
       },
       {
         "field": "Thermal comfort",
-        "count": 144,
-        "pct": 53.3
+        "count": 159,
+        "pct": 53.9
       },
       {
         "field": "Thermal preference",
-        "count": 58,
-        "pct": 21.5
+        "count": 68,
+        "pct": 23.1
       },
       {
         "field": "Thermal acceptability",
-        "count": 77,
-        "pct": 28.5
+        "count": 87,
+        "pct": 29.5
       },
       {
         "field": "Thermal satisfaction",
-        "count": 15,
-        "pct": 5.6
+        "count": 20,
+        "pct": 6.8
       },
       {
         "field": "Local thermal sensation",
-        "count": 31,
-        "pct": 11.5
+        "count": 37,
+        "pct": 12.5
       },
       {
         "field": "Air movement sensation",
-        "count": 12,
-        "pct": 4.4
+        "count": 15,
+        "pct": 5.1
       },
       {
         "field": "Humidity sensation",
-        "count": 21,
-        "pct": 7.8
+        "count": 25,
+        "pct": 8.5
       },
       {
         "field": "Light sensation",
-        "count": 7,
-        "pct": 2.6
+        "count": 11,
+        "pct": 3.7
       },
       {
         "field": "IAQ sensation",
-        "count": 8,
-        "pct": 3.0
+        "count": 11,
+        "pct": 3.7
       },
       {
         "field": "Acoustic sensation",
-        "count": 3,
-        "pct": 1.1
+        "count": 4,
+        "pct": 1.4
       },
       {
         "field": "Cognitive test applied",
-        "count": 270,
-        "pct": 100.0
+        "count": 279,
+        "pct": 94.6
       }
     ],
-    "n_studies": 270
+    "n_studies": 295
   },
   "protocol": {
     "fields": [
       {
         "field": "Fixed clothing insulation",
-        "count": 209,
-        "pct": 77.4
+        "count": 228,
+        "pct": 77.3
       },
       {
         "field": "Observed clothing",
-        "count": 37,
-        "pct": 13.7
+        "count": 40,
+        "pct": 13.6
       },
       {
         "field": "Defined activity protocol",
-        "count": 191,
-        "pct": 70.7
+        "count": 210,
+        "pct": 71.2
       },
       {
         "field": "Observed metabolic rate",
-        "count": 9,
-        "pct": 3.3
+        "count": 11,
+        "pct": 3.7
       },
       {
         "field": "Avoid stimulants",
-        "count": 135,
-        "pct": 50.0
+        "count": 148,
+        "pct": 50.2
       },
       {
         "field": "Avoid physical activity",
-        "count": 108,
-        "pct": 40.0
+        "count": 119,
+        "pct": 40.3
       },
       {
         "field": "Pre-experiment rest/sleep",
-        "count": 71,
-        "pct": 26.3
+        "count": 83,
+        "pct": 28.1
       },
       {
         "field": "Maintain routine",
-        "count": 17,
-        "pct": 6.3
+        "count": 20,
+        "pct": 6.8
       },
       {
         "field": "Circadian control",
-        "count": 61,
-        "pct": 22.6
+        "count": 69,
+        "pct": 23.4
       },
       {
         "field": "Menstrual timing control",
         "count": 22,
-        "pct": 8.1
+        "pct": 7.5
       },
       {
         "field": "Time between sessions",
-        "count": 63,
-        "pct": 23.3
+        "count": 68,
+        "pct": 23.1
       },
       {
         "field": "Pre-study instruction/practice",
-        "count": 126,
-        "pct": 46.7
+        "count": 140,
+        "pct": 47.5
       },
       {
         "field": "Blinding",
-        "count": 53,
-        "pct": 19.6
+        "count": 57,
+        "pct": 19.3
       },
       {
         "field": "Randomisation",
-        "count": 93,
-        "pct": 34.4
+        "count": 103,
+        "pct": 34.9
       },
       {
         "field": "Balanced session order",
-        "count": 54,
+        "count": 59,
         "pct": 20.0
       },
       {
         "field": "Participants not allowed to discuss study",
-        "count": 34,
-        "pct": 12.6
+        "count": 38,
+        "pct": 12.9
       },
       {
         "field": "Controlled food intake",
-        "count": 56,
-        "pct": 20.7
+        "count": 58,
+        "pct": 19.7
       },
       {
         "field": "Controlled water intake",
-        "count": 18,
-        "pct": 6.7
+        "count": 17,
+        "pct": 5.8
       },
       {
         "field": "Body-site preparation for sensors",
-        "count": 17,
-        "pct": 6.3
+        "count": 19,
+        "pct": 6.4
       }
     ],
-    "n_studies": 270
+    "n_studies": 295
   }
 }

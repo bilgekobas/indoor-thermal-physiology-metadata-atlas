@@ -2,27 +2,31 @@
   "n_domains_distribution": [
     {
       "n_domains": 1,
-      "count": 185
+      "count": 197
     },
     {
       "n_domains": 2,
-      "count": 71
+      "count": 80
     },
     {
       "n_domains": 3,
-      "count": 11
+      "count": 13
+    },
+    {
+      "n_domains": 4,
+      "count": 1
     }
   ],
   "domain_totals": {
-    "Thermal": 257,
-    "Air movement": 24,
-    "Humidity": 53,
-    "CO2": 3,
-    "Light": 12,
-    "Acoustics": 3,
-    "Behaviour": 7,
+    "Thermal": 278,
+    "Air movement": 27,
+    "Humidity": 58,
+    "CO2": 5,
+    "Light": 16,
+    "Acoustics": 5,
+    "Behaviour": 10,
     "IAQ": 1
   },
-  "n_studies": 267,
-  "n_excluded_no_domain_data": 3
+  "n_studies": 291,
+  "n_excluded_no_domain_data": 4
 }

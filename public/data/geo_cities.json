@@ -106,7 +106,7 @@
       "lon": 112.9388,
       "precision": "city",
       "country": "China",
-      "count": 26,
+      "count": 27,
       "climate_class": "Cfa",
       "climate_group": "Humid subtropical"
     },
@@ -126,8 +126,8 @@
       "lon": 106.5516,
       "precision": "city",
       "country": "China",
-      "count": 22,
-      "climate_class": "Cwa",
+      "count": 24,
+      "climate_class": "Cfa",
       "climate_group": "Humid subtropical"
     },
     {
@@ -201,6 +201,26 @@
       "climate_group": "Mediterranean"
     },
     {
+      "city": "Fargo",
+      "lat": 46.8772,
+      "lon": -96.7898,
+      "precision": "city",
+      "country": "USA",
+      "count": 1,
+      "climate_class": "Dfa",
+      "climate_group": "Continental"
+    },
+    {
+      "city": "Fujisawa",
+      "lat": 35.3705,
+      "lon": 139.4917,
+      "precision": "city",
+      "country": "Japan",
+      "count": 1,
+      "climate_class": "Cfa",
+      "climate_group": "Humid subtropical"
+    },
+    {
       "city": "Fukuoka",
       "lat": 33.5904,
       "lon": 130.4017,
@@ -246,7 +266,7 @@
       "lon": 126.535,
       "precision": "city",
       "country": "China",
-      "count": 6,
+      "count": 7,
       "climate_class": "Dwa",
       "climate_group": "Continental"
     },
@@ -271,6 +291,16 @@
       "climate_group": "Humid subtropical"
     },
     {
+      "city": "Hong Kong",
+      "lat": 22.3193,
+      "lon": 114.1694,
+      "precision": "city",
+      "country": "China",
+      "count": 2,
+      "climate_class": "Cwa",
+      "climate_group": "Humid subtropical"
+    },
+    {
       "city": "Ilam",
       "lat": 33.6374,
       "lon": 46.4227,
@@ -288,6 +318,16 @@
       "country": "Republic of Korea",
       "count": 2,
       "climate_class": "Dwa",
+      "climate_group": "Continental"
+    },
+    {
+      "city": "Jinan (Shandong province capital)",
+      "lat": 36.6512,
+      "lon": 117.1201,
+      "precision": "province",
+      "country": "China",
+      "count": 1,
+      "climate_class": "Dwa/Cwa",
       "climate_group": "Continental"
     },
     {
@@ -371,6 +411,16 @@
       "climate_group": "Oceanic"
     },
     {
+      "city": "Lhasa",
+      "lat": 29.652,
+      "lon": 91.1721,
+      "precision": "multi",
+      "country": "China",
+      "count": 1,
+      "climate_class": "Cwb, Cwa",
+      "climate_group": "Other/Mixed"
+    },
+    {
       "city": "Lisbon",
       "lat": 38.7223,
       "lon": -9.1393,
@@ -396,7 +446,7 @@
       "lon": 5.691,
       "precision": "city",
       "country": "Netherlands",
-      "count": 3,
+      "count": 4,
       "climate_class": "Cfb",
       "climate_group": "Oceanic"
     },
@@ -411,12 +461,22 @@
       "climate_group": "Tropical"
     },
     {
+      "city": "Mianyang",
+      "lat": 31.4667,
+      "lon": 104.7333,
+      "precision": "city",
+      "country": "China",
+      "count": 1,
+      "climate_class": "Cwa",
+      "climate_group": "Humid subtropical"
+    },
+    {
       "city": "Milan",
       "lat": 45.4642,
       "lon": 9.19,
       "precision": "city",
       "country": "Italy",
-      "count": 1,
+      "count": 2,
       "climate_class": "Cfa",
       "climate_group": "Humid subtropical"
     },
@@ -466,7 +526,7 @@
       "lon": 118.7969,
       "precision": "city",
       "country": "China",
-      "count": 4,
+      "count": 5,
       "climate_class": "Cfa",
       "climate_group": "Humid subtropical"
     },
@@ -489,6 +549,16 @@
       "count": 1,
       "climate_class": "Cfb",
       "climate_group": "Oceanic"
+    },
+    {
+      "city": "Novi Sad",
+      "lat": 45.2671,
+      "lon": 19.8335,
+      "precision": "city",
+      "country": "Serbia",
+      "count": 1,
+      "climate_class": "Dfa/Dfb",
+      "climate_group": "Continental"
     },
     {
       "city": "Olympia (Washington state, state-level only)",
@@ -546,7 +616,7 @@
       "lon": 120.3826,
       "precision": "city",
       "country": "China",
-      "count": 11,
+      "count": 14,
       "climate_class": "Dwa",
       "climate_group": "Continental"
     },
@@ -621,6 +691,16 @@
       "climate_group": "Continental"
     },
     {
+      "city": "Seoul",
+      "lat": 37.5665,
+      "lon": 126.978,
+      "precision": "city",
+      "country": "South Korea",
+      "count": 1,
+      "climate_class": "Dwa",
+      "climate_group": "Continental"
+    },
+    {
       "city": "Serdang",
       "lat": 2.9928,
       "lon": 101.7066,
@@ -636,7 +716,7 @@
       "lon": 121.4737,
       "precision": "city",
       "country": "China",
-      "count": 15,
+      "count": 18,
       "climate_class": "Cfa",
       "climate_group": "Humid subtropical"
     },
@@ -646,7 +726,7 @@
       "lon": 103.8198,
       "precision": "city",
       "country": "Singapore",
-      "count": 7,
+      "count": 8,
       "climate_class": "Af",
       "climate_group": "Tropical"
     },
@@ -756,9 +836,19 @@
       "lon": 108.9398,
       "precision": "city",
       "country": "China",
-      "count": 20,
+      "count": 21,
       "climate_class": "BSk",
       "climate_group": "Semi-arid (cold)"
+    },
+    {
+      "city": "Xi'an",
+      "lat": 34.3416,
+      "lon": 108.9398,
+      "precision": "multi",
+      "country": "China",
+      "count": 1,
+      "climate_class": "Cwb, Cwa",
+      "climate_group": "Other/Mixed"
     },
     {
       "city": "Xi'an (Shaanxi province capital)",
@@ -811,8 +901,8 @@
       "climate_group": "Humid subtropical"
     }
   ],
-  "n_cities": 81,
-  "n_studies_mapped": 251,
-  "n_studies_total": 270,
-  "n_province_level": 12
+  "n_cities": 90,
+  "n_studies_mapped": 275,
+  "n_studies_total": 295,
+  "n_province_level": 13
 }

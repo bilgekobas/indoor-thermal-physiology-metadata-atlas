@@ -2,11 +2,11 @@
   "data_avail_distribution": [
     {
       "status": "NR",
-      "count": 180
+      "count": 190
     },
     {
       "status": "Upon request",
-      "count": 51
+      "count": 62
     },
     {
       "status": "Not available for sharing",
@@ -18,32 +18,44 @@
     },
     {
       "status": "Available",
-      "count": 5
+      "count": 6
+    },
+    {
+      "status": "Not available",
+      "count": 2
+    },
+    {
+      "status": "Article",
+      "count": 1
     }
   ],
-  "n_with_real_data_link": 5,
-  "n_with_supplementary_link": 57,
-  "n_total": 270,
+  "n_with_real_data_link": 6,
+  "n_with_supplementary_link": 59,
+  "n_total": 295,
   "studies_with_link": [
     {
-      "id": "15_1",
-      "link": "https://data.mendeley.com/datasets/nx8kd33dng/4"
-    },
-    {
-      "id": "21_1",
-      "link": "https://doi.org/10.6084/m9.fgshare.21878520.v1"
-    },
-    {
-      "id": "55_1",
-      "link": "https://github.com/FedericoTartarini/dorn-longitudinal-tc-study"
-    },
-    {
-      "id": "124_1",
+      "id": "1083_1",
       "link": "https://datadryad.org/dataset/doi:10.15146/R3S68S"
     },
     {
-      "id": "248_1",
+      "id": "1160_1",
       "link": "https://onlinelibrary.wiley.com/action/downloadSupplement?doi=10.1111%2Fina.12916&file=ina12916-sup-0001-Supinfo.docx"
+    },
+    {
+      "id": "1188_1",
+      "link": "https://github.com/FedericoTartarini/dorn-longitudinal-tc-study"
+    },
+    {
+      "id": "1212_1",
+      "link": "https://doi.org/10.6084/m9.fgshare.21878520.v1"
+    },
+    {
+      "id": "1243_1",
+      "link": "https://data.mendeley.com/datasets/nx8kd33dng/4"
+    },
+    {
+      "id": "1269_1",
+      "link": "http://10.0.19.197/dryad.1vhhmgr1x"
     }
   ]
 }

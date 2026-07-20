@@ -1,208 +1,380 @@
 {
   "Thermal": {
-    "n_any": 251,
+    "n_any": 273,
     "fields": [
       {
         "field": "Thermal sensation",
-        "count": 236
+        "count": 257,
+        "mnr": 1,
+        "nr": 36,
+        "nc": 1,
+        "other_missing": 0
       },
       {
         "field": "Thermal comfort",
-        "count": 144
+        "count": 159,
+        "mnr": 7,
+        "nr": 127,
+        "nc": 2,
+        "other_missing": 0
       },
       {
         "field": "Thermal acceptance",
-        "count": 77
+        "count": 87,
+        "mnr": 4,
+        "nr": 203,
+        "nc": 1,
+        "other_missing": 0
       },
       {
         "field": "Thermal preference",
-        "count": 58
+        "count": 68,
+        "mnr": 2,
+        "nr": 225,
+        "nc": 0,
+        "other_missing": 0
       },
       {
         "field": "Local thermal sensation",
-        "count": 31
+        "count": 37,
+        "mnr": 0,
+        "nr": 258,
+        "nc": 0,
+        "other_missing": 0
       },
       {
         "field": "Thermal satisfaction",
-        "count": 15
-      },
-      {
-        "field": "Thermal pleasure",
-        "count": 11
+        "count": 20,
+        "mnr": 0,
+        "nr": 275,
+        "nc": 0,
+        "other_missing": 0
       },
       {
         "field": "Local thermal comfort",
-        "count": 10
+        "count": 13,
+        "mnr": 1,
+        "nr": 281,
+        "nc": 0,
+        "other_missing": 0
+      },
+      {
+        "field": "Thermal pleasure",
+        "count": 12,
+        "mnr": 0,
+        "nr": 283,
+        "nc": 0,
+        "other_missing": 0
       },
       {
         "field": "Sweating sensation",
-        "count": 9
+        "count": 10,
+        "mnr": 1,
+        "nr": 284,
+        "nc": 0,
+        "other_missing": 0
       },
       {
         "field": "Shivering sensation",
-        "count": 7
+        "count": 8,
+        "mnr": 1,
+        "nr": 286,
+        "nc": 0,
+        "other_missing": 0
       },
       {
         "field": "Local thermal satisfaction",
-        "count": 2
+        "count": 2,
+        "mnr": 0,
+        "nr": 293,
+        "nc": 0,
+        "other_missing": 0
       }
     ]
   },
   "Overall": {
-    "n_any": 6,
+    "n_any": 7,
     "fields": [
       {
         "field": "Overall comfort",
-        "count": 3
+        "count": 4,
+        "mnr": 1,
+        "nr": 290,
+        "nc": 0,
+        "other_missing": 0
       },
       {
         "field": "Overall satisfaction",
-        "count": 3
+        "count": 3,
+        "mnr": 1,
+        "nr": 291,
+        "nc": 0,
+        "other_missing": 0
       }
     ]
   },
   "Air movement": {
-    "n_any": 19,
+    "n_any": 23,
     "fields": [
       {
         "field": "Air movement sensation",
-        "count": 12
+        "count": 15,
+        "mnr": 0,
+        "nr": 280,
+        "nc": 0,
+        "other_missing": 0
       },
       {
         "field": "Air movement preference",
-        "count": 12
+        "count": 13,
+        "mnr": 0,
+        "nr": 281,
+        "nc": 1,
+        "other_missing": 0
       },
       {
         "field": "Air movement acceptability",
-        "count": 3
-      },
-      {
-        "field": "Local air movement sensation",
-        "count": 2
+        "count": 5,
+        "mnr": 0,
+        "nr": 290,
+        "nc": 0,
+        "other_missing": 0
       },
       {
         "field": "Air movement satisfaction",
-        "count": 2
+        "count": 3,
+        "mnr": 0,
+        "nr": 292,
+        "nc": 0,
+        "other_missing": 0
+      },
+      {
+        "field": "Local air movement sensation",
+        "count": 2,
+        "mnr": 0,
+        "nr": 293,
+        "nc": 0,
+        "other_missing": 0
       },
       {
         "field": "Air movement perception",
-        "count": 1
+        "count": 1,
+        "mnr": 1,
+        "nr": 293,
+        "nc": 0,
+        "other_missing": 0
       },
       {
         "field": "Air movement comfort",
-        "count": 0
+        "count": 0,
+        "mnr": 0,
+        "nr": 295,
+        "nc": 0,
+        "other_missing": 0
       }
     ]
   },
   "Humidity": {
-    "n_any": 23,
+    "n_any": 28,
     "fields": [
       {
         "field": "Humidity sensation",
-        "count": 21
+        "count": 25,
+        "mnr": 0,
+        "nr": 270,
+        "nc": 0,
+        "other_missing": 0
       },
       {
         "field": "Humidity preference",
-        "count": 6
+        "count": 9,
+        "mnr": 0,
+        "nr": 286,
+        "nc": 0,
+        "other_missing": 0
       },
       {
         "field": "Humidity acceptability",
-        "count": 5
+        "count": 6,
+        "mnr": 0,
+        "nr": 289,
+        "nc": 0,
+        "other_missing": 0
       },
       {
         "field": "Humidity satisfaction",
-        "count": 4
+        "count": 5,
+        "mnr": 0,
+        "nr": 290,
+        "nc": 0,
+        "other_missing": 0
       },
       {
         "field": "Humidity comfort",
-        "count": 3
+        "count": 4,
+        "mnr": 0,
+        "nr": 291,
+        "nc": 0,
+        "other_missing": 0
       }
     ]
   },
   "Light & Visual": {
-    "n_any": 11,
+    "n_any": 15,
     "fields": [
       {
         "field": "Light sensation",
-        "count": 7
+        "count": 11,
+        "mnr": 2,
+        "nr": 282,
+        "nc": 0,
+        "other_missing": 0
       },
       {
         "field": "Light comfort",
-        "count": 5
-      },
-      {
-        "field": "Light satisfaction",
-        "count": 4
+        "count": 8,
+        "mnr": 3,
+        "nr": 284,
+        "nc": 0,
+        "other_missing": 0
       },
       {
         "field": "Light preference",
-        "count": 3
+        "count": 5,
+        "mnr": 1,
+        "nr": 289,
+        "nc": 0,
+        "other_missing": 0
+      },
+      {
+        "field": "Light satisfaction",
+        "count": 5,
+        "mnr": 0,
+        "nr": 290,
+        "nc": 0,
+        "other_missing": 0
       },
       {
         "field": "Light acceptability",
-        "count": 1
+        "count": 2,
+        "mnr": 2,
+        "nr": 291,
+        "nc": 0,
+        "other_missing": 0
       },
       {
         "field": "Visual preference",
-        "count": 0
+        "count": 1,
+        "mnr": 2,
+        "nr": 292,
+        "nc": 0,
+        "other_missing": 0
       }
     ]
   },
   "IAQ": {
-    "n_any": 30,
+    "n_any": 35,
     "fields": [
       {
         "field": "Sick building syndrome",
-        "count": 16
+        "count": 19,
+        "mnr": 4,
+        "nr": 271,
+        "nc": 1,
+        "other_missing": 0
       },
       {
         "field": "IAQ acceptability",
-        "count": 15
+        "count": 16,
+        "mnr": 3,
+        "nr": 276,
+        "nc": 0,
+        "other_missing": 0
       },
       {
         "field": "IAQ sensation",
-        "count": 8
+        "count": 11,
+        "mnr": 1,
+        "nr": 283,
+        "nc": 0,
+        "other_missing": 0
       },
       {
         "field": "Odour intensity",
-        "count": 5
+        "count": 7,
+        "mnr": 1,
+        "nr": 287,
+        "nc": 0,
+        "other_missing": 0
       },
       {
         "field": "IAQ satisfaction",
-        "count": 2
+        "count": 4,
+        "mnr": 0,
+        "nr": 291,
+        "nc": 0,
+        "other_missing": 0
       },
       {
         "field": "IAQ comfort",
-        "count": 0
+        "count": 0,
+        "mnr": 2,
+        "nr": 293,
+        "nc": 0,
+        "other_missing": 0
       },
       {
         "field": "IAQ preference",
-        "count": 0
+        "count": 0,
+        "mnr": 2,
+        "nr": 293,
+        "nc": 0,
+        "other_missing": 0
       }
     ]
   },
   "Acoustic": {
-    "n_any": 6,
+    "n_any": 8,
     "fields": [
       {
-        "field": "Acoustic sensation",
-        "count": 3
+        "field": "Acoustic satisfaction",
+        "count": 5,
+        "mnr": 0,
+        "nr": 290,
+        "nc": 0,
+        "other_missing": 0
       },
       {
-        "field": "Acoustic satisfaction",
-        "count": 3
+        "field": "Acoustic sensation",
+        "count": 4,
+        "mnr": 0,
+        "nr": 291,
+        "nc": 0,
+        "other_missing": 0
       },
       {
         "field": "Acoustic comfort",
-        "count": 2
+        "count": 2,
+        "mnr": 3,
+        "nr": 290,
+        "nc": 0,
+        "other_missing": 0
       },
       {
         "field": "Acoustic preference",
-        "count": 1
+        "count": 1,
+        "mnr": 2,
+        "nr": 292,
+        "nc": 0,
+        "other_missing": 0
       },
       {
         "field": "Acoustic acceptability",
-        "count": 0
+        "count": 0,
+        "mnr": 2,
+        "nr": 292,
+        "nc": 1,
+        "other_missing": 0
       }
     ]
   }

@@ -98,7 +98,7 @@
     {
       "signal": "Blood pressure",
       "physio-sensing-method": "Digital sphygmomanometer",
-      "count": 39
+      "count": 40
     },
     {
       "signal": "Blood pressure",
@@ -112,13 +112,18 @@
     },
     {
       "signal": "Core/Body temperature",
+      "physio-sensing-method": "Heat flux",
+      "count": 1
+    },
+    {
+      "signal": "Core/Body temperature",
       "physio-sensing-method": "Infrared thermometer",
       "count": 16
     },
     {
       "signal": "Core/Body temperature",
       "physio-sensing-method": "Ingestible pill",
-      "count": 9
+      "count": 10
     },
     {
       "signal": "Core/Body temperature",
@@ -137,23 +142,28 @@
     },
     {
       "signal": "Core/Body temperature",
+      "physio-sensing-method": "Thermochron",
+      "count": 1
+    },
+    {
+      "signal": "Core/Body temperature",
       "physio-sensing-method": "Thermometer",
       "count": 8
     },
     {
       "signal": "EEG",
       "physio-sensing-method": "1-channel",
-      "count": 1
+      "count": 2
     },
     {
       "signal": "EEG",
       "physio-sensing-method": "14-channel",
-      "count": 13
+      "count": 14
     },
     {
       "signal": "EEG",
       "physio-sensing-method": "16-channel",
-      "count": 1
+      "count": 2
     },
     {
       "signal": "EEG",
@@ -173,7 +183,7 @@
     {
       "signal": "EEG",
       "physio-sensing-method": "4-channel",
-      "count": 3
+      "count": 5
     },
     {
       "signal": "EEG",
@@ -193,7 +203,7 @@
     {
       "signal": "EMG",
       "physio-sensing-method": "EMG",
-      "count": 2
+      "count": 3
     },
     {
       "signal": "EOG",
@@ -218,17 +228,22 @@
     {
       "signal": "Heart/Pulse rate",
       "physio-sensing-method": "Digital sphygmomanometer",
-      "count": 21
+      "count": 22
     },
     {
       "signal": "Heart/Pulse rate",
       "physio-sensing-method": "ECG",
-      "count": 65
+      "count": 71
     },
     {
       "signal": "Heart/Pulse rate",
       "physio-sensing-method": "OHR/PPG",
-      "count": 25
+      "count": 29
+    },
+    {
+      "signal": "Heart/Pulse rate",
+      "physio-sensing-method": "PPG",
+      "count": 1
     },
     {
       "signal": "Heart/Pulse rate",
@@ -258,12 +273,12 @@
     {
       "signal": "Metabolic rate/Gas exchange",
       "physio-sensing-method": "Respiration chamber",
-      "count": 2
+      "count": 3
     },
     {
       "signal": "Movement",
       "physio-sensing-method": "Accelerometer",
-      "count": 11
+      "count": 12
     },
     {
       "signal": "Movement",
@@ -273,7 +288,7 @@
     {
       "signal": "Near body temperature",
       "physio-sensing-method": "Hygrochron",
-      "count": 1
+      "count": 3
     },
     {
       "signal": "Near body temperature",
@@ -288,7 +303,7 @@
     {
       "signal": "Near body temperature",
       "physio-sensing-method": "Thermochron",
-      "count": 3
+      "count": 1
     },
     {
       "signal": "Near body temperature",
@@ -298,6 +313,11 @@
     {
       "signal": "Oxygen saturation",
       "physio-sensing-method": "NIRS",
+      "count": 1
+    },
+    {
+      "signal": "Oxygen saturation",
+      "physio-sensing-method": "OHR/PPG",
       "count": 1
     },
     {
@@ -333,7 +353,7 @@
     {
       "signal": "Respiration",
       "physio-sensing-method": "Respiration belt",
-      "count": 4
+      "count": 5
     },
     {
       "signal": "Sensory nerve conduction velocity",
@@ -343,7 +363,7 @@
     {
       "signal": "Skin blood flow",
       "physio-sensing-method": "Laser Doppler",
-      "count": 12
+      "count": 13
     },
     {
       "signal": "Skin blood flow",
@@ -352,17 +372,22 @@
     },
     {
       "signal": "Skin conductance",
+      "physio-sensing-method": "EDA",
+      "count": 1
+    },
+    {
+      "signal": "Skin conductance",
+      "physio-sensing-method": "EDA/GSR",
+      "count": 1
+    },
+    {
+      "signal": "Skin conductance",
       "physio-sensing-method": "GSR/EDA",
-      "count": 21
+      "count": 22
     },
     {
       "signal": "Skin conductance",
       "physio-sensing-method": "Hygrochron",
-      "count": 5
-    },
-    {
-      "signal": "Skin conductance",
-      "physio-sensing-method": "Thermochron",
       "count": 1
     },
     {
@@ -383,7 +408,7 @@
     {
       "signal": "Skin temperature",
       "physio-sensing-method": "Hygrochron",
-      "count": 1
+      "count": 19
     },
     {
       "signal": "Skin temperature",
@@ -398,7 +423,7 @@
     {
       "signal": "Skin temperature",
       "physio-sensing-method": "Infrared thermopile",
-      "count": 10
+      "count": 12
     },
     {
       "signal": "Skin temperature",
@@ -413,17 +438,17 @@
     {
       "signal": "Skin temperature",
       "physio-sensing-method": "Thermistor",
-      "count": 20
+      "count": 21
     },
     {
       "signal": "Skin temperature",
       "physio-sensing-method": "Thermochron",
-      "count": 83
+      "count": 76
     },
     {
       "signal": "Skin temperature",
       "physio-sensing-method": "Thermocouple",
-      "count": 54
+      "count": 60
     },
     {
       "signal": "Skin temperature",
@@ -448,7 +473,7 @@
     {
       "signal": "Sweat indicators",
       "physio-sensing-method": "Hygrochron",
-      "count": 1
+      "count": 7
     },
     {
       "signal": "Sweat indicators",
@@ -649,7 +674,7 @@
       "signal": "Blood pressure",
       "physio-sensing-method": "Digital sphygmomanometer",
       "period": "2023\u201324",
-      "count": 13
+      "count": 14
     },
     {
       "signal": "Blood pressure",
@@ -660,6 +685,12 @@
     {
       "signal": "Blood pressure",
       "physio-sensing-method": "Sphygmomanometer",
+      "period": "2023\u201324",
+      "count": 1
+    },
+    {
+      "signal": "Core/Body temperature",
+      "physio-sensing-method": "Heat flux",
       "period": "2023\u201324",
       "count": 1
     },
@@ -707,6 +738,12 @@
     },
     {
       "signal": "Core/Body temperature",
+      "physio-sensing-method": "Ingestible pill",
+      "period": "2023\u201324",
+      "count": 1
+    },
+    {
+      "signal": "Core/Body temperature",
       "physio-sensing-method": "Mercury thermometer",
       "period": "2021\u201322",
       "count": 1
@@ -740,6 +777,12 @@
       "physio-sensing-method": "Thermistor",
       "period": "2021\u201322",
       "count": 2
+    },
+    {
+      "signal": "Core/Body temperature",
+      "physio-sensing-method": "Thermochron",
+      "period": "2023\u201324",
+      "count": 1
     },
     {
       "signal": "Core/Body temperature",
@@ -779,6 +822,12 @@
     },
     {
       "signal": "EEG",
+      "physio-sensing-method": "1-channel",
+      "period": "2023\u201324",
+      "count": 1
+    },
+    {
+      "signal": "EEG",
       "physio-sensing-method": "14-channel",
       "period": "2017\u201318",
       "count": 1
@@ -799,7 +848,7 @@
       "signal": "EEG",
       "physio-sensing-method": "14-channel",
       "period": "2023\u201324",
-      "count": 3
+      "count": 4
     },
     {
       "signal": "EEG",
@@ -809,6 +858,12 @@
     },
     {
       "signal": "EEG",
+      "physio-sensing-method": "16-channel",
+      "period": "2021\u201322",
+      "count": 1
+    },
+    {
+      "signal": "EEG",
       "physio-sensing-method": "19-channel",
       "period": "2021\u201322",
       "count": 2
@@ -853,7 +908,7 @@
       "signal": "EEG",
       "physio-sensing-method": "4-channel",
       "period": "2023\u201324",
-      "count": 1
+      "count": 3
     },
     {
       "signal": "EEG",
@@ -901,6 +956,12 @@
       "signal": "EMG",
       "physio-sensing-method": "EMG",
       "period": "2021\u201322",
+      "count": 1
+    },
+    {
+      "signal": "EMG",
+      "physio-sensing-method": "EMG",
+      "period": "2023\u201324",
       "count": 1
     },
     {
@@ -979,7 +1040,7 @@
       "signal": "Heart/Pulse rate",
       "physio-sensing-method": "Digital sphygmomanometer",
       "period": "2023\u201324",
-      "count": 6
+      "count": 7
     },
     {
       "signal": "Heart/Pulse rate",
@@ -1003,13 +1064,13 @@
       "signal": "Heart/Pulse rate",
       "physio-sensing-method": "ECG",
       "period": "2021\u201322",
-      "count": 20
+      "count": 21
     },
     {
       "signal": "Heart/Pulse rate",
       "physio-sensing-method": "ECG",
       "period": "2023\u201324",
-      "count": 15
+      "count": 20
     },
     {
       "signal": "Heart/Pulse rate",
@@ -1033,7 +1094,13 @@
       "signal": "Heart/Pulse rate",
       "physio-sensing-method": "OHR/PPG",
       "period": "2023\u201324",
-      "count": 8
+      "count": 12
+    },
+    {
+      "signal": "Heart/Pulse rate",
+      "physio-sensing-method": "PPG",
+      "period": "2023\u201324",
+      "count": 1
     },
     {
       "signal": "Heart/Pulse rate",
@@ -1153,7 +1220,7 @@
       "signal": "Metabolic rate/Gas exchange",
       "physio-sensing-method": "Respiration chamber",
       "period": "2023\u201324",
-      "count": 1
+      "count": 2
     },
     {
       "signal": "Movement",
@@ -1177,7 +1244,7 @@
       "signal": "Movement",
       "physio-sensing-method": "Accelerometer",
       "period": "2023\u201324",
-      "count": 5
+      "count": 6
     },
     {
       "signal": "Movement",
@@ -1188,8 +1255,14 @@
     {
       "signal": "Near body temperature",
       "physio-sensing-method": "Hygrochron",
-      "period": "2019\u201320",
+      "period": "2017\u201318",
       "count": 1
+    },
+    {
+      "signal": "Near body temperature",
+      "physio-sensing-method": "Hygrochron",
+      "period": "2019\u201320",
+      "count": 2
     },
     {
       "signal": "Near body temperature",
@@ -1212,18 +1285,6 @@
     {
       "signal": "Near body temperature",
       "physio-sensing-method": "Thermochron",
-      "period": "2017\u201318",
-      "count": 1
-    },
-    {
-      "signal": "Near body temperature",
-      "physio-sensing-method": "Thermochron",
-      "period": "2019\u201320",
-      "count": 1
-    },
-    {
-      "signal": "Near body temperature",
-      "physio-sensing-method": "Thermochron",
       "period": "2021\u201322",
       "count": 1
     },
@@ -1237,6 +1298,12 @@
       "signal": "Oxygen saturation",
       "physio-sensing-method": "NIRS",
       "period": "2021\u201322",
+      "count": 1
+    },
+    {
+      "signal": "Oxygen saturation",
+      "physio-sensing-method": "OHR/PPG",
+      "period": "2023\u201324",
       "count": 1
     },
     {
@@ -1312,6 +1379,12 @@
       "count": 2
     },
     {
+      "signal": "Respiration",
+      "physio-sensing-method": "Respiration belt",
+      "period": "2023\u201324",
+      "count": 1
+    },
+    {
       "signal": "Sensory nerve conduction velocity",
       "physio-sensing-method": "EMG",
       "period": "2019\u201320",
@@ -1345,12 +1418,24 @@
       "signal": "Skin blood flow",
       "physio-sensing-method": "Laser Doppler",
       "period": "2023\u201324",
-      "count": 2
+      "count": 3
     },
     {
       "signal": "Skin blood flow",
       "physio-sensing-method": "OHR/PPG",
       "period": "2021\u201322",
+      "count": 1
+    },
+    {
+      "signal": "Skin conductance",
+      "physio-sensing-method": "EDA",
+      "period": "2023\u201324",
+      "count": 1
+    },
+    {
+      "signal": "Skin conductance",
+      "physio-sensing-method": "EDA/GSR",
+      "period": "2023\u201324",
       "count": 1
     },
     {
@@ -1375,30 +1460,12 @@
       "signal": "Skin conductance",
       "physio-sensing-method": "GSR/EDA",
       "period": "2023\u201324",
-      "count": 6
-    },
-    {
-      "signal": "Skin conductance",
-      "physio-sensing-method": "Hygrochron",
-      "period": "2019\u201320",
-      "count": 3
+      "count": 7
     },
     {
       "signal": "Skin conductance",
       "physio-sensing-method": "Hygrochron",
       "period": "2021\u201322",
-      "count": 1
-    },
-    {
-      "signal": "Skin conductance",
-      "physio-sensing-method": "Hygrochron",
-      "period": "2023\u201324",
-      "count": 1
-    },
-    {
-      "signal": "Skin conductance",
-      "physio-sensing-method": "Thermochron",
-      "period": "2019\u201320",
       "count": 1
     },
     {
@@ -1441,7 +1508,19 @@
       "signal": "Skin temperature",
       "physio-sensing-method": "Hygrochron",
       "period": "2019\u201320",
-      "count": 1
+      "count": 4
+    },
+    {
+      "signal": "Skin temperature",
+      "physio-sensing-method": "Hygrochron",
+      "period": "2021\u201322",
+      "count": 5
+    },
+    {
+      "signal": "Skin temperature",
+      "physio-sensing-method": "Hygrochron",
+      "period": "2023\u201324",
+      "count": 10
     },
     {
       "signal": "Skin temperature",
@@ -1519,7 +1598,7 @@
       "signal": "Skin temperature",
       "physio-sensing-method": "Infrared thermopile",
       "period": "2023\u201324",
-      "count": 5
+      "count": 7
     },
     {
       "signal": "Skin temperature",
@@ -1585,7 +1664,7 @@
       "signal": "Skin temperature",
       "physio-sensing-method": "Thermistor",
       "period": "2023\u201324",
-      "count": 1
+      "count": 2
     },
     {
       "signal": "Skin temperature",
@@ -1609,19 +1688,19 @@
       "signal": "Skin temperature",
       "physio-sensing-method": "Thermochron",
       "period": "2019\u201320",
-      "count": 14
+      "count": 10
     },
     {
       "signal": "Skin temperature",
       "physio-sensing-method": "Thermochron",
       "period": "2021\u201322",
-      "count": 32
+      "count": 26
     },
     {
       "signal": "Skin temperature",
       "physio-sensing-method": "Thermochron",
       "period": "2023\u201324",
-      "count": 23
+      "count": 26
     },
     {
       "signal": "Skin temperature",
@@ -1657,7 +1736,7 @@
       "signal": "Skin temperature",
       "physio-sensing-method": "Thermocouple",
       "period": "2023\u201324",
-      "count": 11
+      "count": 17
     },
     {
       "signal": "Skin temperature",
@@ -1723,7 +1802,13 @@
       "signal": "Sweat indicators",
       "physio-sensing-method": "Hygrochron",
       "period": "2019\u201320",
-      "count": 1
+      "count": 5
+    },
+    {
+      "signal": "Sweat indicators",
+      "physio-sensing-method": "Hygrochron",
+      "period": "2023\u201324",
+      "count": 2
     },
     {
       "signal": "Sweat indicators",

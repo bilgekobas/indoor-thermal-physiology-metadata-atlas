@@ -3,16 +3,21 @@
     {
       "physio-sensing-method": "1-channel",
       "physio-sensor-brand": "Mind Media",
-      "count": 1
+      "count": 2
     },
     {
       "physio-sensing-method": "14-channel",
       "physio-sensor-brand": "Emotiv",
-      "count": 13
+      "count": 14
     },
     {
       "physio-sensing-method": "16-channel",
       "physio-sensor-brand": "Nihonkohden Co.",
+      "count": 1
+    },
+    {
+      "physio-sensing-method": "16-channel",
+      "physio-sensor-brand": "OpenBCI",
       "count": 1
     },
     {
@@ -27,7 +32,7 @@
     },
     {
       "physio-sensing-method": "2-channel",
-      "physio-sensor-brand": "Neurosky",
+      "physio-sensor-brand": "NeuroSky",
       "count": 1
     },
     {
@@ -42,7 +47,7 @@
     },
     {
       "physio-sensing-method": "3-channel",
-      "physio-sensor-brand": "Neurosky",
+      "physio-sensor-brand": "NeuroSky",
       "count": 1
     },
     {
@@ -53,7 +58,7 @@
     {
       "physio-sensing-method": "4-channel",
       "physio-sensor-brand": "InterAxon",
-      "count": 2
+      "count": 4
     },
     {
       "physio-sensing-method": "5-channel",
@@ -77,8 +82,13 @@
     },
     {
       "physio-sensing-method": "Accelerometer",
-      "physio-sensor-brand": "Maastricht Instruments",
+      "physio-sensor-brand": "Fitbit",
       "count": 1
+    },
+    {
+      "physio-sensing-method": "Accelerometer",
+      "physio-sensor-brand": "Maastricht Instruments",
+      "count": 2
     },
     {
       "physio-sensing-method": "Accelerometer",
@@ -93,11 +103,6 @@
     {
       "physio-sensing-method": "Accelerometer",
       "physio-sensor-brand": "TXZ",
-      "count": 1
-    },
-    {
-      "physio-sensing-method": "Accelerometer",
-      "physio-sensor-brand": "fitbit",
       "count": 1
     },
     {
@@ -172,7 +177,7 @@
     },
     {
       "physio-sensing-method": "Digital sphygmomanometer",
-      "physio-sensor-brand": "ANDON",
+      "physio-sensor-brand": "Andon",
       "count": 2
     },
     {
@@ -197,8 +202,13 @@
     },
     {
       "physio-sensing-method": "Digital sphygmomanometer",
-      "physio-sensor-brand": "OMRON",
+      "physio-sensor-brand": "Omron",
       "count": 38
+    },
+    {
+      "physio-sensing-method": "Digital sphygmomanometer",
+      "physio-sensor-brand": "Panasonic",
+      "count": 1
     },
     {
       "physio-sensing-method": "Digital sphygmomanometer",
@@ -248,7 +258,7 @@
     {
       "physio-sensing-method": "ECG",
       "physio-sensor-brand": "HeaLink",
-      "count": 2
+      "count": 3
     },
     {
       "physio-sensing-method": "ECG",
@@ -263,7 +273,7 @@
     {
       "physio-sensing-method": "ECG",
       "physio-sensor-brand": "Mind Media",
-      "count": 2
+      "count": 3
     },
     {
       "physio-sensing-method": "ECG",
@@ -278,12 +288,7 @@
     {
       "physio-sensing-method": "ECG",
       "physio-sensor-brand": "Polar",
-      "count": 22
-    },
-    {
-      "physio-sensing-method": "ECG",
-      "physio-sensor-brand": "R211A",
-      "count": 1
+      "count": 26
     },
     {
       "physio-sensing-method": "ECG",
@@ -306,13 +311,28 @@
       "count": 2
     },
     {
+      "physio-sensing-method": "EDA",
+      "physio-sensor-brand": "Empatica",
+      "count": 1
+    },
+    {
+      "physio-sensing-method": "EDA/GSR",
+      "physio-sensor-brand": "Empatica",
+      "count": 1
+    },
+    {
       "physio-sensing-method": "EMG",
-      "physio-sensor-brand": "Nihon Kohden",
+      "physio-sensor-brand": "Nihonkohden Co.",
       "count": 1
     },
     {
       "physio-sensing-method": "EMG",
       "physio-sensor-brand": "O&R Medical",
+      "count": 1
+    },
+    {
+      "physio-sensing-method": "EMG",
+      "physio-sensor-brand": "Qingdao University of Technology",
       "count": 1
     },
     {
@@ -363,7 +383,7 @@
     {
       "physio-sensing-method": "GSR/EDA",
       "physio-sensor-brand": "Empatica",
-      "count": 9
+      "count": 10
     },
     {
       "physio-sensing-method": "GSR/EDA",
@@ -396,6 +416,11 @@
       "count": 1
     },
     {
+      "physio-sensing-method": "Heat flux",
+      "physio-sensor-brand": "greenTEG",
+      "count": 1
+    },
+    {
       "physio-sensing-method": "Heat flux/Heat flow",
       "physio-sensor-brand": "FluxTeq",
       "count": 2
@@ -408,22 +433,12 @@
     {
       "physio-sensing-method": "Heat flux/Heat flow",
       "physio-sensor-brand": "Kyoto Electronics",
-      "count": 1
-    },
-    {
-      "physio-sensing-method": "Heat flux/Heat flow",
-      "physio-sensor-brand": "Kyoto Electronics Manufacturing",
-      "count": 5
+      "count": 6
     },
     {
       "physio-sensing-method": "High precision scale",
-      "physio-sensor-brand": "A&D Corporation",
-      "count": 2
-    },
-    {
-      "physio-sensing-method": "High precision scale",
-      "physio-sensor-brand": "A&D Instruments",
-      "count": 1
+      "physio-sensor-brand": "ADInstruments",
+      "count": 3
     },
     {
       "physio-sensing-method": "High precision scale",
@@ -463,12 +478,12 @@
     {
       "physio-sensing-method": "Hygrochron",
       "physio-sensor-brand": "Opulus",
-      "count": 3
+      "count": 4
     },
     {
       "physio-sensing-method": "Hygrochron",
       "physio-sensor-brand": "iButton",
-      "count": 2
+      "count": 22
     },
     {
       "physio-sensing-method": "Infrared camera",
@@ -527,12 +542,12 @@
     },
     {
       "physio-sensing-method": "Infrared thermometer",
-      "physio-sensor-brand": "OMEGA",
+      "physio-sensor-brand": "Omega",
       "count": 1
     },
     {
       "physio-sensing-method": "Infrared thermometer",
-      "physio-sensor-brand": "OMRON",
+      "physio-sensor-brand": "Omron",
       "count": 9
     },
     {
@@ -553,12 +568,12 @@
     {
       "physio-sensing-method": "Infrared thermopile",
       "physio-sensor-brand": "Empatica",
-      "count": 10
+      "count": 12
     },
     {
       "physio-sensing-method": "Ingestible pill",
       "physio-sensor-brand": "BodyCap",
-      "count": 1
+      "count": 2
     },
     {
       "physio-sensing-method": "Ingestible pill",
@@ -603,7 +618,7 @@
     {
       "physio-sensing-method": "Laser Doppler",
       "physio-sensor-brand": "Perimed",
-      "count": 7
+      "count": 8
     },
     {
       "physio-sensing-method": "Mercury thermometer",
@@ -612,7 +627,7 @@
     },
     {
       "physio-sensing-method": "Metabolic cart",
-      "physio-sensor-brand": "COSMED",
+      "physio-sensor-brand": "Cosmed",
       "count": 3
     },
     {
@@ -653,7 +668,12 @@
     {
       "physio-sensing-method": "OHR/PPG",
       "physio-sensor-brand": "Empatica",
-      "count": 11
+      "count": 13
+    },
+    {
+      "physio-sensing-method": "OHR/PPG",
+      "physio-sensor-brand": "Fitbit",
+      "count": 3
     },
     {
       "physio-sensing-method": "OHR/PPG",
@@ -697,17 +717,22 @@
     },
     {
       "physio-sensing-method": "OHR/PPG",
-      "physio-sensor-brand": "Xiaomi",
+      "physio-sensor-brand": "TDK",
       "count": 1
     },
     {
       "physio-sensing-method": "OHR/PPG",
-      "physio-sensor-brand": "fitbit",
-      "count": 3
+      "physio-sensor-brand": "Xiaomi",
+      "count": 1
     },
     {
       "physio-sensing-method": "Osmometer",
       "physio-sensor-brand": "Pocket-Pal",
+      "count": 1
+    },
+    {
+      "physio-sensing-method": "PPG",
+      "physio-sensor-brand": "Empatica",
       "count": 1
     },
     {
@@ -772,7 +797,7 @@
     },
     {
       "physio-sensing-method": "Pulse oximeter",
-      "physio-sensor-brand": "OMRON",
+      "physio-sensor-brand": "Omron",
       "count": 1
     },
     {
@@ -803,12 +828,12 @@
     {
       "physio-sensing-method": "Respiration belt",
       "physio-sensor-brand": "Mind Media",
-      "count": 3
+      "count": 4
     },
     {
       "physio-sensing-method": "Respiration chamber",
       "physio-sensor-brand": "Maastricht Instruments",
-      "count": 1
+      "count": 2
     },
     {
       "physio-sensing-method": "Respiration chamber",
@@ -837,7 +862,7 @@
     },
     {
       "physio-sensing-method": "Step count",
-      "physio-sensor-brand": "fitbit",
+      "physio-sensor-brand": "Fitbit",
       "count": 1
     },
     {
@@ -902,18 +927,28 @@
     },
     {
       "physio-sensing-method": "Thermistor",
+      "physio-sensor-brand": "TDK",
+      "count": 1
+    },
+    {
+      "physio-sensing-method": "Thermistor",
       "physio-sensor-brand": "Vernier",
       "count": 4
     },
     {
       "physio-sensing-method": "Thermochron",
+      "physio-sensor-brand": "Empatica",
+      "count": 1
+    },
+    {
+      "physio-sensing-method": "Thermochron",
       "physio-sensor-brand": "Opulus",
-      "count": 20
+      "count": 23
     },
     {
       "physio-sensing-method": "Thermochron",
       "physio-sensor-brand": "iButton",
-      "count": 63
+      "count": 51
     },
     {
       "physio-sensing-method": "Thermocouple",
@@ -957,8 +992,8 @@
     },
     {
       "physio-sensing-method": "Thermocouple",
-      "physio-sensor-brand": "OMEGA",
-      "count": 3
+      "physio-sensor-brand": "Omega",
+      "count": 5
     },
     {
       "physio-sensing-method": "Thermocouple",
@@ -967,18 +1002,23 @@
     },
     {
       "physio-sensing-method": "Thermocouple",
+      "physio-sensor-brand": "Opulus",
+      "count": 1
+    },
+    {
+      "physio-sensing-method": "Thermocouple",
       "physio-sensor-brand": "TCSA",
       "count": 2
     },
     {
       "physio-sensing-method": "Thermocouple",
-      "physio-sensor-brand": "TT-T-30-SLE",
-      "count": 1
+      "physio-sensor-brand": "Testo",
+      "count": 4
     },
     {
       "physio-sensing-method": "Thermocouple",
-      "physio-sensor-brand": "Testo",
-      "count": 4
+      "physio-sensor-brand": "iButton",
+      "count": 2
     },
     {
       "physio-sensing-method": "Thermometer",
@@ -992,7 +1032,7 @@
     },
     {
       "physio-sensing-method": "Thermometer",
-      "physio-sensor-brand": "OMRON",
+      "physio-sensor-brand": "Omron",
       "count": 5
     },
     {

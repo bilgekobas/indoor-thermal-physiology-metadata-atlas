@@ -12,13 +12,42 @@ function isNeutralPoint(value, label, min, max, { treatComfortAsNeutral = false 
   return crossesZero && (Math.abs(Number(value)) < 0.001 || Math.abs(Number(value)) === 0.01)
 }
 
+// Same comfort/discomfort keyword sets as the backend's classify_comfort_pole
+// (scripts/build_data.py) — kept in sync so a point's color always matches
+// what its own label says, not just the two scale endpoints.
+const COMFORT_WORDS = ['comfortable', 'comfort', 'satisfied', 'satisfaction', 'pleasant']
+const DISCOMFORT_WORDS = ['uncomfortable', 'discomfort', 'unbearable', 'intolerable', 'unacceptable', 'unendurable', 'dissatisfied', 'unpleasant']
+
+function classifyPointPole(label) {
+  const l = String(label || '').toLowerCase()
+  // check discomfort first: 'uncomfortable' contains 'comfortable' as a
+  // substring, so checking comfort words first would misclassify it
+  if (DISCOMFORT_WORDS.some((w) => l.includes(w))) return 'discomfort'
+  if (COMFORT_WORDS.some((w) => l.includes(w))) return 'comfort'
+  return null
+}
+
 function pointColor({ value, label, comfortPole, min, max, lowColor, highColor, poleColors, treatComfortAsNeutral = false }) {
   if (isNeutralPoint(value, label, min, max, { treatComfortAsNeutral })) return '#0A0A0A'
-  if (poleColors && comfortPole) {
-    const lowIsComfort = comfortPole === 'low'
-    return value <= (min + max) / 2
-      ? (lowIsComfort ? poleColors.comfort : poleColors.discomfort)
-      : (lowIsComfort ? poleColors.discomfort : poleColors.comfort)
+  if (poleColors) {
+    // Preferred path: classify THIS point by its own label text. Fixes a bug
+    // where asymmetric scales (e.g. one "comfortable" point vs four
+    // increasingly-uncomfortable points) got their inner points colored by
+    // which half of the numeric range they fell in, rather than by what the
+    // label actually says — e.g. 'uncomfortable' at value=2 on a 0–4 scale
+    // sat on the "low" (comfort-colored) side of the numeric midpoint and
+    // rendered blue instead of red.
+    const pole = classifyPointPole(label)
+    if (pole) return pole === 'comfort' ? poleColors.comfort : poleColors.discomfort
+    // Fallback for points whose own label has no recognizable comfort/
+    // discomfort wording (e.g. a bare numeric anchor): use the scale's
+    // overall comfort_pole direction relative to the numeric midpoint.
+    if (comfortPole) {
+      const lowIsComfort = comfortPole === 'low'
+      return value <= (min + max) / 2
+        ? (lowIsComfort ? poleColors.comfort : poleColors.discomfort)
+        : (lowIsComfort ? poleColors.discomfort : poleColors.comfort)
+    }
   }
   return value === min ? lowColor : value === max ? highColor : '#8A8A8A'
 }

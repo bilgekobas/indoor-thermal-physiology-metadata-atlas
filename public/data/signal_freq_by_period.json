@@ -143,7 +143,7 @@
     {
       "signal": "Blood pressure",
       "period": "2023\u201324",
-      "count": 14
+      "count": 15
     },
     {
       "signal": "Core/Body temperature",
@@ -173,7 +173,7 @@
     {
       "signal": "Core/Body temperature",
       "period": "2023\u201324",
-      "count": 10
+      "count": 13
     },
     {
       "signal": "EEG",
@@ -193,12 +193,12 @@
     {
       "signal": "EEG",
       "period": "2021\u201322",
-      "count": 12
+      "count": 13
     },
     {
       "signal": "EEG",
       "period": "2023\u201324",
-      "count": 7
+      "count": 11
     },
     {
       "signal": "EMG",
@@ -208,6 +208,11 @@
     {
       "signal": "EMG",
       "period": "2021\u201322",
+      "count": 1
+    },
+    {
+      "signal": "EMG",
+      "period": "2023\u201324",
       "count": 1
     },
     {
@@ -268,12 +273,12 @@
     {
       "signal": "Heart/Pulse rate",
       "period": "2021\u201322",
-      "count": 38
+      "count": 39
     },
     {
       "signal": "Heart/Pulse rate",
       "period": "2023\u201324",
-      "count": 33
+      "count": 44
     },
     {
       "signal": "Heat flux",
@@ -318,7 +323,7 @@
     {
       "signal": "Metabolic rate/Gas exchange",
       "period": "2023\u201324",
-      "count": 2
+      "count": 3
     },
     {
       "signal": "Movement",
@@ -338,7 +343,7 @@
     {
       "signal": "Movement",
       "period": "2023\u201324",
-      "count": 5
+      "count": 6
     },
     {
       "signal": "Near body temperature",
@@ -373,7 +378,7 @@
     {
       "signal": "Oxygen saturation",
       "period": "2023\u201324",
-      "count": 7
+      "count": 8
     },
     {
       "signal": "Perfusion index",
@@ -394,6 +399,11 @@
       "signal": "Respiration",
       "period": "2021\u201322",
       "count": 4
+    },
+    {
+      "signal": "Respiration",
+      "period": "2023\u201324",
+      "count": 1
     },
     {
       "signal": "Sensory nerve conduction velocity",
@@ -423,7 +433,7 @@
     {
       "signal": "Skin blood flow",
       "period": "2023\u201324",
-      "count": 2
+      "count": 3
     },
     {
       "signal": "Skin conductance",
@@ -433,7 +443,7 @@
     {
       "signal": "Skin conductance",
       "period": "2019\u201320",
-      "count": 9
+      "count": 5
     },
     {
       "signal": "Skin conductance",
@@ -443,7 +453,7 @@
     {
       "signal": "Skin conductance",
       "period": "2023\u201324",
-      "count": 7
+      "count": 9
     },
     {
       "signal": "Skin hardness",
@@ -473,12 +483,12 @@
     {
       "signal": "Skin temperature",
       "period": "2021\u201322",
-      "count": 62
+      "count": 61
     },
     {
       "signal": "Skin temperature",
       "period": "2023\u201324",
-      "count": 44
+      "count": 65
     },
     {
       "signal": "Sweat indicators",
@@ -498,7 +508,7 @@
     {
       "signal": "Sweat indicators",
       "period": "2019\u201320",
-      "count": 8
+      "count": 9
     },
     {
       "signal": "Sweat indicators",
@@ -508,7 +518,7 @@
     {
       "signal": "Sweat indicators",
       "period": "2023\u201324",
-      "count": 4
+      "count": 6
     }
   ],
   "period_n": {
@@ -516,8 +526,8 @@
     "2015\u201316": 15,
     "2017\u201318": 47,
     "2019\u201320": 63,
-    "2021\u201322": 79,
-    "2023\u201324": 55
+    "2021\u201322": 81,
+    "2023\u201324": 78
   },
   "periods": [
     "2013\u201314",

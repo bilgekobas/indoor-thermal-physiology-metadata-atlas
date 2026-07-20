@@ -2,19 +2,19 @@
   "totals": [
     {
       "brand": "iButton",
-      "count": 64
+      "count": 74
     },
     {
-      "brand": "OMRON",
-      "count": 46
+      "brand": "Omron",
+      "count": 47
     },
     {
       "brand": "Polar",
-      "count": 23
+      "count": 27
     },
     {
       "brand": "Opulus",
-      "count": 22
+      "count": 25
     },
     {
       "brand": "FLIR",
@@ -22,14 +22,18 @@
     },
     {
       "brand": "Emotiv",
+      "count": 15
+    },
+    {
+      "brand": "Empatica",
       "count": 14
     },
     {
-      "brand": "Suunto",
+      "brand": "BIOPAC",
       "count": 12
     },
     {
-      "brand": "BIOPAC",
+      "brand": "Suunto",
       "count": 12
     },
     {
@@ -37,24 +41,40 @@
       "count": 11
     },
     {
-      "brand": "Empatica",
-      "count": 11
-    },
-    {
       "brand": "Perimed",
-      "count": 7
+      "count": 8
     },
     {
       "brand": "Onset",
       "count": 7
     },
     {
-      "brand": "Braun",
+      "brand": "Nihonkohden Co.",
+      "count": 6
+    },
+    {
+      "brand": "Kyoto Electronics",
+      "count": 6
+    },
+    {
+      "brand": "ADInstruments",
       "count": 6
     },
     {
       "brand": "Melexis",
       "count": 6
+    },
+    {
+      "brand": "Braun",
+      "count": 6
+    },
+    {
+      "brand": "Omega",
+      "count": 6
+    },
+    {
+      "brand": "KERN",
+      "count": 5
     },
     {
       "brand": "Testo",
@@ -65,23 +85,7 @@
       "count": 5
     },
     {
-      "brand": "KERN",
-      "count": 5
-    },
-    {
-      "brand": "Kyoto Electronics Manufacturing",
-      "count": 5
-    },
-    {
-      "brand": "Nihonkohden Co.",
-      "count": 5
-    },
-    {
-      "brand": "OMEGA",
-      "count": 4
-    },
-    {
-      "brand": "fitbit",
+      "brand": "Hidalgo",
       "count": 4
     },
     {
@@ -89,35 +93,23 @@
       "count": 4
     },
     {
+      "brand": "Fitbit",
+      "count": 4
+    },
+    {
+      "brand": "Mind Media",
+      "count": 4
+    },
+    {
       "brand": "Yuwell",
       "count": 4
     },
     {
-      "brand": "Hidalgo",
+      "brand": "InterAxon",
       "count": 4
     },
     {
-      "brand": "ADInstruments",
-      "count": 3
-    },
-    {
-      "brand": "COSMED",
-      "count": 3
-    },
-    {
-      "brand": "NIPPON",
-      "count": 3
-    },
-    {
-      "brand": "Shimmer Sensing",
-      "count": 3
-    },
-    {
-      "brand": "Advanced Brain Monitoring",
-      "count": 3
-    },
-    {
-      "brand": "Mind Media",
+      "brand": "S&ME Company",
       "count": 3
     },
     {
@@ -125,11 +117,11 @@
       "count": 3
     },
     {
-      "brand": "Libelium Co.",
+      "brand": "Vyaire Medical",
       "count": 3
     },
     {
-      "brand": "S&ME Company",
+      "brand": "HeaLink",
       "count": 3
     },
     {
@@ -137,27 +129,27 @@
       "count": 3
     },
     {
-      "brand": "Vyaire Medical",
+      "brand": "Libelium Co.",
       "count": 3
     },
     {
-      "brand": "ANDON",
-      "count": 2
+      "brand": "Advanced Brain Monitoring",
+      "count": 3
     },
     {
-      "brand": "Mettler Toledo",
-      "count": 2
+      "brand": "Cosmed",
+      "count": 3
     },
     {
-      "brand": "Neurosky",
-      "count": 2
+      "brand": "Shimmer Sensing",
+      "count": 3
     },
     {
-      "brand": "Samsung",
-      "count": 2
+      "brand": "NIPPON",
+      "count": 3
     },
     {
-      "brand": "PLUX",
+      "brand": "Honeywell",
       "count": 2
     },
     {
@@ -165,27 +157,23 @@
       "count": 2
     },
     {
-      "brand": "TCSA",
+      "brand": "CompuMedics Ltd.",
       "count": 2
     },
     {
-      "brand": "InterAxon",
+      "brand": "Beurer",
       "count": 2
     },
     {
-      "brand": "CGX",
+      "brand": "LifeSense",
+      "count": 2
+    },
+    {
+      "brand": "FluxTeq",
       "count": 2
     },
     {
       "brand": "Nikkiso-Therm",
-      "count": 2
-    },
-    {
-      "brand": "A&D Corporation",
-      "count": 2
-    },
-    {
-      "brand": "DMS",
       "count": 2
     },
     {
@@ -197,15 +185,7 @@
       "count": 2
     },
     {
-      "brand": "LifeSense",
-      "count": 2
-    },
-    {
-      "brand": "HeaLink",
-      "count": 2
-    },
-    {
-      "brand": "Beurer",
+      "brand": "DMS",
       "count": 2
     },
     {
@@ -213,19 +193,11 @@
       "count": 2
     },
     {
-      "brand": "FluxTeq",
+      "brand": "CGX",
       "count": 2
     },
     {
-      "brand": "CompuMedics Ltd.",
-      "count": 2
-    },
-    {
-      "brand": "Honeywell",
-      "count": 2
-    },
-    {
-      "brand": "KEM",
+      "brand": "Samsung",
       "count": 2
     },
     {
@@ -233,143 +205,75 @@
       "count": 2
     },
     {
-      "brand": "TXZ",
-      "count": 1
+      "brand": "Maastricht Instruments",
+      "count": 2
     },
     {
-      "brand": "Oxycon",
-      "count": 1
+      "brand": "Mettler Toledo",
+      "count": 2
     },
     {
-      "brand": "Courage-Khazaka MPA-5",
-      "count": 1
+      "brand": "TCSA",
+      "count": 2
     },
     {
-      "brand": "Dr. Diary Plus",
-      "count": 1
-    },
-    {
-      "brand": "Agilent",
-      "count": 1
-    },
-    {
-      "brand": "DynaSense",
-      "count": 1
-    },
-    {
-      "brand": "Careshine Electronic",
-      "count": 1
-    },
-    {
-      "brand": "Yumo",
-      "count": 1
-    },
-    {
-      "brand": "Cosinuss",
-      "count": 1
+      "brand": "NeuroSky",
+      "count": 2
     },
     {
       "brand": "BodyCap",
+      "count": 2
+    },
+    {
+      "brand": "KEM",
+      "count": 2
+    },
+    {
+      "brand": "Andon",
+      "count": 2
+    },
+    {
+      "brand": "PLUX",
+      "count": 2
+    },
+    {
+      "brand": "BEC-Ca",
       "count": 1
     },
     {
-      "brand": "Seeed Studio",
+      "brand": "ETO DENKI",
       "count": 1
     },
     {
-      "brand": "Murata",
+      "brand": "PerkinElmer",
       "count": 1
     },
     {
-      "brand": "R211A",
+      "brand": "Recipe",
       "count": 1
     },
     {
-      "brand": "Brain Products",
+      "brand": "Roche Diagnostica",
       "count": 1
     },
     {
-      "brand": "EMFIT",
+      "brand": "Colin",
       "count": 1
     },
     {
-      "brand": "Intercross",
+      "brand": "Advance",
       "count": 1
     },
     {
-      "brand": "EXTECH Instruments",
+      "brand": "Lattron",
       "count": 1
     },
     {
-      "brand": "Xiaomi",
+      "brand": "Avio",
       "count": 1
     },
     {
-      "brand": "Medtronic",
-      "count": 1
-    },
-    {
-      "brand": "PESA",
-      "count": 1
-    },
-    {
-      "brand": "Kofoe",
-      "count": 1
-    },
-    {
-      "brand": "Promise Technology",
-      "count": 1
-    },
-    {
-      "brand": "Tianjin Jingjin",
-      "count": 1
-    },
-    {
-      "brand": "Spirit-Mind",
-      "count": 1
-    },
-    {
-      "brand": "Maastricht Instruments",
-      "count": 1
-    },
-    {
-      "brand": "Movisens",
-      "count": 1
-    },
-    {
-      "brand": "CMM",
-      "count": 1
-    },
-    {
-      "brand": "Hesvit",
-      "count": 1
-    },
-    {
-      "brand": "O2HEALTH",
-      "count": 1
-    },
-    {
-      "brand": "Ambient labs",
-      "count": 1
-    },
-    {
-      "brand": "Tyco Healthcare Group LP",
-      "count": 1
-    },
-    {
-      "brand": "POSH Mobile Ltd.",
-      "count": 1
-    },
-    {
-      "brand": "National",
-      "count": 1
-    },
-    {
-      "brand": "MedAir AB",
-      "count": 1
-    },
-    {
-      "brand": "Microsoft",
+      "brand": "Fluke",
       "count": 1
     },
     {
@@ -409,51 +313,11 @@
       "count": 1
     },
     {
-      "brand": "G.tech",
-      "count": 1
-    },
-    {
-      "brand": "Lattron",
-      "count": 1
-    },
-    {
-      "brand": "Avio",
-      "count": 1
-    },
-    {
-      "brand": "Fluke",
-      "count": 1
-    },
-    {
-      "brand": "Colin",
-      "count": 1
-    },
-    {
-      "brand": "Advance",
-      "count": 1
-    },
-    {
-      "brand": "ETO DENKI",
-      "count": 1
-    },
-    {
-      "brand": "PerkinElmer",
-      "count": 1
-    },
-    {
-      "brand": "Recipe",
-      "count": 1
-    },
-    {
-      "brand": "Roche Diagnostica",
-      "count": 1
-    },
-    {
-      "brand": "BEC-Ca",
-      "count": 1
-    },
-    {
       "brand": "O&R Medical",
+      "count": 1
+    },
+    {
+      "brand": "G.tech",
       "count": 1
     },
     {
@@ -469,11 +333,7 @@
       "count": 1
     },
     {
-      "brand": "Nipro Inc.",
-      "count": 1
-    },
-    {
-      "brand": "Tobii",
+      "brand": "Tyco Healthcare Group LP",
       "count": 1
     },
     {
@@ -481,19 +341,47 @@
       "count": 1
     },
     {
-      "brand": "iHealth",
+      "brand": "POSH Mobile Ltd.",
       "count": 1
     },
     {
-      "brand": "Medisana",
+      "brand": "National",
       "count": 1
     },
     {
-      "brand": "Abbott",
+      "brand": "MedAir AB",
       "count": 1
     },
     {
-      "brand": "Masimo",
+      "brand": "Microsoft",
+      "count": 1
+    },
+    {
+      "brand": "Movisens",
+      "count": 1
+    },
+    {
+      "brand": "CMM",
+      "count": 1
+    },
+    {
+      "brand": "Hesvit",
+      "count": 1
+    },
+    {
+      "brand": "O2HEALTH",
+      "count": 1
+    },
+    {
+      "brand": "Ambient labs",
+      "count": 1
+    },
+    {
+      "brand": "Nipro Inc.",
+      "count": 1
+    },
+    {
+      "brand": "Intercross",
       "count": 1
     },
     {
@@ -506,6 +394,42 @@
     },
     {
       "brand": "CorTemp",
+      "count": 1
+    },
+    {
+      "brand": "EXTECH Instruments",
+      "count": 1
+    },
+    {
+      "brand": "Xiaomi",
+      "count": 1
+    },
+    {
+      "brand": "Medtronic",
+      "count": 1
+    },
+    {
+      "brand": "PESA",
+      "count": 1
+    },
+    {
+      "brand": "Kofoe",
+      "count": 1
+    },
+    {
+      "brand": "Tobii",
+      "count": 1
+    },
+    {
+      "brand": "Promise Technology",
+      "count": 1
+    },
+    {
+      "brand": "Tianjin Jingjin",
+      "count": 1
+    },
+    {
+      "brand": "Spirit-Mind",
       "count": 1
     },
     {
@@ -525,31 +449,11 @@
       "count": 1
     },
     {
-      "brand": "TT-T-30-SLE",
+      "brand": "Courage-Khazaka MPA-5",
       "count": 1
     },
     {
-      "brand": "Delfin Technologies",
-      "count": 1
-    },
-    {
-      "brand": "Contec Medical Systems",
-      "count": 1
-    },
-    {
-      "brand": "Wearable Sensing",
-      "count": 1
-    },
-    {
-      "brand": "FHI",
-      "count": 1
-    },
-    {
-      "brand": "Nihon Kohden",
-      "count": 1
-    },
-    {
-      "brand": "Omnical",
+      "brand": "Dr. Diary Plus",
       "count": 1
     },
     {
@@ -561,16 +465,147 @@
       "count": 1
     },
     {
-      "brand": "Kyoto Electronics",
+      "brand": "Agilent",
       "count": 1
     },
     {
-      "brand": "A&D Instruments",
+      "brand": "DynaSense",
+      "count": 1
+    },
+    {
+      "brand": "Careshine Electronic",
+      "count": 1
+    },
+    {
+      "brand": "Yumo",
+      "count": 1
+    },
+    {
+      "brand": "Cosinuss",
+      "count": 1
+    },
+    {
+      "brand": "Seeed Studio",
+      "count": 1
+    },
+    {
+      "brand": "Murata",
+      "count": 1
+    },
+    {
+      "brand": "Brain Products",
+      "count": 1
+    },
+    {
+      "brand": "EMFIT",
+      "count": 1
+    },
+    {
+      "brand": "Omnical",
+      "count": 1
+    },
+    {
+      "brand": "Oxycon",
+      "count": 1
+    },
+    {
+      "brand": "iHealth",
+      "count": 1
+    },
+    {
+      "brand": "Medisana",
+      "count": 1
+    },
+    {
+      "brand": "Abbott",
+      "count": 1
+    },
+    {
+      "brand": "Masimo",
+      "count": 1
+    },
+    {
+      "brand": "TXZ",
+      "count": 1
+    },
+    {
+      "brand": "Wearable Sensing",
+      "count": 1
+    },
+    {
+      "brand": "FHI",
+      "count": 1
+    },
+    {
+      "brand": "Delfin Technologies",
+      "count": 1
+    },
+    {
+      "brand": "Contec Medical Systems",
+      "count": 1
+    },
+    {
+      "brand": "TDK",
+      "count": 1
+    },
+    {
+      "brand": "Panasonic",
+      "count": 1
+    },
+    {
+      "brand": "OpenBCI",
+      "count": 1
+    },
+    {
+      "brand": "Shenzhen SYY Technology Co., Ltd.",
+      "count": 1
+    },
+    {
+      "brand": "Qingdao University of Technology",
+      "count": 1
+    },
+    {
+      "brand": "greenTEG",
       "count": 1
     }
   ],
-  "n_studies_with_brand": 241,
+  "n_studies_with_brand": 263,
   "by_signal": [
+    {
+      "physio-sensor-brand": "ADInstruments",
+      "physio-parameter": "Blood pressure",
+      "count": 1
+    },
+    {
+      "physio-sensor-brand": "ADInstruments",
+      "physio-parameter": "Heart/Pulse rate",
+      "count": 2
+    },
+    {
+      "physio-sensor-brand": "ADInstruments",
+      "physio-parameter": "Metabolic rate/Gas exchange",
+      "count": 1
+    },
+    {
+      "physio-sensor-brand": "ADInstruments",
+      "physio-parameter": "Oxygen saturation",
+      "count": 1
+    },
+    {
+      "physio-sensor-brand": "ADInstruments",
+      "physio-parameter": "Skin conductance",
+      "count": 1
+    },
+    {
+      "physio-sensor-brand": "ADInstruments",
+      "physio-parameter": "Skin temperature",
+      "count": 1
+    },
+    {
+      "physio-sensor-brand": "ADInstruments",
+      "physio-parameter": "Sweat indicators",
+      "count": 3
+    },
     {
       "physio-sensor-brand": "BIOPAC",
       "physio-parameter": "EEG",
@@ -592,24 +627,14 @@
       "count": 9
     },
     {
-      "physio-sensor-brand": "Braun",
-      "physio-parameter": "Body temperature",
-      "count": 5
-    },
-    {
-      "physio-sensor-brand": "Braun",
-      "physio-parameter": "Core temperature",
-      "count": 1
-    },
-    {
       "physio-sensor-brand": "Emotiv",
       "physio-parameter": "EEG",
-      "count": 14
+      "count": 15
     },
     {
       "physio-sensor-brand": "Empatica",
       "physio-parameter": "Heart/Pulse rate",
-      "count": 11
+      "count": 14
     },
     {
       "physio-sensor-brand": "Empatica",
@@ -619,12 +644,12 @@
     {
       "physio-sensor-brand": "Empatica",
       "physio-parameter": "Skin conductance",
-      "count": 9
+      "count": 12
     },
     {
       "physio-sensor-brand": "Empatica",
       "physio-parameter": "Skin temperature",
-      "count": 10
+      "count": 13
     },
     {
       "physio-sensor-brand": "FLIR",
@@ -647,32 +672,62 @@
       "count": 11
     },
     {
-      "physio-sensor-brand": "Melexis",
-      "physio-parameter": "Skin temperature",
+      "physio-sensor-brand": "Kyoto Electronics",
+      "physio-parameter": "Heat flux",
       "count": 6
     },
     {
-      "physio-sensor-brand": "OMRON",
-      "physio-parameter": "Blood pressure",
-      "count": 31
+      "physio-sensor-brand": "Kyoto Electronics",
+      "physio-parameter": "Skin temperature",
+      "count": 4
     },
     {
-      "physio-sensor-brand": "OMRON",
+      "physio-sensor-brand": "Nihonkohden Co.",
+      "physio-parameter": "Core temperature",
+      "count": 3
+    },
+    {
+      "physio-sensor-brand": "Nihonkohden Co.",
+      "physio-parameter": "EEG",
+      "count": 1
+    },
+    {
+      "physio-sensor-brand": "Nihonkohden Co.",
+      "physio-parameter": "Exhaled breath temperature",
+      "count": 1
+    },
+    {
+      "physio-sensor-brand": "Nihonkohden Co.",
+      "physio-parameter": "Heart/Pulse rate",
+      "count": 2
+    },
+    {
+      "physio-sensor-brand": "Nihonkohden Co.",
+      "physio-parameter": "Sensory nerve conduction velocity",
+      "count": 1
+    },
+    {
+      "physio-sensor-brand": "Omron",
+      "physio-parameter": "Blood pressure",
+      "count": 32
+    },
+    {
+      "physio-sensor-brand": "Omron",
       "physio-parameter": "Body temperature",
       "count": 12
     },
     {
-      "physio-sensor-brand": "OMRON",
+      "physio-sensor-brand": "Omron",
       "physio-parameter": "Heart/Pulse rate",
       "count": 20
     },
     {
-      "physio-sensor-brand": "OMRON",
+      "physio-sensor-brand": "Omron",
       "physio-parameter": "Oxygen saturation",
       "count": 1
     },
     {
-      "physio-sensor-brand": "OMRON",
+      "physio-sensor-brand": "Omron",
       "physio-parameter": "Skin temperature",
       "count": 2
     },
@@ -683,38 +738,33 @@
     },
     {
       "physio-sensor-brand": "Opulus",
-      "physio-parameter": "Skin conductance",
-      "count": 3
+      "physio-parameter": "Core temperature",
+      "count": 1
     },
     {
       "physio-sensor-brand": "Opulus",
       "physio-parameter": "Skin temperature",
-      "count": 21
+      "count": 24
     },
     {
       "physio-sensor-brand": "Opulus",
       "physio-parameter": "Sweat indicators",
-      "count": 1
+      "count": 4
     },
     {
       "physio-sensor-brand": "Perimed",
       "physio-parameter": "Skin blood flow",
-      "count": 7
+      "count": 8
     },
     {
       "physio-sensor-brand": "Polar",
       "physio-parameter": "Heart/Pulse rate",
-      "count": 23
+      "count": 27
     },
     {
       "physio-sensor-brand": "Suunto",
       "physio-parameter": "Heart/Pulse rate",
       "count": 12
-    },
-    {
-      "physio-sensor-brand": "Testo",
-      "physio-parameter": "Skin temperature",
-      "count": 5
     },
     {
       "physio-sensor-brand": "iButton",
@@ -724,12 +774,17 @@
     {
       "physio-sensor-brand": "iButton",
       "physio-parameter": "Skin conductance",
-      "count": 2
+      "count": 1
     },
     {
       "physio-sensor-brand": "iButton",
       "physio-parameter": "Skin temperature",
-      "count": 62
+      "count": 72
+    },
+    {
+      "physio-sensor-brand": "iButton",
+      "physio-parameter": "Sweat indicators",
+      "count": 2
     }
   ]
 }

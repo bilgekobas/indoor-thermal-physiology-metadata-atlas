@@ -155,14 +155,36 @@ CITY_COORDS = {
 
     # Brazil — single-city study
     'Paraiba': (-7.1195, -34.8450, 'João Pessoa (Paraíba state, state-level only)', 'province'),
+
+    # USA (added 2026-07 batch)
+    'Fargo': (46.8772, -96.7898, 'Fargo', 'city'),
+
+    # Japan (added 2026-07 batch)
+    'Fujisawa': (35.3705, 139.4917, 'Fujisawa', 'city'),
+
+    # China (added 2026-07 batch)
+    'Hong Kong': (22.3193, 114.1694, 'Hong Kong', 'city'),
+    'Mianyang': (31.4667, 104.7333, 'Mianyang', 'city'),
+    'Shandong Province': (36.6512, 117.1201, "Jinan (Shandong province capital)", 'province'),
+
+    # Serbia (added 2026-07 batch — first Serbian entries)
+    'Novi Sad': (45.2671, 19.8335, 'Novi Sad', 'city'),
 }
 
-# The one multi-city study (id 153_1): resolved as 4 separate points.
+# Multi-city studies: resolved as separate points sharing one study id.
 MULTI_CITY_STUDIES = {
-    'Teresina, Piaui, Petrolina, Pernambuco, \nJoao Pessoa, Paraiba, Manaus, Amazonas': [
+    # NOTE: this key previously had a hardcoded '\n' line break that no
+    # longer matches the corpus cell's whitespace (the cell content is now
+    # single-line), which silently broke the match. Fixed to plain spaces.
+    'Teresina, Piaui, Petrolina, Pernambuco, Joao Pessoa, Paraiba, Manaus, Amazonas': [
         (-5.0892, -42.8019, 'Teresina', 'Piauí'),
         (-9.3891, -40.5030, 'Petrolina', 'Pernambuco'),
         (-7.1195, -34.8450, 'João Pessoa', 'Paraíba'),
         (-3.1190, -60.0217, 'Manaus', 'Amazonas'),
+    ],
+    # Added 2026-07 batch: one study spanning Lhasa (Tibet) and Xi'an (Shaanxi)
+    "Lhasa, Xi'an": [
+        (29.6520, 91.1721, 'Lhasa', 'Tibet Autonomous Region'),
+        (34.3416, 108.9398, "Xi'an", 'Shaanxi'),
     ],
 }

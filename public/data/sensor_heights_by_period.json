@@ -2,1101 +2,6 @@
   "data": [
     {
       "variable": "Air temperature",
-      "height": 1.5,
-      "period": "2023\u201324"
-    },
-    {
-      "variable": "Air temperature",
-      "height": 1.5,
-      "period": "2023\u201324"
-    },
-    {
-      "variable": "Air temperature",
-      "height": 1.5,
-      "period": "2023\u201324"
-    },
-    {
-      "variable": "Air temperature",
-      "height": 0.6,
-      "period": "2023\u201324"
-    },
-    {
-      "variable": "Air temperature",
-      "height": 0.1,
-      "period": "2023\u201324"
-    },
-    {
-      "variable": "Air temperature",
-      "height": 0.6,
-      "period": "2023\u201324"
-    },
-    {
-      "variable": "Air temperature",
-      "height": 1.1,
-      "period": "2023\u201324"
-    },
-    {
-      "variable": "Air temperature",
-      "height": 1.5,
-      "period": "2023\u201324"
-    },
-    {
-      "variable": "Air temperature",
-      "height": 0.6,
-      "period": "2023\u201324"
-    },
-    {
-      "variable": "Air temperature",
-      "height": 1.1,
-      "period": "2023\u201324"
-    },
-    {
-      "variable": "Air temperature",
-      "height": 2.5,
-      "period": "2023\u201324"
-    },
-    {
-      "variable": "Air temperature",
-      "height": 0.1,
-      "period": "2023\u201324"
-    },
-    {
-      "variable": "Air temperature",
-      "height": 0.6,
-      "period": "2023\u201324"
-    },
-    {
-      "variable": "Air temperature",
-      "height": 1.1,
-      "period": "2023\u201324"
-    },
-    {
-      "variable": "Air temperature",
-      "height": 0.7,
-      "period": "2023\u201324"
-    },
-    {
-      "variable": "Air temperature",
-      "height": 0.1,
-      "period": "2023\u201324"
-    },
-    {
-      "variable": "Air temperature",
-      "height": 0.6,
-      "period": "2023\u201324"
-    },
-    {
-      "variable": "Air temperature",
-      "height": 1.1,
-      "period": "2023\u201324"
-    },
-    {
-      "variable": "Air temperature",
-      "height": 0.6,
-      "period": "2023\u201324"
-    },
-    {
-      "variable": "Air temperature",
-      "height": 0.1,
-      "period": "2023\u201324"
-    },
-    {
-      "variable": "Air temperature",
-      "height": 0.6,
-      "period": "2023\u201324"
-    },
-    {
-      "variable": "Air temperature",
-      "height": 1.1,
-      "period": "2023\u201324"
-    },
-    {
-      "variable": "Air temperature",
-      "height": 2.3,
-      "period": "2023\u201324"
-    },
-    {
-      "variable": "Air temperature",
-      "height": 0.1,
-      "period": "2023\u201324"
-    },
-    {
-      "variable": "Air temperature",
-      "height": 0.3,
-      "period": "2023\u201324"
-    },
-    {
-      "variable": "Air temperature",
-      "height": 0.5,
-      "period": "2023\u201324"
-    },
-    {
-      "variable": "Air temperature",
-      "height": 0.7,
-      "period": "2023\u201324"
-    },
-    {
-      "variable": "Air temperature",
-      "height": 0.9,
-      "period": "2023\u201324"
-    },
-    {
-      "variable": "Air temperature",
-      "height": 1.1,
-      "period": "2023\u201324"
-    },
-    {
-      "variable": "Air temperature",
-      "height": 1.3,
-      "period": "2023\u201324"
-    },
-    {
-      "variable": "Air temperature",
-      "height": 1.5,
-      "period": "2023\u201324"
-    },
-    {
-      "variable": "Air temperature",
-      "height": 1.7,
-      "period": "2023\u201324"
-    },
-    {
-      "variable": "Air temperature",
-      "height": 1.9,
-      "period": "2023\u201324"
-    },
-    {
-      "variable": "Air temperature",
-      "height": 0.1,
-      "period": "2023\u201324"
-    },
-    {
-      "variable": "Air temperature",
-      "height": 0.6,
-      "period": "2023\u201324"
-    },
-    {
-      "variable": "Air temperature",
-      "height": 1.1,
-      "period": "2023\u201324"
-    },
-    {
-      "variable": "Air temperature",
-      "height": 0.6,
-      "period": "2023\u201324"
-    },
-    {
-      "variable": "Air temperature",
-      "height": 0.6,
-      "period": "2023\u201324"
-    },
-    {
-      "variable": "Air temperature",
-      "height": 0.7,
-      "period": "2023\u201324"
-    },
-    {
-      "variable": "Air temperature",
-      "height": 0.4,
-      "period": "2021\u201322"
-    },
-    {
-      "variable": "Air temperature",
-      "height": 0.7,
-      "period": "2021\u201322"
-    },
-    {
-      "variable": "Air temperature",
-      "height": 0.1,
-      "period": "2021\u201322"
-    },
-    {
-      "variable": "Air temperature",
-      "height": 0.6,
-      "period": "2021\u201322"
-    },
-    {
-      "variable": "Air temperature",
-      "height": 1.1,
-      "period": "2021\u201322"
-    },
-    {
-      "variable": "Air temperature",
-      "height": 1.6,
-      "period": "2021\u201322"
-    },
-    {
-      "variable": "Air temperature",
-      "height": 1.2,
-      "period": "2021\u201322"
-    },
-    {
-      "variable": "Air temperature",
-      "height": 0.1,
-      "period": "2021\u201322"
-    },
-    {
-      "variable": "Air temperature",
-      "height": 0.6,
-      "period": "2021\u201322"
-    },
-    {
-      "variable": "Air temperature",
-      "height": 1.1,
-      "period": "2021\u201322"
-    },
-    {
-      "variable": "Air temperature",
-      "height": 0.1,
-      "period": "2021\u201322"
-    },
-    {
-      "variable": "Air temperature",
-      "height": 0.6,
-      "period": "2021\u201322"
-    },
-    {
-      "variable": "Air temperature",
-      "height": 1.1,
-      "period": "2021\u201322"
-    },
-    {
-      "variable": "Air temperature",
-      "height": 1.7,
-      "period": "2021\u201322"
-    },
-    {
-      "variable": "Air temperature",
-      "height": 0.1,
-      "period": "2021\u201322"
-    },
-    {
-      "variable": "Air temperature",
-      "height": 0.6,
-      "period": "2021\u201322"
-    },
-    {
-      "variable": "Air temperature",
-      "height": 1.1,
-      "period": "2021\u201322"
-    },
-    {
-      "variable": "Air temperature",
-      "height": 0.7,
-      "period": "2021\u201322"
-    },
-    {
-      "variable": "Air temperature",
-      "height": 1.1,
-      "period": "2021\u201322"
-    },
-    {
-      "variable": "Air temperature",
-      "height": 0.1,
-      "period": "2021\u201322"
-    },
-    {
-      "variable": "Air temperature",
-      "height": 0.6,
-      "period": "2021\u201322"
-    },
-    {
-      "variable": "Air temperature",
-      "height": 1.1,
-      "period": "2021\u201322"
-    },
-    {
-      "variable": "Air temperature",
-      "height": 0.1,
-      "period": "2021\u201322"
-    },
-    {
-      "variable": "Air temperature",
-      "height": 0.6,
-      "period": "2021\u201322"
-    },
-    {
-      "variable": "Air temperature",
-      "height": 1.1,
-      "period": "2021\u201322"
-    },
-    {
-      "variable": "Air temperature",
-      "height": 1.7,
-      "period": "2021\u201322"
-    },
-    {
-      "variable": "Air temperature",
-      "height": 1.1,
-      "period": "2021\u201322"
-    },
-    {
-      "variable": "Air temperature",
-      "height": 1.5,
-      "period": "2021\u201322"
-    },
-    {
-      "variable": "Air temperature",
-      "height": 0.1,
-      "period": "2021\u201322"
-    },
-    {
-      "variable": "Air temperature",
-      "height": 0.6,
-      "period": "2021\u201322"
-    },
-    {
-      "variable": "Air temperature",
-      "height": 1.1,
-      "period": "2021\u201322"
-    },
-    {
-      "variable": "Air temperature",
-      "height": 0.1,
-      "period": "2021\u201322"
-    },
-    {
-      "variable": "Air temperature",
-      "height": 0.6,
-      "period": "2021\u201322"
-    },
-    {
-      "variable": "Air temperature",
-      "height": 1.1,
-      "period": "2021\u201322"
-    },
-    {
-      "variable": "Air temperature",
-      "height": 1.7,
-      "period": "2021\u201322"
-    },
-    {
-      "variable": "Air temperature",
-      "height": 0.1,
-      "period": "2021\u201322"
-    },
-    {
-      "variable": "Air temperature",
-      "height": 0.6,
-      "period": "2021\u201322"
-    },
-    {
-      "variable": "Air temperature",
-      "height": 1.1,
-      "period": "2021\u201322"
-    },
-    {
-      "variable": "Air temperature",
-      "height": 1.7,
-      "period": "2021\u201322"
-    },
-    {
-      "variable": "Air temperature",
-      "height": 0.6,
-      "period": "2021\u201322"
-    },
-    {
-      "variable": "Air temperature",
-      "height": 0.6,
-      "period": "2021\u201322"
-    },
-    {
-      "variable": "Air temperature",
-      "height": 0.6,
-      "period": "2021\u201322"
-    },
-    {
-      "variable": "Air temperature",
-      "height": 1.0,
-      "period": "2021\u201322"
-    },
-    {
-      "variable": "Air temperature",
-      "height": 1.1,
-      "period": "2021\u201322"
-    },
-    {
-      "variable": "Air temperature",
-      "height": 0.6,
-      "period": "2021\u201322"
-    },
-    {
-      "variable": "Air temperature",
-      "height": 1.0,
-      "period": "2021\u201322"
-    },
-    {
-      "variable": "Air temperature",
-      "height": 0.1,
-      "period": "2021\u201322"
-    },
-    {
-      "variable": "Air temperature",
-      "height": 0.3,
-      "period": "2021\u201322"
-    },
-    {
-      "variable": "Air temperature",
-      "height": 0.5,
-      "period": "2021\u201322"
-    },
-    {
-      "variable": "Air temperature",
-      "height": 0.7,
-      "period": "2021\u201322"
-    },
-    {
-      "variable": "Air temperature",
-      "height": 0.9,
-      "period": "2021\u201322"
-    },
-    {
-      "variable": "Air temperature",
-      "height": 1.1,
-      "period": "2021\u201322"
-    },
-    {
-      "variable": "Air temperature",
-      "height": 1.3,
-      "period": "2021\u201322"
-    },
-    {
-      "variable": "Air temperature",
-      "height": 1.5,
-      "period": "2021\u201322"
-    },
-    {
-      "variable": "Air temperature",
-      "height": 1.7,
-      "period": "2021\u201322"
-    },
-    {
-      "variable": "Air temperature",
-      "height": 1.9,
-      "period": "2021\u201322"
-    },
-    {
-      "variable": "Air temperature",
-      "height": 0.6,
-      "period": "2021\u201322"
-    },
-    {
-      "variable": "Air temperature",
-      "height": 0.6,
-      "period": "2021\u201322"
-    },
-    {
-      "variable": "Air temperature",
-      "height": 1.1,
-      "period": "2021\u201322"
-    },
-    {
-      "variable": "Air temperature",
-      "height": 1.1,
-      "period": "2021\u201322"
-    },
-    {
-      "variable": "Air temperature",
-      "height": 1.5,
-      "period": "2021\u201322"
-    },
-    {
-      "variable": "Air temperature",
-      "height": 1.1,
-      "period": "2021\u201322"
-    },
-    {
-      "variable": "Air temperature",
-      "height": 1.5,
-      "period": "2021\u201322"
-    },
-    {
-      "variable": "Air temperature",
-      "height": 1.5,
-      "period": "2021\u201322"
-    },
-    {
-      "variable": "Air temperature",
-      "height": 1.5,
-      "period": "2021\u201322"
-    },
-    {
-      "variable": "Air temperature",
-      "height": 1.5,
-      "period": "2021\u201322"
-    },
-    {
-      "variable": "Air temperature",
-      "height": 1.5,
-      "period": "2021\u201322"
-    },
-    {
-      "variable": "Air temperature",
-      "height": 0.1,
-      "period": "2021\u201322"
-    },
-    {
-      "variable": "Air temperature",
-      "height": 0.6,
-      "period": "2021\u201322"
-    },
-    {
-      "variable": "Air temperature",
-      "height": 1.1,
-      "period": "2021\u201322"
-    },
-    {
-      "variable": "Air temperature",
-      "height": 1.1,
-      "period": "2021\u201322"
-    },
-    {
-      "variable": "Air temperature",
-      "height": 0.6,
-      "period": "2021\u201322"
-    },
-    {
-      "variable": "Air temperature",
-      "height": 2.4,
-      "period": "2021\u201322"
-    },
-    {
-      "variable": "Air temperature",
-      "height": 2.2,
-      "period": "2021\u201322"
-    },
-    {
-      "variable": "Air temperature",
-      "height": 1.7,
-      "period": "2021\u201322"
-    },
-    {
-      "variable": "Air temperature",
-      "height": 1.1,
-      "period": "2021\u201322"
-    },
-    {
-      "variable": "Air temperature",
-      "height": 0.6,
-      "period": "2021\u201322"
-    },
-    {
-      "variable": "Air temperature",
-      "height": 0.1,
-      "period": "2021\u201322"
-    },
-    {
-      "variable": "Air temperature",
-      "height": 1.1,
-      "period": "2021\u201322"
-    },
-    {
-      "variable": "Air temperature",
-      "height": 1.0,
-      "period": "2021\u201322"
-    },
-    {
-      "variable": "Air temperature",
-      "height": 0.1,
-      "period": "2021\u201322"
-    },
-    {
-      "variable": "Air temperature",
-      "height": 0.6,
-      "period": "2021\u201322"
-    },
-    {
-      "variable": "Air temperature",
-      "height": 1.1,
-      "period": "2021\u201322"
-    },
-    {
-      "variable": "Air temperature",
-      "height": 1.4,
-      "period": "2021\u201322"
-    },
-    {
-      "variable": "Air temperature",
-      "height": 0.1,
-      "period": "2021\u201322"
-    },
-    {
-      "variable": "Air temperature",
-      "height": 0.3,
-      "period": "2021\u201322"
-    },
-    {
-      "variable": "Air temperature",
-      "height": 1.1,
-      "period": "2021\u201322"
-    },
-    {
-      "variable": "Air temperature",
-      "height": 0.1,
-      "period": "2021\u201322"
-    },
-    {
-      "variable": "Air temperature",
-      "height": 0.6,
-      "period": "2021\u201322"
-    },
-    {
-      "variable": "Air temperature",
-      "height": 1.1,
-      "period": "2021\u201322"
-    },
-    {
-      "variable": "Air temperature",
-      "height": 0.6,
-      "period": "2019\u201320"
-    },
-    {
-      "variable": "Air temperature",
-      "height": 1.1,
-      "period": "2019\u201320"
-    },
-    {
-      "variable": "Air temperature",
-      "height": 0.1,
-      "period": "2019\u201320"
-    },
-    {
-      "variable": "Air temperature",
-      "height": 1.1,
-      "period": "2019\u201320"
-    },
-    {
-      "variable": "Air temperature",
-      "height": 0.1,
-      "period": "2019\u201320"
-    },
-    {
-      "variable": "Air temperature",
-      "height": 1.4,
-      "period": "2019\u201320"
-    },
-    {
-      "variable": "Air temperature",
-      "height": 0.6,
-      "period": "2019\u201320"
-    },
-    {
-      "variable": "Air temperature",
-      "height": 0.6,
-      "period": "2019\u201320"
-    },
-    {
-      "variable": "Air temperature",
-      "height": 0.1,
-      "period": "2019\u201320"
-    },
-    {
-      "variable": "Air temperature",
-      "height": 0.6,
-      "period": "2019\u201320"
-    },
-    {
-      "variable": "Air temperature",
-      "height": 1.1,
-      "period": "2019\u201320"
-    },
-    {
-      "variable": "Air temperature",
-      "height": 1.1,
-      "period": "2019\u201320"
-    },
-    {
-      "variable": "Air temperature",
-      "height": 1.1,
-      "period": "2019\u201320"
-    },
-    {
-      "variable": "Air temperature",
-      "height": 0.1,
-      "period": "2019\u201320"
-    },
-    {
-      "variable": "Air temperature",
-      "height": 0.6,
-      "period": "2019\u201320"
-    },
-    {
-      "variable": "Air temperature",
-      "height": 1.1,
-      "period": "2019\u201320"
-    },
-    {
-      "variable": "Air temperature",
-      "height": 1.0,
-      "period": "2019\u201320"
-    },
-    {
-      "variable": "Air temperature",
-      "height": 0.1,
-      "period": "2019\u201320"
-    },
-    {
-      "variable": "Air temperature",
-      "height": 0.6,
-      "period": "2019\u201320"
-    },
-    {
-      "variable": "Air temperature",
-      "height": 1.1,
-      "period": "2019\u201320"
-    },
-    {
-      "variable": "Air temperature",
-      "height": 0.1,
-      "period": "2019\u201320"
-    },
-    {
-      "variable": "Air temperature",
-      "height": 0.6,
-      "period": "2019\u201320"
-    },
-    {
-      "variable": "Air temperature",
-      "height": 1.1,
-      "period": "2019\u201320"
-    },
-    {
-      "variable": "Air temperature",
-      "height": 1.6,
-      "period": "2019\u201320"
-    },
-    {
-      "variable": "Air temperature",
-      "height": 0.1,
-      "period": "2019\u201320"
-    },
-    {
-      "variable": "Air temperature",
-      "height": 0.6,
-      "period": "2019\u201320"
-    },
-    {
-      "variable": "Air temperature",
-      "height": 1.1,
-      "period": "2019\u201320"
-    },
-    {
-      "variable": "Air temperature",
-      "height": 1.7,
-      "period": "2019\u201320"
-    },
-    {
-      "variable": "Air temperature",
-      "height": 1.1,
-      "period": "2019\u201320"
-    },
-    {
-      "variable": "Air temperature",
-      "height": 0.6,
-      "period": "2019\u201320"
-    },
-    {
-      "variable": "Air temperature",
-      "height": 0.65,
-      "period": "2019\u201320"
-    },
-    {
-      "variable": "Air temperature",
-      "height": 0.1,
-      "period": "2019\u201320"
-    },
-    {
-      "variable": "Air temperature",
-      "height": 0.6,
-      "period": "2019\u201320"
-    },
-    {
-      "variable": "Air temperature",
-      "height": 1.1,
-      "period": "2019\u201320"
-    },
-    {
-      "variable": "Air temperature",
-      "height": 0.1,
-      "period": "2019\u201320"
-    },
-    {
-      "variable": "Air temperature",
-      "height": 0.6,
-      "period": "2019\u201320"
-    },
-    {
-      "variable": "Air temperature",
-      "height": 1.1,
-      "period": "2019\u201320"
-    },
-    {
-      "variable": "Air temperature",
-      "height": 1.7,
-      "period": "2019\u201320"
-    },
-    {
-      "variable": "Air temperature",
-      "height": 2.3,
-      "period": "2019\u201320"
-    },
-    {
-      "variable": "Air temperature",
-      "height": 0.1,
-      "period": "2019\u201320"
-    },
-    {
-      "variable": "Air temperature",
-      "height": 0.6,
-      "period": "2019\u201320"
-    },
-    {
-      "variable": "Air temperature",
-      "height": 1.1,
-      "period": "2019\u201320"
-    },
-    {
-      "variable": "Air temperature",
-      "height": 1.7,
-      "period": "2019\u201320"
-    },
-    {
-      "variable": "Air temperature",
-      "height": 2.3,
-      "period": "2019\u201320"
-    },
-    {
-      "variable": "Air temperature",
-      "height": 0.1,
-      "period": "2019\u201320"
-    },
-    {
-      "variable": "Air temperature",
-      "height": 0.6,
-      "period": "2019\u201320"
-    },
-    {
-      "variable": "Air temperature",
-      "height": 1.1,
-      "period": "2019\u201320"
-    },
-    {
-      "variable": "Air temperature",
-      "height": 0.1,
-      "period": "2017\u201318"
-    },
-    {
-      "variable": "Air temperature",
-      "height": 0.6,
-      "period": "2017\u201318"
-    },
-    {
-      "variable": "Air temperature",
-      "height": 1.1,
-      "period": "2017\u201318"
-    },
-    {
-      "variable": "Air temperature",
-      "height": 1.6,
-      "period": "2017\u201318"
-    },
-    {
-      "variable": "Air temperature",
-      "height": 1.1,
-      "period": "2017\u201318"
-    },
-    {
-      "variable": "Air temperature",
-      "height": 0.1,
-      "period": "2017\u201318"
-    },
-    {
-      "variable": "Air temperature",
-      "height": 0.6,
-      "period": "2017\u201318"
-    },
-    {
-      "variable": "Air temperature",
-      "height": 1.1,
-      "period": "2017\u201318"
-    },
-    {
-      "variable": "Air temperature",
-      "height": 0.6,
-      "period": "2017\u201318"
-    },
-    {
-      "variable": "Air temperature",
-      "height": 0.6,
-      "period": "2017\u201318"
-    },
-    {
-      "variable": "Air temperature",
-      "height": 1.1,
-      "period": "2017\u201318"
-    },
-    {
-      "variable": "Air temperature",
-      "height": 0.6,
-      "period": "2017\u201318"
-    },
-    {
-      "variable": "Air temperature",
-      "height": 0.6,
-      "period": "2017\u201318"
-    },
-    {
-      "variable": "Air temperature",
-      "height": 1.1,
-      "period": "2017\u201318"
-    },
-    {
-      "variable": "Air temperature",
-      "height": 1.1,
-      "period": "2017\u201318"
-    },
-    {
-      "variable": "Air temperature",
-      "height": 0.1,
-      "period": "2017\u201318"
-    },
-    {
-      "variable": "Air temperature",
-      "height": 1.1,
-      "period": "2017\u201318"
-    },
-    {
-      "variable": "Air temperature",
-      "height": 1.7,
-      "period": "2017\u201318"
-    },
-    {
-      "variable": "Air temperature",
-      "height": 2.4,
-      "period": "2017\u201318"
-    },
-    {
-      "variable": "Air temperature",
-      "height": 0.1,
-      "period": "2017\u201318"
-    },
-    {
-      "variable": "Air temperature",
-      "height": 0.6,
-      "period": "2017\u201318"
-    },
-    {
-      "variable": "Air temperature",
-      "height": 1.1,
-      "period": "2017\u201318"
-    },
-    {
-      "variable": "Air temperature",
-      "height": 1.6,
-      "period": "2017\u201318"
-    },
-    {
-      "variable": "Air temperature",
-      "height": 0.6,
-      "period": "2017\u201318"
-    },
-    {
-      "variable": "Air temperature",
-      "height": 0.1,
-      "period": "2017\u201318"
-    },
-    {
-      "variable": "Air temperature",
-      "height": 0.6,
-      "period": "2017\u201318"
-    },
-    {
-      "variable": "Air temperature",
-      "height": 1.1,
-      "period": "2017\u201318"
-    },
-    {
-      "variable": "Air temperature",
-      "height": 0.4,
-      "period": "2015\u201316"
-    },
-    {
-      "variable": "Air temperature",
-      "height": 0.8,
-      "period": "2015\u201316"
-    },
-    {
-      "variable": "Air temperature",
-      "height": 1.2,
-      "period": "2015\u201316"
-    },
-    {
-      "variable": "Air temperature",
-      "height": 1.6,
-      "period": "2015\u201316"
-    },
-    {
-      "variable": "Air temperature",
-      "height": 0.1,
-      "period": "2015\u201316"
-    },
-    {
-      "variable": "Air temperature",
-      "height": 1.1,
-      "period": "2015\u201316"
-    },
-    {
-      "variable": "Air temperature",
-      "height": 1.0,
-      "period": "2015\u201316"
-    },
-    {
-      "variable": "Air temperature",
-      "height": 0.1,
-      "period": "2015\u201316"
-    },
-    {
-      "variable": "Air temperature",
-      "height": 0.6,
-      "period": "2015\u201316"
-    },
-    {
-      "variable": "Air temperature",
-      "height": 1.1,
-      "period": "2015\u201316"
-    },
-    {
-      "variable": "Air temperature",
-      "height": 0.1,
-      "period": "2015\u201316"
-    },
-    {
-      "variable": "Air temperature",
-      "height": 1.1,
-      "period": "2015\u201316"
-    },
-    {
-      "variable": "Air temperature",
-      "height": 0.7,
-      "period": "2013\u201314"
-    },
-    {
-      "variable": "Air temperature",
-      "height": 1.1,
-      "period": "2013\u201314"
-    },
-    {
-      "variable": "Air temperature",
-      "height": 1.2,
-      "period": "2013\u201314"
-    },
-    {
-      "variable": "Air temperature",
-      "height": 0.6,
-      "period": "2013\u201314"
-    },
-    {
-      "variable": "Air temperature",
       "height": 0.1,
       "period": "2013\u201314"
     },
@@ -1162,23 +67,193 @@
     },
     {
       "variable": "Air temperature",
-      "height": 0.1,
-      "period": "2019\u201320"
-    },
-    {
-      "variable": "Air temperature",
-      "height": 0.6,
-      "period": "2019\u201320"
+      "height": 0.7,
+      "period": "2013\u201314"
     },
     {
       "variable": "Air temperature",
       "height": 1.1,
-      "period": "2019\u201320"
+      "period": "2013\u201314"
+    },
+    {
+      "variable": "Air temperature",
+      "height": 1.2,
+      "period": "2013\u201314"
     },
     {
       "variable": "Air temperature",
       "height": 0.6,
-      "period": "2019\u201320"
+      "period": "2013\u201314"
+    },
+    {
+      "variable": "Air temperature",
+      "height": 0.1,
+      "period": "2015\u201316"
+    },
+    {
+      "variable": "Air temperature",
+      "height": 0.6,
+      "period": "2015\u201316"
+    },
+    {
+      "variable": "Air temperature",
+      "height": 1.1,
+      "period": "2015\u201316"
+    },
+    {
+      "variable": "Air temperature",
+      "height": 0.1,
+      "period": "2015\u201316"
+    },
+    {
+      "variable": "Air temperature",
+      "height": 1.1,
+      "period": "2015\u201316"
+    },
+    {
+      "variable": "Air temperature",
+      "height": 0.4,
+      "period": "2015\u201316"
+    },
+    {
+      "variable": "Air temperature",
+      "height": 0.8,
+      "period": "2015\u201316"
+    },
+    {
+      "variable": "Air temperature",
+      "height": 1.2,
+      "period": "2015\u201316"
+    },
+    {
+      "variable": "Air temperature",
+      "height": 1.6,
+      "period": "2015\u201316"
+    },
+    {
+      "variable": "Air temperature",
+      "height": 0.1,
+      "period": "2015\u201316"
+    },
+    {
+      "variable": "Air temperature",
+      "height": 1.1,
+      "period": "2015\u201316"
+    },
+    {
+      "variable": "Air temperature",
+      "height": 1.0,
+      "period": "2015\u201316"
+    },
+    {
+      "variable": "Air temperature",
+      "height": 0.6,
+      "period": "2017\u201318"
+    },
+    {
+      "variable": "Air temperature",
+      "height": 1.1,
+      "period": "2017\u201318"
+    },
+    {
+      "variable": "Air temperature",
+      "height": 1.1,
+      "period": "2017\u201318"
+    },
+    {
+      "variable": "Air temperature",
+      "height": 0.1,
+      "period": "2017\u201318"
+    },
+    {
+      "variable": "Air temperature",
+      "height": 1.1,
+      "period": "2017\u201318"
+    },
+    {
+      "variable": "Air temperature",
+      "height": 1.7,
+      "period": "2017\u201318"
+    },
+    {
+      "variable": "Air temperature",
+      "height": 2.4,
+      "period": "2017\u201318"
+    },
+    {
+      "variable": "Air temperature",
+      "height": 0.1,
+      "period": "2017\u201318"
+    },
+    {
+      "variable": "Air temperature",
+      "height": 0.6,
+      "period": "2017\u201318"
+    },
+    {
+      "variable": "Air temperature",
+      "height": 1.1,
+      "period": "2017\u201318"
+    },
+    {
+      "variable": "Air temperature",
+      "height": 1.6,
+      "period": "2017\u201318"
+    },
+    {
+      "variable": "Air temperature",
+      "height": 0.6,
+      "period": "2017\u201318"
+    },
+    {
+      "variable": "Air temperature",
+      "height": 0.1,
+      "period": "2017\u201318"
+    },
+    {
+      "variable": "Air temperature",
+      "height": 0.6,
+      "period": "2017\u201318"
+    },
+    {
+      "variable": "Air temperature",
+      "height": 1.1,
+      "period": "2017\u201318"
+    },
+    {
+      "variable": "Air temperature",
+      "height": 0.1,
+      "period": "2017\u201318"
+    },
+    {
+      "variable": "Air temperature",
+      "height": 0.6,
+      "period": "2017\u201318"
+    },
+    {
+      "variable": "Air temperature",
+      "height": 1.1,
+      "period": "2017\u201318"
+    },
+    {
+      "variable": "Air temperature",
+      "height": 1.6,
+      "period": "2017\u201318"
+    },
+    {
+      "variable": "Air temperature",
+      "height": 1.1,
+      "period": "2017\u201318"
+    },
+    {
+      "variable": "Air temperature",
+      "height": 0.1,
+      "period": "2017\u201318"
+    },
+    {
+      "variable": "Air temperature",
+      "height": 0.6,
+      "period": "2017\u201318"
     },
     {
       "variable": "Air temperature",
@@ -1188,6 +263,271 @@
     {
       "variable": "Air temperature",
       "height": 0.6,
+      "period": "2017\u201318"
+    },
+    {
+      "variable": "Air temperature",
+      "height": 0.6,
+      "period": "2017\u201318"
+    },
+    {
+      "variable": "Air temperature",
+      "height": 1.1,
+      "period": "2017\u201318"
+    },
+    {
+      "variable": "Air temperature",
+      "height": 0.6,
+      "period": "2017\u201318"
+    },
+    {
+      "variable": "Air temperature",
+      "height": 1.1,
+      "period": "2017\u201318"
+    },
+    {
+      "variable": "Air temperature",
+      "height": 0.1,
+      "period": "2019\u201320"
+    },
+    {
+      "variable": "Air temperature",
+      "height": 0.6,
+      "period": "2019\u201320"
+    },
+    {
+      "variable": "Air temperature",
+      "height": 1.1,
+      "period": "2019\u201320"
+    },
+    {
+      "variable": "Air temperature",
+      "height": 0.1,
+      "period": "2019\u201320"
+    },
+    {
+      "variable": "Air temperature",
+      "height": 0.6,
+      "period": "2019\u201320"
+    },
+    {
+      "variable": "Air temperature",
+      "height": 1.1,
+      "period": "2019\u201320"
+    },
+    {
+      "variable": "Air temperature",
+      "height": 1.6,
+      "period": "2019\u201320"
+    },
+    {
+      "variable": "Air temperature",
+      "height": 0.1,
+      "period": "2019\u201320"
+    },
+    {
+      "variable": "Air temperature",
+      "height": 0.6,
+      "period": "2019\u201320"
+    },
+    {
+      "variable": "Air temperature",
+      "height": 1.1,
+      "period": "2019\u201320"
+    },
+    {
+      "variable": "Air temperature",
+      "height": 1.7,
+      "period": "2019\u201320"
+    },
+    {
+      "variable": "Air temperature",
+      "height": 0.1,
+      "period": "2019\u201320"
+    },
+    {
+      "variable": "Air temperature",
+      "height": 0.6,
+      "period": "2019\u201320"
+    },
+    {
+      "variable": "Air temperature",
+      "height": 1.1,
+      "period": "2019\u201320"
+    },
+    {
+      "variable": "Air temperature",
+      "height": 1.1,
+      "period": "2019\u201320"
+    },
+    {
+      "variable": "Air temperature",
+      "height": 0.6,
+      "period": "2019\u201320"
+    },
+    {
+      "variable": "Air temperature",
+      "height": 0.6,
+      "period": "2019\u201320"
+    },
+    {
+      "variable": "Air temperature",
+      "height": 0.6,
+      "period": "2019\u201320"
+    },
+    {
+      "variable": "Air temperature",
+      "height": 0.65,
+      "period": "2019\u201320"
+    },
+    {
+      "variable": "Air temperature",
+      "height": 0.6,
+      "period": "2019\u201320"
+    },
+    {
+      "variable": "Air temperature",
+      "height": 0.1,
+      "period": "2019\u201320"
+    },
+    {
+      "variable": "Air temperature",
+      "height": 0.6,
+      "period": "2019\u201320"
+    },
+    {
+      "variable": "Air temperature",
+      "height": 1.1,
+      "period": "2019\u201320"
+    },
+    {
+      "variable": "Air temperature",
+      "height": 0.1,
+      "period": "2019\u201320"
+    },
+    {
+      "variable": "Air temperature",
+      "height": 0.6,
+      "period": "2019\u201320"
+    },
+    {
+      "variable": "Air temperature",
+      "height": 1.1,
+      "period": "2019\u201320"
+    },
+    {
+      "variable": "Air temperature",
+      "height": 1.7,
+      "period": "2019\u201320"
+    },
+    {
+      "variable": "Air temperature",
+      "height": 2.3,
+      "period": "2019\u201320"
+    },
+    {
+      "variable": "Air temperature",
+      "height": 0.1,
+      "period": "2019\u201320"
+    },
+    {
+      "variable": "Air temperature",
+      "height": 0.6,
+      "period": "2019\u201320"
+    },
+    {
+      "variable": "Air temperature",
+      "height": 1.1,
+      "period": "2019\u201320"
+    },
+    {
+      "variable": "Air temperature",
+      "height": 1.7,
+      "period": "2019\u201320"
+    },
+    {
+      "variable": "Air temperature",
+      "height": 2.3,
+      "period": "2019\u201320"
+    },
+    {
+      "variable": "Air temperature",
+      "height": 0.1,
+      "period": "2019\u201320"
+    },
+    {
+      "variable": "Air temperature",
+      "height": 0.6,
+      "period": "2019\u201320"
+    },
+    {
+      "variable": "Air temperature",
+      "height": 1.1,
+      "period": "2019\u201320"
+    },
+    {
+      "variable": "Air temperature",
+      "height": 0.6,
+      "period": "2019\u201320"
+    },
+    {
+      "variable": "Air temperature",
+      "height": 1.1,
+      "period": "2019\u201320"
+    },
+    {
+      "variable": "Air temperature",
+      "height": 0.1,
+      "period": "2019\u201320"
+    },
+    {
+      "variable": "Air temperature",
+      "height": 1.1,
+      "period": "2019\u201320"
+    },
+    {
+      "variable": "Air temperature",
+      "height": 0.1,
+      "period": "2019\u201320"
+    },
+    {
+      "variable": "Air temperature",
+      "height": 1.4,
+      "period": "2019\u201320"
+    },
+    {
+      "variable": "Air temperature",
+      "height": 0.6,
+      "period": "2019\u201320"
+    },
+    {
+      "variable": "Air temperature",
+      "height": 0.6,
+      "period": "2019\u201320"
+    },
+    {
+      "variable": "Air temperature",
+      "height": 0.6,
+      "period": "2019\u201320"
+    },
+    {
+      "variable": "Air temperature",
+      "height": 0.1,
+      "period": "2019\u201320"
+    },
+    {
+      "variable": "Air temperature",
+      "height": 0.6,
+      "period": "2019\u201320"
+    },
+    {
+      "variable": "Air temperature",
+      "height": 1.1,
+      "period": "2019\u201320"
+    },
+    {
+      "variable": "Air temperature",
+      "height": 1.1,
       "period": "2019\u201320"
     },
     {
@@ -1197,13 +537,13 @@
     },
     {
       "variable": "Air temperature",
-      "height": 0.8,
-      "period": "2021\u201322"
+      "height": 1.1,
+      "period": "2019\u201320"
     },
     {
       "variable": "Air temperature",
-      "height": 1.2,
-      "period": "2021\u201322"
+      "height": 0.6,
+      "period": "2019\u201320"
     },
     {
       "variable": "Air temperature",
@@ -1222,42 +562,172 @@
     },
     {
       "variable": "Air temperature",
+      "height": 0.1,
+      "period": "2019\u201320"
+    },
+    {
+      "variable": "Air temperature",
+      "height": 0.6,
+      "period": "2019\u201320"
+    },
+    {
+      "variable": "Air temperature",
+      "height": 1.1,
+      "period": "2019\u201320"
+    },
+    {
+      "variable": "Air temperature",
+      "height": 1.0,
+      "period": "2019\u201320"
+    },
+    {
+      "variable": "Air temperature",
       "height": 1.1,
       "period": "2021\u201322"
     },
     {
       "variable": "Air temperature",
       "height": 1.5,
-      "period": "2023\u201324"
-    },
-    {
-      "variable": "Air temperature",
-      "height": 0.1,
-      "period": "2023\u201324"
-    },
-    {
-      "variable": "Air temperature",
-      "height": 0.6,
-      "period": "2023\u201324"
-    },
-    {
-      "variable": "Air temperature",
-      "height": 1.1,
-      "period": "2023\u201324"
-    },
-    {
-      "variable": "Air temperature",
-      "height": 0.6,
-      "period": "2023\u201324"
-    },
-    {
-      "variable": "Air temperature",
-      "height": 1.1,
-      "period": "2023\u201324"
+      "period": "2021\u201322"
     },
     {
       "variable": "Air temperature",
       "height": 1.5,
+      "period": "2021\u201322"
+    },
+    {
+      "variable": "Air temperature",
+      "height": 1.5,
+      "period": "2021\u201322"
+    },
+    {
+      "variable": "Air temperature",
+      "height": 1.5,
+      "period": "2021\u201322"
+    },
+    {
+      "variable": "Air temperature",
+      "height": 1.5,
+      "period": "2021\u201322"
+    },
+    {
+      "variable": "Air temperature",
+      "height": 1.5,
+      "period": "2021\u201322"
+    },
+    {
+      "variable": "Air temperature",
+      "height": 0.1,
+      "period": "2021\u201322"
+    },
+    {
+      "variable": "Air temperature",
+      "height": 0.6,
+      "period": "2021\u201322"
+    },
+    {
+      "variable": "Air temperature",
+      "height": 1.1,
+      "period": "2021\u201322"
+    },
+    {
+      "variable": "Air temperature",
+      "height": 1.1,
+      "period": "2021\u201322"
+    },
+    {
+      "variable": "Air temperature",
+      "height": 0.6,
+      "period": "2021\u201322"
+    },
+    {
+      "variable": "Air temperature",
+      "height": 2.4,
+      "period": "2021\u201322"
+    },
+    {
+      "variable": "Air temperature",
+      "height": 2.2,
+      "period": "2021\u201322"
+    },
+    {
+      "variable": "Air temperature",
+      "height": 1.7,
+      "period": "2021\u201322"
+    },
+    {
+      "variable": "Air temperature",
+      "height": 1.1,
+      "period": "2021\u201322"
+    },
+    {
+      "variable": "Air temperature",
+      "height": 0.6,
+      "period": "2021\u201322"
+    },
+    {
+      "variable": "Air temperature",
+      "height": 0.1,
+      "period": "2021\u201322"
+    },
+    {
+      "variable": "Air temperature",
+      "height": 1.1,
+      "period": "2021\u201322"
+    },
+    {
+      "variable": "Air temperature",
+      "height": 1.0,
+      "period": "2021\u201322"
+    },
+    {
+      "variable": "Air temperature",
+      "height": 0.1,
+      "period": "2021\u201322"
+    },
+    {
+      "variable": "Air temperature",
+      "height": 0.6,
+      "period": "2021\u201322"
+    },
+    {
+      "variable": "Air temperature",
+      "height": 1.1,
+      "period": "2021\u201322"
+    },
+    {
+      "variable": "Air temperature",
+      "height": 1.4,
+      "period": "2021\u201322"
+    },
+    {
+      "variable": "Air temperature",
+      "height": 0.1,
+      "period": "2021\u201322"
+    },
+    {
+      "variable": "Air temperature",
+      "height": 0.3,
+      "period": "2021\u201322"
+    },
+    {
+      "variable": "Air temperature",
+      "height": 1.1,
+      "period": "2021\u201322"
+    },
+    {
+      "variable": "Air temperature",
+      "height": 0.1,
+      "period": "2021\u201322"
+    },
+    {
+      "variable": "Air temperature",
+      "height": 0.6,
+      "period": "2021\u201322"
+    },
+    {
+      "variable": "Air temperature",
+      "height": 1.1,
       "period": "2021\u201322"
     },
     {
@@ -1282,107 +752,327 @@
     },
     {
       "variable": "Air temperature",
+      "height": 0.4,
+      "period": "2021\u201322"
+    },
+    {
+      "variable": "Air temperature",
+      "height": 0.7,
+      "period": "2021\u201322"
+    },
+    {
+      "variable": "Air temperature",
+      "height": 0.1,
+      "period": "2021\u201322"
+    },
+    {
+      "variable": "Air temperature",
+      "height": 0.6,
+      "period": "2021\u201322"
+    },
+    {
+      "variable": "Air temperature",
+      "height": 1.1,
+      "period": "2021\u201322"
+    },
+    {
+      "variable": "Air temperature",
+      "height": 1.6,
+      "period": "2021\u201322"
+    },
+    {
+      "variable": "Air temperature",
+      "height": 0.8,
+      "period": "2021\u201322"
+    },
+    {
+      "variable": "Air temperature",
+      "height": 1.2,
+      "period": "2021\u201322"
+    },
+    {
+      "variable": "Air temperature",
+      "height": 1.2,
+      "period": "2021\u201322"
+    },
+    {
+      "variable": "Air temperature",
+      "height": 0.1,
+      "period": "2021\u201322"
+    },
+    {
+      "variable": "Air temperature",
+      "height": 0.6,
+      "period": "2021\u201322"
+    },
+    {
+      "variable": "Air temperature",
       "height": 1.1,
       "period": "2021\u201322"
     },
     {
       "variable": "Air temperature",
       "height": 0.1,
-      "period": "2023\u201324"
+      "period": "2021\u201322"
     },
     {
       "variable": "Air temperature",
       "height": 0.6,
-      "period": "2023\u201324"
+      "period": "2021\u201322"
     },
     {
       "variable": "Air temperature",
       "height": 1.1,
-      "period": "2023\u201324"
-    },
-    {
-      "variable": "Air temperature",
-      "height": 1.2,
-      "period": "2023\u201324"
-    },
-    {
-      "variable": "Air temperature",
-      "height": 1.5,
-      "period": "2023\u201324"
-    },
-    {
-      "variable": "Air temperature",
-      "height": 1.5,
-      "period": "2023\u201324"
-    },
-    {
-      "variable": "Air temperature",
-      "height": 1.5,
-      "period": "2023\u201324"
-    },
-    {
-      "variable": "Air temperature",
-      "height": 1.5,
-      "period": "2023\u201324"
-    },
-    {
-      "variable": "Air temperature",
-      "height": 1.1,
-      "period": "2023\u201324"
-    },
-    {
-      "variable": "Air temperature",
-      "height": 0.1,
-      "period": "2023\u201324"
-    },
-    {
-      "variable": "Air temperature",
-      "height": 0.6,
-      "period": "2023\u201324"
-    },
-    {
-      "variable": "Air temperature",
-      "height": 1.1,
-      "period": "2023\u201324"
+      "period": "2021\u201322"
     },
     {
       "variable": "Air temperature",
       "height": 1.7,
-      "period": "2023\u201324"
+      "period": "2021\u201322"
     },
     {
       "variable": "Air temperature",
       "height": 0.1,
-      "period": "2023\u201324"
+      "period": "2021\u201322"
     },
     {
       "variable": "Air temperature",
       "height": 0.6,
-      "period": "2023\u201324"
+      "period": "2021\u201322"
+    },
+    {
+      "variable": "Air temperature",
+      "height": 1.1,
+      "period": "2021\u201322"
+    },
+    {
+      "variable": "Air temperature",
+      "height": 0.7,
+      "period": "2021\u201322"
+    },
+    {
+      "variable": "Air temperature",
+      "height": 1.1,
+      "period": "2021\u201322"
+    },
+    {
+      "variable": "Air temperature",
+      "height": 0.1,
+      "period": "2021\u201322"
+    },
+    {
+      "variable": "Air temperature",
+      "height": 0.6,
+      "period": "2021\u201322"
+    },
+    {
+      "variable": "Air temperature",
+      "height": 1.1,
+      "period": "2021\u201322"
+    },
+    {
+      "variable": "Air temperature",
+      "height": 0.1,
+      "period": "2021\u201322"
+    },
+    {
+      "variable": "Air temperature",
+      "height": 0.6,
+      "period": "2021\u201322"
+    },
+    {
+      "variable": "Air temperature",
+      "height": 1.1,
+      "period": "2021\u201322"
     },
     {
       "variable": "Air temperature",
       "height": 1.7,
-      "period": "2023\u201324"
+      "period": "2021\u201322"
     },
     {
       "variable": "Air temperature",
-      "height": 0.6,
-      "period": "2019\u201320"
+      "height": 1.1,
+      "period": "2021\u201322"
     },
     {
       "variable": "Air temperature",
-      "height": 0.6,
-      "period": "2019\u201320"
-    },
-    {
-      "variable": "Air temperature",
-      "height": 0.6,
-      "period": "2019\u201320"
+      "height": 1.5,
+      "period": "2021\u201322"
     },
     {
       "variable": "Air temperature",
       "height": 0.1,
+      "period": "2021\u201322"
+    },
+    {
+      "variable": "Air temperature",
+      "height": 0.6,
+      "period": "2021\u201322"
+    },
+    {
+      "variable": "Air temperature",
+      "height": 1.1,
+      "period": "2021\u201322"
+    },
+    {
+      "variable": "Air temperature",
+      "height": 0.1,
+      "period": "2021\u201322"
+    },
+    {
+      "variable": "Air temperature",
+      "height": 0.6,
+      "period": "2021\u201322"
+    },
+    {
+      "variable": "Air temperature",
+      "height": 1.1,
+      "period": "2021\u201322"
+    },
+    {
+      "variable": "Air temperature",
+      "height": 1.7,
+      "period": "2021\u201322"
+    },
+    {
+      "variable": "Air temperature",
+      "height": 0.1,
+      "period": "2021\u201322"
+    },
+    {
+      "variable": "Air temperature",
+      "height": 0.6,
+      "period": "2021\u201322"
+    },
+    {
+      "variable": "Air temperature",
+      "height": 1.1,
+      "period": "2021\u201322"
+    },
+    {
+      "variable": "Air temperature",
+      "height": 1.7,
+      "period": "2021\u201322"
+    },
+    {
+      "variable": "Air temperature",
+      "height": 0.6,
+      "period": "2021\u201322"
+    },
+    {
+      "variable": "Air temperature",
+      "height": 0.6,
+      "period": "2021\u201322"
+    },
+    {
+      "variable": "Air temperature",
+      "height": 0.6,
+      "period": "2021\u201322"
+    },
+    {
+      "variable": "Air temperature",
+      "height": 1.0,
+      "period": "2021\u201322"
+    },
+    {
+      "variable": "Air temperature",
+      "height": 1.1,
+      "period": "2021\u201322"
+    },
+    {
+      "variable": "Air temperature",
+      "height": 0.6,
+      "period": "2021\u201322"
+    },
+    {
+      "variable": "Air temperature",
+      "height": 1.0,
+      "period": "2021\u201322"
+    },
+    {
+      "variable": "Air temperature",
+      "height": 1.1,
+      "period": "2021\u201322"
+    },
+    {
+      "variable": "Air temperature",
+      "height": 0.1,
+      "period": "2021\u201322"
+    },
+    {
+      "variable": "Air temperature",
+      "height": 0.3,
+      "period": "2021\u201322"
+    },
+    {
+      "variable": "Air temperature",
+      "height": 0.5,
+      "period": "2021\u201322"
+    },
+    {
+      "variable": "Air temperature",
+      "height": 0.7,
+      "period": "2021\u201322"
+    },
+    {
+      "variable": "Air temperature",
+      "height": 0.9,
+      "period": "2021\u201322"
+    },
+    {
+      "variable": "Air temperature",
+      "height": 1.1,
+      "period": "2021\u201322"
+    },
+    {
+      "variable": "Air temperature",
+      "height": 1.3,
+      "period": "2021\u201322"
+    },
+    {
+      "variable": "Air temperature",
+      "height": 1.5,
+      "period": "2021\u201322"
+    },
+    {
+      "variable": "Air temperature",
+      "height": 1.7,
+      "period": "2021\u201322"
+    },
+    {
+      "variable": "Air temperature",
+      "height": 1.9,
+      "period": "2021\u201322"
+    },
+    {
+      "variable": "Air temperature",
+      "height": 0.6,
+      "period": "2021\u201322"
+    },
+    {
+      "variable": "Air temperature",
+      "height": 0.6,
+      "period": "2021\u201322"
+    },
+    {
+      "variable": "Air temperature",
+      "height": 1.1,
+      "period": "2021\u201322"
+    },
+    {
+      "variable": "Air temperature",
+      "height": 1.1,
+      "period": "2021\u201322"
+    },
+    {
+      "variable": "Air temperature",
+      "height": 1.5,
+      "period": "2021\u201322"
+    },
+    {
+      "variable": "Air temperature",
+      "height": 0.6,
       "period": "2023\u201324"
     },
     {
@@ -1397,253 +1087,798 @@
     },
     {
       "variable": "Air temperature",
-      "height": 0.6,
-      "period": "2023\u201324"
-    },
-    {
-      "variable": "Relative humidity",
-      "height": 1.5,
-      "period": "2023\u201324"
-    },
-    {
-      "variable": "Relative humidity",
-      "height": 1.5,
-      "period": "2023\u201324"
-    },
-    {
-      "variable": "Relative humidity",
-      "height": 1.5,
-      "period": "2023\u201324"
-    },
-    {
-      "variable": "Relative humidity",
-      "height": 0.6,
-      "period": "2023\u201324"
-    },
-    {
-      "variable": "Relative humidity",
-      "height": 0.6,
-      "period": "2023\u201324"
-    },
-    {
-      "variable": "Relative humidity",
-      "height": 1.5,
-      "period": "2023\u201324"
-    },
-    {
-      "variable": "Relative humidity",
-      "height": 0.6,
-      "period": "2023\u201324"
-    },
-    {
-      "variable": "Relative humidity",
-      "height": 1.1,
-      "period": "2023\u201324"
-    },
-    {
-      "variable": "Relative humidity",
-      "height": 2.5,
-      "period": "2023\u201324"
-    },
-    {
-      "variable": "Relative humidity",
-      "height": 0.6,
-      "period": "2023\u201324"
-    },
-    {
-      "variable": "Relative humidity",
       "height": 0.7,
       "period": "2023\u201324"
     },
     {
-      "variable": "Relative humidity",
+      "variable": "Air temperature",
+      "height": 0.6,
+      "period": "2023\u201324"
+    },
+    {
+      "variable": "Air temperature",
       "height": 0.1,
       "period": "2023\u201324"
     },
     {
-      "variable": "Relative humidity",
+      "variable": "Air temperature",
       "height": 0.6,
       "period": "2023\u201324"
     },
     {
-      "variable": "Relative humidity",
+      "variable": "Air temperature",
       "height": 1.1,
       "period": "2023\u201324"
     },
     {
-      "variable": "Relative humidity",
+      "variable": "Air temperature",
+      "height": 0.1,
+      "period": "2023\u201324"
+    },
+    {
+      "variable": "Air temperature",
       "height": 0.6,
       "period": "2023\u201324"
     },
     {
-      "variable": "Relative humidity",
+      "variable": "Air temperature",
+      "height": 1.1,
+      "period": "2023\u201324"
+    },
+    {
+      "variable": "Air temperature",
+      "height": 0.1,
+      "period": "2023\u201324"
+    },
+    {
+      "variable": "Air temperature",
       "height": 0.6,
       "period": "2023\u201324"
     },
     {
-      "variable": "Relative humidity",
+      "variable": "Air temperature",
+      "height": 1.1,
+      "period": "2023\u201324"
+    },
+    {
+      "variable": "Air temperature",
+      "height": 0.6,
+      "period": "2023\u201324"
+    },
+    {
+      "variable": "Air temperature",
+      "height": 1.5,
+      "period": "2023\u201324"
+    },
+    {
+      "variable": "Air temperature",
+      "height": 1.5,
+      "period": "2023\u201324"
+    },
+    {
+      "variable": "Air temperature",
+      "height": 1.5,
+      "period": "2023\u201324"
+    },
+    {
+      "variable": "Air temperature",
+      "height": 1.5,
+      "period": "2023\u201324"
+    },
+    {
+      "variable": "Air temperature",
+      "height": 0.6,
+      "period": "2023\u201324"
+    },
+    {
+      "variable": "Air temperature",
+      "height": 0.7,
+      "period": "2023\u201324"
+    },
+    {
+      "variable": "Air temperature",
+      "height": 0.6,
+      "period": "2023\u201324"
+    },
+    {
+      "variable": "Air temperature",
+      "height": 0.1,
+      "period": "2023\u201324"
+    },
+    {
+      "variable": "Air temperature",
+      "height": 0.6,
+      "period": "2023\u201324"
+    },
+    {
+      "variable": "Air temperature",
+      "height": 1.1,
+      "period": "2023\u201324"
+    },
+    {
+      "variable": "Air temperature",
+      "height": 1.5,
+      "period": "2023\u201324"
+    },
+    {
+      "variable": "Air temperature",
+      "height": 1.1,
+      "period": "2023\u201324"
+    },
+    {
+      "variable": "Air temperature",
+      "height": 1.5,
+      "period": "2023\u201324"
+    },
+    {
+      "variable": "Air temperature",
+      "height": 1.5,
+      "period": "2023\u201324"
+    },
+    {
+      "variable": "Air temperature",
+      "height": 1.5,
+      "period": "2023\u201324"
+    },
+    {
+      "variable": "Air temperature",
+      "height": 0.1,
+      "period": "2023\u201324"
+    },
+    {
+      "variable": "Air temperature",
+      "height": 0.6,
+      "period": "2023\u201324"
+    },
+    {
+      "variable": "Air temperature",
+      "height": 1.1,
+      "period": "2023\u201324"
+    },
+    {
+      "variable": "Air temperature",
+      "height": 1.7,
+      "period": "2023\u201324"
+    },
+    {
+      "variable": "Air temperature",
       "height": 2.3,
       "period": "2023\u201324"
     },
     {
-      "variable": "Relative humidity",
+      "variable": "Air temperature",
+      "height": 0.1,
+      "period": "2023\u201324"
+    },
+    {
+      "variable": "Air temperature",
       "height": 0.6,
       "period": "2023\u201324"
     },
     {
-      "variable": "Relative humidity",
+      "variable": "Air temperature",
+      "height": 1.1,
+      "period": "2023\u201324"
+    },
+    {
+      "variable": "Air temperature",
+      "height": 0.1,
+      "period": "2023\u201324"
+    },
+    {
+      "variable": "Air temperature",
       "height": 0.6,
       "period": "2023\u201324"
     },
     {
-      "variable": "Relative humidity",
+      "variable": "Air temperature",
+      "height": 1.1,
+      "period": "2023\u201324"
+    },
+    {
+      "variable": "Air temperature",
+      "height": 0.1,
+      "period": "2023\u201324"
+    },
+    {
+      "variable": "Air temperature",
+      "height": 0.6,
+      "period": "2023\u201324"
+    },
+    {
+      "variable": "Air temperature",
+      "height": 1.1,
+      "period": "2023\u201324"
+    },
+    {
+      "variable": "Air temperature",
+      "height": 0.1,
+      "period": "2023\u201324"
+    },
+    {
+      "variable": "Air temperature",
+      "height": 0.3,
+      "period": "2023\u201324"
+    },
+    {
+      "variable": "Air temperature",
+      "height": 0.5,
+      "period": "2023\u201324"
+    },
+    {
+      "variable": "Air temperature",
       "height": 0.7,
       "period": "2023\u201324"
     },
     {
-      "variable": "Relative humidity",
-      "height": 0.4,
+      "variable": "Air temperature",
+      "height": 0.9,
+      "period": "2023\u201324"
+    },
+    {
+      "variable": "Air temperature",
+      "height": 1.1,
+      "period": "2023\u201324"
+    },
+    {
+      "variable": "Air temperature",
+      "height": 1.3,
+      "period": "2023\u201324"
+    },
+    {
+      "variable": "Air temperature",
+      "height": 1.5,
+      "period": "2023\u201324"
+    },
+    {
+      "variable": "Air temperature",
+      "height": 1.7,
+      "period": "2023\u201324"
+    },
+    {
+      "variable": "Air temperature",
+      "height": 1.9,
+      "period": "2023\u201324"
+    },
+    {
+      "variable": "Air temperature",
+      "height": 0.1,
+      "period": "2023\u201324"
+    },
+    {
+      "variable": "Air temperature",
+      "height": 0.6,
+      "period": "2023\u201324"
+    },
+    {
+      "variable": "Air temperature",
+      "height": 1.7,
+      "period": "2023\u201324"
+    },
+    {
+      "variable": "Air temperature",
+      "height": 1.2,
+      "period": "2023\u201324"
+    },
+    {
+      "variable": "Air temperature",
+      "height": 0.1,
+      "period": "2023\u201324"
+    },
+    {
+      "variable": "Air temperature",
+      "height": 0.6,
+      "period": "2023\u201324"
+    },
+    {
+      "variable": "Air temperature",
+      "height": 1.1,
+      "period": "2023\u201324"
+    },
+    {
+      "variable": "Air temperature",
+      "height": 2.5,
+      "period": "2023\u201324"
+    },
+    {
+      "variable": "Air temperature",
+      "height": 0.6,
+      "period": "2023\u201324"
+    },
+    {
+      "variable": "Air temperature",
+      "height": 1.5,
+      "period": "2023\u201324"
+    },
+    {
+      "variable": "Air temperature",
+      "height": 1.1,
+      "period": "2023\u201324"
+    },
+    {
+      "variable": "Air temperature",
+      "height": 0.1,
+      "period": "2023\u201324"
+    },
+    {
+      "variable": "Air temperature",
+      "height": 0.6,
+      "period": "2023\u201324"
+    },
+    {
+      "variable": "Air temperature",
+      "height": 1.1,
+      "period": "2023\u201324"
+    },
+    {
+      "variable": "Air temperature",
+      "height": 1.7,
+      "period": "2023\u201324"
+    },
+    {
+      "variable": "Air temperature",
+      "height": 3.0,
+      "period": "2023\u201324"
+    },
+    {
+      "variable": "Air temperature",
+      "height": 1.1,
+      "period": "2023\u201324"
+    },
+    {
+      "variable": "Air temperature",
+      "height": 0.6,
+      "period": "2023\u201324"
+    },
+    {
+      "variable": "Air temperature",
+      "height": 0.1,
+      "period": "2023\u201324"
+    },
+    {
+      "variable": "Air temperature",
+      "height": 0.6,
+      "period": "2023\u201324"
+    },
+    {
+      "variable": "Air temperature",
+      "height": 1.1,
+      "period": "2023\u201324"
+    },
+    {
+      "variable": "Air temperature",
+      "height": 1.1,
+      "period": "2023\u201324"
+    },
+    {
+      "variable": "Air temperature",
+      "height": 0.6,
+      "period": "2023\u201324"
+    },
+    {
+      "variable": "Air temperature",
+      "height": 0.7,
+      "period": "2023\u201324"
+    },
+    {
+      "variable": "Air temperature",
+      "height": 0.1,
+      "period": "2023\u201324"
+    },
+    {
+      "variable": "Air temperature",
+      "height": 0.6,
+      "period": "2023\u201324"
+    },
+    {
+      "variable": "Air temperature",
+      "height": 1.1,
+      "period": "2023\u201324"
+    },
+    {
+      "variable": "Air temperature",
+      "height": 1.0,
+      "period": "2023\u201324"
+    },
+    {
+      "variable": "Air temperature",
+      "height": 1.1,
       "period": "2021\u201322"
     },
     {
-      "variable": "Relative humidity",
+      "variable": "Air temperature",
+      "height": 1.1,
+      "period": "2023\u201324"
+    },
+    {
+      "variable": "Air temperature",
+      "height": 0.6,
+      "period": "2023\u201324"
+    },
+    {
+      "variable": "Air temperature",
+      "height": 0.1,
+      "period": "2023\u201324"
+    },
+    {
+      "variable": "Air temperature",
+      "height": 1.1,
+      "period": "2023\u201324"
+    },
+    {
+      "variable": "Air temperature",
+      "height": 0.6,
+      "period": "2023\u201324"
+    },
+    {
+      "variable": "Air temperature",
+      "height": 0.1,
+      "period": "2023\u201324"
+    },
+    {
+      "variable": "Air temperature",
+      "height": 0.6,
+      "period": "2023\u201324"
+    },
+    {
+      "variable": "Air temperature",
       "height": 0.7,
-      "period": "2021\u201322"
+      "period": "2023\u201324"
+    },
+    {
+      "variable": "Air temperature",
+      "height": 1.1,
+      "period": "2023\u201324"
+    },
+    {
+      "variable": "Air temperature",
+      "height": 1.7,
+      "period": "2023\u201324"
+    },
+    {
+      "variable": "Air temperature",
+      "height": 1.1,
+      "period": "2023\u201324"
+    },
+    {
+      "variable": "Air temperature",
+      "height": 0.1,
+      "period": "2023\u201324"
+    },
+    {
+      "variable": "Air temperature",
+      "height": 0.6,
+      "period": "2023\u201324"
+    },
+    {
+      "variable": "Air temperature",
+      "height": 1.1,
+      "period": "2023\u201324"
+    },
+    {
+      "variable": "Air temperature",
+      "height": 0.1,
+      "period": "2023\u201324"
+    },
+    {
+      "variable": "Air temperature",
+      "height": 0.6,
+      "period": "2023\u201324"
+    },
+    {
+      "variable": "Air temperature",
+      "height": 1.1,
+      "period": "2023\u201324"
+    },
+    {
+      "variable": "Air temperature",
+      "height": 1.7,
+      "period": "2023\u201324"
+    },
+    {
+      "variable": "Relative humidity",
+      "height": 0.6,
+      "period": "2013\u201314"
     },
     {
       "variable": "Relative humidity",
       "height": 1.1,
-      "period": "2021\u201322"
+      "period": "2013\u201314"
+    },
+    {
+      "variable": "Relative humidity",
+      "height": 0.2,
+      "period": "2013\u201314"
+    },
+    {
+      "variable": "Relative humidity",
+      "height": 0.7,
+      "period": "2013\u201314"
     },
     {
       "variable": "Relative humidity",
       "height": 1.2,
-      "period": "2021\u201322"
-    },
-    {
-      "variable": "Relative humidity",
-      "height": 0.1,
-      "period": "2021\u201322"
-    },
-    {
-      "variable": "Relative humidity",
-      "height": 0.6,
-      "period": "2021\u201322"
-    },
-    {
-      "variable": "Relative humidity",
-      "height": 1.1,
-      "period": "2021\u201322"
-    },
-    {
-      "variable": "Relative humidity",
-      "height": 1.1,
-      "period": "2021\u201322"
-    },
-    {
-      "variable": "Relative humidity",
-      "height": 0.7,
-      "period": "2021\u201322"
-    },
-    {
-      "variable": "Relative humidity",
-      "height": 1.1,
-      "period": "2021\u201322"
-    },
-    {
-      "variable": "Relative humidity",
-      "height": 0.1,
-      "period": "2021\u201322"
-    },
-    {
-      "variable": "Relative humidity",
-      "height": 0.6,
-      "period": "2021\u201322"
-    },
-    {
-      "variable": "Relative humidity",
-      "height": 1.1,
-      "period": "2021\u201322"
-    },
-    {
-      "variable": "Relative humidity",
-      "height": 1.1,
-      "period": "2021\u201322"
-    },
-    {
-      "variable": "Relative humidity",
-      "height": 1.5,
-      "period": "2021\u201322"
-    },
-    {
-      "variable": "Relative humidity",
-      "height": 0.6,
-      "period": "2021\u201322"
-    },
-    {
-      "variable": "Relative humidity",
-      "height": 0.1,
-      "period": "2021\u201322"
-    },
-    {
-      "variable": "Relative humidity",
-      "height": 0.6,
-      "period": "2021\u201322"
-    },
-    {
-      "variable": "Relative humidity",
-      "height": 1.1,
-      "period": "2021\u201322"
+      "period": "2013\u201314"
     },
     {
       "variable": "Relative humidity",
       "height": 1.7,
-      "period": "2021\u201322"
+      "period": "2013\u201314"
+    },
+    {
+      "variable": "Relative humidity",
+      "height": 2.2,
+      "period": "2013\u201314"
+    },
+    {
+      "variable": "Relative humidity",
+      "height": 0.1,
+      "period": "2013\u201314"
     },
     {
       "variable": "Relative humidity",
       "height": 0.6,
-      "period": "2021\u201322"
+      "period": "2013\u201314"
+    },
+    {
+      "variable": "Relative humidity",
+      "height": 1.1,
+      "period": "2013\u201314"
+    },
+    {
+      "variable": "Relative humidity",
+      "height": 1.7,
+      "period": "2013\u201314"
+    },
+    {
+      "variable": "Relative humidity",
+      "height": 0.7,
+      "period": "2013\u201314"
+    },
+    {
+      "variable": "Relative humidity",
+      "height": 1.1,
+      "period": "2013\u201314"
+    },
+    {
+      "variable": "Relative humidity",
+      "height": 1.2,
+      "period": "2013\u201314"
     },
     {
       "variable": "Relative humidity",
       "height": 0.6,
-      "period": "2021\u201322"
+      "period": "2013\u201314"
     },
     {
       "variable": "Relative humidity",
       "height": 0.6,
-      "period": "2021\u201322"
+      "period": "2015\u201316"
+    },
+    {
+      "variable": "Relative humidity",
+      "height": 0.1,
+      "period": "2015\u201316"
+    },
+    {
+      "variable": "Relative humidity",
+      "height": 1.1,
+      "period": "2015\u201316"
+    },
+    {
+      "variable": "Relative humidity",
+      "height": 0.1,
+      "period": "2015\u201316"
+    },
+    {
+      "variable": "Relative humidity",
+      "height": 1.1,
+      "period": "2015\u201316"
     },
     {
       "variable": "Relative humidity",
       "height": 1.0,
-      "period": "2021\u201322"
+      "period": "2015\u201316"
     },
     {
       "variable": "Relative humidity",
       "height": 1.1,
-      "period": "2021\u201322"
-    },
-    {
-      "variable": "Relative humidity",
-      "height": 0.6,
-      "period": "2021\u201322"
-    },
-    {
-      "variable": "Relative humidity",
-      "height": 0.6,
-      "period": "2021\u201322"
-    },
-    {
-      "variable": "Relative humidity",
-      "height": 0.6,
-      "period": "2021\u201322"
+      "period": "2017\u201318"
     },
     {
       "variable": "Relative humidity",
       "height": 1.1,
-      "period": "2021\u201322"
+      "period": "2017\u201318"
+    },
+    {
+      "variable": "Relative humidity",
+      "height": 1.7,
+      "period": "2017\u201318"
+    },
+    {
+      "variable": "Relative humidity",
+      "height": 0.1,
+      "period": "2017\u201318"
+    },
+    {
+      "variable": "Relative humidity",
+      "height": 0.6,
+      "period": "2017\u201318"
+    },
+    {
+      "variable": "Relative humidity",
+      "height": 1.1,
+      "period": "2017\u201318"
+    },
+    {
+      "variable": "Relative humidity",
+      "height": 1.1,
+      "period": "2017\u201318"
+    },
+    {
+      "variable": "Relative humidity",
+      "height": 0.1,
+      "period": "2017\u201318"
+    },
+    {
+      "variable": "Relative humidity",
+      "height": 0.6,
+      "period": "2017\u201318"
+    },
+    {
+      "variable": "Relative humidity",
+      "height": 1.1,
+      "period": "2017\u201318"
+    },
+    {
+      "variable": "Relative humidity",
+      "height": 0.6,
+      "period": "2017\u201318"
+    },
+    {
+      "variable": "Relative humidity",
+      "height": 0.6,
+      "period": "2017\u201318"
+    },
+    {
+      "variable": "Relative humidity",
+      "height": 1.1,
+      "period": "2017\u201318"
+    },
+    {
+      "variable": "Relative humidity",
+      "height": 0.6,
+      "period": "2017\u201318"
+    },
+    {
+      "variable": "Relative humidity",
+      "height": 1.1,
+      "period": "2017\u201318"
+    },
+    {
+      "variable": "Relative humidity",
+      "height": 0.1,
+      "period": "2019\u201320"
+    },
+    {
+      "variable": "Relative humidity",
+      "height": 0.6,
+      "period": "2019\u201320"
+    },
+    {
+      "variable": "Relative humidity",
+      "height": 1.1,
+      "period": "2019\u201320"
+    },
+    {
+      "variable": "Relative humidity",
+      "height": 0.1,
+      "period": "2019\u201320"
+    },
+    {
+      "variable": "Relative humidity",
+      "height": 0.6,
+      "period": "2019\u201320"
+    },
+    {
+      "variable": "Relative humidity",
+      "height": 1.1,
+      "period": "2019\u201320"
+    },
+    {
+      "variable": "Relative humidity",
+      "height": 1.1,
+      "period": "2019\u201320"
+    },
+    {
+      "variable": "Relative humidity",
+      "height": 0.6,
+      "period": "2019\u201320"
+    },
+    {
+      "variable": "Relative humidity",
+      "height": 0.6,
+      "period": "2019\u201320"
+    },
+    {
+      "variable": "Relative humidity",
+      "height": 0.6,
+      "period": "2019\u201320"
+    },
+    {
+      "variable": "Relative humidity",
+      "height": 0.65,
+      "period": "2019\u201320"
+    },
+    {
+      "variable": "Relative humidity",
+      "height": 0.6,
+      "period": "2019\u201320"
+    },
+    {
+      "variable": "Relative humidity",
+      "height": 0.6,
+      "period": "2019\u201320"
+    },
+    {
+      "variable": "Relative humidity",
+      "height": 0.1,
+      "period": "2019\u201320"
+    },
+    {
+      "variable": "Relative humidity",
+      "height": 0.6,
+      "period": "2019\u201320"
+    },
+    {
+      "variable": "Relative humidity",
+      "height": 1.1,
+      "period": "2019\u201320"
+    },
+    {
+      "variable": "Relative humidity",
+      "height": 0.6,
+      "period": "2019\u201320"
+    },
+    {
+      "variable": "Relative humidity",
+      "height": 1.4,
+      "period": "2019\u201320"
+    },
+    {
+      "variable": "Relative humidity",
+      "height": 0.6,
+      "period": "2019\u201320"
+    },
+    {
+      "variable": "Relative humidity",
+      "height": 0.6,
+      "period": "2019\u201320"
+    },
+    {
+      "variable": "Relative humidity",
+      "height": 1.1,
+      "period": "2019\u201320"
+    },
+    {
+      "variable": "Relative humidity",
+      "height": 1.0,
+      "period": "2019\u201320"
+    },
+    {
+      "variable": "Relative humidity",
+      "height": 1.1,
+      "period": "2019\u201320"
+    },
+    {
+      "variable": "Relative humidity",
+      "height": 0.6,
+      "period": "2019\u201320"
+    },
+    {
+      "variable": "Relative humidity",
+      "height": 1.0,
+      "period": "2019\u201320"
     },
     {
       "variable": "Relative humidity",
@@ -1653,11 +1888,6 @@
     {
       "variable": "Relative humidity",
       "height": 1.5,
-      "period": "2021\u201322"
-    },
-    {
-      "variable": "Relative humidity",
-      "height": 1.1,
       "period": "2021\u201322"
     },
     {
@@ -1693,11 +1923,6 @@
     {
       "variable": "Relative humidity",
       "height": 0.6,
-      "period": "2021\u201322"
-    },
-    {
-      "variable": "Relative humidity",
-      "height": 1.1,
       "period": "2021\u201322"
     },
     {
@@ -1787,293 +2012,18 @@
     },
     {
       "variable": "Relative humidity",
-      "height": 0.6,
-      "period": "2019\u201320"
-    },
-    {
-      "variable": "Relative humidity",
-      "height": 1.4,
-      "period": "2019\u201320"
-    },
-    {
-      "variable": "Relative humidity",
-      "height": 0.6,
-      "period": "2019\u201320"
-    },
-    {
-      "variable": "Relative humidity",
-      "height": 0.6,
-      "period": "2019\u201320"
-    },
-    {
-      "variable": "Relative humidity",
-      "height": 1.1,
-      "period": "2019\u201320"
-    },
-    {
-      "variable": "Relative humidity",
-      "height": 1.1,
-      "period": "2019\u201320"
-    },
-    {
-      "variable": "Relative humidity",
-      "height": 1.0,
-      "period": "2019\u201320"
-    },
-    {
-      "variable": "Relative humidity",
-      "height": 0.1,
-      "period": "2019\u201320"
-    },
-    {
-      "variable": "Relative humidity",
-      "height": 0.6,
-      "period": "2019\u201320"
-    },
-    {
-      "variable": "Relative humidity",
-      "height": 1.1,
-      "period": "2019\u201320"
-    },
-    {
-      "variable": "Relative humidity",
-      "height": 1.1,
-      "period": "2019\u201320"
-    },
-    {
-      "variable": "Relative humidity",
-      "height": 0.6,
-      "period": "2019\u201320"
-    },
-    {
-      "variable": "Relative humidity",
-      "height": 0.65,
-      "period": "2019\u201320"
-    },
-    {
-      "variable": "Relative humidity",
-      "height": 0.6,
-      "period": "2019\u201320"
-    },
-    {
-      "variable": "Relative humidity",
-      "height": 0.1,
-      "period": "2019\u201320"
-    },
-    {
-      "variable": "Relative humidity",
-      "height": 0.6,
-      "period": "2019\u201320"
-    },
-    {
-      "variable": "Relative humidity",
-      "height": 1.1,
-      "period": "2019\u201320"
-    },
-    {
-      "variable": "Relative humidity",
-      "height": 1.1,
-      "period": "2017\u201318"
-    },
-    {
-      "variable": "Relative humidity",
-      "height": 0.1,
-      "period": "2017\u201318"
-    },
-    {
-      "variable": "Relative humidity",
-      "height": 0.6,
-      "period": "2017\u201318"
-    },
-    {
-      "variable": "Relative humidity",
-      "height": 1.1,
-      "period": "2017\u201318"
-    },
-    {
-      "variable": "Relative humidity",
-      "height": 0.6,
-      "period": "2017\u201318"
-    },
-    {
-      "variable": "Relative humidity",
-      "height": 0.6,
-      "period": "2017\u201318"
-    },
-    {
-      "variable": "Relative humidity",
-      "height": 1.1,
-      "period": "2017\u201318"
-    },
-    {
-      "variable": "Relative humidity",
-      "height": 0.6,
-      "period": "2017\u201318"
-    },
-    {
-      "variable": "Relative humidity",
-      "height": 1.1,
-      "period": "2017\u201318"
-    },
-    {
-      "variable": "Relative humidity",
-      "height": 1.1,
-      "period": "2017\u201318"
-    },
-    {
-      "variable": "Relative humidity",
-      "height": 1.7,
-      "period": "2017\u201318"
-    },
-    {
-      "variable": "Relative humidity",
-      "height": 0.1,
-      "period": "2017\u201318"
-    },
-    {
-      "variable": "Relative humidity",
-      "height": 0.6,
-      "period": "2017\u201318"
-    },
-    {
-      "variable": "Relative humidity",
-      "height": 1.1,
-      "period": "2017\u201318"
-    },
-    {
-      "variable": "Relative humidity",
-      "height": 0.1,
-      "period": "2015\u201316"
-    },
-    {
-      "variable": "Relative humidity",
-      "height": 1.1,
-      "period": "2015\u201316"
-    },
-    {
-      "variable": "Relative humidity",
-      "height": 1.0,
-      "period": "2015\u201316"
-    },
-    {
-      "variable": "Relative humidity",
-      "height": 0.6,
-      "period": "2015\u201316"
-    },
-    {
-      "variable": "Relative humidity",
-      "height": 0.1,
-      "period": "2015\u201316"
-    },
-    {
-      "variable": "Relative humidity",
-      "height": 1.1,
-      "period": "2015\u201316"
+      "height": 0.4,
+      "period": "2021\u201322"
     },
     {
       "variable": "Relative humidity",
       "height": 0.7,
-      "period": "2013\u201314"
+      "period": "2021\u201322"
     },
     {
       "variable": "Relative humidity",
       "height": 1.1,
-      "period": "2013\u201314"
-    },
-    {
-      "variable": "Relative humidity",
-      "height": 1.2,
-      "period": "2013\u201314"
-    },
-    {
-      "variable": "Relative humidity",
-      "height": 0.6,
-      "period": "2013\u201314"
-    },
-    {
-      "variable": "Relative humidity",
-      "height": 0.6,
-      "period": "2013\u201314"
-    },
-    {
-      "variable": "Relative humidity",
-      "height": 1.1,
-      "period": "2013\u201314"
-    },
-    {
-      "variable": "Relative humidity",
-      "height": 0.2,
-      "period": "2013\u201314"
-    },
-    {
-      "variable": "Relative humidity",
-      "height": 0.7,
-      "period": "2013\u201314"
-    },
-    {
-      "variable": "Relative humidity",
-      "height": 1.2,
-      "period": "2013\u201314"
-    },
-    {
-      "variable": "Relative humidity",
-      "height": 1.7,
-      "period": "2013\u201314"
-    },
-    {
-      "variable": "Relative humidity",
-      "height": 2.2,
-      "period": "2013\u201314"
-    },
-    {
-      "variable": "Relative humidity",
-      "height": 0.1,
-      "period": "2013\u201314"
-    },
-    {
-      "variable": "Relative humidity",
-      "height": 0.6,
-      "period": "2013\u201314"
-    },
-    {
-      "variable": "Relative humidity",
-      "height": 1.1,
-      "period": "2013\u201314"
-    },
-    {
-      "variable": "Relative humidity",
-      "height": 1.7,
-      "period": "2013\u201314"
-    },
-    {
-      "variable": "Relative humidity",
-      "height": 0.1,
-      "period": "2019\u201320"
-    },
-    {
-      "variable": "Relative humidity",
-      "height": 0.6,
-      "period": "2019\u201320"
-    },
-    {
-      "variable": "Relative humidity",
-      "height": 1.1,
-      "period": "2019\u201320"
-    },
-    {
-      "variable": "Relative humidity",
-      "height": 0.6,
-      "period": "2019\u201320"
-    },
-    {
-      "variable": "Relative humidity",
-      "height": 1.1,
-      "period": "2017\u201318"
-    },
-    {
-      "variable": "Relative humidity",
-      "height": 1.0,
-      "period": "2019\u201320"
+      "period": "2021\u201322"
     },
     {
       "variable": "Relative humidity",
@@ -2087,12 +2037,172 @@
     },
     {
       "variable": "Relative humidity",
+      "height": 1.2,
+      "period": "2021\u201322"
+    },
+    {
+      "variable": "Relative humidity",
+      "height": 0.1,
+      "period": "2021\u201322"
+    },
+    {
+      "variable": "Relative humidity",
+      "height": 0.6,
+      "period": "2021\u201322"
+    },
+    {
+      "variable": "Relative humidity",
+      "height": 1.1,
+      "period": "2021\u201322"
+    },
+    {
+      "variable": "Relative humidity",
+      "height": 1.1,
+      "period": "2021\u201322"
+    },
+    {
+      "variable": "Relative humidity",
+      "height": 0.7,
+      "period": "2021\u201322"
+    },
+    {
+      "variable": "Relative humidity",
+      "height": 1.1,
+      "period": "2021\u201322"
+    },
+    {
+      "variable": "Relative humidity",
+      "height": 0.1,
+      "period": "2021\u201322"
+    },
+    {
+      "variable": "Relative humidity",
+      "height": 0.6,
+      "period": "2021\u201322"
+    },
+    {
+      "variable": "Relative humidity",
+      "height": 1.1,
+      "period": "2021\u201322"
+    },
+    {
+      "variable": "Relative humidity",
       "height": 1.1,
       "period": "2021\u201322"
     },
     {
       "variable": "Relative humidity",
       "height": 1.5,
+      "period": "2021\u201322"
+    },
+    {
+      "variable": "Relative humidity",
+      "height": 0.6,
+      "period": "2021\u201322"
+    },
+    {
+      "variable": "Relative humidity",
+      "height": 0.1,
+      "period": "2021\u201322"
+    },
+    {
+      "variable": "Relative humidity",
+      "height": 0.6,
+      "period": "2021\u201322"
+    },
+    {
+      "variable": "Relative humidity",
+      "height": 1.1,
+      "period": "2021\u201322"
+    },
+    {
+      "variable": "Relative humidity",
+      "height": 1.7,
+      "period": "2021\u201322"
+    },
+    {
+      "variable": "Relative humidity",
+      "height": 0.6,
+      "period": "2021\u201322"
+    },
+    {
+      "variable": "Relative humidity",
+      "height": 0.6,
+      "period": "2021\u201322"
+    },
+    {
+      "variable": "Relative humidity",
+      "height": 0.6,
+      "period": "2021\u201322"
+    },
+    {
+      "variable": "Relative humidity",
+      "height": 1.0,
+      "period": "2021\u201322"
+    },
+    {
+      "variable": "Relative humidity",
+      "height": 1.1,
+      "period": "2021\u201322"
+    },
+    {
+      "variable": "Relative humidity",
+      "height": 0.6,
+      "period": "2021\u201322"
+    },
+    {
+      "variable": "Relative humidity",
+      "height": 1.1,
+      "period": "2021\u201322"
+    },
+    {
+      "variable": "Relative humidity",
+      "height": 0.6,
+      "period": "2021\u201322"
+    },
+    {
+      "variable": "Relative humidity",
+      "height": 0.6,
+      "period": "2021\u201322"
+    },
+    {
+      "variable": "Relative humidity",
+      "height": 1.1,
+      "period": "2021\u201322"
+    },
+    {
+      "variable": "Relative humidity",
+      "height": 1.1,
+      "period": "2021\u201322"
+    },
+    {
+      "variable": "Relative humidity",
+      "height": 1.5,
+      "period": "2021\u201322"
+    },
+    {
+      "variable": "Relative humidity",
+      "height": 0.6,
+      "period": "2023\u201324"
+    },
+    {
+      "variable": "Relative humidity",
+      "height": 0.6,
+      "period": "2023\u201324"
+    },
+    {
+      "variable": "Relative humidity",
+      "height": 1.1,
+      "period": "2023\u201324"
+    },
+    {
+      "variable": "Relative humidity",
+      "height": 0.7,
+      "period": "2023\u201324"
+    },
+    {
+      "variable": "Relative humidity",
+      "height": 0.6,
       "period": "2023\u201324"
     },
     {
@@ -2117,17 +2227,57 @@
     },
     {
       "variable": "Relative humidity",
+      "height": 0.6,
+      "period": "2023\u201324"
+    },
+    {
+      "variable": "Relative humidity",
+      "height": 1.5,
+      "period": "2023\u201324"
+    },
+    {
+      "variable": "Relative humidity",
+      "height": 1.5,
+      "period": "2023\u201324"
+    },
+    {
+      "variable": "Relative humidity",
+      "height": 1.5,
+      "period": "2023\u201324"
+    },
+    {
+      "variable": "Relative humidity",
+      "height": 1.5,
+      "period": "2023\u201324"
+    },
+    {
+      "variable": "Relative humidity",
+      "height": 0.6,
+      "period": "2023\u201324"
+    },
+    {
+      "variable": "Relative humidity",
+      "height": 0.7,
+      "period": "2023\u201324"
+    },
+    {
+      "variable": "Relative humidity",
+      "height": 0.6,
+      "period": "2023\u201324"
+    },
+    {
+      "variable": "Relative humidity",
+      "height": 1.5,
+      "period": "2023\u201324"
+    },
+    {
+      "variable": "Relative humidity",
       "height": 1.1,
       "period": "2023\u201324"
     },
     {
       "variable": "Relative humidity",
       "height": 1.5,
-      "period": "2021\u201322"
-    },
-    {
-      "variable": "Relative humidity",
-      "height": 1.2,
       "period": "2023\u201324"
     },
     {
@@ -2138,21 +2288,6 @@
     {
       "variable": "Relative humidity",
       "height": 1.5,
-      "period": "2023\u201324"
-    },
-    {
-      "variable": "Relative humidity",
-      "height": 1.5,
-      "period": "2023\u201324"
-    },
-    {
-      "variable": "Relative humidity",
-      "height": 1.5,
-      "period": "2023\u201324"
-    },
-    {
-      "variable": "Relative humidity",
-      "height": 1.1,
       "period": "2023\u201324"
     },
     {
@@ -2177,133 +2312,718 @@
     },
     {
       "variable": "Relative humidity",
-      "height": 0.1,
-      "period": "2023\u201324"
-    },
-    {
-      "variable": "Relative humidity",
-      "height": 0.6,
-      "period": "2023\u201324"
-    },
-    {
-      "variable": "Relative humidity",
-      "height": 1.7,
-      "period": "2023\u201324"
-    },
-    {
-      "variable": "Relative humidity",
-      "height": 0.6,
-      "period": "2019\u201320"
-    },
-    {
-      "variable": "Relative humidity",
-      "height": 0.6,
-      "period": "2019\u201320"
-    },
-    {
-      "variable": "Relative humidity",
-      "height": 0.6,
-      "period": "2019\u201320"
-    },
-    {
-      "variable": "Relative humidity",
-      "height": 0.6,
-      "period": "2023\u201324"
-    },
-    {
-      "variable": "Relative humidity",
-      "height": 0.6,
-      "period": "2023\u201324"
-    },
-    {
-      "variable": "Air velocity",
-      "height": 1.5,
-      "period": "2023\u201324"
-    },
-    {
-      "variable": "Air velocity",
-      "height": 1.5,
-      "period": "2023\u201324"
-    },
-    {
-      "variable": "Air velocity",
-      "height": 1.5,
-      "period": "2023\u201324"
-    },
-    {
-      "variable": "Air velocity",
-      "height": 0.6,
-      "period": "2023\u201324"
-    },
-    {
-      "variable": "Air velocity",
-      "height": 0.6,
-      "period": "2023\u201324"
-    },
-    {
-      "variable": "Air velocity",
-      "height": 0.6,
-      "period": "2023\u201324"
-    },
-    {
-      "variable": "Air velocity",
-      "height": 0.1,
-      "period": "2023\u201324"
-    },
-    {
-      "variable": "Air velocity",
-      "height": 0.6,
-      "period": "2023\u201324"
-    },
-    {
-      "variable": "Air velocity",
-      "height": 1.1,
-      "period": "2023\u201324"
-    },
-    {
-      "variable": "Air velocity",
-      "height": 0.6,
-      "period": "2023\u201324"
-    },
-    {
-      "variable": "Air velocity",
-      "height": 1.2,
-      "period": "2023\u201324"
-    },
-    {
-      "variable": "Air velocity",
-      "height": 0.6,
-      "period": "2023\u201324"
-    },
-    {
-      "variable": "Air velocity",
       "height": 2.3,
       "period": "2023\u201324"
     },
     {
+      "variable": "Relative humidity",
+      "height": 0.6,
+      "period": "2023\u201324"
+    },
+    {
+      "variable": "Relative humidity",
+      "height": 0.1,
+      "period": "2023\u201324"
+    },
+    {
+      "variable": "Relative humidity",
+      "height": 0.6,
+      "period": "2023\u201324"
+    },
+    {
+      "variable": "Relative humidity",
+      "height": 1.1,
+      "period": "2023\u201324"
+    },
+    {
+      "variable": "Relative humidity",
+      "height": 0.6,
+      "period": "2023\u201324"
+    },
+    {
+      "variable": "Relative humidity",
+      "height": 0.1,
+      "period": "2023\u201324"
+    },
+    {
+      "variable": "Relative humidity",
+      "height": 0.6,
+      "period": "2023\u201324"
+    },
+    {
+      "variable": "Relative humidity",
+      "height": 1.7,
+      "period": "2023\u201324"
+    },
+    {
+      "variable": "Relative humidity",
+      "height": 1.2,
+      "period": "2023\u201324"
+    },
+    {
+      "variable": "Relative humidity",
+      "height": 0.6,
+      "period": "2023\u201324"
+    },
+    {
+      "variable": "Relative humidity",
+      "height": 2.5,
+      "period": "2023\u201324"
+    },
+    {
+      "variable": "Relative humidity",
+      "height": 0.6,
+      "period": "2023\u201324"
+    },
+    {
+      "variable": "Relative humidity",
+      "height": 1.5,
+      "period": "2023\u201324"
+    },
+    {
+      "variable": "Relative humidity",
+      "height": 1.1,
+      "period": "2023\u201324"
+    },
+    {
+      "variable": "Relative humidity",
+      "height": 0.6,
+      "period": "2023\u201324"
+    },
+    {
+      "variable": "Relative humidity",
+      "height": 1.1,
+      "period": "2023\u201324"
+    },
+    {
+      "variable": "Relative humidity",
+      "height": 0.6,
+      "period": "2023\u201324"
+    },
+    {
+      "variable": "Relative humidity",
+      "height": 0.1,
+      "period": "2023\u201324"
+    },
+    {
+      "variable": "Relative humidity",
+      "height": 0.6,
+      "period": "2023\u201324"
+    },
+    {
+      "variable": "Relative humidity",
+      "height": 1.1,
+      "period": "2023\u201324"
+    },
+    {
+      "variable": "Relative humidity",
+      "height": 1.1,
+      "period": "2023\u201324"
+    },
+    {
+      "variable": "Relative humidity",
+      "height": 0.6,
+      "period": "2023\u201324"
+    },
+    {
+      "variable": "Relative humidity",
+      "height": 0.7,
+      "period": "2023\u201324"
+    },
+    {
+      "variable": "Relative humidity",
+      "height": 1.0,
+      "period": "2023\u201324"
+    },
+    {
+      "variable": "Relative humidity",
+      "height": 1.1,
+      "period": "2021\u201322"
+    },
+    {
+      "variable": "Relative humidity",
+      "height": 1.1,
+      "period": "2023\u201324"
+    },
+    {
+      "variable": "Relative humidity",
+      "height": 0.6,
+      "period": "2023\u201324"
+    },
+    {
+      "variable": "Relative humidity",
+      "height": 0.1,
+      "period": "2023\u201324"
+    },
+    {
+      "variable": "Relative humidity",
+      "height": 1.1,
+      "period": "2023\u201324"
+    },
+    {
+      "variable": "Relative humidity",
+      "height": 0.6,
+      "period": "2023\u201324"
+    },
+    {
+      "variable": "Relative humidity",
+      "height": 0.1,
+      "period": "2023\u201324"
+    },
+    {
+      "variable": "Relative humidity",
+      "height": 0.6,
+      "period": "2023\u201324"
+    },
+    {
+      "variable": "Relative humidity",
+      "height": 0.7,
+      "period": "2023\u201324"
+    },
+    {
+      "variable": "Relative humidity",
+      "height": 1.1,
+      "period": "2023\u201324"
+    },
+    {
+      "variable": "Relative humidity",
+      "height": 1.7,
+      "period": "2023\u201324"
+    },
+    {
+      "variable": "Relative humidity",
+      "height": 1.1,
+      "period": "2023\u201324"
+    },
+    {
+      "variable": "Relative humidity",
+      "height": 0.6,
+      "period": "2023\u201324"
+    },
+    {
+      "variable": "Relative humidity",
+      "height": 0.1,
+      "period": "2023\u201324"
+    },
+    {
+      "variable": "Relative humidity",
+      "height": 0.6,
+      "period": "2023\u201324"
+    },
+    {
+      "variable": "Relative humidity",
+      "height": 1.1,
+      "period": "2023\u201324"
+    },
+    {
+      "variable": "Relative humidity",
+      "height": 1.7,
+      "period": "2023\u201324"
+    },
+    {
+      "variable": "Air velocity",
+      "height": 0.6,
+      "period": "2013\u201314"
+    },
+    {
+      "variable": "Air velocity",
+      "height": 1.1,
+      "period": "2013\u201314"
+    },
+    {
+      "variable": "Air velocity",
+      "height": 0.2,
+      "period": "2013\u201314"
+    },
+    {
+      "variable": "Air velocity",
+      "height": 0.7,
+      "period": "2013\u201314"
+    },
+    {
+      "variable": "Air velocity",
+      "height": 1.2,
+      "period": "2013\u201314"
+    },
+    {
+      "variable": "Air velocity",
+      "height": 1.7,
+      "period": "2013\u201314"
+    },
+    {
+      "variable": "Air velocity",
+      "height": 2.2,
+      "period": "2013\u201314"
+    },
+    {
+      "variable": "Air velocity",
+      "height": 0.1,
+      "period": "2013\u201314"
+    },
+    {
+      "variable": "Air velocity",
+      "height": 0.6,
+      "period": "2013\u201314"
+    },
+    {
+      "variable": "Air velocity",
+      "height": 1.1,
+      "period": "2013\u201314"
+    },
+    {
+      "variable": "Air velocity",
+      "height": 1.7,
+      "period": "2013\u201314"
+    },
+    {
+      "variable": "Air velocity",
+      "height": 1.2,
+      "period": "2013\u201314"
+    },
+    {
+      "variable": "Air velocity",
+      "height": 0.6,
+      "period": "2013\u201314"
+    },
+    {
+      "variable": "Air velocity",
+      "height": 0.6,
+      "period": "2015\u201316"
+    },
+    {
+      "variable": "Air velocity",
+      "height": 1.0,
+      "period": "2015\u201316"
+    },
+    {
+      "variable": "Air velocity",
+      "height": 0.6,
+      "period": "2017\u201318"
+    },
+    {
+      "variable": "Air velocity",
+      "height": 1.1,
+      "period": "2017\u201318"
+    },
+    {
+      "variable": "Air velocity",
+      "height": 0.1,
+      "period": "2017\u201318"
+    },
+    {
+      "variable": "Air velocity",
+      "height": 0.6,
+      "period": "2017\u201318"
+    },
+    {
+      "variable": "Air velocity",
+      "height": 1.1,
+      "period": "2017\u201318"
+    },
+    {
+      "variable": "Air velocity",
+      "height": 0.6,
+      "period": "2017\u201318"
+    },
+    {
+      "variable": "Air velocity",
+      "height": 0.1,
+      "period": "2017\u201318"
+    },
+    {
       "variable": "Air velocity",
       "height": 0.3,
-      "period": "2023\u201324"
-    },
-    {
-      "variable": "Air velocity",
-      "height": 1.1,
-      "period": "2023\u201324"
+      "period": "2017\u201318"
     },
     {
       "variable": "Air velocity",
       "height": 0.6,
-      "period": "2023\u201324"
+      "period": "2017\u201318"
     },
     {
       "variable": "Air velocity",
-      "height": 0.6,
-      "period": "2023\u201324"
+      "height": 0.9,
+      "period": "2017\u201318"
     },
     {
       "variable": "Air velocity",
       "height": 1.1,
-      "period": "2023\u201324"
+      "period": "2017\u201318"
+    },
+    {
+      "variable": "Air velocity",
+      "height": 1.4,
+      "period": "2017\u201318"
+    },
+    {
+      "variable": "Air velocity",
+      "height": 1.7,
+      "period": "2017\u201318"
+    },
+    {
+      "variable": "Air velocity",
+      "height": 2.0,
+      "period": "2017\u201318"
+    },
+    {
+      "variable": "Air velocity",
+      "height": 0.1,
+      "period": "2017\u201318"
+    },
+    {
+      "variable": "Air velocity",
+      "height": 0.3,
+      "period": "2017\u201318"
+    },
+    {
+      "variable": "Air velocity",
+      "height": 0.6,
+      "period": "2017\u201318"
+    },
+    {
+      "variable": "Air velocity",
+      "height": 0.9,
+      "period": "2017\u201318"
+    },
+    {
+      "variable": "Air velocity",
+      "height": 1.1,
+      "period": "2017\u201318"
+    },
+    {
+      "variable": "Air velocity",
+      "height": 1.4,
+      "period": "2017\u201318"
+    },
+    {
+      "variable": "Air velocity",
+      "height": 1.7,
+      "period": "2017\u201318"
+    },
+    {
+      "variable": "Air velocity",
+      "height": 2.0,
+      "period": "2017\u201318"
+    },
+    {
+      "variable": "Air velocity",
+      "height": 0.1,
+      "period": "2017\u201318"
+    },
+    {
+      "variable": "Air velocity",
+      "height": 0.3,
+      "period": "2017\u201318"
+    },
+    {
+      "variable": "Air velocity",
+      "height": 0.6,
+      "period": "2017\u201318"
+    },
+    {
+      "variable": "Air velocity",
+      "height": 0.9,
+      "period": "2017\u201318"
+    },
+    {
+      "variable": "Air velocity",
+      "height": 1.1,
+      "period": "2017\u201318"
+    },
+    {
+      "variable": "Air velocity",
+      "height": 1.4,
+      "period": "2017\u201318"
+    },
+    {
+      "variable": "Air velocity",
+      "height": 1.7,
+      "period": "2017\u201318"
+    },
+    {
+      "variable": "Air velocity",
+      "height": 2.0,
+      "period": "2017\u201318"
+    },
+    {
+      "variable": "Air velocity",
+      "height": 0.1,
+      "period": "2017\u201318"
+    },
+    {
+      "variable": "Air velocity",
+      "height": 0.3,
+      "period": "2017\u201318"
+    },
+    {
+      "variable": "Air velocity",
+      "height": 0.6,
+      "period": "2017\u201318"
+    },
+    {
+      "variable": "Air velocity",
+      "height": 0.9,
+      "period": "2017\u201318"
+    },
+    {
+      "variable": "Air velocity",
+      "height": 1.1,
+      "period": "2017\u201318"
+    },
+    {
+      "variable": "Air velocity",
+      "height": 1.4,
+      "period": "2017\u201318"
+    },
+    {
+      "variable": "Air velocity",
+      "height": 1.7,
+      "period": "2017\u201318"
+    },
+    {
+      "variable": "Air velocity",
+      "height": 2.0,
+      "period": "2017\u201318"
+    },
+    {
+      "variable": "Air velocity",
+      "height": 1.1,
+      "period": "2017\u201318"
+    },
+    {
+      "variable": "Air velocity",
+      "height": 0.1,
+      "period": "2017\u201318"
+    },
+    {
+      "variable": "Air velocity",
+      "height": 0.6,
+      "period": "2017\u201318"
+    },
+    {
+      "variable": "Air velocity",
+      "height": 1.1,
+      "period": "2017\u201318"
+    },
+    {
+      "variable": "Air velocity",
+      "height": 0.6,
+      "period": "2017\u201318"
+    },
+    {
+      "variable": "Air velocity",
+      "height": 1.1,
+      "period": "2017\u201318"
+    },
+    {
+      "variable": "Air velocity",
+      "height": 1.1,
+      "period": "2017\u201318"
+    },
+    {
+      "variable": "Air velocity",
+      "height": 0.1,
+      "period": "2019\u201320"
+    },
+    {
+      "variable": "Air velocity",
+      "height": 0.6,
+      "period": "2019\u201320"
+    },
+    {
+      "variable": "Air velocity",
+      "height": 1.1,
+      "period": "2019\u201320"
+    },
+    {
+      "variable": "Air velocity",
+      "height": 0.6,
+      "period": "2019\u201320"
+    },
+    {
+      "variable": "Air velocity",
+      "height": 1.2,
+      "period": "2019\u201320"
+    },
+    {
+      "variable": "Air velocity",
+      "height": 0.1,
+      "period": "2019\u201320"
+    },
+    {
+      "variable": "Air velocity",
+      "height": 0.6,
+      "period": "2019\u201320"
+    },
+    {
+      "variable": "Air velocity",
+      "height": 1.1,
+      "period": "2019\u201320"
+    },
+    {
+      "variable": "Air velocity",
+      "height": 1.1,
+      "period": "2019\u201320"
+    },
+    {
+      "variable": "Air velocity",
+      "height": 1.2,
+      "period": "2019\u201320"
+    },
+    {
+      "variable": "Air velocity",
+      "height": 0.6,
+      "period": "2019\u201320"
+    },
+    {
+      "variable": "Air velocity",
+      "height": 0.6,
+      "period": "2019\u201320"
+    },
+    {
+      "variable": "Air velocity",
+      "height": 0.1,
+      "period": "2019\u201320"
+    },
+    {
+      "variable": "Air velocity",
+      "height": 0.6,
+      "period": "2019\u201320"
+    },
+    {
+      "variable": "Air velocity",
+      "height": 1.1,
+      "period": "2019\u201320"
+    },
+    {
+      "variable": "Air velocity",
+      "height": 0.1,
+      "period": "2019\u201320"
+    },
+    {
+      "variable": "Air velocity",
+      "height": 0.6,
+      "period": "2019\u201320"
+    },
+    {
+      "variable": "Air velocity",
+      "height": 1.1,
+      "period": "2019\u201320"
+    },
+    {
+      "variable": "Air velocity",
+      "height": 0.6,
+      "period": "2019\u201320"
+    },
+    {
+      "variable": "Air velocity",
+      "height": 0.6,
+      "period": "2019\u201320"
+    },
+    {
+      "variable": "Air velocity",
+      "height": 0.6,
+      "period": "2019\u201320"
+    },
+    {
+      "variable": "Air velocity",
+      "height": 1.1,
+      "period": "2019\u201320"
+    },
+    {
+      "variable": "Air velocity",
+      "height": 1.1,
+      "period": "2019\u201320"
+    },
+    {
+      "variable": "Air velocity",
+      "height": 0.6,
+      "period": "2019\u201320"
+    },
+    {
+      "variable": "Air velocity",
+      "height": 1.1,
+      "period": "2021\u201322"
+    },
+    {
+      "variable": "Air velocity",
+      "height": 1.5,
+      "period": "2021\u201322"
+    },
+    {
+      "variable": "Air velocity",
+      "height": 1.2,
+      "period": "2021\u201322"
+    },
+    {
+      "variable": "Air velocity",
+      "height": 1.2,
+      "period": "2021\u201322"
+    },
+    {
+      "variable": "Air velocity",
+      "height": 1.2,
+      "period": "2021\u201322"
+    },
+    {
+      "variable": "Air velocity",
+      "height": 1.2,
+      "period": "2021\u201322"
+    },
+    {
+      "variable": "Air velocity",
+      "height": 0.1,
+      "period": "2021\u201322"
+    },
+    {
+      "variable": "Air velocity",
+      "height": 0.6,
+      "period": "2021\u201322"
+    },
+    {
+      "variable": "Air velocity",
+      "height": 1.1,
+      "period": "2021\u201322"
+    },
+    {
+      "variable": "Air velocity",
+      "height": 0.6,
+      "period": "2021\u201322"
+    },
+    {
+      "variable": "Air velocity",
+      "height": 1.1,
+      "period": "2021\u201322"
+    },
+    {
+      "variable": "Air velocity",
+      "height": 1.1,
+      "period": "2021\u201322"
+    },
+    {
+      "variable": "Air velocity",
+      "height": 0.17,
+      "period": "2021\u201322"
+    },
+    {
+      "variable": "Air velocity",
+      "height": 0.6,
+      "period": "2021\u201322"
+    },
+    {
+      "variable": "Air velocity",
+      "height": 1.2,
+      "period": "2021\u201322"
+    },
+    {
+      "variable": "Air velocity",
+      "height": 1.1,
+      "period": "2021\u201322"
+    },
+    {
+      "variable": "Air velocity",
+      "height": 1.1,
+      "period": "2021\u201322"
     },
     {
       "variable": "Air velocity",
@@ -2432,6 +3152,11 @@
     },
     {
       "variable": "Air velocity",
+      "height": 1.1,
+      "period": "2021\u201322"
+    },
+    {
+      "variable": "Air velocity",
       "height": 0.6,
       "period": "2021\u201322"
     },
@@ -2457,503 +3182,53 @@
     },
     {
       "variable": "Air velocity",
+      "height": 0.6,
+      "period": "2023\u201324"
+    },
+    {
+      "variable": "Air velocity",
+      "height": 0.6,
+      "period": "2023\u201324"
+    },
+    {
+      "variable": "Air velocity",
+      "height": 0.1,
+      "period": "2023\u201324"
+    },
+    {
+      "variable": "Air velocity",
+      "height": 0.6,
+      "period": "2023\u201324"
+    },
+    {
+      "variable": "Air velocity",
       "height": 1.1,
-      "period": "2021\u201322"
+      "period": "2023\u201324"
+    },
+    {
+      "variable": "Air velocity",
+      "height": 0.6,
+      "period": "2023\u201324"
+    },
+    {
+      "variable": "Air velocity",
+      "height": 0.6,
+      "period": "2023\u201324"
     },
     {
       "variable": "Air velocity",
       "height": 1.5,
-      "period": "2021\u201322"
+      "period": "2023\u201324"
     },
     {
       "variable": "Air velocity",
-      "height": 1.2,
-      "period": "2021\u201322"
+      "height": 1.5,
+      "period": "2023\u201324"
     },
     {
       "variable": "Air velocity",
-      "height": 1.2,
-      "period": "2021\u201322"
-    },
-    {
-      "variable": "Air velocity",
-      "height": 1.2,
-      "period": "2021\u201322"
-    },
-    {
-      "variable": "Air velocity",
-      "height": 1.2,
-      "period": "2021\u201322"
-    },
-    {
-      "variable": "Air velocity",
-      "height": 0.1,
-      "period": "2021\u201322"
-    },
-    {
-      "variable": "Air velocity",
-      "height": 0.6,
-      "period": "2021\u201322"
-    },
-    {
-      "variable": "Air velocity",
-      "height": 1.1,
-      "period": "2021\u201322"
-    },
-    {
-      "variable": "Air velocity",
-      "height": 1.1,
-      "period": "2021\u201322"
-    },
-    {
-      "variable": "Air velocity",
-      "height": 0.6,
-      "period": "2021\u201322"
-    },
-    {
-      "variable": "Air velocity",
-      "height": 1.1,
-      "period": "2021\u201322"
-    },
-    {
-      "variable": "Air velocity",
-      "height": 1.1,
-      "period": "2021\u201322"
-    },
-    {
-      "variable": "Air velocity",
-      "height": 0.17,
-      "period": "2021\u201322"
-    },
-    {
-      "variable": "Air velocity",
-      "height": 0.6,
-      "period": "2021\u201322"
-    },
-    {
-      "variable": "Air velocity",
-      "height": 1.2,
-      "period": "2021\u201322"
-    },
-    {
-      "variable": "Air velocity",
-      "height": 1.1,
-      "period": "2021\u201322"
-    },
-    {
-      "variable": "Air velocity",
-      "height": 1.1,
-      "period": "2021\u201322"
-    },
-    {
-      "variable": "Air velocity",
-      "height": 0.6,
-      "period": "2019\u201320"
-    },
-    {
-      "variable": "Air velocity",
-      "height": 0.6,
-      "period": "2019\u201320"
-    },
-    {
-      "variable": "Air velocity",
-      "height": 1.1,
-      "period": "2019\u201320"
-    },
-    {
-      "variable": "Air velocity",
-      "height": 1.1,
-      "period": "2019\u201320"
-    },
-    {
-      "variable": "Air velocity",
-      "height": 0.1,
-      "period": "2019\u201320"
-    },
-    {
-      "variable": "Air velocity",
-      "height": 0.6,
-      "period": "2019\u201320"
-    },
-    {
-      "variable": "Air velocity",
-      "height": 1.1,
-      "period": "2019\u201320"
-    },
-    {
-      "variable": "Air velocity",
-      "height": 0.6,
-      "period": "2019\u201320"
-    },
-    {
-      "variable": "Air velocity",
-      "height": 1.2,
-      "period": "2019\u201320"
-    },
-    {
-      "variable": "Air velocity",
-      "height": 1.1,
-      "period": "2019\u201320"
-    },
-    {
-      "variable": "Air velocity",
-      "height": 1.2,
-      "period": "2019\u201320"
-    },
-    {
-      "variable": "Air velocity",
-      "height": 0.1,
-      "period": "2019\u201320"
-    },
-    {
-      "variable": "Air velocity",
-      "height": 0.6,
-      "period": "2019\u201320"
-    },
-    {
-      "variable": "Air velocity",
-      "height": 1.1,
-      "period": "2019\u201320"
-    },
-    {
-      "variable": "Air velocity",
-      "height": 0.1,
-      "period": "2019\u201320"
-    },
-    {
-      "variable": "Air velocity",
-      "height": 0.6,
-      "period": "2019\u201320"
-    },
-    {
-      "variable": "Air velocity",
-      "height": 1.1,
-      "period": "2019\u201320"
-    },
-    {
-      "variable": "Air velocity",
-      "height": 0.6,
-      "period": "2017\u201318"
-    },
-    {
-      "variable": "Air velocity",
-      "height": 0.1,
-      "period": "2017\u201318"
-    },
-    {
-      "variable": "Air velocity",
-      "height": 0.3,
-      "period": "2017\u201318"
-    },
-    {
-      "variable": "Air velocity",
-      "height": 0.6,
-      "period": "2017\u201318"
-    },
-    {
-      "variable": "Air velocity",
-      "height": 0.9,
-      "period": "2017\u201318"
-    },
-    {
-      "variable": "Air velocity",
-      "height": 1.1,
-      "period": "2017\u201318"
-    },
-    {
-      "variable": "Air velocity",
-      "height": 1.4,
-      "period": "2017\u201318"
-    },
-    {
-      "variable": "Air velocity",
-      "height": 1.7,
-      "period": "2017\u201318"
-    },
-    {
-      "variable": "Air velocity",
-      "height": 2.0,
-      "period": "2017\u201318"
-    },
-    {
-      "variable": "Air velocity",
-      "height": 0.1,
-      "period": "2017\u201318"
-    },
-    {
-      "variable": "Air velocity",
-      "height": 0.3,
-      "period": "2017\u201318"
-    },
-    {
-      "variable": "Air velocity",
-      "height": 0.6,
-      "period": "2017\u201318"
-    },
-    {
-      "variable": "Air velocity",
-      "height": 0.9,
-      "period": "2017\u201318"
-    },
-    {
-      "variable": "Air velocity",
-      "height": 1.1,
-      "period": "2017\u201318"
-    },
-    {
-      "variable": "Air velocity",
-      "height": 1.4,
-      "period": "2017\u201318"
-    },
-    {
-      "variable": "Air velocity",
-      "height": 1.7,
-      "period": "2017\u201318"
-    },
-    {
-      "variable": "Air velocity",
-      "height": 2.0,
-      "period": "2017\u201318"
-    },
-    {
-      "variable": "Air velocity",
-      "height": 0.1,
-      "period": "2017\u201318"
-    },
-    {
-      "variable": "Air velocity",
-      "height": 0.3,
-      "period": "2017\u201318"
-    },
-    {
-      "variable": "Air velocity",
-      "height": 0.6,
-      "period": "2017\u201318"
-    },
-    {
-      "variable": "Air velocity",
-      "height": 0.9,
-      "period": "2017\u201318"
-    },
-    {
-      "variable": "Air velocity",
-      "height": 1.1,
-      "period": "2017\u201318"
-    },
-    {
-      "variable": "Air velocity",
-      "height": 1.4,
-      "period": "2017\u201318"
-    },
-    {
-      "variable": "Air velocity",
-      "height": 1.7,
-      "period": "2017\u201318"
-    },
-    {
-      "variable": "Air velocity",
-      "height": 2.0,
-      "period": "2017\u201318"
-    },
-    {
-      "variable": "Air velocity",
-      "height": 0.1,
-      "period": "2017\u201318"
-    },
-    {
-      "variable": "Air velocity",
-      "height": 0.3,
-      "period": "2017\u201318"
-    },
-    {
-      "variable": "Air velocity",
-      "height": 0.6,
-      "period": "2017\u201318"
-    },
-    {
-      "variable": "Air velocity",
-      "height": 0.9,
-      "period": "2017\u201318"
-    },
-    {
-      "variable": "Air velocity",
-      "height": 1.1,
-      "period": "2017\u201318"
-    },
-    {
-      "variable": "Air velocity",
-      "height": 1.4,
-      "period": "2017\u201318"
-    },
-    {
-      "variable": "Air velocity",
-      "height": 1.7,
-      "period": "2017\u201318"
-    },
-    {
-      "variable": "Air velocity",
-      "height": 2.0,
-      "period": "2017\u201318"
-    },
-    {
-      "variable": "Air velocity",
-      "height": 1.1,
-      "period": "2017\u201318"
-    },
-    {
-      "variable": "Air velocity",
-      "height": 0.1,
-      "period": "2017\u201318"
-    },
-    {
-      "variable": "Air velocity",
-      "height": 0.6,
-      "period": "2017\u201318"
-    },
-    {
-      "variable": "Air velocity",
-      "height": 1.1,
-      "period": "2017\u201318"
-    },
-    {
-      "variable": "Air velocity",
-      "height": 0.6,
-      "period": "2017\u201318"
-    },
-    {
-      "variable": "Air velocity",
-      "height": 1.1,
-      "period": "2017\u201318"
-    },
-    {
-      "variable": "Air velocity",
-      "height": 0.6,
-      "period": "2017\u201318"
-    },
-    {
-      "variable": "Air velocity",
-      "height": 1.1,
-      "period": "2017\u201318"
-    },
-    {
-      "variable": "Air velocity",
-      "height": 0.1,
-      "period": "2017\u201318"
-    },
-    {
-      "variable": "Air velocity",
-      "height": 0.6,
-      "period": "2017\u201318"
-    },
-    {
-      "variable": "Air velocity",
-      "height": 1.1,
-      "period": "2017\u201318"
-    },
-    {
-      "variable": "Air velocity",
-      "height": 1.0,
-      "period": "2015\u201316"
-    },
-    {
-      "variable": "Air velocity",
-      "height": 0.6,
-      "period": "2015\u201316"
-    },
-    {
-      "variable": "Air velocity",
-      "height": 1.2,
-      "period": "2013\u201314"
-    },
-    {
-      "variable": "Air velocity",
-      "height": 0.6,
-      "period": "2013\u201314"
-    },
-    {
-      "variable": "Air velocity",
-      "height": 0.6,
-      "period": "2013\u201314"
-    },
-    {
-      "variable": "Air velocity",
-      "height": 1.1,
-      "period": "2013\u201314"
-    },
-    {
-      "variable": "Air velocity",
-      "height": 0.2,
-      "period": "2013\u201314"
-    },
-    {
-      "variable": "Air velocity",
-      "height": 0.7,
-      "period": "2013\u201314"
-    },
-    {
-      "variable": "Air velocity",
-      "height": 1.2,
-      "period": "2013\u201314"
-    },
-    {
-      "variable": "Air velocity",
-      "height": 1.7,
-      "period": "2013\u201314"
-    },
-    {
-      "variable": "Air velocity",
-      "height": 2.2,
-      "period": "2013\u201314"
-    },
-    {
-      "variable": "Air velocity",
-      "height": 0.1,
-      "period": "2013\u201314"
-    },
-    {
-      "variable": "Air velocity",
-      "height": 0.6,
-      "period": "2013\u201314"
-    },
-    {
-      "variable": "Air velocity",
-      "height": 1.1,
-      "period": "2013\u201314"
-    },
-    {
-      "variable": "Air velocity",
-      "height": 1.7,
-      "period": "2013\u201314"
-    },
-    {
-      "variable": "Air velocity",
-      "height": 0.1,
-      "period": "2019\u201320"
-    },
-    {
-      "variable": "Air velocity",
-      "height": 0.6,
-      "period": "2019\u201320"
-    },
-    {
-      "variable": "Air velocity",
-      "height": 1.1,
-      "period": "2019\u201320"
-    },
-    {
-      "variable": "Air velocity",
-      "height": 1.1,
-      "period": "2017\u201318"
-    },
-    {
-      "variable": "Air velocity",
-      "height": 0.6,
-      "period": "2019\u201320"
-    },
-    {
-      "variable": "Air velocity",
-      "height": 1.1,
-      "period": "2021\u201322"
+      "height": 1.5,
+      "period": "2023\u201324"
     },
     {
       "variable": "Air velocity",
@@ -2967,11 +3242,6 @@
     },
     {
       "variable": "Air velocity",
-      "height": 0.1,
-      "period": "2023\u201324"
-    },
-    {
-      "variable": "Air velocity",
       "height": 0.6,
       "period": "2023\u201324"
     },
@@ -2998,6 +3268,81 @@
     {
       "variable": "Air velocity",
       "height": 1.1,
+      "period": "2023\u201324"
+    },
+    {
+      "variable": "Air velocity",
+      "height": 1.7,
+      "period": "2023\u201324"
+    },
+    {
+      "variable": "Air velocity",
+      "height": 0.1,
+      "period": "2023\u201324"
+    },
+    {
+      "variable": "Air velocity",
+      "height": 0.6,
+      "period": "2023\u201324"
+    },
+    {
+      "variable": "Air velocity",
+      "height": 1.1,
+      "period": "2023\u201324"
+    },
+    {
+      "variable": "Air velocity",
+      "height": 1.7,
+      "period": "2023\u201324"
+    },
+    {
+      "variable": "Air velocity",
+      "height": 2.3,
+      "period": "2023\u201324"
+    },
+    {
+      "variable": "Air velocity",
+      "height": 0.6,
+      "period": "2023\u201324"
+    },
+    {
+      "variable": "Air velocity",
+      "height": 0.1,
+      "period": "2023\u201324"
+    },
+    {
+      "variable": "Air velocity",
+      "height": 0.6,
+      "period": "2023\u201324"
+    },
+    {
+      "variable": "Air velocity",
+      "height": 1.1,
+      "period": "2023\u201324"
+    },
+    {
+      "variable": "Air velocity",
+      "height": 0.6,
+      "period": "2023\u201324"
+    },
+    {
+      "variable": "Air velocity",
+      "height": 0.3,
+      "period": "2023\u201324"
+    },
+    {
+      "variable": "Air velocity",
+      "height": 1.1,
+      "period": "2023\u201324"
+    },
+    {
+      "variable": "Air velocity",
+      "height": 0.1,
+      "period": "2023\u201324"
+    },
+    {
+      "variable": "Air velocity",
+      "height": 0.6,
       "period": "2023\u201324"
     },
     {
@@ -3012,12 +3357,97 @@
     },
     {
       "variable": "Air velocity",
+      "height": 0.6,
+      "period": "2023\u201324"
+    },
+    {
+      "variable": "Air velocity",
+      "height": 0.6,
+      "period": "2023\u201324"
+    },
+    {
+      "variable": "Air velocity",
       "height": 1.5,
       "period": "2023\u201324"
     },
     {
       "variable": "Air velocity",
+      "height": 1.2,
+      "period": "2023\u201324"
+    },
+    {
+      "variable": "Air velocity",
       "height": 1.1,
+      "period": "2023\u201324"
+    },
+    {
+      "variable": "Air velocity",
+      "height": 0.6,
+      "period": "2023\u201324"
+    },
+    {
+      "variable": "Air velocity",
+      "height": 1.1,
+      "period": "2023\u201324"
+    },
+    {
+      "variable": "Air velocity",
+      "height": 0.6,
+      "period": "2023\u201324"
+    },
+    {
+      "variable": "Air velocity",
+      "height": 0.1,
+      "period": "2023\u201324"
+    },
+    {
+      "variable": "Air velocity",
+      "height": 0.6,
+      "period": "2023\u201324"
+    },
+    {
+      "variable": "Air velocity",
+      "height": 1.1,
+      "period": "2023\u201324"
+    },
+    {
+      "variable": "Air velocity",
+      "height": 0.6,
+      "period": "2023\u201324"
+    },
+    {
+      "variable": "Air velocity",
+      "height": 1.1,
+      "period": "2023\u201324"
+    },
+    {
+      "variable": "Air velocity",
+      "height": 1.0,
+      "period": "2023\u201324"
+    },
+    {
+      "variable": "Air velocity",
+      "height": 1.1,
+      "period": "2021\u201322"
+    },
+    {
+      "variable": "Air velocity",
+      "height": 0.6,
+      "period": "2023\u201324"
+    },
+    {
+      "variable": "Air velocity",
+      "height": 1.1,
+      "period": "2023\u201324"
+    },
+    {
+      "variable": "Air velocity",
+      "height": 1.1,
+      "period": "2023\u201324"
+    },
+    {
+      "variable": "Air velocity",
+      "height": 0.6,
       "period": "2023\u201324"
     },
     {
@@ -3041,399 +3471,39 @@
       "period": "2023\u201324"
     },
     {
-      "variable": "Air velocity",
-      "height": 0.1,
-      "period": "2023\u201324"
-    },
-    {
-      "variable": "Air velocity",
-      "height": 0.6,
-      "period": "2023\u201324"
-    },
-    {
-      "variable": "Air velocity",
-      "height": 1.7,
-      "period": "2023\u201324"
-    },
-    {
-      "variable": "Air velocity",
-      "height": 0.6,
-      "period": "2019\u201320"
-    },
-    {
-      "variable": "Air velocity",
-      "height": 0.6,
-      "period": "2019\u201320"
-    },
-    {
-      "variable": "Air velocity",
-      "height": 0.6,
-      "period": "2019\u201320"
-    },
-    {
-      "variable": "Air velocity",
-      "height": 0.6,
-      "period": "2023\u201324"
-    },
-    {
-      "variable": "Air velocity",
-      "height": 0.6,
-      "period": "2023\u201324"
-    },
-    {
-      "variable": "Globe temperature",
-      "height": 1.5,
-      "period": "2023\u201324"
-    },
-    {
-      "variable": "Globe temperature",
-      "height": 1.5,
-      "period": "2023\u201324"
-    },
-    {
-      "variable": "Globe temperature",
-      "height": 1.5,
-      "period": "2023\u201324"
-    },
-    {
       "variable": "Globe temperature",
       "height": 0.6,
-      "period": "2023\u201324"
-    },
-    {
-      "variable": "Globe temperature",
-      "height": 0.6,
-      "period": "2023\u201324"
-    },
-    {
-      "variable": "Globe temperature",
-      "height": 0.6,
-      "period": "2023\u201324"
-    },
-    {
-      "variable": "Globe temperature",
-      "height": 0.6,
-      "period": "2023\u201324"
-    },
-    {
-      "variable": "Globe temperature",
-      "height": 0.6,
-      "period": "2023\u201324"
-    },
-    {
-      "variable": "Globe temperature",
-      "height": 0.6,
-      "period": "2023\u201324"
+      "period": "2013\u201314"
     },
     {
       "variable": "Globe temperature",
       "height": 1.1,
-      "period": "2021\u201322"
+      "period": "2013\u201314"
+    },
+    {
+      "variable": "Globe temperature",
+      "height": 1.2,
+      "period": "2013\u201314"
+    },
+    {
+      "variable": "Globe temperature",
+      "height": 1.2,
+      "period": "2013\u201314"
     },
     {
       "variable": "Globe temperature",
       "height": 0.6,
-      "period": "2021\u201322"
-    },
-    {
-      "variable": "Globe temperature",
-      "height": 1.1,
-      "period": "2021\u201322"
-    },
-    {
-      "variable": "Globe temperature",
-      "height": 0.1,
-      "period": "2021\u201322"
+      "period": "2013\u201314"
     },
     {
       "variable": "Globe temperature",
       "height": 0.6,
-      "period": "2021\u201322"
-    },
-    {
-      "variable": "Globe temperature",
-      "height": 1.1,
-      "period": "2021\u201322"
+      "period": "2015\u201316"
     },
     {
       "variable": "Globe temperature",
       "height": 1.0,
-      "period": "2021\u201322"
-    },
-    {
-      "variable": "Globe temperature",
-      "height": 1.1,
-      "period": "2021\u201322"
-    },
-    {
-      "variable": "Globe temperature",
-      "height": 1.5,
-      "period": "2021\u201322"
-    },
-    {
-      "variable": "Globe temperature",
-      "height": 0.6,
-      "period": "2021\u201322"
-    },
-    {
-      "variable": "Globe temperature",
-      "height": 0.1,
-      "period": "2021\u201322"
-    },
-    {
-      "variable": "Globe temperature",
-      "height": 0.6,
-      "period": "2021\u201322"
-    },
-    {
-      "variable": "Globe temperature",
-      "height": 1.1,
-      "period": "2021\u201322"
-    },
-    {
-      "variable": "Globe temperature",
-      "height": 1.7,
-      "period": "2021\u201322"
-    },
-    {
-      "variable": "Globe temperature",
-      "height": 0.1,
-      "period": "2021\u201322"
-    },
-    {
-      "variable": "Globe temperature",
-      "height": 0.6,
-      "period": "2021\u201322"
-    },
-    {
-      "variable": "Globe temperature",
-      "height": 1.1,
-      "period": "2021\u201322"
-    },
-    {
-      "variable": "Globe temperature",
-      "height": 1.7,
-      "period": "2021\u201322"
-    },
-    {
-      "variable": "Globe temperature",
-      "height": 0.6,
-      "period": "2021\u201322"
-    },
-    {
-      "variable": "Globe temperature",
-      "height": 0.6,
-      "period": "2021\u201322"
-    },
-    {
-      "variable": "Globe temperature",
-      "height": 1.0,
-      "period": "2021\u201322"
-    },
-    {
-      "variable": "Globe temperature",
-      "height": 1.1,
-      "period": "2021\u201322"
-    },
-    {
-      "variable": "Globe temperature",
-      "height": 0.6,
-      "period": "2021\u201322"
-    },
-    {
-      "variable": "Globe temperature",
-      "height": 0.6,
-      "period": "2021\u201322"
-    },
-    {
-      "variable": "Globe temperature",
-      "height": 1.1,
-      "period": "2021\u201322"
-    },
-    {
-      "variable": "Globe temperature",
-      "height": 1.1,
-      "period": "2021\u201322"
-    },
-    {
-      "variable": "Globe temperature",
-      "height": 1.1,
-      "period": "2021\u201322"
-    },
-    {
-      "variable": "Globe temperature",
-      "height": 1.5,
-      "period": "2021\u201322"
-    },
-    {
-      "variable": "Globe temperature",
-      "height": 0.1,
-      "period": "2021\u201322"
-    },
-    {
-      "variable": "Globe temperature",
-      "height": 0.6,
-      "period": "2021\u201322"
-    },
-    {
-      "variable": "Globe temperature",
-      "height": 1.1,
-      "period": "2021\u201322"
-    },
-    {
-      "variable": "Globe temperature",
-      "height": 1.1,
-      "period": "2021\u201322"
-    },
-    {
-      "variable": "Globe temperature",
-      "height": 0.6,
-      "period": "2021\u201322"
-    },
-    {
-      "variable": "Globe temperature",
-      "height": 1.1,
-      "period": "2021\u201322"
-    },
-    {
-      "variable": "Globe temperature",
-      "height": 1.0,
-      "period": "2021\u201322"
-    },
-    {
-      "variable": "Globe temperature",
-      "height": 1.1,
-      "period": "2021\u201322"
-    },
-    {
-      "variable": "Globe temperature",
-      "height": 0.6,
-      "period": "2021\u201322"
-    },
-    {
-      "variable": "Globe temperature",
-      "height": 1.1,
-      "period": "2021\u201322"
-    },
-    {
-      "variable": "Globe temperature",
-      "height": 0.6,
-      "period": "2019\u201320"
-    },
-    {
-      "variable": "Globe temperature",
-      "height": 0.6,
-      "period": "2019\u201320"
-    },
-    {
-      "variable": "Globe temperature",
-      "height": 0.6,
-      "period": "2019\u201320"
-    },
-    {
-      "variable": "Globe temperature",
-      "height": 1.1,
-      "period": "2019\u201320"
-    },
-    {
-      "variable": "Globe temperature",
-      "height": 1.7,
-      "period": "2019\u201320"
-    },
-    {
-      "variable": "Globe temperature",
-      "height": 0.6,
-      "period": "2019\u201320"
-    },
-    {
-      "variable": "Globe temperature",
-      "height": 0.1,
-      "period": "2019\u201320"
-    },
-    {
-      "variable": "Globe temperature",
-      "height": 0.6,
-      "period": "2019\u201320"
-    },
-    {
-      "variable": "Globe temperature",
-      "height": 1.1,
-      "period": "2019\u201320"
-    },
-    {
-      "variable": "Globe temperature",
-      "height": 1.6,
-      "period": "2019\u201320"
-    },
-    {
-      "variable": "Globe temperature",
-      "height": 1.1,
-      "period": "2019\u201320"
-    },
-    {
-      "variable": "Globe temperature",
-      "height": 0.6,
-      "period": "2019\u201320"
-    },
-    {
-      "variable": "Globe temperature",
-      "height": 1.1,
-      "period": "2019\u201320"
-    },
-    {
-      "variable": "Globe temperature",
-      "height": 1.1,
-      "period": "2019\u201320"
-    },
-    {
-      "variable": "Globe temperature",
-      "height": 1.1,
-      "period": "2019\u201320"
-    },
-    {
-      "variable": "Globe temperature",
-      "height": 0.1,
-      "period": "2017\u201318"
-    },
-    {
-      "variable": "Globe temperature",
-      "height": 0.6,
-      "period": "2017\u201318"
-    },
-    {
-      "variable": "Globe temperature",
-      "height": 1.1,
-      "period": "2017\u201318"
-    },
-    {
-      "variable": "Globe temperature",
-      "height": 1.6,
-      "period": "2017\u201318"
-    },
-    {
-      "variable": "Globe temperature",
-      "height": 1.1,
-      "period": "2017\u201318"
-    },
-    {
-      "variable": "Globe temperature",
-      "height": 0.6,
-      "period": "2017\u201318"
-    },
-    {
-      "variable": "Globe temperature",
-      "height": 0.6,
-      "period": "2017\u201318"
-    },
-    {
-      "variable": "Globe temperature",
-      "height": 1.1,
-      "period": "2017\u201318"
-    },
-    {
-      "variable": "Globe temperature",
-      "height": 0.6,
-      "period": "2017\u201318"
+      "period": "2015\u201316"
     },
     {
       "variable": "Globe temperature",
@@ -3467,43 +3537,23 @@
     },
     {
       "variable": "Globe temperature",
-      "height": 1.0,
-      "period": "2015\u201316"
+      "height": 0.1,
+      "period": "2017\u201318"
     },
     {
       "variable": "Globe temperature",
       "height": 0.6,
-      "period": "2015\u201316"
-    },
-    {
-      "variable": "Globe temperature",
-      "height": 1.2,
-      "period": "2013\u201314"
-    },
-    {
-      "variable": "Globe temperature",
-      "height": 0.6,
-      "period": "2013\u201314"
-    },
-    {
-      "variable": "Globe temperature",
-      "height": 0.6,
-      "period": "2013\u201314"
+      "period": "2017\u201318"
     },
     {
       "variable": "Globe temperature",
       "height": 1.1,
-      "period": "2013\u201314"
+      "period": "2017\u201318"
     },
     {
       "variable": "Globe temperature",
-      "height": 1.2,
-      "period": "2013\u201314"
-    },
-    {
-      "variable": "Globe temperature",
-      "height": 0.6,
-      "period": "2019\u201320"
+      "height": 1.6,
+      "period": "2017\u201318"
     },
     {
       "variable": "Globe temperature",
@@ -3513,6 +3563,106 @@
     {
       "variable": "Globe temperature",
       "height": 0.6,
+      "period": "2017\u201318"
+    },
+    {
+      "variable": "Globe temperature",
+      "height": 0.6,
+      "period": "2017\u201318"
+    },
+    {
+      "variable": "Globe temperature",
+      "height": 1.1,
+      "period": "2017\u201318"
+    },
+    {
+      "variable": "Globe temperature",
+      "height": 0.6,
+      "period": "2017\u201318"
+    },
+    {
+      "variable": "Globe temperature",
+      "height": 1.1,
+      "period": "2017\u201318"
+    },
+    {
+      "variable": "Globe temperature",
+      "height": 0.1,
+      "period": "2019\u201320"
+    },
+    {
+      "variable": "Globe temperature",
+      "height": 0.6,
+      "period": "2019\u201320"
+    },
+    {
+      "variable": "Globe temperature",
+      "height": 1.1,
+      "period": "2019\u201320"
+    },
+    {
+      "variable": "Globe temperature",
+      "height": 1.6,
+      "period": "2019\u201320"
+    },
+    {
+      "variable": "Globe temperature",
+      "height": 0.6,
+      "period": "2019\u201320"
+    },
+    {
+      "variable": "Globe temperature",
+      "height": 1.1,
+      "period": "2019\u201320"
+    },
+    {
+      "variable": "Globe temperature",
+      "height": 0.6,
+      "period": "2019\u201320"
+    },
+    {
+      "variable": "Globe temperature",
+      "height": 0.6,
+      "period": "2019\u201320"
+    },
+    {
+      "variable": "Globe temperature",
+      "height": 0.6,
+      "period": "2019\u201320"
+    },
+    {
+      "variable": "Globe temperature",
+      "height": 1.1,
+      "period": "2019\u201320"
+    },
+    {
+      "variable": "Globe temperature",
+      "height": 1.1,
+      "period": "2019\u201320"
+    },
+    {
+      "variable": "Globe temperature",
+      "height": 1.1,
+      "period": "2019\u201320"
+    },
+    {
+      "variable": "Globe temperature",
+      "height": 0.6,
+      "period": "2019\u201320"
+    },
+    {
+      "variable": "Globe temperature",
+      "height": 0.6,
+      "period": "2019\u201320"
+    },
+    {
+      "variable": "Globe temperature",
+      "height": 0.6,
+      "period": "2019\u201320"
+    },
+    {
+      "variable": "Globe temperature",
+      "height": 0.6,
       "period": "2019\u201320"
     },
     {
@@ -3522,6 +3672,16 @@
     },
     {
       "variable": "Globe temperature",
+      "height": 1.1,
+      "period": "2019\u201320"
+    },
+    {
+      "variable": "Globe temperature",
+      "height": 0.6,
+      "period": "2019\u201320"
+    },
+    {
+      "variable": "Globe temperature",
       "height": 0.1,
       "period": "2019\u201320"
     },
@@ -3534,6 +3694,236 @@
       "variable": "Globe temperature",
       "height": 1.1,
       "period": "2019\u201320"
+    },
+    {
+      "variable": "Globe temperature",
+      "height": 1.7,
+      "period": "2019\u201320"
+    },
+    {
+      "variable": "Globe temperature",
+      "height": 0.6,
+      "period": "2019\u201320"
+    },
+    {
+      "variable": "Globe temperature",
+      "height": 1.1,
+      "period": "2021\u201322"
+    },
+    {
+      "variable": "Globe temperature",
+      "height": 1.5,
+      "period": "2021\u201322"
+    },
+    {
+      "variable": "Globe temperature",
+      "height": 0.1,
+      "period": "2021\u201322"
+    },
+    {
+      "variable": "Globe temperature",
+      "height": 0.6,
+      "period": "2021\u201322"
+    },
+    {
+      "variable": "Globe temperature",
+      "height": 1.1,
+      "period": "2021\u201322"
+    },
+    {
+      "variable": "Globe temperature",
+      "height": 0.6,
+      "period": "2021\u201322"
+    },
+    {
+      "variable": "Globe temperature",
+      "height": 1.1,
+      "period": "2021\u201322"
+    },
+    {
+      "variable": "Globe temperature",
+      "height": 1.0,
+      "period": "2021\u201322"
+    },
+    {
+      "variable": "Globe temperature",
+      "height": 1.1,
+      "period": "2021\u201322"
+    },
+    {
+      "variable": "Globe temperature",
+      "height": 0.6,
+      "period": "2021\u201322"
+    },
+    {
+      "variable": "Globe temperature",
+      "height": 1.1,
+      "period": "2021\u201322"
+    },
+    {
+      "variable": "Globe temperature",
+      "height": 1.1,
+      "period": "2021\u201322"
+    },
+    {
+      "variable": "Globe temperature",
+      "height": 0.6,
+      "period": "2021\u201322"
+    },
+    {
+      "variable": "Globe temperature",
+      "height": 1.1,
+      "period": "2021\u201322"
+    },
+    {
+      "variable": "Globe temperature",
+      "height": 0.1,
+      "period": "2021\u201322"
+    },
+    {
+      "variable": "Globe temperature",
+      "height": 0.6,
+      "period": "2021\u201322"
+    },
+    {
+      "variable": "Globe temperature",
+      "height": 1.1,
+      "period": "2021\u201322"
+    },
+    {
+      "variable": "Globe temperature",
+      "height": 1.0,
+      "period": "2021\u201322"
+    },
+    {
+      "variable": "Globe temperature",
+      "height": 1.1,
+      "period": "2021\u201322"
+    },
+    {
+      "variable": "Globe temperature",
+      "height": 1.5,
+      "period": "2021\u201322"
+    },
+    {
+      "variable": "Globe temperature",
+      "height": 0.6,
+      "period": "2021\u201322"
+    },
+    {
+      "variable": "Globe temperature",
+      "height": 0.1,
+      "period": "2021\u201322"
+    },
+    {
+      "variable": "Globe temperature",
+      "height": 0.6,
+      "period": "2021\u201322"
+    },
+    {
+      "variable": "Globe temperature",
+      "height": 1.1,
+      "period": "2021\u201322"
+    },
+    {
+      "variable": "Globe temperature",
+      "height": 1.7,
+      "period": "2021\u201322"
+    },
+    {
+      "variable": "Globe temperature",
+      "height": 0.1,
+      "period": "2021\u201322"
+    },
+    {
+      "variable": "Globe temperature",
+      "height": 0.6,
+      "period": "2021\u201322"
+    },
+    {
+      "variable": "Globe temperature",
+      "height": 1.1,
+      "period": "2021\u201322"
+    },
+    {
+      "variable": "Globe temperature",
+      "height": 1.7,
+      "period": "2021\u201322"
+    },
+    {
+      "variable": "Globe temperature",
+      "height": 0.6,
+      "period": "2021\u201322"
+    },
+    {
+      "variable": "Globe temperature",
+      "height": 0.6,
+      "period": "2021\u201322"
+    },
+    {
+      "variable": "Globe temperature",
+      "height": 1.0,
+      "period": "2021\u201322"
+    },
+    {
+      "variable": "Globe temperature",
+      "height": 1.1,
+      "period": "2021\u201322"
+    },
+    {
+      "variable": "Globe temperature",
+      "height": 0.6,
+      "period": "2021\u201322"
+    },
+    {
+      "variable": "Globe temperature",
+      "height": 0.6,
+      "period": "2021\u201322"
+    },
+    {
+      "variable": "Globe temperature",
+      "height": 1.1,
+      "period": "2021\u201322"
+    },
+    {
+      "variable": "Globe temperature",
+      "height": 1.1,
+      "period": "2021\u201322"
+    },
+    {
+      "variable": "Globe temperature",
+      "height": 0.6,
+      "period": "2023\u201324"
+    },
+    {
+      "variable": "Globe temperature",
+      "height": 0.6,
+      "period": "2023\u201324"
+    },
+    {
+      "variable": "Globe temperature",
+      "height": 0.1,
+      "period": "2023\u201324"
+    },
+    {
+      "variable": "Globe temperature",
+      "height": 0.6,
+      "period": "2023\u201324"
+    },
+    {
+      "variable": "Globe temperature",
+      "height": 1.1,
+      "period": "2023\u201324"
+    },
+    {
+      "variable": "Globe temperature",
+      "height": 0.6,
+      "period": "2023\u201324"
+    },
+    {
+      "variable": "Globe temperature",
+      "height": 0.6,
+      "period": "2023\u201324"
     },
     {
       "variable": "Globe temperature",
@@ -3542,7 +3932,17 @@
     },
     {
       "variable": "Globe temperature",
-      "height": 0.1,
+      "height": 1.5,
+      "period": "2023\u201324"
+    },
+    {
+      "variable": "Globe temperature",
+      "height": 1.5,
+      "period": "2023\u201324"
+    },
+    {
+      "variable": "Globe temperature",
+      "height": 1.5,
       "period": "2023\u201324"
     },
     {
@@ -3557,12 +3957,12 @@
     },
     {
       "variable": "Globe temperature",
-      "height": 1.1,
+      "height": 0.6,
       "period": "2023\u201324"
     },
     {
       "variable": "Globe temperature",
-      "height": 1.1,
+      "height": 0.6,
       "period": "2023\u201324"
     },
     {
@@ -3588,17 +3988,17 @@
     {
       "variable": "Globe temperature",
       "height": 0.6,
-      "period": "2019\u201320"
+      "period": "2023\u201324"
     },
     {
       "variable": "Globe temperature",
-      "height": 0.6,
-      "period": "2019\u201320"
+      "height": 1.1,
+      "period": "2023\u201324"
     },
     {
       "variable": "Globe temperature",
-      "height": 0.6,
-      "period": "2019\u201320"
+      "height": 1.1,
+      "period": "2023\u201324"
     },
     {
       "variable": "Globe temperature",
@@ -3607,7 +4007,42 @@
     },
     {
       "variable": "Globe temperature",
+      "height": 1.1,
+      "period": "2023\u201324"
+    },
+    {
+      "variable": "Globe temperature",
       "height": 0.6,
+      "period": "2023\u201324"
+    },
+    {
+      "variable": "Globe temperature",
+      "height": 1.1,
+      "period": "2023\u201324"
+    },
+    {
+      "variable": "Globe temperature",
+      "height": 0.6,
+      "period": "2023\u201324"
+    },
+    {
+      "variable": "Globe temperature",
+      "height": 0.1,
+      "period": "2023\u201324"
+    },
+    {
+      "variable": "Globe temperature",
+      "height": 0.6,
+      "period": "2023\u201324"
+    },
+    {
+      "variable": "Globe temperature",
+      "height": 1.1,
+      "period": "2023\u201324"
+    },
+    {
+      "variable": "Globe temperature",
+      "height": 1.7,
       "period": "2023\u201324"
     }
   ],

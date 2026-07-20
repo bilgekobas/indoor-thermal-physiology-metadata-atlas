@@ -82,7 +82,7 @@
       "signal": "Blood pressure",
       "sensing_method": "Digital sphygmomanometer",
       "site": "Wrist",
-      "count": 6
+      "count": 7
     },
     {
       "signal": "Blood pressure",
@@ -94,6 +94,12 @@
       "signal": "Blood pressure",
       "sensing_method": "Sphygmomanometer",
       "site": "Upper arm",
+      "count": 1
+    },
+    {
+      "signal": "Core/Body temperature",
+      "sensing_method": "Heat flux",
+      "site": "Abdomen",
       "count": 1
     },
     {
@@ -118,7 +124,7 @@
       "signal": "Core/Body temperature",
       "sensing_method": "Ingestible pill",
       "site": "Gastrointestinal tract",
-      "count": 9
+      "count": 10
     },
     {
       "signal": "Core/Body temperature",
@@ -146,6 +152,12 @@
     },
     {
       "signal": "Core/Body temperature",
+      "sensing_method": "Thermochron",
+      "site": "Mouth",
+      "count": 1
+    },
+    {
+      "signal": "Core/Body temperature",
       "sensing_method": "Thermometer",
       "site": "Axilla",
       "count": 1
@@ -166,7 +178,7 @@
       "signal": "EEG",
       "sensing_method": "1-channel",
       "site": "Cz",
-      "count": 1
+      "count": 2
     },
     {
       "signal": "EEG",
@@ -178,7 +190,7 @@
       "signal": "EEG",
       "sensing_method": "14-channel",
       "site": "AF3, F7, F3, FC5, T7, P7, O1, O2, P8, T8, FC6, F4, F8, AF4",
-      "count": 2
+      "count": 3
     },
     {
       "signal": "EEG",
@@ -190,6 +202,12 @@
       "signal": "EEG",
       "sensing_method": "14-channel",
       "site": "AF3, F7, F3, FC5, T7, P7, O1, O2, P8, T8, FC6, F4, F8, AF4, CMS, DRL",
+      "count": 1
+    },
+    {
+      "signal": "EEG",
+      "sensing_method": "16-channel",
+      "site": "AF3, F7, F3, T7, C3, P7, P3, O1, O2, P4, P8, C4, T8, F4, F8, AF4",
       "count": 1
     },
     {
@@ -232,7 +250,7 @@
       "signal": "EEG",
       "sensing_method": "4-channel",
       "site": "AF7, AF8, TP9, TP10",
-      "count": 1
+      "count": 3
     },
     {
       "signal": "EEG",
@@ -291,6 +309,12 @@
     {
       "signal": "EMG",
       "sensing_method": "EMG",
+      "site": "Face",
+      "count": 1
+    },
+    {
+      "signal": "EMG",
+      "sensing_method": "EMG",
       "site": "Thigh",
       "count": 1
     },
@@ -334,13 +358,13 @@
       "signal": "Heart/Pulse rate",
       "sensing_method": "Digital sphygmomanometer",
       "site": "Wrist",
-      "count": 3
+      "count": 4
     },
     {
       "signal": "Heart/Pulse rate",
       "sensing_method": "ECG",
       "site": "Chest",
-      "count": 44
+      "count": 50
     },
     {
       "signal": "Heart/Pulse rate",
@@ -394,7 +418,13 @@
       "signal": "Heart/Pulse rate",
       "sensing_method": "OHR/PPG",
       "site": "Wrist",
-      "count": 18
+      "count": 21
+    },
+    {
+      "signal": "Heart/Pulse rate",
+      "sensing_method": "PPG",
+      "site": "Wrist",
+      "count": 1
     },
     {
       "signal": "Heart/Pulse rate",
@@ -526,7 +556,7 @@
       "signal": "Metabolic rate/Gas exchange",
       "sensing_method": "Respiration chamber",
       "site": "Whole body",
-      "count": 2
+      "count": 3
     },
     {
       "signal": "Movement",
@@ -538,7 +568,7 @@
       "signal": "Movement",
       "sensing_method": "Accelerometer",
       "site": "Thigh",
-      "count": 1
+      "count": 2
     },
     {
       "signal": "Movement",
@@ -561,8 +591,20 @@
     {
       "signal": "Near body temperature",
       "sensing_method": "Hygrochron",
-      "site": "Chest",
+      "site": "Ankle",
       "count": 1
+    },
+    {
+      "signal": "Near body temperature",
+      "sensing_method": "Hygrochron",
+      "site": "Calf",
+      "count": 1
+    },
+    {
+      "signal": "Near body temperature",
+      "sensing_method": "Hygrochron",
+      "site": "Chest",
+      "count": 2
     },
     {
       "signal": "Near body temperature",
@@ -580,6 +622,12 @@
       "signal": "Near body temperature",
       "sensing_method": "Hygrochron",
       "site": "Thigh",
+      "count": 2
+    },
+    {
+      "signal": "Near body temperature",
+      "sensing_method": "Hygrochron",
+      "site": "Upper arm",
       "count": 1
     },
     {
@@ -598,36 +646,6 @@
       "signal": "Near body temperature",
       "sensing_method": "Silicon-based temperature sensor",
       "site": "Wrist",
-      "count": 1
-    },
-    {
-      "signal": "Near body temperature",
-      "sensing_method": "Thermochron",
-      "site": "Ankle",
-      "count": 1
-    },
-    {
-      "signal": "Near body temperature",
-      "sensing_method": "Thermochron",
-      "site": "Calf",
-      "count": 1
-    },
-    {
-      "signal": "Near body temperature",
-      "sensing_method": "Thermochron",
-      "site": "Chest",
-      "count": 1
-    },
-    {
-      "signal": "Near body temperature",
-      "sensing_method": "Thermochron",
-      "site": "Thigh",
-      "count": 1
-    },
-    {
-      "signal": "Near body temperature",
-      "sensing_method": "Thermochron",
-      "site": "Upper arm",
       "count": 1
     },
     {
@@ -706,7 +724,7 @@
       "signal": "Respiration",
       "sensing_method": "Respiration belt",
       "site": "Chest",
-      "count": 2
+      "count": 3
     },
     {
       "signal": "Sensory nerve conduction velocity",
@@ -736,12 +754,24 @@
       "signal": "Skin blood flow",
       "sensing_method": "Laser Doppler",
       "site": "Hand",
-      "count": 2
+      "count": 3
     },
     {
       "signal": "Skin blood flow",
       "sensing_method": "OHR/PPG",
       "site": "Finger",
+      "count": 1
+    },
+    {
+      "signal": "Skin conductance",
+      "sensing_method": "EDA",
+      "site": "Wrist",
+      "count": 1
+    },
+    {
+      "signal": "Skin conductance",
+      "sensing_method": "EDA/GSR",
+      "site": "Wrist",
       "count": 1
     },
     {
@@ -772,55 +802,7 @@
       "signal": "Skin conductance",
       "sensing_method": "GSR/EDA",
       "site": "Wrist",
-      "count": 11
-    },
-    {
-      "signal": "Skin conductance",
-      "sensing_method": "Hygrochron",
-      "site": "Back",
-      "count": 1
-    },
-    {
-      "signal": "Skin conductance",
-      "sensing_method": "Hygrochron",
-      "site": "Chest",
-      "count": 3
-    },
-    {
-      "signal": "Skin conductance",
-      "sensing_method": "Hygrochron",
-      "site": "Forearm",
-      "count": 1
-    },
-    {
-      "signal": "Skin conductance",
-      "sensing_method": "Hygrochron",
-      "site": "Shin",
-      "count": 3
-    },
-    {
-      "signal": "Skin conductance",
-      "sensing_method": "Hygrochron",
-      "site": "Temple",
-      "count": 1
-    },
-    {
-      "signal": "Skin conductance",
-      "sensing_method": "Hygrochron",
-      "site": "Thigh",
-      "count": 3
-    },
-    {
-      "signal": "Skin conductance",
-      "sensing_method": "Hygrochron",
-      "site": "Upper arm",
-      "count": 1
-    },
-    {
-      "signal": "Skin conductance",
-      "sensing_method": "Thermochron",
-      "site": "Temple",
-      "count": 1
+      "count": 12
     },
     {
       "signal": "Skin hardness",
@@ -963,7 +945,115 @@
     {
       "signal": "Skin temperature",
       "sensing_method": "Hygrochron",
+      "site": "Abdomen",
+      "count": 7
+    },
+    {
+      "signal": "Skin temperature",
+      "sensing_method": "Hygrochron",
+      "site": "Ankle",
+      "count": 1
+    },
+    {
+      "signal": "Skin temperature",
+      "sensing_method": "Hygrochron",
+      "site": "Arm",
+      "count": 2
+    },
+    {
+      "signal": "Skin temperature",
+      "sensing_method": "Hygrochron",
+      "site": "Back",
+      "count": 15
+    },
+    {
+      "signal": "Skin temperature",
+      "sensing_method": "Hygrochron",
+      "site": "Buttocks",
+      "count": 1
+    },
+    {
+      "signal": "Skin temperature",
+      "sensing_method": "Hygrochron",
+      "site": "Chest",
+      "count": 16
+    },
+    {
+      "signal": "Skin temperature",
+      "sensing_method": "Hygrochron",
+      "site": "Face",
+      "count": 1
+    },
+    {
+      "signal": "Skin temperature",
+      "sensing_method": "Hygrochron",
+      "site": "Foot",
+      "count": 8
+    },
+    {
+      "signal": "Skin temperature",
+      "sensing_method": "Hygrochron",
+      "site": "Forearm",
+      "count": 12
+    },
+    {
+      "signal": "Skin temperature",
+      "sensing_method": "Hygrochron",
+      "site": "Forehead",
+      "count": 14
+    },
+    {
+      "signal": "Skin temperature",
+      "sensing_method": "Hygrochron",
+      "site": "Hand",
+      "count": 18
+    },
+    {
+      "signal": "Skin temperature",
+      "sensing_method": "Hygrochron",
+      "site": "Lower back",
+      "count": 1
+    },
+    {
+      "signal": "Skin temperature",
+      "sensing_method": "Hygrochron",
+      "site": "Lower leg",
+      "count": 12
+    },
+    {
+      "signal": "Skin temperature",
+      "sensing_method": "Hygrochron",
+      "site": "Neck",
+      "count": 2
+    },
+    {
+      "signal": "Skin temperature",
+      "sensing_method": "Hygrochron",
+      "site": "Pelvis",
+      "count": 1
+    },
+    {
+      "signal": "Skin temperature",
+      "sensing_method": "Hygrochron",
       "site": "Temple",
+      "count": 1
+    },
+    {
+      "signal": "Skin temperature",
+      "sensing_method": "Hygrochron",
+      "site": "Thigh",
+      "count": 14
+    },
+    {
+      "signal": "Skin temperature",
+      "sensing_method": "Hygrochron",
+      "site": "Upper arm",
+      "count": 12
+    },
+    {
+      "signal": "Skin temperature",
+      "sensing_method": "Hygrochron",
+      "site": "Wrist",
       "count": 1
     },
     {
@@ -1162,7 +1252,7 @@
       "signal": "Skin temperature",
       "sensing_method": "Infrared thermopile",
       "site": "Wrist",
-      "count": 10
+      "count": 12
     },
     {
       "signal": "Skin temperature",
@@ -1378,43 +1468,49 @@
       "signal": "Skin temperature",
       "sensing_method": "Thermistor",
       "site": "Wrist",
-      "count": 5
+      "count": 6
     },
     {
       "signal": "Skin temperature",
       "sensing_method": "Thermochron",
       "site": "Abdomen",
-      "count": 16
+      "count": 12
     },
     {
       "signal": "Skin temperature",
       "sensing_method": "Thermochron",
       "site": "Ankle",
-      "count": 5
+      "count": 4
     },
     {
       "signal": "Skin temperature",
       "sensing_method": "Thermochron",
       "site": "Arm",
-      "count": 3
-    },
-    {
-      "signal": "Skin temperature",
-      "sensing_method": "Thermochron",
-      "site": "Axilla",
       "count": 1
     },
     {
       "signal": "Skin temperature",
       "sensing_method": "Thermochron",
+      "site": "Axilla",
+      "count": 2
+    },
+    {
+      "signal": "Skin temperature",
+      "sensing_method": "Thermochron",
       "site": "Back",
-      "count": 36
+      "count": 30
+    },
+    {
+      "signal": "Skin temperature",
+      "sensing_method": "Thermochron",
+      "site": "Belly",
+      "count": 1
     },
     {
       "signal": "Skin temperature",
       "sensing_method": "Thermochron",
       "site": "Buttocks",
-      "count": 2
+      "count": 1
     },
     {
       "signal": "Skin temperature",
@@ -1426,7 +1522,7 @@
       "signal": "Skin temperature",
       "sensing_method": "Thermochron",
       "site": "Chest",
-      "count": 59
+      "count": 52
     },
     {
       "signal": "Skin temperature",
@@ -1450,55 +1546,49 @@
       "signal": "Skin temperature",
       "sensing_method": "Thermochron",
       "site": "Elbow",
-      "count": 4
-    },
-    {
-      "signal": "Skin temperature",
-      "sensing_method": "Thermochron",
-      "site": "Face",
-      "count": 1
+      "count": 5
     },
     {
       "signal": "Skin temperature",
       "sensing_method": "Thermochron",
       "site": "Finger",
-      "count": 7
+      "count": 8
     },
     {
       "signal": "Skin temperature",
       "sensing_method": "Thermochron",
       "site": "Foot",
-      "count": 26
+      "count": 25
     },
     {
       "signal": "Skin temperature",
       "sensing_method": "Thermochron",
       "site": "Forearm",
-      "count": 41
+      "count": 37
     },
     {
       "signal": "Skin temperature",
       "sensing_method": "Thermochron",
       "site": "Forehead",
-      "count": 45
+      "count": 40
     },
     {
       "signal": "Skin temperature",
       "sensing_method": "Thermochron",
       "site": "Hand",
-      "count": 57
+      "count": 50
     },
     {
       "signal": "Skin temperature",
       "sensing_method": "Thermochron",
       "site": "Lower back",
-      "count": 4
+      "count": 5
     },
     {
       "signal": "Skin temperature",
       "sensing_method": "Thermochron",
       "site": "Lower leg",
-      "count": 66
+      "count": 63
     },
     {
       "signal": "Skin temperature",
@@ -1510,7 +1600,7 @@
       "signal": "Skin temperature",
       "sensing_method": "Thermochron",
       "site": "Neck",
-      "count": 15
+      "count": 14
     },
     {
       "signal": "Skin temperature",
@@ -1528,13 +1618,25 @@
       "signal": "Skin temperature",
       "sensing_method": "Thermochron",
       "site": "Thigh",
-      "count": 58
+      "count": 54
     },
     {
       "signal": "Skin temperature",
       "sensing_method": "Thermochron",
       "site": "Upper arm",
-      "count": 45
+      "count": 43
+    },
+    {
+      "signal": "Skin temperature",
+      "sensing_method": "Thermochron",
+      "site": "Upper back",
+      "count": 1
+    },
+    {
+      "signal": "Skin temperature",
+      "sensing_method": "Thermochron",
+      "site": "Waist",
+      "count": 1
     },
     {
       "signal": "Skin temperature",
@@ -1564,7 +1666,7 @@
       "signal": "Skin temperature",
       "sensing_method": "Thermocouple",
       "site": "Back",
-      "count": 22
+      "count": 23
     },
     {
       "signal": "Skin temperature",
@@ -1582,7 +1684,7 @@
       "signal": "Skin temperature",
       "sensing_method": "Thermocouple",
       "site": "Chest",
-      "count": 37
+      "count": 42
     },
     {
       "signal": "Skin temperature",
@@ -1612,13 +1714,19 @@
       "signal": "Skin temperature",
       "sensing_method": "Thermocouple",
       "site": "Forehead",
-      "count": 33
+      "count": 35
     },
     {
       "signal": "Skin temperature",
       "sensing_method": "Thermocouple",
       "site": "Hand",
-      "count": 38
+      "count": 39
+    },
+    {
+      "signal": "Skin temperature",
+      "sensing_method": "Thermocouple",
+      "site": "Head",
+      "count": 1
     },
     {
       "signal": "Skin temperature",
@@ -1636,7 +1744,7 @@
       "signal": "Skin temperature",
       "sensing_method": "Thermocouple",
       "site": "Lower leg",
-      "count": 41
+      "count": 44
     },
     {
       "signal": "Skin temperature",
@@ -1648,13 +1756,13 @@
       "signal": "Skin temperature",
       "sensing_method": "Thermocouple",
       "site": "Thigh",
-      "count": 40
+      "count": 44
     },
     {
       "signal": "Skin temperature",
       "sensing_method": "Thermocouple",
       "site": "Upper arm",
-      "count": 34
+      "count": 38
     },
     {
       "signal": "Skin temperature",
@@ -1695,8 +1803,68 @@
     {
       "signal": "Sweat indicators",
       "sensing_method": "Hygrochron",
-      "site": "Temple",
+      "site": "Abdomen",
       "count": 1
+    },
+    {
+      "signal": "Sweat indicators",
+      "sensing_method": "Hygrochron",
+      "site": "Back",
+      "count": 2
+    },
+    {
+      "signal": "Sweat indicators",
+      "sensing_method": "Hygrochron",
+      "site": "Chest",
+      "count": 4
+    },
+    {
+      "signal": "Sweat indicators",
+      "sensing_method": "Hygrochron",
+      "site": "Foot",
+      "count": 1
+    },
+    {
+      "signal": "Sweat indicators",
+      "sensing_method": "Hygrochron",
+      "site": "Forearm",
+      "count": 2
+    },
+    {
+      "signal": "Sweat indicators",
+      "sensing_method": "Hygrochron",
+      "site": "Forehead",
+      "count": 1
+    },
+    {
+      "signal": "Sweat indicators",
+      "sensing_method": "Hygrochron",
+      "site": "Hand",
+      "count": 1
+    },
+    {
+      "signal": "Sweat indicators",
+      "sensing_method": "Hygrochron",
+      "site": "Shin",
+      "count": 4
+    },
+    {
+      "signal": "Sweat indicators",
+      "sensing_method": "Hygrochron",
+      "site": "Temple",
+      "count": 3
+    },
+    {
+      "signal": "Sweat indicators",
+      "sensing_method": "Hygrochron",
+      "site": "Thigh",
+      "count": 4
+    },
+    {
+      "signal": "Sweat indicators",
+      "sensing_method": "Hygrochron",
+      "site": "Upper arm",
+      "count": 2
     },
     {
       "signal": "Sweat indicators",

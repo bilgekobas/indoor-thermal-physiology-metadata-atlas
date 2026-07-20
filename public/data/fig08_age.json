@@ -1,1006 +1,1684 @@
 {
   "studies": [
     {
-      "id": "131_1",
+      "id": "1241_1",
+      "mean": 16.3,
+      "std": null,
+      "std_reported": false,
+      "pooled_from_subgroups": 20
+    },
+    {
+      "id": "1093_1",
       "mean": 18.7,
       "std": null,
-      "std_reported": false
+      "std_reported": false,
+      "pooled_from_subgroups": null
     },
     {
-      "id": "116_1",
+      "id": "1028_1",
+      "mean": 19.2,
+      "std": 0.8,
+      "std_reported": true,
+      "pooled_from_subgroups": null
+    },
+    {
+      "id": "1071_1",
       "mean": 19.2,
       "std": 1.3,
-      "std_reported": true
+      "std_reported": true,
+      "pooled_from_subgroups": null
     },
     {
-      "id": "157_1",
-      "mean": 19.2,
-      "std": 0.8,
-      "std_reported": true
-    },
-    {
-      "id": "209_1",
+      "id": "1203_1",
       "mean": 19.2,
       "std": 0.7,
-      "std_reported": true
+      "std_reported": true,
+      "pooled_from_subgroups": null
     },
     {
-      "id": "141_1",
-      "mean": 19.5,
-      "std": 1.05,
-      "std_reported": true
+      "id": "1033_1",
+      "mean": 19.45,
+      "std": 1.1,
+      "std_reported": true,
+      "pooled_from_subgroups": 60
     },
     {
-      "id": "160_1",
+      "id": "1031_1",
       "mean": 19.5,
       "std": 0.8,
-      "std_reported": true
+      "std_reported": true,
+      "pooled_from_subgroups": null
     },
     {
-      "id": "89_1",
-      "mean": 19.7,
-      "std": 1.5,
-      "std_reported": true
+      "id": "1050_1",
+      "mean": 19.5,
+      "std": 1.05,
+      "std_reported": true,
+      "pooled_from_subgroups": null
     },
     {
-      "id": "137_1",
+      "id": "1184_1",
+      "mean": 19.55,
+      "std": 0.76,
+      "std_reported": true,
+      "pooled_from_subgroups": 20
+    },
+    {
+      "id": "1146_1",
+      "mean": 19.62,
+      "std": 1.52,
+      "std_reported": true,
+      "pooled_from_subgroups": 32
+    },
+    {
+      "id": "1020_1",
+      "mean": 19.65,
+      "std": 1.34,
+      "std_reported": true,
+      "pooled_from_subgroups": 30
+    },
+    {
+      "id": "1045_1",
       "mean": 19.7,
       "std": 1.7,
-      "std_reported": true
+      "std_reported": true,
+      "pooled_from_subgroups": null
     },
     {
-      "id": "188_1",
+      "id": "1152_1",
+      "mean": 19.7,
+      "std": 1.5,
+      "std_reported": true,
+      "pooled_from_subgroups": null
+    },
+    {
+      "id": "1007_1",
       "mean": 20.0,
       "std": 1.0,
-      "std_reported": true
+      "std_reported": true,
+      "pooled_from_subgroups": null
     },
     {
-      "id": "225_2",
+      "id": "1213_2",
       "mean": 20.0,
       "std": 1.0,
-      "std_reported": true
+      "std_reported": true,
+      "pooled_from_subgroups": null
     },
     {
-      "id": "196_1",
+      "id": "1169_1",
+      "mean": 20.0,
+      "std": 2.0,
+      "std_reported": true,
+      "pooled_from_subgroups": null
+    },
+    {
+      "id": "1136_1",
+      "mean": 20.13,
+      "std": 1.29,
+      "std_reported": true,
+      "pooled_from_subgroups": 29
+    },
+    {
+      "id": "1004_1",
       "mean": 20.18,
       "std": 2.4,
-      "std_reported": true
+      "std_reported": true,
+      "pooled_from_subgroups": null
     },
     {
-      "id": "220_1",
+      "id": "1211_1",
       "mean": 20.2,
       "std": 1.4,
-      "std_reported": true
+      "std_reported": true,
+      "pooled_from_subgroups": null
     },
     {
-      "id": "225_1",
+      "id": "1213_1",
       "mean": 20.26,
       "std": 0.84,
-      "std_reported": true
+      "std_reported": true,
+      "pooled_from_subgroups": null
     },
     {
-      "id": "103_1",
+      "id": "1112_1",
       "mean": 20.3,
       "std": 1.1,
-      "std_reported": true
+      "std_reported": true,
+      "pooled_from_subgroups": null
     },
     {
-      "id": "75_1",
+      "id": "1114_1",
+      "mean": 20.3,
+      "std": 1.08,
+      "std_reported": true,
+      "pooled_from_subgroups": 18
+    },
+    {
+      "id": "1038_1",
+      "mean": 20.35,
+      "std": 0.99,
+      "std_reported": true,
+      "pooled_from_subgroups": 20
+    },
+    {
+      "id": "1135_1",
       "mean": 20.4,
       "std": 1.9,
-      "std_reported": true
+      "std_reported": true,
+      "pooled_from_subgroups": null
     },
     {
-      "id": "178_1",
+      "id": "1023_1",
       "mean": 20.5,
       "std": 1.5,
-      "std_reported": true
+      "std_reported": true,
+      "pooled_from_subgroups": null
     },
     {
-      "id": "217_1",
+      "id": "1041_1",
+      "mean": 20.6,
+      "std": 1.62,
+      "std_reported": true,
+      "pooled_from_subgroups": 60
+    },
+    {
+      "id": "1075_1",
       "mean": 20.7,
       "std": 3.1,
-      "std_reported": true
+      "std_reported": true,
+      "pooled_from_subgroups": null
     },
     {
-      "id": "108_1",
+      "id": "1124_1",
+      "mean": 20.75,
+      "std": 0.84,
+      "std_reported": true,
+      "pooled_from_subgroups": 82
+    },
+    {
+      "id": "1119_1",
       "mean": 20.8,
       "std": 2.5,
-      "std_reported": true
+      "std_reported": true,
+      "pooled_from_subgroups": null
     },
     {
-      "id": "56_1",
+      "id": "1013_1",
       "mean": 21.0,
-      "std": 2.1,
-      "std_reported": true
+      "std": 0.77,
+      "std_reported": true,
+      "pooled_from_subgroups": 36
     },
     {
-      "id": "84_1",
-      "mean": 21.0,
-      "std": 2.1,
-      "std_reported": true
-    },
-    {
-      "id": "158_1",
+      "id": "1029_1",
       "mean": 21.0,
       "std": 2.89,
-      "std_reported": true
+      "std_reported": true,
+      "pooled_from_subgroups": null
     },
     {
-      "id": "13_1",
+      "id": "1145_1",
+      "mean": 21.0,
+      "std": 2.1,
+      "std_reported": true,
+      "pooled_from_subgroups": null
+    },
+    {
+      "id": "1189_1",
+      "mean": 21.0,
+      "std": 2.1,
+      "std_reported": true,
+      "pooled_from_subgroups": null
+    },
+    {
+      "id": "1024_1",
+      "mean": 21.05,
+      "std": 1.31,
+      "std_reported": true,
+      "pooled_from_subgroups": 60
+    },
+    {
+      "id": "1266_1",
       "mean": 21.13,
       "std": 1.05,
-      "std_reported": true
+      "std_reported": true,
+      "pooled_from_subgroups": null
     },
     {
-      "id": "63_1",
+      "id": "1197_1",
       "mean": 21.2,
       "std": null,
-      "std_reported": false
+      "std_reported": false,
+      "pooled_from_subgroups": null
     },
     {
-      "id": "7_1",
-      "mean": 21.3,
-      "std": 1.8,
-      "std_reported": true
-    },
-    {
-      "id": "149_1",
-      "mean": 21.3,
-      "std": 1.6,
-      "std_reported": true
-    },
-    {
-      "id": "194_1",
+      "id": "1002_1",
       "mean": 21.3,
       "std": 0.75,
-      "std_reported": true
+      "std_reported": true,
+      "pooled_from_subgroups": null
     },
     {
-      "id": "2_3",
+      "id": "1058_1",
+      "mean": 21.3,
+      "std": 1.6,
+      "std_reported": true,
+      "pooled_from_subgroups": null
+    },
+    {
+      "id": "1231_1",
+      "mean": 21.3,
+      "std": 1.8,
+      "std_reported": true,
+      "pooled_from_subgroups": null
+    },
+    {
+      "id": "1129_1",
       "mean": 21.4,
       "std": 1.6,
-      "std_reported": true
+      "std_reported": true,
+      "pooled_from_subgroups": null
     },
     {
-      "id": "74_3",
+      "id": "1134_3",
       "mean": 21.4,
       "std": 1.6,
-      "std_reported": true
+      "std_reported": true,
+      "pooled_from_subgroups": null
     },
     {
-      "id": "226_1",
+      "id": "1217_3",
       "mean": 21.4,
       "std": 1.6,
-      "std_reported": true
+      "std_reported": true,
+      "pooled_from_subgroups": null
     },
     {
-      "id": "236_3",
+      "id": "1237_3",
       "mean": 21.4,
       "std": 1.6,
-      "std_reported": true
+      "std_reported": true,
+      "pooled_from_subgroups": null
     },
     {
-      "id": "9_1",
+      "id": "1183_1",
+      "mean": 21.4,
+      "std": 1.9,
+      "std_reported": true,
+      "pooled_from_subgroups": null
+    },
+    {
+      "id": "1073_1",
+      "mean": 21.47,
+      "std": 2.91,
+      "std_reported": true,
+      "pooled_from_subgroups": 810
+    },
+    {
+      "id": "1265_1",
       "mean": 21.5,
       "std": 1.6,
-      "std_reported": true
+      "std_reported": true,
+      "pooled_from_subgroups": null
     },
     {
-      "id": "47_1",
-      "mean": 21.6,
-      "std": 1.3,
-      "std_reported": true
+      "id": "1245_1",
+      "mean": 21.5,
+      "std": 2.3,
+      "std_reported": true,
+      "pooled_from_subgroups": null
     },
     {
-      "id": "110_1",
-      "mean": 21.6,
-      "std": 3.5,
-      "std_reported": true
-    },
-    {
-      "id": "133_1",
+      "id": "1095_1",
       "mean": 21.6,
       "std": 1.7,
-      "std_reported": true
+      "std_reported": true,
+      "pooled_from_subgroups": null
     },
     {
-      "id": "181_1",
+      "id": "1123_1",
+      "mean": 21.6,
+      "std": 3.5,
+      "std_reported": true,
+      "pooled_from_subgroups": null
+    },
+    {
+      "id": "1178_1",
+      "mean": 21.6,
+      "std": 1.3,
+      "std_reported": true,
+      "pooled_from_subgroups": null
+    },
+    {
+      "id": "1063_1",
+      "mean": 21.7,
+      "std": 3.55,
+      "std_reported": true,
+      "pooled_from_subgroups": 82
+    },
+    {
+      "id": "1244_1",
+      "mean": 21.7,
+      "std": 3.0,
+      "std_reported": true,
+      "pooled_from_subgroups": null
+    },
+    {
+      "id": "1220_1",
+      "mean": 21.75,
+      "std": 1.75,
+      "std_reported": true,
+      "pooled_from_subgroups": 26
+    },
+    {
+      "id": "1267_2",
+      "mean": 21.75,
+      "std": 1.75,
+      "std_reported": true,
+      "pooled_from_subgroups": 26
+    },
+    {
+      "id": "1250_1",
+      "mean": 21.75,
+      "std": 1.62,
+      "std_reported": true,
+      "pooled_from_subgroups": 16
+    },
+    {
+      "id": "1026_1",
       "mean": 21.8,
       "std": 3.9,
-      "std_reported": true
+      "std_reported": true,
+      "pooled_from_subgroups": null
     },
     {
-      "id": "127_1",
-      "mean": 22.0,
-      "std": 0.8,
-      "std_reported": true
-    },
-    {
-      "id": "182_1",
+      "id": "1012_1",
       "mean": 22.0,
       "std": 1.4,
-      "std_reported": true
+      "std_reported": true,
+      "pooled_from_subgroups": null
     },
     {
-      "id": "184_1",
+      "id": "1014_1",
       "mean": 22.0,
       "std": 1.0,
-      "std_reported": true
+      "std_reported": true,
+      "pooled_from_subgroups": null
     },
     {
-      "id": "239_1",
+      "id": "1022_1",
+      "mean": 22.0,
+      "std": 0.98,
+      "std_reported": true,
+      "pooled_from_subgroups": 24
+    },
+    {
+      "id": "1087_1",
+      "mean": 22.0,
+      "std": 0.8,
+      "std_reported": true,
+      "pooled_from_subgroups": null
+    },
+    {
+      "id": "1138_1",
+      "mean": 22.0,
+      "std": null,
+      "std_reported": false,
+      "pooled_from_subgroups": 30
+    },
+    {
+      "id": "1256_1",
       "mean": 22.0,
       "std": 1.9,
-      "std_reported": true
+      "std_reported": true,
+      "pooled_from_subgroups": null
     },
     {
-      "id": "31_1",
-      "mean": 22.1,
-      "std": 3.0,
-      "std_reported": true
-    },
-    {
-      "id": "206_1",
+      "id": "1070_1",
       "mean": 22.1,
       "std": 1.2,
-      "std_reported": true
+      "std_reported": true,
+      "pooled_from_subgroups": null
     },
     {
-      "id": "187_1",
+      "id": "1159_1",
+      "mean": 22.1,
+      "std": 3.0,
+      "std_reported": true,
+      "pooled_from_subgroups": null
+    },
+    {
+      "id": "1006_1",
       "mean": 22.2,
       "std": 1.0,
-      "std_reported": true
+      "std_reported": true,
+      "pooled_from_subgroups": null
     },
     {
-      "id": "77_1",
+      "id": "1137_1",
       "mean": 22.25,
       "std": 2.38,
-      "std_reported": true
+      "std_reported": true,
+      "pooled_from_subgroups": null
     },
     {
-      "id": "14_1",
+      "id": "1219_1",
       "mean": 22.3,
       "std": 1.6,
-      "std_reported": true
+      "std_reported": true,
+      "pooled_from_subgroups": null
     },
     {
-      "id": "218_1",
+      "id": "1270_1",
       "mean": 22.3,
       "std": 1.6,
-      "std_reported": true
+      "std_reported": true,
+      "pooled_from_subgroups": null
     },
     {
-      "id": "144_1",
+      "id": "1053_1",
       "mean": 22.35,
       "std": 1.08,
-      "std_reported": true
+      "std_reported": true,
+      "pooled_from_subgroups": null
     },
     {
-      "id": "250_1",
+      "id": "1104_1",
       "mean": 22.4,
       "std": null,
-      "std_reported": false
+      "std_reported": false,
+      "pooled_from_subgroups": null
     },
     {
-      "id": "2_2",
+      "id": "1035_1",
+      "mean": 22.45,
+      "std": 1.14,
+      "std_reported": true,
+      "pooled_from_subgroups": 24
+    },
+    {
+      "id": "1084_1",
       "mean": 22.5,
-      "std": 1.4,
-      "std_reported": true
+      "std": 1.64,
+      "std_reported": true,
+      "pooled_from_subgroups": 32
     },
     {
-      "id": "45_1",
-      "mean": 22.5,
-      "std": 0.9,
-      "std_reported": true
-    },
-    {
-      "id": "74_2",
-      "mean": 22.5,
-      "std": 1.4,
-      "std_reported": true
-    },
-    {
-      "id": "131_2",
+      "id": "1093_2",
       "mean": 22.5,
       "std": null,
-      "std_reported": false
+      "std_reported": false,
+      "pooled_from_subgroups": null
     },
     {
-      "id": "236_2",
+      "id": "1133_1",
+      "mean": 22.5,
+      "std": 1.19,
+      "std_reported": true,
+      "pooled_from_subgroups": 24
+    },
+    {
+      "id": "1134_2",
       "mean": 22.5,
       "std": 1.4,
-      "std_reported": true
+      "std_reported": true,
+      "pooled_from_subgroups": null
     },
     {
-      "id": "1_1",
+      "id": "1175_1",
+      "mean": 22.5,
+      "std": 0.9,
+      "std_reported": true,
+      "pooled_from_subgroups": null
+    },
+    {
+      "id": "1217_2",
+      "mean": 22.5,
+      "std": 1.4,
+      "std_reported": true,
+      "pooled_from_subgroups": null
+    },
+    {
+      "id": "1237_2",
+      "mean": 22.5,
+      "std": 1.4,
+      "std_reported": true,
+      "pooled_from_subgroups": null
+    },
+    {
+      "id": "1242_2",
+      "mean": 22.5,
+      "std": 0.9,
+      "std_reported": true,
+      "pooled_from_subgroups": null
+    },
+    {
+      "id": "1132_1",
+      "mean": 22.51,
+      "std": 1.33,
+      "std_reported": true,
+      "pooled_from_subgroups": 216
+    },
+    {
+      "id": "1263_1",
+      "mean": 22.56,
+      "std": 3.19,
+      "std_reported": true,
+      "pooled_from_subgroups": 32
+    },
+    {
+      "id": "1267_1",
+      "mean": 22.65,
+      "std": 2.0,
+      "std_reported": true,
+      "pooled_from_subgroups": 14
+    },
+    {
+      "id": "1062_1",
+      "mean": 22.7,
+      "std": 8.83,
+      "std_reported": true,
+      "pooled_from_subgroups": 43
+    },
+    {
+      "id": "1210_1",
       "mean": 22.7,
       "std": 2.7,
-      "std_reported": true
+      "std_reported": true,
+      "pooled_from_subgroups": null
     },
     {
-      "id": "2_1",
-      "mean": 22.9,
-      "std": 1.6,
-      "std_reported": true
+      "id": "1076_1",
+      "mean": 22.75,
+      "std": 1.18,
+      "std_reported": true,
+      "pooled_from_subgroups": 24
     },
     {
-      "id": "74_1",
-      "mean": 22.9,
-      "std": 1.6,
-      "std_reported": true
+      "id": "1106_1",
+      "mean": 22.87,
+      "std": 1.02,
+      "std_reported": true,
+      "pooled_from_subgroups": 30
     },
     {
-      "id": "79_1",
-      "mean": 22.9,
-      "std": 0.9,
-      "std_reported": true
-    },
-    {
-      "id": "95_1",
-      "mean": 22.9,
-      "std": 2.9,
-      "std_reported": true
-    },
-    {
-      "id": "201_1",
+      "id": "1082_1",
       "mean": 22.9,
       "std": 0.8,
-      "std_reported": true
+      "std_reported": true,
+      "pooled_from_subgroups": null
     },
     {
-      "id": "236_1",
+      "id": "1102_1",
+      "mean": 22.9,
+      "std": 2.9,
+      "std_reported": true,
+      "pooled_from_subgroups": null
+    },
+    {
+      "id": "1105_1",
+      "mean": 22.9,
+      "std": 0.87,
+      "std_reported": true,
+      "pooled_from_subgroups": 32
+    },
+    {
+      "id": "1134_1",
       "mean": 22.9,
       "std": 1.6,
-      "std_reported": true
+      "std_reported": true,
+      "pooled_from_subgroups": null
     },
     {
-      "id": "249_1",
+      "id": "1139_1",
+      "mean": 22.9,
+      "std": 0.9,
+      "std_reported": true,
+      "pooled_from_subgroups": null
+    },
+    {
+      "id": "1217_1",
+      "mean": 22.9,
+      "std": 1.6,
+      "std_reported": true,
+      "pooled_from_subgroups": null
+    },
+    {
+      "id": "1226_1",
       "mean": 22.9,
       "std": 1.4,
-      "std_reported": true
+      "std_reported": true,
+      "pooled_from_subgroups": null
     },
     {
-      "id": "128_1",
+      "id": "1237_1",
+      "mean": 22.9,
+      "std": 1.6,
+      "std_reported": true,
+      "pooled_from_subgroups": null
+    },
+    {
+      "id": "1089_1",
       "mean": 22.96,
       "std": 2.96,
-      "std_reported": true
+      "std_reported": true,
+      "pooled_from_subgroups": null
     },
     {
-      "id": "17_1",
-      "mean": 23.0,
-      "std": null,
-      "std_reported": false
-    },
-    {
-      "id": "18_1",
-      "mean": 23.0,
-      "std": 1.0,
-      "std_reported": true
-    },
-    {
-      "id": "19_1",
-      "mean": 23.0,
-      "std": 1.0,
-      "std_reported": true
-    },
-    {
-      "id": "40_1",
-      "mean": 23.0,
-      "std": 2.0,
-      "std_reported": true
-    },
-    {
-      "id": "51_1",
-      "mean": 23.0,
-      "std": 2.0,
-      "std_reported": true
-    },
-    {
-      "id": "74_4",
-      "mean": 23.0,
-      "std": 1.5,
-      "std_reported": true
-    },
-    {
-      "id": "94_1",
-      "mean": 23.0,
-      "std": 2.0,
-      "std_reported": true
-    },
-    {
-      "id": "107_1",
-      "mean": 23.0,
-      "std": 3.0,
-      "std_reported": true
-    },
-    {
-      "id": "189_1",
+      "id": "1008_1",
       "mean": 23.0,
       "std": 4.0,
-      "std_reported": true
+      "std_reported": true,
+      "pooled_from_subgroups": null
     },
     {
-      "id": "41_1",
-      "mean": 23.1,
-      "std": 1.8,
-      "std_reported": true
+      "id": "1101_1",
+      "mean": 23.0,
+      "std": 2.0,
+      "std_reported": true,
+      "pooled_from_subgroups": null
     },
     {
-      "id": "82_1",
+      "id": "1118_1",
+      "mean": 23.0,
+      "std": 3.0,
+      "std_reported": true,
+      "pooled_from_subgroups": null
+    },
+    {
+      "id": "1134_4",
+      "mean": 23.0,
+      "std": 1.5,
+      "std_reported": true,
+      "pooled_from_subgroups": null
+    },
+    {
+      "id": "1170_1",
+      "mean": 23.0,
+      "std": 2.0,
+      "std_reported": true,
+      "pooled_from_subgroups": null
+    },
+    {
+      "id": "1182_1",
+      "mean": 23.0,
+      "std": 2.0,
+      "std_reported": true,
+      "pooled_from_subgroups": null
+    },
+    {
+      "id": "1240_1",
+      "mean": 23.0,
+      "std": null,
+      "std_reported": false,
+      "pooled_from_subgroups": null
+    },
+    {
+      "id": "1251_1",
+      "mean": 23.0,
+      "std": 1.0,
+      "std_reported": true,
+      "pooled_from_subgroups": null
+    },
+    {
+      "id": "1253_1",
+      "mean": 23.0,
+      "std": 1.0,
+      "std_reported": true,
+      "pooled_from_subgroups": null
+    },
+    {
+      "id": "1143_1",
       "mean": 23.1,
       "std": null,
-      "std_reported": false
+      "std_reported": false,
+      "pooled_from_subgroups": null
     },
     {
-      "id": "57_1",
-      "mean": 23.2,
-      "std": 2.5,
-      "std_reported": true
+      "id": "1171_1",
+      "mean": 23.1,
+      "std": 1.8,
+      "std_reported": true,
+      "pooled_from_subgroups": null
     },
     {
-      "id": "81_1",
-      "mean": 23.2,
-      "std": 0.98,
-      "std_reported": true
-    },
-    {
-      "id": "106_1",
-      "mean": 23.2,
-      "std": 2.0,
-      "std_reported": true
-    },
-    {
-      "id": "146_1",
+      "id": "1055_1",
       "mean": 23.2,
       "std": 0.2,
-      "std_reported": true
+      "std_reported": true,
+      "pooled_from_subgroups": null
     },
     {
-      "id": "151_1",
+      "id": "1060_1",
       "mean": 23.2,
       "std": 2.0,
-      "std_reported": true
+      "std_reported": true,
+      "pooled_from_subgroups": null
     },
     {
-      "id": "202_1",
+      "id": "1065_1",
       "mean": 23.2,
       "std": 2.0,
-      "std_reported": true
+      "std_reported": true,
+      "pooled_from_subgroups": null
     },
     {
-      "id": "25_1",
+      "id": "1116_1",
+      "mean": 23.2,
+      "std": 2.0,
+      "std_reported": true,
+      "pooled_from_subgroups": null
+    },
+    {
+      "id": "1142_1",
+      "mean": 23.2,
+      "std": 0.98,
+      "std_reported": true,
+      "pooled_from_subgroups": null
+    },
+    {
+      "id": "1190_1",
+      "mean": 23.2,
+      "std": 2.5,
+      "std_reported": true,
+      "pooled_from_subgroups": null
+    },
+    {
+      "id": "1254_1",
+      "mean": 23.21,
+      "std": 2.81,
+      "std_reported": true,
+      "pooled_from_subgroups": 32
+    },
+    {
+      "id": "1193_1",
+      "mean": 23.25,
+      "std": 1.07,
+      "std_reported": true,
+      "pooled_from_subgroups": 20
+    },
+    {
+      "id": "1225_1",
       "mean": 23.3,
       "std": 1.5,
-      "std_reported": true
+      "std_reported": true,
+      "pooled_from_subgroups": null
     },
     {
-      "id": "10_1",
+      "id": "1215_1",
+      "mean": 23.3,
+      "std": 1.5,
+      "std_reported": true,
+      "pooled_from_subgroups": null
+    },
+    {
+      "id": "1051_1",
+      "mean": 23.35,
+      "std": 1.83,
+      "std_reported": true,
+      "pooled_from_subgroups": 369
+    },
+    {
+      "id": "1255_1",
+      "mean": 23.37,
+      "std": 1.15,
+      "std_reported": true,
+      "pooled_from_subgroups": null
+    },
+    {
+      "id": "1061_1",
       "mean": 23.4,
       "std": 0.9,
-      "std_reported": true
+      "std_reported": true,
+      "pooled_from_subgroups": null
     },
     {
-      "id": "152_1",
-      "mean": 23.4,
-      "std": 0.9,
-      "std_reported": true
-    },
-    {
-      "id": "221_1",
-      "mean": 23.4,
-      "std": 0.9,
-      "std_reported": true
-    },
-    {
-      "id": "244_1",
+      "id": "1085_1",
       "mean": 23.4,
       "std": 3.52,
-      "std_reported": true
+      "std_reported": true,
+      "pooled_from_subgroups": null
     },
     {
-      "id": "24_1",
+      "id": "1223_1",
+      "mean": 23.4,
+      "std": 0.9,
+      "std_reported": true,
+      "pooled_from_subgroups": null
+    },
+    {
+      "id": "1246_1",
+      "mean": 23.4,
+      "std": 0.9,
+      "std_reported": true,
+      "pooled_from_subgroups": null
+    },
+    {
+      "id": "1032_1",
       "mean": 23.5,
-      "std": 1.0,
-      "std_reported": true
+      "std": 0.7,
+      "std_reported": true,
+      "pooled_from_subgroups": null
     },
     {
-      "id": "34_1",
+      "id": "1077_1",
       "mean": 23.5,
-      "std": 1.3,
-      "std_reported": true
+      "std": 0.96,
+      "std_reported": true,
+      "pooled_from_subgroups": 20
     },
     {
-      "id": "44_1",
-      "mean": 23.5,
-      "std": null,
-      "std_reported": false
-    },
-    {
-      "id": "66_1",
-      "mean": 23.5,
-      "std": 1.0,
-      "std_reported": true
-    },
-    {
-      "id": "83_1",
-      "mean": 23.5,
-      "std": 0.8,
-      "std_reported": true
-    },
-    {
-      "id": "129_1",
+      "id": "1090_1",
       "mean": 23.5,
       "std": 3.5,
-      "std_reported": true
+      "std_reported": true,
+      "pooled_from_subgroups": null
     },
     {
-      "id": "161_1",
+      "id": "1141_1",
       "mean": 23.5,
-      "std": 0.7,
-      "std_reported": true
+      "std": 1.09,
+      "std_reported": true,
+      "pooled_from_subgroups": 14
     },
     {
-      "id": "6_1",
+      "id": "1144_1",
+      "mean": 23.5,
+      "std": 0.8,
+      "std_reported": true,
+      "pooled_from_subgroups": null
+    },
+    {
+      "id": "1148_1",
+      "mean": 23.5,
+      "std": 0.96,
+      "std_reported": true,
+      "pooled_from_subgroups": 20
+    },
+    {
+      "id": "1163_1",
+      "mean": 23.5,
+      "std": 1.3,
+      "std_reported": true,
+      "pooled_from_subgroups": null
+    },
+    {
+      "id": "1174_1",
+      "mean": 23.5,
+      "std": null,
+      "std_reported": false,
+      "pooled_from_subgroups": null
+    },
+    {
+      "id": "1200_1",
+      "mean": 23.5,
+      "std": 1.0,
+      "std_reported": true,
+      "pooled_from_subgroups": null
+    },
+    {
+      "id": "1227_1",
+      "mean": 23.5,
+      "std": 1.0,
+      "std_reported": true,
+      "pooled_from_subgroups": null
+    },
+    {
+      "id": "1221_1",
+      "mean": 23.52,
+      "std": 4.7,
+      "std_reported": true,
+      "pooled_from_subgroups": 27
+    },
+    {
+      "id": "1052_1",
+      "mean": 23.6,
+      "std": 1.0,
+      "std_reported": true,
+      "pooled_from_subgroups": null
+    },
+    {
+      "id": "1107_1",
+      "mean": 23.6,
+      "std": 1.0,
+      "std_reported": true,
+      "pooled_from_subgroups": null
+    },
+    {
+      "id": "1252_1",
       "mean": 23.6,
       "std": 1.6,
-      "std_reported": true
+      "std_reported": true,
+      "pooled_from_subgroups": null
     },
     {
-      "id": "99_1",
+      "id": "1206_1",
       "mean": 23.6,
-      "std": 1.0,
-      "std_reported": true
+      "std": 1.18,
+      "std_reported": true,
+      "pooled_from_subgroups": null
     },
     {
-      "id": "143_1",
-      "mean": 23.6,
-      "std": 1.0,
-      "std_reported": true
+      "id": "1027_3",
+      "mean": 23.67,
+      "std": 1.07,
+      "std_reported": true,
+      "pooled_from_subgroups": 60
     },
     {
-      "id": "112_1",
+      "id": "1125_1",
       "mean": 23.67,
       "std": 0.94,
-      "std_reported": true
+      "std_reported": true,
+      "pooled_from_subgroups": null
     },
     {
-      "id": "33_1",
+      "id": "1003_1",
       "mean": 23.7,
-      "std": 1.0,
-      "std_reported": true
+      "std": 1.15,
+      "std_reported": true,
+      "pooled_from_subgroups": 20
     },
     {
-      "id": "135_1",
+      "id": "1043_1",
       "mean": 23.7,
       "std": 1.2,
-      "std_reported": true
+      "std_reported": true,
+      "pooled_from_subgroups": null
     },
     {
-      "id": "247_1",
+      "id": "1162_1",
+      "mean": 23.7,
+      "std": 1.0,
+      "std_reported": true,
+      "pooled_from_subgroups": null
+    },
+    {
+      "id": "1214_1",
       "mean": 23.7,
       "std": 4.1,
-      "std_reported": true
+      "std_reported": true,
+      "pooled_from_subgroups": null
     },
     {
-      "id": "146_2",
+      "id": "1196_1",
+      "mean": 23.75,
+      "std": 0.91,
+      "std_reported": true,
+      "pooled_from_subgroups": 8
+    },
+    {
+      "id": "1242_1",
+      "mean": 23.77,
+      "std": 0.8,
+      "std_reported": true,
+      "pooled_from_subgroups": 60
+    },
+    {
+      "id": "1010_1",
+      "mean": 23.8,
+      "std": 1.0,
+      "std_reported": true,
+      "pooled_from_subgroups": null
+    },
+    {
+      "id": "1055_2",
       "mean": 23.8,
       "std": 1.3,
-      "std_reported": true
+      "std_reported": true,
+      "pooled_from_subgroups": null
     },
     {
-      "id": "191_1",
-      "mean": 23.8,
-      "std": 1.0,
-      "std_reported": true
-    },
-    {
-      "id": "215_1",
+      "id": "1195_1",
       "mean": 23.84,
       "std": 2.46,
-      "std_reported": true
+      "std_reported": true,
+      "pooled_from_subgroups": null
     },
     {
-      "id": "140_1",
+      "id": "1049_1",
       "mean": 23.9,
       "std": 1.09,
-      "std_reported": true
+      "std_reported": true,
+      "pooled_from_subgroups": null
     },
     {
-      "id": "150_1",
+      "id": "1059_1",
       "mean": 23.9,
       "std": 1.0,
-      "std_reported": true
+      "std_reported": true,
+      "pooled_from_subgroups": null
     },
     {
-      "id": "104_1",
+      "id": "1113_1",
       "mean": 23.91,
       "std": 1.48,
-      "std_reported": true
+      "std_reported": true,
+      "pooled_from_subgroups": null
     },
     {
-      "id": "37_1",
+      "id": "1166_1",
       "mean": 23.93,
       "std": 2.79,
-      "std_reported": true
+      "std_reported": true,
+      "pooled_from_subgroups": null
     },
     {
-      "id": "49_1",
+      "id": "1027_1",
+      "mean": 24.0,
+      "std": 1.0,
+      "std_reported": true,
+      "pooled_from_subgroups": null
+    },
+    {
+      "id": "1027_2",
+      "mean": 24.0,
+      "std": 1.0,
+      "std_reported": true,
+      "pooled_from_subgroups": null
+    },
+    {
+      "id": "1180_1",
       "mean": 24.0,
       "std": 0.0,
-      "std_reported": true
+      "std_reported": true,
+      "pooled_from_subgroups": null
     },
     {
-      "id": "61_1",
+      "id": "1194_1",
       "mean": 24.0,
       "std": 2.0,
-      "std_reported": true
+      "std_reported": true,
+      "pooled_from_subgroups": null
     },
     {
-      "id": "68_1",
+      "id": "1202_1",
       "mean": 24.0,
       "std": 0.8,
-      "std_reported": true
+      "std_reported": true,
+      "pooled_from_subgroups": null
     },
     {
-      "id": "156_1",
-      "mean": 24.0,
-      "std": 1.0,
-      "std_reported": true
-    },
-    {
-      "id": "156_2",
-      "mean": 24.0,
-      "std": 1.0,
-      "std_reported": true
-    },
-    {
-      "id": "234_1",
+      "id": "1247_1",
       "mean": 24.0,
       "std": null,
-      "std_reported": false
+      "std_reported": false,
+      "pooled_from_subgroups": null
     },
     {
-      "id": "237_1",
+      "id": "1273_1",
       "mean": 24.0,
       "std": 1.8,
-      "std_reported": true
+      "std_reported": true,
+      "pooled_from_subgroups": null
     },
     {
-      "id": "29_1",
+      "id": "1048_1",
+      "mean": 24.09,
+      "std": 0.85,
+      "std_reported": true,
+      "pooled_from_subgroups": 16
+    },
+    {
+      "id": "1156_1",
       "mean": 24.1,
       "std": 3.6,
-      "std_reported": true
+      "std_reported": true,
+      "pooled_from_subgroups": null
     },
     {
-      "id": "65_1",
+      "id": "1199_1",
       "mean": 24.1,
       "std": 0.8,
-      "std_reported": true
+      "std_reported": true,
+      "pooled_from_subgroups": null
     },
     {
-      "id": "70_1",
+      "id": "1128_1",
       "mean": 24.15,
       "std": 1.42,
-      "std_reported": true
+      "std_reported": true,
+      "pooled_from_subgroups": null
     },
     {
-      "id": "159_1",
+      "id": "1205_1",
+      "mean": 24.15,
+      "std": 0.72,
+      "std_reported": true,
+      "pooled_from_subgroups": 16
+    },
+    {
+      "id": "1030_1",
       "mean": 24.19,
       "std": 1.07,
-      "std_reported": true
+      "std_reported": true,
+      "pooled_from_subgroups": null
     },
     {
-      "id": "139_1",
+      "id": "1047_1",
       "mean": 24.2,
       "std": 4.3,
-      "std_reported": true
+      "std_reported": true,
+      "pooled_from_subgroups": null
     },
     {
-      "id": "231_1",
+      "id": "1161_1",
+      "mean": 24.2,
+      "std": 2.26,
+      "std_reported": true,
+      "pooled_from_subgroups": 24
+    },
+    {
+      "id": "1228_1",
       "mean": 24.2,
       "std": 0.7,
-      "std_reported": true
+      "std_reported": true,
+      "pooled_from_subgroups": null
     },
     {
-      "id": "242_1",
+      "id": "1258_1",
       "mean": 24.2,
       "std": 0.7,
-      "std_reported": true
+      "std_reported": true,
+      "pooled_from_subgroups": null
     },
     {
-      "id": "23_1",
+      "id": "1209_1",
       "mean": 24.3,
       "std": 1.2,
-      "std_reported": true
+      "std_reported": true,
+      "pooled_from_subgroups": null
     },
     {
-      "id": "233_1",
+      "id": "1249_1",
       "mean": 24.3,
       "std": 0.8,
-      "std_reported": true
+      "std_reported": true,
+      "pooled_from_subgroups": null
     },
     {
-      "id": "138_1",
+      "id": "1005_1",
+      "mean": 24.35,
+      "std": 1.8,
+      "std_reported": true,
+      "pooled_from_subgroups": 20
+    },
+    {
+      "id": "1268_1",
+      "mean": 24.42,
+      "std": 8.09,
+      "std_reported": true,
+      "pooled_from_subgroups": 50
+    },
+    {
+      "id": "1046_1",
       "mean": 24.5,
       "std": 0.8,
-      "std_reported": true
+      "std_reported": true,
+      "pooled_from_subgroups": null
     },
     {
-      "id": "222_1",
+      "id": "1233_1",
       "mean": 24.5,
       "std": 1.5,
-      "std_reported": true
+      "std_reported": true,
+      "pooled_from_subgroups": null
     },
     {
-      "id": "232_1",
+      "id": "1259_1",
       "mean": 24.5,
       "std": 1.1,
-      "std_reported": true
+      "std_reported": true,
+      "pooled_from_subgroups": null
     },
     {
-      "id": "117_1",
+      "id": "1037_1",
       "mean": 24.6,
       "std": 2.64,
-      "std_reported": true
+      "std_reported": true,
+      "pooled_from_subgroups": null
     },
     {
-      "id": "166_1",
+      "id": "1072_1",
       "mean": 24.6,
       "std": 2.64,
-      "std_reported": true
+      "std_reported": true,
+      "pooled_from_subgroups": null
     },
     {
-      "id": "58_1",
-      "mean": 24.8,
-      "std": 2.9,
-      "std_reported": true
+      "id": "1208_1",
+      "mean": 24.6,
+      "std": 1.6,
+      "std_reported": true,
+      "pooled_from_subgroups": null
     },
     {
-      "id": "122_1",
-      "mean": 24.8,
-      "std": 1.17,
-      "std_reported": true
-    },
-    {
-      "id": "163_1",
+      "id": "1034_1",
       "mean": 24.8,
       "std": 2.6,
-      "std_reported": true
+      "std_reported": true,
+      "pooled_from_subgroups": null
     },
     {
-      "id": "240_1",
+      "id": "1079_1",
+      "mean": 24.8,
+      "std": 1.17,
+      "std_reported": true,
+      "pooled_from_subgroups": null
+    },
+    {
+      "id": "1092_1",
+      "mean": 24.8,
+      "std": 5.7,
+      "std_reported": true,
+      "pooled_from_subgroups": 60
+    },
+    {
+      "id": "1097_1",
+      "mean": 24.8,
+      "std": 5.7,
+      "std_reported": true,
+      "pooled_from_subgroups": 60
+    },
+    {
+      "id": "1191_1",
+      "mean": 24.8,
+      "std": 2.9,
+      "std_reported": true,
+      "pooled_from_subgroups": null
+    },
+    {
+      "id": "1271_1",
+      "mean": 24.81,
+      "std": 15.34,
+      "std_reported": true,
+      "pooled_from_subgroups": 30
+    },
+    {
+      "id": "1262_1",
       "mean": 24.82,
       "std": 2.21,
-      "std_reported": true
+      "std_reported": true,
+      "pooled_from_subgroups": null
     },
     {
-      "id": "102_1",
+      "id": "1236_1",
+      "mean": 24.82,
+      "std": null,
+      "std_reported": false,
+      "pooled_from_subgroups": null
+    },
+    {
+      "id": "1111_1",
       "mean": 24.86,
       "std": 4.68,
-      "std_reported": true
+      "std_reported": true,
+      "pooled_from_subgroups": null
     },
     {
-      "id": "136_1",
-      "mean": 25.0,
-      "std": 1.5,
-      "std_reported": true
-    },
-    {
-      "id": "136_2",
-      "mean": 25.0,
-      "std": 1.5,
-      "std_reported": true
-    },
-    {
-      "id": "136_3",
-      "mean": 25.0,
-      "std": 1.5,
-      "std_reported": true
-    },
-    {
-      "id": "136_4",
-      "mean": 25.0,
-      "std": 1.5,
-      "std_reported": true
-    },
-    {
-      "id": "193_1",
+      "id": "1001_1",
       "mean": 25.0,
       "std": 2.0,
-      "std_reported": true
+      "std_reported": true,
+      "pooled_from_subgroups": null
     },
     {
-      "id": "190_1",
+      "id": "1044_1",
+      "mean": 25.0,
+      "std": 1.5,
+      "std_reported": true,
+      "pooled_from_subgroups": null
+    },
+    {
+      "id": "1044_2",
+      "mean": 25.0,
+      "std": 1.5,
+      "std_reported": true,
+      "pooled_from_subgroups": null
+    },
+    {
+      "id": "1044_3",
+      "mean": 25.0,
+      "std": 1.5,
+      "std_reported": true,
+      "pooled_from_subgroups": null
+    },
+    {
+      "id": "1044_4",
+      "mean": 25.0,
+      "std": 1.5,
+      "std_reported": true,
+      "pooled_from_subgroups": null
+    },
+    {
+      "id": "1201_1",
+      "mean": 25.15,
+      "std": 5.32,
+      "std_reported": true,
+      "pooled_from_subgroups": 89
+    },
+    {
+      "id": "1009_1",
       "mean": 25.18,
       "std": 2.4,
-      "std_reported": true
+      "std_reported": true,
+      "pooled_from_subgroups": null
     },
     {
-      "id": "46_1",
+      "id": "1177_1",
       "mean": 25.4,
       "std": null,
-      "std_reported": false
+      "std_reported": false,
+      "pooled_from_subgroups": null
     },
     {
-      "id": "39_1",
-      "mean": 25.5,
-      "std": 2.14,
-      "std_reported": true
-    },
-    {
-      "id": "241_1",
-      "mean": 25.5,
-      "std": null,
-      "std_reported": false
-    },
-    {
-      "id": "245_1",
+      "id": "1120_1",
       "mean": 25.5,
       "std": 2.25,
-      "std_reported": true
+      "std_reported": true,
+      "pooled_from_subgroups": null
     },
     {
-      "id": "5_1",
+      "id": "1168_1",
+      "mean": 25.5,
+      "std": 2.14,
+      "std_reported": true,
+      "pooled_from_subgroups": null
+    },
+    {
+      "id": "1239_1",
+      "mean": 25.5,
+      "std": null,
+      "std_reported": false,
+      "pooled_from_subgroups": null
+    },
+    {
+      "id": "1025_1",
+      "mean": 25.62,
+      "std": 6.18,
+      "std_reported": true,
+      "pooled_from_subgroups": 13
+    },
+    {
+      "id": "1216_1",
       "mean": 25.76,
       "std": 2.07,
-      "std_reported": true
+      "std_reported": true,
+      "pooled_from_subgroups": null
     },
     {
-      "id": "87_1",
-      "mean": 26.0,
-      "std": 4.0,
-      "std_reported": true
-    },
-    {
-      "id": "154_1",
+      "id": "1064_1",
       "mean": 26.0,
       "std": 5.8,
-      "std_reported": true
+      "std_reported": true,
+      "pooled_from_subgroups": null
     },
     {
-      "id": "171_1",
+      "id": "1149_1",
+      "mean": 26.0,
+      "std": 4.0,
+      "std_reported": true,
+      "pooled_from_subgroups": null
+    },
+    {
+      "id": "1042_1",
       "mean": 26.1,
       "std": 5.5,
-      "std_reported": true
+      "std_reported": true,
+      "pooled_from_subgroups": null
     },
     {
-      "id": "114_1",
+      "id": "1068_1",
       "mean": 26.2,
       "std": 10.1,
-      "std_reported": true
+      "std_reported": true,
+      "pooled_from_subgroups": null
     },
     {
-      "id": "173_1",
+      "id": "1127_1",
+      "mean": 26.3,
+      "std": 4.27,
+      "std_reported": true,
+      "pooled_from_subgroups": 20
+    },
+    {
+      "id": "1172_1",
+      "mean": 26.55,
+      "std": 0.99,
+      "std_reported": true,
+      "pooled_from_subgroups": 20
+    },
+    {
+      "id": "1018_1",
       "mean": 26.63,
       "std": 2.0,
-      "std_reported": true
+      "std_reported": true,
+      "pooled_from_subgroups": null
     },
     {
-      "id": "91_1",
+      "id": "1098_1",
       "mean": 26.65,
       "std": 2.61,
-      "std_reported": true
+      "std_reported": true,
+      "pooled_from_subgroups": null
     },
     {
-      "id": "223_1",
+      "id": "1235_1",
       "mean": 26.7,
       "std": 2.8,
-      "std_reported": true
+      "std_reported": true,
+      "pooled_from_subgroups": null
     },
     {
-      "id": "16_1",
+      "id": "1264_1",
       "mean": 27.0,
       "std": 4.0,
-      "std_reported": true
+      "std_reported": true,
+      "pooled_from_subgroups": null
     },
     {
-      "id": "124_1",
+      "id": "1083_1",
       "mean": 27.4,
       "std": 7.8,
-      "std_reported": true
+      "std_reported": true,
+      "pooled_from_subgroups": null
     },
     {
-      "id": "165_1",
+      "id": "1036_1",
       "mean": 27.5,
       "std": null,
-      "std_reported": false
+      "std_reported": false,
+      "pooled_from_subgroups": null
     },
     {
-      "id": "38_1",
+      "id": "1167_1",
       "mean": 28.1,
       "std": 4.5,
-      "std_reported": true
+      "std_reported": true,
+      "pooled_from_subgroups": null
     },
     {
-      "id": "212_1",
+      "id": "1131_1",
       "mean": 28.3,
       "std": 5.18,
-      "std_reported": true
+      "std_reported": true,
+      "pooled_from_subgroups": null
     },
     {
-      "id": "28_1",
+      "id": "1157_1",
+      "mean": 28.3,
+      "std": 3.23,
+      "std_reported": true,
+      "pooled_from_subgroups": 30
+    },
+    {
+      "id": "1155_1",
       "mean": 28.6,
       "std": 3.9,
-      "std_reported": true
+      "std_reported": true,
+      "pooled_from_subgroups": null
     },
     {
-      "id": "172_1",
+      "id": "1185_1",
+      "mean": 29.6,
+      "std": 5.5,
+      "std_reported": true,
+      "pooled_from_subgroups": null
+    },
+    {
+      "id": "1017_1",
       "mean": 30.0,
       "std": 3.0,
-      "std_reported": true
+      "std_reported": true,
+      "pooled_from_subgroups": null
     },
     {
-      "id": "227_1",
+      "id": "1150_1",
       "mean": 30.0,
       "std": 3.0,
-      "std_reported": true
+      "std_reported": true,
+      "pooled_from_subgroups": null
     },
     {
-      "id": "50_1",
+      "id": "1181_1",
       "mean": 30.17,
       "std": 5.38,
-      "std_reported": true
+      "std_reported": true,
+      "pooled_from_subgroups": null
     },
     {
-      "id": "26_1",
+      "id": "1212_1",
+      "mean": 30.86,
+      "std": 3.78,
+      "std_reported": true,
+      "pooled_from_subgroups": 14
+    },
+    {
+      "id": "1232_1",
       "mean": 31.0,
       "std": 14.7,
-      "std_reported": true
+      "std_reported": true,
+      "pooled_from_subgroups": null
     },
     {
-      "id": "55_1",
+      "id": "1269_1",
+      "mean": 31.29,
+      "std": null,
+      "std_reported": false,
+      "pooled_from_subgroups": 58
+    },
+    {
+      "id": "1188_1",
       "mean": 31.9,
       "std": 5.53,
-      "std_reported": true
+      "std_reported": true,
+      "pooled_from_subgroups": null
     },
     {
-      "id": "86_1",
+      "id": "1147_1",
       "mean": 33.0,
       "std": 6.47,
-      "std_reported": true
+      "std_reported": true,
+      "pooled_from_subgroups": null
     },
     {
-      "id": "238_1",
+      "id": "1272_1",
       "mean": 33.44,
       "std": 4.1,
-      "std_reported": true
+      "std_reported": true,
+      "pooled_from_subgroups": null
     },
     {
-      "id": "26_2",
+      "id": "1232_2",
       "mean": 37.75,
       "std": 12.6,
-      "std_reported": true
+      "std_reported": true,
+      "pooled_from_subgroups": null
     },
     {
-      "id": "147_1",
+      "id": "1056_1",
       "mean": 39.0,
       "std": 9.17,
-      "std_reported": true
+      "std_reported": true,
+      "pooled_from_subgroups": null
     },
     {
-      "id": "36_1",
+      "id": "1165_1",
       "mean": 39.08,
       "std": 9.53,
-      "std_reported": true
+      "std_reported": true,
+      "pooled_from_subgroups": null
     },
     {
-      "id": "3_1",
+      "id": "1260_1",
       "mean": 40.7,
       "std": 16.5,
-      "std_reported": true
+      "std_reported": true,
+      "pooled_from_subgroups": null
     },
     {
-      "id": "22_1",
+      "id": "1204_1",
       "mean": 41.1,
       "std": 18.5,
-      "std_reported": true
+      "std_reported": true,
+      "pooled_from_subgroups": null
     },
     {
-      "id": "92_1",
+      "id": "1234_1",
+      "mean": 43.6,
+      "std": 19.8,
+      "std_reported": true,
+      "pooled_from_subgroups": 40
+    },
+    {
+      "id": "1187_1",
+      "mean": 43.8,
+      "std": 20.81,
+      "std_reported": true,
+      "pooled_from_subgroups": 32
+    },
+    {
+      "id": "1091_2",
+      "mean": 45.67,
+      "std": 18.49,
+      "std_reported": true,
+      "pooled_from_subgroups": 24
+    },
+    {
+      "id": "1153_1",
+      "mean": 45.95,
+      "std": 24.45,
+      "std_reported": true,
+      "pooled_from_subgroups": 18
+    },
+    {
+      "id": "1099_1",
       "mean": 46.0,
       "std": 8.6,
-      "std_reported": true
+      "std_reported": true,
+      "pooled_from_subgroups": null
+    },
+    {
+      "id": "1154_1",
+      "mean": 50.6,
+      "std": 27.36,
+      "std_reported": true,
+      "pooled_from_subgroups": 22
+    },
+    {
+      "id": "1069_1",
+      "mean": 50.64,
+      "std": 21.57,
+      "std_reported": true,
+      "pooled_from_subgroups": 42
+    },
+    {
+      "id": "1257_1",
+      "mean": 68.52,
+      "std": null,
+      "std_reported": false,
+      "pooled_from_subgroups": 954
     }
   ]
 }
