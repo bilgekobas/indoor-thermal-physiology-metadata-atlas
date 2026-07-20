@@ -3191,16 +3191,6 @@
       },
       {
         "signal": "Skin temperature",
-        "sensing_method": "Thermocouple",
-        "brand": "Opulus",
-        "model": "Pyrobutton",
-        "count": 1,
-        "study_ids": [
-          "1263_1"
-        ]
-      },
-      {
-        "signal": "Skin temperature",
         "sensing_method": "Thermometer",
         "brand": "Gigarise",
         "model": "SG 900",
@@ -7783,7 +7773,7 @@
           {
             "period": "2023–24",
             "sensor_grp": "Thermocouple",
-            "count": 17
+            "count": 16
           }
         ],
         "sensor_order": [
@@ -59797,7 +59787,7 @@
       {
         "signal": "Skin temperature",
         "physio-sensing-method": "Thermocouple",
-        "count": 60
+        "count": 59
       },
       {
         "signal": "Skin temperature",
@@ -61067,7 +61057,7 @@
         "signal": "Skin temperature",
         "physio-sensing-method": "Thermocouple",
         "period": "2023–24",
-        "count": 17
+        "count": 16
       },
       {
         "signal": "Skin temperature",
@@ -70672,11 +70662,6 @@
       },
       {
         "physio-sensing-method": "Thermocouple",
-        "physio-sensor-brand": "Opulus",
-        "count": 1
-      },
-      {
-        "physio-sensing-method": "Thermocouple",
         "physio-sensor-brand": "TCSA",
         "count": 2
       },
@@ -74141,7 +74126,7 @@
         "signal": "Skin temperature",
         "sensing_method": "Thermochron",
         "site": "Chest",
-        "count": 52
+        "count": 53
       },
       {
         "signal": "Skin temperature",
@@ -74196,6 +74181,12 @@
         "sensing_method": "Thermochron",
         "site": "Hand",
         "count": 50
+      },
+      {
+        "signal": "Skin temperature",
+        "sensing_method": "Thermochron",
+        "site": "Head",
+        "count": 1
       },
       {
         "signal": "Skin temperature",
@@ -74303,7 +74294,7 @@
         "signal": "Skin temperature",
         "sensing_method": "Thermocouple",
         "site": "Chest",
-        "count": 42
+        "count": 41
       },
       {
         "signal": "Skin temperature",
@@ -74340,12 +74331,6 @@
         "sensing_method": "Thermocouple",
         "site": "Hand",
         "count": 39
-      },
-      {
-        "signal": "Skin temperature",
-        "sensing_method": "Thermocouple",
-        "site": "Head",
-        "count": 1
       },
       {
         "signal": "Skin temperature",
@@ -75968,8 +75953,8 @@
           "Infrared camera": 3,
           "RTD": 4,
           "Thermistor": 12,
-          "Thermochron": 52,
-          "Thermocouple": 42
+          "Thermochron": 53,
+          "Thermocouple": 41
         }
       },
       {
@@ -76252,7 +76237,7 @@
           "Infrared camera": 1,
           "RTD": 2,
           "Thermistor": 1,
-          "Thermocouple": 1
+          "Thermochron": 1
         }
       },
       {
@@ -82588,7 +82573,7 @@
     "n_variables": 206,
     "year_min": 2013,
     "year_max": 2024,
-    "generated_at": "2026-07-20T14:32:45.459906"
+    "generated_at": "2026-07-20T15:42:59.496000"
   },
   "world-countries-110m": {
     "type": "Topology",
