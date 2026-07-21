@@ -316,11 +316,6 @@
       "count": 2
     },
     {
-      "physio-sensing-method": "EDA/GSR",
-      "physio-sensor-brand": "Empatica",
-      "count": 2
-    },
-    {
       "physio-sensing-method": "EMG",
       "physio-sensor-brand": "Nihonkohden Co.",
       "count": 1
@@ -383,7 +378,7 @@
     {
       "physio-sensing-method": "GSR/EDA",
       "physio-sensor-brand": "Empatica",
-      "count": 10
+      "count": 12
     },
     {
       "physio-sensing-method": "GSR/EDA",

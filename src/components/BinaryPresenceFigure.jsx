@@ -45,9 +45,10 @@ export default function BinaryPresenceFigure({ bar, matrix, fields, nStudies, ba
             is pinned to the same ROW_H as its corresponding bar-chart row.
             2px per study (no gap) is about as dense as this can get while
             each column staying individually visible; at this corpus's size
-            (up to 270 studies) the matrix can still need its own horizontal
-            scroll even after this reduction — there's a hard floor on how
-            many distinct columns fit in any reasonable plot width. */}
+            (n can run past 290 studies) the matrix can still need its own
+            horizontal scroll even after this reduction — there's a hard
+            floor on how many distinct columns fit in any reasonable plot
+            width. */}
         <div className="flex-1 no-horizontal-scroll">
           <div className="font-data text-[10px] text-inkfaint mb-1.5">each column = one study, n = {nStudies} total</div>
           <div style={{ minWidth: nStudies * 2 }}>

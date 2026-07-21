@@ -2218,7 +2218,7 @@
       "sensing_method": "GSR/EDA",
       "brand": "Empatica",
       "model": "E4",
-      "count": 10,
+      "count": 12,
       "study_ids": [
         "1045_1",
         "1056_1",
@@ -2226,21 +2226,12 @@
         "1155_1",
         "1157_1",
         "1218_1",
+        "1230_1",
         "1234_1",
         "1235_1",
         "1243_1",
+        "1271_1",
         "1272_1"
-      ]
-    },
-    {
-      "signal": "Skin conductance",
-      "sensing_method": "EDA/GSR",
-      "brand": "Empatica",
-      "model": "E4",
-      "count": 2,
-      "study_ids": [
-        "1230_1",
-        "1271_1"
       ]
     },
     {
@@ -2248,9 +2239,10 @@
       "sensing_method": "GSR/EDA",
       "brand": "Shimmer Sensing",
       "model": "Shimmer 3 GSR+",
-      "count": 2,
+      "count": 3,
       "study_ids": [
         "1122_1",
+        "1122_2",
         "1201_1"
       ]
     },
@@ -2292,16 +2284,6 @@
       "count": 1,
       "study_ids": [
         "1137_1"
-      ]
-    },
-    {
-      "signal": "Skin conductance",
-      "sensing_method": "GSR/EDA",
-      "brand": "Shimmer Sensing",
-      "model": "GSR",
-      "count": 1,
-      "study_ids": [
-        "1122_2"
       ]
     },
     {
@@ -3445,5 +3427,5 @@
       ]
     }
   ],
-  "n_models": 244
+  "n_models": 243
 }

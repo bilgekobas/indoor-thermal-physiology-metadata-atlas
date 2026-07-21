@@ -5,7 +5,7 @@ This file documents every non-obvious decision baked into
 thing a paper reviewer or a future maintainer would otherwise have to
 reverse-engineer from the code. Each entry says what the raw corpus
 actually contains, what was decided, and why. Numbers cited here are from
-the 269-study corpus version current as of this writing and will shift
+the 273-publication / 295-experiment corpus version current as of this writing and will shift
 slightly whenever the corpus is updated; re-run the relevant query in
 `build_data.py` to refresh them rather than trusting this file's numbers
 indefinitely.
@@ -17,18 +17,29 @@ file to check first when a reviewer asks "how exactly did you handle X."
 
 ## 1. Corpus-level exclusions
 
-**One publication has no usable ID.** Marchenko et al. (2020), "The study
-of facial muscle movements for non-invasive thermal discomfort detection,"
-is missing its `id-pub-id` and `id` values in the source CSV — almost
-certainly a data-entry gap, not a deliberate omission. Because every join,
-deduplication, and count in the pipeline keys on `id`, this row is excluded
-entirely from `studies_u` (see `build_data.py`, the comment above
-`studies_u = df.drop_duplicates(...)`). This is why the corpus is reported
-as **269 studies**, not 270 — `df['id'].nunique()` (which excludes NaN)
-gives the trustworthy count; a naive `drop_duplicates()` would have counted
-the NaN-id rows as one additional phantom "study," inflating every
-percentage on the site by a small, silent amount. If this study's metadata
-is recovered, re-add its `id` and it will flow through automatically.
+**Update, current corpus:** the Marchenko et al. (2020) missing-ID gap
+described below has since been resolved (its `id`/`id-pub-id` were
+recovered and re-added), and 24 further publications have been added to
+the corpus since this file was first written. `df['id'].nunique()` /
+`df['id-pub-id'].nunique()` currently give **295 experiments across 273
+publications** with zero missing IDs — re-run those two queries after any
+corpus update rather than trusting the number in this file.
+
+**Historical note, kept for context.** One publication was previously
+missing its `id-pub-id` and `id` values in the source CSV — almost
+certainly a data-entry gap, not a deliberate omission (Marchenko et al.,
+2020, "The study of facial muscle movements for non-invasive thermal
+discomfort detection"). Because every join, deduplication, and count in
+the pipeline keys on `id`, this row was excluded entirely from `studies_u`
+(see `build_data.py`, the comment above `studies_u = df.drop_duplicates(...)`)
+while unresolved — this was why the corpus was reported as 269 studies out
+of 270 raw rows at the time. `df['id'].nunique()` (which excludes NaN)
+gives the trustworthy count; a naive `drop_duplicates()` would have
+counted the NaN-id row as an additional phantom "study," inflating every
+percentage on the site by a small, silent amount. Kept here so a reader
+comparing this file against an older cached copy of the site, or against
+the SSRN preprint (written against the 270-raw-row snapshot), understands
+where the discrepancy came from rather than assuming an error.
 
 ## 2. Categorical-code parsing (`clean_num`)
 
@@ -460,7 +471,46 @@ is a hard floor, not a CSS fix; going denser than 2px/column would make
 individual studies impossible to distinguish, which defeats the chart's
 purpose (showing per-study heterogeneity, not just an aggregate).
 
-## What this file does not cover
+## 19. Signal totals were double-counting multi-method experiments
+
+Both Sankey components (`src/pages/Sankey.jsx` and the inline
+`SignalSensorBrandSankey` in `ChapterBody.jsx`) computed each signal's node
+total by summing `physio_signal_sensor.overall` across all sensing
+methods. This silently inflates any signal where some experiments use more
+than one sensing method for it (e.g. thermocouple at some skin-temperature
+sites, thermochron at others, within the same experiment): that experiment
+gets counted once per method, not once. Checked against the raw corpus
+directly: **Skin temperature was inflated by 13** (243 shown vs. 230 true
+distinct experiments), **Sweat indicators by 6** (41 vs. 35, a 17%
+inflation), **Core/Body temperature by 3**, **Heart/Pulse rate by 2**,
+**Respiration by 1**.
+
+Fixed by adding `signal_totals` to `physio_signal_sensor.json` —
+`id`-deduplicated per signal, computed once in `build_data.py` — and
+having both Sankey components read from it instead of summing `overall`.
+The ChapterBody prose captions referencing these same figures (Figs.
+20–23, 25–26) were also converted from hardcoded numbers to values derived
+live from `summary`, `signal_totals`, `fig18_physio_cooccurrence`,
+`skintemp_sites`, and `site_by_signal` — they had drifted from an older
+~269-experiment corpus snapshot (e.g. claiming "103 studies measure both
+[skin temp and heart rate] together — about half of all heart-rate
+studies," when the current figure is 114 of 148, about 77%).
+
+One caption was deliberately *not* changed in its framing: the "OMRON is
+the most-cited brand overall" claim (Fig. 22) counts each brand once per
+signal it's used for (so combination devices, e.g. Omron's
+blood-pressure-and-heart-rate monitors, count more than once) — this is a
+different, equally valid question from "how many distinct experiments use
+this brand," and switching metrics mid-comparison is what made it look
+like Omron's count had dropped between corpus versions when it hadn't
+(66 vs. the old 65, consistent with corpus growth; iButton similarly grew
+49→57 on the same metric). The two metrics disagree on brand ranking
+(sum-across-signals: Omron 66 > iButton 57; distinct-experiment: iButton
+53 > Omron 47) and both are legitimate — the caption's numbers are now
+computed live via `brand_model_reference.data`, but its metric choice
+(sum-across-signals) was kept as-is rather than switched.
+
+
 
 This file documents pipeline-level (`build_data.py`) decisions — i.e.,
 choices made while turning the raw corpus into the JSON the site reads.

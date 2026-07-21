@@ -10,7 +10,7 @@ export default function Reporting({ data }) {
   return (
     <div>
       <PageHeader
-        eyebrow="Analysis · Appendix Fig. 14, 20–22"
+        eyebrow="Analysis · Fig. 14, 20–22"
         title="Reporting completeness"
         description="Which experimental, participant, and protocol details studies make explicit — and which are left to the reader's assumption."
       />

@@ -72,7 +72,7 @@ export default function Questionnaires({ data }) {
   return (
     <div>
       <PageHeader
-        eyebrow="Analysis · Appendix Fig. 15–16"
+        eyebrow="Analysis · Fig. 15–16"
         title="Questionnaire scale heterogeneity"
         description="Thermal sensation scales are highly standardised across studies. Thermal comfort scales are not — point count, labels, and even the direction of the scale vary widely."
       />

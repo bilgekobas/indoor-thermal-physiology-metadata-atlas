@@ -77,7 +77,7 @@ export default function StudyDesign({ data }) {
   return (
     <div>
       <PageHeader
-        eyebrow="Analysis · Appendix Fig. 1–11"
+        eyebrow="Analysis · Fig. 1–11"
         title="Study design & context"
         description="When, where, and how indoor thermal-physiology experiments are conducted: publication timeline, geography, session timing, settings, target conditions, and sample composition."
       />

@@ -513,7 +513,7 @@ export default function ChapterContext({ data }) {
         title="When and where research happens"
         intro="Publication volume has risen steadily, with a dip during 2020–21. Research is geographically concentrated, and that concentration shapes more than just where studies happen — sample size patterns differ by country too, and the climate a study is conducted in often doesn't match the temperature values it tests."
       >
-        <FigureCard figNumber="2" title="Publications by year" size="wide" commentary="A clear upward trend with a COVID-era dip, consistent with the appendix's own account.">
+        <FigureCard figNumber="2" title="Publications by year" size="wide" commentary="A clear upward trend with a COVID-era dip.">
           <PublicationsByYearChart data={fig01_pubs_by_year.data} totalPubs={totalPubs} />
         </FigureCard>
 

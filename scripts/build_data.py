@@ -167,10 +167,23 @@ signal_sensor_counts = (physio_dedup.groupby(['signal','physio-sensing-method'])
 signal_sensor_period = (physio_dedup.groupby(['signal','physio-sensing-method','period'])
                          .size().reset_index(name='count'))
 
+# True per-signal totals: distinct experiments reporting the signal (with a
+# valid sensing method), deduplicated on 'id'. NOT the same as summing
+# signal_sensor_counts['count'] across methods for a signal -- that sum
+# double/triple-counts any experiment using more than one sensing method
+# for the same signal (e.g. thermocouple at some skin sites, thermochron at
+# others). Affects Skin temperature (+13), Sweat indicators (+6),
+# Core/Body temperature (+3), Heart/Pulse rate (+2), Respiration (+1) if
+# summed instead of deduplicated. Sankey/chapter totals should read from
+# this field, not by summing 'overall'.
+signal_totals = (physio_dedup.drop_duplicates(subset=['id','signal'])
+                  .groupby('signal').size().reset_index(name='count'))
+
 with open(OUT_DIR / 'physio_signal_sensor.json', 'w') as f:
     json.dump({
         'overall': signal_sensor_counts.to_dict('records'),
         'by_period': signal_sensor_period.to_dict('records'),
+        'signal_totals': signal_totals.to_dict('records'),
         'periods': [b[2] for b in BINS],
     }, f, indent=2, default=str)
 print(f'physio_signal_sensor.json written: {len(signal_sensor_counts)} signal-sensor pairs')

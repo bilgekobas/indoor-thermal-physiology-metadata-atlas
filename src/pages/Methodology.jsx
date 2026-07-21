@@ -24,7 +24,7 @@ export default function Methodology({ data }) {
         <section>
           <h2 className="text-[15px] font-semibold mb-2">Search and screening logic</h2>
           <p className="text-[13.5px] text-inkmid leading-relaxed">
-            The current methodology appendix describes searches across Web of Science, Scopus,
+            The search and screening process covered Web of Science, Scopus,
             PubMed, and ScienceDirect for peer-reviewed English-language publications from 2013 to
             2024. Search terms were grouped around thermal-comfort constructs, experimental context,
             and physiological measurement. The initial search results yielded 6592 records across four databases. 
@@ -59,19 +59,6 @@ export default function Methodology({ data }) {
             controls, and limitations.
           </p>
           <CodeLegend />
-        </section>
-
-        <section>
-          <h2 className="text-[15px] font-semibold mb-2">Current methods appendix</h2>
-          <p className="text-[13.5px] text-inkmid leading-relaxed">
-            The PDF attached to this build is included as a provisional methodology reference. It is
-            expected to be superseded by the registered OSF protocol and the accompanying journal
-            paper. Until then, use it as the detailed trace of the current selection, coding, and
-            descriptive-analysis logic.
-          </p>
-          <a href={`${import.meta.env.BASE_URL}methodology_appendix_vi.pdf`} target="_blank" rel="noopener noreferrer" className="inline-block mt-3 text-[12px] font-data text-coreaccent hover:underline">
-            Open current methodology appendix PDF →
-          </a>
         </section>
       </div>
     </div>

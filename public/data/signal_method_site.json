@@ -752,12 +752,6 @@
     },
     {
       "signal": "Skin conductance",
-      "sensing_method": "EDA/GSR",
-      "site": "Wrist",
-      "count": 2
-    },
-    {
-      "signal": "Skin conductance",
       "sensing_method": "GSR/EDA",
       "site": "Chest",
       "count": 1
@@ -784,7 +778,7 @@
       "signal": "Skin conductance",
       "sensing_method": "GSR/EDA",
       "site": "Wrist",
-      "count": 12
+      "count": 14
     },
     {
       "signal": "Skin hardness",

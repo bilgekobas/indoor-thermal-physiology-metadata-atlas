@@ -2219,7 +2219,7 @@
         "sensing_method": "GSR/EDA",
         "brand": "Empatica",
         "model": "E4",
-        "count": 10,
+        "count": 12,
         "study_ids": [
           "1045_1",
           "1056_1",
@@ -2227,21 +2227,12 @@
           "1155_1",
           "1157_1",
           "1218_1",
+          "1230_1",
           "1234_1",
           "1235_1",
           "1243_1",
+          "1271_1",
           "1272_1"
-        ]
-      },
-      {
-        "signal": "Skin conductance",
-        "sensing_method": "EDA/GSR",
-        "brand": "Empatica",
-        "model": "E4",
-        "count": 2,
-        "study_ids": [
-          "1230_1",
-          "1271_1"
         ]
       },
       {
@@ -2249,9 +2240,10 @@
         "sensing_method": "GSR/EDA",
         "brand": "Shimmer Sensing",
         "model": "Shimmer 3 GSR+",
-        "count": 2,
+        "count": 3,
         "study_ids": [
           "1122_1",
+          "1122_2",
           "1201_1"
         ]
       },
@@ -2293,16 +2285,6 @@
         "count": 1,
         "study_ids": [
           "1137_1"
-        ]
-      },
-      {
-        "signal": "Skin conductance",
-        "sensing_method": "GSR/EDA",
-        "brand": "Shimmer Sensing",
-        "model": "GSR",
-        "count": 1,
-        "study_ids": [
-          "1122_2"
         ]
       },
       {
@@ -3446,7 +3428,7 @@
         ]
       }
     ],
-    "n_models": 244
+    "n_models": 243
   },
   "chapter_completeness": {
     "context_setting": {
@@ -8052,18 +8034,12 @@
           },
           {
             "period": "2023–24",
-            "sensor_grp": "EDA/GSR",
-            "count": 2
-          },
-          {
-            "period": "2023–24",
             "sensor_grp": "GSR/EDA",
-            "count": 7
+            "count": 9
           }
         ],
         "sensor_order": [
           "GSR/EDA",
-          "EDA/GSR",
           "Hygrochron"
         ],
         "period_totals": {
@@ -59716,13 +59692,8 @@
       },
       {
         "signal": "Skin conductance",
-        "physio-sensing-method": "EDA/GSR",
-        "count": 2
-      },
-      {
-        "signal": "Skin conductance",
         "physio-sensing-method": "GSR/EDA",
-        "count": 22
+        "count": 24
       },
       {
         "signal": "Skin conductance",
@@ -60755,12 +60726,6 @@
       },
       {
         "signal": "Skin conductance",
-        "physio-sensing-method": "EDA/GSR",
-        "period": "2023–24",
-        "count": 2
-      },
-      {
-        "signal": "Skin conductance",
         "physio-sensing-method": "GSR/EDA",
         "period": "2017–18",
         "count": 4
@@ -60781,7 +60746,7 @@
         "signal": "Skin conductance",
         "physio-sensing-method": "GSR/EDA",
         "period": "2023–24",
-        "count": 7
+        "count": 9
       },
       {
         "signal": "Skin conductance",
@@ -61160,6 +61125,172 @@
         "physio-sensing-method": "Tewameter",
         "period": "2021–22",
         "count": 1
+      }
+    ],
+    "signal_totals": [
+      {
+        "signal": "Biomarkers: Alpha-amylase",
+        "count": 3
+      },
+      {
+        "signal": "Biomarkers: COX1",
+        "count": 1
+      },
+      {
+        "signal": "Biomarkers: COX2",
+        "count": 1
+      },
+      {
+        "signal": "Biomarkers: Catecholamines",
+        "count": 1
+      },
+      {
+        "signal": "Biomarkers: Cortisol",
+        "count": 2
+      },
+      {
+        "signal": "Biomarkers: Dopamine",
+        "count": 1
+      },
+      {
+        "signal": "Biomarkers: Estradiol",
+        "count": 1
+      },
+      {
+        "signal": "Biomarkers: Free thyroxine (FT4)",
+        "count": 2
+      },
+      {
+        "signal": "Biomarkers: Free triiodothyronine (FT3)",
+        "count": 1
+      },
+      {
+        "signal": "Biomarkers: Heat shock protein (HSP)",
+        "count": 2
+      },
+      {
+        "signal": "Biomarkers: Immunoglobulin A (IgA)",
+        "count": 1
+      },
+      {
+        "signal": "Biomarkers: Immunoglobulin E (IgE)",
+        "count": 2
+      },
+      {
+        "signal": "Biomarkers: Interleukin 6 (IL-6)",
+        "count": 2
+      },
+      {
+        "signal": "Biomarkers: Lysozyme ",
+        "count": 1
+      },
+      {
+        "signal": "Biomarkers: PGE2",
+        "count": 1
+      },
+      {
+        "signal": "Biomarkers: Progesterone",
+        "count": 1
+      },
+      {
+        "signal": "Biomarkers: Tear film mucus",
+        "count": 1
+      },
+      {
+        "signal": "Biomarkers: Testosterone",
+        "count": 1
+      },
+      {
+        "signal": "Biomarkers: Thyroid-stimulating hormone (TSH)",
+        "count": 2
+      },
+      {
+        "signal": "Blood pressure",
+        "count": 42
+      },
+      {
+        "signal": "Core/Body temperature",
+        "count": 41
+      },
+      {
+        "signal": "EEG",
+        "count": 39
+      },
+      {
+        "signal": "EMG",
+        "count": 3
+      },
+      {
+        "signal": "EOG",
+        "count": 5
+      },
+      {
+        "signal": "Exhaled breath temperature",
+        "count": 2
+      },
+      {
+        "signal": "Glucose",
+        "count": 2
+      },
+      {
+        "signal": "Heart/Pulse rate",
+        "count": 136
+      },
+      {
+        "signal": "Heat flux",
+        "count": 8
+      },
+      {
+        "signal": "Metabolic rate/Gas exchange",
+        "count": 19
+      },
+      {
+        "signal": "Movement",
+        "count": 13
+      },
+      {
+        "signal": "Near body temperature",
+        "count": 8
+      },
+      {
+        "signal": "Oxygen saturation",
+        "count": 30
+      },
+      {
+        "signal": "Perfusion index",
+        "count": 1
+      },
+      {
+        "signal": "Pupillometry",
+        "count": 1
+      },
+      {
+        "signal": "Respiration",
+        "count": 8
+      },
+      {
+        "signal": "Sensory nerve conduction velocity",
+        "count": 1
+      },
+      {
+        "signal": "Skin blood flow",
+        "count": 14
+      },
+      {
+        "signal": "Skin conductance",
+        "count": 25
+      },
+      {
+        "signal": "Skin hardness",
+        "count": 1
+      },
+      {
+        "signal": "Skin temperature",
+        "count": 230
+      },
+      {
+        "signal": "Sweat indicators",
+        "count": 35
       }
     ],
     "periods": [
@@ -69991,11 +70122,6 @@
         "count": 2
       },
       {
-        "physio-sensing-method": "EDA/GSR",
-        "physio-sensor-brand": "Empatica",
-        "count": 2
-      },
-      {
         "physio-sensing-method": "EMG",
         "physio-sensor-brand": "Nihonkohden Co.",
         "count": 1
@@ -70058,7 +70184,7 @@
       {
         "physio-sensing-method": "GSR/EDA",
         "physio-sensor-brand": "Empatica",
-        "count": 10
+        "count": 12
       },
       {
         "physio-sensing-method": "GSR/EDA",
@@ -73374,12 +73500,6 @@
       },
       {
         "signal": "Skin conductance",
-        "sensing_method": "EDA/GSR",
-        "site": "Wrist",
-        "count": 2
-      },
-      {
-        "signal": "Skin conductance",
         "sensing_method": "GSR/EDA",
         "site": "Chest",
         "count": 1
@@ -73406,7 +73526,7 @@
         "signal": "Skin conductance",
         "sensing_method": "GSR/EDA",
         "site": "Wrist",
-        "count": 12
+        "count": 14
       },
       {
         "signal": "Skin hardness",
@@ -74733,8 +74853,7 @@
           "count": 14,
           "non_anatomical": false,
           "sensingMethods": {
-            "EDA/GSR": 2,
-            "GSR/EDA": 12
+            "GSR/EDA": 14
           }
         },
         {
@@ -74922,8 +75041,7 @@
             "Skin conductance": 14
           },
           "sensingMethods": {
-            "EDA/GSR": 2,
-            "GSR/EDA": 12
+            "GSR/EDA": 14
           }
         },
         {
@@ -82573,7 +82691,7 @@
     "n_variables": 206,
     "year_min": 2013,
     "year_max": 2024,
-    "generated_at": "2026-07-20T18:20:12.610797"
+    "generated_at": "2026-07-21T15:19:31.100097"
   },
   "world-countries-110m": {
     "type": "Topology",

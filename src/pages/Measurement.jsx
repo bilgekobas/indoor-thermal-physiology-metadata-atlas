@@ -56,7 +56,7 @@ export default function Measurement({ data }) {
   return (
     <div>
       <PageHeader
-        eyebrow="Analysis · Appendix Fig. 12, 17–19"
+        eyebrow="Analysis · Fig. 12, 17–19"
         title="Measurement & sensors"
         description="Which physiological signals are measured, with which sensors, and at which body sites — and how that has shifted across the decade."
       />

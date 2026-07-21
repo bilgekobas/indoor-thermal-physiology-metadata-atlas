@@ -166,7 +166,7 @@ export default function Environment({ data }) {
   return (
     <div>
       <PageHeader
-        eyebrow="Analysis · Appendix Fig. 5, 13"
+        eyebrow="Analysis · Fig. 5, 13"
         title="Timing & environmental sensors"
         description="When experiments happen across the day, and at what heights environmental sensors are placed."
       />

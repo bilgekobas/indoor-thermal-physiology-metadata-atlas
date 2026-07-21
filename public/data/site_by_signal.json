@@ -223,8 +223,7 @@
         "count": 14,
         "non_anatomical": false,
         "sensingMethods": {
-          "EDA/GSR": 2,
-          "GSR/EDA": 12
+          "GSR/EDA": 14
         }
       },
       {
@@ -412,8 +411,7 @@
           "Skin conductance": 14
         },
         "sensingMethods": {
-          "EDA/GSR": 2,
-          "GSR/EDA": 12
+          "GSR/EDA": 14
         }
       },
       {

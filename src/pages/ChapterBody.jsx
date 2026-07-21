@@ -117,7 +117,7 @@ function layoutColumn(entries, { x, gap, pxPerUnit, minH }) {
   return { nodes, totalHeight: y - gap }
 }
 
-function SignalSensorBrandSankey({ overall, brandModelData }) {
+function SignalSensorBrandSankey({ overall, signalTotals, brandModelData }) {
   const { tip, showTip, moveTip, hideTip } = useTooltip()
   // Selection state for click-to-isolate: null = nothing selected (show
   // everything at normal opacity). Otherwise { level: 'signal'|'sensor'|'brand', name }.
@@ -132,8 +132,11 @@ function SignalSensorBrandSankey({ overall, brandModelData }) {
   const COLLAPSED_TOP_N = 15
 
   const layout = useMemo(() => {
+    // True per-signal totals: distinct experiments, not summed across
+    // sensing methods (see build_data.py comment on signal_totals for why
+    // summing 'overall' inflates signals with multi-method experiments).
     const sigTotals = {}
-    overall.forEach((r) => { sigTotals[r.signal] = (sigTotals[r.signal] || 0) + r.count })
+    signalTotals.forEach((r) => { sigTotals[r.signal] = r.count })
     const activeSignalNames = Object.keys(sigTotals).filter((s) => sigTotals[s] >= 5)
     const signalEntries = []
     DOMAIN_ORDER.forEach((domain) => {
@@ -292,7 +295,7 @@ function SignalSensorBrandSankey({ overall, brandModelData }) {
       brandSensorMap,
       brandMode,
     }
-  }, [overall, brandModelData, brandMode])
+  }, [overall, signalTotals, brandModelData, brandMode])
 
   // Is a given link/node "active" under the current selection? Returns
   // true if nothing is selected (show everything normally) or if the
@@ -744,6 +747,69 @@ export default function ChapterBody({ data }) {
   const mstPct = ((mst.n_mst_studies / summary.n_experiments) * 100).toFixed(0)
   const brandPct = ((sensor_brands.n_studies_with_brand / summary.n_experiments) * 100).toFixed(0)
 
+  // Dynamic values for the "what's measured" intro/captions, so they track
+  // summary.n_experiments and the current corpus instead of being hand-
+  // written prose that drifts out of sync as the corpus grows. Signal
+  // totals come from signal_totals (true distinct-experiment counts), not
+  // by summing 'overall' across sensing methods -- see build_data.py.
+  const signalTotalsMap = Object.fromEntries(physio_signal_sensor.signal_totals.map((r) => [r.signal, r.count]))
+  const skinTempN = signalTotalsMap['Skin temperature']
+  const heartRateN = signalTotalsMap['Heart/Pulse rate']
+  const skinTempPct = ((skinTempN / summary.n_experiments) * 100).toFixed(0)
+  const heartRatePct = ((heartRateN / summary.n_experiments) * 100).toFixed(0)
+
+  const cooccurLabels = fig18_physio_cooccurrence.labels
+  const cooccurMatrix = fig18_physio_cooccurrence.matrix
+  const iSkin = cooccurLabels.indexOf('Skin temperature')
+  const iHr = cooccurLabels.indexOf('Heart/Pulse rate')
+  const skinHrCooccur = cooccurMatrix[iSkin][iHr]
+  // Use the matrix's own diagonal totals (not signal_totals) so the
+  // percentage is self-consistent with what this specific chart shows --
+  // fig18 doesn't require a sensing method to be reported, so its totals
+  // differ slightly from physio_signal_sensor's method-conditioned counts.
+  const cooccurSkinTotal = cooccurMatrix[iSkin][iSkin]
+  const cooccurHrTotal = cooccurMatrix[iHr][iHr]
+  const hrAlsoSkinPct = ((skinHrCooccur / cooccurHrTotal) * 100).toFixed(0)
+
+  const topSkinSite = allSites[0]
+  const topSkinSitePct = ((topSkinSite.total / skintemp_sites.n_studies_with_site) * 100).toFixed(0)
+  const nextSkinSites = allSites.slice(1, 5)
+  const nextSkinSitesLabel = nextSkinSites.map((s) => s.site.toLowerCase()).join(', ').replace(/, ([^,]*)$/, ', and $1')
+  const nextSkinSitesMin = Math.min(...nextSkinSites.map((s) => s.total))
+  const nextSkinSitesMax = Math.max(...nextSkinSites.map((s) => s.total))
+
+  const hrSites = site_by_signal['Heart/Pulse rate'].site_totals
+  const hrN = site_by_signal['Heart/Pulse rate'].n_studies_with_site
+  const hrChest = hrSites.find((s) => s.site === 'Chest')?.count
+  const hrWrist = hrSites.find((s) => s.site === 'Wrist')?.count
+
+  const sudoSites = site_by_signal['Sudomotor (combined)'].site_totals
+  const sweatWholeBody = sudoSites.find((s) => s.site === 'Whole body')?.count
+  const conductanceWrist = sudoSites.find((s) => s.site === 'Wrist')?.by_signal?.['Skin conductance'] || 0
+  const conductanceFinger = sudoSites.find((s) => s.site === 'Finger')?.by_signal?.['Skin conductance'] || 0
+
+  // Brand stats for the Signal -> sensor type -> brand caption. Counted by
+  // summing each brand's appearances across signals (so a combination
+  // device that reports e.g. both blood pressure and heart rate counts
+  // once per signal) -- this is the metric the caption's framing already
+  // assumes ("OMRON... spread across signals"), kept consistent here
+  // rather than switching to a distinct-experiment count, which would
+  // answer a different question and isn't comparable to it.
+  const brandStats = useMemo(() => {
+    const totals = {}
+    data.brand_model_reference.data.forEach((r) => {
+      totals[r.brand] = totals[r.brand] || {}
+      totals[r.brand][r.signal] = (totals[r.brand][r.signal] || 0) + r.study_ids.length
+    })
+    const sumFor = (b) => Object.values(totals[b] || {}).reduce((a, c) => a + c, 0)
+    const topSignalsFor = (b) => Object.entries(totals[b] || {}).sort((a, b2) => b2[1] - a[1])
+    return { totals, sumFor, topSignalsFor }
+  }, [data.brand_model_reference.data])
+  const omronTotal = brandStats.sumFor('Omron')
+  const omronBySignal = Object.fromEntries(brandStats.topSignalsFor('Omron'))
+  const iButtonTotal = brandStats.sumFor('iButton')
+  const iButtonSkin = brandStats.totals['iButton']?.['Skin temperature'] || 0
+
   return (
     <div>
       <ChapterHeader
@@ -774,9 +840,9 @@ export default function ChapterBody({ data }) {
 
       <ChapterSection
         title="What's measured, and how"
-        intro="Skin temperature (218 studies, 81%) and heart rate (135, 50%) dominate by a wide margin over every other signal. Other signals appear far less often and are typically paired with skin temperature or heart rate rather than measured in isolation."
+        intro={`Skin temperature (${skinTempN} studies, ${skinTempPct}%) and heart rate (${heartRateN}, ${heartRatePct}%) dominate by a wide margin over every other signal. Other signals appear far less often and are typically paired with skin temperature or heart rate rather than measured in isolation.`}
       >
-        <FigureCard figNumber="20" title="Most frequently measured signals" plotWidth={980} commentary="Skin temperature dominates at 218 of 269 experiments (81%) — more than triple the next most common signal, heart/pulse rate at 135 (50%). After that the field thins out fast: core/body temperature and blood pressure each appear in well under a fifth of experiments.">
+        <FigureCard figNumber="20" title="Most frequently measured signals" plotWidth={980} commentary={`Skin temperature dominates at ${skinTempN} of ${summary.n_experiments} experiments (${skinTempPct}%) — more than triple the next most common signal, heart/pulse rate at ${heartRateN} (${heartRatePct}%). After that the field thins out fast: core/body temperature and blood pressure each appear in well under a fifth of experiments.`}>
           <PeriodHeatmap
             rows={fig17_physio_params.data.map((d) => d.parameter)}
             periods={signal_freq_by_period.periods}
@@ -788,7 +854,7 @@ export default function ChapterBody({ data }) {
           />
         </FigureCard>
 
-        <FigureCard figNumber="21" title="Which signals get measured together" plotWidth={680} commentary="Skin temperature (218 studies) and heart/pulse rate (135) are individually the most common signals, and 103 studies measure both together — about half of all heart-rate studies also track skin temperature.">
+        <FigureCard figNumber="21" title="Which signals get measured together" plotWidth={680} commentary={`Skin temperature (${cooccurSkinTotal} studies) and heart/pulse rate (${cooccurHrTotal}) are individually the most common signals, and ${skinHrCooccur} studies measure both together — about ${hrAlsoSkinPct}% of all heart-rate studies also track skin temperature.`}>
           <CooccurrenceMatrix labels={fig18_physio_cooccurrence.labels} matrix={fig18_physio_cooccurrence.matrix} cellSize={38} colorScheme="blue" />
         </FigureCard>
       </ChapterSection>
@@ -797,12 +863,11 @@ export default function ChapterBody({ data }) {
         title="Signals, sensor types, and brands"
         intro="The same signal can be captured by very different instruments. This flow covers 15 signals measured in ≥5 studies, 53 distinct sensor types used across them, and every commercial brand behind those sensors — ordered by thermophysiological mechanism."
       >
-        <FigureCard figNumber="22" title="Signal → sensor type → brand" plotWidth={1100} commentary="OMRON is the most-cited brand overall (65 studies), but spread across signals — it makes combination devices covering blood pressure (30), heart rate (20), and core temperature (12). iButton (49 studies) is the opposite pattern: concentrated almost entirely in one signal, skin temperature (44 of its 49). Flow and node thickness are proportional to study count — hover for the exact number, or click any signal, sensor type, or brand to isolate its paths.">
-          <SignalSensorBrandSankey overall={physio_signal_sensor.overall} brandModelData={data.brand_model_reference.data} />
+        <FigureCard figNumber="22" title="Signal → sensor type → brand" plotWidth={1100} commentary={`OMRON is the most-cited brand overall (${omronTotal}, counted once per signal it's used for), but spread across signals — it makes combination devices covering blood pressure (${omronBySignal['Blood pressure'] || 0}), heart rate (${omronBySignal['Heart/Pulse rate'] || 0}), and core temperature (${omronBySignal['Core/Body temperature'] || 0}). iButton (${iButtonTotal}) is the opposite pattern: concentrated almost entirely in one signal, skin temperature (${iButtonSkin} of its ${iButtonTotal}). Flow and node thickness are proportional to study count — hover for the exact number, or click any signal, sensor type, or brand to isolate its paths.`}>
+          <SignalSensorBrandSankey overall={physio_signal_sensor.overall} signalTotals={physio_signal_sensor.signal_totals} brandModelData={data.brand_model_reference.data} />
         </FigureCard>
 
-        <FigureCard figNumber="23" title="Where on the body each signal is measured" plotWidth={900} commentary="Skin temperature is measured across the body fairly evenly (no single dominant site). Heart rate concentrates at the chest (44 of 99 studies, ECG-strap territory) and wrist (25, optical wearables). The sudomotor signals split sharply by method: 27 sweat-indicator studies measure the whole body at once (not shown on the diagram, see the list at right), while skin conductance is almost always local — 11 studies at the wrist, 9 at the finger.">
-          <BodySiteToggle
+        <FigureCard figNumber="23" title="Where on the body each signal is measured" plotWidth={900} commentary={`Skin temperature is measured across the body fairly evenly (no single dominant site). Heart rate concentrates at the chest (${hrChest} of ${hrN} studies, ECG-strap territory) and wrist (${hrWrist}, optical wearables). The sudomotor signals split sharply by method: ${sweatWholeBody} sweat-indicator studies measure the whole body at once (not shown on the diagram, see the list at right), while skin conductance is almost always local — ${conductanceWrist} studies at the wrist, ${conductanceFinger} at the finger.`}>          <BodySiteToggle
             skinTempSites={skintemp_sites.site_totals}
             skinTempN={skintemp_sites.n_studies_with_site}
             hrSites={site_by_signal['Heart/Pulse rate'].site_totals}
@@ -826,7 +891,7 @@ export default function ChapterBody({ data }) {
         title="Skin temperature body sites"
         intro="Where on the body skin temperature is measured, and how that has shifted across the decade. Only near-synonymous labels are collapsed (e.g. calf/shin → lower leg); distinct face sub-sites remain separate."
       >
-        <FigureCard figNumber="25" title="Site prevalence by period" plotWidth={980} commentary="Lower leg is the single most-measured site (136 of 218 skin-temperature studies, 62%), followed closely by hand, thigh, chest, and forehead (all 123–130 studies). No one site is measured in every study — choice of body site is still inconsistent across the field.">
+        <FigureCard figNumber="25" title="Site prevalence by period" plotWidth={980} commentary={`${topSkinSite.site} is the single most-measured site (${topSkinSite.total} of ${skintemp_sites.n_studies_with_site} skin-temperature studies, ${topSkinSitePct}%), followed closely by ${nextSkinSitesLabel} (all ${nextSkinSitesMin}–${nextSkinSitesMax} studies). No one site is measured in every study — choice of body site is still inconsistent across the field.`}>
           <PeriodHeatmap
             rows={allSites.map((s) => s.site)}
             periods={periods}
@@ -843,7 +908,7 @@ export default function ChapterBody({ data }) {
         title="Where other signals are measured"
         intro="Skin temperature isn't the only signal where measurement site reflects a real methodological choice. Heart rate's site splits roughly along sensor modality (chest straps vs. wrist/finger optical sensors); skin conductance follows electrode-placement convention; sweat is measured either at a local site or, more often, across the whole body at once — two fundamentally different kinds of measurement sharing one field name."
       >
-        <FigureCard figNumber="26" title="Heart/pulse rate measurement site" plotWidth={980} commentary="Chest (44 of 99 studies) and wrist (25) are the two dominant sites — roughly, ECG-strap vs. optical-wearable territory. The matrix below shows the full site distribution over time.">
+        <FigureCard figNumber="26" title="Heart/pulse rate measurement site" plotWidth={980} commentary={`Chest (${hrChest} of ${hrN} studies) and wrist (${hrWrist}) are the two dominant sites — roughly, ECG-strap vs. optical-wearable territory. The matrix below shows the full site distribution over time.`}>
           {(() => {
             const hr = site_by_signal['Heart/Pulse rate'].by_period
             const hrSites = site_by_signal['Heart/Pulse rate'].site_totals.map((d) => d.site)

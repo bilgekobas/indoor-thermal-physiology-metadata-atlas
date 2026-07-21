@@ -2,7 +2,7 @@ import { useMemo } from 'react'
 import PageHeader from '../components/PageHeader.jsx'
 import { useTooltip, TooltipPortal } from '../components/Tooltip.jsx'
 
-// Domain groupings, in mechanism order matching the appendix (peripheral exchange
+// Domain groupings, in mechanism order (peripheral exchange
 // → cardiovascular transport → central state → sudomotor → neuro-muscular → metabolic).
 // This fixed order also defines the top-to-bottom signal ordering within the chart.
 const DOMAIN_ORDER = [
@@ -61,11 +61,18 @@ export default function Sankey({ data }) {
   const brandPairs = data.sensor_type_brand.data
 
   const layout = useMemo(() => {
+    // True per-signal totals: distinct experiments reporting the signal,
+    // NOT summed across sensing methods. Summing 'overall' across methods
+    // double-counts any experiment using more than one sensing method for
+    // the same signal (e.g. thermocouple at some skin sites, thermochron at
+    // others) -- this under-corrected version inflated Skin temperature by
+    // 13, Sweat indicators by 6, Core/Body temperature by 3, Heart/Pulse
+    // rate by 2, Respiration by 1.
     const sigTotals = {}
-    overall.forEach((r) => { sigTotals[r.signal] = (sigTotals[r.signal] || 0) + r.count })
+    data.physio_signal_sensor.signal_totals.forEach((r) => { sigTotals[r.signal] = r.count })
 
     // Active signals: >= 5 occurrences, ordered by fixed mechanism/domain order,
-    // then by descending total within each domain (matches the appendix's layout).
+    // then by descending total within each domain.
     const activeSignalNames = Object.keys(sigTotals).filter((s) => sigTotals[s] >= 5)
     const signalEntries = []
     DOMAIN_ORDER.forEach((domain) => {
@@ -190,7 +197,7 @@ export default function Sankey({ data }) {
       maxFlow: Math.max(...overall.map((r) => r.count), 1),
       nSingleStudyBrands,
     }
-  }, [overall, brandPairs])
+  }, [overall, brandPairs, data.physio_signal_sensor.signal_totals])
 
   // Helper to draw a smooth flow ribbon between two node edges with thickness = count
   function FlowPath({ link, color, maxFlow, columnGap }) {
@@ -218,9 +225,9 @@ export default function Sankey({ data }) {
   return (
     <div>
       <PageHeader
-        eyebrow="Analysis · Appendix Fig. 19, extended"
+        eyebrow="Analysis · Fig. 19, extended"
         title="Signals, sensor types & sensor brands"
-        description="Every signal measured in ≥5 experiments, every sensor type used to measure it, and every commercial brand behind that sensor type. Ordered by thermophysiological mechanism, matching the appendix. Hover any flow or node for exact counts."
+        description="Every signal measured in ≥5 experiments, every sensor type used to measure it, and every commercial brand behind that sensor type. Ordered by thermophysiological mechanism. Hover any flow or node for exact counts."
       />
 
       <div className="px-10 py-8">

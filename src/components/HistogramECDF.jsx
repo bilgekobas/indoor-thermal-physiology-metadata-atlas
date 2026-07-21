@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
 import { useTooltip, TooltipPortal } from './Tooltip.jsx'
 
-// Histogram + ECDF, matching Figures 3, 4, 11 in the appendix.
+// Histogram + ECDF, shared across the duration/count figures.
 export default function HistogramECDF({ values, binWidth = 1, xLabel = '', unit = '', tickFormatter = null, onStats = null, width = 960, barColor = '#0A0A0A', lineColor = '#5B5BFF' }) {
   const { tip, showTip, moveTip, hideTip } = useTooltip()
   if (!values.length) return <div className="text-[12px] text-inkfaint">No data available.</div>

@@ -464,18 +464,12 @@
         },
         {
           "period": "2023\u201324",
-          "sensor_grp": "EDA/GSR",
-          "count": 2
-        },
-        {
-          "period": "2023\u201324",
           "sensor_grp": "GSR/EDA",
-          "count": 7
+          "count": 9
         }
       ],
       "sensor_order": [
         "GSR/EDA",
-        "EDA/GSR",
         "Hygrochron"
       ],
       "period_totals": {

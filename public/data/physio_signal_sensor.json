@@ -362,13 +362,8 @@
     },
     {
       "signal": "Skin conductance",
-      "physio-sensing-method": "EDA/GSR",
-      "count": 2
-    },
-    {
-      "signal": "Skin conductance",
       "physio-sensing-method": "GSR/EDA",
-      "count": 22
+      "count": 24
     },
     {
       "signal": "Skin conductance",
@@ -1401,12 +1396,6 @@
     },
     {
       "signal": "Skin conductance",
-      "physio-sensing-method": "EDA/GSR",
-      "period": "2023\u201324",
-      "count": 2
-    },
-    {
-      "signal": "Skin conductance",
       "physio-sensing-method": "GSR/EDA",
       "period": "2017\u201318",
       "count": 4
@@ -1427,7 +1416,7 @@
       "signal": "Skin conductance",
       "physio-sensing-method": "GSR/EDA",
       "period": "2023\u201324",
-      "count": 7
+      "count": 9
     },
     {
       "signal": "Skin conductance",
@@ -1806,6 +1795,172 @@
       "physio-sensing-method": "Tewameter",
       "period": "2021\u201322",
       "count": 1
+    }
+  ],
+  "signal_totals": [
+    {
+      "signal": "Biomarkers: Alpha-amylase",
+      "count": 3
+    },
+    {
+      "signal": "Biomarkers: COX1",
+      "count": 1
+    },
+    {
+      "signal": "Biomarkers: COX2",
+      "count": 1
+    },
+    {
+      "signal": "Biomarkers: Catecholamines",
+      "count": 1
+    },
+    {
+      "signal": "Biomarkers: Cortisol",
+      "count": 2
+    },
+    {
+      "signal": "Biomarkers: Dopamine",
+      "count": 1
+    },
+    {
+      "signal": "Biomarkers: Estradiol",
+      "count": 1
+    },
+    {
+      "signal": "Biomarkers: Free thyroxine (FT4)",
+      "count": 2
+    },
+    {
+      "signal": "Biomarkers: Free triiodothyronine (FT3)",
+      "count": 1
+    },
+    {
+      "signal": "Biomarkers: Heat shock protein (HSP)",
+      "count": 2
+    },
+    {
+      "signal": "Biomarkers: Immunoglobulin A (IgA)",
+      "count": 1
+    },
+    {
+      "signal": "Biomarkers: Immunoglobulin E (IgE)",
+      "count": 2
+    },
+    {
+      "signal": "Biomarkers: Interleukin 6 (IL-6)",
+      "count": 2
+    },
+    {
+      "signal": "Biomarkers: Lysozyme ",
+      "count": 1
+    },
+    {
+      "signal": "Biomarkers: PGE2",
+      "count": 1
+    },
+    {
+      "signal": "Biomarkers: Progesterone",
+      "count": 1
+    },
+    {
+      "signal": "Biomarkers: Tear film mucus",
+      "count": 1
+    },
+    {
+      "signal": "Biomarkers: Testosterone",
+      "count": 1
+    },
+    {
+      "signal": "Biomarkers: Thyroid-stimulating hormone (TSH)",
+      "count": 2
+    },
+    {
+      "signal": "Blood pressure",
+      "count": 42
+    },
+    {
+      "signal": "Core/Body temperature",
+      "count": 41
+    },
+    {
+      "signal": "EEG",
+      "count": 39
+    },
+    {
+      "signal": "EMG",
+      "count": 3
+    },
+    {
+      "signal": "EOG",
+      "count": 5
+    },
+    {
+      "signal": "Exhaled breath temperature",
+      "count": 2
+    },
+    {
+      "signal": "Glucose",
+      "count": 2
+    },
+    {
+      "signal": "Heart/Pulse rate",
+      "count": 136
+    },
+    {
+      "signal": "Heat flux",
+      "count": 8
+    },
+    {
+      "signal": "Metabolic rate/Gas exchange",
+      "count": 19
+    },
+    {
+      "signal": "Movement",
+      "count": 13
+    },
+    {
+      "signal": "Near body temperature",
+      "count": 8
+    },
+    {
+      "signal": "Oxygen saturation",
+      "count": 30
+    },
+    {
+      "signal": "Perfusion index",
+      "count": 1
+    },
+    {
+      "signal": "Pupillometry",
+      "count": 1
+    },
+    {
+      "signal": "Respiration",
+      "count": 8
+    },
+    {
+      "signal": "Sensory nerve conduction velocity",
+      "count": 1
+    },
+    {
+      "signal": "Skin blood flow",
+      "count": 14
+    },
+    {
+      "signal": "Skin conductance",
+      "count": 25
+    },
+    {
+      "signal": "Skin hardness",
+      "count": 1
+    },
+    {
+      "signal": "Skin temperature",
+      "count": 230
+    },
+    {
+      "signal": "Sweat indicators",
+      "count": 35
     }
   ],
   "periods": [
