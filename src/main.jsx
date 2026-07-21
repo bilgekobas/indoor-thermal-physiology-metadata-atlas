@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client'
 import { BrowserRouter } from 'react-router-dom'
 import App from './App.jsx'
 import './index.css'
+import 'leaflet/dist/leaflet.css'
 
 // GitHub Pages SPA redirect support. public/404.html redirects direct
 // URLs such as /population#demographics to /?/population#demographics;

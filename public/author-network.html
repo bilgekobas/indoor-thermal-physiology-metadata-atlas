@@ -130,7 +130,13 @@ function fitToGraphic(pad=28) {
     svg.call(zoomBehavior.transform, d3.zoomIdentity);
     return;
   }
-  const scale = Math.min((W - pad * 2) / bounds.width, (H - pad * 2) / bounds.height, 1);
+  // Zoom to fit the graph's actual bounding box into the canvas. Capped at
+  // 3.5x (not 1x) so compact graphs -- a tight force-layout cluster, or a
+  // small ego network -- get magnified to fill the available space instead
+  // of rendering small and cramped in the middle of an empty canvas. The
+  // upper cap still prevents a 2-3 node graph from being blown up to an
+  // unreadable, absurdly large scale.
+  const scale = Math.min((W - pad * 2) / bounds.width, (H - pad * 2) / bounds.height, 3.5);
   const tx = (W - bounds.width * scale) / 2 - bounds.x * scale;
   const ty = (H - bounds.height * scale) / 2 - bounds.y * scale;
   svg.transition().duration(250).call(zoomBehavior.transform, d3.zoomIdentity.translate(tx, ty).scale(scale));

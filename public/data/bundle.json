@@ -15683,13 +15683,6 @@
         "pooled_from_subgroups": null
       },
       {
-        "id": "1271_1",
-        "mean": 24.81,
-        "std": 15.34,
-        "std_reported": true,
-        "pooled_from_subgroups": 30
-      },
-      {
         "id": "1262_1",
         "mean": 24.82,
         "std": 2.21,
@@ -15912,6 +15905,13 @@
         "std": 3.9,
         "std_reported": true,
         "pooled_from_subgroups": null
+      },
+      {
+        "id": "1271_1",
+        "mean": 29.47,
+        "std": 14.35,
+        "std_reported": true,
+        "pooled_from_subgroups": 30
       },
       {
         "id": "1185_1",
@@ -82691,7 +82691,7 @@
     "n_variables": 206,
     "year_min": 2013,
     "year_max": 2024,
-    "generated_at": "2026-07-21T15:19:31.100097"
+    "generated_at": "2026-07-21T15:25:40.765922"
   },
   "world-countries-110m": {
     "type": "Topology",

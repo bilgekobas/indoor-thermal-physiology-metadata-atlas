@@ -1,7 +1,6 @@
 import { useState, useEffect, useMemo } from 'react'
-import { ComposableMap, Geographies, Geography, Marker, ZoomableGroup } from 'react-simple-maps'
-import { geoCentroid } from 'd3-geo'
-import { useTooltip, TooltipPortal } from './Tooltip.jsx'
+import { MapContainer, TileLayer, CircleMarker, GeoJSON, Tooltip as LeafletTooltip, useMap, useMapEvents } from 'react-leaflet'
+import * as topojson from 'topojson-client'
 
 const CLIMATE_COLORS = {
   'Tropical': '#FB3640',
@@ -18,11 +17,64 @@ const CLIMATE_COLORS = {
 }
 function climateColor(g) { return CLIMATE_COLORS[g] || '#BBBBBB' }
 
-export default function WorldMapExplorer({ cityData, countryData, height = 430 }) {
-  const { tip, showTip, moveTip, hideTip } = useTooltip()
+const INITIAL_ZOOM = 2
+
+// CartoDB Positron: a light basemap that already bakes in country and city
+// name labels, so we get real geography (coastlines, borders, place names)
+// for free instead of drawing a flat vector silhouette ourselves.
+const TILE_URL = 'https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png'
+const TILE_ATTRIBUTION =
+  '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>'
+
+// Tracks the current zoom level so city marker radii can grow/shrink with
+// it -- Leaflet's CircleMarker radius is a fixed pixel size by default and
+// does not change on its own when the user zooms in or out.
+function useCurrentZoom(initial) {
+  const [zoom, setZoom] = useState(initial)
+  useMapEvents({ zoom: (e) => setZoom(e.target.getZoom()) })
+  return zoom
+}
+
+function CityMarkers({ cityData }) {
+  const zoom = useCurrentZoom(INITIAL_ZOOM)
+  const maxCity = (cityData || []).reduce((m, c) => (c.count > m ? c.count : m), 1)
+  const baseRadiusFor = (count) => 2.5 + Math.sqrt(count / Math.max(maxCity, 1)) * 11
+  // Grows/shrinks with zoom (clamped) so nearby cities separate visually
+  // once you zoom into a dense cluster, without single markers becoming
+  // either illegibly tiny or absurdly oversized at the extremes.
+  const zoomScale = Math.min(Math.max(Math.pow(1.22, zoom - INITIAL_ZOOM), 0.55), 3.2)
+
+  return (
+    <>
+      {[...(cityData || [])].sort((a, b) => b.count - a.count).map((c) => {
+        const caveat = c.precision !== 'city'
+          ? (c.precision === 'province' ? ' (province/state-level)' : c.precision === 'institute' ? ' (institution name)' : ' (one of several sites)')
+          : ''
+        return (
+          <CircleMarker
+            key={`${c.city}-${c.lat}-${c.lon}`}
+            center={[c.lat, c.lon]}
+            radius={baseRadiusFor(c.count) * zoomScale}
+            pathOptions={{
+              fillColor: climateColor(c.climate_group),
+              fillOpacity: 0.76,
+              color: '#FCFCFC',
+              weight: 1,
+            }}
+          >
+            <LeafletTooltip direction="top" offset={[0, -4]} opacity={0.95}>
+              {c.city}: {c.count} {c.count === 1 ? 'study' : 'studies'}, {c.climate_group}{caveat}
+            </LeafletTooltip>
+          </CircleMarker>
+        )
+      })}
+    </>
+  )
+}
+
+export default function WorldMapExplorer({ cityData, countryData, height = 460 }) {
   const [geoData, setGeoData] = useState(null)
   const [mode, setMode] = useState('city')
-  const [view, setView] = useState({ coordinates: [10, 10], zoom: 1 })
 
   useEffect(() => {
     const base = import.meta.env.BASE_URL
@@ -32,41 +84,49 @@ export default function WorldMapExplorer({ cityData, countryData, height = 430 }
       .catch(() => setGeoData(null))
   }, [])
 
+  const countryGeoJSON = useMemo(() => {
+    if (!geoData) return null
+    return topojson.feature(geoData, geoData.objects.countries)
+  }, [geoData])
+
   const countByAtlas = useMemo(() => {
     const m = {}
     ;(countryData || []).forEach((r) => { m[r.atlas_name] = r })
     return m
   }, [countryData])
 
-  const dominantClimateByCountry = useMemo(() => {
-    const byCountry = {}
-    ;(cityData || []).forEach((c) => {
-      if (!c.climate_group) return
-      if (!byCountry[c.country]) byCountry[c.country] = {}
-      byCountry[c.country][c.climate_group] = (byCountry[c.country][c.climate_group] || 0) + c.count
-    })
-    const result = {}
-    Object.entries(byCountry).forEach(([country, groups]) => {
-      result[country] = Object.entries(groups).sort((a, b) => b[1] - a[1])[0]?.[0]
-    })
-    return result
-  }, [cityData])
-
   const maxCountry = (countryData || []).reduce((m, r) => (r.count > m ? r.count : m), 1)
-  const maxCity = (cityData || []).reduce((m, c) => (c.count > m ? c.count : m), 1)
   const countryColor = (count) => {
-    if (!count) return '#F4F4F4'
+    if (!count) return null
     const t = Math.min(Math.log(count + 1) / Math.log(maxCountry + 1), 1)
     const r = Math.round(239 + (91 - 239) * t)
     const g = Math.round(239 + (91 - 239) * t)
     const b = Math.round(239 + (255 - 239) * t)
     return `rgb(${r},${g},${b})`
   }
-  const radiusFor = (count) => 2.5 + Math.sqrt(count / Math.max(maxCity, 1)) * 11
   const climateGroups = [...new Set((cityData || []).map((c) => c.climate_group).filter(Boolean))]
   const legendStops = [1, 2, 5, 10, 25, Math.round(maxCountry)].filter((v, i, arr) => v <= maxCountry && arr.indexOf(v) === i)
 
-  if (!geoData) return <div className="font-data text-[12px] text-inkfaint" style={{ height }}>Loading map…</div>
+  const countryStyle = (feature) => {
+    const entry = countByAtlas[feature.properties.name]
+    const count = entry?.count || 0
+    const fill = countryColor(count)
+    return {
+      fillColor: fill || '#F4F4F4',
+      fillOpacity: fill ? 0.72 : 0.15,
+      color: '#B9B9B9',
+      weight: 0.6,
+    }
+  }
+
+  const onEachCountry = (feature, layer) => {
+    const entry = countByAtlas[feature.properties.name]
+    const count = entry?.count || 0
+    const place = entry ? entry.raw_labels.join(' + ') : feature.properties.name
+    layer.bindTooltip(`${place}: ${count} ${count === 1 ? 'study' : 'studies'}`, { sticky: true })
+  }
+
+  const resetCenter = [15, 10]
 
   return (
     <div>
@@ -85,88 +145,27 @@ export default function WorldMapExplorer({ cityData, countryData, height = 430 }
             </button>
           ))}
         </div>
-        <div className="flex gap-1">
-          <button className="px-2 py-1 rounded bg-line/60 text-[11px] font-data hover:bg-line" onClick={() => setView((v) => ({ ...v, zoom: Math.min(v.zoom * 1.4, 8) }))}>+</button>
-          <button className="px-2 py-1 rounded bg-line/60 text-[11px] font-data hover:bg-line" onClick={() => setView((v) => ({ ...v, zoom: Math.max(v.zoom / 1.4, 1) }))}>−</button>
-          <button className="px-2 py-1 rounded bg-line/60 text-[11px] font-data hover:bg-line" onClick={() => setView({ coordinates: [10, 10], zoom: 1 })}>Reset</button>
-        </div>
       </div>
-      <div className="relative overflow-hidden border border-line/40 rounded-sm">
-      <ComposableMap
-        projection="geoEqualEarth"
-        projectionConfig={{ scale: 135, center: [10, 5] }}
-        width={900}
-        height={height}
-        style={{ width: '100%', height: 'auto', overflow: 'hidden' }}
-      >
-        <ZoomableGroup
-          center={view.coordinates}
-          zoom={view.zoom}
-          onMoveEnd={(pos) => setView({ coordinates: pos.coordinates, zoom: pos.zoom })}
-        >
-          <Geographies geography={geoData}>
-            {({ geographies }) => (
-              <>
-                {geographies.map((geo) => {
-                  const entry = countByAtlas[geo.properties.name]
-                  const count = entry?.count || 0
-                  const climate = dominantClimateByCountry[entry?.country || geo.properties.name]
-                  return (
-                    <Geography
-                      key={geo.rsmKey}
-                      geography={geo}
-                      fill={mode === 'country' ? countryColor(count) : '#F4F4F4'}
-                      stroke="#DADADA"
-                      strokeWidth={0.45}
-                      className="cursor-default outline-none"
-                      onMouseEnter={(e) => {
-                        if (mode !== 'country') return
-                        const place = entry ? entry.raw_labels.join(' + ') : geo.properties.name
-                        const label = climate ? `${place}: ${count} ${count === 1 ? 'study' : 'studies'}, ${climate}` : `${place}: ${count} ${count === 1 ? 'study' : 'studies'}`
-                        showTip(e, label)
-                      }}
-                      onMouseMove={moveTip}
-                      onMouseLeave={hideTip}
-                      style={{ default: { outline: 'none' }, hover: { outline: 'none', filter: mode === 'country' && count ? 'brightness(1.06)' : 'none' }, pressed: { outline: 'none' } }}
-                    />
-                  )
-                })}
-                {geographies.filter((geo) => countByAtlas[geo.properties.name]?.count > 0).map((geo) => {
-                  const centroid = geoCentroid(geo)
-                  const entry = countByAtlas[geo.properties.name]
-                  if (!Number.isFinite(centroid[0]) || !Number.isFinite(centroid[1]) || !entry) return null
-                  return (
-                    <Marker key={`label-${geo.rsmKey}`} coordinates={centroid}>
-                      <text textAnchor="middle" fontSize={7.5} fill="#333" stroke="#FFFFFF" strokeWidth={0.85} paintOrder="stroke" style={{ pointerEvents: 'none' }}>
-                        {entry.country}
-                      </text>
-                    </Marker>
-                  )
-                })}
-              </>
+      <div className="relative overflow-hidden border border-line/40 rounded-sm" style={{ height }}>
+        {!geoData ? (
+          <div className="font-data text-[12px] text-inkfaint flex items-center justify-center h-full">Loading map…</div>
+        ) : (
+          <MapContainer
+            center={resetCenter}
+            zoom={INITIAL_ZOOM}
+            minZoom={2}
+            maxZoom={9}
+            worldCopyJump
+            style={{ height: '100%', width: '100%', background: '#F4F4F4' }}
+          >
+            <TileLayer url={TILE_URL} attribution={TILE_ATTRIBUTION} />
+            {mode === 'country' && countryGeoJSON && (
+              <GeoJSON key="country-layer" data={countryGeoJSON} style={countryStyle} onEachFeature={onEachCountry} />
             )}
-          </Geographies>
-          {mode === 'city' && [...(cityData || [])].sort((a, b) => b.count - a.count).map((c) => (
-            <Marker key={`${c.city}-${c.lat}-${c.lon}`} coordinates={[c.lon, c.lat]}>
-              <circle
-                r={radiusFor(c.count)}
-                fill={climateColor(c.climate_group)}
-                fillOpacity={0.76}
-                stroke="#FCFCFC"
-                strokeWidth={1}
-                className="cursor-default hover:fill-opacity-100"
-                onMouseEnter={(e) => {
-                  const base = `${c.city}: ${c.count} ${c.count === 1 ? 'study' : 'studies'}, ${c.climate_group}`
-                  const caveat = c.precision !== 'city' ? (c.precision === 'province' ? ' (province/state-level)' : c.precision === 'institute' ? ' (institution name)' : ' (one of several sites)') : ''
-                  showTip(e, base + caveat)
-                }}
-                onMouseMove={moveTip}
-                onMouseLeave={hideTip}
-              />
-            </Marker>
-          ))}
-        </ZoomableGroup>
-      </ComposableMap>
+            {mode === 'city' && <CityMarkers cityData={cityData} />}
+            <MapZoomButtons resetCenter={resetCenter} />
+          </MapContainer>
+        )}
       </div>
       {mode === 'city' ? (
         <div>
@@ -178,7 +177,7 @@ export default function WorldMapExplorer({ cityData, countryData, height = 430 }
               </div>
             ))}
           </div>
-          <div className="font-data text-[10px] text-inkfaint mt-2">Marker area ∝ study count and scales with zoom. Color = Köppen climate group at that city.</div>
+          <div className="font-data text-[10px] text-inkfaint mt-2">Marker area ∝ study count and grows as you zoom in. Color = Köppen climate group at that city.</div>
         </div>
       ) : (
         <div className="flex items-center gap-3 mt-2 flex-wrap">
@@ -192,7 +191,21 @@ export default function WorldMapExplorer({ cityData, countryData, height = 430 }
           <span className="flex items-center gap-1.5"><span className="w-3 h-3 rounded-sm inline-block border border-line" style={{ background: '#F4F4F4' }} /><span className="font-data text-[10.5px] text-inkmid">0</span></span>
         </div>
       )}
-      <TooltipPortal tip={tip} />
+    </div>
+  )
+}
+
+// Renders the zoom +/-/Reset buttons as a Leaflet control positioned in the
+// top-right corner of the map itself, styled to match the rest of the site.
+function MapZoomButtons({ resetCenter }) {
+  const map = useMap()
+  return (
+    <div className="leaflet-top leaflet-right" style={{ marginTop: 8, marginRight: 8 }}>
+      <div className="leaflet-control flex gap-1">
+        <button className="px-2 py-1 rounded bg-white/95 border border-line/50 text-[11px] font-data hover:bg-line shadow-sm" onClick={() => map.zoomIn()}>+</button>
+        <button className="px-2 py-1 rounded bg-white/95 border border-line/50 text-[11px] font-data hover:bg-line shadow-sm" onClick={() => map.zoomOut()}>−</button>
+        <button className="px-2 py-1 rounded bg-white/95 border border-line/50 text-[11px] font-data hover:bg-line shadow-sm" onClick={() => map.setView(resetCenter, INITIAL_ZOOM)}>Reset</button>
+      </div>
     </div>
   )
 }
