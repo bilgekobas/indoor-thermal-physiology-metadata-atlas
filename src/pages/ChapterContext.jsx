@@ -501,12 +501,6 @@ export default function ChapterContext({ data }) {
         <FigureCard figNumber="1" title="Author co-authorship network" size="wide" commentary="Nodes are authors and links are co-authorship pairs. The default grouped view reduces the dense 808-author graph to connected collaboration components; the threshold controls can then expose either stable core groups or weaker one-study links. Colours identify collaboration clusters, not national origin.">
           <AuthorNetworkEmbed />
         </FigureCard>
-        <p className="text-[11px] text-inkfaint mt-1.5 max-w-3xl">
-          Author count above is synced to the last run of <code>scripts/build_author_network.py</code> —
-          it lives in a separate static file (<code>public/author-network.html</code>), not the main data
-          bundle, so this number needs a manual update after that script runs, unlike the other figures on
-          this page.
-        </p>
       </ChapterSection>
 
       <ChapterSection
