@@ -40,6 +40,7 @@ export default function Overview({ data }) {
     fig16_tcv_scales,
     fig05_time_of_day,
     fig10_sex_distribution,
+    evo_signal_sensor,
   } = data
 
   const n = summary.n_experiments
@@ -58,6 +59,24 @@ export default function Overview({ data }) {
   const standardHeights = new Set([0.1, 0.6, 1.1, 1.7])
   const heightRows = fig13_sensor_heights.data || []
   const standardHeightCount = heightRows.filter((r) => standardHeights.has(Number(Number(r.height).toFixed(2)))).length
+
+  // Skin-temp sensor evolution: thermocouple vs. button-type loggers (Thermochron + Hygrochron)
+  const skinEvo = evo_signal_sensor.signals['Skin temperature']
+  const evoPeriods = evo_signal_sensor.periods
+  const evoFirstPeriod = evoPeriods[0]
+  const evoLastPeriod = evoPeriods[evoPeriods.length - 1]
+  const sensorShare = (period, sensorNames) => {
+    const total = skinEvo.period_totals[period] || 0
+    if (total === 0) return 0
+    const count = skinEvo.data
+      .filter((r) => r.period === period && sensorNames.includes(r.sensor_grp))
+      .reduce((sum, r) => sum + r.count, 0)
+    return (count / total) * 100
+  }
+  const thermocoupleFirstPct = sensorShare(evoFirstPeriod, ['Thermocouple']).toFixed(0)
+  const thermocoupleLastPct = sensorShare(evoLastPeriod, ['Thermocouple']).toFixed(0)
+  const buttonLoggerFirstPct = sensorShare(evoFirstPeriod, ['Thermochron', 'Hygrochron']).toFixed(0)
+  const buttonLoggerLastPct = sensorShare(evoLastPeriod, ['Thermochron', 'Hygrochron']).toFixed(0)
   const standardHeightPct = heightRows.length ? ((standardHeightCount / heightRows.length) * 100).toFixed(0) : '0'
   const timeReportingPct = ((fig05_time_of_day.n_reporting / n) * 100).toFixed(0)
   const maleOnly = fig10_sex_distribution.studies.filter((s) => s.male > 0 && s.female === 0).length
@@ -111,8 +130,8 @@ export default function Overview({ data }) {
           <FindingCard value={skinPct} unit="%" accent="#5B5BFF" to="/body#whats-measured-and-how">
             of experiments measure skin temperature, the single most measured signal, followed by {heartPct}% measuring heart or pulse rate.
           </FindingCard>
-          <FindingCard value="55→25" unit="%" accent="#0A0A0A" to="/body#how-sensor-choice-has-shifted-over-time">
-            share of skin-temperature studies using a thermocouple, {firstGeo.period} to {latestGeo.period} — displaced by Thermochron-type loggers such as iButton, which rose from 18% to 52% over the same span.
+          <FindingCard value={`${thermocoupleFirstPct}→${thermocoupleLastPct}`} unit="%" accent="#0A0A0A" to="/body#how-sensor-choice-has-shifted-over-time">
+            share of skin-temperature studies using a thermocouple, {evoFirstPeriod} to {evoLastPeriod} — displaced by button-type loggers such as iButton or Pyrobutton, which rose from {buttonLoggerFirstPct}% to a total of {buttonLoggerLastPct}% over the same span.
           </FindingCard>
           <FindingCard value={sevenPointTSVPct} unit="%" accent="#5B5BFF" to="/questionnaires#scale-heterogeneity-sensation-vs-comfort">
             of thermal sensation scales use the standard 7-point format, while thermal comfort scales show {tcvScaleDefinitions} distinct coded scale definitions in this corpus.
