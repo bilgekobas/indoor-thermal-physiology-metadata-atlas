@@ -149,8 +149,11 @@ print("\nDone with base artifacts. Category-specific aggregates built separately
 
 # ── 4. Physiology: signal × sensor × period (for Sankey/heatmap reproduction) ─
 physio = df[['id','period','physio-parameter','physio-sensing-method','physio-body-site']].copy()
-physio = physio[~physio['physio-sensing-method'].isin(CODES)]
-physio = physio[physio['physio-sensing-method'].notna()]
+# NR/NAN/NC are kept as their own sensing-method categories (rather than
+# dropped) so Sankey/heatmap totals reflect every row, not just the subset
+# with a named sensing method.
+# physio = physio[~physio['physio-sensing-method'].isin(CODES)]
+# physio = physio[physio['physio-sensing-method'].notna()]
 physio = physio[physio['physio-parameter'].notna()]
 physio['physio-sensing-method'] = physio['physio-sensing-method'].astype(str).str.strip()
 physio['physio-sensing-method'] = physio['physio-sensing-method'].replace({
@@ -1227,8 +1230,8 @@ sb['physio-sensing-method'] = sb['physio-sensing-method'].replace({
     'Laser doppler': 'Laser Doppler',
 })
 sb['physio-sensor-brand'] = sb['physio-sensor-brand'].astype(str).str.strip()
-sb = sb[~sb['physio-sensing-method'].isin(CODES) & sb['physio-sensing-method'].notna()]
-sb = sb[~sb['physio-sensor-brand'].isin(CODES) & (sb['physio-sensor-brand'] != 'nan')]
+# sb = sb[~sb['physio-sensing-method'].isin(CODES) & sb['physio-sensing-method'].notna()]
+# sb = sb[~sb['physio-sensor-brand'].isin(CODES) & (sb['physio-sensor-brand'] != 'nan')]
 
 # Reuse the same canonical-casing map built for sensor_brands so 'iButton '
 # and 'iButton' (or 'OMRON'/'Omron') collapse to one brand label here too.

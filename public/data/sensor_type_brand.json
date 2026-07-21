@@ -32,6 +32,11 @@
     },
     {
       "physio-sensing-method": "2-channel",
+      "physio-sensor-brand": "NR",
+      "count": 1
+    },
+    {
+      "physio-sensing-method": "2-channel",
       "physio-sensor-brand": "NeuroSky",
       "count": 1
     },
@@ -69,6 +74,11 @@
       "physio-sensing-method": "8-channel",
       "physio-sensor-brand": "BIOPAC",
       "count": 3
+    },
+    {
+      "physio-sensing-method": "8-channel",
+      "physio-sensor-brand": "NR",
+      "count": 1
     },
     {
       "physio-sensing-method": "9-channel",
@@ -119,6 +129,11 @@
       "physio-sensing-method": "Blood",
       "physio-sensor-brand": "Dr. Diary Plus",
       "count": 1
+    },
+    {
+      "physio-sensing-method": "Blood",
+      "physio-sensor-brand": "NAN",
+      "count": 4
     },
     {
       "physio-sensing-method": "Blood",
@@ -207,6 +222,11 @@
     },
     {
       "physio-sensing-method": "Digital sphygmomanometer",
+      "physio-sensor-brand": "NR",
+      "count": 1
+    },
+    {
+      "physio-sensing-method": "Digital sphygmomanometer",
       "physio-sensor-brand": "Omron",
       "count": 38
     },
@@ -282,6 +302,11 @@
     },
     {
       "physio-sensing-method": "ECG",
+      "physio-sensor-brand": "NR",
+      "count": 4
+    },
+    {
+      "physio-sensing-method": "ECG",
       "physio-sensor-brand": "Nihonkohden Co.",
       "count": 2
     },
@@ -314,6 +339,11 @@
       "physio-sensing-method": "ECG",
       "physio-sensor-brand": "Zephyr",
       "count": 2
+    },
+    {
+      "physio-sensing-method": "EMG",
+      "physio-sensor-brand": "NR",
+      "count": 1
     },
     {
       "physio-sensing-method": "EMG",
@@ -397,6 +427,16 @@
     },
     {
       "physio-sensing-method": "GSR/EDA",
+      "physio-sensor-brand": "NAN",
+      "count": 1
+    },
+    {
+      "physio-sensing-method": "GSR/EDA",
+      "physio-sensor-brand": "NR",
+      "count": 1
+    },
+    {
+      "physio-sensing-method": "GSR/EDA",
       "physio-sensor-brand": "Shimmer Sensing",
       "count": 3
     },
@@ -457,6 +497,11 @@
     },
     {
       "physio-sensing-method": "High precision scale",
+      "physio-sensor-brand": "NR",
+      "count": 9
+    },
+    {
+      "physio-sensing-method": "High precision scale",
       "physio-sensor-brand": "Nanjing Ronghua",
       "count": 3
     },
@@ -469,6 +514,11 @@
       "physio-sensing-method": "High precision scale",
       "physio-sensor-brand": "Tanita",
       "count": 2
+    },
+    {
+      "physio-sensing-method": "Hygrochron",
+      "physio-sensor-brand": "NR",
+      "count": 1
     },
     {
       "physio-sensing-method": "Hygrochron",
@@ -506,6 +556,11 @@
       "count": 3
     },
     {
+      "physio-sensing-method": "Infrared camera",
+      "physio-sensor-brand": "NR",
+      "count": 2
+    },
+    {
       "physio-sensing-method": "Infrared thermometer",
       "physio-sensor-brand": "Beurer",
       "count": 1
@@ -534,6 +589,11 @@
       "physio-sensing-method": "Infrared thermometer",
       "physio-sensor-brand": "Melexis",
       "count": 5
+    },
+    {
+      "physio-sensing-method": "Infrared thermometer",
+      "physio-sensor-brand": "NR",
+      "count": 2
     },
     {
       "physio-sensing-method": "Infrared thermometer",
@@ -617,6 +677,11 @@
     },
     {
       "physio-sensing-method": "Mercury thermometer",
+      "physio-sensor-brand": "NAN",
+      "count": 1
+    },
+    {
+      "physio-sensing-method": "Mercury thermometer",
       "physio-sensor-brand": "Yuwell",
       "count": 1
     },
@@ -646,8 +711,43 @@
       "count": 1
     },
     {
+      "physio-sensing-method": "NAN",
+      "physio-sensor-brand": "NAN",
+      "count": 1
+    },
+    {
       "physio-sensing-method": "NIRS",
       "physio-sensor-brand": "DynaSense",
+      "count": 1
+    },
+    {
+      "physio-sensing-method": "NR",
+      "physio-sensor-brand": "CompuMedics Ltd.",
+      "count": 2
+    },
+    {
+      "physio-sensing-method": "NR",
+      "physio-sensor-brand": "Microsoft",
+      "count": 1
+    },
+    {
+      "physio-sensing-method": "NR",
+      "physio-sensor-brand": "NR",
+      "count": 20
+    },
+    {
+      "physio-sensing-method": "NR",
+      "physio-sensor-brand": "Omron",
+      "count": 1
+    },
+    {
+      "physio-sensing-method": "NR",
+      "physio-sensor-brand": "Shenzhen SYY Technology Co., Ltd.",
+      "count": 1
+    },
+    {
+      "physio-sensing-method": "Nasal lavage fluid",
+      "physio-sensor-brand": "NAN",
       "count": 1
     },
     {
@@ -678,6 +778,11 @@
     {
       "physio-sensing-method": "OHR/PPG",
       "physio-sensor-brand": "Logitech",
+      "count": 1
+    },
+    {
+      "physio-sensing-method": "OHR/PPG",
+      "physio-sensor-brand": "NR",
       "count": 1
     },
     {
@@ -777,6 +882,11 @@
     },
     {
       "physio-sensing-method": "Pulse oximeter",
+      "physio-sensor-brand": "NR",
+      "count": 4
+    },
+    {
+      "physio-sensing-method": "Pulse oximeter",
       "physio-sensor-brand": "Nonin Medical",
       "count": 2
     },
@@ -811,6 +921,11 @@
       "count": 2
     },
     {
+      "physio-sensing-method": "RTD",
+      "physio-sensor-brand": "NR",
+      "count": 3
+    },
+    {
       "physio-sensing-method": "Respiration belt",
       "physio-sensor-brand": "CGX",
       "count": 1
@@ -829,6 +944,11 @@
       "physio-sensing-method": "Respiration chamber",
       "physio-sensor-brand": "Omnical",
       "count": 1
+    },
+    {
+      "physio-sensing-method": "Saliva",
+      "physio-sensor-brand": "NAN",
+      "count": 5
     },
     {
       "physio-sensing-method": "Saliva",
@@ -853,6 +973,11 @@
     {
       "physio-sensing-method": "TEWL",
       "physio-sensor-brand": "Delfin Technologies",
+      "count": 1
+    },
+    {
+      "physio-sensing-method": "Tear fluid",
+      "physio-sensor-brand": "NR",
       "count": 1
     },
     {
@@ -902,6 +1027,11 @@
     },
     {
       "physio-sensing-method": "Thermistor",
+      "physio-sensor-brand": "NR",
+      "count": 2
+    },
+    {
+      "physio-sensing-method": "Thermistor",
       "physio-sensor-brand": "Nikkiso-Therm",
       "count": 2
     },
@@ -919,6 +1049,11 @@
       "physio-sensing-method": "Thermistor",
       "physio-sensor-brand": "Vernier",
       "count": 4
+    },
+    {
+      "physio-sensing-method": "Thermochron",
+      "physio-sensor-brand": "NR",
+      "count": 1
     },
     {
       "physio-sensing-method": "Thermochron",
@@ -972,6 +1107,11 @@
     },
     {
       "physio-sensing-method": "Thermocouple",
+      "physio-sensor-brand": "NR",
+      "count": 25
+    },
+    {
+      "physio-sensing-method": "Thermocouple",
       "physio-sensor-brand": "Omega",
       "count": 5
     },
@@ -1007,12 +1147,22 @@
     },
     {
       "physio-sensing-method": "Thermometer",
+      "physio-sensor-brand": "NR",
+      "count": 2
+    },
+    {
+      "physio-sensing-method": "Thermometer",
       "physio-sensor-brand": "Omron",
       "count": 5
     },
     {
       "physio-sensing-method": "Thermometer",
       "physio-sensor-brand": "Yumo",
+      "count": 1
+    },
+    {
+      "physio-sensing-method": "Urine",
+      "physio-sensor-brand": "NAN",
       "count": 1
     }
   ]

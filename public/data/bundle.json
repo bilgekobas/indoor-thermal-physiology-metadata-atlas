@@ -7605,7 +7605,7 @@
           {
             "period": "2015–16",
             "sensor_grp": "Other",
-            "count": 2
+            "count": 3
           },
           {
             "period": "2015–16",
@@ -7635,7 +7635,7 @@
           {
             "period": "2017–18",
             "sensor_grp": "Other",
-            "count": 6
+            "count": 10
           },
           {
             "period": "2017–18",
@@ -7670,7 +7670,7 @@
           {
             "period": "2019–20",
             "sensor_grp": "Other",
-            "count": 4
+            "count": 6
           },
           {
             "period": "2019–20",
@@ -7705,7 +7705,7 @@
           {
             "period": "2021–22",
             "sensor_grp": "Other",
-            "count": 7
+            "count": 10
           },
           {
             "period": "2021–22",
@@ -7769,10 +7769,10 @@
         ],
         "period_totals": {
           "2013–14": 11,
-          "2015–16": 13,
-          "2017–18": 34,
-          "2019–20": 46,
-          "2021–22": 61,
+          "2015–16": 14,
+          "2017–18": 38,
+          "2019–20": 47,
+          "2021–22": 64,
           "2023–24": 65
         }
       },
@@ -7794,6 +7794,11 @@
             "count": 6
           },
           {
+            "period": "2015–16",
+            "sensor_grp": "NR",
+            "count": 1
+          },
+          {
             "period": "2017–18",
             "sensor_grp": "Digital sphygmomanometer",
             "count": 3
@@ -7802,6 +7807,11 @@
             "period": "2017–18",
             "sensor_grp": "ECG",
             "count": 6
+          },
+          {
+            "period": "2017–18",
+            "sensor_grp": "NR",
+            "count": 4
           },
           {
             "period": "2017–18",
@@ -7825,6 +7835,11 @@
           },
           {
             "period": "2019–20",
+            "sensor_grp": "NR",
+            "count": 1
+          },
+          {
+            "period": "2019–20",
             "sensor_grp": "OHR/PPG",
             "count": 4
           },
@@ -7842,6 +7857,11 @@
             "period": "2021–22",
             "sensor_grp": "ECG",
             "count": 21
+          },
+          {
+            "period": "2021–22",
+            "sensor_grp": "NR",
+            "count": 6
           },
           {
             "period": "2021–22",
@@ -7878,14 +7898,15 @@
           "ECG",
           "OHR/PPG",
           "Digital sphygmomanometer",
-          "Pulse oximeter"
+          "Pulse oximeter",
+          "NR"
         ],
         "period_totals": {
           "2013–14": 1,
-          "2015–16": 8,
-          "2017–18": 14,
-          "2019–20": 30,
-          "2021–22": 39,
+          "2015–16": 9,
+          "2017–18": 18,
+          "2019–20": 31,
+          "2021–22": 45,
           "2023–24": 44
         }
       },
@@ -7938,6 +7959,11 @@
           },
           {
             "period": "2019–20",
+            "sensor_grp": "NR",
+            "count": 2
+          },
+          {
+            "period": "2019–20",
             "sensor_grp": "Thermistor",
             "count": 2
           },
@@ -7958,7 +7984,12 @@
           },
           {
             "period": "2021–22",
-            "sensor_grp": "Mercury thermometer",
+            "sensor_grp": "NR",
+            "count": 5
+          },
+          {
+            "period": "2021–22",
+            "sensor_grp": "Other",
             "count": 1
           },
           {
@@ -7983,30 +8014,25 @@
           },
           {
             "period": "2023–24",
-            "sensor_grp": "Mercury thermometer",
-            "count": 1
-          },
-          {
-            "period": "2023–24",
             "sensor_grp": "Other",
-            "count": 2
+            "count": 3
           }
         ],
         "sensor_order": [
           "Infrared thermometer",
           "Ingestible pill",
           "Thermometer",
+          "NR",
           "Thermistor",
           "Probe",
-          "Mercury thermometer",
           "Other"
         ],
         "period_totals": {
           "2013–14": 5,
           "2015–16": 4,
           "2017–18": 2,
-          "2019–20": 6,
-          "2021–22": 11,
+          "2019–20": 8,
+          "2021–22": 16,
           "2023–24": 13
         }
       },
@@ -59432,6 +59458,11 @@
       },
       {
         "signal": "Blood pressure",
+        "physio-sensing-method": "NR",
+        "count": 1
+      },
+      {
+        "signal": "Blood pressure",
         "physio-sensing-method": "Sonomic pick-up",
         "count": 1
       },
@@ -59454,6 +59485,11 @@
         "signal": "Core/Body temperature",
         "physio-sensing-method": "Mercury thermometer",
         "count": 2
+      },
+      {
+        "signal": "Core/Body temperature",
+        "physio-sensing-method": "NR",
+        "count": 7
       },
       {
         "signal": "Core/Body temperature",
@@ -59562,6 +59598,11 @@
       },
       {
         "signal": "Heart/Pulse rate",
+        "physio-sensing-method": "NR",
+        "count": 12
+      },
+      {
+        "signal": "Heart/Pulse rate",
         "physio-sensing-method": "OHR/PPG",
         "count": 30
       },
@@ -59637,6 +59678,11 @@
       },
       {
         "signal": "Oxygen saturation",
+        "physio-sensing-method": "NR",
+        "count": 2
+      },
+      {
+        "signal": "Oxygen saturation",
         "physio-sensing-method": "OHR/PPG",
         "count": 1
       },
@@ -59672,12 +59718,22 @@
       },
       {
         "signal": "Respiration",
+        "physio-sensing-method": "NR",
+        "count": 2
+      },
+      {
+        "signal": "Respiration",
         "physio-sensing-method": "Respiration belt",
         "count": 5
       },
       {
         "signal": "Sensory nerve conduction velocity",
         "physio-sensing-method": "EMG",
+        "count": 1
+      },
+      {
+        "signal": "Sensory nerve conduction velocity",
+        "physio-sensing-method": "NAN",
         "count": 1
       },
       {
@@ -59734,6 +59790,11 @@
         "signal": "Skin temperature",
         "physio-sensing-method": "Infrared thermopile",
         "count": 13
+      },
+      {
+        "signal": "Skin temperature",
+        "physio-sensing-method": "NR",
+        "count": 10
       },
       {
         "signal": "Skin temperature",
@@ -59988,6 +60049,12 @@
       },
       {
         "signal": "Blood pressure",
+        "physio-sensing-method": "NR",
+        "period": "2023–24",
+        "count": 1
+      },
+      {
+        "signal": "Blood pressure",
         "physio-sensing-method": "Sonomic pick-up",
         "period": "2015–16",
         "count": 1
@@ -60057,6 +60124,18 @@
         "physio-sensing-method": "Mercury thermometer",
         "period": "2023–24",
         "count": 1
+      },
+      {
+        "signal": "Core/Body temperature",
+        "physio-sensing-method": "NR",
+        "period": "2019–20",
+        "count": 2
+      },
+      {
+        "signal": "Core/Body temperature",
+        "physio-sensing-method": "NR",
+        "period": "2021–22",
+        "count": 5
       },
       {
         "signal": "Core/Body temperature",
@@ -60378,6 +60457,30 @@
       },
       {
         "signal": "Heart/Pulse rate",
+        "physio-sensing-method": "NR",
+        "period": "2015–16",
+        "count": 1
+      },
+      {
+        "signal": "Heart/Pulse rate",
+        "physio-sensing-method": "NR",
+        "period": "2017–18",
+        "count": 4
+      },
+      {
+        "signal": "Heart/Pulse rate",
+        "physio-sensing-method": "NR",
+        "period": "2019–20",
+        "count": 1
+      },
+      {
+        "signal": "Heart/Pulse rate",
+        "physio-sensing-method": "NR",
+        "period": "2021–22",
+        "count": 6
+      },
+      {
+        "signal": "Heart/Pulse rate",
         "physio-sensing-method": "OHR/PPG",
         "period": "2017–18",
         "count": 4
@@ -60600,6 +60703,12 @@
       },
       {
         "signal": "Oxygen saturation",
+        "physio-sensing-method": "NR",
+        "period": "2015–16",
+        "count": 2
+      },
+      {
+        "signal": "Oxygen saturation",
         "physio-sensing-method": "OHR/PPG",
         "period": "2023–24",
         "count": 1
@@ -60666,6 +60775,12 @@
       },
       {
         "signal": "Respiration",
+        "physio-sensing-method": "NR",
+        "period": "2015–16",
+        "count": 2
+      },
+      {
+        "signal": "Respiration",
         "physio-sensing-method": "Respiration belt",
         "period": "2019–20",
         "count": 2
@@ -60686,6 +60801,12 @@
         "signal": "Sensory nerve conduction velocity",
         "physio-sensing-method": "EMG",
         "period": "2019–20",
+        "count": 1
+      },
+      {
+        "signal": "Sensory nerve conduction velocity",
+        "physio-sensing-method": "NAN",
+        "period": "2017–18",
         "count": 1
       },
       {
@@ -60885,6 +61006,30 @@
         "physio-sensing-method": "Infrared thermopile",
         "period": "2023–24",
         "count": 8
+      },
+      {
+        "signal": "Skin temperature",
+        "physio-sensing-method": "NR",
+        "period": "2015–16",
+        "count": 1
+      },
+      {
+        "signal": "Skin temperature",
+        "physio-sensing-method": "NR",
+        "period": "2017–18",
+        "count": 4
+      },
+      {
+        "signal": "Skin temperature",
+        "physio-sensing-method": "NR",
+        "period": "2019–20",
+        "count": 2
+      },
+      {
+        "signal": "Skin temperature",
+        "physio-sensing-method": "NR",
+        "period": "2021–22",
+        "count": 3
       },
       {
         "signal": "Skin temperature",
@@ -61206,11 +61351,11 @@
       },
       {
         "signal": "Blood pressure",
-        "count": 42
+        "count": 43
       },
       {
         "signal": "Core/Body temperature",
-        "count": 41
+        "count": 48
       },
       {
         "signal": "EEG",
@@ -61234,7 +61379,7 @@
       },
       {
         "signal": "Heart/Pulse rate",
-        "count": 136
+        "count": 148
       },
       {
         "signal": "Heat flux",
@@ -61254,7 +61399,7 @@
       },
       {
         "signal": "Oxygen saturation",
-        "count": 30
+        "count": 32
       },
       {
         "signal": "Perfusion index",
@@ -61266,11 +61411,11 @@
       },
       {
         "signal": "Respiration",
-        "count": 8
+        "count": 10
       },
       {
         "signal": "Sensory nerve conduction velocity",
-        "count": 1
+        "count": 2
       },
       {
         "signal": "Skin blood flow",
@@ -61286,7 +61431,7 @@
       },
       {
         "signal": "Skin temperature",
-        "count": 230
+        "count": 239
       },
       {
         "signal": "Sweat indicators",
@@ -69838,6 +69983,11 @@
       },
       {
         "physio-sensing-method": "2-channel",
+        "physio-sensor-brand": "NR",
+        "count": 1
+      },
+      {
+        "physio-sensing-method": "2-channel",
         "physio-sensor-brand": "NeuroSky",
         "count": 1
       },
@@ -69875,6 +70025,11 @@
         "physio-sensing-method": "8-channel",
         "physio-sensor-brand": "BIOPAC",
         "count": 3
+      },
+      {
+        "physio-sensing-method": "8-channel",
+        "physio-sensor-brand": "NR",
+        "count": 1
       },
       {
         "physio-sensing-method": "9-channel",
@@ -69925,6 +70080,11 @@
         "physio-sensing-method": "Blood",
         "physio-sensor-brand": "Dr. Diary Plus",
         "count": 1
+      },
+      {
+        "physio-sensing-method": "Blood",
+        "physio-sensor-brand": "NAN",
+        "count": 4
       },
       {
         "physio-sensing-method": "Blood",
@@ -70013,6 +70173,11 @@
       },
       {
         "physio-sensing-method": "Digital sphygmomanometer",
+        "physio-sensor-brand": "NR",
+        "count": 1
+      },
+      {
+        "physio-sensing-method": "Digital sphygmomanometer",
         "physio-sensor-brand": "Omron",
         "count": 38
       },
@@ -70088,6 +70253,11 @@
       },
       {
         "physio-sensing-method": "ECG",
+        "physio-sensor-brand": "NR",
+        "count": 4
+      },
+      {
+        "physio-sensing-method": "ECG",
         "physio-sensor-brand": "Nihonkohden Co.",
         "count": 2
       },
@@ -70120,6 +70290,11 @@
         "physio-sensing-method": "ECG",
         "physio-sensor-brand": "Zephyr",
         "count": 2
+      },
+      {
+        "physio-sensing-method": "EMG",
+        "physio-sensor-brand": "NR",
+        "count": 1
       },
       {
         "physio-sensing-method": "EMG",
@@ -70203,6 +70378,16 @@
       },
       {
         "physio-sensing-method": "GSR/EDA",
+        "physio-sensor-brand": "NAN",
+        "count": 1
+      },
+      {
+        "physio-sensing-method": "GSR/EDA",
+        "physio-sensor-brand": "NR",
+        "count": 1
+      },
+      {
+        "physio-sensing-method": "GSR/EDA",
         "physio-sensor-brand": "Shimmer Sensing",
         "count": 3
       },
@@ -70263,6 +70448,11 @@
       },
       {
         "physio-sensing-method": "High precision scale",
+        "physio-sensor-brand": "NR",
+        "count": 9
+      },
+      {
+        "physio-sensing-method": "High precision scale",
         "physio-sensor-brand": "Nanjing Ronghua",
         "count": 3
       },
@@ -70275,6 +70465,11 @@
         "physio-sensing-method": "High precision scale",
         "physio-sensor-brand": "Tanita",
         "count": 2
+      },
+      {
+        "physio-sensing-method": "Hygrochron",
+        "physio-sensor-brand": "NR",
+        "count": 1
       },
       {
         "physio-sensing-method": "Hygrochron",
@@ -70312,6 +70507,11 @@
         "count": 3
       },
       {
+        "physio-sensing-method": "Infrared camera",
+        "physio-sensor-brand": "NR",
+        "count": 2
+      },
+      {
         "physio-sensing-method": "Infrared thermometer",
         "physio-sensor-brand": "Beurer",
         "count": 1
@@ -70340,6 +70540,11 @@
         "physio-sensing-method": "Infrared thermometer",
         "physio-sensor-brand": "Melexis",
         "count": 5
+      },
+      {
+        "physio-sensing-method": "Infrared thermometer",
+        "physio-sensor-brand": "NR",
+        "count": 2
       },
       {
         "physio-sensing-method": "Infrared thermometer",
@@ -70423,6 +70628,11 @@
       },
       {
         "physio-sensing-method": "Mercury thermometer",
+        "physio-sensor-brand": "NAN",
+        "count": 1
+      },
+      {
+        "physio-sensing-method": "Mercury thermometer",
         "physio-sensor-brand": "Yuwell",
         "count": 1
       },
@@ -70452,8 +70662,43 @@
         "count": 1
       },
       {
+        "physio-sensing-method": "NAN",
+        "physio-sensor-brand": "NAN",
+        "count": 1
+      },
+      {
         "physio-sensing-method": "NIRS",
         "physio-sensor-brand": "DynaSense",
+        "count": 1
+      },
+      {
+        "physio-sensing-method": "NR",
+        "physio-sensor-brand": "CompuMedics Ltd.",
+        "count": 2
+      },
+      {
+        "physio-sensing-method": "NR",
+        "physio-sensor-brand": "Microsoft",
+        "count": 1
+      },
+      {
+        "physio-sensing-method": "NR",
+        "physio-sensor-brand": "NR",
+        "count": 20
+      },
+      {
+        "physio-sensing-method": "NR",
+        "physio-sensor-brand": "Omron",
+        "count": 1
+      },
+      {
+        "physio-sensing-method": "NR",
+        "physio-sensor-brand": "Shenzhen SYY Technology Co., Ltd.",
+        "count": 1
+      },
+      {
+        "physio-sensing-method": "Nasal lavage fluid",
+        "physio-sensor-brand": "NAN",
         "count": 1
       },
       {
@@ -70484,6 +70729,11 @@
       {
         "physio-sensing-method": "OHR/PPG",
         "physio-sensor-brand": "Logitech",
+        "count": 1
+      },
+      {
+        "physio-sensing-method": "OHR/PPG",
+        "physio-sensor-brand": "NR",
         "count": 1
       },
       {
@@ -70583,6 +70833,11 @@
       },
       {
         "physio-sensing-method": "Pulse oximeter",
+        "physio-sensor-brand": "NR",
+        "count": 4
+      },
+      {
+        "physio-sensing-method": "Pulse oximeter",
         "physio-sensor-brand": "Nonin Medical",
         "count": 2
       },
@@ -70617,6 +70872,11 @@
         "count": 2
       },
       {
+        "physio-sensing-method": "RTD",
+        "physio-sensor-brand": "NR",
+        "count": 3
+      },
+      {
         "physio-sensing-method": "Respiration belt",
         "physio-sensor-brand": "CGX",
         "count": 1
@@ -70635,6 +70895,11 @@
         "physio-sensing-method": "Respiration chamber",
         "physio-sensor-brand": "Omnical",
         "count": 1
+      },
+      {
+        "physio-sensing-method": "Saliva",
+        "physio-sensor-brand": "NAN",
+        "count": 5
       },
       {
         "physio-sensing-method": "Saliva",
@@ -70659,6 +70924,11 @@
       {
         "physio-sensing-method": "TEWL",
         "physio-sensor-brand": "Delfin Technologies",
+        "count": 1
+      },
+      {
+        "physio-sensing-method": "Tear fluid",
+        "physio-sensor-brand": "NR",
         "count": 1
       },
       {
@@ -70708,6 +70978,11 @@
       },
       {
         "physio-sensing-method": "Thermistor",
+        "physio-sensor-brand": "NR",
+        "count": 2
+      },
+      {
+        "physio-sensing-method": "Thermistor",
         "physio-sensor-brand": "Nikkiso-Therm",
         "count": 2
       },
@@ -70725,6 +71000,11 @@
         "physio-sensing-method": "Thermistor",
         "physio-sensor-brand": "Vernier",
         "count": 4
+      },
+      {
+        "physio-sensing-method": "Thermochron",
+        "physio-sensor-brand": "NR",
+        "count": 1
       },
       {
         "physio-sensing-method": "Thermochron",
@@ -70778,6 +71058,11 @@
       },
       {
         "physio-sensing-method": "Thermocouple",
+        "physio-sensor-brand": "NR",
+        "count": 25
+      },
+      {
+        "physio-sensing-method": "Thermocouple",
         "physio-sensor-brand": "Omega",
         "count": 5
       },
@@ -70813,12 +71098,22 @@
       },
       {
         "physio-sensing-method": "Thermometer",
+        "physio-sensor-brand": "NR",
+        "count": 2
+      },
+      {
+        "physio-sensing-method": "Thermometer",
         "physio-sensor-brand": "Omron",
         "count": 5
       },
       {
         "physio-sensing-method": "Thermometer",
         "physio-sensor-brand": "Yumo",
+        "count": 1
+      },
+      {
+        "physio-sensing-method": "Urine",
+        "physio-sensor-brand": "NAN",
         "count": 1
       }
     ]
@@ -72351,7 +72646,7 @@
       {
         "signal": "Blood pressure",
         "period": "2023–24",
-        "count": 15
+        "count": 16
       },
       {
         "signal": "Core/Body temperature",
@@ -72371,12 +72666,12 @@
       {
         "signal": "Core/Body temperature",
         "period": "2019–20",
-        "count": 6
+        "count": 8
       },
       {
         "signal": "Core/Body temperature",
         "period": "2021–22",
-        "count": 11
+        "count": 16
       },
       {
         "signal": "Core/Body temperature",
@@ -72466,22 +72761,22 @@
       {
         "signal": "Heart/Pulse rate",
         "period": "2015–16",
-        "count": 8
+        "count": 9
       },
       {
         "signal": "Heart/Pulse rate",
         "period": "2017–18",
-        "count": 14
+        "count": 18
       },
       {
         "signal": "Heart/Pulse rate",
         "period": "2019–20",
-        "count": 30
+        "count": 31
       },
       {
         "signal": "Heart/Pulse rate",
         "period": "2021–22",
-        "count": 39
+        "count": 45
       },
       {
         "signal": "Heart/Pulse rate",
@@ -72570,6 +72865,11 @@
       },
       {
         "signal": "Oxygen saturation",
+        "period": "2015–16",
+        "count": 2
+      },
+      {
+        "signal": "Oxygen saturation",
         "period": "2017–18",
         "count": 2
       },
@@ -72600,6 +72900,11 @@
       },
       {
         "signal": "Respiration",
+        "period": "2015–16",
+        "count": 2
+      },
+      {
+        "signal": "Respiration",
         "period": "2019–20",
         "count": 3
       },
@@ -72611,6 +72916,11 @@
       {
         "signal": "Respiration",
         "period": "2023–24",
+        "count": 1
+      },
+      {
+        "signal": "Sensory nerve conduction velocity",
+        "period": "2017–18",
         "count": 1
       },
       {
@@ -72676,22 +72986,22 @@
       {
         "signal": "Skin temperature",
         "period": "2015–16",
-        "count": 13
+        "count": 14
       },
       {
         "signal": "Skin temperature",
         "period": "2017–18",
-        "count": 34
+        "count": 38
       },
       {
         "signal": "Skin temperature",
         "period": "2019–20",
-        "count": 46
+        "count": 47
       },
       {
         "signal": "Skin temperature",
         "period": "2021–22",
-        "count": 61
+        "count": 64
       },
       {
         "signal": "Skin temperature",
@@ -82691,7 +83001,7 @@
     "n_variables": 206,
     "year_min": 2013,
     "year_max": 2024,
-    "generated_at": "2026-07-21T15:25:40.765922"
+    "generated_at": "2026-07-21T17:11:28.699522"
   },
   "world-countries-110m": {
     "type": "Topology",
