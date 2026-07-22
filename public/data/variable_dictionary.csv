@@ -1,0 +1,313 @@
+﻿col_id,col_name,col_pretty_name,category_pretty_names,data_type,unit,allowed_values,description
+1,id-pub-id,Publication ID,ID,integer,-,Any value,"Publication IDs are in 0000 format, with the initial number indicating the dataset update round, and the last three numbers indicating the publication id assigned within that round."
+2,id-exp-id,Experiment ID,ID,integer,-,Any value,"If the publication includes results from more then one experiment, each individual experiment is differentiated here."
+3,id,Unique study ID,ID,text,-,Any value,"ID combining the publication and experiment IDs, resulting in unique study ID"
+4,id-title,Publication title,ID,text,-,Any value,Title of the publication.
+5,id-authors,Authors,ID,text,-,Any value,"Authors as listed in the publication, comma-separated."
+6,id-institutes,Institutes of the authors,ID,text,-,Any value,"Author affiliations in the order listed in the publication, comma-separated. Only the highest institutional level is recorded (e.g., university name, not department name)."
+7,id-city,City of experiment,Context,text,-,"NR, any value","City in which the experiment took place. If the same protocol was repeated in multiple cities, the cities are recorded as comma-separated values in the same cell."
+8,id-country,Country of experiment,Context,text,-,"NR, any value",Country in which the experiment took place.
+9,id-climate-class,Climate class,Context,categorical,-,"NR, any value",Köppen–Geiger climate classification assigned based on city and country information.
+10,data-avail,Data availability,Data availability,categorical,-,"NR, Not available for sharing, Upon request, Available, NC","Statement on whether the underlying study data are available to other researchers. 
+
+NR = no information provided. Not available for sharing = explicitly stated that data cannot be shared. Upon request = explicitly stated to be available upon request or reasonable request. Available = publicly accessible link provided; the link is stored in data_link. NC = conflicting statements regarding data availability."
+11,data-link,Link to downloadable dataset,Data availability,text,-,"NR, NAN, NC, any value","If a publicly accessible dataset link is provided, it is recorded here."
+12,data-supp-link,Supplementary documents,Data availability,text,-,"NR, NAN, NC, any value","If a supplementary document link is provided, it is recorded here."
+13,pub-type,Publication type,Publication,categorical,-,"C, J, B","C: Conference, J: Journal, B: Book. Currently only J type exists."
+14,pub-name,Name of the publication,Publication,text,-,Any value,"Name of the journal, conference proceedings, or other publication outlet."
+15,publisher,Publisher,Publication,text,-,Any value,Publisher of the publication outlet.
+16,pub-year,Publication year,Publication,integer,yyyy,Any value,Year of publication.
+17,pub-doi,DOI,Publication,text,-,Any value,Digital Object Identifier (DOI) of the publication.
+18,exp-type,Experiment type,Experiment,categorical,-,"NR, NC, Lab, Field, Living Lab, Mixed",Type of experimental setting.
+19,exp-spatial-typology,Spatial typology of the test environment,Experiment,categorical,-,"NR, NC, Office/Workstations, Classroom/Study room, Seating, Desk&Chair, Residential, Free-living",Spatial typology of the test environment or simulated setting used in the experiment.
+20,exp-domains,Experimental domains,Experiment,multi_categorical,-,"Air temperature
+Air temperature: Double step change
+Air temperature: Ramp
+Air temperature: Non-uniform
+Outdoor temperature
+Solar radiation
+Radiant temperature
+Radiant temperature: Double step change
+Radiant temperature: Ramp
+Radiant temperature: Non-uniform
+Air velocity
+Air velocity: Ramp
+Airflow direction
+CO2
+Illumination
+Light colour
+Clothing
+Activity level
+Thermal perception
+PMV
+NC
+Sound level
+Odour
+NR
+Acclimation
+Adaptive behaviour
+Visual access
+Relative humidity
+Relative humidity: Ramp","This field allows for comma separated values, and includes additional information after the :"
+21,exp-domain-thermal,Domains: Thermal,Experiment,boolean,-,"Y, NR, NC","Indicates whether thermal conditions were experimentally varied, including air, operative, radiant, surface, and/or outdoor temperature. This may include static differences, step changes, ramps, or other thermal manipulations."
+22,exp-domain-air-move,Domains: Air movement,Experiment,boolean,-,"Y, NR, NC","Indicates whether air velocity were experimentally varied, including air, operative, radiant, surface, and/or outdoor temperature. This may include static differences, step changes, ramps, or other thermal manipulations."
+23,exp-domain-humidity,Domains: Humidity,Experiment,boolean,-,"Y, NR, NC","If different humidity levels were tested, then 1. Could be step change, double step change, ramp, or others."
+24,exp-domain-co2,Domains: CO2,Experiment,boolean,-,"Y, NR, NC","If different CO2 levels were tested, then 1. Could be step change, double step change, ramp, or others."
+25,exp-domain-light,Domains: Light,Experiment,boolean,-,"Y, NR, NC","If different illumination levels, colour temperature, or other light aspects were tested, then 1. Could be step change, double step change, ramp, or others."
+26,exp-domain-acoustics,Domains: Acoustic,Experiment,boolean,-,"Y, NR, NC","If different sound levels, or other acoustic aspects were tested, then 1. Could be step change, double step change, ramp, or others."
+27,exp-domain-behaviour,Domains: Adaptive behaviour,Experiment,boolean,-,"Y, NR, NC","If test scenarios included different adaptive behaviour components, ie. clothing, different activities, location change, posture change, etc. "
+28,exp-domain-iaq,Domains: IAQ,Experiment,boolean,-,"Y, NR, NC","If different IAQ aspects, ie. odour, were tested, then 1. Could be step change, double step change, ramp, or others."
+29,exp-tested-t-min,Minimum tested temperature,Experiment,float,"°C, or °F","NR, NAN, NC, any value","Minimum temperature that was tested in the experiment. If reported I take operative temperature, if not, air temperature. Stored as Celsius. "
+30,exp-tested-t-max,Maximum tested temperature,Experiment,float,"°C, or °F","NR, NAN, NC, any value","Maximum temperature that was tested in the experiment. If reported I take operative temperature, if not, air temperature. Stored as Celsius. "
+31,exp-tested-target-temps,Tested temperatures,Experiment,float,"°C, or °F","NR, NAN, NC, Free running, any value","Target temperatures of all tested scenarios, comma separated. Can be any number, any number range, or Free running.
+
+If the test scenario was a ramp, then stated with a dash in between. ie. 28, 28-16, 16 would mean there were two static conditions tested seoarately, at 16 and 28C, and a third scenario where the temperature started from 28 and decreased to 16 was tested.
+
+Free running is when there were no target temperatures."
+32,exp-year-start,Start year,Time,integer,-,"NR, NC, any value",Start of the experiments
+33,exp-year-end,End year,Time,integer,-,"NR, NC, any value",Last year of the experiments
+34,exp-seasons,Seasons,Time,categorical,-,"NR, Summer, Autumn, Winter, Spring, NAN","In case the season is mentioned, it is stored here. Sometimes authors only mention seasons and no month/year information is given"
+35,exp-month-start,Start moth,Time,integer,-,"NR, NC, any value","Month the experiment started, in numerical format. ie. 1=January"
+36,exp-month-end,End month,Time,integer,-,"NR, NC, any value","Month the experiment ended, in numerical format. ie. 1=January"
+37,exp-time,Experiment time,Time,string,-,"NR, NC, any value","A combined version of the exp-year-start, exp-year-end, exp-seasons, exp-month-start, exp-month-end data. This is relevant as storing only start and end did not work for non-continuous cases. If the experiment spanned over several years, it is reported as [yyyy1: m1, m2, m3], [yyyy2: m1, m2, m3, m4]"
+38,exp-hours,Session times,Time,time,hh:mm,"NR, NC, any value","Start and end times as hh:mm-hh:mm format. If more than one session period exists, then all values are listed as comma separated."
+39,exp-normalisation-length,Length of normalization,Time,integer,minutes,"NR, NC, any value","Normalisation, acclimation, acclimatisation, adaptation, stabilisation, preparation, etc.. This is outside the session length duration, occurs before the session start in a controlled environment. in minutes.
+
+If there is no fixed duration, but a range (ie. 'the sessions lasted minumum 2 hours', or 'the participants waited before the sessions for 15-20 minutes') then the minimum amount is stored. This would mean the first example's session length is 120 mins, and normalisation is 15 mins."
+40,exp-session-length,Length of session,Time,integer,minutes,"NR, NC, any value","Length of the session. Sometimes referred to as 'data collection period', or 'official experiment duration', or similar. Does not included the normalisation length stated in the previous column. Stored here in minutes. 
+
+If there is no fixed duration, but a range (ie. 'the sessions lasted minumum 2 hours', or 'the participants waited before the sessions for 15-20 minutes') then the minimum amount is stored. This would mean the first example's session length is 120 mins, and normalisation is 15 mins."
+41,pop-sample-size-calc,Sample size calculation,Population,boolean,-,"Y, NR, NC, N","Did they do sample size calculation at some point? If they don't specifically mention they did not calculate, then NR"
+42,pop-sample-size-calc-type,Sample size calculation type,Population,categorical,-,"NAN, NR, NC, A priori, Post hoc, Precedence","If the previous answer is Y, then whether the calculation was done A priori, Post hoc, or based on Precedence citing some other publications. If the previous answer was not Y, then this is nan"
+43,pop-payment,Participant payment,Population,boolean,-,"Y, N, NR",Were the participants paid? 
+44,pop-no-tot,Participant number (total),Population,integer,-,"NR, any value",Total number of participants
+45,pop-male-no,Participant number (male),Population,integer,-,"NR, any value",Number of male participants
+46,pop-fem-no,Participant number (female),Population,integer,-,"NR, any value",Number of female participants
+47,pop-m2f-no,Participant number (m2f),Population,integer,-,"NR, any value",Number of participants who are currently transitioning from male to female
+48,pop-f2m-no,Participant number (f2m),Population,integer,-,"NR, any value",Number of participants who are currently transitioning from female to male
+49,pop-male-ratio,Male participant percentage,Population,percentage,-,"NR, any value",Calculated by part-male-no/part-no-tot
+50,pop-age-range,Age range,Population,string,years,"NR, any value",If the minimum-maximum range of the subject are given
+51,pop-age-mean,Participant age (mean),Population,float,years,"NR, any value","Mean age of all participants.
+
+When reporting age, there are cases the subgroup age stats are given but not the whole group. In those cases, the values for the subgroups are given as [sample size no1: age mean], [sample size no2: age mean], ... The values age values (mean or std) are always entered as 00.00
+
+i.e.; [22: 21.71], [13: 21.43], [19: 26.00], [28: 18.90]
+There were four subgroups, first one had 22 subjects, with an age mean of 21.71. Second subgroup had 13 subjects, mean was 21.43."
+52,pop-age-std,Participant age (std),Population,float,years,"NR, any value","Standard deviation for the mean.
+
+Same as age-mean."
+53,pop-age-male-mean,Participant age (male mean),Population,float,years,"NR, NAN, any value",Can be NAN if there were no male participants
+54,pop-age-fem-mean,Participant age (female mean),Population,float,years,"NR, NAN, any value",Can be NAN if there were no female participants
+55,pop-bmi-mean,Participant BMI (mean),Population,float,kg/m2,"NR, any value","Mean BMI for all participants. 
+
+When an overall population BMI is not given, but values are given for groups, then these are coded as ""[sample size no: bmi std for that group]"", ie ""[12: 20.35], [12: 24.6]"" meaning for the group of 12 people, BMI  was 20.35, and for the other group of 12 people, BMI was 24.6."
+56,pop-bmi-std,Participant BMI (std),Population,float,kg/m2,"NR, any value","Standard deviation for the BMI
+
+When an overall population BMI is not given, but values are given for groups, then these are coded as ""[sample size no: bmi std for that group]"", ie ""[12: 2.6], [12: 4.6]"" meaning for the group of 12 people, std was 2.6, and for the other group of 12 people, std was 4.6."
+57,pop-bmi-male-mean,Participant BMI (male mean),Population,float,kg/m2,"NR, NAN, any value",Can be NAN if there were no male participants
+58,pop-bmi-fem-mean,Participant BMI (female mean),Population,float,kg/m2,"NR, NAN, any value",Can be NAN if there were no female participants
+59,physio-parameter,Physiological parameter,Physiological,categorical,-,"Biomarkers: Alpha-amylase
+Biomarkers: Catecholamines
+Biomarkers: Cortisol
+Biomarkers: COX1
+Biomarkers: COX2
+Biomarkers: Dopamine
+Biomarkers: Estradiol
+Biomarkers: Free thyroxine (FT4)
+Biomarkers: Free triiodothyronine (FT3)
+Biomarkers: Heat shock protein (HSP)
+Biomarkers: Immunoglobulin A (IgA)
+Biomarkers: Immunoglobulin E (IgE)
+Biomarkers: Interleukin 6 (IL-6)
+Biomarkers: Lysozyme 
+Biomarkers: PGE2
+Biomarkers: Progesterone
+Biomarkers: Tear film mucus
+Biomarkers: Testosterone
+Biomarkers: Thyroid-stimulating hormone (TSH)
+Blood pressure
+Body temperature
+Core temperature
+EEG
+EMG
+EOG
+Exhaled breath temperature
+Glucose
+Heart/Pulse rate
+Heat flux
+Metabolic rate/Gas exchange
+Movement
+Near body temperature
+Oxygen saturation
+Perfusion index
+Pupillometry
+Respiration
+Sensory nerve conduction velocity
+""Sensory nerve
+conduction velocity""
+Skin blood flow
+Skin conductance
+Skin hardness
+Skin temperature
+Sweat indicators","This field cannot be NR, NAN or NC. Otherwise publication/experiment does not satisfy inclusion/selection criteria."
+60,physio-sensing-method,Sensing technology method/technique,Physiological,categorical,-,"NR, NC, any value",This information can be inferred when the sensor brand/model and body site combinations can only have one value for sensing technology.
+61,physio-body-site,Body site of measurement,Physiological,categorical,-,"NR, NC, any value","Either as reported, or shown on diagrams/images in the publication. If written and image information does not match (ie. text states ""calf"" while image shows ""shin""), then image is preferred."
+62,physio-body-site-sagittal,Body site of measurement (coronal),Physiological,categorical,-,"NR, NAN, NC, Left, Right, Middle, Non-dominant, Dominant","Left, Right or Middle side of the body. Can be NAN; ie. For Cortisol measurements from saliva, or blood, etc. Non-dominant or Dominant hands/limbs are sometimes specified without left or right directions."
+63,physio-body-site-surface,Body site of measurement (sagittal),Physiological,categorical,-,"NR, NAN, NC, Anterior, Posterior, Lateral, Dorsal, Palmar/Plantar","Front, Back or the outer part of the body. "
+64,physio-sensor-brand,Sensor brand,Physiological,text,-,"NR, NAN, NC, any value",ie. Polar
+65,physio-sensor-model,Sensor model,Physiological,text,-,"NR, NAN, NC, any value",ie. H10
+66,physio-mst-calculated,Mean Skin Temperature calculation,Physiological,boolean,-,"Y, N, NR, NAN","Was there a Mean Skin Temperature calculation? For entries that are not Skin Temperature, it is nan. For Skin Temperature, Y, N or NR.
+
+Difference between N and NR is, when we know there is a MST calculation, but not using all of the skin sites. In that case, some of the sites will have Y value, and the unused ones will have N value."
+67,physio-mst-points,Mean Skin Temperature calculation no of points,Physiological,integer,-,"NR, NAN, NC, any value","How many points were used for the calculation. Sometimes there are multiple values, as the paper chose to compare different MST values. Then comma separated in the order that will match the formulas in the next column"
+68,physio-mst-formula,Mean Skin Temperature formula reference,Physiological,text,-,"NR, NAN, NC, any value","Which formula was used. Within the same number of points, there are different formulas. Sometimes there are multiple values, as the paper chose to compare different MST values. Stored in the order to match the comma separated numbers in mst-points.
+
+Coded as ""Ramanathan (1964)"" or ""ISO XXXX:2004"""
+69,physio-formulas,Mean Skin Temperature formula ,Physiological,text,-,"NR, NAN, NC, any value","The formula itself, as reported in the paper. If only a reference is given but no formula is specifically stated, then NR"
+70,physio-mst-weighting,Mean Skin Temperature formula weighting factors,Physiological,float,-,"NR, NAN, NC, any value","The weigthing used for each skin site, matched to respective row, ie, MST = 0.3chest + 0.3arm + 0.2thigh + 0.2calf. Next to Chest row, this column has 0.3"
+71,env-tdb,Dry bulb temperature (tdb),Environment,string,"°C, or °F","NR, MNR, NC, any value","If it was measured = vertical height/s separate by comma when multiple, if measured heights are not reported = MNR, if not reported = NR, if reported but data unclear = NC"
+72,env-rh,Relative humidity (rh),Environment,string,%,"NR, MNR, NC, any value",Same as tdb
+73,env-v,Air velocity (v),Environment,string,m·s⁻¹,"NR, MNR, NC, any value",Same as tdb
+74,env-tg,Globe temperature (tg),Environment,string,"°C, or °F","NR, MNR, NC, any value",Same as tdb
+75,env-tsurface,Surface temperature (°C),Environment,string,"°C, or °F","NR, MNR, NC, any value",Same as tdb
+76,env-twb,Wetbulb temperature (twb),Environment,string,"°C, or °F","NR, MNR, NC, any value",Same as tdb
+77,env-co2,CO2,Environment,string,ppm,"NR, MNR, NC, any value",Same as tdb
+78,env-illuminance,Illuminance,Environment,string,lx,"NR, MNR, NC, any value","Height(s) at which the illuminance sensor was placed. If measured = vertical height(s) in meters, comma separated when multiple; if measured but heights not reported = MNR; if not measured = NR; if reported but data unclear = NC."
+79,env-sound-level,Noise,Environment,string,dB(A),"NR, MNR, NC, any value",Same as tdb
+80,env-tout,Outdoor  temperature,Environment,string,"°C, or °F","NR, MNR, NC, any value",Same as tdb
+81,env-rhout,Outdoor relative humidity,Environment,string,%,"NR, MNR, NC, any value",Same as tdb
+82,env-voc,VOC,Environment,string,"ppb, or µg·m⁻³","NR, MNR, NC, any value",Same as tdb
+83,env-light-color,Light colour,Environment,string,K,"NR, MNR, NC, any value",Same as tdb
+84,env-solar-rad,Solar radiation,Environment,string,W·m⁻²,"NR, MNR, NC, any value",Same as tdb
+85,ques-thermal-comfort,Thermal Comfort (TCV),Questionnaires,string,-,"NR, MNR, NC, any value","If conducted, the scale is reported as ""points; range; scale""
+i.e., points=7; range=(-3, -2, -1, 0, +1, +2, +3); scale=(""cold"", ""cool"", ""slightly cool"", ""neutral"", ""slightly warm"", ""warm"", ""hot"")
+If conducted but no information on scale is given, then MNR
+If not reported, then NR
+If reported but data is unclear, then NC"
+86,ques-thermal-sensation,Thermal Sensation (TSV),Questionnaires,string,-,"NR, MNR, NC, any value",Same as Thermal Comfort
+87,ques-thermal-prefer,Thermal Preference (TPV),Questionnaires,string,-,"NR, MNR, NC, any value",Same as Thermal Comfort
+88,ques-thermal-accept,Thermal Acceptability (TAV),Questionnaires,string,-,"NR, MNR, NC, any value",Same as Thermal Comfort
+89,ques-thermal-satisfaction,Thermal Satisfaction,Questionnaires,string,-,"NR, MNR, NC, any value",Same as Thermal Comfort
+90,ques-thermal-pleasure-pleasantness,Thermal Pleasure,Questionnaires,string,-,"NR, MNR, NC, any value",Same as Thermal Comfort
+91,ques-local-therm-comfort,Local Thermal Comfort (LTCV),Questionnaires,string,-,"NR, MNR, NC, any value",Same as Thermal Comfort
+92,ques-local-therm-sensation,Local Thermal Sensation (LTSV),Questionnaires,string,-,"NR, MNR, NC, any value",Same as Thermal Comfort
+93,ques-local-therm-satisfaction,Local Thermal Satisfaction,Questionnaires,string,-,"NR, MNR, NC, any value",Same as Thermal Comfort
+94,ques-shivering,Shivering Rate,Questionnaires,string,-,"NR, MNR, NC, any value",Same as Thermal Comfort
+95,ques-sweating-sensation,Sweating Sensation,Questionnaires,string,-,"NR, MNR, NC, any value",Same as Thermal Comfort
+96,ques-overall-comfort,Overall Comfort,Questionnaires,string,-,"NR, MNR, NC, any value",Same as Thermal Comfort
+97,ques-overall-satisfaction,Overall Satisfaction,Questionnaires,string,-,"NR, MNR, NC, any value",Same as Thermal Comfort
+98,ques-airmove-comfort,Air Movement Comfort,Questionnaires,string,-,"NR, MNR, NC, any value",Same as Thermal Comfort
+99,ques-airmove-sensation,Air Movement Sensation,Questionnaires,string,-,"NR, MNR, NC, any value",Same as Thermal Comfort
+100,ques-local-airmove-sensation,Local Air Movement Sensation,Questionnaires,string,-,"NR, MNR, NC, any value",Same as Thermal Comfort
+101,ques-airmove-perception,Air Movement Perception,Questionnaires,string,-,"NR, MNR, NC, any value",Same as Thermal Comfort
+102,ques-airmove-prefer,Air Movement Preference,Questionnaires,string,-,"NR, MNR, NC, any value",Same as Thermal Comfort
+103,ques-airmove-accept,Air Movement Acceptability,Questionnaires,string,-,"NR, MNR, NC, any value",Same as Thermal Comfort
+104,ques-airmove-satisfaction,Air Movement Satisfaction,Questionnaires,string,-,"NR, MNR, NC, any value",Same as Thermal Comfort
+105,ques-humidity-comfort,Humidity Comfort,Questionnaires,string,-,"NR, MNR, NC, any value",Same as Thermal Comfort
+106,ques-humidity-sensation,Humidity Sensation,Questionnaires,string,-,"NR, MNR, NC, any value",Same as Thermal Comfort
+107,ques-humidity-prefer,Humidity Preference,Questionnaires,string,-,"NR, MNR, NC, any value",Same as Thermal Comfort
+108,ques-humidity-accept,Humidity Acceptability,Questionnaires,string,-,"NR, MNR, NC, any value",Same as Thermal Comfort
+109,ques-humidity-satisfaction,Humidity Satisfaction,Questionnaires,string,-,"NR, MNR, NC, any value",Same as Thermal Comfort
+110,ques-light-comfort,Lighting Comfort,Questionnaires,string,-,"NR, MNR, NC, any value",Same as Thermal Comfort
+111,ques-light-sensation,Lighting Sensation,Questionnaires,string,-,"NR, MNR, NC, any value",Same as Thermal Comfort
+112,ques-visual-prefer,Visual Preference,Questionnaires,string,-,"NR, MNR, NC, any value",Same as Thermal Comfort
+113,ques-light-prefer,Lighting Preference,Questionnaires,string,-,"NR, MNR, NC, any value",Same as Thermal Comfort
+114,ques-light-accept,Lighting Acceptability,Questionnaires,string,-,"NR, MNR, NC, any value",Same as Thermal Comfort
+115,ques-light-satisfaction,Lighting Satisfaction,Questionnaires,string,-,"NR, MNR, NC, any value",Same as Thermal Comfort
+116,ques-iaq-comfort,IAQ Comfort,Questionnaires,string,-,"NR, MNR, NC, any value",Same as Thermal Comfort
+117,ques-iaq-sensation,IAQ Sensation,Questionnaires,string,-,"NR, MNR, NC, any value",Same as Thermal Comfort
+118,ques-iaq-prefer,IAQ Preference,Questionnaires,string,-,"NR, MNR, NC, any value",Same as Thermal Comfort
+119,ques-iaq-accept,IAQ Acceptability,Questionnaires,string,-,"NR, MNR, NC, any value",Same as Thermal Comfort
+120,ques-iaq-satisfaction,IAQ Satisfaction,Questionnaires,string,-,"NR, MNR, NC, any value",Same as Thermal Comfort
+121,ques-odour-intensity,Odour Intensity,Questionnaires,string,-,"NR, MNR, NC, any value",Same as Thermal Comfort
+122,ques-sick-building-syndrome,Sick Building Syndrome (SBS),Questionnaires,string,-,"NR, MNR, NC, any value",Same as Thermal Comfort
+123,ques-acoustic-comfort,Acoustic Comfort,Questionnaires,string,-,"NR, MNR, NC, any value",Same as Thermal Comfort
+124,ques-acoustic-sensation,Acoustic Sensation,Questionnaires,string,-,"NR, MNR, NC, any value",Same as Thermal Comfort
+125,ques-acoustic-prefer,Acoustic Preference,Questionnaires,string,-,"NR, MNR, NC, any value",Same as Thermal Comfort
+126,ques-acoustic-accept,Acoustic Acceptability,Questionnaires,string,-,"NR, MNR, NC, any value",Same as Thermal Comfort
+127,ques-acoustic-satisfaction,Acoustic Satisfaction,Questionnaires,string,-,"NR, MNR, NC, any value",Same as Thermal Comfort
+128,cognitive-test-done,Cognitive tests conducted?,Cognitive,boolean,-,"Y, N, NR, NC",Did they do some form of cognitive test?
+129,cognitive-domain-performance,"Type of the tests, comma separated",Cognitive,text,-,"NR, NAN, NC, any value","Names of objective/performance-based cognitive tests administered (e.g., working memory, attention, reasoning tasks), comma separated. NAN = no performance-based cognitive testing done."
+130,cognitive-domain-subjective,Types of cognitive tests,Cognitive,boolean,-,"NR, NAN, NC, any value","Names of subjective/self-report cognitive-state instruments administered, with the assessed domain noted in parentheses (e.g., workload, mood, stress), comma separated. NAN = no subjective cognitive instrument used."
+131,select-healthy,Participants were healthy,Selection criteria,boolean,-,"Y, NR, NC",Participants were healthy
+132,select-active-recent-illness,"Perticipants had no active illnesses or symptoms, ie. COVID, fever, cold, flu, etc during the experiment or shortly before.",Selection criteria,boolean,-,"Y, NR, NC","Perticipants had no active illnesses or symptoms, ie. COVID, fever, cold, flu, etc during the experiment or shortly before."
+133,select-no-ongoing-treatment-medication-use,Participants were not undergoing treatment or using medication,Selection criteria,boolean,-,"Y, NR, NC",Participants were not undergoing treatment or using medication
+134,select-age-range,Participants were selected or excluded based on specific age ranges,Selection criteria,boolean,-,"Y, NR, NC",Participants were selected or excluded based on specific age ranges
+135,select-healthy-cv-bp-disease,"Participants had or did not have any cardiovascular or hyper- or hypotension disorders,",Selection criteria,boolean,-,"Y, NR, NC","Participants had or did not have any cardiovascular or hyper- or hypotension disorders,"
+136,select-neuro-disease,Participants had or did not have any neurological diseases,Selection criteria,boolean,-,"Y, NR, NC",Participants had or did not have any neurological diseases
+137,select-metabolic-syndrome,Participants had or did not have metabolic system related diseases,Selection criteria,boolean,-,"Y, NR, NC",Participants had or did not have diabetes or hyper- or hypoglycemia
+138,select-immune-related-diseases,Participants had or did not have any immune system related diseases,Selection criteria,boolean,-,"Y, NR, NC","Participants had or did not have any skin diseases, allergies, or autoimmunes diseases that would alter thermoregulation or thermal perception"
+139,select-previous-knowledge,Participants had or did not have previous knowledge on the test topic,Selection criteria,boolean,-,"Y, NR, NC",Whether participants' prior knowledge of the study's purpose/hypothesis was used as an inclusion or exclusion criterion.
+140,select-thermal-history,Participants lived or did not live in the experiment location long enough to be acclimatised,Selection criteria,boolean,-,"Y, NR, NC",Participants lived or did not live in the experiment location long enough to be acclimatised
+141,select-smoking,Regular smoking was an inclusion/exclusion factor.,Selection criteria,boolean,-,"Y, NR, NC",Regular smoking was an inclusion/exclusion factor.
+142,select-bmi-range,A particular BMI range was an inclusion/exclusion factor,Selection criteria,boolean,-,"Y, NR, NC",A particular BMI range was an inclusion/exclusion factor
+143,select-colour-weakness-eyesight,"Participants were checked for colour weaknesses or good eyesight, or for previous vision correction",Selection criteria,boolean,-,"Y, NR, NC","Participants were checked for colour weaknesses or good eyesight, or for previous vision correction"
+144,select-hearing,Participants were checked for hearing weaknesses,Selection criteria,boolean,-,"Y, NR, NC",Participants were checked for hearing weaknesses
+145,select-lang-skills,Participants had good language skills in the language of the questionnaires/tests,Selection criteria,boolean,-,"Y, NR, NC",Participants had good language skills in the language of the questionnaires/tests
+146,select-alcohol,Excessive alcohol intake was an inclusion/exclusion factor,Selection criteria,boolean,-,"Y, NR, NC",Excessive alcohol intake was an inclusion/exclusion factor
+147,select-dominant-hand,Participants had a preferred dominant hand; ie. only right-handed were selected,Selection criteria,boolean,-,"Y, NR, NC",Participants had a preferred dominant hand; ie. only right-handed were selected
+148,select-contraceptive-type,Menstruating participants were included/excluded based on their contraception methods,Selection criteria,boolean,-,"Y, NR, NC",Menstruating participants were included/excluded based on their contraception methods
+149,select-activity-level,Participants were included/excluded based on their regular activity or fitness levels,Selection criteria,boolean,-,"Y, NR, NC",Participants were included/excluded based on their regular activity or fitness levels
+150,select-chronotype,Participants were included/excluded based on their natural chronotype,Selection criteria,boolean,-,"Y, NR, NC",Participants were included/excluded based on their natural chronotype
+151,select-emotionally-stable,Participants were or were not emotionally stable,Selection criteria,boolean,-,"Y, NR, NC",Participants were or were not emotionally stable
+152,select-neurodivergent,"Participants were selected/excluded based on their neurodiversity (ie ASD, ADD, ADHD)",Selection criteria,boolean,-,"Y, NR, NC","Participants were selected/excluded based on their neurodiversity (ie ASD, ADD, ADHD)"
+153,select-thermal-sensitivity,Participants were selected/excluded based on their thermal preferences and sensitivities,Selection criteria,boolean,-,"Y, NR, NC",Participants were selected/excluded based on their thermal preferences and sensitivities
+154,select-pregnancy,Participants were selected/excluded if they had an ongoing pregnancy or were actively breastfeeding,Selection criteria,boolean,-,"Y, NR, NC",Participants were selected/excluded if they had an ongoing pregnancy or were actively breastfeeding
+155,select-diet-weight-change,Participants were selected/excluded if they had a drastic weight change recently,Selection criteria,boolean,-,"Y, NR, NC",Participants were selected/excluded if they had a drastic weight change recently
+156,select-hormone-therapy,Participants were selected/excluded if they are or have undergone hormone replacement therapy in the last specified time period,Selection criteria,boolean,-,"Y, NR, NC",Participants were selected/excluded if they are or have undergone hormone replacement therapy in the last specified time period
+157,select-menopause,"Participants were selected/excluded if they were pre, peri or post-menopausal",Selection criteria,boolean,-,"Y, NR, NC","Participants were selected/excluded if they were pre, peri or post-menopausal"
+158,select-no-medical-implant,Participants were selected/excluded if they had implants that might interfere with electrical signals,Selection criteria,boolean,-,"Y, NR, NC",Participants were selected/excluded if they had implants that might interfere with electrical signals
+159,select-sex,Only a specific sex group/groups was recruited,Selection criteria,boolean,-,"Y, NR, NC",Only a specific sex group/groups was recruited
+160,part-meta-age,Age,Participant metadata,boolean,-,"Y, NR, NC","Age. Can also be date of birth, and/or age group"
+161,part-meta-sex,Sex,Participant metadata,boolean,-,"Y, NR, NC",Biological sex as reported by the participant
+162,part-meta-height,Height,Participant metadata,boolean,-,"Y, NR, NC",Height. Can be self-reported or measured on site
+163,part-meta-weight,Weight,Participant metadata,boolean,-,"Y, NR, NC",Weight. Can be self-reported or measured on site
+164,part-meta-bmi,Body Mass Index (BMI),Participant metadata,boolean,-,"Y, NR, NC",BMI
+165,part-meta-ponderal-index,Ponderal index,Participant metadata,boolean,-,"Y, NR, NC","Also known as Corpulence Index. Different than BMI, calculated with PI = weight / height³"
+166,part-meta-body-fat,Body fat percentage,Participant metadata,boolean,-,"Y, NR, NC",Body fat ratio
+167,part-meta-ethnicity-nationality,Ethnicity,Participant metadata,boolean,-,"Y, NR, NC","Ethnic background, nationality, and/or country of origin"
+168,part-meta-bsa,Body Surface Area (BSA),Participant metadata,boolean,-,"Y, NR, NC",BSA
+169,part-meta-thermal-history-background,Thermal history,Participant metadata,boolean,-,"Y, NR, NC","If acclimation to local climate was not a selection criteria, then information per participant is collected"
+170,part-meta-education-profession,Education/Professional background,Participant metadata,boolean,-,"Y, NR, NC",Educational and/or professional background
+171,part-meta-thermal-sensitivity-preference,Thermal sensitivity and preferences,Participant metadata,boolean,-,"Y, NR, NC",Thermal preferences or sensitivities were asked
+172,part-meta-personality,Personality type,Participant metadata,boolean,-,"Y, NR, NC",Personality types were asked
+173,part-meta-psych-eval,Psychological evaluation,Participant metadata,boolean,-,"Y, NR, NC","Some forms of psychology, emotional recognition, or emotional regulation evaluation was performed"
+174,part-meta-smoking,Regular smoking,Participant metadata,boolean,-,"Y, NR, NC","If smoking was not an exclusion criteria, then the information per participant is collected"
+175,part-meta-activity-level,Typical activity/fitness level,Participant metadata,boolean,-,"Y, NR, NC","Typical activity level and/or intensity, fitness level"
+176,part-meta-health-status,Health level,Participant metadata,boolean,-,"Y, NR, NC",Health level. Can be self reported or tested by a form of screening
+177,part-meta-chronotype,Natural chronotype,Participant metadata,boolean,-,"Y, NR, NC","Morningness-eveningness, or natural chronotype"
+178,part-recent-chrono-change,Recent change in timezone,Participant metadata,boolean,-,"Y, NR, NC","Whether a recent change in chronotype or sleep-wake schedule (e.g., shift work, jet lag) was recorded as a participant characteristic."
+179,part-meta-bmr-rmr,Basal Metabolic Rate (BMR),Participant metadata,boolean,-,"Y, NR, NC",Resting basal metabolic rate
+180,part-meta-alcohol-use,Regular alcohol consumption,Participant metadata,boolean,-,"Y, NR, NC","If alcohol use was not an exclusion criteria, then the information per participant is collected"
+181,part-meta-mens-timing,Menstrual timing,Participant metadata,boolean,-,"Y, NR, NC","If menstrual timing was not an exclusion criteria, then the information per participant is collected"
+182,part-meta-contraceptive-type,Contraceptive type,Participant metadata,boolean,-,"Y, NR, NC","If contraception type was not an exclusion criteria, then the information per participant is collected"
+183,part-meta-reg-coffee,Regular coffee consumption,Participant metadata,boolean,-,"Y, NR, NC",Regular coffee consumption
+184,part-meta-reg-sleep-time,Regular sleep time,Participant metadata,boolean,-,"Y, NR, NC",Regular sleep time
+185,part-meta-reg-work time,Regular work-time,Participant metadata,boolean,-,"Y, NR, NC",Regular work time
+186,protocol-fixed-clo,Clo values were fixed,Protocol,boolean,-,"Y, NR, NC","The clothing was fixed throughout the session, and the participant was not allowed to change it."
+187,protocol-observed-clo,Clo values were observed,Protocol,boolean,-,"Y, NR, NC","The clothing was not controlled, subjects were free to adjust/change clothing druing the sessions. The resulting clo factor was observed and noted.
+If there is no mention of observed clothing, then NR."
+188,protocol-avoid-stimulant,Avoid stimulants (ie. coffee),Protocol,boolean,-,"Y, NR, NC","Participants were explicitly instructed to avoid stimulants (coffee, tea, alcohol, energy drinks, tobacco, or similar) and/or sedatives before the session. The specific duration of avoidance is not required as long as it was explicitly stated. If nothing mentioned regarding any stimulating drink avoidance, it's NR."
+189,protocol-avoid-activity,Avoid strenuous activity,Protocol,boolean,-,"Y, NR, NC",Participants were explicitly instructed to avoid strenuous physical activity before the session. The specific duration is not required as long as the instruction was given.
+190,protocol-avoid-heavy-food,Avoid heavy food,Protocol,boolean,-,"Y, NR, NC","Participants were explicitly instructed to avoid consuming heavy, spicy, or extreme foods before the session."
+191,protocol-rest-sleep,Rest well,Protocol,boolean,-,"Y, NR, NC","Participants were instructed to rest well, ensure adequate sleep and/or avoid sleeping later than usual prior to the session. "
+192,protocol-circadian,Circadian timing was considered,Protocol,boolean,-,"Y, NR, NC","The timing of the sessions were taken into account to avoid confounding effects due to circadian changes. This could mean 
+(1) each participant's sessions were at the same time of day or counterbalanced to avoid time-of-day bias, or 
+(2) all participants were tested at a consistent time across groups or were randomly assigned to different time slots."
+193,protocol-mens-timing,Menstrual timing was considered,Protocol,boolean,-,"Y, NR, NC","The timing of sessions was controlled for menstruation phases. This could mean: 
+(1) scheduling female participants in specific cycle phases, or
+(2) including only participants on hormonal birth control. 
+Excluding female participants entirely DOES NOT constitute controlling for menstrual timing, in such case, value is NR"
+194,protocol-time-btw-sessions,Time between sessions avoided acclimation,Protocol,boolean,-,"Y, NR, NC","Sufficient time was allocated between sessions for the same participant to avoid acclimation or carryover effects, OR explicitly study them. This applies if explicitly mentioned in the protocol, regardless of the time period between sessions. The sessions can be designed to be apart, or consecutively (ie. every day). As long as there was a common spacing between sessions that was applied throughout the protocol, the value is 1."
+195,protocol-instruction-practice,Instructions/Practice were available,Protocol,boolean,-,"Y, NR, NC","Participants were given specific instructions on how to respond to surveys, follow procedures, and/or practice tests were conducted before sessions. This does not refer to general onboarding but to session-specific instructions to avoid mistakes due to insufficient or misunderstanding the experimental procedures."
+196,protocol-diary,Participants kept diaries,Protocol,boolean,-,"Y, NR, NC","Participants were required to keep a diary/log documenting food intake, sleep patterns, physical activity, and/or other habits outside session hours. If this information is acquired by researchers through questionnaires, it also applies."
+197,protocol-maintain-routine,Participants maintained usual habits,Protocol,boolean,-,"Y, NR, NC","Participants were instructed to maintain a regular routine outside session hours, including sleep-wake cycles, diet, exercise, and medication routines."
+198,protocol-blinded,Protocol was blinded,Protocol,boolean,-,"Y, NR, NC","The experiment was blinded (single, double, or triple-blind) to reduce bias."
+199,protocol-random,Session were ordered randomly,Protocol,boolean,-,"Y, NR, NC","The protocol included any type of randomization (random session, random item order, random participant assignment, etc.). Counterbalancing is included here."
+200,protocol-balancing,Groups/blocks were balanced,Protocol,boolean,-,"Y, NR, NC",The groups/blocks were balanced
+201,protocol-subjects-not-allowed-to-discuss,Participants not allowed to talk about experiment,Protocol,boolean,-,"Y, NR, NC","The participants were not allowed to talk to each other or the researchers about the experiment, questionnaires, their own perception."
+202,protocol-food,Food intake was controlled,Protocol,boolean,-,"Y, NR, NC","Food intake before or during sessions was standardized (e.g., fasting requirements, controlled meal portions). This is distinct from avoiding stimulants or heavy/large/unusual foods. In case the amount of food intake was not controlled, but the timing of the session was adjusted according to the last food intake, this also applies (e.g., ""The sessions started 2 hours after lunch""). "
+203,protocol-water,Drink intake was controlled,Protocol,boolean,-,"Y, NR, NC","Drink intake before or during sessions was standardized (e.g., participants were not allowed to drink during session, participants were served xx ml of isotonic water before the session to ensure hydration status)"
+204,protocol-prep-body-site,Body site was prepped,Protocol,boolean,-,"Y, NR, NC","Specific body sites were prepared before sensor application. This includes cleaning, washing, shaving, wiping the skin, mouth rinsing, or instructing the participant not to apply make-up, creams, lotions, gels or similar materials on site, depending on the sensors used"
+205,protocol-defined-activity,Activity was defined,Protocol,boolean,-,"Y, NR, NC","Participants were seated and sedentary throughout the session. If movement (e.g., walking) was allowed, it was monitored and recorded as part of the protocol."
+206,protocol-observed-met,Activity was observed,Protocol,boolean,-,"Y, NR, NC","Participants were free to move freely, and resulting metabolic rates were assumed based on observed behaviours and/or measured."
