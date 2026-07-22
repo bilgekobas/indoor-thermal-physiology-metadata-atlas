@@ -6448,19 +6448,19 @@
           "is_neutral": false
         },
         {
-          "value": -2.0,
+          "value": -2.25,
           "label": "cold but acceptable",
           "is_anchor": true,
           "is_neutral": false
         },
         {
-          "value": -1.0,
+          "value": -1.5,
           "label": "a little cold",
           "is_anchor": true,
           "is_neutral": false
         },
         {
-          "value": -0.5,
+          "value": -0.75,
           "label": "slightly cool but comfortable",
           "is_anchor": true,
           "is_neutral": false
@@ -6472,19 +6472,19 @@
           "is_neutral": true
         },
         {
-          "value": 0.5,
+          "value": 0.75,
           "label": "slightly hot but comfortable",
           "is_anchor": true,
           "is_neutral": false
         },
         {
-          "value": 1.0,
+          "value": 1.5,
           "label": "a little hot",
           "is_anchor": true,
           "is_neutral": false
         },
         {
-          "value": 2.0,
+          "value": 2.25,
           "label": "hot but acceptable",
           "is_anchor": true,
           "is_neutral": false

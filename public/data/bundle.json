@@ -31113,19 +31113,19 @@
             "is_neutral": false
           },
           {
-            "value": -2.0,
+            "value": -2.25,
             "label": "cold but acceptable",
             "is_anchor": true,
             "is_neutral": false
           },
           {
-            "value": -1.0,
+            "value": -1.5,
             "label": "a little cold",
             "is_anchor": true,
             "is_neutral": false
           },
           {
-            "value": -0.5,
+            "value": -0.75,
             "label": "slightly cool but comfortable",
             "is_anchor": true,
             "is_neutral": false
@@ -31137,19 +31137,19 @@
             "is_neutral": true
           },
           {
-            "value": 0.5,
+            "value": 0.75,
             "label": "slightly hot but comfortable",
             "is_anchor": true,
             "is_neutral": false
           },
           {
-            "value": 1.0,
+            "value": 1.5,
             "label": "a little hot",
             "is_anchor": true,
             "is_neutral": false
           },
           {
-            "value": 2.0,
+            "value": 2.25,
             "label": "hot but acceptable",
             "is_anchor": true,
             "is_neutral": false
@@ -40970,19 +40970,25 @@
             "is_neutral": false
           },
           {
-            "value": -1.0,
+            "value": -1.2,
             "label": "uncomfortable",
             "is_anchor": true,
             "is_neutral": false
           },
           {
-            "value": 0.0,
-            "label": "just comfortable",
+            "value": -0.4,
+            "label": "just uncomfortable",
             "is_anchor": true,
-            "is_neutral": true
+            "is_neutral": false
           },
           {
-            "value": 1.0,
+            "value": 0.4,
+            "label": "just comfortable",
+            "is_anchor": true,
+            "is_neutral": false
+          },
+          {
+            "value": 1.2,
             "label": "comfortable",
             "is_anchor": true,
             "is_neutral": false
@@ -41024,19 +41030,25 @@
             "is_neutral": false
           },
           {
-            "value": -1.0,
+            "value": -1.2,
             "label": "uncomfortable",
             "is_anchor": true,
             "is_neutral": false
           },
           {
-            "value": -0.0,
-            "label": "just comfortable",
+            "value": -0.4,
+            "label": "just uncomfortable",
             "is_anchor": true,
-            "is_neutral": true
+            "is_neutral": false
           },
           {
-            "value": 1.0,
+            "value": 0.4,
+            "label": "just comfortable",
+            "is_anchor": true,
+            "is_neutral": false
+          },
+          {
+            "value": 1.2,
             "label": "comfortable",
             "is_anchor": true,
             "is_neutral": false
@@ -41078,19 +41090,25 @@
             "is_neutral": false
           },
           {
-            "value": -1.0,
+            "value": -1.2,
             "label": "uncomfortable",
             "is_anchor": true,
             "is_neutral": false
           },
           {
-            "value": -0.0,
-            "label": "just comfortable",
+            "value": -0.4,
+            "label": "just uncomfortable",
             "is_anchor": true,
-            "is_neutral": true
+            "is_neutral": false
           },
           {
-            "value": 1.0,
+            "value": 0.4,
+            "label": "just comfortable",
+            "is_anchor": true,
+            "is_neutral": false
+          },
+          {
+            "value": 1.2,
             "label": "comfortable",
             "is_anchor": true,
             "is_neutral": false
@@ -41132,25 +41150,25 @@
             "is_neutral": false
           },
           {
-            "value": -1.0,
+            "value": -1.2,
             "label": "uncomfortable",
             "is_anchor": true,
             "is_neutral": false
           },
           {
-            "value": -0.01,
+            "value": -0.4,
             "label": "just uncomfortable",
             "is_anchor": true,
             "is_neutral": false
           },
           {
-            "value": 0.01,
+            "value": 0.4,
             "label": "just comfortable",
             "is_anchor": true,
             "is_neutral": false
           },
           {
-            "value": 1.0,
+            "value": 1.2,
             "label": "comfortable",
             "is_anchor": true,
             "is_neutral": false
@@ -41648,25 +41666,25 @@
             "is_neutral": false
           },
           {
-            "value": -1.0,
+            "value": -1.2,
             "label": "uncomfortable",
             "is_anchor": true,
             "is_neutral": false
           },
           {
-            "value": -0.01,
+            "value": -0.4,
             "label": "just uncomfortable",
             "is_anchor": true,
             "is_neutral": false
           },
           {
-            "value": 0.01,
+            "value": 0.4,
             "label": "just comfortable",
             "is_anchor": true,
             "is_neutral": false
           },
           {
-            "value": 1.0,
+            "value": 1.2,
             "label": "comfortable",
             "is_anchor": true,
             "is_neutral": false
@@ -41752,25 +41770,25 @@
             "is_neutral": false
           },
           {
-            "value": -2.0,
+            "value": -1.8,
             "label": "uncomfortable",
             "is_anchor": true,
             "is_neutral": false
           },
           {
-            "value": -1.0,
+            "value": -0.6,
             "label": "just uncomfortable",
             "is_anchor": true,
             "is_neutral": false
           },
           {
-            "value": 1.0,
+            "value": 0.6,
             "label": "just comfortable",
             "is_anchor": true,
             "is_neutral": false
           },
           {
-            "value": 2.0,
+            "value": 1.8,
             "label": "comfortable",
             "is_anchor": true,
             "is_neutral": false
@@ -42071,14 +42089,14 @@
           },
           {
             "value": -3.0,
-            "label": "very uncomfortable",
-            "is_anchor": true,
+            "label": null,
+            "is_anchor": false,
             "is_neutral": false
           },
           {
             "value": -2.0,
-            "label": null,
-            "is_anchor": false,
+            "label": "very uncomfortable",
+            "is_anchor": true,
             "is_neutral": false
           },
           {
@@ -42652,25 +42670,25 @@
             "is_neutral": false
           },
           {
-            "value": -1.0,
+            "value": -1.2,
             "label": "uncomfortable",
             "is_anchor": true,
             "is_neutral": false
           },
           {
-            "value": -0.01,
+            "value": -0.4,
             "label": "just uncomfortable",
             "is_anchor": true,
             "is_neutral": false
           },
           {
-            "value": 0.01,
+            "value": 0.4,
             "label": "just comfortable",
             "is_anchor": true,
             "is_neutral": false
           },
           {
-            "value": 1.0,
+            "value": 1.2,
             "label": "comfortable",
             "is_anchor": true,
             "is_neutral": false
@@ -42953,8 +42971,8 @@
           },
           {
             "value": -2.2222,
-            "label": null,
-            "is_anchor": false,
+            "label": "uncomfortable",
+            "is_anchor": true,
             "is_neutral": false
           },
           {
@@ -42965,8 +42983,8 @@
           },
           {
             "value": -0.4444,
-            "label": null,
-            "is_anchor": false,
+            "label": "just comfortable",
+            "is_anchor": true,
             "is_neutral": false
           },
           {
@@ -42983,8 +43001,8 @@
           },
           {
             "value": 2.2222,
-            "label": null,
-            "is_anchor": false,
+            "label": "comfortable",
+            "is_anchor": true,
             "is_neutral": false
           },
           {
@@ -43234,37 +43252,37 @@
             "is_neutral": false
           },
           {
-            "value": -2.0,
+            "value": -2.1429,
             "label": "uncomfortable",
             "is_anchor": true,
             "is_neutral": false
           },
           {
-            "value": -1.0,
+            "value": -1.2857,
+            "label": null,
+            "is_anchor": false,
+            "is_neutral": false
+          },
+          {
+            "value": -0.4286,
             "label": "just uncomfortable",
             "is_anchor": true,
             "is_neutral": false
           },
           {
-            "value": -0.01,
-            "label": "-",
-            "is_anchor": true,
-            "is_neutral": false
-          },
-          {
-            "value": 0.01,
-            "label": "-",
-            "is_anchor": true,
-            "is_neutral": false
-          },
-          {
-            "value": 1.0,
+            "value": 0.4286,
             "label": "just comfortable",
             "is_anchor": true,
             "is_neutral": false
           },
           {
-            "value": 2.0,
+            "value": 1.2857,
+            "label": null,
+            "is_anchor": false,
+            "is_neutral": false
+          },
+          {
+            "value": 2.1429,
             "label": "comfortable",
             "is_anchor": true,
             "is_neutral": false
@@ -43306,19 +43324,25 @@
             "is_neutral": false
           },
           {
-            "value": -1.0,
+            "value": -1.2,
             "label": "uncomfortable",
             "is_anchor": true,
             "is_neutral": false
           },
           {
-            "value": -0.0,
-            "label": "just comfortable",
+            "value": -0.4,
+            "label": "just uncomfortable",
             "is_anchor": true,
-            "is_neutral": true
+            "is_neutral": false
           },
           {
-            "value": 1.0,
+            "value": 0.4,
+            "label": "just comfortable",
+            "is_anchor": true,
+            "is_neutral": false
+          },
+          {
+            "value": 1.2,
             "label": "comfortable",
             "is_anchor": true,
             "is_neutral": false
@@ -43428,25 +43452,25 @@
             "is_neutral": false
           },
           {
-            "value": -1.0,
+            "value": -1.2,
             "label": "uncomfortable",
             "is_anchor": true,
             "is_neutral": false
           },
           {
-            "value": -0.01,
+            "value": -0.4,
             "label": "just uncomfortable",
             "is_anchor": true,
             "is_neutral": false
           },
           {
-            "value": 0.01,
+            "value": 0.4,
             "label": "just comfortable",
             "is_anchor": true,
             "is_neutral": false
           },
           {
-            "value": 1.0,
+            "value": 1.2,
             "label": "comfortable",
             "is_anchor": true,
             "is_neutral": false
@@ -43544,25 +43568,25 @@
             "is_neutral": false
           },
           {
-            "value": -1.0,
+            "value": -1.2,
             "label": "uncomfortable",
             "is_anchor": true,
             "is_neutral": false
           },
           {
-            "value": -0.01,
+            "value": -0.4,
             "label": "just uncomfortable",
             "is_anchor": true,
             "is_neutral": false
           },
           {
-            "value": 0.01,
+            "value": 0.4,
             "label": "just comfortable",
             "is_anchor": true,
             "is_neutral": false
           },
           {
-            "value": 1.0,
+            "value": 1.2,
             "label": "comfortable",
             "is_anchor": true,
             "is_neutral": false
@@ -43604,25 +43628,25 @@
             "is_neutral": false
           },
           {
-            "value": -1.0,
+            "value": -1.2,
             "label": "uncomfortable",
             "is_anchor": true,
             "is_neutral": false
           },
           {
-            "value": -0.01,
+            "value": -0.4,
             "label": "just uncomfortable",
             "is_anchor": true,
             "is_neutral": false
           },
           {
-            "value": 0.01,
+            "value": 0.4,
             "label": "just comfortable",
             "is_anchor": true,
             "is_neutral": false
           },
           {
-            "value": 1.0,
+            "value": 1.2,
             "label": "comfortable",
             "is_anchor": true,
             "is_neutral": false
@@ -43664,25 +43688,25 @@
             "is_neutral": false
           },
           {
-            "value": -1.0,
+            "value": -1.2,
             "label": "uncomfortable",
             "is_anchor": true,
             "is_neutral": false
           },
           {
-            "value": -0.01,
+            "value": -0.4,
             "label": "just uncomfortable",
             "is_anchor": true,
             "is_neutral": false
           },
           {
-            "value": 0.01,
+            "value": 0.4,
             "label": "just comfortable",
             "is_anchor": true,
             "is_neutral": false
           },
           {
-            "value": 1.0,
+            "value": 1.2,
             "label": "comfortable",
             "is_anchor": true,
             "is_neutral": false
@@ -43724,25 +43748,25 @@
             "is_neutral": false
           },
           {
-            "value": -1.0,
+            "value": -1.2,
             "label": "uncomfortable",
             "is_anchor": true,
             "is_neutral": false
           },
           {
-            "value": -0.01,
+            "value": -0.4,
             "label": "just uncomfortable",
             "is_anchor": true,
             "is_neutral": false
           },
           {
-            "value": 0.01,
+            "value": 0.4,
             "label": "just comfortable",
             "is_anchor": true,
             "is_neutral": false
           },
           {
-            "value": 1.0,
+            "value": 1.2,
             "label": "comfortable",
             "is_anchor": true,
             "is_neutral": false
@@ -43784,25 +43808,25 @@
             "is_neutral": false
           },
           {
-            "value": -1.0,
+            "value": -1.2,
             "label": "uncomfortable",
             "is_anchor": true,
             "is_neutral": false
           },
           {
-            "value": -0.01,
+            "value": -0.4,
             "label": "just uncomfortable",
             "is_anchor": true,
             "is_neutral": false
           },
           {
-            "value": 0.01,
+            "value": 0.4,
             "label": "just comfortable",
             "is_anchor": true,
             "is_neutral": false
           },
           {
-            "value": 1.0,
+            "value": 1.2,
             "label": "comfortable",
             "is_anchor": true,
             "is_neutral": false
@@ -43857,8 +43881,8 @@
           },
           {
             "value": -2.2222,
-            "label": null,
-            "is_anchor": false,
+            "label": "uncomfortable",
+            "is_anchor": true,
             "is_neutral": false
           },
           {
@@ -43869,8 +43893,8 @@
           },
           {
             "value": -0.4444,
-            "label": null,
-            "is_anchor": false,
+            "label": "just comfortable",
+            "is_anchor": true,
             "is_neutral": false
           },
           {
@@ -43887,8 +43911,8 @@
           },
           {
             "value": 2.2222,
-            "label": null,
-            "is_anchor": false,
+            "label": "comfortable",
+            "is_anchor": true,
             "is_neutral": false
           },
           {
@@ -44026,13 +44050,13 @@
             "is_neutral": false
           },
           {
-            "value": -1.0,
+            "value": -0.6667,
             "label": "just uncomfortable",
             "is_anchor": true,
             "is_neutral": false
           },
           {
-            "value": 1.0,
+            "value": 0.6667,
             "label": "just comfortable",
             "is_anchor": true,
             "is_neutral": false
@@ -44073,32 +44097,32 @@
           },
           {
             "value": -2.0,
+            "label": null,
+            "is_anchor": false,
+            "is_neutral": false
+          },
+          {
+            "value": -1.0,
             "label": "discomfort",
             "is_anchor": true,
             "is_neutral": false
           },
           {
-            "value": -1.0,
-            "label": null,
-            "is_anchor": false,
-            "is_neutral": false
-          },
-          {
             "value": 0.0,
-            "label": null,
-            "is_anchor": false,
-            "is_neutral": false
+            "label": "slight comfort",
+            "is_anchor": true,
+            "is_neutral": true
           },
           {
             "value": 1.0,
-            "label": "slight comfort",
+            "label": "comfort",
             "is_anchor": true,
             "is_neutral": false
           },
           {
             "value": 2.0,
-            "label": "comfort",
-            "is_anchor": true,
+            "label": null,
+            "is_anchor": false,
             "is_neutral": false
           },
           {
@@ -44198,25 +44222,25 @@
             "is_neutral": false
           },
           {
-            "value": -1.0,
+            "value": -1.2,
             "label": "uncomfortable",
             "is_anchor": true,
             "is_neutral": false
           },
           {
-            "value": -0.01,
+            "value": -0.4,
             "label": "just uncomfortable",
             "is_anchor": true,
             "is_neutral": false
           },
           {
-            "value": 0.01,
+            "value": 0.4,
             "label": "just comfortable",
             "is_anchor": true,
             "is_neutral": false
           },
           {
-            "value": 1.0,
+            "value": 1.2,
             "label": "comfortable",
             "is_anchor": true,
             "is_neutral": false
@@ -44378,25 +44402,25 @@
             "is_neutral": false
           },
           {
-            "value": -1.0,
+            "value": -1.2,
             "label": "uncomfortable",
             "is_anchor": true,
             "is_neutral": false
           },
           {
-            "value": -0.01,
+            "value": -0.4,
             "label": "just uncomfortable",
             "is_anchor": true,
             "is_neutral": false
           },
           {
-            "value": 0.01,
+            "value": 0.4,
             "label": "just comfortable",
             "is_anchor": true,
             "is_neutral": false
           },
           {
-            "value": 1.0,
+            "value": 1.2,
             "label": "comfortable",
             "is_anchor": true,
             "is_neutral": false
@@ -44542,25 +44566,25 @@
             "is_neutral": false
           },
           {
-            "value": -2.0,
+            "value": -1.8,
             "label": "uncomfortable",
             "is_anchor": true,
             "is_neutral": false
           },
           {
-            "value": -1.0,
+            "value": -0.6,
             "label": "slightly uncomfortable",
             "is_anchor": true,
             "is_neutral": false
           },
           {
-            "value": 1.0,
+            "value": 0.6,
             "label": "slightly comfortable",
             "is_anchor": true,
             "is_neutral": false
           },
           {
-            "value": 2.0,
+            "value": 1.8,
             "label": "comfortable",
             "is_anchor": true,
             "is_neutral": false
@@ -44762,25 +44786,25 @@
             "is_neutral": false
           },
           {
-            "value": -1.0,
+            "value": -1.2,
             "label": "uncomfortable",
             "is_anchor": true,
             "is_neutral": false
           },
           {
-            "value": -0.01,
+            "value": -0.4,
             "label": "just uncomfortable",
             "is_anchor": true,
             "is_neutral": false
           },
           {
-            "value": 0.01,
+            "value": 0.4,
             "label": "just comfortable",
             "is_anchor": true,
             "is_neutral": false
           },
           {
-            "value": 1.0,
+            "value": 1.2,
             "label": "comfortable",
             "is_anchor": true,
             "is_neutral": false
@@ -44934,25 +44958,25 @@
             "is_neutral": false
           },
           {
-            "value": -1.0,
+            "value": -1.2,
             "label": "uncomfortable",
             "is_anchor": true,
             "is_neutral": false
           },
           {
-            "value": -0.01,
+            "value": -0.4,
             "label": "just uncomfortable",
             "is_anchor": true,
             "is_neutral": false
           },
           {
-            "value": 0.01,
+            "value": 0.4,
             "label": "just comfortable",
             "is_anchor": true,
             "is_neutral": false
           },
           {
-            "value": 1.0,
+            "value": 1.2,
             "label": "comfortable",
             "is_anchor": true,
             "is_neutral": false
@@ -45270,25 +45294,25 @@
             "is_neutral": false
           },
           {
-            "value": -2.0,
+            "value": -1.8,
             "label": "uncomfortable",
             "is_anchor": true,
             "is_neutral": false
           },
           {
-            "value": -1.0,
+            "value": -0.6,
             "label": "slightly uncomfortable",
             "is_anchor": true,
             "is_neutral": false
           },
           {
-            "value": 1.0,
+            "value": 0.6,
             "label": "slightly comfortable",
             "is_anchor": true,
             "is_neutral": false
           },
           {
-            "value": 2.0,
+            "value": 1.8,
             "label": "comfortable",
             "is_anchor": true,
             "is_neutral": false
@@ -45382,25 +45406,25 @@
             "is_neutral": false
           },
           {
-            "value": -1.0,
+            "value": -1.2,
             "label": "uncomfortable",
             "is_anchor": true,
             "is_neutral": false
           },
           {
-            "value": -0.1,
+            "value": -0.4,
             "label": "slightly uncomfortable",
             "is_anchor": true,
             "is_neutral": false
           },
           {
-            "value": 0.1,
+            "value": 0.4,
             "label": "slightly comfortable",
             "is_anchor": true,
             "is_neutral": false
           },
           {
-            "value": 1.0,
+            "value": 1.2,
             "label": "comfortable",
             "is_anchor": true,
             "is_neutral": false
@@ -45834,25 +45858,25 @@
             "is_neutral": false
           },
           {
-            "value": -1.0,
+            "value": -1.2,
             "label": "uncomfortable",
             "is_anchor": true,
             "is_neutral": false
           },
           {
-            "value": -0.01,
+            "value": -0.4,
             "label": "just uncomfortable",
             "is_anchor": true,
             "is_neutral": false
           },
           {
-            "value": 0.01,
+            "value": 0.4,
             "label": "just comfortable",
             "is_anchor": true,
             "is_neutral": false
           },
           {
-            "value": 1.0,
+            "value": 1.2,
             "label": "comfortable",
             "is_anchor": true,
             "is_neutral": false
@@ -45894,25 +45918,25 @@
             "is_neutral": false
           },
           {
-            "value": -1.0,
+            "value": -1.2,
             "label": "uncomfortable",
             "is_anchor": true,
             "is_neutral": false
           },
           {
-            "value": -0.01,
+            "value": -0.4,
             "label": "just uncomfortable",
             "is_anchor": true,
             "is_neutral": false
           },
           {
-            "value": 0.01,
+            "value": 0.4,
             "label": "just comfortable",
             "is_anchor": true,
             "is_neutral": false
           },
           {
-            "value": 1.0,
+            "value": 1.2,
             "label": "comfortable",
             "is_anchor": true,
             "is_neutral": false
@@ -45954,25 +45978,25 @@
             "is_neutral": false
           },
           {
-            "value": -1.0,
+            "value": -1.2,
             "label": "uncomfortable",
             "is_anchor": true,
             "is_neutral": false
           },
           {
-            "value": -0.01,
+            "value": -0.4,
             "label": "just uncomfortable",
             "is_anchor": true,
             "is_neutral": false
           },
           {
-            "value": 0.01,
+            "value": 0.4,
             "label": "just comfortable",
             "is_anchor": true,
             "is_neutral": false
           },
           {
-            "value": 1.0,
+            "value": 1.2,
             "label": "comfortable",
             "is_anchor": true,
             "is_neutral": false
@@ -46021,9 +46045,9 @@
           },
           {
             "value": 0.0,
-            "label": null,
-            "is_anchor": false,
-            "is_neutral": false
+            "label": "just comfortable",
+            "is_anchor": true,
+            "is_neutral": true
           },
           {
             "value": 1.0,
@@ -46068,25 +46092,25 @@
             "is_neutral": false
           },
           {
-            "value": -1.0,
+            "value": -1.2,
             "label": "uncomfortable",
             "is_anchor": true,
             "is_neutral": false
           },
           {
-            "value": -0.1,
+            "value": -0.4,
             "label": "slightly uncomfortable",
             "is_anchor": true,
             "is_neutral": false
           },
           {
-            "value": 0.1,
+            "value": 0.4,
             "label": "slightly comfortable",
             "is_anchor": true,
             "is_neutral": false
           },
           {
-            "value": 1.0,
+            "value": 1.2,
             "label": "comfortable",
             "is_anchor": true,
             "is_neutral": false
@@ -46500,25 +46524,25 @@
             "is_neutral": false
           },
           {
-            "value": -1.0,
+            "value": -1.2,
             "label": "uncomfortable",
             "is_anchor": true,
             "is_neutral": false
           },
           {
-            "value": -0.01,
+            "value": -0.4,
             "label": "just uncomfortable",
             "is_anchor": true,
             "is_neutral": false
           },
           {
-            "value": 0.01,
+            "value": 0.4,
             "label": "just comfortable",
             "is_anchor": true,
             "is_neutral": false
           },
           {
-            "value": 1.0,
+            "value": 1.2,
             "label": "comfortable",
             "is_anchor": true,
             "is_neutral": false
@@ -46628,25 +46652,25 @@
             "is_neutral": false
           },
           {
-            "value": -1.0,
+            "value": -1.2,
             "label": "uncomfortable",
             "is_anchor": true,
             "is_neutral": false
           },
           {
-            "value": -0.01,
+            "value": -0.4,
             "label": "just uncomfortable",
             "is_anchor": true,
             "is_neutral": false
           },
           {
-            "value": 0.01,
+            "value": 0.4,
             "label": "just comfortable",
             "is_anchor": true,
             "is_neutral": false
           },
           {
-            "value": 1.0,
+            "value": 1.2,
             "label": "comfortable",
             "is_anchor": true,
             "is_neutral": false
@@ -46688,25 +46712,25 @@
             "is_neutral": false
           },
           {
-            "value": -1.0,
+            "value": -1.2,
             "label": "uncomfortable",
             "is_anchor": true,
             "is_neutral": false
           },
           {
-            "value": -0.01,
+            "value": -0.4,
             "label": "just uncomfortable",
             "is_anchor": true,
             "is_neutral": false
           },
           {
-            "value": 0.01,
+            "value": 0.4,
             "label": "just comfortable",
             "is_anchor": true,
             "is_neutral": false
           },
           {
-            "value": 1.0,
+            "value": 1.2,
             "label": "comfortable",
             "is_anchor": true,
             "is_neutral": false
@@ -46748,25 +46772,25 @@
             "is_neutral": false
           },
           {
-            "value": -1.0,
+            "value": -1.2,
             "label": "uncomfortable",
             "is_anchor": true,
             "is_neutral": false
           },
           {
-            "value": -0.01,
+            "value": -0.4,
             "label": "just uncomfortable",
             "is_anchor": true,
             "is_neutral": false
           },
           {
-            "value": 0.01,
+            "value": 0.4,
             "label": "just comfortable",
             "is_anchor": true,
             "is_neutral": false
           },
           {
-            "value": 1.0,
+            "value": 1.2,
             "label": "comfortable",
             "is_anchor": true,
             "is_neutral": false
@@ -47045,18 +47069,36 @@
         "grid": [
           {
             "value": 0.0,
+            "label": "very unsatisfied",
+            "is_anchor": true,
+            "is_neutral": true
+          },
+          {
+            "value": 0.5,
+            "label": "unsatisfied",
+            "is_anchor": true,
+            "is_neutral": false
+          },
+          {
+            "value": 1.0,
+            "label": "slightly unsatisfied",
+            "is_anchor": true,
+            "is_neutral": false
+          },
+          {
+            "value": 1.5,
             "label": "neutral",
             "is_anchor": true,
             "is_neutral": true
           },
           {
-            "value": 1.0,
+            "value": 2.0,
             "label": "slightly satisfied",
             "is_anchor": true,
             "is_neutral": false
           },
           {
-            "value": 2.0,
+            "value": 2.5,
             "label": "satisfied",
             "is_anchor": true,
             "is_neutral": false
@@ -47294,25 +47336,25 @@
             "is_neutral": false
           },
           {
-            "value": -1.0,
+            "value": -1.2,
             "label": "uncomfortable",
             "is_anchor": true,
             "is_neutral": false
           },
           {
-            "value": -0.01,
+            "value": -0.4,
             "label": "just uncomfortable",
             "is_anchor": true,
             "is_neutral": false
           },
           {
-            "value": 0.01,
+            "value": 0.4,
             "label": "just comfortable",
             "is_anchor": true,
             "is_neutral": false
           },
           {
-            "value": 1.0,
+            "value": 1.2,
             "label": "comfortable",
             "is_anchor": true,
             "is_neutral": false
@@ -47517,25 +47559,25 @@
         "grid": [
           {
             "value": -3.0,
-            "label": "very uncomfortable",
+            "label": "comfortable",
             "is_anchor": true,
             "is_neutral": false
           },
           {
             "value": -2.0,
-            "label": "uncomfortable",
-            "is_anchor": true,
-            "is_neutral": false
-          },
-          {
-            "value": -1.0,
             "label": "slightly uncomfortable",
             "is_anchor": true,
             "is_neutral": false
           },
           {
+            "value": -1.0,
+            "label": "uncomfortable",
+            "is_anchor": true,
+            "is_neutral": false
+          },
+          {
             "value": 0.0,
-            "label": "comfortable",
+            "label": "very uncomfortable",
             "is_anchor": true,
             "is_neutral": true
           }
@@ -47781,37 +47823,37 @@
         "grid": [
           {
             "value": -2.0,
-            "label": "very uncomfortable",
+            "label": "very comfortable",
             "is_anchor": true,
             "is_neutral": false
           },
           {
-            "value": -1.0,
-            "label": "uncomfortable",
-            "is_anchor": true,
-            "is_neutral": false
-          },
-          {
-            "value": -0.1,
-            "label": "slightly uncomfortable",
-            "is_anchor": true,
-            "is_neutral": false
-          },
-          {
-            "value": 0.1,
-            "label": "slightly comfortable",
-            "is_anchor": true,
-            "is_neutral": false
-          },
-          {
-            "value": 1.0,
+            "value": -1.2,
             "label": "comfortable",
             "is_anchor": true,
             "is_neutral": false
           },
           {
+            "value": -0.4,
+            "label": "slightly comfortable",
+            "is_anchor": true,
+            "is_neutral": false
+          },
+          {
+            "value": 0.4,
+            "label": "slightly uncomfortable",
+            "is_anchor": true,
+            "is_neutral": false
+          },
+          {
+            "value": 1.2,
+            "label": "uncomfortable",
+            "is_anchor": true,
+            "is_neutral": false
+          },
+          {
             "value": 2.0,
-            "label": "very comfortable",
+            "label": "very uncomfortable",
             "is_anchor": true,
             "is_neutral": false
           }
@@ -47841,37 +47883,37 @@
         "grid": [
           {
             "value": -2.0,
-            "label": "very uncomfortable",
+            "label": "very comfortable",
             "is_anchor": true,
             "is_neutral": false
           },
           {
-            "value": -1.0,
-            "label": "uncomfortable",
-            "is_anchor": true,
-            "is_neutral": false
-          },
-          {
-            "value": -0.1,
-            "label": "slightly uncomfortable",
-            "is_anchor": true,
-            "is_neutral": false
-          },
-          {
-            "value": 0.1,
-            "label": "slightly comfortable",
-            "is_anchor": true,
-            "is_neutral": false
-          },
-          {
-            "value": 1.0,
+            "value": -1.2,
             "label": "comfortable",
             "is_anchor": true,
             "is_neutral": false
           },
           {
+            "value": -0.4,
+            "label": "slightly comfortable",
+            "is_anchor": true,
+            "is_neutral": false
+          },
+          {
+            "value": 0.4,
+            "label": "slightly uncomfortable",
+            "is_anchor": true,
+            "is_neutral": false
+          },
+          {
+            "value": 1.2,
+            "label": "uncomfortable",
+            "is_anchor": true,
+            "is_neutral": false
+          },
+          {
             "value": 2.0,
-            "label": "very comfortable",
+            "label": "very uncomfortable",
             "is_anchor": true,
             "is_neutral": false
           }
@@ -98199,7 +98241,7 @@
     "n_variables": 206,
     "year_min": 2013,
     "year_max": 2024,
-    "generated_at": "2026-07-22T18:39:57.259307"
+    "generated_at": "2026-07-22T19:14:51.262162"
   },
   "world-countries-110m": {
     "type": "Topology",
