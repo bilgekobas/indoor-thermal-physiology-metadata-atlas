@@ -7305,14 +7305,5 @@
     "nr": 127,
     "nc": 2
   },
-  "vas_unplaceable": [
-    {
-      "raw": "points=VAS; scale=(\"neutral\", \"cold\")",
-      "issue": "no range=(...) and/or scale=(...) block found"
-    },
-    {
-      "raw": "points=continuous; scale=(\"comfortable\", \"slightly uncomfortable\", \"uncomfortable\", \"very uncomfortable\", \"extremely uncomfortable\")",
-      "issue": "no range=(...) and/or scale=(...) block found"
-    }
-  ]
+  "vas_unplaceable": []
 }

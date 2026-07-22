@@ -47837,16 +47837,7 @@
       "nr": 127,
       "nc": 2
     },
-    "vas_unplaceable": [
-      {
-        "raw": "points=VAS; scale=(\"neutral\", \"cold\")",
-        "issue": "no range=(...) and/or scale=(...) block found"
-      },
-      {
-        "raw": "points=continuous; scale=(\"comfortable\", \"slightly uncomfortable\", \"uncomfortable\", \"very uncomfortable\", \"extremely uncomfortable\")",
-        "issue": "no range=(...) and/or scale=(...) block found"
-      }
-    ]
+    "vas_unplaceable": []
   },
   "fig17_physio_params": {
     "data": [
@@ -97833,7 +97824,7 @@
     "n_variables": 206,
     "year_min": 2013,
     "year_max": 2024,
-    "generated_at": "2026-07-22T17:42:26.278211"
+    "generated_at": "2026-07-22T17:54:17.426399"
   },
   "world-countries-110m": {
     "type": "Topology",
