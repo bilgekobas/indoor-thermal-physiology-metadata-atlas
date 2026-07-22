@@ -228,7 +228,7 @@
     {
       "physio-sensing-method": "Digital sphygmomanometer",
       "physio-sensor-brand": "Omron",
-      "count": 51
+      "count": 52
     },
     {
       "physio-sensing-method": "Digital sphygmomanometer",
@@ -451,24 +451,19 @@
       "count": 1
     },
     {
-      "physio-sensing-method": "Heat flux",
-      "physio-sensor-brand": "greenTEG",
-      "count": 1
-    },
-    {
       "physio-sensing-method": "Heat flux/Heat flow",
       "physio-sensor-brand": "FluxTeq",
       "count": 2
     },
     {
       "physio-sensing-method": "Heat flux/Heat flow",
-      "physio-sensor-brand": "KEM",
-      "count": 2
+      "physio-sensor-brand": "Kyoto Electronics",
+      "count": 12
     },
     {
       "physio-sensing-method": "Heat flux/Heat flow",
-      "physio-sensor-brand": "Kyoto Electronics",
-      "count": 10
+      "physio-sensor-brand": "greenTEG",
+      "count": 1
     },
     {
       "physio-sensing-method": "High precision scale",
@@ -742,11 +737,6 @@
     },
     {
       "physio-sensing-method": "NR",
-      "physio-sensor-brand": "Omron",
-      "count": 1
-    },
-    {
-      "physio-sensing-method": "NR",
       "physio-sensor-brand": "Shenzhen SYY Technology Co., Ltd.",
       "count": 2
     },
@@ -777,6 +767,11 @@
     },
     {
       "physio-sensing-method": "OHR/PPG",
+      "physio-sensor-brand": "Heal Force",
+      "count": 2
+    },
+    {
+      "physio-sensing-method": "OHR/PPG",
       "physio-sensor-brand": "Hesvit",
       "count": 1
     },
@@ -784,11 +779,6 @@
       "physio-sensing-method": "OHR/PPG",
       "physio-sensor-brand": "Multiple brands",
       "count": 1
-    },
-    {
-      "physio-sensing-method": "OHR/PPG",
-      "physio-sensor-brand": "NR",
-      "count": 2
     },
     {
       "physio-sensing-method": "OHR/PPG",

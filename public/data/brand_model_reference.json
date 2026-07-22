@@ -92,6 +92,17 @@
       "signal": "Blood pressure",
       "sensing_method": "Digital sphygmomanometer",
       "brand": "Omron",
+      "model": "HEM-7322U-E",
+      "count": 2,
+      "study_ids": [
+        "1214_1",
+        "1229_1"
+      ]
+    },
+    {
+      "signal": "Blood pressure",
+      "sensing_method": "Digital sphygmomanometer",
+      "brand": "Omron",
       "model": "HEM-7600T",
       "count": 2,
       "study_ids": [
@@ -225,16 +236,6 @@
       "signal": "Blood pressure",
       "sensing_method": "Digital sphygmomanometer",
       "brand": "Omron",
-      "model": "HEM-7322U-E",
-      "count": 1,
-      "study_ids": [
-        "1214_1"
-      ]
-    },
-    {
-      "signal": "Blood pressure",
-      "sensing_method": "Digital sphygmomanometer",
-      "brand": "Omron",
       "model": "HEM-737",
       "count": 1,
       "study_ids": [
@@ -323,16 +324,6 @@
     },
     {
       "signal": "Blood pressure",
-      "sensing_method": "NR",
-      "brand": "Omron",
-      "model": "HEM-7322U-E",
-      "count": 1,
-      "study_ids": [
-        "1229_1"
-      ]
-    },
-    {
-      "signal": "Blood pressure",
       "sensing_method": "Sonomic pick-up",
       "brand": "Colin",
       "model": "STBP-780",
@@ -382,7 +373,7 @@
     },
     {
       "signal": "Body temperature",
-      "sensing_method": "Heat flux",
+      "sensing_method": "Heat flux/Heat flow",
       "brand": "greenTEG",
       "model": "CORE",
       "count": 1,
@@ -651,6 +642,17 @@
     },
     {
       "signal": "EEG",
+      "sensing_method": "1-channel",
+      "brand": "Mind Media",
+      "model": "NeXus-4",
+      "count": 2,
+      "study_ids": [
+        "1102_1",
+        "1254_1"
+      ]
+    },
+    {
+      "signal": "EEG",
       "sensing_method": "19-channel",
       "brand": "CGX",
       "model": "Quick-20",
@@ -669,26 +671,6 @@
       "study_ids": [
         "1155_1",
         "1255_1"
-      ]
-    },
-    {
-      "signal": "EEG",
-      "sensing_method": "1-channel",
-      "brand": "Mind Media",
-      "model": "NeXus-4",
-      "count": 1,
-      "study_ids": [
-        "1254_1"
-      ]
-    },
-    {
-      "signal": "EEG",
-      "sensing_method": "1-channel",
-      "brand": "Mind Media",
-      "model": "Nexus-4",
-      "count": 1,
-      "study_ids": [
-        "1102_1"
       ]
     },
     {
@@ -836,7 +818,7 @@
       "signal": "EOG",
       "sensing_method": "EOG",
       "brand": "Mind Media",
-      "model": "Nexus-4",
+      "model": "NeXus-4",
       "count": 1,
       "study_ids": [
         "1102_1"
@@ -1014,6 +996,18 @@
     {
       "signal": "Heart/Pulse rate",
       "sensing_method": "ECG",
+      "brand": "Mind Media",
+      "model": "NeXus-4",
+      "count": 3,
+      "study_ids": [
+        "1089_1",
+        "1102_1",
+        "1254_1"
+      ]
+    },
+    {
+      "signal": "Heart/Pulse rate",
+      "sensing_method": "ECG",
       "brand": "Polar",
       "model": "T31",
       "count": 3,
@@ -1076,17 +1070,6 @@
       "study_ids": [
         "1112_1",
         "1152_1"
-      ]
-    },
-    {
-      "signal": "Heart/Pulse rate",
-      "sensing_method": "ECG",
-      "brand": "Mind Media",
-      "model": "Nexus-4",
-      "count": 2,
-      "study_ids": [
-        "1089_1",
-        "1102_1"
       ]
     },
     {
@@ -1360,16 +1343,6 @@
     {
       "signal": "Heart/Pulse rate",
       "sensing_method": "ECG",
-      "brand": "Mind Media",
-      "model": "NeXus-4",
-      "count": 1,
-      "study_ids": [
-        "1254_1"
-      ]
-    },
-    {
-      "signal": "Heart/Pulse rate",
-      "sensing_method": "ECG",
       "brand": "NR",
       "model": "MR&D Pulse",
       "count": 1,
@@ -1460,6 +1433,16 @@
     {
       "signal": "Heart/Pulse rate",
       "sensing_method": "OHR/PPG",
+      "brand": "Heal Force",
+      "model": "Prince 100H",
+      "count": 1,
+      "study_ids": [
+        "1241_1"
+      ]
+    },
+    {
+      "signal": "Heart/Pulse rate",
+      "sensing_method": "OHR/PPG",
       "brand": "Hesvit",
       "model": "S3",
       "count": 1,
@@ -1475,16 +1458,6 @@
       "count": 1,
       "study_ids": [
         "1067_1"
-      ]
-    },
-    {
-      "signal": "Heart/Pulse rate",
-      "sensing_method": "OHR/PPG",
-      "brand": "NR",
-      "model": "Prince 100H",
-      "count": 1,
-      "study_ids": [
-        "1241_1"
       ]
     },
     {
@@ -1897,7 +1870,7 @@
     {
       "signal": "Oxygen saturation",
       "sensing_method": "OHR/PPG",
-      "brand": "NR",
+      "brand": "Heal Force",
       "model": "Prince 100H",
       "count": 1,
       "study_ids": [
@@ -2048,12 +2021,13 @@
       "signal": "Respiration",
       "sensing_method": "Respiration belt",
       "brand": "Mind Media",
-      "model": "Nexus-4",
-      "count": 3,
+      "model": "NeXus-4",
+      "count": 4,
       "study_ids": [
         "1089_1",
         "1102_1",
-        "1137_1"
+        "1137_1",
+        "1254_1"
       ]
     },
     {
@@ -2115,16 +2089,6 @@
       "count": 1,
       "study_ids": [
         "1189_1"
-      ]
-    },
-    {
-      "signal": "Respiration",
-      "sensing_method": "Respiration belt",
-      "brand": "Mind Media",
-      "model": "NeXus-4",
-      "count": 1,
-      "study_ids": [
-        "1254_1"
       ]
     },
     {
@@ -2280,7 +2244,7 @@
       "signal": "Skin conductance",
       "sensing_method": "GSR/EDA",
       "brand": "Mind Media",
-      "model": "Nexus-4",
+      "model": "NeXus-4",
       "count": 1,
       "study_ids": [
         "1137_1"
@@ -2565,6 +2529,18 @@
       "signal": "Skin temperature",
       "sensing_method": "Heat flux/Heat flow",
       "brand": "Kyoto Electronics",
+      "model": "HFM-215 N",
+      "count": 3,
+      "study_ids": [
+        "1112_1",
+        "1213_1",
+        "1213_2"
+      ]
+    },
+    {
+      "signal": "Skin temperature",
+      "sensing_method": "Heat flux/Heat flow",
+      "brand": "Kyoto Electronics",
       "model": "KM1",
       "count": 3,
       "study_ids": [
@@ -2595,17 +2571,6 @@
         "1076_1",
         "1091_2",
         "1200_1"
-      ]
-    },
-    {
-      "signal": "Skin temperature",
-      "sensing_method": "Heat flux/Heat flow",
-      "brand": "KEM",
-      "model": "HFM-215 N",
-      "count": 2,
-      "study_ids": [
-        "1213_1",
-        "1213_2"
       ]
     },
     {
@@ -2738,16 +2703,6 @@
       "study_ids": [
         "1165_1",
         "1212_1"
-      ]
-    },
-    {
-      "signal": "Skin temperature",
-      "sensing_method": "Heat flux/Heat flow",
-      "brand": "Kyoto Electronics",
-      "model": "HFM-215 N",
-      "count": 1,
-      "study_ids": [
-        "1112_1"
       ]
     },
     {
@@ -2994,7 +2949,7 @@
       "signal": "Skin temperature",
       "sensing_method": "Thermistor",
       "brand": "Mind Media",
-      "model": "Nexus-4",
+      "model": "NeXus-4",
       "count": 1,
       "study_ids": [
         "1137_1"
@@ -3193,6 +3148,18 @@
     {
       "signal": "Sweat indicators",
       "sensing_method": "High precision scale",
+      "brand": "KERN",
+      "model": "DE 150K20D",
+      "count": 3,
+      "study_ids": [
+        "1034_1",
+        "1129_1",
+        "1133_1"
+      ]
+    },
+    {
+      "signal": "Sweat indicators",
+      "sensing_method": "High precision scale",
       "brand": "Nanjing Ronghua",
       "model": "YP100KN",
       "count": 3,
@@ -3211,17 +3178,6 @@
       "study_ids": [
         "1104_1",
         "1127_1"
-      ]
-    },
-    {
-      "signal": "Sweat indicators",
-      "sensing_method": "High precision scale",
-      "brand": "KERN",
-      "model": "150K20D",
-      "count": 2,
-      "study_ids": [
-        "1129_1",
-        "1133_1"
       ]
     },
     {
@@ -3294,16 +3250,6 @@
       "count": 1,
       "study_ids": [
         "1063_1"
-      ]
-    },
-    {
-      "signal": "Sweat indicators",
-      "sensing_method": "High precision scale",
-      "brand": "KERN",
-      "model": "DE 150K20D",
-      "count": 1,
-      "study_ids": [
-        "1034_1"
       ]
     },
     {
@@ -3427,5 +3373,5 @@
       ]
     }
   ],
-  "n_models": 243
+  "n_models": 241
 }

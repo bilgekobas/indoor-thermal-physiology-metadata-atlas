@@ -98,12 +98,7 @@
     {
       "signal": "Blood pressure",
       "physio-sensing-method": "Digital sphygmomanometer",
-      "count": 41
-    },
-    {
-      "signal": "Blood pressure",
-      "physio-sensing-method": "NR",
-      "count": 1
+      "count": 42
     },
     {
       "signal": "Blood pressure",
@@ -112,7 +107,7 @@
     },
     {
       "signal": "Body temperature",
-      "physio-sensing-method": "Heat flux",
+      "physio-sensing-method": "Heat flux/Heat flow",
       "count": 1
     },
     {
@@ -704,13 +699,7 @@
       "signal": "Blood pressure",
       "physio-sensing-method": "Digital sphygmomanometer",
       "period": "2023\u201324",
-      "count": 15
-    },
-    {
-      "signal": "Blood pressure",
-      "physio-sensing-method": "NR",
-      "period": "2023\u201324",
-      "count": 1
+      "count": 16
     },
     {
       "signal": "Blood pressure",
@@ -720,7 +709,7 @@
     },
     {
       "signal": "Body temperature",
-      "physio-sensing-method": "Heat flux",
+      "physio-sensing-method": "Heat flux/Heat flow",
       "period": "2023\u201324",
       "count": 1
     },
@@ -2461,6 +2450,12 @@
     {
       "signal": "Blood pressure",
       "physio-sensing-method": "Digital sphygmomanometer",
+      "brand": "OMRON",
+      "count": 1
+    },
+    {
+      "signal": "Blood pressure",
+      "physio-sensing-method": "Digital sphygmomanometer",
       "brand": "Omron",
       "count": 31
     },
@@ -2478,19 +2473,13 @@
     },
     {
       "signal": "Blood pressure",
-      "physio-sensing-method": "NR",
-      "brand": "OMRON",
-      "count": 1
-    },
-    {
-      "signal": "Blood pressure",
       "physio-sensing-method": "Sonomic pick-up",
       "brand": "Colin",
       "count": 1
     },
     {
       "signal": "Body temperature",
-      "physio-sensing-method": "Heat flux",
+      "physio-sensing-method": "Heat flux/Heat flow",
       "brand": "greenTEG",
       "count": 1
     },
@@ -2977,6 +2966,12 @@
     {
       "signal": "Heart/Pulse rate",
       "physio-sensing-method": "OHR/PPG",
+      "brand": "Heal Force",
+      "count": 1
+    },
+    {
+      "signal": "Heart/Pulse rate",
+      "physio-sensing-method": "OHR/PPG",
       "brand": "Hesvit",
       "count": 1
     },
@@ -2984,12 +2979,6 @@
       "signal": "Heart/Pulse rate",
       "physio-sensing-method": "OHR/PPG",
       "brand": "Multiple brands",
-      "count": 1
-    },
-    {
-      "signal": "Heart/Pulse rate",
-      "physio-sensing-method": "OHR/PPG",
-      "brand": "NR",
       "count": 1
     },
     {
@@ -3247,7 +3236,7 @@
     {
       "signal": "Oxygen saturation",
       "physio-sensing-method": "OHR/PPG",
-      "brand": "NR",
+      "brand": "Heal Force",
       "count": 1
     },
     {
@@ -3511,14 +3500,8 @@
     {
       "signal": "Skin temperature",
       "physio-sensing-method": "Heat flux/Heat flow",
-      "brand": "KEM",
-      "count": 2
-    },
-    {
-      "signal": "Skin temperature",
-      "physio-sensing-method": "Heat flux/Heat flow",
       "brand": "Kyoto Electronics",
-      "count": 4
+      "count": 6
     },
     {
       "signal": "Skin temperature",

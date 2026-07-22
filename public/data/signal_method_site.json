@@ -92,7 +92,7 @@
     },
     {
       "signal": "Core/Body temperature",
-      "sensing_method": "Heat flux",
+      "sensing_method": "Heat flux/Heat flow",
       "site": "Abdomen",
       "count": 1
     },
@@ -405,6 +405,12 @@
     {
       "signal": "Heart/Pulse rate",
       "sensing_method": "OHR/PPG",
+      "site": "Pulse oximeter",
+      "count": 1
+    },
+    {
+      "signal": "Heart/Pulse rate",
+      "sensing_method": "OHR/PPG",
       "site": "Upper arm",
       "count": 1
     },
@@ -652,6 +658,12 @@
       "signal": "Oxygen saturation",
       "sensing_method": "NIRS",
       "site": "Forehead",
+      "count": 1
+    },
+    {
+      "signal": "Oxygen saturation",
+      "sensing_method": "OHR/PPG",
+      "site": "Pulse oximeter",
       "count": 1
     },
     {

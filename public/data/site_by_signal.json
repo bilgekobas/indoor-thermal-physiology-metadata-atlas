@@ -72,9 +72,17 @@
         "sensingMethods": {
           "ECG": 1
         }
+      },
+      {
+        "site": "Pulse oximeter",
+        "count": 1,
+        "non_anatomical": false,
+        "sensingMethods": {
+          "OHR/PPG": 1
+        }
       }
     ],
-    "n_studies_with_site": 112,
+    "n_studies_with_site": 113,
     "by_period": {
       "data": [
         {
@@ -148,6 +156,11 @@
           "count": 1
         },
         {
+          "site": "Pulse oximeter",
+          "period": "2023\u201324",
+          "count": 1
+        },
+        {
           "site": "Upper arm",
           "period": "2013\u201314",
           "count": 1
@@ -204,7 +217,7 @@
         "2017\u201318": 12,
         "2019\u201320": 23,
         "2021\u201322": 32,
-        "2023\u201324": 41
+        "2023\u201324": 42
       },
       "periods": [
         "2013\u201314",

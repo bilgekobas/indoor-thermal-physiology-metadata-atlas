@@ -38,7 +38,11 @@
     },
     {
       "brand": "Heal Force",
-      "count": 11
+      "count": 12
+    },
+    {
+      "brand": "Kyoto Electronics",
+      "count": 8
     },
     {
       "brand": "Perimed",
@@ -50,10 +54,6 @@
     },
     {
       "brand": "Nihonkohden Co.",
-      "count": 6
-    },
-    {
-      "brand": "Kyoto Electronics",
       "count": 6
     },
     {
@@ -222,10 +222,6 @@
     },
     {
       "brand": "BodyCap",
-      "count": 2
-    },
-    {
-      "brand": "KEM",
       "count": 2
     },
     {
@@ -664,12 +660,12 @@
     {
       "physio-sensor-brand": "Heal Force",
       "physio-parameter": "Heart/Pulse rate",
-      "count": 4
+      "count": 5
     },
     {
       "physio-sensor-brand": "Heal Force",
       "physio-parameter": "Oxygen saturation",
-      "count": 11
+      "count": 12
     },
     {
       "physio-sensor-brand": "Kyoto Electronics",
@@ -679,7 +675,7 @@
     {
       "physio-sensor-brand": "Kyoto Electronics",
       "physio-parameter": "Skin temperature",
-      "count": 4
+      "count": 6
     },
     {
       "physio-sensor-brand": "Nihonkohden Co.",
