@@ -17,6 +17,38 @@
         "very uncomfortable",
         "unbearable"
       ],
+      "grid": [
+        {
+          "value": 0.0,
+          "label": "comfortable",
+          "is_anchor": true,
+          "is_neutral": true
+        },
+        {
+          "value": 1.0,
+          "label": "slightly uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 2.0,
+          "label": "uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 3.0,
+          "label": "very uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 4.0,
+          "label": "unbearable",
+          "is_anchor": true,
+          "is_neutral": false
+        }
+      ],
       "comfort_pole": "low",
       "id": "1001_1"
     },
@@ -30,6 +62,32 @@
       "labels": [
         "very uncomfortable",
         "uncomfortable"
+      ],
+      "grid": [
+        {
+          "value": -3.0,
+          "label": "very uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": -2.6667,
+          "label": null,
+          "is_anchor": false,
+          "is_neutral": false
+        },
+        {
+          "value": -2.3333,
+          "label": null,
+          "is_anchor": false,
+          "is_neutral": false
+        },
+        {
+          "value": -2.0,
+          "label": "uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        }
       ],
       "comfort_pole": "high",
       "id": "1003_1"
@@ -49,6 +107,32 @@
         "slightly uncomfortable",
         "comfortable"
       ],
+      "grid": [
+        {
+          "value": -3.0,
+          "label": "very uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": -2.0,
+          "label": "uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": -1.0,
+          "label": "slightly uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 0.0,
+          "label": "comfortable",
+          "is_anchor": true,
+          "is_neutral": true
+        }
+      ],
       "comfort_pole": "high",
       "id": "1005_1"
     },
@@ -67,6 +151,32 @@
         "slightly uncomfortable",
         "comfortable"
       ],
+      "grid": [
+        {
+          "value": -3.0,
+          "label": "very uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": -2.0,
+          "label": "uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": -1.0,
+          "label": "slightly uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 0.0,
+          "label": "comfortable",
+          "is_anchor": true,
+          "is_neutral": true
+        }
+      ],
       "comfort_pole": "high",
       "id": "1006_1"
     },
@@ -84,6 +194,32 @@
         "slightly uncomfortable",
         "uncomfortable",
         "very uncomfortable"
+      ],
+      "grid": [
+        {
+          "value": 1.0,
+          "label": "comfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 2.0,
+          "label": "slightly uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 3.0,
+          "label": "uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 4.0,
+          "label": "very uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        }
       ],
       "comfort_pole": "low",
       "id": "1007_1"
@@ -107,6 +243,38 @@
         "comfortable",
         "very comfortable"
       ],
+      "grid": [
+        {
+          "value": -2.0,
+          "label": "very uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": -1.0,
+          "label": "uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 0.0,
+          "label": "just comfortable",
+          "is_anchor": true,
+          "is_neutral": true
+        },
+        {
+          "value": 1.0,
+          "label": "comfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 2.0,
+          "label": "very comfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        }
+      ],
       "comfort_pole": "high",
       "id": "1008_1"
     },
@@ -128,6 +296,38 @@
         "just comfortable",
         "comfortable",
         "very comfortable"
+      ],
+      "grid": [
+        {
+          "value": -2.0,
+          "label": "very uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": -1.0,
+          "label": "uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": -0.0,
+          "label": "just comfortable",
+          "is_anchor": true,
+          "is_neutral": true
+        },
+        {
+          "value": 1.0,
+          "label": "comfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 2.0,
+          "label": "very comfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        }
       ],
       "comfort_pole": "high",
       "id": "1013_1"
@@ -151,6 +351,38 @@
         "comfortable",
         "very comfortable"
       ],
+      "grid": [
+        {
+          "value": -2.0,
+          "label": "very uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": -1.0,
+          "label": "uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": -0.0,
+          "label": "just comfortable",
+          "is_anchor": true,
+          "is_neutral": true
+        },
+        {
+          "value": 1.0,
+          "label": "comfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 2.0,
+          "label": "very comfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        }
+      ],
       "comfort_pole": "high",
       "id": "1014_1"
     },
@@ -172,6 +404,44 @@
         "just comfortable",
         "comfortable",
         "very comfortable"
+      ],
+      "grid": [
+        {
+          "value": -2.0,
+          "label": "very uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": -1.0,
+          "label": "uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": -0.01,
+          "label": "just uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 0.01,
+          "label": "just comfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 1.0,
+          "label": "comfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 2.0,
+          "label": "very comfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        }
       ],
       "comfort_pole": "high",
       "id": "1017_1"
@@ -197,6 +467,50 @@
         "comfortable",
         "very comfortable"
       ],
+      "grid": [
+        {
+          "value": -3.0,
+          "label": "very uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": -2.0,
+          "label": "uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": -1.0,
+          "label": "slightly uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 0.0,
+          "label": "neutral",
+          "is_anchor": true,
+          "is_neutral": true
+        },
+        {
+          "value": 1.0,
+          "label": "slightly comfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 2.0,
+          "label": "comfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 3.0,
+          "label": "very comfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        }
+      ],
       "comfort_pole": "high",
       "id": "1020_1"
     },
@@ -221,6 +535,50 @@
         "comfortable",
         "very comfortable"
       ],
+      "grid": [
+        {
+          "value": -3.0,
+          "label": "very uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": -2.0,
+          "label": "uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": -1.0,
+          "label": "slightly uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 0.0,
+          "label": "neutral",
+          "is_anchor": true,
+          "is_neutral": true
+        },
+        {
+          "value": 1.0,
+          "label": "slightly comfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 2.0,
+          "label": "comfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 3.0,
+          "label": "very comfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        }
+      ],
       "comfort_pole": "high",
       "id": "1023_1"
     },
@@ -238,6 +596,32 @@
         "slightly uncomfortable",
         "uncomfortable",
         "very uncomfortable"
+      ],
+      "grid": [
+        {
+          "value": 1.0,
+          "label": "comfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 2.0,
+          "label": "slightly uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 3.0,
+          "label": "uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 4.0,
+          "label": "very uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        }
       ],
       "comfort_pole": "low",
       "id": "1024_1"
@@ -263,6 +647,50 @@
         "comfortable",
         "very comfortable"
       ],
+      "grid": [
+        {
+          "value": -3.0,
+          "label": "very uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": -2.0,
+          "label": "uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": -1.0,
+          "label": "slightly uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 0.0,
+          "label": "neutral",
+          "is_anchor": true,
+          "is_neutral": true
+        },
+        {
+          "value": 1.0,
+          "label": "slightly comfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 2.0,
+          "label": "comfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 3.0,
+          "label": "very comfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        }
+      ],
       "comfort_pole": "high",
       "id": "1026_1"
     },
@@ -281,6 +709,32 @@
         "uncomfortable",
         "very uncomfortable"
       ],
+      "grid": [
+        {
+          "value": 1.0,
+          "label": "comfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 2.0,
+          "label": "slightly uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 3.0,
+          "label": "uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 4.0,
+          "label": "very uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        }
+      ],
       "comfort_pole": "low",
       "id": "1028_1"
     },
@@ -298,6 +752,32 @@
         "slightly uncomfortable",
         "uncomfortable",
         "very uncomfortable"
+      ],
+      "grid": [
+        {
+          "value": 1.0,
+          "label": "comfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 2.0,
+          "label": "slightly uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 3.0,
+          "label": "uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 4.0,
+          "label": "very uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        }
       ],
       "comfort_pole": "low",
       "id": "1031_1"
@@ -318,6 +798,38 @@
         "uncomfortable",
         "very uncomfortable",
         "intolerable"
+      ],
+      "grid": [
+        {
+          "value": 0.0,
+          "label": "comfortable",
+          "is_anchor": true,
+          "is_neutral": true
+        },
+        {
+          "value": 1.0,
+          "label": "slightly uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 2.0,
+          "label": "uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 3.0,
+          "label": "very uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 4.0,
+          "label": "intolerable",
+          "is_anchor": true,
+          "is_neutral": false
+        }
       ],
       "comfort_pole": "low",
       "id": "1032_1"
@@ -343,6 +855,50 @@
         "comfortable",
         "very comfortable"
       ],
+      "grid": [
+        {
+          "value": -3.0,
+          "label": "very uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": -2.0,
+          "label": "uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": -1.0,
+          "label": "just uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 0.0,
+          "label": "neutral",
+          "is_anchor": true,
+          "is_neutral": true
+        },
+        {
+          "value": 1.0,
+          "label": "just comfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 2.0,
+          "label": "comfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 3.0,
+          "label": "very comfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        }
+      ],
       "comfort_pole": "high",
       "id": "1033_1"
     },
@@ -365,6 +921,44 @@
         "comfortable",
         "very comfortable"
       ],
+      "grid": [
+        {
+          "value": -2.0,
+          "label": "very uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": -1.0,
+          "label": "uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": -0.01,
+          "label": "just uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 0.01,
+          "label": "just comfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 1.0,
+          "label": "comfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 2.0,
+          "label": "very comfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        }
+      ],
       "comfort_pole": "high",
       "id": "1034_1"
     },
@@ -382,6 +976,32 @@
         "uncomfortable",
         "slightly uncomfortable",
         "comfortable"
+      ],
+      "grid": [
+        {
+          "value": -3.0,
+          "label": "very uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": -2.0,
+          "label": "uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": -1.0,
+          "label": "slightly uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 0.0,
+          "label": "comfortable",
+          "is_anchor": true,
+          "is_neutral": true
+        }
       ],
       "comfort_pole": "high",
       "id": "1036_1"
@@ -405,6 +1025,44 @@
         "comfortable",
         "very comfortable"
       ],
+      "grid": [
+        {
+          "value": -3.0,
+          "label": "very uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": -2.0,
+          "label": "uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": -1.0,
+          "label": "just uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 1.0,
+          "label": "just comfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 2.0,
+          "label": "comfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 3.0,
+          "label": "very comfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        }
+      ],
       "comfort_pole": "high",
       "id": "1038_1"
     },
@@ -425,6 +1083,38 @@
         "very uncomfortable",
         "intolerably uncomfortable"
       ],
+      "grid": [
+        {
+          "value": 0.0,
+          "label": "comfortable",
+          "is_anchor": true,
+          "is_neutral": true
+        },
+        {
+          "value": 1.0,
+          "label": "slightly uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 2.0,
+          "label": "uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 3.0,
+          "label": "very uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 4.0,
+          "label": "intolerably uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        }
+      ],
       "comfort_pole": "low",
       "id": "1039_1"
     },
@@ -442,6 +1132,32 @@
         "slightly uncomfortable",
         "uncomfortable",
         "very uncomfortable"
+      ],
+      "grid": [
+        {
+          "value": 1.0,
+          "label": "comfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 2.0,
+          "label": "slightly uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 3.0,
+          "label": "uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 4.0,
+          "label": "very uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        }
       ],
       "comfort_pole": "low",
       "id": "1041_1"
@@ -467,6 +1183,50 @@
         "comfortable",
         "very comfortable"
       ],
+      "grid": [
+        {
+          "value": -3.0,
+          "label": "very uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": -2.0,
+          "label": "uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": -1.0,
+          "label": "slightly uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 0.0,
+          "label": "neutral",
+          "is_anchor": true,
+          "is_neutral": true
+        },
+        {
+          "value": 1.0,
+          "label": "slightly comfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 2.0,
+          "label": "comfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 3.0,
+          "label": "very comfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        }
+      ],
       "comfort_pole": "high",
       "id": "1042_1"
     },
@@ -487,6 +1247,38 @@
         "comfortable",
         "very comfortable"
       ],
+      "grid": [
+        {
+          "value": 1.0,
+          "label": "very uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 2.0,
+          "label": "uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 3.0,
+          "label": "slightly uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 4.0,
+          "label": "comfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 5.0,
+          "label": "very comfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        }
+      ],
       "comfort_pole": "high",
       "id": "1045_1"
     },
@@ -504,6 +1296,32 @@
         "just comfortable",
         "just uncomfortable",
         "very uncomfortable"
+      ],
+      "grid": [
+        {
+          "value": 0.0,
+          "label": "comfortable",
+          "is_anchor": true,
+          "is_neutral": true
+        },
+        {
+          "value": 1.0,
+          "label": "just comfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 2.0,
+          "label": "just uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 3.0,
+          "label": "very uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        }
       ],
       "comfort_pole": "low",
       "id": "1048_1"
@@ -524,6 +1342,38 @@
         "NR",
         "NR",
         "comfortable"
+      ],
+      "grid": [
+        {
+          "value": -4.0,
+          "label": "extreme uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": -3.0,
+          "label": "very uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": -2.0,
+          "label": null,
+          "is_anchor": false,
+          "is_neutral": false
+        },
+        {
+          "value": -1.0,
+          "label": null,
+          "is_anchor": false,
+          "is_neutral": false
+        },
+        {
+          "value": 0.0,
+          "label": "comfortable",
+          "is_anchor": true,
+          "is_neutral": true
+        }
       ],
       "comfort_pole": "high",
       "id": "1050_1"
@@ -549,6 +1399,50 @@
         "comfortable",
         "very comfortable"
       ],
+      "grid": [
+        {
+          "value": -3.0,
+          "label": "very uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": -2.0,
+          "label": "uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": -1.0,
+          "label": "slightly uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 0.0,
+          "label": "neutral",
+          "is_anchor": true,
+          "is_neutral": true
+        },
+        {
+          "value": 1.0,
+          "label": "slightly comfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 2.0,
+          "label": "comfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 3.0,
+          "label": "very comfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        }
+      ],
       "comfort_pole": "high",
       "id": "1055_1"
     },
@@ -573,6 +1467,50 @@
         "comfortable",
         "very comfortable"
       ],
+      "grid": [
+        {
+          "value": -3.0,
+          "label": "very uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": -2.0,
+          "label": "uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": -1.0,
+          "label": "slightly uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 0.0,
+          "label": "neutral",
+          "is_anchor": true,
+          "is_neutral": true
+        },
+        {
+          "value": 1.0,
+          "label": "slightly comfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 2.0,
+          "label": "comfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 3.0,
+          "label": "very comfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        }
+      ],
       "comfort_pole": "high",
       "id": "1055_2"
     },
@@ -586,6 +1524,20 @@
       "labels": [
         "very uncomfortable",
         "very comfortable"
+      ],
+      "grid": [
+        {
+          "value": 0.0,
+          "label": "very uncomfortable",
+          "is_anchor": true,
+          "is_neutral": true
+        },
+        {
+          "value": 100.0,
+          "label": "very comfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        }
       ],
       "comfort_pole": "high",
       "id": "1061_1"
@@ -609,6 +1561,44 @@
         "uncomfortable",
         "very uncomfortable"
       ],
+      "grid": [
+        {
+          "value": -3.0,
+          "label": "very comfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": -2.0,
+          "label": "comfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": -1.0,
+          "label": "just comfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 1.0,
+          "label": "just uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 2.0,
+          "label": "uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 3.0,
+          "label": "very uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        }
+      ],
       "comfort_pole": "low",
       "id": "1062_1"
     },
@@ -629,6 +1619,38 @@
         "warm discomfort",
         "high warm discomfort"
       ],
+      "grid": [
+        {
+          "value": -2.0,
+          "label": "high cold discomfort",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": -1.0,
+          "label": "cold discomfort",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 0.0,
+          "label": "comfortable",
+          "is_anchor": true,
+          "is_neutral": true
+        },
+        {
+          "value": 1.0,
+          "label": "warm discomfort",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 2.0,
+          "label": "high warm discomfort",
+          "is_anchor": true,
+          "is_neutral": false
+        }
+      ],
       "comfort_pole": "high",
       "id": "1064_1"
     },
@@ -642,6 +1664,20 @@
       "labels": [
         "very uncomfortable",
         "very comfortable"
+      ],
+      "grid": [
+        {
+          "value": -3.0,
+          "label": "very uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 3.0,
+          "label": "very comfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        }
       ],
       "comfort_pole": "high",
       "id": "1069_1"
@@ -660,6 +1696,32 @@
         "uncomfortable",
         "slightly uncomfortable",
         "comfortable"
+      ],
+      "grid": [
+        {
+          "value": -3.0,
+          "label": "very uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": -2.0,
+          "label": "uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": -1.0,
+          "label": "slightly uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 0.0,
+          "label": "comfortable",
+          "is_anchor": true,
+          "is_neutral": true
+        }
       ],
       "comfort_pole": "high",
       "id": "1070_1"
@@ -680,6 +1742,38 @@
         "slightly uncomfortable",
         "comfortable",
         "very comfortable"
+      ],
+      "grid": [
+        {
+          "value": 1.0,
+          "label": "very uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 2.0,
+          "label": "uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 3.0,
+          "label": "slightly uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 4.0,
+          "label": "comfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 5.0,
+          "label": "very comfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        }
       ],
       "comfort_pole": "high",
       "id": "1071_1"
@@ -705,6 +1799,50 @@
         "comfortable",
         "very comfortable"
       ],
+      "grid": [
+        {
+          "value": -3.0,
+          "label": "very uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": -2.0,
+          "label": "uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": -1.0,
+          "label": "slightly uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 0.0,
+          "label": "neutral",
+          "is_anchor": true,
+          "is_neutral": true
+        },
+        {
+          "value": 1.0,
+          "label": "slightly comfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 2.0,
+          "label": "comfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 3.0,
+          "label": "very comfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        }
+      ],
       "comfort_pole": "high",
       "id": "1073_1"
     },
@@ -726,6 +1864,44 @@
         "uncomfortable and unsatisfied",
         "very uncomfortable",
         "unbearable"
+      ],
+      "grid": [
+        {
+          "value": 0.0,
+          "label": "very comfortable",
+          "is_anchor": true,
+          "is_neutral": true
+        },
+        {
+          "value": 1.0,
+          "label": "comfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 2.0,
+          "label": "uncomfortable but acceptable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 3.0,
+          "label": "uncomfortable and unsatisfied",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 4.0,
+          "label": "very uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 5.0,
+          "label": "unbearable",
+          "is_anchor": true,
+          "is_neutral": false
+        }
       ],
       "comfort_pole": "low",
       "id": "1077_1"
@@ -749,6 +1925,44 @@
         "comfortable",
         "very comfortable"
       ],
+      "grid": [
+        {
+          "value": -2.0,
+          "label": "very uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": -1.0,
+          "label": "uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": -0.01,
+          "label": "just uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 0.01,
+          "label": "just comfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 1.0,
+          "label": "comfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 2.0,
+          "label": "very comfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        }
+      ],
       "comfort_pole": "high",
       "id": "1084_1"
     },
@@ -769,6 +1983,38 @@
         "NR",
         "comfort"
       ],
+      "grid": [
+        {
+          "value": -2.0,
+          "label": "discomfort",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": -1.0,
+          "label": null,
+          "is_anchor": false,
+          "is_neutral": false
+        },
+        {
+          "value": 0.0,
+          "label": null,
+          "is_anchor": false,
+          "is_neutral": false
+        },
+        {
+          "value": 1.0,
+          "label": null,
+          "is_anchor": false,
+          "is_neutral": false
+        },
+        {
+          "value": 2.0,
+          "label": "comfort",
+          "is_anchor": true,
+          "is_neutral": false
+        }
+      ],
       "comfort_pole": "high",
       "id": "1087_1"
     },
@@ -786,6 +2032,32 @@
         "discomfort",
         "slight discomfort",
         "comfort"
+      ],
+      "grid": [
+        {
+          "value": -3.0,
+          "label": "severe discomfort",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": -2.0,
+          "label": "discomfort",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": -1.0,
+          "label": "slight discomfort",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 0.0,
+          "label": "comfort",
+          "is_anchor": true,
+          "is_neutral": true
+        }
       ],
       "comfort_pole": "high",
       "id": "1088_1"
@@ -805,6 +2077,32 @@
         "uncomfortable",
         "very uncomfortable"
       ],
+      "grid": [
+        {
+          "value": 1.0,
+          "label": "comfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 2.0,
+          "label": "slightly uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 3.0,
+          "label": "uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 4.0,
+          "label": "very uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        }
+      ],
       "comfort_pole": "low",
       "id": "1092_1"
     },
@@ -823,6 +2121,32 @@
         "just uncomfortable",
         "comfortable"
       ],
+      "grid": [
+        {
+          "value": -3.0,
+          "label": "very uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": -2.0,
+          "label": "uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": -1.0,
+          "label": "just uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 0.0,
+          "label": "comfortable",
+          "is_anchor": true,
+          "is_neutral": true
+        }
+      ],
       "comfort_pole": "high",
       "id": "1093_1"
     },
@@ -840,6 +2164,32 @@
         "uncomfortable",
         "just uncomfortable",
         "comfortable"
+      ],
+      "grid": [
+        {
+          "value": -3.0,
+          "label": "very uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": -2.0,
+          "label": "uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": -1.0,
+          "label": "just uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 0.0,
+          "label": "comfortable",
+          "is_anchor": true,
+          "is_neutral": true
+        }
       ],
       "comfort_pole": "high",
       "id": "1093_2"
@@ -869,6 +2219,68 @@
         "NR",
         "very comfortable"
       ],
+      "grid": [
+        {
+          "value": -4.0,
+          "label": "very uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": -3.1111,
+          "label": null,
+          "is_anchor": false,
+          "is_neutral": false
+        },
+        {
+          "value": -2.2222,
+          "label": null,
+          "is_anchor": false,
+          "is_neutral": false
+        },
+        {
+          "value": -1.3333,
+          "label": null,
+          "is_anchor": false,
+          "is_neutral": false
+        },
+        {
+          "value": -0.4444,
+          "label": null,
+          "is_anchor": false,
+          "is_neutral": false
+        },
+        {
+          "value": 0.4444,
+          "label": null,
+          "is_anchor": false,
+          "is_neutral": false
+        },
+        {
+          "value": 1.3333,
+          "label": null,
+          "is_anchor": false,
+          "is_neutral": false
+        },
+        {
+          "value": 2.2222,
+          "label": null,
+          "is_anchor": false,
+          "is_neutral": false
+        },
+        {
+          "value": 3.1111,
+          "label": null,
+          "is_anchor": false,
+          "is_neutral": false
+        },
+        {
+          "value": 4.0,
+          "label": "very comfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        }
+      ],
       "comfort_pole": "high",
       "id": "1095_1"
     },
@@ -889,6 +2301,38 @@
         "warm discomfort",
         "high warm discomfort"
       ],
+      "grid": [
+        {
+          "value": -2.0,
+          "label": "high cold discomfort",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": -1.0,
+          "label": "cold discomfort",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 0.0,
+          "label": "comfortable",
+          "is_anchor": true,
+          "is_neutral": true
+        },
+        {
+          "value": 1.0,
+          "label": "warm discomfort",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 2.0,
+          "label": "high warm discomfort",
+          "is_anchor": true,
+          "is_neutral": false
+        }
+      ],
       "comfort_pole": "high",
       "id": "1096_1"
     },
@@ -906,6 +2350,32 @@
         "uncomfortable",
         "slightly uncomfortable",
         "comfortable"
+      ],
+      "grid": [
+        {
+          "value": -3.0,
+          "label": "very uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": -2.0,
+          "label": "uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": -1.0,
+          "label": "slightly uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 0.0,
+          "label": "comfortable",
+          "is_anchor": true,
+          "is_neutral": true
+        }
       ],
       "comfort_pole": "high",
       "id": "1104_1"
@@ -927,6 +2397,38 @@
         "very uncomfortable",
         "limited tolerance"
       ],
+      "grid": [
+        {
+          "value": 0.0,
+          "label": "comfortable",
+          "is_anchor": true,
+          "is_neutral": true
+        },
+        {
+          "value": 1.0,
+          "label": "slightly uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 2.0,
+          "label": "uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 3.0,
+          "label": "very uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 4.0,
+          "label": "limited tolerance",
+          "is_anchor": true,
+          "is_neutral": false
+        }
+      ],
       "comfort_pole": "low",
       "id": "1112_1"
     },
@@ -946,6 +2448,38 @@
         "uncomfortable",
         "slightly uncomfortable",
         "comfortable"
+      ],
+      "grid": [
+        {
+          "value": -4.0,
+          "label": "intolerable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": -3.0,
+          "label": "very uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": -2.0,
+          "label": "uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": -1.0,
+          "label": "slightly uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 0.0,
+          "label": "comfortable",
+          "is_anchor": true,
+          "is_neutral": true
+        }
       ],
       "comfort_pole": "high",
       "id": "1119_1"
@@ -973,6 +2507,56 @@
         "comfortable",
         "very comfortable"
       ],
+      "grid": [
+        {
+          "value": -3.0,
+          "label": "very uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": -2.0,
+          "label": "uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": -1.0,
+          "label": "just uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": -0.01,
+          "label": "-",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 0.01,
+          "label": "-",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 1.0,
+          "label": "just comfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 2.0,
+          "label": "comfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 3.0,
+          "label": "very comfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        }
+      ],
       "comfort_pole": "high",
       "id": "1120_1"
     },
@@ -994,6 +2578,38 @@
         "just comfortable",
         "comfortable",
         "very comfortable"
+      ],
+      "grid": [
+        {
+          "value": -2.0,
+          "label": "very uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": -1.0,
+          "label": "uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": -0.0,
+          "label": "just comfortable",
+          "is_anchor": true,
+          "is_neutral": true
+        },
+        {
+          "value": 1.0,
+          "label": "comfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 2.0,
+          "label": "very comfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        }
       ],
       "comfort_pole": "high",
       "id": "1124_1"
@@ -1019,6 +2635,50 @@
         "comfortable",
         "very comfortable"
       ],
+      "grid": [
+        {
+          "value": -3.0,
+          "label": "very uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": -2.0,
+          "label": "uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": -1.0,
+          "label": "slightly uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 0.0,
+          "label": "neutral",
+          "is_anchor": true,
+          "is_neutral": true
+        },
+        {
+          "value": 1.0,
+          "label": "slightly comfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 2.0,
+          "label": "comfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 3.0,
+          "label": "very comfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        }
+      ],
       "comfort_pole": "high",
       "id": "1127_1"
     },
@@ -1041,6 +2701,44 @@
         "comfortable",
         "very comfortable"
       ],
+      "grid": [
+        {
+          "value": -2.0,
+          "label": "very uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": -1.0,
+          "label": "uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": -0.01,
+          "label": "just uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 0.01,
+          "label": "just comfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 1.0,
+          "label": "comfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 2.0,
+          "label": "very comfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        }
+      ],
       "comfort_pole": "high",
       "id": "1129_1"
     },
@@ -1055,6 +2753,20 @@
         "very uncomfortable",
         "very comfortable"
       ],
+      "grid": [
+        {
+          "value": -50.0,
+          "label": "very uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 50.0,
+          "label": "very comfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        }
+      ],
       "comfort_pole": "high",
       "id": "1130_1"
     },
@@ -1068,6 +2780,20 @@
       "labels": [
         "very uncomfortable",
         "very comfortable"
+      ],
+      "grid": [
+        {
+          "value": -50.0,
+          "label": "very uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 50.0,
+          "label": "very comfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        }
       ],
       "comfort_pole": "high",
       "id": "1130_2"
@@ -1091,6 +2817,44 @@
         "comfortable",
         "very comfortable"
       ],
+      "grid": [
+        {
+          "value": -2.0,
+          "label": "very uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": -1.0,
+          "label": "uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": -0.01,
+          "label": "just uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 0.01,
+          "label": "just comfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 1.0,
+          "label": "comfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 2.0,
+          "label": "very comfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        }
+      ],
       "comfort_pole": "high",
       "id": "1133_1"
     },
@@ -1112,6 +2876,44 @@
         "just comfortable",
         "comfortable",
         "very comfortable"
+      ],
+      "grid": [
+        {
+          "value": -2.0,
+          "label": "very uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": -1.0,
+          "label": "uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": -0.01,
+          "label": "just uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 0.01,
+          "label": "just comfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 1.0,
+          "label": "comfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 2.0,
+          "label": "very comfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        }
       ],
       "comfort_pole": "high",
       "id": "1134_1"
@@ -1135,6 +2937,44 @@
         "comfortable",
         "very comfortable"
       ],
+      "grid": [
+        {
+          "value": -2.0,
+          "label": "very uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": -1.0,
+          "label": "uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": -0.01,
+          "label": "just uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 0.01,
+          "label": "just comfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 1.0,
+          "label": "comfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 2.0,
+          "label": "very comfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        }
+      ],
       "comfort_pole": "high",
       "id": "1134_2"
     },
@@ -1157,6 +2997,44 @@
         "comfortable",
         "very comfortable"
       ],
+      "grid": [
+        {
+          "value": -2.0,
+          "label": "very uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": -1.0,
+          "label": "uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": -0.01,
+          "label": "just uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 0.01,
+          "label": "just comfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 1.0,
+          "label": "comfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 2.0,
+          "label": "very comfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        }
+      ],
       "comfort_pole": "high",
       "id": "1134_3"
     },
@@ -1178,6 +3056,44 @@
         "just comfortable",
         "comfortable",
         "very comfortable"
+      ],
+      "grid": [
+        {
+          "value": -2.0,
+          "label": "very uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": -1.0,
+          "label": "uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": -0.01,
+          "label": "just uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 0.01,
+          "label": "just comfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 1.0,
+          "label": "comfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 2.0,
+          "label": "very comfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        }
       ],
       "comfort_pole": "high",
       "id": "1134_4"
@@ -1207,6 +3123,68 @@
         "NR",
         "very comfortable"
       ],
+      "grid": [
+        {
+          "value": -4.0,
+          "label": "very uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": -3.1111,
+          "label": null,
+          "is_anchor": false,
+          "is_neutral": false
+        },
+        {
+          "value": -2.2222,
+          "label": null,
+          "is_anchor": false,
+          "is_neutral": false
+        },
+        {
+          "value": -1.3333,
+          "label": null,
+          "is_anchor": false,
+          "is_neutral": false
+        },
+        {
+          "value": -0.4444,
+          "label": null,
+          "is_anchor": false,
+          "is_neutral": false
+        },
+        {
+          "value": 0.4444,
+          "label": null,
+          "is_anchor": false,
+          "is_neutral": false
+        },
+        {
+          "value": 1.3333,
+          "label": null,
+          "is_anchor": false,
+          "is_neutral": false
+        },
+        {
+          "value": 2.2222,
+          "label": null,
+          "is_anchor": false,
+          "is_neutral": false
+        },
+        {
+          "value": 3.1111,
+          "label": null,
+          "is_anchor": false,
+          "is_neutral": false
+        },
+        {
+          "value": 4.0,
+          "label": "very comfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        }
+      ],
       "comfort_pole": "high",
       "id": "1135_1"
     },
@@ -1224,6 +3202,32 @@
         "slightly uncomfortable",
         "uncomfortable",
         "very uncomfortable"
+      ],
+      "grid": [
+        {
+          "value": 0.0,
+          "label": "comfortable",
+          "is_anchor": true,
+          "is_neutral": true
+        },
+        {
+          "value": 1.0,
+          "label": "slightly uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 2.0,
+          "label": "uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 3.0,
+          "label": "very uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        }
       ],
       "comfort_pole": "low",
       "id": "1137_1"
@@ -1245,6 +3249,38 @@
         "comfortable",
         "very comfortable"
       ],
+      "grid": [
+        {
+          "value": -2.0,
+          "label": "very uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": -1.0,
+          "label": "uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 0.0,
+          "label": "neutral",
+          "is_anchor": true,
+          "is_neutral": true
+        },
+        {
+          "value": 1.0,
+          "label": "comfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 2.0,
+          "label": "very comfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        }
+      ],
       "comfort_pole": "high",
       "id": "1141_1"
     },
@@ -1262,6 +3298,32 @@
         "just uncomfortable",
         "just comfortable",
         "very comfortable"
+      ],
+      "grid": [
+        {
+          "value": -2.0,
+          "label": "very uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": -1.0,
+          "label": "just uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 1.0,
+          "label": "just comfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 2.0,
+          "label": "very comfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        }
       ],
       "comfort_pole": "high",
       "id": "1144_1"
@@ -1282,6 +3344,50 @@
         "slight comfort",
         "comfort",
         "high comfort"
+      ],
+      "grid": [
+        {
+          "value": -3.0,
+          "label": "high discomfort",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": -2.0,
+          "label": "discomfort",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": -1.0,
+          "label": null,
+          "is_anchor": false,
+          "is_neutral": false
+        },
+        {
+          "value": 0.0,
+          "label": null,
+          "is_anchor": false,
+          "is_neutral": false
+        },
+        {
+          "value": 1.0,
+          "label": "slight comfort",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 2.0,
+          "label": "comfort",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 3.0,
+          "label": "high comfort",
+          "is_anchor": true,
+          "is_neutral": false
+        }
       ],
       "comfort_pole": "high",
       "id": "1146_1"
@@ -1305,6 +3411,44 @@
         "very uncomfortable",
         "unacceptable"
       ],
+      "grid": [
+        {
+          "value": 0.0,
+          "label": "very comfortable",
+          "is_anchor": true,
+          "is_neutral": true
+        },
+        {
+          "value": 1.0,
+          "label": "comfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 2.0,
+          "label": "uncomfortable but acceptable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 3.0,
+          "label": "uncomfortable and unacceptable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 4.0,
+          "label": "very uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 5.0,
+          "label": "unacceptable",
+          "is_anchor": true,
+          "is_neutral": false
+        }
+      ],
       "comfort_pole": "low",
       "id": "1148_1"
     },
@@ -1327,6 +3471,44 @@
         "comfortable",
         "very comfortable"
       ],
+      "grid": [
+        {
+          "value": -2.0,
+          "label": "very uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": -1.0,
+          "label": "uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": -0.01,
+          "label": "just uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 0.01,
+          "label": "just comfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 1.0,
+          "label": "comfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 2.0,
+          "label": "very comfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        }
+      ],
       "comfort_pole": "high",
       "id": "1149_1"
     },
@@ -1346,6 +3528,38 @@
         "uncomfortable",
         "very uncomfortable",
         "limited tolerance"
+      ],
+      "grid": [
+        {
+          "value": 0.0,
+          "label": "comfortable",
+          "is_anchor": true,
+          "is_neutral": true
+        },
+        {
+          "value": 1.0,
+          "label": "slightly uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 2.0,
+          "label": "uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 3.0,
+          "label": "very uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 4.0,
+          "label": "limited tolerance",
+          "is_anchor": true,
+          "is_neutral": false
+        }
       ],
       "comfort_pole": "low",
       "id": "1152_1"
@@ -1371,6 +3585,50 @@
         "comfortable",
         "very comfortable"
       ],
+      "grid": [
+        {
+          "value": -3.0,
+          "label": "very uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": -2.0,
+          "label": "uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": -1.0,
+          "label": "slightly uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 0.0,
+          "label": "neutral",
+          "is_anchor": true,
+          "is_neutral": true
+        },
+        {
+          "value": 1.0,
+          "label": "slightly comfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 2.0,
+          "label": "comfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 3.0,
+          "label": "very comfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        }
+      ],
       "comfort_pole": "high",
       "id": "1158_1"
     },
@@ -1393,6 +3651,44 @@
         "comfortable",
         "very comfortable"
       ],
+      "grid": [
+        {
+          "value": -2.0,
+          "label": "very uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": -1.0,
+          "label": "uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": -0.01,
+          "label": "just uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 0.01,
+          "label": "just comfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 1.0,
+          "label": "comfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 2.0,
+          "label": "very comfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        }
+      ],
       "comfort_pole": "high",
       "id": "1160_1"
     },
@@ -1413,6 +3709,38 @@
         "very uncomfortable",
         "intolerable"
       ],
+      "grid": [
+        {
+          "value": 1.0,
+          "label": "comfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 2.0,
+          "label": "slightly uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 3.0,
+          "label": "uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 4.0,
+          "label": "very uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 5.0,
+          "label": "intolerable",
+          "is_anchor": true,
+          "is_neutral": false
+        }
+      ],
       "comfort_pole": "low",
       "id": "1161_1"
     },
@@ -1432,6 +3760,38 @@
         "neutral",
         "comfortable",
         "very comfortable"
+      ],
+      "grid": [
+        {
+          "value": -2.0,
+          "label": "very uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": -1.0,
+          "label": "uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 0.0,
+          "label": "neutral",
+          "is_anchor": true,
+          "is_neutral": true
+        },
+        {
+          "value": 1.0,
+          "label": "comfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 2.0,
+          "label": "very comfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        }
       ],
       "comfort_pole": "high",
       "id": "1164_1"
@@ -1455,6 +3815,44 @@
         "comfortable",
         "very comfortable"
       ],
+      "grid": [
+        {
+          "value": -3.0,
+          "label": "very uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": -2.0,
+          "label": "uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": -1.0,
+          "label": "slightly uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 1.0,
+          "label": "slightly comfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 2.0,
+          "label": "comfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 3.0,
+          "label": "very comfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        }
+      ],
       "comfort_pole": "high",
       "id": "1165_1"
     },
@@ -1468,6 +3866,32 @@
       "labels": [
         "very uncomfortable",
         "uncomfortable"
+      ],
+      "grid": [
+        {
+          "value": -3.0,
+          "label": "very uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": -2.6667,
+          "label": null,
+          "is_anchor": false,
+          "is_neutral": false
+        },
+        {
+          "value": -2.3333,
+          "label": null,
+          "is_anchor": false,
+          "is_neutral": false
+        },
+        {
+          "value": -2.0,
+          "label": "uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        }
       ],
       "comfort_pole": "high",
       "id": "1167_1"
@@ -1493,6 +3917,50 @@
         "comfortable",
         "very comfortable"
       ],
+      "grid": [
+        {
+          "value": -3.0,
+          "label": "very uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": -2.0,
+          "label": "uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": -1.0,
+          "label": "slightly uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 0.0,
+          "label": "neutral",
+          "is_anchor": true,
+          "is_neutral": true
+        },
+        {
+          "value": 1.0,
+          "label": "slightly comfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 2.0,
+          "label": "comfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 3.0,
+          "label": "very comfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        }
+      ],
       "comfort_pole": "high",
       "id": "1171_1"
     },
@@ -1512,6 +3980,38 @@
         "uncomfortable",
         "very uncomfortable",
         "extremely uncomfortable"
+      ],
+      "grid": [
+        {
+          "value": 0.0,
+          "label": "comfortable",
+          "is_anchor": true,
+          "is_neutral": true
+        },
+        {
+          "value": 1.0,
+          "label": "slightly uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 2.0,
+          "label": "uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 3.0,
+          "label": "very uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 4.0,
+          "label": "extremely uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        }
       ],
       "comfort_pole": "low",
       "id": "1172_1"
@@ -1535,6 +4035,44 @@
         "comfortable",
         "very comfortable"
       ],
+      "grid": [
+        {
+          "value": -2.0,
+          "label": "very uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": -1.0,
+          "label": "uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": -0.01,
+          "label": "just uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 0.01,
+          "label": "just comfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 1.0,
+          "label": "comfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 2.0,
+          "label": "very comfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        }
+      ],
       "comfort_pole": "high",
       "id": "1175_1"
     },
@@ -1554,6 +4092,38 @@
         "neutral",
         "comfortable",
         "very comfortable"
+      ],
+      "grid": [
+        {
+          "value": -2.0,
+          "label": "very uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": -1.0,
+          "label": "uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 0.0,
+          "label": "neutral",
+          "is_anchor": true,
+          "is_neutral": true
+        },
+        {
+          "value": 1.0,
+          "label": "comfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 2.0,
+          "label": "very comfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        }
       ],
       "comfort_pole": "high",
       "id": "1176_1"
@@ -1577,6 +4147,44 @@
         "comfortable",
         "very comfortable"
       ],
+      "grid": [
+        {
+          "value": 1.0,
+          "label": "very uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 2.0,
+          "label": "uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 3.0,
+          "label": "just uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 4.0,
+          "label": "just comfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 5.0,
+          "label": "comfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 6.0,
+          "label": "very comfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        }
+      ],
       "comfort_pole": "high",
       "id": "1178_1"
     },
@@ -1599,6 +4207,44 @@
         "comfortable",
         "very comfortable"
       ],
+      "grid": [
+        {
+          "value": -2.0,
+          "label": "very uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": -1.0,
+          "label": "uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": -0.01,
+          "label": "just uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 0.01,
+          "label": "just comfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 1.0,
+          "label": "comfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 2.0,
+          "label": "very comfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        }
+      ],
       "comfort_pole": "high",
       "id": "1182_1"
     },
@@ -1618,6 +4264,38 @@
         "uncomfortable",
         "very uncomfortable",
         "unbearable"
+      ],
+      "grid": [
+        {
+          "value": 0.0,
+          "label": "comfortable",
+          "is_anchor": true,
+          "is_neutral": true
+        },
+        {
+          "value": 1.0,
+          "label": "slightly uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 2.0,
+          "label": "uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 3.0,
+          "label": "very uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 4.0,
+          "label": "unbearable",
+          "is_anchor": true,
+          "is_neutral": false
+        }
       ],
       "comfort_pole": "low",
       "id": "1192_1"
@@ -1643,6 +4321,50 @@
         "comfortable",
         "very comfortable"
       ],
+      "grid": [
+        {
+          "value": -3.0,
+          "label": "very uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": -2.0,
+          "label": "uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": -1.0,
+          "label": "slightly uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 0.0,
+          "label": "neutral",
+          "is_anchor": true,
+          "is_neutral": true
+        },
+        {
+          "value": 1.0,
+          "label": "slightly comfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 2.0,
+          "label": "comfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 3.0,
+          "label": "very comfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        }
+      ],
       "comfort_pole": "high",
       "id": "1193_1"
     },
@@ -1660,6 +4382,32 @@
         "slightly uncomfortable",
         "uncomfortable",
         "very uncomfortable"
+      ],
+      "grid": [
+        {
+          "value": 0.0,
+          "label": "comfortable",
+          "is_anchor": true,
+          "is_neutral": true
+        },
+        {
+          "value": 1.0,
+          "label": "slightly uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 2.0,
+          "label": "uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 3.0,
+          "label": "very uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        }
       ],
       "comfort_pole": "low",
       "id": "1195_1"
@@ -1683,6 +4431,44 @@
         "comfortable",
         "very comfortable"
       ],
+      "grid": [
+        {
+          "value": 1.0,
+          "label": "very uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 2.0,
+          "label": "uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 3.0,
+          "label": "slightly uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 4.0,
+          "label": "slightly comfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 5.0,
+          "label": "comfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 6.0,
+          "label": "very comfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        }
+      ],
       "comfort_pole": "high",
       "id": "1196_1"
     },
@@ -1702,6 +4488,38 @@
         "neutral",
         "comfortable",
         "very comfortable"
+      ],
+      "grid": [
+        {
+          "value": -2.0,
+          "label": "very uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": -1.0,
+          "label": "uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 0.0,
+          "label": "neutral",
+          "is_anchor": true,
+          "is_neutral": true
+        },
+        {
+          "value": 1.0,
+          "label": "comfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 2.0,
+          "label": "very comfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        }
       ],
       "comfort_pole": "high",
       "id": "1197_1"
@@ -1725,6 +4543,44 @@
         "comfortable",
         "very comfortable"
       ],
+      "grid": [
+        {
+          "value": -3.0,
+          "label": "very uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": -2.0,
+          "label": "uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": -1.0,
+          "label": "slightly uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 1.0,
+          "label": "slightly comfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 2.0,
+          "label": "comfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 3.0,
+          "label": "very comfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        }
+      ],
       "comfort_pole": "high",
       "id": "1198_1"
     },
@@ -1744,6 +4600,38 @@
         "uncomfortable",
         "very uncomfortable",
         "unbearable"
+      ],
+      "grid": [
+        {
+          "value": 1.0,
+          "label": "comfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 2.0,
+          "label": "slightly uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 3.0,
+          "label": "uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 4.0,
+          "label": "very uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 5.0,
+          "label": "unbearable",
+          "is_anchor": true,
+          "is_neutral": false
+        }
       ],
       "comfort_pole": "low",
       "id": "1199_1"
@@ -1767,6 +4655,44 @@
         "comfortable",
         "very comfortable"
       ],
+      "grid": [
+        {
+          "value": -2.0,
+          "label": "very uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": -1.0,
+          "label": "uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": -0.1,
+          "label": "slightly uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 0.1,
+          "label": "slightly comfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 1.0,
+          "label": "comfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 2.0,
+          "label": "very comfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        }
+      ],
       "comfort_pole": "high",
       "id": "1201_1"
     },
@@ -1780,6 +4706,20 @@
       "labels": [
         "extremely uncomfortable",
         "etremely comfortable"
+      ],
+      "grid": [
+        {
+          "value": -50.0,
+          "label": "extremely uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 50.0,
+          "label": "etremely comfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        }
       ],
       "comfort_pole": "high",
       "id": "1203_1"
@@ -1798,6 +4738,32 @@
         "discomfort",
         "slight discomfort",
         "comfort"
+      ],
+      "grid": [
+        {
+          "value": -3.0,
+          "label": "very discomfort",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": -2.0,
+          "label": "discomfort",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": -1.0,
+          "label": "slight discomfort",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 0.0,
+          "label": "comfort",
+          "is_anchor": true,
+          "is_neutral": true
+        }
       ],
       "comfort_pole": "high",
       "id": "1204_1"
@@ -1823,6 +4789,50 @@
         "comfortable",
         "very comfortable"
       ],
+      "grid": [
+        {
+          "value": -3.0,
+          "label": "very uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": -2.0,
+          "label": "uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": -1.0,
+          "label": "slightly uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 0.0,
+          "label": "neutral",
+          "is_anchor": true,
+          "is_neutral": true
+        },
+        {
+          "value": 1.0,
+          "label": "slightly comfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 2.0,
+          "label": "comfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 3.0,
+          "label": "very comfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        }
+      ],
       "comfort_pole": "high",
       "id": "1205_1"
     },
@@ -1838,6 +4848,26 @@
         "cool discomfort",
         "comfort",
         "warm discomfort"
+      ],
+      "grid": [
+        {
+          "value": -1.0,
+          "label": "cool discomfort",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 0.0,
+          "label": "comfort",
+          "is_anchor": true,
+          "is_neutral": true
+        },
+        {
+          "value": 1.0,
+          "label": "warm discomfort",
+          "is_anchor": true,
+          "is_neutral": false
+        }
       ],
       "comfort_pole": "high",
       "id": "1207_1"
@@ -1856,6 +4886,32 @@
         "discomfort",
         "slight discomfort",
         "comfort"
+      ],
+      "grid": [
+        {
+          "value": -3.0,
+          "label": "high discomfort",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": -2.0,
+          "label": "discomfort",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": -1.0,
+          "label": "slight discomfort",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 0.0,
+          "label": "comfort",
+          "is_anchor": true,
+          "is_neutral": true
+        }
       ],
       "comfort_pole": "high",
       "id": "1209_1"
@@ -1881,6 +4937,50 @@
         "comfortable",
         "very comfortable"
       ],
+      "grid": [
+        {
+          "value": -3.0,
+          "label": "very uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": -2.0,
+          "label": "uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": -1.0,
+          "label": "slightly uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 0.0,
+          "label": "neither comfortable nor uncomfortable",
+          "is_anchor": true,
+          "is_neutral": true
+        },
+        {
+          "value": 1.0,
+          "label": "slightly comfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 2.0,
+          "label": "comfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 3.0,
+          "label": "very comfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        }
+      ],
       "comfort_pole": "high",
       "id": "1211_1"
     },
@@ -1901,6 +5001,38 @@
         "very uncomfortable",
         "limited tolerance"
       ],
+      "grid": [
+        {
+          "value": 0.0,
+          "label": "comfortable",
+          "is_anchor": true,
+          "is_neutral": true
+        },
+        {
+          "value": 1.0,
+          "label": "slightly uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 2.0,
+          "label": "uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 3.0,
+          "label": "very uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 4.0,
+          "label": "limited tolerance",
+          "is_anchor": true,
+          "is_neutral": false
+        }
+      ],
       "comfort_pole": "low",
       "id": "1213_1"
     },
@@ -1920,6 +5052,38 @@
         "uncomfortable",
         "very uncomfortable",
         "limited tolerance"
+      ],
+      "grid": [
+        {
+          "value": 0.0,
+          "label": "comfortable",
+          "is_anchor": true,
+          "is_neutral": true
+        },
+        {
+          "value": 1.0,
+          "label": "slightly uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 2.0,
+          "label": "uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 3.0,
+          "label": "very uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 4.0,
+          "label": "limited tolerance",
+          "is_anchor": true,
+          "is_neutral": false
+        }
       ],
       "comfort_pole": "low",
       "id": "1213_2"
@@ -1943,6 +5107,44 @@
         "comfortable",
         "very comfortable"
       ],
+      "grid": [
+        {
+          "value": -2.0,
+          "label": "very uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": -1.0,
+          "label": "uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": -0.01,
+          "label": "just uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 0.01,
+          "label": "just comfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 1.0,
+          "label": "comfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 2.0,
+          "label": "very comfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        }
+      ],
       "comfort_pole": "high",
       "id": "1217_1"
     },
@@ -1964,6 +5166,44 @@
         "just comfortable",
         "comfortable",
         "very comfortable"
+      ],
+      "grid": [
+        {
+          "value": -2.0,
+          "label": "very uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": -1.0,
+          "label": "uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": -0.01,
+          "label": "just uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 0.01,
+          "label": "just comfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 1.0,
+          "label": "comfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 2.0,
+          "label": "very comfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        }
       ],
       "comfort_pole": "high",
       "id": "1217_2"
@@ -1987,6 +5227,44 @@
         "comfortable",
         "very comfortable"
       ],
+      "grid": [
+        {
+          "value": -2.0,
+          "label": "very uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": -1.0,
+          "label": "uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": -0.01,
+          "label": "just uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 0.01,
+          "label": "just comfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 1.0,
+          "label": "comfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 2.0,
+          "label": "very comfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        }
+      ],
       "comfort_pole": "high",
       "id": "1217_3"
     },
@@ -2008,6 +5286,38 @@
         "just comfortable",
         "comfortable",
         "very comfortable"
+      ],
+      "grid": [
+        {
+          "value": -2.0,
+          "label": "very uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": -1.0,
+          "label": "uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 0.0,
+          "label": null,
+          "is_anchor": false,
+          "is_neutral": false
+        },
+        {
+          "value": 1.0,
+          "label": "comfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 2.0,
+          "label": "very comfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        }
       ],
       "comfort_pole": "high",
       "id": "1219_1"
@@ -2031,6 +5341,44 @@
         "comfortable",
         "very comfortable"
       ],
+      "grid": [
+        {
+          "value": -2.0,
+          "label": "very uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": -1.0,
+          "label": "uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": -0.1,
+          "label": "slightly uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 0.1,
+          "label": "slightly comfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 1.0,
+          "label": "comfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 2.0,
+          "label": "very comfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        }
+      ],
       "comfort_pole": "high",
       "id": "1220_1"
     },
@@ -2051,6 +5399,38 @@
         "slightly uncomfortable",
         "comfortable"
       ],
+      "grid": [
+        {
+          "value": -4.0,
+          "label": "extremely uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": -3.0,
+          "label": "very uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": -2.0,
+          "label": "uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": -1.0,
+          "label": "slightly uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 0.0,
+          "label": "comfortable",
+          "is_anchor": true,
+          "is_neutral": true
+        }
+      ],
       "comfort_pole": "high",
       "id": "1221_1"
     },
@@ -2068,6 +5448,32 @@
         "slightly comfortable",
         "slightly uncomfortable",
         "uncomfortable"
+      ],
+      "grid": [
+        {
+          "value": 0.0,
+          "label": "comfortable",
+          "is_anchor": true,
+          "is_neutral": true
+        },
+        {
+          "value": 1.0,
+          "label": "slightly comfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 2.0,
+          "label": "slightly uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 3.0,
+          "label": "uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        }
       ],
       "comfort_pole": "low",
       "id": "1222_1"
@@ -2093,6 +5499,50 @@
         "comfortable",
         "very comfortable"
       ],
+      "grid": [
+        {
+          "value": -3.0,
+          "label": "very uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": -2.0,
+          "label": "uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": -1.0,
+          "label": "slightly uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 0.0,
+          "label": "neutral",
+          "is_anchor": true,
+          "is_neutral": true
+        },
+        {
+          "value": 1.0,
+          "label": "slightly comfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 2.0,
+          "label": "comfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 3.0,
+          "label": "very comfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        }
+      ],
       "comfort_pole": "high",
       "id": "1223_1"
     },
@@ -2113,6 +5563,38 @@
         "very uncomfortable",
         "extremely uncomfortable"
       ],
+      "grid": [
+        {
+          "value": 0.0,
+          "label": "comfortable",
+          "is_anchor": true,
+          "is_neutral": true
+        },
+        {
+          "value": 1.0,
+          "label": "slightly uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 2.0,
+          "label": "uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 3.0,
+          "label": "very uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 4.0,
+          "label": "extremely uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        }
+      ],
       "comfort_pole": "low",
       "id": "1225_1"
     },
@@ -2131,6 +5613,32 @@
         "discomfort",
         "very discomfort"
       ],
+      "grid": [
+        {
+          "value": 0.0,
+          "label": "comfort",
+          "is_anchor": true,
+          "is_neutral": true
+        },
+        {
+          "value": 1.0,
+          "label": "slightly discomfort",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 2.0,
+          "label": "discomfort",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 3.0,
+          "label": "very discomfort",
+          "is_anchor": true,
+          "is_neutral": false
+        }
+      ],
       "comfort_pole": "low",
       "id": "1226_1"
     },
@@ -2148,6 +5656,32 @@
         "discomfort",
         "slightly discomfort",
         "comfort"
+      ],
+      "grid": [
+        {
+          "value": -3.0,
+          "label": "very discomfort",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": -2.0,
+          "label": "discomfort",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": -1.0,
+          "label": "slightly discomfort",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 0.0,
+          "label": "comfort",
+          "is_anchor": true,
+          "is_neutral": true
+        }
       ],
       "comfort_pole": "high",
       "id": "1227_1"
@@ -2173,6 +5707,50 @@
         "comfortable",
         "very comfortable"
       ],
+      "grid": [
+        {
+          "value": -3.0,
+          "label": "very uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": -2.0,
+          "label": "uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": -1.0,
+          "label": "just uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 0.0,
+          "label": "unclear",
+          "is_anchor": true,
+          "is_neutral": true
+        },
+        {
+          "value": 1.0,
+          "label": "just comfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 2.0,
+          "label": "comfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 3.0,
+          "label": "very comfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        }
+      ],
       "comfort_pole": "high",
       "id": "1228_1"
     },
@@ -2194,6 +5772,44 @@
         "just comfortable",
         "comfortable",
         "very comfortable"
+      ],
+      "grid": [
+        {
+          "value": -2.0,
+          "label": "very uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": -1.0,
+          "label": "uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": -0.01,
+          "label": "just uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 0.01,
+          "label": "just comfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 1.0,
+          "label": "comfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 2.0,
+          "label": "very comfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        }
       ],
       "comfort_pole": "high",
       "id": "1231_1"
@@ -2219,6 +5835,50 @@
         "comfortable",
         "very comfortable"
       ],
+      "grid": [
+        {
+          "value": -3.0,
+          "label": "very uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": -2.0,
+          "label": "uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": -1.0,
+          "label": "slightly uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 0.0,
+          "label": "unclear",
+          "is_anchor": true,
+          "is_neutral": true
+        },
+        {
+          "value": 1.0,
+          "label": "slightly comfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 2.0,
+          "label": "comfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 3.0,
+          "label": "very comfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        }
+      ],
       "comfort_pole": "high",
       "id": "1234_1"
     },
@@ -2240,6 +5900,44 @@
         "just comfortable",
         "comfortable",
         "very comfortable"
+      ],
+      "grid": [
+        {
+          "value": -2.0,
+          "label": "very uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": -1.0,
+          "label": "uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": -0.01,
+          "label": "just uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 0.01,
+          "label": "just comfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 1.0,
+          "label": "comfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 2.0,
+          "label": "very comfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        }
       ],
       "comfort_pole": "high",
       "id": "1237_1"
@@ -2263,6 +5961,44 @@
         "comfortable",
         "very comfortable"
       ],
+      "grid": [
+        {
+          "value": -2.0,
+          "label": "very uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": -1.0,
+          "label": "uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": -0.01,
+          "label": "just uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 0.01,
+          "label": "just comfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 1.0,
+          "label": "comfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 2.0,
+          "label": "very comfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        }
+      ],
       "comfort_pole": "high",
       "id": "1237_2"
     },
@@ -2285,6 +6021,44 @@
         "comfortable",
         "very comfortable"
       ],
+      "grid": [
+        {
+          "value": -2.0,
+          "label": "very uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": -1.0,
+          "label": "uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": -0.01,
+          "label": "just uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 0.01,
+          "label": "just comfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 1.0,
+          "label": "comfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 2.0,
+          "label": "very comfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        }
+      ],
       "comfort_pole": "high",
       "id": "1237_3"
     },
@@ -2305,6 +6079,38 @@
         "comfortable",
         "very comfortable"
       ],
+      "grid": [
+        {
+          "value": -2.0,
+          "label": "very uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": -1.0,
+          "label": "uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 0.0,
+          "label": "moderate",
+          "is_anchor": true,
+          "is_neutral": true
+        },
+        {
+          "value": 1.0,
+          "label": "comfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 2.0,
+          "label": "very comfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        }
+      ],
       "comfort_pole": "high",
       "id": "1247_1"
     },
@@ -2324,6 +6130,38 @@
         "slightly uncomfortable",
         "indifferent",
         "comfortable"
+      ],
+      "grid": [
+        {
+          "value": -3.0,
+          "label": "very uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": -2.0,
+          "label": "uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": -1.0,
+          "label": "slightly uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 0.0,
+          "label": "indifferent",
+          "is_anchor": true,
+          "is_neutral": true
+        },
+        {
+          "value": 1.0,
+          "label": "comfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        }
       ],
       "comfort_pole": "high",
       "id": "1248_1"
@@ -2349,6 +6187,50 @@
         "comfortable",
         "very comfortable"
       ],
+      "grid": [
+        {
+          "value": -3.0,
+          "label": "very uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": -2.0,
+          "label": "uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": -1.0,
+          "label": "just uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 0.0,
+          "label": "unclear",
+          "is_anchor": true,
+          "is_neutral": true
+        },
+        {
+          "value": 1.0,
+          "label": "just comfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 2.0,
+          "label": "comfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 3.0,
+          "label": "very comfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        }
+      ],
       "comfort_pole": "high",
       "id": "1249_1"
     },
@@ -2372,6 +6254,50 @@
         "slightly comfortable",
         "comfortable",
         "very comfortable"
+      ],
+      "grid": [
+        {
+          "value": -3.0,
+          "label": "very uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": -2.0,
+          "label": "uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": -1.0,
+          "label": "slightly uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 0.0,
+          "label": "neutral",
+          "is_anchor": true,
+          "is_neutral": true
+        },
+        {
+          "value": 1.0,
+          "label": "slightly comfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 2.0,
+          "label": "comfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 3.0,
+          "label": "very comfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        }
       ],
       "comfort_pole": "high",
       "id": "1261_1"
@@ -2397,6 +6323,32 @@
         "satisfied",
         "very satisfied"
       ],
+      "grid": [
+        {
+          "value": 0.0,
+          "label": "neutral",
+          "is_anchor": true,
+          "is_neutral": true
+        },
+        {
+          "value": 1.0,
+          "label": "slightly satisfied",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 2.0,
+          "label": "satisfied",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 3.0,
+          "label": "very satisfied",
+          "is_anchor": true,
+          "is_neutral": false
+        }
+      ],
       "comfort_pole": "high",
       "id": "1262_1"
     },
@@ -2414,6 +6366,32 @@
         "slightly uncomfortable",
         "uncomfortable",
         "very uncomfortable"
+      ],
+      "grid": [
+        {
+          "value": 0.0,
+          "label": "comfortable",
+          "is_anchor": true,
+          "is_neutral": true
+        },
+        {
+          "value": 1.0,
+          "label": "slightly uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 2.0,
+          "label": "uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 3.0,
+          "label": "very uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        }
       ],
       "comfort_pole": "low",
       "id": "1265_1"
@@ -2438,6 +6416,50 @@
         "slightly comfortable",
         "comfortable",
         "very comfortable"
+      ],
+      "grid": [
+        {
+          "value": -3.0,
+          "label": "very uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": -2.0,
+          "label": "uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": -1.0,
+          "label": "slightly uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 0.0,
+          "label": "neutral",
+          "is_anchor": true,
+          "is_neutral": true
+        },
+        {
+          "value": 1.0,
+          "label": "slightly comfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 2.0,
+          "label": "comfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 3.0,
+          "label": "very comfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        }
       ],
       "comfort_pole": "high",
       "id": "1266_1"
@@ -2467,6 +6489,62 @@
         "quite comfortable",
         "very comfortable"
       ],
+      "grid": [
+        {
+          "value": -4.0,
+          "label": "very uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": -3.0,
+          "label": "quite uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": -2.0,
+          "label": "uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": -1.0,
+          "label": "slightly uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 0.0,
+          "label": "neutral",
+          "is_anchor": true,
+          "is_neutral": true
+        },
+        {
+          "value": 1.0,
+          "label": "slightly comfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 2.0,
+          "label": "comfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 3.0,
+          "label": "quite comfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 4.0,
+          "label": "very comfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        }
+      ],
       "comfort_pole": "high",
       "id": "1268_1"
     },
@@ -2489,6 +6567,44 @@
         "comfortable",
         "very comfortable"
       ],
+      "grid": [
+        {
+          "value": -2.0,
+          "label": "very uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": -1.0,
+          "label": "uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": -0.01,
+          "label": "just uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 0.01,
+          "label": "just comfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 1.0,
+          "label": "comfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 2.0,
+          "label": "very comfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        }
+      ],
       "comfort_pole": "high",
       "id": "1270_1"
     },
@@ -2509,6 +6625,38 @@
         "very uncomfortable",
         "unendurable"
       ],
+      "grid": [
+        {
+          "value": -1.0,
+          "label": "comfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 0.0,
+          "label": "slightly uncomfortable",
+          "is_anchor": true,
+          "is_neutral": true
+        },
+        {
+          "value": 1.0,
+          "label": "uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 2.0,
+          "label": "very uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 3.0,
+          "label": "unendurable",
+          "is_anchor": true,
+          "is_neutral": false
+        }
+      ],
       "comfort_pole": "low",
       "id": "1273_1"
     },
@@ -2528,6 +6676,38 @@
         "uncomfortable",
         "very uncomfortable",
         "extremely uncomfortable"
+      ],
+      "grid": [
+        {
+          "value": 0.0,
+          "label": "comfortable",
+          "is_anchor": true,
+          "is_neutral": true
+        },
+        {
+          "value": 1.0,
+          "label": "slightly uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 2.0,
+          "label": "uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 3.0,
+          "label": "very uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 4.0,
+          "label": "extremely uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        }
       ],
       "comfort_pole": "low",
       "id": "1236_1"
@@ -2553,6 +6733,50 @@
         "comfortable",
         "very comfortable"
       ],
+      "grid": [
+        {
+          "value": -3.0,
+          "label": "very uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": -2.0,
+          "label": "uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": -1.0,
+          "label": "slightly uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 0.0,
+          "label": "neutral",
+          "is_anchor": true,
+          "is_neutral": true
+        },
+        {
+          "value": 1.0,
+          "label": "slightly comfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 2.0,
+          "label": "comfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 3.0,
+          "label": "very comfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        }
+      ],
       "comfort_pole": "high",
       "id": "1241_1"
     },
@@ -2570,6 +6794,32 @@
         "slightly uncomfortable",
         "uncomfortable",
         "very uncomfortable"
+      ],
+      "grid": [
+        {
+          "value": -3.0,
+          "label": "very uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": -2.0,
+          "label": "uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": -1.0,
+          "label": "slightly uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 0.0,
+          "label": "comfortable",
+          "is_anchor": true,
+          "is_neutral": true
+        }
       ],
       "comfort_pole": "low",
       "id": "1244_1"
@@ -2595,6 +6845,50 @@
         "moderately uncomfortable",
         "very uncomfortable"
       ],
+      "grid": [
+        {
+          "value": 1.0,
+          "label": "very comfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 2.0,
+          "label": "moderately comfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 3.0,
+          "label": "slightly comfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 4.0,
+          "label": "neutral",
+          "is_anchor": true,
+          "is_neutral": true
+        },
+        {
+          "value": 5.0,
+          "label": "slightly uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 6.0,
+          "label": "moderately uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 7.0,
+          "label": "very uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        }
+      ],
       "comfort_pole": "low",
       "id": "1169_1"
     },
@@ -2614,6 +6908,38 @@
         "uncomfortable",
         "very uncomfortable",
         "extremely uncomfortable"
+      ],
+      "grid": [
+        {
+          "value": 0.0,
+          "label": "comfortable",
+          "is_anchor": true,
+          "is_neutral": true
+        },
+        {
+          "value": 1.0,
+          "label": "slightly uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 2.0,
+          "label": "uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 3.0,
+          "label": "very uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 4.0,
+          "label": "extremely uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        }
       ],
       "comfort_pole": "low",
       "id": "1215_1"
@@ -2635,6 +6961,38 @@
         "comfortable",
         "very comfortable"
       ],
+      "grid": [
+        {
+          "value": -2.0,
+          "label": "very uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": -1.0,
+          "label": "uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 0.0,
+          "label": "neutral",
+          "is_anchor": true,
+          "is_neutral": true
+        },
+        {
+          "value": 1.0,
+          "label": "comfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 2.0,
+          "label": "very comfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        }
+      ],
       "comfort_pole": "high",
       "id": "1224_1"
     },
@@ -2652,6 +7010,32 @@
         "slightly uncomfortable",
         "uncomfortable",
         "very uncomfortable"
+      ],
+      "grid": [
+        {
+          "value": 0.0,
+          "label": "comfortable",
+          "is_anchor": true,
+          "is_neutral": true
+        },
+        {
+          "value": 1.0,
+          "label": "slightly uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 2.0,
+          "label": "uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 3.0,
+          "label": "very uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        }
       ],
       "comfort_pole": "low",
       "id": "1183_1"
@@ -2675,6 +7059,44 @@
         "uncomfortable",
         "very uncomfortable"
       ],
+      "grid": [
+        {
+          "value": -2.0,
+          "label": "very uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": -1.0,
+          "label": "uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": -0.1,
+          "label": "slightly uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 0.1,
+          "label": "slightly comfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 1.0,
+          "label": "comfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 2.0,
+          "label": "very comfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        }
+      ],
       "comfort_pole": "low",
       "id": "1267_1"
     },
@@ -2697,6 +7119,44 @@
         "uncomfortable",
         "very uncomfortable"
       ],
+      "grid": [
+        {
+          "value": -2.0,
+          "label": "very uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": -1.0,
+          "label": "uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": -0.1,
+          "label": "slightly uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 0.1,
+          "label": "slightly comfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 1.0,
+          "label": "comfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 2.0,
+          "label": "very comfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        }
+      ],
       "comfort_pole": "low",
       "id": "1267_2"
     },
@@ -2717,6 +7177,38 @@
         "NR",
         "unbearable"
       ],
+      "grid": [
+        {
+          "value": 0.0,
+          "label": "comfortable",
+          "is_anchor": true,
+          "is_neutral": true
+        },
+        {
+          "value": 1.0,
+          "label": null,
+          "is_anchor": false,
+          "is_neutral": false
+        },
+        {
+          "value": 2.0,
+          "label": null,
+          "is_anchor": false,
+          "is_neutral": false
+        },
+        {
+          "value": 3.0,
+          "label": null,
+          "is_anchor": false,
+          "is_neutral": false
+        },
+        {
+          "value": 4.0,
+          "label": "unbearable",
+          "is_anchor": true,
+          "is_neutral": false
+        }
+      ],
       "comfort_pole": "low",
       "id": "1206_1"
     },
@@ -2736,6 +7228,38 @@
         "uncomfortable",
         "very uncomfortable",
         "extremely uncomfortable"
+      ],
+      "grid": [
+        {
+          "value": 0.0,
+          "label": "comfortable",
+          "is_anchor": true,
+          "is_neutral": true
+        },
+        {
+          "value": 1.0,
+          "label": "slightly uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 2.0,
+          "label": "uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 3.0,
+          "label": "very uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 4.0,
+          "label": "extremely uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        }
       ],
       "comfort_pole": "low",
       "id": "1250_1"
@@ -2760,6 +7284,158 @@
         "slightly comfortable",
         "comfortable",
         "very comfortable"
+      ],
+      "grid": [
+        {
+          "value": -3.0,
+          "label": "very uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": -2.75,
+          "label": null,
+          "is_anchor": false,
+          "is_neutral": false
+        },
+        {
+          "value": -2.5,
+          "label": null,
+          "is_anchor": false,
+          "is_neutral": false
+        },
+        {
+          "value": -2.25,
+          "label": null,
+          "is_anchor": false,
+          "is_neutral": false
+        },
+        {
+          "value": -2.0,
+          "label": "uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": -1.75,
+          "label": null,
+          "is_anchor": false,
+          "is_neutral": false
+        },
+        {
+          "value": -1.5,
+          "label": null,
+          "is_anchor": false,
+          "is_neutral": false
+        },
+        {
+          "value": -1.25,
+          "label": null,
+          "is_anchor": false,
+          "is_neutral": false
+        },
+        {
+          "value": -1.0,
+          "label": "slightly uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": -0.75,
+          "label": null,
+          "is_anchor": false,
+          "is_neutral": false
+        },
+        {
+          "value": -0.5,
+          "label": null,
+          "is_anchor": false,
+          "is_neutral": false
+        },
+        {
+          "value": -0.25,
+          "label": null,
+          "is_anchor": false,
+          "is_neutral": false
+        },
+        {
+          "value": 0.0,
+          "label": "neutral",
+          "is_anchor": true,
+          "is_neutral": true
+        },
+        {
+          "value": 0.25,
+          "label": null,
+          "is_anchor": false,
+          "is_neutral": false
+        },
+        {
+          "value": 0.5,
+          "label": null,
+          "is_anchor": false,
+          "is_neutral": false
+        },
+        {
+          "value": 0.75,
+          "label": null,
+          "is_anchor": false,
+          "is_neutral": false
+        },
+        {
+          "value": 1.0,
+          "label": "slightly comfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 1.25,
+          "label": null,
+          "is_anchor": false,
+          "is_neutral": false
+        },
+        {
+          "value": 1.5,
+          "label": null,
+          "is_anchor": false,
+          "is_neutral": false
+        },
+        {
+          "value": 1.75,
+          "label": null,
+          "is_anchor": false,
+          "is_neutral": false
+        },
+        {
+          "value": 2.0,
+          "label": "comfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 2.25,
+          "label": null,
+          "is_anchor": false,
+          "is_neutral": false
+        },
+        {
+          "value": 2.5,
+          "label": null,
+          "is_anchor": false,
+          "is_neutral": false
+        },
+        {
+          "value": 2.75,
+          "label": null,
+          "is_anchor": false,
+          "is_neutral": false
+        },
+        {
+          "value": 3.0,
+          "label": "very comfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        }
       ],
       "comfort_pole": "high",
       "id": "1263_1"

@@ -1,7 +1,15 @@
 import { useTooltip, TooltipPortal } from '../components/Tooltip.jsx'
 import PageHeader from '../components/PageHeader.jsx'
 
-function ScaleAxisPlot({ studies, domain, lowColor, highColor, neutralLabel }) {
+// A study's scale isn't just a min/max span - many studies use a small set of
+// verbally-anchored positions (e.g. the 7-point ASHRAE wording) but were
+// administered at finer numeric granularity (e.g. "25-point" = 0.25 steps
+// between anchors, "13-point" = 0.5 steps). Each row is drawn like a ruler:
+// small unlabeled ticks mark every position the scale actually offered,
+// while larger dots mark the positions that carry a verbal label. The
+// neutral/center anchor is called out in black so it reads consistently
+// across rows regardless of point count.
+function ScaleAxisPlot({ studies, domain, lowColor, highColor }) {
   const { tip, showTip, moveTip, hideTip } = useTooltip()
   const [domainMin, domainMax] = domain
   const width = 640
@@ -15,19 +23,39 @@ function ScaleAxisPlot({ studies, domain, lowColor, highColor, neutralLabel }) {
         <line x1={xScale(0)} x2={xScale(0)} y1={0} y2={height} stroke="#B8C020" strokeWidth={1} opacity={0.4} />
         {studies.map((s, i) => {
           const y = i * rowHeight + rowHeight / 2
-          const low = Math.min(...s.range)
-          const high = Math.max(...s.range)
+          const grid = s.grid && s.grid.length ? s.grid : s.range.map((v, j) => ({
+            value: v, label: s.labels[j], is_anchor: true, is_neutral: v === 0,
+          }))
+          const low = Math.min(...grid.map((g) => g.value))
+          const high = Math.max(...grid.map((g) => g.value))
+          const anchors = grid.filter((g) => g.is_anchor)
+          const firstLabel = anchors[0]?.label ?? s.labels[0]
+          const lastLabel = anchors[anchors.length - 1]?.label ?? s.labels[s.labels.length - 1]
+          const stepCount = grid.length
+          const anchorCount = anchors.length
+          const tooltipText = anchorCount < stepCount
+            ? `${s.id}: ${stepCount}-point scale, ${anchorCount} labelled anchors (${firstLabel} → ${lastLabel}) with ${stepCount - anchorCount} interpolated steps`
+            : `${s.id}: ${stepCount}-point scale (${firstLabel} → ${lastLabel})`
+
           return (
             <g
               key={i}
               className="cursor-default"
-              onMouseEnter={(e) => showTip(e, `${s.id}: ${s.points}-point scale (${s.labels[0]} → ${s.labels[s.labels.length - 1]})`)}
+              onMouseEnter={(e) => showTip(e, tooltipText)}
               onMouseMove={moveTip}
               onMouseLeave={hideTip}
             >
               <line x1={xScale(low)} x2={xScale(high)} y1={y} y2={y} stroke="#A8A59C" strokeWidth={0.8} opacity={0.5} />
-              <circle cx={xScale(low)} cy={y} r={1.6} fill={lowColor} />
-              <circle cx={xScale(high)} cy={y} r={1.6} fill={highColor} />
+              {grid.map((g, j) => {
+                if (!g.is_anchor) {
+                  // interpolated / unlabeled step - small neutral tick
+                  return <circle key={j} cx={xScale(g.value)} cy={y} r={0.5} fill="#A8A59C" opacity={0.55} />
+                }
+                const isFirst = g.value === low
+                const isLast = g.value === high
+                const fill = g.is_neutral ? '#1A1A1A' : isFirst ? lowColor : isLast ? highColor : '#7A776E'
+                return <circle key={j} cx={xScale(g.value)} cy={y} r={g.is_neutral ? 1.7 : 1.6} fill={fill} />
+              })}
             </g>
           )
         })}
@@ -77,11 +105,18 @@ export default function Questionnaires({ data }) {
         description="Thermal sensation scales are highly standardised across studies. Thermal comfort scales are not — point count, labels, and even the direction of the scale vary widely."
       />
 
+      <div className="px-10 pt-6 flex items-center gap-5 text-[11px] text-inkmid">
+        <span className="flex items-center gap-1.5"><span className="inline-block w-2.5 h-2.5 rounded-full bg-inkmid" /> labelled anchor</span>
+        <span className="flex items-center gap-1.5"><span className="inline-block w-2.5 h-2.5 rounded-full bg-[#1A1A1A]" /> neutral / centre anchor</span>
+        <span className="flex items-center gap-1.5"><span className="inline-block w-1 h-1 rounded-full bg-[#A8A59C]" /> unlabelled interpolated step</span>
+      </div>
+
       <div className="px-10 py-8 border-b border-line">
         <h2 className="text-[16px] font-semibold mb-1">Thermal Sensation Vote (TSV)</h2>
         <p className="text-[13px] text-inkmid mb-5 max-w-2xl">
-          {fig15_tsv_scales.n_total} studies' scales mapped onto a common axis (cold → hot). One line per study.
-          {' '}77.8% use the standard 7-point ASHRAE scale.
+          {fig15_tsv_scales.n_total} studies' scales mapped onto a common axis (cold → hot). Most use the same
+          7 verbal anchors; higher point counts (e.g. 13, 25) are usually that same 7-point scale with extra
+          unlabelled steps interpolated in between, shown here as fine ticks rather than a wider vocabulary.
         </p>
         <div className="grid grid-cols-3 gap-8">
           <div className="col-span-2">

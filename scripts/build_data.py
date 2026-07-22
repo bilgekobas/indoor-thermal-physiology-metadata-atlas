@@ -850,7 +850,45 @@ def parse_scale(text, kind):
 
     if len(range_vals) != len(labels):
         return None
-    return {'points': pts, 'scale_type': scale_type, 'range': range_vals, 'labels': labels}
+    result = {'points': pts, 'scale_type': scale_type, 'range': range_vals, 'labels': labels}
+    result['grid'] = compute_grid(pts, range_vals, labels)
+    return result
+
+def compute_grid(pts, range_vals, labels):
+    """Reconstruct the full set of response positions a study's scale actually
+    offered, and mark which of those carry a verbal label ('anchor') vs which
+    are unlabeled intermediate steps ('interpolated').
+
+    Two conventions show up in the source data:
+      1. range=/scale= list ONLY the verbal anchors (e.g. the classic 7-point
+         ASHRAE wording), while 'points=25' tells us the true scale had finer
+         granularity spanning the same low/high bounds in equal steps (e.g.
+         25 points = 0.25 steps). We reconstruct that full grid here and
+         backfill the unlabeled positions in between.
+      2. range=/scale= already enumerate every position, with 'NR' (or blank)
+         standing in for the label at unlabeled steps. Here len(range) ==
+         points already, so no reconstruction is needed - we just treat 'NR'
+         labels as unlabeled.
+    """
+    low, high = min(range_vals), max(range_vals)
+    anchor_map = {}
+    for v, l in zip(range_vals, labels):
+        ll = (l or '').strip()
+        if ll and ll.upper() not in ('NR', 'NAN', 'NC', ''):
+            anchor_map[round(v, 4)] = ll
+
+    if isinstance(pts, int) and pts >= 2 and pts != len(range_vals):
+        step = (high - low) / (pts - 1)
+        full_positions = [round(low + i * step, 4) for i in range(pts)]
+    else:
+        full_positions = sorted(round(v, 4) for v in set(range_vals))
+
+    grid = []
+    for pos in full_positions:
+        label = anchor_map.get(pos)
+        is_neutral = label is not None and (abs(pos) < 1e-6 or 'neutral' in label.lower())
+        grid.append({'value': pos, 'label': label, 'is_anchor': label is not None, 'is_neutral': is_neutral})
+    return grid
 
 # IMPORTANT: for TCV specifically, "low number" does NOT reliably mean
 # "uncomfortable" — the appendix's own Fig. 16 finding is that polarity
