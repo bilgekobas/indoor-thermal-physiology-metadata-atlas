@@ -15706,6 +15706,181 @@
       "id": "1257_1"
     },
     {
+      "points": 25,
+      "scale_type": "discrete",
+      "range": [
+        -3.0,
+        -2.0,
+        -1.0,
+        0.0,
+        1.0,
+        2.0,
+        3.0
+      ],
+      "labels": [
+        "cold",
+        "cool",
+        "slightly cool",
+        "neutral",
+        "slightly warm",
+        "warm",
+        "hot"
+      ],
+      "grid": [
+        {
+          "value": -3.0,
+          "label": "cold",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": -2.75,
+          "label": null,
+          "is_anchor": false,
+          "is_neutral": false
+        },
+        {
+          "value": -2.5,
+          "label": null,
+          "is_anchor": false,
+          "is_neutral": false
+        },
+        {
+          "value": -2.25,
+          "label": null,
+          "is_anchor": false,
+          "is_neutral": false
+        },
+        {
+          "value": -2.0,
+          "label": "cool",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": -1.75,
+          "label": null,
+          "is_anchor": false,
+          "is_neutral": false
+        },
+        {
+          "value": -1.5,
+          "label": null,
+          "is_anchor": false,
+          "is_neutral": false
+        },
+        {
+          "value": -1.25,
+          "label": null,
+          "is_anchor": false,
+          "is_neutral": false
+        },
+        {
+          "value": -1.0,
+          "label": "slightly cool",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": -0.75,
+          "label": null,
+          "is_anchor": false,
+          "is_neutral": false
+        },
+        {
+          "value": -0.5,
+          "label": null,
+          "is_anchor": false,
+          "is_neutral": false
+        },
+        {
+          "value": -0.25,
+          "label": null,
+          "is_anchor": false,
+          "is_neutral": false
+        },
+        {
+          "value": 0.0,
+          "label": "neutral",
+          "is_anchor": true,
+          "is_neutral": true
+        },
+        {
+          "value": 0.25,
+          "label": null,
+          "is_anchor": false,
+          "is_neutral": false
+        },
+        {
+          "value": 0.5,
+          "label": null,
+          "is_anchor": false,
+          "is_neutral": false
+        },
+        {
+          "value": 0.75,
+          "label": null,
+          "is_anchor": false,
+          "is_neutral": false
+        },
+        {
+          "value": 1.0,
+          "label": "slightly warm",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 1.25,
+          "label": null,
+          "is_anchor": false,
+          "is_neutral": false
+        },
+        {
+          "value": 1.5,
+          "label": null,
+          "is_anchor": false,
+          "is_neutral": false
+        },
+        {
+          "value": 1.75,
+          "label": null,
+          "is_anchor": false,
+          "is_neutral": false
+        },
+        {
+          "value": 2.0,
+          "label": "warm",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 2.25,
+          "label": null,
+          "is_anchor": false,
+          "is_neutral": false
+        },
+        {
+          "value": 2.5,
+          "label": null,
+          "is_anchor": false,
+          "is_neutral": false
+        },
+        {
+          "value": 2.75,
+          "label": null,
+          "is_anchor": false,
+          "is_neutral": false
+        },
+        {
+          "value": 3.0,
+          "label": "hot",
+          "is_anchor": true,
+          "is_neutral": false
+        }
+      ],
+      "id": "1263_1"
+    },
+    {
       "points": 7,
       "scale_type": "discrete",
       "range": [
@@ -15856,9 +16031,13 @@
     {
       "points": 13,
       "count": 1
+    },
+    {
+      "points": 25,
+      "count": 1
     }
   ],
-  "n_total": 229,
+  "n_total": 230,
   "code_breakdown": {
     "mnr": 1,
     "nr": 36,

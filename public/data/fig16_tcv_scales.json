@@ -7263,6 +7263,182 @@
       ],
       "comfort_pole": "low",
       "id": "1250_1"
+    },
+    {
+      "points": 25,
+      "scale_type": "discrete",
+      "range": [
+        -3.0,
+        -2.0,
+        -1.0,
+        0.0,
+        1.0,
+        2.0,
+        3.0
+      ],
+      "labels": [
+        "very uncomfortable",
+        "uncomfortable",
+        "slightly uncomfortable",
+        "neutral",
+        "slightly comfortable",
+        "comfortable",
+        "very comfortable"
+      ],
+      "grid": [
+        {
+          "value": -3.0,
+          "label": "very uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": -2.75,
+          "label": null,
+          "is_anchor": false,
+          "is_neutral": false
+        },
+        {
+          "value": -2.5,
+          "label": null,
+          "is_anchor": false,
+          "is_neutral": false
+        },
+        {
+          "value": -2.25,
+          "label": null,
+          "is_anchor": false,
+          "is_neutral": false
+        },
+        {
+          "value": -2.0,
+          "label": "uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": -1.75,
+          "label": null,
+          "is_anchor": false,
+          "is_neutral": false
+        },
+        {
+          "value": -1.5,
+          "label": null,
+          "is_anchor": false,
+          "is_neutral": false
+        },
+        {
+          "value": -1.25,
+          "label": null,
+          "is_anchor": false,
+          "is_neutral": false
+        },
+        {
+          "value": -1.0,
+          "label": "slightly uncomfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": -0.75,
+          "label": null,
+          "is_anchor": false,
+          "is_neutral": false
+        },
+        {
+          "value": -0.5,
+          "label": null,
+          "is_anchor": false,
+          "is_neutral": false
+        },
+        {
+          "value": -0.25,
+          "label": null,
+          "is_anchor": false,
+          "is_neutral": false
+        },
+        {
+          "value": 0.0,
+          "label": "neutral",
+          "is_anchor": true,
+          "is_neutral": true
+        },
+        {
+          "value": 0.25,
+          "label": null,
+          "is_anchor": false,
+          "is_neutral": false
+        },
+        {
+          "value": 0.5,
+          "label": null,
+          "is_anchor": false,
+          "is_neutral": false
+        },
+        {
+          "value": 0.75,
+          "label": null,
+          "is_anchor": false,
+          "is_neutral": false
+        },
+        {
+          "value": 1.0,
+          "label": "slightly comfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 1.25,
+          "label": null,
+          "is_anchor": false,
+          "is_neutral": false
+        },
+        {
+          "value": 1.5,
+          "label": null,
+          "is_anchor": false,
+          "is_neutral": false
+        },
+        {
+          "value": 1.75,
+          "label": null,
+          "is_anchor": false,
+          "is_neutral": false
+        },
+        {
+          "value": 2.0,
+          "label": "comfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 2.25,
+          "label": null,
+          "is_anchor": false,
+          "is_neutral": false
+        },
+        {
+          "value": 2.5,
+          "label": null,
+          "is_anchor": false,
+          "is_neutral": false
+        },
+        {
+          "value": 2.75,
+          "label": null,
+          "is_anchor": false,
+          "is_neutral": false
+        },
+        {
+          "value": 3.0,
+          "label": "very comfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        }
+      ],
+      "comfort_pole": "high",
+      "id": "1263_1"
     }
   ],
   "points_distribution": [
@@ -7297,9 +7473,13 @@
     {
       "points": 10,
       "count": 2
+    },
+    {
+      "points": 25,
+      "count": 1
     }
   ],
-  "n_total": 132,
+  "n_total": 133,
   "code_breakdown": {
     "mnr": 7,
     "nr": 127,
