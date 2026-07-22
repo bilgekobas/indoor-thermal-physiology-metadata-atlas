@@ -153,10 +153,27 @@ function SignalSensorBrandSankey({ overall, signalTotals, signalInstanceTotals, 
       if (!sensorDomain[key]) sensorDomain[key] = {}
       sensorDomain[key][sig.domain] = (sensorDomain[key][sig.domain] || 0) + r.count
     })
+    const sensorParents = {}
+    overall.forEach((r) => {
+      if (sigStudyTotals[r.signal] < 5) return
+      const method = r['physio-sensing-method']
+      if (!sensorParents[method]) sensorParents[method] = []
+      sensorParents[method].push({
+        signal: r.signal,
+        count: r.count,
+        denominator: sigStudyTotals[r.signal],
+      })
+    })
     const sensorEntries = Object.entries(sensorTotals).map(([name, total]) => {
       const domainCounts = sensorDomain[name] || {}
       const primaryDomain = Object.entries(domainCounts).sort((a, b) => b[1] - a[1])[0]?.[0]
-      return { name, total, color: DOMAIN_GROUPS[primaryDomain]?.color || '#8A8A8A', domain: primaryDomain }
+      return {
+        name,
+        total,
+        parentSignals: sensorParents[name] || [],
+        color: DOMAIN_GROUPS[primaryDomain]?.color || '#8A8A8A',
+        domain: primaryDomain,
+      }
     }).sort((a, b) => {
       const da = DOMAIN_ORDER.indexOf(a.domain), db = DOMAIN_ORDER.indexOf(b.domain)
       return da !== db ? da - db : b.total - a.total
@@ -336,11 +353,12 @@ function SignalSensorBrandSankey({ overall, signalTotals, signalInstanceTotals, 
     const x2 = link.to.x, y2 = link.to.y + link.to.h / 2
     const mx = (x1 + x2) / 2
     const active = isActive(link)
+    const parentDenominator = link.from.studyTotal || link.from.total || link.count
     return (
       <path d={`M ${x1} ${y1} C ${mx} ${y1}, ${mx} ${y2}, ${x2} ${y2}`} fill="none" stroke={color}
         strokeWidth={strokeW} opacity={active ? 0.32 : 0.06}
         className="cursor-default transition-opacity duration-150"
-        onMouseEnter={(e) => showTip(e, `${link.label}: ${link.count} studies (${((link.count / Math.max(link.from.total || link.count, 1)) * 100).toFixed(1)}% of ${link.from.name})`)} onMouseMove={moveTip} onMouseLeave={hideTip} />
+        onMouseEnter={(e) => showTip(e, `${link.label}: ${link.count} studies (${((link.count / Math.max(parentDenominator, 1)) * 100).toFixed(1)}% of ${link.from.name})`)} onMouseMove={moveTip} onMouseLeave={hideTip} />
     )
   }
 
@@ -409,13 +427,23 @@ function SignalSensorBrandSankey({ overall, signalTotals, signalInstanceTotals, 
             })}
             {layout.sensor.map((n) => {
               const active = isActive({ sensor: n.name })
+              const singleParent = n.parentSignals?.length === 1 ? n.parentSignals[0] : null
+              const pct = singleParent
+                ? (n.total / Math.max(singleParent.denominator, 1)) * 100
+                : null
+              const label = pct == null
+                ? `${n.name}, ${n.total}`
+                : `${n.name}, ${n.total} (${pct.toFixed(0)}%)`
+              const parentDetail = singleParent
+                ? `${n.total} of ${singleParent.denominator} ${singleParent.signal} experiments (${pct.toFixed(1)}%)`
+                : `${n.total} experiment–signal–method instances across ${n.parentSignals.length} parent signals; hover each incoming link for its signal-specific percentage`
               return (
                 <g key={n.name}
                   onClick={() => setSelected(selected?.level === 'sensor' && selected.name === n.name ? null : { level: 'sensor', name: n.name })}
-                  onMouseEnter={(e) => showTip(e, `${n.name}: ${n.total} studies total; hover links for % of parent signal — click to isolate connected signals and brands`)} onMouseMove={moveTip} onMouseLeave={hideTip}
+                  onMouseEnter={(e) => showTip(e, `${n.name}: ${parentDetail} — click to isolate connected signals and brands`)} onMouseMove={moveTip} onMouseLeave={hideTip}
                   className="cursor-pointer" style={{ opacity: active ? 1 : 0.2 }}>
                   <rect x={n.x} y={n.y} width={14} height={n.h} fill={n.color} rx={2} />
-                  <text x={n.x + 18} y={n.y + n.h / 2 + 3.5} fontSize={10} fill="#0A0A0A">{`${n.name}, ${n.total} (${((n.total / layout.sensorDenom) * 100).toFixed(0)}%)`}</text>
+                  <text x={n.x + 18} y={n.y + n.h / 2 + 3.5} fontSize={10} fill="#0A0A0A">{label}</text>
                 </g>
               )
             })}
@@ -448,7 +476,7 @@ function SignalSensorBrandSankey({ overall, signalTotals, signalInstanceTotals, 
         </svg>
       </div>
       <p className="font-data text-[10px] text-inkfaint mt-2">
-        Flow width and node height are proportional to experiment–signal–method instances; node and link colours mark physiological signal families; the central thermal-state family is highlighted in yellow. Node labels use one format throughout: name, study count, and percentage in parentheses. Signal labels show unique experiment counts and percentages of all experiments. Sensor-type counts and flow widths represent experiment–signal–method instances; sensor-type percentages are within their displayed instance column. Link hover reports the percentage relative to the immediate parent node. Click any signal, sensor type, or brand to highlight all connected paths and rows across all three columns.
+        Flow width and node height are proportional to experiment–signal–method instances; node and link colours mark physiological signal families; the central thermal-state family is highlighted in yellow. Node labels use one format throughout: name, study count, and percentage in parentheses. Signal labels show unique experiment counts and percentages of all experiments. Sensor-type counts and flow widths represent experiment–signal–method instances. When a sensor type belongs to one signal, its label percentage is calculated against the number of experiments measuring that signal; for sensor types shared by several signals, the node shows a count only and each incoming link reports its signal-specific percentage. Link hover reports the percentage relative to the immediate parent signal or sensor-type node. Click any signal, sensor type, or brand to highlight all connected paths and rows across all three columns.
         {' '}The brand-column toggle above switches between two parentages for the same underlying counts: "by sensor type" keeps each brand's node scoped to one sensor type (so a brand sold under two sensor types appears as two smaller nodes, and its brand percentage is relative to that one sensor type's total); "collapsed by brand" merges those into a single node per brand name with links fanning in from every sensor type it's used under (brand percentage is then relative to the top-{COLLAPSED_TOP_N} brands shown, not to any one sensor type).
       </p>
       <TooltipPortal tip={tip} />
