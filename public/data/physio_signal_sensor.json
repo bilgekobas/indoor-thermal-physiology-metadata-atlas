@@ -392,7 +392,7 @@
     },
     {
       "signal": "Sensory nerve conduction velocity",
-      "physio-sensing-method": "NAN",
+      "physio-sensing-method": "NR",
       "count": 1
     },
     {
@@ -1476,7 +1476,7 @@
     },
     {
       "signal": "Sensory nerve conduction velocity",
-      "physio-sensing-method": "NAN",
+      "physio-sensing-method": "NR",
       "period": "2017\u201318",
       "count": 1
     },

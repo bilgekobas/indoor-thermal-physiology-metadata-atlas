@@ -5293,7 +5293,7 @@
       "id": "1217_3"
     },
     {
-      "points": 5,
+      "points": 6,
       "scale_type": "discrete",
       "range": [
         -2.0,
@@ -5319,19 +5319,25 @@
           "is_neutral": false
         },
         {
-          "value": -1.0,
+          "value": -1.2,
           "label": "uncomfortable",
           "is_anchor": true,
           "is_neutral": false
         },
         {
-          "value": 0.0,
-          "label": "just comfortable",
+          "value": -0.4,
+          "label": "just uncomfortable",
           "is_anchor": true,
-          "is_neutral": true
+          "is_neutral": false
         },
         {
-          "value": 1.0,
+          "value": 0.4,
+          "label": "just comfortable",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 1.2,
           "label": "comfortable",
           "is_anchor": true,
           "is_neutral": false
@@ -7494,11 +7500,11 @@
     },
     {
       "points": 5,
-      "count": 33
+      "count": 32
     },
     {
       "points": 6,
-      "count": 36
+      "count": 37
     },
     {
       "points": 7,

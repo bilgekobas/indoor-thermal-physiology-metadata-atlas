@@ -711,11 +711,6 @@
       "count": 1
     },
     {
-      "physio-sensing-method": "NAN",
-      "physio-sensor-brand": "NAN",
-      "count": 1
-    },
-    {
       "physio-sensing-method": "NIRS",
       "physio-sensor-brand": "DynaSense",
       "count": 1
@@ -728,6 +723,11 @@
     {
       "physio-sensing-method": "NR",
       "physio-sensor-brand": "Microsoft",
+      "count": 1
+    },
+    {
+      "physio-sensing-method": "NR",
+      "physio-sensor-brand": "NAN",
       "count": 1
     },
     {
