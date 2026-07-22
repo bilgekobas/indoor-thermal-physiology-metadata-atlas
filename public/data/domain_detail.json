@@ -5,12 +5,12 @@
       "count": 207
     },
     {
-      "token": "Air temperature: Ramp",
-      "count": 48
+      "token": "Relative humidity",
+      "count": 54
     },
     {
-      "token": "Humidity",
-      "count": 43
+      "token": "Air temperature: Ramp",
+      "count": 48
     },
     {
       "token": "Air velocity",
@@ -23,10 +23,6 @@
     {
       "token": "Radiant temperature: Non-uniform",
       "count": 12
-    },
-    {
-      "token": "Relative humidity",
-      "count": 11
     },
     {
       "token": "Radiant temperature",
@@ -57,7 +53,7 @@
       "count": 4
     },
     {
-      "token": "Humidity: Ramp",
+      "token": "Relative humidity: Ramp",
       "count": 3
     },
     {

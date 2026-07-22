@@ -299,13 +299,8 @@
     },
     {
       "period": "2023\u201324",
-      "formula_grp": "ISO 9886",
-      "count": 2
-    },
-    {
-      "period": "2023\u201324",
       "formula_grp": "ISO 9886: 2004",
-      "count": 5
+      "count": 7
     },
     {
       "period": "2023\u201324",
@@ -314,7 +309,7 @@
     },
     {
       "period": "2023\u201324",
-      "formula_grp": "Liu et al. (2011a)",
+      "formula_grp": "Liu et al. (2011)",
       "count": 2
     },
     {
@@ -366,13 +361,8 @@
     },
     {
       "pt_bucket": "14",
-      "formula_grp": "ISO 9886",
-      "count": 1
-    },
-    {
-      "pt_bucket": "14",
       "formula_grp": "ISO 9886: 2004",
-      "count": 2
+      "count": 3
     },
     {
       "pt_bucket": "14",
@@ -511,13 +501,8 @@
     },
     {
       "pt_bucket": "8",
-      "formula_grp": "ISO 9886",
-      "count": 1
-    },
-    {
-      "pt_bucket": "8",
       "formula_grp": "ISO 9886: 2004",
-      "count": 10
+      "count": 11
     },
     {
       "pt_bucket": "8",
@@ -536,7 +521,7 @@
     },
     {
       "pt_bucket": "9",
-      "formula_grp": "Liu et al. (2011a)",
+      "formula_grp": "Liu et al. (2011)",
       "count": 2
     },
     {
@@ -564,13 +549,12 @@
     "Gagge and Nishi (2011)",
     "Hardy & DuBois (1938)",
     "Houdas & Ring (1982), Luo et al. (2020)",
-    "ISO 9886",
     "ISO 9886: 2004",
     "ISO 9886: 2004, Hardy & DuBois (1938)",
     "ISO 9920: 2007",
     "La Gennusa et al. (2005)",
     "Liu (2008)",
-    "Liu et al. (2011a)",
+    "Liu et al. (2011)",
     "McIntyre (1980)",
     "Mitchell & Wyndham (1969)",
     "Multiple",
