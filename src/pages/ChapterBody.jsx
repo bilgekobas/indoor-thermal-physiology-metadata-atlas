@@ -108,7 +108,7 @@ function layoutColumn(entries, { x, gap, pxPerUnit, minH }) {
   return { nodes, totalHeight: y - gap }
 }
 
-function SignalSensorBrandSankey({ overall, signalInstanceTotals, brandData }) {
+function SignalSensorBrandSankey({ overall, signalTotals, signalInstanceTotals, brandData, nExperiments }) {
   const { tip, showTip, moveTip, hideTip } = useTooltip()
   // Selection state for click-to-isolate: null = nothing selected (show
   // everything at normal opacity). Otherwise { level: 'signal'|'sensor'|'brand', name }.
@@ -126,18 +126,25 @@ function SignalSensorBrandSankey({ overall, signalInstanceTotals, brandData }) {
     // True per-signal totals: distinct experiments, not summed across
     // sensing methods (see build_data.py comment on signal_totals for why
     // summing 'overall' inflates signals with multi-method experiments).
-    const sigTotals = {}
-    signalInstanceTotals.forEach((r) => { sigTotals[r.signal] = r.count })
-    const activeSignalNames = Object.keys(sigTotals).filter((s) => sigTotals[s] >= 5)
+    // Flow totals use experiment–signal–method instances so link widths remain
+    // conservative. Displayed signal counts use unique experiments, which is
+    // the appropriate denominator for prevalence in the 295-experiment corpus.
+    const sigFlowTotals = {}
+    signalInstanceTotals.forEach((r) => { sigFlowTotals[r.signal] = r.count })
+    const sigStudyTotals = {}
+    signalTotals.forEach((r) => { sigStudyTotals[r.signal] = r.count })
+    const activeSignalNames = Object.keys(sigFlowTotals).filter((s) => sigStudyTotals[s] >= 5)
     const signalEntries = []
     DOMAIN_ORDER.forEach((domain) => {
       const group = DOMAIN_GROUPS[domain]
-      group.signals.filter((s) => activeSignalNames.includes(s)).sort((a, b) => sigTotals[b] - sigTotals[a])
-        .forEach((s) => signalEntries.push({ name: s, total: sigTotals[s], color: group.color, domain }))
+      group.signals.filter((s) => activeSignalNames.includes(s)).sort((a, b) => sigStudyTotals[b] - sigStudyTotals[a])
+        .forEach((s) => signalEntries.push({
+          name: s, total: sigFlowTotals[s], studyTotal: sigStudyTotals[s], color: group.color, domain,
+        }))
     })
 
     const sensorTotals = {}
-    overall.forEach((r) => { if (sigTotals[r.signal] >= 5) sensorTotals[r['physio-sensing-method']] = (sensorTotals[r['physio-sensing-method']] || 0) + r.count })
+    overall.forEach((r) => { if (sigStudyTotals[r.signal] >= 5) sensorTotals[r['physio-sensing-method']] = (sensorTotals[r['physio-sensing-method']] || 0) + r.count })
     const sensorDomain = {}
     overall.forEach((r) => {
       const sig = signalEntries.find((s) => s.name === r.signal)
@@ -281,14 +288,14 @@ function SignalSensorBrandSankey({ overall, signalInstanceTotals, brandData }) {
       signal: sigLayout.nodes, sensor: senLayout.nodes, brand: brandLayout.nodes,
       sigSenLinks, senBrandLinks, W: COL_BRAND + 190, H,
       maxFlow: Math.max(...overall.map((r) => r.count), 1),
-      signalDenom: signalEntries.reduce((a, d) => a + d.total, 0) || 1,
+      nExperiments: nExperiments || 1,
       sensorDenom: sensorEntries.reduce((a, d) => a + d.total, 0) || 1,
       nTotalBrands: new Set(brandData.map((r) => r.brand)).size,
       brandDenom: brandEntries.reduce((a, d) => a + d.total, 0) || 1,
       brandSensorMap,
       brandMode,
     }
-  }, [overall, signalInstanceTotals, brandData, brandMode])
+  }, [overall, signalTotals, signalInstanceTotals, brandData, brandMode, nExperiments])
 
   // Is a given link/node "active" under the current selection? Returns
   // true if nothing is selected (show everything normally) or if the
@@ -393,10 +400,10 @@ function SignalSensorBrandSankey({ overall, signalInstanceTotals, brandData }) {
               return (
                 <g key={n.name}
                   onClick={() => setSelected(selected?.level === 'signal' && selected.name === n.name ? null : { level: 'signal', name: n.name })}
-                  onMouseEnter={(e) => showTip(e, `${n.name}: ${n.total} studies — click to isolate all connected sensor types and brands`)} onMouseMove={moveTip} onMouseLeave={hideTip}
+                  onMouseEnter={(e) => showTip(e, `${n.name}: ${n.studyTotal} of ${layout.nExperiments} experiments (${((n.studyTotal / layout.nExperiments) * 100).toFixed(1)}%); flows represent ${n.total} experiment–signal–method instances — click to isolate`)} onMouseMove={moveTip} onMouseLeave={hideTip}
                   className="cursor-pointer" style={{ opacity: active ? 1 : 0.2 }}>
                   <rect x={n.x} y={n.y} width={14} height={n.h} fill={n.color} rx={2} />
-                  <text x={n.x - 8} y={n.y + n.h / 2 + 3.5} fontSize={10.5} fill="#0A0A0A" textAnchor="end">{`${n.name}, ${n.total} (${((n.total / layout.signalDenom) * 100).toFixed(0)}%)`}</text>
+                  <text x={n.x - 8} y={n.y + n.h / 2 + 3.5} fontSize={10.5} fill="#0A0A0A" textAnchor="end">{`${n.name}, ${n.studyTotal} (${((n.studyTotal / layout.nExperiments) * 100).toFixed(0)}%)`}</text>
                 </g>
               )
             })}
@@ -441,7 +448,7 @@ function SignalSensorBrandSankey({ overall, signalInstanceTotals, brandData }) {
         </svg>
       </div>
       <p className="font-data text-[10px] text-inkfaint mt-2">
-        Flow width and node height are proportional to experiment–signal–method instances; node and link colours mark physiological signal families; the central thermal-state family is highlighted in yellow. Node labels use one format throughout: name, study count, and percentage in parentheses. Signal and sensor-type percentages are within their displayed instance column. Link hover reports the percentage relative to the immediate parent node. Click any signal, sensor type, or brand to highlight all connected paths and rows across all three columns.
+        Flow width and node height are proportional to experiment–signal–method instances; node and link colours mark physiological signal families; the central thermal-state family is highlighted in yellow. Node labels use one format throughout: name, study count, and percentage in parentheses. Signal labels show unique experiment counts and percentages of all experiments. Sensor-type counts and flow widths represent experiment–signal–method instances; sensor-type percentages are within their displayed instance column. Link hover reports the percentage relative to the immediate parent node. Click any signal, sensor type, or brand to highlight all connected paths and rows across all three columns.
         {' '}The brand-column toggle above switches between two parentages for the same underlying counts: "by sensor type" keeps each brand's node scoped to one sensor type (so a brand sold under two sensor types appears as two smaller nodes, and its brand percentage is relative to that one sensor type's total); "collapsed by brand" merges those into a single node per brand name with links fanning in from every sensor type it's used under (brand percentage is then relative to the top-{COLLAPSED_TOP_N} brands shown, not to any one sensor type).
       </p>
       <TooltipPortal tip={tip} />
@@ -866,12 +873,12 @@ export default function ChapterBody({ data }) {
           title="Signal → sensor type → brand"
           plotWidth={1100}
           commentary={[
-            `Skin temperature accounts for ${skinTempPct}% of signal-sensor pairs shown here, followed by heart/pulse rate at ${heartRatePct}% — together the clear majority of what gets measured. Every other signal sits in single digits. Sensing-type choice is far from standardized even within one signal: skin temperature alone is measured via ${nSensorTypesSkinTemp} distinct sensor types, with no single method used in a majority of studies.`,
+            `Skin temperature is measured in ${skinTempN} of ${summary.n_experiments} experiments (${skinTempPct}%), followed by heart/pulse rate in ${heartRateN} (${heartRatePct}%). Every other signal sits in single digits. Sensing-type choice is far from standardized even within one signal: skin temperature alone is measured via ${nSensorTypesSkinTemp} distinct sensor types, with no single method used in a majority of studies.`,
             `OMRON is the most-cited brand overall (${omronTotal}, counted once per signal it's used for), but spread across signals — it makes combination devices covering blood pressure (${omronBySignal['Blood pressure'] || 0}), heart rate (${omronBySignal['Heart/Pulse rate'] || 0}), and core temperature (${omronBySignal['Core temperature'] || 0}). iButton (${iButtonTotal}) is the opposite pattern: concentrated almost entirely in one signal, skin temperature (${iButtonSkin} of its ${iButtonTotal}). Flow and node thickness are proportional to study count — hover for the exact number, or click any signal, sensor type, or brand to isolate its paths.`,
           ]}
           footnote={`* Core temperature (${coreTempN} studies) and body temperature (${bodyTempN}) are shown as separate signals here — body temperature is used where a paper reported measuring "core body temperature" but the actual method wasn't a true core measure (e.g. forehead, axillary), reclassified to distinguish it from validated core-temperature methods (rectal, esophageal, ingestible pill).`}
         >
-          <SignalSensorBrandSankey overall={physio_signal_sensor.overall} signalInstanceTotals={physio_signal_sensor.signal_instance_totals} brandData={physio_signal_sensor.signal_method_brand} />
+          <SignalSensorBrandSankey overall={physio_signal_sensor.overall} signalTotals={physio_signal_sensor.signal_totals} signalInstanceTotals={physio_signal_sensor.signal_instance_totals} brandData={physio_signal_sensor.signal_method_brand} nExperiments={summary.n_experiments} />
         </FigureCard>
 
         <FigureCard figNumber="23" title="Where on the body each signal is measured" plotWidth={900} commentary={`Skin temperature is measured across the body fairly evenly (no single dominant site). Heart rate concentrates at the chest (${hrChest} of ${hrN} studies, ECG-strap territory) and wrist (${hrWrist}, optical wearables). The sudomotor signals split sharply by method: ${sweatWholeBody} sweat-indicator studies measure the whole body at once (not shown on the diagram, see the list at right), while skin conductance is almost always local — ${conductanceWrist} studies at the wrist, ${conductanceFinger} at the finger.`}>          <BodySiteToggle
