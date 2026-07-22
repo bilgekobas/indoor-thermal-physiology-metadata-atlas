@@ -29,7 +29,7 @@ export default function Methodology({ data }) {
             2024. Search terms were grouped around thermal-comfort constructs, experimental context,
             and physiological measurement. The initial search results yielded 6592 records across four databases. 
             After duplicate removal and title/abstract screening, 358 publications remained for full-text review. 
-            Of these, 278 studies met all inclusion and exclusion criteria. <br></br>
+            Of these, 273 studies met all inclusion and exclusion criteria. <br></br>
             The current corpus contains {summary.n_publications} studies published between {summary.year_min} and {summary.year_max}.
           </p>
         </section>
@@ -52,7 +52,7 @@ export default function Methodology({ data }) {
         <section>
           <h2 className="text-[15px] font-semibold mb-2">Metadata architecture</h2>
           <p className="text-[13.5px] text-inkmid leading-relaxed mb-3">
-            The current extraction sheet contains 14 metadata categories and 198 fields. The fields
+            The current extraction sheet contains 14 metadata categories and 206 fields. The fields
             cover identifiers, timing, context, study domains, target thermal conditions, population
             characteristics, environmental measurements, physiological measurements, questionnaires,
             cognitive/mental-load measurements, eligibility criteria, participant metadata, protocol
