@@ -1,0 +1,2065 @@
+{
+  "data": [
+    {
+      "col_id": 1,
+      "col_name": "id-pub-id",
+      "col_pretty_name": "Publication ID",
+      "category_pretty_names": "ID",
+      "data_type": "integer",
+      "unit": "-",
+      "allowed_values": "Any value",
+      "description": "Publication IDs are in 0000 format, with the initial number indicating the dataset update round, and the last three numbers indicating the publication id assigned within that round."
+    },
+    {
+      "col_id": 2,
+      "col_name": "id-exp-id",
+      "col_pretty_name": "Experiment ID",
+      "category_pretty_names": "ID",
+      "data_type": "integer",
+      "unit": "-",
+      "allowed_values": "Any value",
+      "description": "If the publication includes results from more then one experiment, each individual experiment is differentiated here."
+    },
+    {
+      "col_id": 3,
+      "col_name": "id",
+      "col_pretty_name": "Unique study ID",
+      "category_pretty_names": "ID",
+      "data_type": "text",
+      "unit": "-",
+      "allowed_values": "Any value",
+      "description": "ID combining the publication and experiment IDs, resulting in unique study ID"
+    },
+    {
+      "col_id": 4,
+      "col_name": "id-title",
+      "col_pretty_name": "Publication title",
+      "category_pretty_names": "ID",
+      "data_type": "text",
+      "unit": "-",
+      "allowed_values": "Any value",
+      "description": "Title of the publication."
+    },
+    {
+      "col_id": 5,
+      "col_name": "id-authors",
+      "col_pretty_name": "Authors",
+      "category_pretty_names": "ID",
+      "data_type": "text",
+      "unit": "-",
+      "allowed_values": "Any value",
+      "description": "Authors as listed in the publication, comma-separated."
+    },
+    {
+      "col_id": 6,
+      "col_name": "id-institutes",
+      "col_pretty_name": "Institutes of the authors",
+      "category_pretty_names": "ID",
+      "data_type": "text",
+      "unit": "-",
+      "allowed_values": "Any value",
+      "description": "Author affiliations in the order listed in the publication, comma-separated. Only the highest institutional level is recorded (e.g., university name, not department name)."
+    },
+    {
+      "col_id": 7,
+      "col_name": "id-city",
+      "col_pretty_name": "City of experiment",
+      "category_pretty_names": "Context",
+      "data_type": "text",
+      "unit": "-",
+      "allowed_values": "NR, any value",
+      "description": "City in which the experiment took place. If the same protocol was repeated in multiple cities, the cities are recorded as comma-separated values in the same cell."
+    },
+    {
+      "col_id": 8,
+      "col_name": "id-country",
+      "col_pretty_name": "Country of experiment",
+      "category_pretty_names": "Context",
+      "data_type": "text",
+      "unit": "-",
+      "allowed_values": "NR, any value",
+      "description": "Country in which the experiment took place."
+    },
+    {
+      "col_id": 9,
+      "col_name": "id-climate-class",
+      "col_pretty_name": "Climate class",
+      "category_pretty_names": "Context",
+      "data_type": "categorical",
+      "unit": "-",
+      "allowed_values": "NR, any value",
+      "description": "Köppen–Geiger climate classification assigned based on city and country information."
+    },
+    {
+      "col_id": 10,
+      "col_name": "data-avail",
+      "col_pretty_name": "Data availability",
+      "category_pretty_names": "Data availability",
+      "data_type": "categorical",
+      "unit": "-",
+      "allowed_values": "NR, Not available for sharing, Upon request, Available, NC",
+      "description": "Statement on whether the underlying study data are available to other researchers. \n\nNR = no information provided. Not available for sharing = explicitly stated that data cannot be shared. Upon request = explicitly stated to be available upon request or reasonable request. Available = publicly accessible link provided; the link is stored in data_link. NC = conflicting statements regarding data availability."
+    },
+    {
+      "col_id": 11,
+      "col_name": "data-link",
+      "col_pretty_name": "Link to downloadable dataset",
+      "category_pretty_names": "Data availability",
+      "data_type": "text",
+      "unit": "-",
+      "allowed_values": "NR, NAN, NC, any value",
+      "description": "If a publicly accessible dataset link is provided, it is recorded here."
+    },
+    {
+      "col_id": 12,
+      "col_name": "data-supp-link",
+      "col_pretty_name": "Supplementary documents",
+      "category_pretty_names": "Data availability",
+      "data_type": "text",
+      "unit": "-",
+      "allowed_values": "NR, NAN, NC, any value",
+      "description": "If a supplementary document link is provided, it is recorded here."
+    },
+    {
+      "col_id": 13,
+      "col_name": "pub-type",
+      "col_pretty_name": "Publication type",
+      "category_pretty_names": "Publication",
+      "data_type": "categorical",
+      "unit": "-",
+      "allowed_values": "C, J, B",
+      "description": "C: Conference, J: Journal, B: Book. Currently only J type exists."
+    },
+    {
+      "col_id": 14,
+      "col_name": "pub-name",
+      "col_pretty_name": "Name of the publication",
+      "category_pretty_names": "Publication",
+      "data_type": "text",
+      "unit": "-",
+      "allowed_values": "Any value",
+      "description": "Name of the journal, conference proceedings, or other publication outlet."
+    },
+    {
+      "col_id": 15,
+      "col_name": "publisher",
+      "col_pretty_name": "Publisher",
+      "category_pretty_names": "Publication",
+      "data_type": "text",
+      "unit": "-",
+      "allowed_values": "Any value",
+      "description": "Publisher of the publication outlet."
+    },
+    {
+      "col_id": 16,
+      "col_name": "pub-year",
+      "col_pretty_name": "Publication year",
+      "category_pretty_names": "Publication",
+      "data_type": "integer",
+      "unit": "yyyy",
+      "allowed_values": "Any value",
+      "description": "Year of publication."
+    },
+    {
+      "col_id": 17,
+      "col_name": "pub-doi",
+      "col_pretty_name": "DOI",
+      "category_pretty_names": "Publication",
+      "data_type": "text",
+      "unit": "-",
+      "allowed_values": "Any value",
+      "description": "Digital Object Identifier (DOI) of the publication."
+    },
+    {
+      "col_id": 18,
+      "col_name": "exp-type",
+      "col_pretty_name": "Experiment type",
+      "category_pretty_names": "Experiment",
+      "data_type": "categorical",
+      "unit": "-",
+      "allowed_values": "NR, NC, Lab, Field, Living Lab, Mixed",
+      "description": "Type of experimental setting."
+    },
+    {
+      "col_id": 19,
+      "col_name": "exp-spatial-typology",
+      "col_pretty_name": "Spatial typology of the test environment",
+      "category_pretty_names": "Experiment",
+      "data_type": "categorical",
+      "unit": "-",
+      "allowed_values": "NR, NC, Office/Workstations, Classroom/Study room, Seating, Desk&Chair, Residential, Free-living",
+      "description": "Spatial typology of the test environment or simulated setting used in the experiment."
+    },
+    {
+      "col_id": 20,
+      "col_name": "exp-domains",
+      "col_pretty_name": "Experimental domains",
+      "category_pretty_names": "Experiment",
+      "data_type": "multi_categorical",
+      "unit": "-",
+      "allowed_values": "Air temperature\nAir temperature: Double step change\nAir temperature: Ramp\nAir temperature: Non-uniform\nOutdoor temperature\nSolar radiation\nRadiant temperature\nRadiant temperature: Double step change\nRadiant temperature: Ramp\nRadiant temperature: Non-uniform\nAir velocity\nAir velocity: Ramp\nAirflow direction\nCO2\nIllumination\nLight colour\nClothing\nActivity level\nThermal perception\nPMV\nNC\nSound level\nOdour\nNR\nAcclimation\nAdaptive behaviour\nVisual access\nRelative humidity\nRelative humidity: Ramp",
+      "description": "This field allows for comma separated values, and includes additional information after the :"
+    },
+    {
+      "col_id": 21,
+      "col_name": "exp-domain-thermal",
+      "col_pretty_name": "Domains: Thermal",
+      "category_pretty_names": "Experiment",
+      "data_type": "boolean",
+      "unit": "-",
+      "allowed_values": "Y, NR, NC",
+      "description": "Indicates whether thermal conditions were experimentally varied, including air, operative, radiant, surface, and/or outdoor temperature. This may include static differences, step changes, ramps, or other thermal manipulations."
+    },
+    {
+      "col_id": 22,
+      "col_name": "exp-domain-air-move",
+      "col_pretty_name": "Domains: Air movement",
+      "category_pretty_names": "Experiment",
+      "data_type": "boolean",
+      "unit": "-",
+      "allowed_values": "Y, NR, NC",
+      "description": "Indicates whether air velocity were experimentally varied, including air, operative, radiant, surface, and/or outdoor temperature. This may include static differences, step changes, ramps, or other thermal manipulations."
+    },
+    {
+      "col_id": 23,
+      "col_name": "exp-domain-humidity",
+      "col_pretty_name": "Domains: Humidity",
+      "category_pretty_names": "Experiment",
+      "data_type": "boolean",
+      "unit": "-",
+      "allowed_values": "Y, NR, NC",
+      "description": "If different humidity levels were tested, then 1. Could be step change, double step change, ramp, or others."
+    },
+    {
+      "col_id": 24,
+      "col_name": "exp-domain-co2",
+      "col_pretty_name": "Domains: CO2",
+      "category_pretty_names": "Experiment",
+      "data_type": "boolean",
+      "unit": "-",
+      "allowed_values": "Y, NR, NC",
+      "description": "If different CO2 levels were tested, then 1. Could be step change, double step change, ramp, or others."
+    },
+    {
+      "col_id": 25,
+      "col_name": "exp-domain-light",
+      "col_pretty_name": "Domains: Light",
+      "category_pretty_names": "Experiment",
+      "data_type": "boolean",
+      "unit": "-",
+      "allowed_values": "Y, NR, NC",
+      "description": "If different illumination levels, colour temperature, or other light aspects were tested, then 1. Could be step change, double step change, ramp, or others."
+    },
+    {
+      "col_id": 26,
+      "col_name": "exp-domain-acoustics",
+      "col_pretty_name": "Domains: Acoustic",
+      "category_pretty_names": "Experiment",
+      "data_type": "boolean",
+      "unit": "-",
+      "allowed_values": "Y, NR, NC",
+      "description": "If different sound levels, or other acoustic aspects were tested, then 1. Could be step change, double step change, ramp, or others."
+    },
+    {
+      "col_id": 27,
+      "col_name": "exp-domain-behaviour",
+      "col_pretty_name": "Domains: Adaptive behaviour",
+      "category_pretty_names": "Experiment",
+      "data_type": "boolean",
+      "unit": "-",
+      "allowed_values": "Y, NR, NC",
+      "description": "If test scenarios included different adaptive behaviour components, ie. clothing, different activities, location change, posture change, etc. "
+    },
+    {
+      "col_id": 28,
+      "col_name": "exp-domain-iaq",
+      "col_pretty_name": "Domains: IAQ",
+      "category_pretty_names": "Experiment",
+      "data_type": "boolean",
+      "unit": "-",
+      "allowed_values": "Y, NR, NC",
+      "description": "If different IAQ aspects, ie. odour, were tested, then 1. Could be step change, double step change, ramp, or others."
+    },
+    {
+      "col_id": 29,
+      "col_name": "exp-tested-t-min",
+      "col_pretty_name": "Minimum tested temperature",
+      "category_pretty_names": "Experiment",
+      "data_type": "float",
+      "unit": "°C, or °F",
+      "allowed_values": "NR, NAN, NC, any value",
+      "description": "Minimum temperature that was tested in the experiment. If reported I take operative temperature, if not, air temperature. Stored as Celsius. "
+    },
+    {
+      "col_id": 30,
+      "col_name": "exp-tested-t-max",
+      "col_pretty_name": "Maximum tested temperature",
+      "category_pretty_names": "Experiment",
+      "data_type": "float",
+      "unit": "°C, or °F",
+      "allowed_values": "NR, NAN, NC, any value",
+      "description": "Maximum temperature that was tested in the experiment. If reported I take operative temperature, if not, air temperature. Stored as Celsius. "
+    },
+    {
+      "col_id": 31,
+      "col_name": "exp-tested-target-temps",
+      "col_pretty_name": "Tested temperatures",
+      "category_pretty_names": "Experiment",
+      "data_type": "float",
+      "unit": "°C, or °F",
+      "allowed_values": "NR, NAN, NC, Free running, any value",
+      "description": "Target temperatures of all tested scenarios, comma separated. Can be any number, any number range, or Free running.\n\nIf the test scenario was a ramp, then stated with a dash in between. ie. 28, 28-16, 16 would mean there were two static conditions tested seoarately, at 16 and 28C, and a third scenario where the temperature started from 28 and decreased to 16 was tested.\n\nFree running is when there were no target temperatures."
+    },
+    {
+      "col_id": 32,
+      "col_name": "exp-year-start",
+      "col_pretty_name": "Start year",
+      "category_pretty_names": "Time",
+      "data_type": "integer",
+      "unit": "-",
+      "allowed_values": "NR, NC, any value",
+      "description": "Start of the experiments"
+    },
+    {
+      "col_id": 33,
+      "col_name": "exp-year-end",
+      "col_pretty_name": "End year",
+      "category_pretty_names": "Time",
+      "data_type": "integer",
+      "unit": "-",
+      "allowed_values": "NR, NC, any value",
+      "description": "Last year of the experiments"
+    },
+    {
+      "col_id": 34,
+      "col_name": "exp-seasons",
+      "col_pretty_name": "Seasons",
+      "category_pretty_names": "Time",
+      "data_type": "categorical",
+      "unit": "-",
+      "allowed_values": "NR, Summer, Autumn, Winter, Spring, NAN",
+      "description": "In case the season is mentioned, it is stored here. Sometimes authors only mention seasons and no month/year information is given"
+    },
+    {
+      "col_id": 35,
+      "col_name": "exp-month-start",
+      "col_pretty_name": "Start moth",
+      "category_pretty_names": "Time",
+      "data_type": "integer",
+      "unit": "-",
+      "allowed_values": "NR, NC, any value",
+      "description": "Month the experiment started, in numerical format. ie. 1=January"
+    },
+    {
+      "col_id": 36,
+      "col_name": "exp-month-end",
+      "col_pretty_name": "End month",
+      "category_pretty_names": "Time",
+      "data_type": "integer",
+      "unit": "-",
+      "allowed_values": "NR, NC, any value",
+      "description": "Month the experiment ended, in numerical format. ie. 1=January"
+    },
+    {
+      "col_id": 37,
+      "col_name": "exp-time",
+      "col_pretty_name": "Experiment time",
+      "category_pretty_names": "Time",
+      "data_type": "string",
+      "unit": "-",
+      "allowed_values": "NR, NC, any value",
+      "description": "A combined version of the exp-year-start, exp-year-end, exp-seasons, exp-month-start, exp-month-end data. This is relevant as storing only start and end did not work for non-continuous cases. If the experiment spanned over several years, it is reported as [yyyy1: m1, m2, m3], [yyyy2: m1, m2, m3, m4]"
+    },
+    {
+      "col_id": 38,
+      "col_name": "exp-hours",
+      "col_pretty_name": "Session times",
+      "category_pretty_names": "Time",
+      "data_type": "time",
+      "unit": "hh:mm",
+      "allowed_values": "NR, NC, any value",
+      "description": "Start and end times as hh:mm-hh:mm format. If more than one session period exists, then all values are listed as comma separated."
+    },
+    {
+      "col_id": 39,
+      "col_name": "exp-normalisation-length",
+      "col_pretty_name": "Length of normalization",
+      "category_pretty_names": "Time",
+      "data_type": "integer",
+      "unit": "minutes",
+      "allowed_values": "NR, NC, any value",
+      "description": "Normalisation, acclimation, acclimatisation, adaptation, stabilisation, preparation, etc.. This is outside the session length duration, occurs before the session start in a controlled environment. in minutes.\n\nIf there is no fixed duration, but a range (ie. 'the sessions lasted minumum 2 hours', or 'the participants waited before the sessions for 15-20 minutes') then the minimum amount is stored. This would mean the first example's session length is 120 mins, and normalisation is 15 mins."
+    },
+    {
+      "col_id": 40,
+      "col_name": "exp-session-length",
+      "col_pretty_name": "Length of session",
+      "category_pretty_names": "Time",
+      "data_type": "integer",
+      "unit": "minutes",
+      "allowed_values": "NR, NC, any value",
+      "description": "Length of the session. Sometimes referred to as 'data collection period', or 'official experiment duration', or similar. Does not included the normalisation length stated in the previous column. Stored here in minutes. \n\nIf there is no fixed duration, but a range (ie. 'the sessions lasted minumum 2 hours', or 'the participants waited before the sessions for 15-20 minutes') then the minimum amount is stored. This would mean the first example's session length is 120 mins, and normalisation is 15 mins."
+    },
+    {
+      "col_id": 41,
+      "col_name": "pop-sample-size-calc",
+      "col_pretty_name": "Sample size calculation",
+      "category_pretty_names": "Population",
+      "data_type": "boolean",
+      "unit": "-",
+      "allowed_values": "Y, NR, NC, N",
+      "description": "Did they do sample size calculation at some point? If they don't specifically mention they did not calculate, then NR"
+    },
+    {
+      "col_id": 42,
+      "col_name": "pop-sample-size-calc-type",
+      "col_pretty_name": "Sample size calculation type",
+      "category_pretty_names": "Population",
+      "data_type": "categorical",
+      "unit": "-",
+      "allowed_values": "NAN, NR, NC, A priori, Post hoc, Precedence",
+      "description": "If the previous answer is Y, then whether the calculation was done A priori, Post hoc, or based on Precedence citing some other publications. If the previous answer was not Y, then this is nan"
+    },
+    {
+      "col_id": 43,
+      "col_name": "pop-payment",
+      "col_pretty_name": "Participant payment",
+      "category_pretty_names": "Population",
+      "data_type": "boolean",
+      "unit": "-",
+      "allowed_values": "Y, N, NR",
+      "description": "Were the participants paid? "
+    },
+    {
+      "col_id": 44,
+      "col_name": "pop-no-tot",
+      "col_pretty_name": "Participant number (total)",
+      "category_pretty_names": "Population",
+      "data_type": "integer",
+      "unit": "-",
+      "allowed_values": "NR, any value",
+      "description": "Total number of participants"
+    },
+    {
+      "col_id": 45,
+      "col_name": "pop-male-no",
+      "col_pretty_name": "Participant number (male)",
+      "category_pretty_names": "Population",
+      "data_type": "integer",
+      "unit": "-",
+      "allowed_values": "NR, any value",
+      "description": "Number of male participants"
+    },
+    {
+      "col_id": 46,
+      "col_name": "pop-fem-no",
+      "col_pretty_name": "Participant number (female)",
+      "category_pretty_names": "Population",
+      "data_type": "integer",
+      "unit": "-",
+      "allowed_values": "NR, any value",
+      "description": "Number of female participants"
+    },
+    {
+      "col_id": 47,
+      "col_name": "pop-m2f-no",
+      "col_pretty_name": "Participant number (m2f)",
+      "category_pretty_names": "Population",
+      "data_type": "integer",
+      "unit": "-",
+      "allowed_values": "NR, any value",
+      "description": "Number of participants who are currently transitioning from male to female"
+    },
+    {
+      "col_id": 48,
+      "col_name": "pop-f2m-no",
+      "col_pretty_name": "Participant number (f2m)",
+      "category_pretty_names": "Population",
+      "data_type": "integer",
+      "unit": "-",
+      "allowed_values": "NR, any value",
+      "description": "Number of participants who are currently transitioning from female to male"
+    },
+    {
+      "col_id": 49,
+      "col_name": "pop-male-ratio",
+      "col_pretty_name": "Male participant percentage",
+      "category_pretty_names": "Population",
+      "data_type": "percentage",
+      "unit": "-",
+      "allowed_values": "NR, any value",
+      "description": "Calculated by part-male-no/part-no-tot"
+    },
+    {
+      "col_id": 50,
+      "col_name": "pop-age-range",
+      "col_pretty_name": "Age range",
+      "category_pretty_names": "Population",
+      "data_type": "string",
+      "unit": "years",
+      "allowed_values": "NR, any value",
+      "description": "If the minimum-maximum range of the subject are given"
+    },
+    {
+      "col_id": 51,
+      "col_name": "pop-age-mean",
+      "col_pretty_name": "Participant age (mean)",
+      "category_pretty_names": "Population",
+      "data_type": "float",
+      "unit": "years",
+      "allowed_values": "NR, any value",
+      "description": "Mean age of all participants.\n\nWhen reporting age, there are cases the subgroup age stats are given but not the whole group. In those cases, the values for the subgroups are given as [sample size no1: age mean], [sample size no2: age mean], ... The values age values (mean or std) are always entered as 00.00\n\ni.e.; [22: 21.71], [13: 21.43], [19: 26.00], [28: 18.90]\nThere were four subgroups, first one had 22 subjects, with an age mean of 21.71. Second subgroup had 13 subjects, mean was 21.43."
+    },
+    {
+      "col_id": 52,
+      "col_name": "pop-age-std",
+      "col_pretty_name": "Participant age (std)",
+      "category_pretty_names": "Population",
+      "data_type": "float",
+      "unit": "years",
+      "allowed_values": "NR, any value",
+      "description": "Standard deviation for the mean.\n\nSame as age-mean."
+    },
+    {
+      "col_id": 53,
+      "col_name": "pop-age-male-mean",
+      "col_pretty_name": "Participant age (male mean)",
+      "category_pretty_names": "Population",
+      "data_type": "float",
+      "unit": "years",
+      "allowed_values": "NR, NAN, any value",
+      "description": "Can be NAN if there were no male participants"
+    },
+    {
+      "col_id": 54,
+      "col_name": "pop-age-fem-mean",
+      "col_pretty_name": "Participant age (female mean)",
+      "category_pretty_names": "Population",
+      "data_type": "float",
+      "unit": "years",
+      "allowed_values": "NR, NAN, any value",
+      "description": "Can be NAN if there were no female participants"
+    },
+    {
+      "col_id": 55,
+      "col_name": "pop-bmi-mean",
+      "col_pretty_name": "Participant BMI (mean)",
+      "category_pretty_names": "Population",
+      "data_type": "float",
+      "unit": "kg/m2",
+      "allowed_values": "NR, any value",
+      "description": "Mean BMI for all participants. \n\nWhen an overall population BMI is not given, but values are given for groups, then these are coded as \"[sample size no: bmi std for that group]\", ie \"[12: 20.35], [12: 24.6]\" meaning for the group of 12 people, BMI  was 20.35, and for the other group of 12 people, BMI was 24.6."
+    },
+    {
+      "col_id": 56,
+      "col_name": "pop-bmi-std",
+      "col_pretty_name": "Participant BMI (std)",
+      "category_pretty_names": "Population",
+      "data_type": "float",
+      "unit": "kg/m2",
+      "allowed_values": "NR, any value",
+      "description": "Standard deviation for the BMI\n\nWhen an overall population BMI is not given, but values are given for groups, then these are coded as \"[sample size no: bmi std for that group]\", ie \"[12: 2.6], [12: 4.6]\" meaning for the group of 12 people, std was 2.6, and for the other group of 12 people, std was 4.6."
+    },
+    {
+      "col_id": 57,
+      "col_name": "pop-bmi-male-mean",
+      "col_pretty_name": "Participant BMI (male mean)",
+      "category_pretty_names": "Population",
+      "data_type": "float",
+      "unit": "kg/m2",
+      "allowed_values": "NR, NAN, any value",
+      "description": "Can be NAN if there were no male participants"
+    },
+    {
+      "col_id": 58,
+      "col_name": "pop-bmi-fem-mean",
+      "col_pretty_name": "Participant BMI (female mean)",
+      "category_pretty_names": "Population",
+      "data_type": "float",
+      "unit": "kg/m2",
+      "allowed_values": "NR, NAN, any value",
+      "description": "Can be NAN if there were no female participants"
+    },
+    {
+      "col_id": 59,
+      "col_name": "physio-parameter",
+      "col_pretty_name": "Physiological parameter",
+      "category_pretty_names": "Physiological",
+      "data_type": "categorical",
+      "unit": "-",
+      "allowed_values": "Biomarkers: Alpha-amylase\nBiomarkers: Catecholamines\nBiomarkers: Cortisol\nBiomarkers: COX1\nBiomarkers: COX2\nBiomarkers: Dopamine\nBiomarkers: Estradiol\nBiomarkers: Free thyroxine (FT4)\nBiomarkers: Free triiodothyronine (FT3)\nBiomarkers: Heat shock protein (HSP)\nBiomarkers: Immunoglobulin A (IgA)\nBiomarkers: Immunoglobulin E (IgE)\nBiomarkers: Interleukin 6 (IL-6)\nBiomarkers: Lysozyme \nBiomarkers: PGE2\nBiomarkers: Progesterone\nBiomarkers: Tear film mucus\nBiomarkers: Testosterone\nBiomarkers: Thyroid-stimulating hormone (TSH)\nBlood pressure\nBody temperature\nCore temperature\nEEG\nEMG\nEOG\nExhaled breath temperature\nGlucose\nHeart/Pulse rate\nHeat flux\nMetabolic rate/Gas exchange\nMovement\nNear body temperature\nOxygen saturation\nPerfusion index\nPupillometry\nRespiration\nSensory nerve conduction velocity\n\"Sensory nerve\nconduction velocity\"\nSkin blood flow\nSkin conductance\nSkin hardness\nSkin temperature\nSweat indicators",
+      "description": "This field cannot be NR, NAN or NC. Otherwise publication/experiment does not satisfy inclusion/selection criteria."
+    },
+    {
+      "col_id": 60,
+      "col_name": "physio-sensing-method",
+      "col_pretty_name": "Sensing technology method/technique",
+      "category_pretty_names": "Physiological",
+      "data_type": "categorical",
+      "unit": "-",
+      "allowed_values": "NR, NC, any value",
+      "description": "This information can be inferred when the sensor brand/model and body site combinations can only have one value for sensing technology."
+    },
+    {
+      "col_id": 61,
+      "col_name": "physio-body-site",
+      "col_pretty_name": "Body site of measurement",
+      "category_pretty_names": "Physiological",
+      "data_type": "categorical",
+      "unit": "-",
+      "allowed_values": "NR, NC, any value",
+      "description": "Either as reported, or shown on diagrams/images in the publication. If written and image information does not match (ie. text states \"calf\" while image shows \"shin\"), then image is preferred."
+    },
+    {
+      "col_id": 62,
+      "col_name": "physio-body-site-sagittal",
+      "col_pretty_name": "Body site of measurement (coronal)",
+      "category_pretty_names": "Physiological",
+      "data_type": "categorical",
+      "unit": "-",
+      "allowed_values": "NR, NAN, NC, Left, Right, Middle, Non-dominant, Dominant",
+      "description": "Left, Right or Middle side of the body. Can be NAN; ie. For Cortisol measurements from saliva, or blood, etc. Non-dominant or Dominant hands/limbs are sometimes specified without left or right directions."
+    },
+    {
+      "col_id": 63,
+      "col_name": "physio-body-site-surface",
+      "col_pretty_name": "Body site of measurement (sagittal)",
+      "category_pretty_names": "Physiological",
+      "data_type": "categorical",
+      "unit": "-",
+      "allowed_values": "NR, NAN, NC, Anterior, Posterior, Lateral, Dorsal, Palmar/Plantar",
+      "description": "Front, Back or the outer part of the body. "
+    },
+    {
+      "col_id": 64,
+      "col_name": "physio-sensor-brand",
+      "col_pretty_name": "Sensor brand",
+      "category_pretty_names": "Physiological",
+      "data_type": "text",
+      "unit": "-",
+      "allowed_values": "NR, NAN, NC, any value",
+      "description": "ie. Polar"
+    },
+    {
+      "col_id": 65,
+      "col_name": "physio-sensor-model",
+      "col_pretty_name": "Sensor model",
+      "category_pretty_names": "Physiological",
+      "data_type": "text",
+      "unit": "-",
+      "allowed_values": "NR, NAN, NC, any value",
+      "description": "ie. H10"
+    },
+    {
+      "col_id": 66,
+      "col_name": "physio-mst-calculated",
+      "col_pretty_name": "Mean Skin Temperature calculation",
+      "category_pretty_names": "Physiological",
+      "data_type": "boolean",
+      "unit": "-",
+      "allowed_values": "Y, N, NR, NAN",
+      "description": "Was there a Mean Skin Temperature calculation? For entries that are not Skin Temperature, it is nan. For Skin Temperature, Y, N or NR.\n\nDifference between N and NR is, when we know there is a MST calculation, but not using all of the skin sites. In that case, some of the sites will have Y value, and the unused ones will have N value."
+    },
+    {
+      "col_id": 67,
+      "col_name": "physio-mst-points",
+      "col_pretty_name": "Mean Skin Temperature calculation no of points",
+      "category_pretty_names": "Physiological",
+      "data_type": "integer",
+      "unit": "-",
+      "allowed_values": "NR, NAN, NC, any value",
+      "description": "How many points were used for the calculation. Sometimes there are multiple values, as the paper chose to compare different MST values. Then comma separated in the order that will match the formulas in the next column"
+    },
+    {
+      "col_id": 68,
+      "col_name": "physio-mst-formula",
+      "col_pretty_name": "Mean Skin Temperature formula reference",
+      "category_pretty_names": "Physiological",
+      "data_type": "text",
+      "unit": "-",
+      "allowed_values": "NR, NAN, NC, any value",
+      "description": "Which formula was used. Within the same number of points, there are different formulas. Sometimes there are multiple values, as the paper chose to compare different MST values. Stored in the order to match the comma separated numbers in mst-points.\n\nCoded as \"Ramanathan (1964)\" or \"ISO XXXX:2004\""
+    },
+    {
+      "col_id": 69,
+      "col_name": "physio-formulas",
+      "col_pretty_name": "Mean Skin Temperature formula ",
+      "category_pretty_names": "Physiological",
+      "data_type": "text",
+      "unit": "-",
+      "allowed_values": "NR, NAN, NC, any value",
+      "description": "The formula itself, as reported in the paper. If only a reference is given but no formula is specifically stated, then NR"
+    },
+    {
+      "col_id": 70,
+      "col_name": "physio-mst-weighting",
+      "col_pretty_name": "Mean Skin Temperature formula weighting factors",
+      "category_pretty_names": "Physiological",
+      "data_type": "float",
+      "unit": "-",
+      "allowed_values": "NR, NAN, NC, any value",
+      "description": "The weigthing used for each skin site, matched to respective row, ie, MST = 0.3chest + 0.3arm + 0.2thigh + 0.2calf. Next to Chest row, this column has 0.3"
+    },
+    {
+      "col_id": 71,
+      "col_name": "env-tdb",
+      "col_pretty_name": "Dry bulb temperature (tdb)",
+      "category_pretty_names": "Environment",
+      "data_type": "string",
+      "unit": "°C, or °F",
+      "allowed_values": "NR, MNR, NC, any value",
+      "description": "If it was measured = vertical height/s separate by comma when multiple, if measured heights are not reported = MNR, if not reported = NR, if reported but data unclear = NC"
+    },
+    {
+      "col_id": 72,
+      "col_name": "env-rh",
+      "col_pretty_name": "Relative humidity (rh)",
+      "category_pretty_names": "Environment",
+      "data_type": "string",
+      "unit": "%",
+      "allowed_values": "NR, MNR, NC, any value",
+      "description": "Same as tdb"
+    },
+    {
+      "col_id": 73,
+      "col_name": "env-v",
+      "col_pretty_name": "Air velocity (v)",
+      "category_pretty_names": "Environment",
+      "data_type": "string",
+      "unit": "m·s⁻¹",
+      "allowed_values": "NR, MNR, NC, any value",
+      "description": "Same as tdb"
+    },
+    {
+      "col_id": 74,
+      "col_name": "env-tg",
+      "col_pretty_name": "Globe temperature (tg)",
+      "category_pretty_names": "Environment",
+      "data_type": "string",
+      "unit": "°C, or °F",
+      "allowed_values": "NR, MNR, NC, any value",
+      "description": "Same as tdb"
+    },
+    {
+      "col_id": 75,
+      "col_name": "env-tsurface",
+      "col_pretty_name": "Surface temperature (°C)",
+      "category_pretty_names": "Environment",
+      "data_type": "string",
+      "unit": "°C, or °F",
+      "allowed_values": "NR, MNR, NC, any value",
+      "description": "Same as tdb"
+    },
+    {
+      "col_id": 76,
+      "col_name": "env-twb",
+      "col_pretty_name": "Wetbulb temperature (twb)",
+      "category_pretty_names": "Environment",
+      "data_type": "string",
+      "unit": "°C, or °F",
+      "allowed_values": "NR, MNR, NC, any value",
+      "description": "Same as tdb"
+    },
+    {
+      "col_id": 77,
+      "col_name": "env-co2",
+      "col_pretty_name": "CO2",
+      "category_pretty_names": "Environment",
+      "data_type": "string",
+      "unit": "ppm",
+      "allowed_values": "NR, MNR, NC, any value",
+      "description": "Same as tdb"
+    },
+    {
+      "col_id": 78,
+      "col_name": "env-illuminance",
+      "col_pretty_name": "Illuminance",
+      "category_pretty_names": "Environment",
+      "data_type": "string",
+      "unit": "lx",
+      "allowed_values": "NR, MNR, NC, any value",
+      "description": "Height(s) at which the illuminance sensor was placed. If measured = vertical height(s) in meters, comma separated when multiple; if measured but heights not reported = MNR; if not measured = NR; if reported but data unclear = NC."
+    },
+    {
+      "col_id": 79,
+      "col_name": "env-sound-level",
+      "col_pretty_name": "Noise",
+      "category_pretty_names": "Environment",
+      "data_type": "string",
+      "unit": "dB(A)",
+      "allowed_values": "NR, MNR, NC, any value",
+      "description": "Same as tdb"
+    },
+    {
+      "col_id": 80,
+      "col_name": "env-tout",
+      "col_pretty_name": "Outdoor  temperature",
+      "category_pretty_names": "Environment",
+      "data_type": "string",
+      "unit": "°C, or °F",
+      "allowed_values": "NR, MNR, NC, any value",
+      "description": "Same as tdb"
+    },
+    {
+      "col_id": 81,
+      "col_name": "env-rhout",
+      "col_pretty_name": "Outdoor relative humidity",
+      "category_pretty_names": "Environment",
+      "data_type": "string",
+      "unit": "%",
+      "allowed_values": "NR, MNR, NC, any value",
+      "description": "Same as tdb"
+    },
+    {
+      "col_id": 82,
+      "col_name": "env-voc",
+      "col_pretty_name": "VOC",
+      "category_pretty_names": "Environment",
+      "data_type": "string",
+      "unit": "ppb, or µg·m⁻³",
+      "allowed_values": "NR, MNR, NC, any value",
+      "description": "Same as tdb"
+    },
+    {
+      "col_id": 83,
+      "col_name": "env-light-color",
+      "col_pretty_name": "Light colour",
+      "category_pretty_names": "Environment",
+      "data_type": "string",
+      "unit": "K",
+      "allowed_values": "NR, MNR, NC, any value",
+      "description": "Same as tdb"
+    },
+    {
+      "col_id": 84,
+      "col_name": "env-solar-rad",
+      "col_pretty_name": "Solar radiation",
+      "category_pretty_names": "Environment",
+      "data_type": "string",
+      "unit": "W·m⁻²",
+      "allowed_values": "NR, MNR, NC, any value",
+      "description": "Same as tdb"
+    },
+    {
+      "col_id": 85,
+      "col_name": "ques-thermal-comfort",
+      "col_pretty_name": "Thermal Comfort (TCV)",
+      "category_pretty_names": "Questionnaires",
+      "data_type": "string",
+      "unit": "-",
+      "allowed_values": "NR, MNR, NC, any value",
+      "description": "If conducted, the scale is reported as \"points; range; scale\"\ni.e., points=7; range=(-3, -2, -1, 0, +1, +2, +3); scale=(\"cold\", \"cool\", \"slightly cool\", \"neutral\", \"slightly warm\", \"warm\", \"hot\")\nIf conducted but no information on scale is given, then MNR\nIf not reported, then NR\nIf reported but data is unclear, then NC"
+    },
+    {
+      "col_id": 86,
+      "col_name": "ques-thermal-sensation",
+      "col_pretty_name": "Thermal Sensation (TSV)",
+      "category_pretty_names": "Questionnaires",
+      "data_type": "string",
+      "unit": "-",
+      "allowed_values": "NR, MNR, NC, any value",
+      "description": "Same as Thermal Comfort"
+    },
+    {
+      "col_id": 87,
+      "col_name": "ques-thermal-prefer",
+      "col_pretty_name": "Thermal Preference (TPV)",
+      "category_pretty_names": "Questionnaires",
+      "data_type": "string",
+      "unit": "-",
+      "allowed_values": "NR, MNR, NC, any value",
+      "description": "Same as Thermal Comfort"
+    },
+    {
+      "col_id": 88,
+      "col_name": "ques-thermal-accept",
+      "col_pretty_name": "Thermal Acceptability (TAV)",
+      "category_pretty_names": "Questionnaires",
+      "data_type": "string",
+      "unit": "-",
+      "allowed_values": "NR, MNR, NC, any value",
+      "description": "Same as Thermal Comfort"
+    },
+    {
+      "col_id": 89,
+      "col_name": "ques-thermal-satisfaction",
+      "col_pretty_name": "Thermal Satisfaction",
+      "category_pretty_names": "Questionnaires",
+      "data_type": "string",
+      "unit": "-",
+      "allowed_values": "NR, MNR, NC, any value",
+      "description": "Same as Thermal Comfort"
+    },
+    {
+      "col_id": 90,
+      "col_name": "ques-thermal-pleasure-pleasantness",
+      "col_pretty_name": "Thermal Pleasure",
+      "category_pretty_names": "Questionnaires",
+      "data_type": "string",
+      "unit": "-",
+      "allowed_values": "NR, MNR, NC, any value",
+      "description": "Same as Thermal Comfort"
+    },
+    {
+      "col_id": 91,
+      "col_name": "ques-local-therm-comfort",
+      "col_pretty_name": "Local Thermal Comfort (LTCV)",
+      "category_pretty_names": "Questionnaires",
+      "data_type": "string",
+      "unit": "-",
+      "allowed_values": "NR, MNR, NC, any value",
+      "description": "Same as Thermal Comfort"
+    },
+    {
+      "col_id": 92,
+      "col_name": "ques-local-therm-sensation",
+      "col_pretty_name": "Local Thermal Sensation (LTSV)",
+      "category_pretty_names": "Questionnaires",
+      "data_type": "string",
+      "unit": "-",
+      "allowed_values": "NR, MNR, NC, any value",
+      "description": "Same as Thermal Comfort"
+    },
+    {
+      "col_id": 93,
+      "col_name": "ques-local-therm-satisfaction",
+      "col_pretty_name": "Local Thermal Satisfaction",
+      "category_pretty_names": "Questionnaires",
+      "data_type": "string",
+      "unit": "-",
+      "allowed_values": "NR, MNR, NC, any value",
+      "description": "Same as Thermal Comfort"
+    },
+    {
+      "col_id": 94,
+      "col_name": "ques-shivering",
+      "col_pretty_name": "Shivering Rate",
+      "category_pretty_names": "Questionnaires",
+      "data_type": "string",
+      "unit": "-",
+      "allowed_values": "NR, MNR, NC, any value",
+      "description": "Same as Thermal Comfort"
+    },
+    {
+      "col_id": 95,
+      "col_name": "ques-sweating-sensation",
+      "col_pretty_name": "Sweating Sensation",
+      "category_pretty_names": "Questionnaires",
+      "data_type": "string",
+      "unit": "-",
+      "allowed_values": "NR, MNR, NC, any value",
+      "description": "Same as Thermal Comfort"
+    },
+    {
+      "col_id": 96,
+      "col_name": "ques-overall-comfort",
+      "col_pretty_name": "Overall Comfort",
+      "category_pretty_names": "Questionnaires",
+      "data_type": "string",
+      "unit": "-",
+      "allowed_values": "NR, MNR, NC, any value",
+      "description": "Same as Thermal Comfort"
+    },
+    {
+      "col_id": 97,
+      "col_name": "ques-overall-satisfaction",
+      "col_pretty_name": "Overall Satisfaction",
+      "category_pretty_names": "Questionnaires",
+      "data_type": "string",
+      "unit": "-",
+      "allowed_values": "NR, MNR, NC, any value",
+      "description": "Same as Thermal Comfort"
+    },
+    {
+      "col_id": 98,
+      "col_name": "ques-airmove-comfort",
+      "col_pretty_name": "Air Movement Comfort",
+      "category_pretty_names": "Questionnaires",
+      "data_type": "string",
+      "unit": "-",
+      "allowed_values": "NR, MNR, NC, any value",
+      "description": "Same as Thermal Comfort"
+    },
+    {
+      "col_id": 99,
+      "col_name": "ques-airmove-sensation",
+      "col_pretty_name": "Air Movement Sensation",
+      "category_pretty_names": "Questionnaires",
+      "data_type": "string",
+      "unit": "-",
+      "allowed_values": "NR, MNR, NC, any value",
+      "description": "Same as Thermal Comfort"
+    },
+    {
+      "col_id": 100,
+      "col_name": "ques-local-airmove-sensation",
+      "col_pretty_name": "Local Air Movement Sensation",
+      "category_pretty_names": "Questionnaires",
+      "data_type": "string",
+      "unit": "-",
+      "allowed_values": "NR, MNR, NC, any value",
+      "description": "Same as Thermal Comfort"
+    },
+    {
+      "col_id": 101,
+      "col_name": "ques-airmove-perception",
+      "col_pretty_name": "Air Movement Perception",
+      "category_pretty_names": "Questionnaires",
+      "data_type": "string",
+      "unit": "-",
+      "allowed_values": "NR, MNR, NC, any value",
+      "description": "Same as Thermal Comfort"
+    },
+    {
+      "col_id": 102,
+      "col_name": "ques-airmove-prefer",
+      "col_pretty_name": "Air Movement Preference",
+      "category_pretty_names": "Questionnaires",
+      "data_type": "string",
+      "unit": "-",
+      "allowed_values": "NR, MNR, NC, any value",
+      "description": "Same as Thermal Comfort"
+    },
+    {
+      "col_id": 103,
+      "col_name": "ques-airmove-accept",
+      "col_pretty_name": "Air Movement Acceptability",
+      "category_pretty_names": "Questionnaires",
+      "data_type": "string",
+      "unit": "-",
+      "allowed_values": "NR, MNR, NC, any value",
+      "description": "Same as Thermal Comfort"
+    },
+    {
+      "col_id": 104,
+      "col_name": "ques-airmove-satisfaction",
+      "col_pretty_name": "Air Movement Satisfaction",
+      "category_pretty_names": "Questionnaires",
+      "data_type": "string",
+      "unit": "-",
+      "allowed_values": "NR, MNR, NC, any value",
+      "description": "Same as Thermal Comfort"
+    },
+    {
+      "col_id": 105,
+      "col_name": "ques-humidity-comfort",
+      "col_pretty_name": "Humidity Comfort",
+      "category_pretty_names": "Questionnaires",
+      "data_type": "string",
+      "unit": "-",
+      "allowed_values": "NR, MNR, NC, any value",
+      "description": "Same as Thermal Comfort"
+    },
+    {
+      "col_id": 106,
+      "col_name": "ques-humidity-sensation",
+      "col_pretty_name": "Humidity Sensation",
+      "category_pretty_names": "Questionnaires",
+      "data_type": "string",
+      "unit": "-",
+      "allowed_values": "NR, MNR, NC, any value",
+      "description": "Same as Thermal Comfort"
+    },
+    {
+      "col_id": 107,
+      "col_name": "ques-humidity-prefer",
+      "col_pretty_name": "Humidity Preference",
+      "category_pretty_names": "Questionnaires",
+      "data_type": "string",
+      "unit": "-",
+      "allowed_values": "NR, MNR, NC, any value",
+      "description": "Same as Thermal Comfort"
+    },
+    {
+      "col_id": 108,
+      "col_name": "ques-humidity-accept",
+      "col_pretty_name": "Humidity Acceptability",
+      "category_pretty_names": "Questionnaires",
+      "data_type": "string",
+      "unit": "-",
+      "allowed_values": "NR, MNR, NC, any value",
+      "description": "Same as Thermal Comfort"
+    },
+    {
+      "col_id": 109,
+      "col_name": "ques-humidity-satisfaction",
+      "col_pretty_name": "Humidity Satisfaction",
+      "category_pretty_names": "Questionnaires",
+      "data_type": "string",
+      "unit": "-",
+      "allowed_values": "NR, MNR, NC, any value",
+      "description": "Same as Thermal Comfort"
+    },
+    {
+      "col_id": 110,
+      "col_name": "ques-light-comfort",
+      "col_pretty_name": "Lighting Comfort",
+      "category_pretty_names": "Questionnaires",
+      "data_type": "string",
+      "unit": "-",
+      "allowed_values": "NR, MNR, NC, any value",
+      "description": "Same as Thermal Comfort"
+    },
+    {
+      "col_id": 111,
+      "col_name": "ques-light-sensation",
+      "col_pretty_name": "Lighting Sensation",
+      "category_pretty_names": "Questionnaires",
+      "data_type": "string",
+      "unit": "-",
+      "allowed_values": "NR, MNR, NC, any value",
+      "description": "Same as Thermal Comfort"
+    },
+    {
+      "col_id": 112,
+      "col_name": "ques-visual-prefer",
+      "col_pretty_name": "Visual Preference",
+      "category_pretty_names": "Questionnaires",
+      "data_type": "string",
+      "unit": "-",
+      "allowed_values": "NR, MNR, NC, any value",
+      "description": "Same as Thermal Comfort"
+    },
+    {
+      "col_id": 113,
+      "col_name": "ques-light-prefer",
+      "col_pretty_name": "Lighting Preference",
+      "category_pretty_names": "Questionnaires",
+      "data_type": "string",
+      "unit": "-",
+      "allowed_values": "NR, MNR, NC, any value",
+      "description": "Same as Thermal Comfort"
+    },
+    {
+      "col_id": 114,
+      "col_name": "ques-light-accept",
+      "col_pretty_name": "Lighting Acceptability",
+      "category_pretty_names": "Questionnaires",
+      "data_type": "string",
+      "unit": "-",
+      "allowed_values": "NR, MNR, NC, any value",
+      "description": "Same as Thermal Comfort"
+    },
+    {
+      "col_id": 115,
+      "col_name": "ques-light-satisfaction",
+      "col_pretty_name": "Lighting Satisfaction",
+      "category_pretty_names": "Questionnaires",
+      "data_type": "string",
+      "unit": "-",
+      "allowed_values": "NR, MNR, NC, any value",
+      "description": "Same as Thermal Comfort"
+    },
+    {
+      "col_id": 116,
+      "col_name": "ques-iaq-comfort",
+      "col_pretty_name": "IAQ Comfort",
+      "category_pretty_names": "Questionnaires",
+      "data_type": "string",
+      "unit": "-",
+      "allowed_values": "NR, MNR, NC, any value",
+      "description": "Same as Thermal Comfort"
+    },
+    {
+      "col_id": 117,
+      "col_name": "ques-iaq-sensation",
+      "col_pretty_name": "IAQ Sensation",
+      "category_pretty_names": "Questionnaires",
+      "data_type": "string",
+      "unit": "-",
+      "allowed_values": "NR, MNR, NC, any value",
+      "description": "Same as Thermal Comfort"
+    },
+    {
+      "col_id": 118,
+      "col_name": "ques-iaq-prefer",
+      "col_pretty_name": "IAQ Preference",
+      "category_pretty_names": "Questionnaires",
+      "data_type": "string",
+      "unit": "-",
+      "allowed_values": "NR, MNR, NC, any value",
+      "description": "Same as Thermal Comfort"
+    },
+    {
+      "col_id": 119,
+      "col_name": "ques-iaq-accept",
+      "col_pretty_name": "IAQ Acceptability",
+      "category_pretty_names": "Questionnaires",
+      "data_type": "string",
+      "unit": "-",
+      "allowed_values": "NR, MNR, NC, any value",
+      "description": "Same as Thermal Comfort"
+    },
+    {
+      "col_id": 120,
+      "col_name": "ques-iaq-satisfaction",
+      "col_pretty_name": "IAQ Satisfaction",
+      "category_pretty_names": "Questionnaires",
+      "data_type": "string",
+      "unit": "-",
+      "allowed_values": "NR, MNR, NC, any value",
+      "description": "Same as Thermal Comfort"
+    },
+    {
+      "col_id": 121,
+      "col_name": "ques-odour-intensity",
+      "col_pretty_name": "Odour Intensity",
+      "category_pretty_names": "Questionnaires",
+      "data_type": "string",
+      "unit": "-",
+      "allowed_values": "NR, MNR, NC, any value",
+      "description": "Same as Thermal Comfort"
+    },
+    {
+      "col_id": 122,
+      "col_name": "ques-sick-building-syndrome",
+      "col_pretty_name": "Sick Building Syndrome (SBS)",
+      "category_pretty_names": "Questionnaires",
+      "data_type": "string",
+      "unit": "-",
+      "allowed_values": "NR, MNR, NC, any value",
+      "description": "Same as Thermal Comfort"
+    },
+    {
+      "col_id": 123,
+      "col_name": "ques-acoustic-comfort",
+      "col_pretty_name": "Acoustic Comfort",
+      "category_pretty_names": "Questionnaires",
+      "data_type": "string",
+      "unit": "-",
+      "allowed_values": "NR, MNR, NC, any value",
+      "description": "Same as Thermal Comfort"
+    },
+    {
+      "col_id": 124,
+      "col_name": "ques-acoustic-sensation",
+      "col_pretty_name": "Acoustic Sensation",
+      "category_pretty_names": "Questionnaires",
+      "data_type": "string",
+      "unit": "-",
+      "allowed_values": "NR, MNR, NC, any value",
+      "description": "Same as Thermal Comfort"
+    },
+    {
+      "col_id": 125,
+      "col_name": "ques-acoustic-prefer",
+      "col_pretty_name": "Acoustic Preference",
+      "category_pretty_names": "Questionnaires",
+      "data_type": "string",
+      "unit": "-",
+      "allowed_values": "NR, MNR, NC, any value",
+      "description": "Same as Thermal Comfort"
+    },
+    {
+      "col_id": 126,
+      "col_name": "ques-acoustic-accept",
+      "col_pretty_name": "Acoustic Acceptability",
+      "category_pretty_names": "Questionnaires",
+      "data_type": "string",
+      "unit": "-",
+      "allowed_values": "NR, MNR, NC, any value",
+      "description": "Same as Thermal Comfort"
+    },
+    {
+      "col_id": 127,
+      "col_name": "ques-acoustic-satisfaction",
+      "col_pretty_name": "Acoustic Satisfaction",
+      "category_pretty_names": "Questionnaires",
+      "data_type": "string",
+      "unit": "-",
+      "allowed_values": "NR, MNR, NC, any value",
+      "description": "Same as Thermal Comfort"
+    },
+    {
+      "col_id": 128,
+      "col_name": "cognitive-test-done",
+      "col_pretty_name": "Cognitive tests conducted?",
+      "category_pretty_names": "Cognitive",
+      "data_type": "boolean",
+      "unit": "-",
+      "allowed_values": "Y, N, NR, NC",
+      "description": "Did they do some form of cognitive test?"
+    },
+    {
+      "col_id": 129,
+      "col_name": "cognitive-domain-performance",
+      "col_pretty_name": "Type of the tests, comma separated",
+      "category_pretty_names": "Cognitive",
+      "data_type": "text",
+      "unit": "-",
+      "allowed_values": "NR, NAN, NC, any value",
+      "description": "Names of objective/performance-based cognitive tests administered (e.g., working memory, attention, reasoning tasks), comma separated. NAN = no performance-based cognitive testing done."
+    },
+    {
+      "col_id": 130,
+      "col_name": "cognitive-domain-subjective",
+      "col_pretty_name": "Types of cognitive tests",
+      "category_pretty_names": "Cognitive",
+      "data_type": "boolean",
+      "unit": "-",
+      "allowed_values": "NR, NAN, NC, any value",
+      "description": "Names of subjective/self-report cognitive-state instruments administered, with the assessed domain noted in parentheses (e.g., workload, mood, stress), comma separated. NAN = no subjective cognitive instrument used."
+    },
+    {
+      "col_id": 131,
+      "col_name": "select-healthy",
+      "col_pretty_name": "Participants were healthy",
+      "category_pretty_names": "Selection criteria",
+      "data_type": "boolean",
+      "unit": "-",
+      "allowed_values": "Y, NR, NC",
+      "description": "Participants were healthy"
+    },
+    {
+      "col_id": 132,
+      "col_name": "select-active-recent-illness",
+      "col_pretty_name": "Perticipants had no active illnesses or symptoms, ie. COVID, fever, cold, flu, etc during the experiment or shortly before.",
+      "category_pretty_names": "Selection criteria",
+      "data_type": "boolean",
+      "unit": "-",
+      "allowed_values": "Y, NR, NC",
+      "description": "Perticipants had no active illnesses or symptoms, ie. COVID, fever, cold, flu, etc during the experiment or shortly before."
+    },
+    {
+      "col_id": 133,
+      "col_name": "select-no-ongoing-treatment-medication-use",
+      "col_pretty_name": "Participants were not undergoing treatment or using medication",
+      "category_pretty_names": "Selection criteria",
+      "data_type": "boolean",
+      "unit": "-",
+      "allowed_values": "Y, NR, NC",
+      "description": "Participants were not undergoing treatment or using medication"
+    },
+    {
+      "col_id": 134,
+      "col_name": "select-age-range",
+      "col_pretty_name": "Participants were selected or excluded based on specific age ranges",
+      "category_pretty_names": "Selection criteria",
+      "data_type": "boolean",
+      "unit": "-",
+      "allowed_values": "Y, NR, NC",
+      "description": "Participants were selected or excluded based on specific age ranges"
+    },
+    {
+      "col_id": 135,
+      "col_name": "select-healthy-cv-bp-disease",
+      "col_pretty_name": "Participants had or did not have any cardiovascular or hyper- or hypotension disorders,",
+      "category_pretty_names": "Selection criteria",
+      "data_type": "boolean",
+      "unit": "-",
+      "allowed_values": "Y, NR, NC",
+      "description": "Participants had or did not have any cardiovascular or hyper- or hypotension disorders,"
+    },
+    {
+      "col_id": 136,
+      "col_name": "select-neuro-disease",
+      "col_pretty_name": "Participants had or did not have any neurological diseases",
+      "category_pretty_names": "Selection criteria",
+      "data_type": "boolean",
+      "unit": "-",
+      "allowed_values": "Y, NR, NC",
+      "description": "Participants had or did not have any neurological diseases"
+    },
+    {
+      "col_id": 137,
+      "col_name": "select-metabolic-syndrome",
+      "col_pretty_name": "Participants had or did not have metabolic system related diseases",
+      "category_pretty_names": "Selection criteria",
+      "data_type": "boolean",
+      "unit": "-",
+      "allowed_values": "Y, NR, NC",
+      "description": "Participants had or did not have diabetes or hyper- or hypoglycemia"
+    },
+    {
+      "col_id": 138,
+      "col_name": "select-immune-related-diseases",
+      "col_pretty_name": "Participants had or did not have any immune system related diseases",
+      "category_pretty_names": "Selection criteria",
+      "data_type": "boolean",
+      "unit": "-",
+      "allowed_values": "Y, NR, NC",
+      "description": "Participants had or did not have any skin diseases, allergies, or autoimmunes diseases that would alter thermoregulation or thermal perception"
+    },
+    {
+      "col_id": 139,
+      "col_name": "select-previous-knowledge",
+      "col_pretty_name": "Participants had or did not have previous knowledge on the test topic",
+      "category_pretty_names": "Selection criteria",
+      "data_type": "boolean",
+      "unit": "-",
+      "allowed_values": "Y, NR, NC",
+      "description": "Whether participants' prior knowledge of the study's purpose/hypothesis was used as an inclusion or exclusion criterion."
+    },
+    {
+      "col_id": 140,
+      "col_name": "select-thermal-history",
+      "col_pretty_name": "Participants lived or did not live in the experiment location long enough to be acclimatised",
+      "category_pretty_names": "Selection criteria",
+      "data_type": "boolean",
+      "unit": "-",
+      "allowed_values": "Y, NR, NC",
+      "description": "Participants lived or did not live in the experiment location long enough to be acclimatised"
+    },
+    {
+      "col_id": 141,
+      "col_name": "select-smoking",
+      "col_pretty_name": "Regular smoking was an inclusion/exclusion factor.",
+      "category_pretty_names": "Selection criteria",
+      "data_type": "boolean",
+      "unit": "-",
+      "allowed_values": "Y, NR, NC",
+      "description": "Regular smoking was an inclusion/exclusion factor."
+    },
+    {
+      "col_id": 142,
+      "col_name": "select-bmi-range",
+      "col_pretty_name": "A particular BMI range was an inclusion/exclusion factor",
+      "category_pretty_names": "Selection criteria",
+      "data_type": "boolean",
+      "unit": "-",
+      "allowed_values": "Y, NR, NC",
+      "description": "A particular BMI range was an inclusion/exclusion factor"
+    },
+    {
+      "col_id": 143,
+      "col_name": "select-colour-weakness-eyesight",
+      "col_pretty_name": "Participants were checked for colour weaknesses or good eyesight, or for previous vision correction",
+      "category_pretty_names": "Selection criteria",
+      "data_type": "boolean",
+      "unit": "-",
+      "allowed_values": "Y, NR, NC",
+      "description": "Participants were checked for colour weaknesses or good eyesight, or for previous vision correction"
+    },
+    {
+      "col_id": 144,
+      "col_name": "select-hearing",
+      "col_pretty_name": "Participants were checked for hearing weaknesses",
+      "category_pretty_names": "Selection criteria",
+      "data_type": "boolean",
+      "unit": "-",
+      "allowed_values": "Y, NR, NC",
+      "description": "Participants were checked for hearing weaknesses"
+    },
+    {
+      "col_id": 145,
+      "col_name": "select-lang-skills",
+      "col_pretty_name": "Participants had good language skills in the language of the questionnaires/tests",
+      "category_pretty_names": "Selection criteria",
+      "data_type": "boolean",
+      "unit": "-",
+      "allowed_values": "Y, NR, NC",
+      "description": "Participants had good language skills in the language of the questionnaires/tests"
+    },
+    {
+      "col_id": 146,
+      "col_name": "select-alcohol",
+      "col_pretty_name": "Excessive alcohol intake was an inclusion/exclusion factor",
+      "category_pretty_names": "Selection criteria",
+      "data_type": "boolean",
+      "unit": "-",
+      "allowed_values": "Y, NR, NC",
+      "description": "Excessive alcohol intake was an inclusion/exclusion factor"
+    },
+    {
+      "col_id": 147,
+      "col_name": "select-dominant-hand",
+      "col_pretty_name": "Participants had a preferred dominant hand; ie. only right-handed were selected",
+      "category_pretty_names": "Selection criteria",
+      "data_type": "boolean",
+      "unit": "-",
+      "allowed_values": "Y, NR, NC",
+      "description": "Participants had a preferred dominant hand; ie. only right-handed were selected"
+    },
+    {
+      "col_id": 148,
+      "col_name": "select-contraceptive-type",
+      "col_pretty_name": "Menstruating participants were included/excluded based on their contraception methods",
+      "category_pretty_names": "Selection criteria",
+      "data_type": "boolean",
+      "unit": "-",
+      "allowed_values": "Y, NR, NC",
+      "description": "Menstruating participants were included/excluded based on their contraception methods"
+    },
+    {
+      "col_id": 149,
+      "col_name": "select-activity-level",
+      "col_pretty_name": "Participants were included/excluded based on their regular activity or fitness levels",
+      "category_pretty_names": "Selection criteria",
+      "data_type": "boolean",
+      "unit": "-",
+      "allowed_values": "Y, NR, NC",
+      "description": "Participants were included/excluded based on their regular activity or fitness levels"
+    },
+    {
+      "col_id": 150,
+      "col_name": "select-chronotype",
+      "col_pretty_name": "Participants were included/excluded based on their natural chronotype",
+      "category_pretty_names": "Selection criteria",
+      "data_type": "boolean",
+      "unit": "-",
+      "allowed_values": "Y, NR, NC",
+      "description": "Participants were included/excluded based on their natural chronotype"
+    },
+    {
+      "col_id": 151,
+      "col_name": "select-emotionally-stable",
+      "col_pretty_name": "Participants were or were not emotionally stable",
+      "category_pretty_names": "Selection criteria",
+      "data_type": "boolean",
+      "unit": "-",
+      "allowed_values": "Y, NR, NC",
+      "description": "Participants were or were not emotionally stable"
+    },
+    {
+      "col_id": 152,
+      "col_name": "select-neurodivergent",
+      "col_pretty_name": "Participants were selected/excluded based on their neurodiversity (ie ASD, ADD, ADHD)",
+      "category_pretty_names": "Selection criteria",
+      "data_type": "boolean",
+      "unit": "-",
+      "allowed_values": "Y, NR, NC",
+      "description": "Participants were selected/excluded based on their neurodiversity (ie ASD, ADD, ADHD)"
+    },
+    {
+      "col_id": 153,
+      "col_name": "select-thermal-sensitivity",
+      "col_pretty_name": "Participants were selected/excluded based on their thermal preferences and sensitivities",
+      "category_pretty_names": "Selection criteria",
+      "data_type": "boolean",
+      "unit": "-",
+      "allowed_values": "Y, NR, NC",
+      "description": "Participants were selected/excluded based on their thermal preferences and sensitivities"
+    },
+    {
+      "col_id": 154,
+      "col_name": "select-pregnancy",
+      "col_pretty_name": "Participants were selected/excluded if they had an ongoing pregnancy or were actively breastfeeding",
+      "category_pretty_names": "Selection criteria",
+      "data_type": "boolean",
+      "unit": "-",
+      "allowed_values": "Y, NR, NC",
+      "description": "Participants were selected/excluded if they had an ongoing pregnancy or were actively breastfeeding"
+    },
+    {
+      "col_id": 155,
+      "col_name": "select-diet-weight-change",
+      "col_pretty_name": "Participants were selected/excluded if they had a drastic weight change recently",
+      "category_pretty_names": "Selection criteria",
+      "data_type": "boolean",
+      "unit": "-",
+      "allowed_values": "Y, NR, NC",
+      "description": "Participants were selected/excluded if they had a drastic weight change recently"
+    },
+    {
+      "col_id": 156,
+      "col_name": "select-hormone-therapy",
+      "col_pretty_name": "Participants were selected/excluded if they are or have undergone hormone replacement therapy in the last specified time period",
+      "category_pretty_names": "Selection criteria",
+      "data_type": "boolean",
+      "unit": "-",
+      "allowed_values": "Y, NR, NC",
+      "description": "Participants were selected/excluded if they are or have undergone hormone replacement therapy in the last specified time period"
+    },
+    {
+      "col_id": 157,
+      "col_name": "select-menopause",
+      "col_pretty_name": "Participants were selected/excluded if they were pre, peri or post-menopausal",
+      "category_pretty_names": "Selection criteria",
+      "data_type": "boolean",
+      "unit": "-",
+      "allowed_values": "Y, NR, NC",
+      "description": "Participants were selected/excluded if they were pre, peri or post-menopausal"
+    },
+    {
+      "col_id": 158,
+      "col_name": "select-no-medical-implant",
+      "col_pretty_name": "Participants were selected/excluded if they had implants that might interfere with electrical signals",
+      "category_pretty_names": "Selection criteria",
+      "data_type": "boolean",
+      "unit": "-",
+      "allowed_values": "Y, NR, NC",
+      "description": "Participants were selected/excluded if they had implants that might interfere with electrical signals"
+    },
+    {
+      "col_id": 159,
+      "col_name": "select-sex",
+      "col_pretty_name": "Only a specific sex group/groups was recruited",
+      "category_pretty_names": "Selection criteria",
+      "data_type": "boolean",
+      "unit": "-",
+      "allowed_values": "Y, NR, NC",
+      "description": "Only a specific sex group/groups was recruited"
+    },
+    {
+      "col_id": 160,
+      "col_name": "part-meta-age",
+      "col_pretty_name": "Age",
+      "category_pretty_names": "Participant metadata",
+      "data_type": "boolean",
+      "unit": "-",
+      "allowed_values": "Y, NR, NC",
+      "description": "Age. Can also be date of birth, and/or age group"
+    },
+    {
+      "col_id": 161,
+      "col_name": "part-meta-sex",
+      "col_pretty_name": "Sex",
+      "category_pretty_names": "Participant metadata",
+      "data_type": "boolean",
+      "unit": "-",
+      "allowed_values": "Y, NR, NC",
+      "description": "Biological sex as reported by the participant"
+    },
+    {
+      "col_id": 162,
+      "col_name": "part-meta-height",
+      "col_pretty_name": "Height",
+      "category_pretty_names": "Participant metadata",
+      "data_type": "boolean",
+      "unit": "-",
+      "allowed_values": "Y, NR, NC",
+      "description": "Height. Can be self-reported or measured on site"
+    },
+    {
+      "col_id": 163,
+      "col_name": "part-meta-weight",
+      "col_pretty_name": "Weight",
+      "category_pretty_names": "Participant metadata",
+      "data_type": "boolean",
+      "unit": "-",
+      "allowed_values": "Y, NR, NC",
+      "description": "Weight. Can be self-reported or measured on site"
+    },
+    {
+      "col_id": 164,
+      "col_name": "part-meta-bmi",
+      "col_pretty_name": "Body Mass Index (BMI)",
+      "category_pretty_names": "Participant metadata",
+      "data_type": "boolean",
+      "unit": "-",
+      "allowed_values": "Y, NR, NC",
+      "description": "BMI"
+    },
+    {
+      "col_id": 165,
+      "col_name": "part-meta-ponderal-index",
+      "col_pretty_name": "Ponderal index",
+      "category_pretty_names": "Participant metadata",
+      "data_type": "boolean",
+      "unit": "-",
+      "allowed_values": "Y, NR, NC",
+      "description": "Also known as Corpulence Index. Different than BMI, calculated with PI = weight / height³"
+    },
+    {
+      "col_id": 166,
+      "col_name": "part-meta-body-fat",
+      "col_pretty_name": "Body fat percentage",
+      "category_pretty_names": "Participant metadata",
+      "data_type": "boolean",
+      "unit": "-",
+      "allowed_values": "Y, NR, NC",
+      "description": "Body fat ratio"
+    },
+    {
+      "col_id": 167,
+      "col_name": "part-meta-ethnicity-nationality",
+      "col_pretty_name": "Ethnicity",
+      "category_pretty_names": "Participant metadata",
+      "data_type": "boolean",
+      "unit": "-",
+      "allowed_values": "Y, NR, NC",
+      "description": "Ethnic background, nationality, and/or country of origin"
+    },
+    {
+      "col_id": 168,
+      "col_name": "part-meta-bsa",
+      "col_pretty_name": "Body Surface Area (BSA)",
+      "category_pretty_names": "Participant metadata",
+      "data_type": "boolean",
+      "unit": "-",
+      "allowed_values": "Y, NR, NC",
+      "description": "BSA"
+    },
+    {
+      "col_id": 169,
+      "col_name": "part-meta-thermal-history-background",
+      "col_pretty_name": "Thermal history",
+      "category_pretty_names": "Participant metadata",
+      "data_type": "boolean",
+      "unit": "-",
+      "allowed_values": "Y, NR, NC",
+      "description": "If acclimation to local climate was not a selection criteria, then information per participant is collected"
+    },
+    {
+      "col_id": 170,
+      "col_name": "part-meta-education-profession",
+      "col_pretty_name": "Education/Professional background",
+      "category_pretty_names": "Participant metadata",
+      "data_type": "boolean",
+      "unit": "-",
+      "allowed_values": "Y, NR, NC",
+      "description": "Educational and/or professional background"
+    },
+    {
+      "col_id": 171,
+      "col_name": "part-meta-thermal-sensitivity-preference",
+      "col_pretty_name": "Thermal sensitivity and preferences",
+      "category_pretty_names": "Participant metadata",
+      "data_type": "boolean",
+      "unit": "-",
+      "allowed_values": "Y, NR, NC",
+      "description": "Thermal preferences or sensitivities were asked"
+    },
+    {
+      "col_id": 172,
+      "col_name": "part-meta-personality",
+      "col_pretty_name": "Personality type",
+      "category_pretty_names": "Participant metadata",
+      "data_type": "boolean",
+      "unit": "-",
+      "allowed_values": "Y, NR, NC",
+      "description": "Personality types were asked"
+    },
+    {
+      "col_id": 173,
+      "col_name": "part-meta-psych-eval",
+      "col_pretty_name": "Psychological evaluation",
+      "category_pretty_names": "Participant metadata",
+      "data_type": "boolean",
+      "unit": "-",
+      "allowed_values": "Y, NR, NC",
+      "description": "Some forms of psychology, emotional recognition, or emotional regulation evaluation was performed"
+    },
+    {
+      "col_id": 174,
+      "col_name": "part-meta-smoking",
+      "col_pretty_name": "Regular smoking",
+      "category_pretty_names": "Participant metadata",
+      "data_type": "boolean",
+      "unit": "-",
+      "allowed_values": "Y, NR, NC",
+      "description": "If smoking was not an exclusion criteria, then the information per participant is collected"
+    },
+    {
+      "col_id": 175,
+      "col_name": "part-meta-activity-level",
+      "col_pretty_name": "Typical activity/fitness level",
+      "category_pretty_names": "Participant metadata",
+      "data_type": "boolean",
+      "unit": "-",
+      "allowed_values": "Y, NR, NC",
+      "description": "Typical activity level and/or intensity, fitness level"
+    },
+    {
+      "col_id": 176,
+      "col_name": "part-meta-health-status",
+      "col_pretty_name": "Health level",
+      "category_pretty_names": "Participant metadata",
+      "data_type": "boolean",
+      "unit": "-",
+      "allowed_values": "Y, NR, NC",
+      "description": "Health level. Can be self reported or tested by a form of screening"
+    },
+    {
+      "col_id": 177,
+      "col_name": "part-meta-chronotype",
+      "col_pretty_name": "Natural chronotype",
+      "category_pretty_names": "Participant metadata",
+      "data_type": "boolean",
+      "unit": "-",
+      "allowed_values": "Y, NR, NC",
+      "description": "Morningness-eveningness, or natural chronotype"
+    },
+    {
+      "col_id": 178,
+      "col_name": "part-recent-chrono-change",
+      "col_pretty_name": "Recent change in timezone",
+      "category_pretty_names": "Participant metadata",
+      "data_type": "boolean",
+      "unit": "-",
+      "allowed_values": "Y, NR, NC",
+      "description": "Whether a recent change in chronotype or sleep-wake schedule (e.g., shift work, jet lag) was recorded as a participant characteristic."
+    },
+    {
+      "col_id": 179,
+      "col_name": "part-meta-bmr-rmr",
+      "col_pretty_name": "Basal Metabolic Rate (BMR)",
+      "category_pretty_names": "Participant metadata",
+      "data_type": "boolean",
+      "unit": "-",
+      "allowed_values": "Y, NR, NC",
+      "description": "Resting basal metabolic rate"
+    },
+    {
+      "col_id": 180,
+      "col_name": "part-meta-alcohol-use",
+      "col_pretty_name": "Regular alcohol consumption",
+      "category_pretty_names": "Participant metadata",
+      "data_type": "boolean",
+      "unit": "-",
+      "allowed_values": "Y, NR, NC",
+      "description": "If alcohol use was not an exclusion criteria, then the information per participant is collected"
+    },
+    {
+      "col_id": 181,
+      "col_name": "part-meta-mens-timing",
+      "col_pretty_name": "Menstrual timing",
+      "category_pretty_names": "Participant metadata",
+      "data_type": "boolean",
+      "unit": "-",
+      "allowed_values": "Y, NR, NC",
+      "description": "If menstrual timing was not an exclusion criteria, then the information per participant is collected"
+    },
+    {
+      "col_id": 182,
+      "col_name": "part-meta-contraceptive-type",
+      "col_pretty_name": "Contraceptive type",
+      "category_pretty_names": "Participant metadata",
+      "data_type": "boolean",
+      "unit": "-",
+      "allowed_values": "Y, NR, NC",
+      "description": "If contraception type was not an exclusion criteria, then the information per participant is collected"
+    },
+    {
+      "col_id": 183,
+      "col_name": "part-meta-reg-coffee",
+      "col_pretty_name": "Regular coffee consumption",
+      "category_pretty_names": "Participant metadata",
+      "data_type": "boolean",
+      "unit": "-",
+      "allowed_values": "Y, NR, NC",
+      "description": "Regular coffee consumption"
+    },
+    {
+      "col_id": 184,
+      "col_name": "part-meta-reg-sleep-time",
+      "col_pretty_name": "Regular sleep time",
+      "category_pretty_names": "Participant metadata",
+      "data_type": "boolean",
+      "unit": "-",
+      "allowed_values": "Y, NR, NC",
+      "description": "Regular sleep time"
+    },
+    {
+      "col_id": 185,
+      "col_name": "part-meta-reg-work time",
+      "col_pretty_name": "Regular work-time",
+      "category_pretty_names": "Participant metadata",
+      "data_type": "boolean",
+      "unit": "-",
+      "allowed_values": "Y, NR, NC",
+      "description": "Regular work time"
+    },
+    {
+      "col_id": 186,
+      "col_name": "protocol-fixed-clo",
+      "col_pretty_name": "Clo values were fixed",
+      "category_pretty_names": "Protocol",
+      "data_type": "boolean",
+      "unit": "-",
+      "allowed_values": "Y, NR, NC",
+      "description": "The clothing was fixed throughout the session, and the participant was not allowed to change it."
+    },
+    {
+      "col_id": 187,
+      "col_name": "protocol-observed-clo",
+      "col_pretty_name": "Clo values were observed",
+      "category_pretty_names": "Protocol",
+      "data_type": "boolean",
+      "unit": "-",
+      "allowed_values": "Y, NR, NC",
+      "description": "The clothing was not controlled, subjects were free to adjust/change clothing druing the sessions. The resulting clo factor was observed and noted.\nIf there is no mention of observed clothing, then NR."
+    },
+    {
+      "col_id": 188,
+      "col_name": "protocol-avoid-stimulant",
+      "col_pretty_name": "Avoid stimulants (ie. coffee)",
+      "category_pretty_names": "Protocol",
+      "data_type": "boolean",
+      "unit": "-",
+      "allowed_values": "Y, NR, NC",
+      "description": "Participants were explicitly instructed to avoid stimulants (coffee, tea, alcohol, energy drinks, tobacco, or similar) and/or sedatives before the session. The specific duration of avoidance is not required as long as it was explicitly stated. If nothing mentioned regarding any stimulating drink avoidance, it's NR."
+    },
+    {
+      "col_id": 189,
+      "col_name": "protocol-avoid-activity",
+      "col_pretty_name": "Avoid strenuous activity",
+      "category_pretty_names": "Protocol",
+      "data_type": "boolean",
+      "unit": "-",
+      "allowed_values": "Y, NR, NC",
+      "description": "Participants were explicitly instructed to avoid strenuous physical activity before the session. The specific duration is not required as long as the instruction was given."
+    },
+    {
+      "col_id": 190,
+      "col_name": "protocol-avoid-heavy-food",
+      "col_pretty_name": "Avoid heavy food",
+      "category_pretty_names": "Protocol",
+      "data_type": "boolean",
+      "unit": "-",
+      "allowed_values": "Y, NR, NC",
+      "description": "Participants were explicitly instructed to avoid consuming heavy, spicy, or extreme foods before the session."
+    },
+    {
+      "col_id": 191,
+      "col_name": "protocol-rest-sleep",
+      "col_pretty_name": "Rest well",
+      "category_pretty_names": "Protocol",
+      "data_type": "boolean",
+      "unit": "-",
+      "allowed_values": "Y, NR, NC",
+      "description": "Participants were instructed to rest well, ensure adequate sleep and/or avoid sleeping later than usual prior to the session. "
+    },
+    {
+      "col_id": 192,
+      "col_name": "protocol-circadian",
+      "col_pretty_name": "Circadian timing was considered",
+      "category_pretty_names": "Protocol",
+      "data_type": "boolean",
+      "unit": "-",
+      "allowed_values": "Y, NR, NC",
+      "description": "The timing of the sessions were taken into account to avoid confounding effects due to circadian changes. This could mean \n(1) each participant's sessions were at the same time of day or counterbalanced to avoid time-of-day bias, or \n(2) all participants were tested at a consistent time across groups or were randomly assigned to different time slots."
+    },
+    {
+      "col_id": 193,
+      "col_name": "protocol-mens-timing",
+      "col_pretty_name": "Menstrual timing was considered",
+      "category_pretty_names": "Protocol",
+      "data_type": "boolean",
+      "unit": "-",
+      "allowed_values": "Y, NR, NC",
+      "description": "The timing of sessions was controlled for menstruation phases. This could mean: \n(1) scheduling female participants in specific cycle phases, or\n(2) including only participants on hormonal birth control. \nExcluding female participants entirely DOES NOT constitute controlling for menstrual timing, in such case, value is NR"
+    },
+    {
+      "col_id": 194,
+      "col_name": "protocol-time-btw-sessions",
+      "col_pretty_name": "Time between sessions avoided acclimation",
+      "category_pretty_names": "Protocol",
+      "data_type": "boolean",
+      "unit": "-",
+      "allowed_values": "Y, NR, NC",
+      "description": "Sufficient time was allocated between sessions for the same participant to avoid acclimation or carryover effects, OR explicitly study them. This applies if explicitly mentioned in the protocol, regardless of the time period between sessions. The sessions can be designed to be apart, or consecutively (ie. every day). As long as there was a common spacing between sessions that was applied throughout the protocol, the value is 1."
+    },
+    {
+      "col_id": 195,
+      "col_name": "protocol-instruction-practice",
+      "col_pretty_name": "Instructions/Practice were available",
+      "category_pretty_names": "Protocol",
+      "data_type": "boolean",
+      "unit": "-",
+      "allowed_values": "Y, NR, NC",
+      "description": "Participants were given specific instructions on how to respond to surveys, follow procedures, and/or practice tests were conducted before sessions. This does not refer to general onboarding but to session-specific instructions to avoid mistakes due to insufficient or misunderstanding the experimental procedures."
+    },
+    {
+      "col_id": 196,
+      "col_name": "protocol-diary",
+      "col_pretty_name": "Participants kept diaries",
+      "category_pretty_names": "Protocol",
+      "data_type": "boolean",
+      "unit": "-",
+      "allowed_values": "Y, NR, NC",
+      "description": "Participants were required to keep a diary/log documenting food intake, sleep patterns, physical activity, and/or other habits outside session hours. If this information is acquired by researchers through questionnaires, it also applies."
+    },
+    {
+      "col_id": 197,
+      "col_name": "protocol-maintain-routine",
+      "col_pretty_name": "Participants maintained usual habits",
+      "category_pretty_names": "Protocol",
+      "data_type": "boolean",
+      "unit": "-",
+      "allowed_values": "Y, NR, NC",
+      "description": "Participants were instructed to maintain a regular routine outside session hours, including sleep-wake cycles, diet, exercise, and medication routines."
+    },
+    {
+      "col_id": 198,
+      "col_name": "protocol-blinded",
+      "col_pretty_name": "Protocol was blinded",
+      "category_pretty_names": "Protocol",
+      "data_type": "boolean",
+      "unit": "-",
+      "allowed_values": "Y, NR, NC",
+      "description": "The experiment was blinded (single, double, or triple-blind) to reduce bias."
+    },
+    {
+      "col_id": 199,
+      "col_name": "protocol-random",
+      "col_pretty_name": "Session were ordered randomly",
+      "category_pretty_names": "Protocol",
+      "data_type": "boolean",
+      "unit": "-",
+      "allowed_values": "Y, NR, NC",
+      "description": "The protocol included any type of randomization (random session, random item order, random participant assignment, etc.). Counterbalancing is included here."
+    },
+    {
+      "col_id": 200,
+      "col_name": "protocol-balancing",
+      "col_pretty_name": "Groups/blocks were balanced",
+      "category_pretty_names": "Protocol",
+      "data_type": "boolean",
+      "unit": "-",
+      "allowed_values": "Y, NR, NC",
+      "description": "The groups/blocks were balanced"
+    },
+    {
+      "col_id": 201,
+      "col_name": "protocol-subjects-not-allowed-to-discuss",
+      "col_pretty_name": "Participants not allowed to talk about experiment",
+      "category_pretty_names": "Protocol",
+      "data_type": "boolean",
+      "unit": "-",
+      "allowed_values": "Y, NR, NC",
+      "description": "The participants were not allowed to talk to each other or the researchers about the experiment, questionnaires, their own perception."
+    },
+    {
+      "col_id": 202,
+      "col_name": "protocol-food",
+      "col_pretty_name": "Food intake was controlled",
+      "category_pretty_names": "Protocol",
+      "data_type": "boolean",
+      "unit": "-",
+      "allowed_values": "Y, NR, NC",
+      "description": "Food intake before or during sessions was standardized (e.g., fasting requirements, controlled meal portions). This is distinct from avoiding stimulants or heavy/large/unusual foods. In case the amount of food intake was not controlled, but the timing of the session was adjusted according to the last food intake, this also applies (e.g., \"The sessions started 2 hours after lunch\"). "
+    },
+    {
+      "col_id": 203,
+      "col_name": "protocol-water",
+      "col_pretty_name": "Drink intake was controlled",
+      "category_pretty_names": "Protocol",
+      "data_type": "boolean",
+      "unit": "-",
+      "allowed_values": "Y, NR, NC",
+      "description": "Drink intake before or during sessions was standardized (e.g., participants were not allowed to drink during session, participants were served xx ml of isotonic water before the session to ensure hydration status)"
+    },
+    {
+      "col_id": 204,
+      "col_name": "protocol-prep-body-site",
+      "col_pretty_name": "Body site was prepped",
+      "category_pretty_names": "Protocol",
+      "data_type": "boolean",
+      "unit": "-",
+      "allowed_values": "Y, NR, NC",
+      "description": "Specific body sites were prepared before sensor application. This includes cleaning, washing, shaving, wiping the skin, mouth rinsing, or instructing the participant not to apply make-up, creams, lotions, gels or similar materials on site, depending on the sensors used"
+    },
+    {
+      "col_id": 205,
+      "col_name": "protocol-defined-activity",
+      "col_pretty_name": "Activity was defined",
+      "category_pretty_names": "Protocol",
+      "data_type": "boolean",
+      "unit": "-",
+      "allowed_values": "Y, NR, NC",
+      "description": "Participants were seated and sedentary throughout the session. If movement (e.g., walking) was allowed, it was monitored and recorded as part of the protocol."
+    },
+    {
+      "col_id": 206,
+      "col_name": "protocol-observed-met",
+      "col_pretty_name": "Activity was observed",
+      "category_pretty_names": "Protocol",
+      "data_type": "boolean",
+      "unit": "-",
+      "allowed_values": "Y, NR, NC",
+      "description": "Participants were free to move freely, and resulting metabolic rates were assumed based on observed behaviours and/or measured."
+    }
+  ],
+  "n_fields": 206
+}

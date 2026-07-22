@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import PageHeader from '../components/PageHeader.jsx'
 import { CodeLegend } from '../components/CodeChip.jsx'
 
@@ -59,6 +60,12 @@ export default function Methodology({ data }) {
             controls, and limitations.
           </p>
           <CodeLegend />
+          <p className="text-[13.5px] text-inkmid leading-relaxed mt-4">
+            Definitions, permitted values, units, and field-level coding guidance are available in the{' '}
+            <Link to="/dictionary" className="text-coreaccent hover:underline">
+              searchable variable dictionary
+            </Link>.
+          </p>
         </section>
       </div>
     </div>

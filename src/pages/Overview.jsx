@@ -115,6 +115,12 @@ export default function Overview({ data }) {
           >
             Browse the entire corpus →
           </Link>
+          <Link
+            to="/dictionary"
+            className="inline-flex items-center px-4 py-2 rounded-md border border-ink text-ink text-[13.5px] font-medium hover:border-coreaccent hover:text-coreaccent transition-colors"
+          >
+            Browse the variable dictionary →
+          </Link>
         </div>
       </div>
 
