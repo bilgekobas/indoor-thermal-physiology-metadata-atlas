@@ -40700,6 +40700,14 @@
       {
         "points": 25,
         "count": 1
+      },
+      {
+        "points": "continuous",
+        "count": 2
+      },
+      {
+        "points": "vas",
+        "count": 2
       }
     ],
     "n_total": 230,
@@ -48188,6 +48196,14 @@
       {
         "points": 25,
         "count": 1
+      },
+      {
+        "points": "continuous",
+        "count": 2
+      },
+      {
+        "points": "vas",
+        "count": 4
       }
     ],
     "n_total": 133,
@@ -98183,7 +98199,7 @@
     "n_variables": 206,
     "year_min": 2013,
     "year_max": 2024,
-    "generated_at": "2026-07-22T18:00:39.237256"
+    "generated_at": "2026-07-22T18:20:07.155691"
   },
   "world-countries-110m": {
     "type": "Topology",

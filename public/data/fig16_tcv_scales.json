@@ -7477,6 +7477,14 @@
     {
       "points": 25,
       "count": 1
+    },
+    {
+      "points": "continuous",
+      "count": 2
+    },
+    {
+      "points": "vas",
+      "count": 4
     }
   ],
   "n_total": 133,

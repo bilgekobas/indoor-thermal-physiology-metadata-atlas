@@ -88,21 +88,32 @@ function ScaleAxisPlot({ studies, domain, lowColor, highColor, poleColors, title
           const y = i * rowHeight + rowHeight / 2
           const min = Math.min(...s.range)
           const max = Math.max(...s.range)
+          const grid = s.grid && s.grid.length
+            ? s.grid
+            : s.range.map((v, idx) => ({ value: v, label: s.labels[idx], is_anchor: true }))
           return (
             <g key={`${s.id}-${i}`}>
               <line x1={xScale(min)} x2={xScale(max)} y1={y} y2={y} stroke="#BBBBBB" strokeWidth={0.8} opacity={0.75} />
-              {s.range.map((v, idx) => {
-                const label = s.labels[idx] || String(v)
-                const c = pointColor({ value: v, label, comfortPole: s.comfort_pole, min, max, lowColor, highColor, poleColors, treatComfortAsNeutral })
+              {grid.map((g, idx) => {
+                if (!g.is_anchor) {
+                  // unlabelled interpolated step (e.g. the 0.25/0.5 gradations
+                  // between a scale's verbal anchors) - shown as a faint tick
+                  // rather than a full point, since it carries no wording
+                  return (
+                    <circle key={`${s.id}-i${idx}`} cx={xScale(g.value)} cy={y} r={0.9} fill="#D6D6D6" opacity={0.7} />
+                  )
+                }
+                const label = g.label || String(g.value)
+                const c = pointColor({ value: g.value, label, comfortPole: s.comfort_pole, min, max, lowColor, highColor, poleColors, treatComfortAsNeutral })
                 return (
                   <circle
                     key={`${s.id}-${idx}`}
-                    cx={xScale(v)}
+                    cx={xScale(g.value)}
                     cy={y}
                     r={2.4}
                     fill={c}
                     className="cursor-default"
-                    onMouseEnter={(e) => showTip(e, `${s.id}${titleSuffix ? ` · ${titleSuffix}` : ''}: ${v} = ${label}`)}
+                    onMouseEnter={(e) => showTip(e, `${s.id}${titleSuffix ? ` · ${titleSuffix}` : ''}: ${g.value} = ${label}`)}
                     onMouseMove={moveTip}
                     onMouseLeave={hideTip}
                   />
@@ -117,15 +128,22 @@ function ScaleAxisPlot({ studies, domain, lowColor, highColor, poleColors, title
   )
 }
 
+function pointsLabel(points) {
+  if (typeof points === 'number') return `${points}-point`
+  if (points === 'vas') return 'VAS'
+  if (points === 'continuous') return 'Continuous'
+  return String(points)
+}
+
 function PointsBar({ distribution, total, color = '#0A0A0A' }) {
   const { tip, showTip, moveTip, hideTip } = useTooltip()
   return (
     <div className="space-y-1.5">
       {distribution.map((d) => (
         <div key={d.points} className="flex items-center gap-3 group">
-          <span className="text-[12px] w-20 shrink-0 font-data">{d.points}-point</span>
+          <span className="text-[12px] w-20 shrink-0 font-data">{pointsLabel(d.points)}</span>
           <div className="flex-1 h-5 rounded bg-line/50 overflow-hidden cursor-default"
-            onMouseEnter={(e) => showTip(e, `${d.points}-point: ${d.count} of ${total} · ${((d.count / total) * 100).toFixed(1)}%`)}
+            onMouseEnter={(e) => showTip(e, `${pointsLabel(d.points)}: ${d.count} of ${total} · ${((d.count / total) * 100).toFixed(1)}%`)}
             onMouseMove={moveTip} onMouseLeave={hideTip}>
             <div className="h-full group-hover:brightness-110" style={{ width: `${(d.count / Math.max(total, 1)) * 100}%`, background: '#0A0A0A' }} />
           </div>

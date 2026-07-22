@@ -933,8 +933,19 @@ for _, row in studies_u.iterrows():
         p2['id'] = row['id']
         tcv_parsed.append(p2)
 
-tsv_pts_dist = pd.Series([p['points'] for p in tsv_parsed]).value_counts().sort_index()
-tcv_pts_dist = pd.Series([p['points'] for p in tcv_parsed]).value_counts().sort_index()
+def points_distribution(parsed):
+    """Bucket by point count, but keep VAS/continuous scales (points=None) as
+    their own category instead of letting pandas.value_counts() silently drop
+    them - otherwise the bars sum to less than n_total with no indication why.
+    """
+    labels = [p['points'] if isinstance(p['points'], int) else p['scale_type'] for p in parsed]
+    counts = pd.Series(labels).value_counts()
+    numeric_keys = sorted(k for k in counts.index if isinstance(k, int))
+    other_keys = sorted(k for k in counts.index if not isinstance(k, int))
+    return [{'points': k, 'count': int(counts[k])} for k in [*numeric_keys, *other_keys]]
+
+tsv_pts_dist = points_distribution(tsv_parsed)
+tcv_pts_dist = points_distribution(tcv_parsed)
 
 def code_breakdown(col):
     return {
@@ -946,14 +957,14 @@ def code_breakdown(col):
 with open(OUT_DIR / 'fig15_tsv_scales.json', 'w') as f:
     json.dump({
         'studies': tsv_parsed,
-        'points_distribution': [{'points': int(k), 'count': int(v)} for k, v in tsv_pts_dist.items()],
+        'points_distribution': tsv_pts_dist,
         'n_total': len(tsv_parsed),
         'code_breakdown': code_breakdown(studies_u['ques-thermal-sensation']),
     }, f, indent=2)
 with open(OUT_DIR / 'fig16_tcv_scales.json', 'w') as f:
     json.dump({
         'studies': tcv_parsed,
-        'points_distribution': [{'points': int(k), 'count': int(v)} for k, v in tcv_pts_dist.items()],
+        'points_distribution': tcv_pts_dist,
         'n_total': len(tcv_parsed),
         'code_breakdown': code_breakdown(studies_u['ques-thermal-comfort']),
         'vas_unplaceable': vas_unplaceable_log,
