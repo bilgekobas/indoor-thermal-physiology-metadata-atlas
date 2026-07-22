@@ -101,7 +101,7 @@ const DOMAIN_ORDER = [
 const DOMAIN_GROUPS = {
   'PERIPHERAL THERMAL EXCHANGE': { color: '#5B5BFF', signals: ['Skin temperature', 'Near body temperature', 'Heat flux', 'Skin blood flow'] },
   'CARDIOVASCULAR HEAT TRANSPORT': { color: '#FF4DA6', signals: ['Heart/Pulse rate', 'Blood pressure', 'Oxygen saturation'] },
-  'CENTRAL THERMAL STATE': { color: '#F1FF71', signals: ['Core/Body temperature', 'Exhaled breath temperature'] },
+  'CENTRAL THERMAL STATE': { color: '#F1FF71', signals: ['Core temperature', 'Body temperature', 'Exhaled breath temperature'] },
   'SUDOMOTOR / ELECTRODERMAL': { color: '#79FFFB', signals: ['Sweat indicators', 'Skin conductance'] },
   'NEURO-MUSCULAR ELECTROPHYSIOLOGY': { color: '#4A4A4A', signals: ['EEG', 'EMG', 'EOG', 'Movement', 'Respiration'] },
   'METABOLIC & BIOCHEMICAL': { color: '#BBBBBB', signals: ['Metabolic rate/Gas exchange', 'Biomarkers'] },
@@ -757,6 +757,9 @@ export default function ChapterBody({ data }) {
   const heartRateN = signalTotalsMap['Heart/Pulse rate']
   const skinTempPct = ((skinTempN / summary.n_experiments) * 100).toFixed(0)
   const heartRatePct = ((heartRateN / summary.n_experiments) * 100).toFixed(0)
+  const nSensorTypesSkinTemp = new Set(
+    physio_signal_sensor.overall.filter((r) => r.signal === 'Skin temperature').map((r) => r['physio-sensing-method'])
+  ).size
 
   const cooccurLabels = fig18_physio_cooccurrence.labels
   const cooccurMatrix = fig18_physio_cooccurrence.matrix
@@ -809,6 +812,8 @@ export default function ChapterBody({ data }) {
   const omronBySignal = Object.fromEntries(brandStats.topSignalsFor('Omron'))
   const iButtonTotal = brandStats.sumFor('iButton')
   const iButtonSkin = brandStats.totals['iButton']?.['Skin temperature'] || 0
+  const coreTempN = signalTotalsMap['Core temperature'] || 0
+  const bodyTempN = signalTotalsMap['Body temperature'] || 0
 
   return (
     <div>
@@ -863,7 +868,7 @@ export default function ChapterBody({ data }) {
         title="Signals, sensor types, and brands"
         intro="The same signal can be captured by very different instruments. This flow covers 15 signals measured in ≥5 studies, 53 distinct sensor types used across them, and every commercial brand behind those sensors — ordered by thermophysiological mechanism."
       >
-        <FigureCard figNumber="22" title="Signal → sensor type → brand" plotWidth={1100} commentary={`OMRON is the most-cited brand overall (${omronTotal}, counted once per signal it's used for), but spread across signals — it makes combination devices covering blood pressure (${omronBySignal['Blood pressure'] || 0}), heart rate (${omronBySignal['Heart/Pulse rate'] || 0}), and core temperature (${omronBySignal['Core/Body temperature'] || 0}). iButton (${iButtonTotal}) is the opposite pattern: concentrated almost entirely in one signal, skin temperature (${iButtonSkin} of its ${iButtonTotal}). Flow and node thickness are proportional to study count — hover for the exact number, or click any signal, sensor type, or brand to isolate its paths.`}>
+        <FigureCard figNumber="22" title="Signal → sensor type → brand" plotWidth={1100} commentary={`Skin temperature accounts for ${skinTempPct}% of signal-sensor pairs shown here, followed by heart/pulse rate at ${heartRatePct}% — together the clear majority of what gets measured. Every other signal sits in single digits. Sensing-type choice is far from standardized even within one signal: skin temperature alone is measured via ${nSensorTypesSkinTemp} distinct sensor types, with no single method used in a majority of studies. OMRON is the most-cited brand overall (${omronTotal}, counted once per signal it's used for), but spread across signals — it makes combination devices covering blood pressure (${omronBySignal['Blood pressure'] || 0}), heart rate (${omronBySignal['Heart/Pulse rate'] || 0}), and core temperature (${omronBySignal['Core temperature'] || 0}). iButton (${iButtonTotal}) is the opposite pattern: concentrated almost entirely in one signal, skin temperature (${iButtonSkin} of its ${iButtonTotal}). Flow and node thickness are proportional to study count — hover for the exact number, or click any signal, sensor type, or brand to isolate its paths. * Core temperature (${coreTempN} studies) and body temperature (${bodyTempN}) are shown as separate signals here — body temperature is used where a paper reported measuring "core body temperature" but the actual method wasn't a true core measure (e.g. forehead, axillary), reclassified to distinguish it from validated core-temperature methods (rectal, esophageal, ingestible pill).`}>
           <SignalSensorBrandSankey overall={physio_signal_sensor.overall} signalTotals={physio_signal_sensor.signal_totals} brandModelData={data.brand_model_reference.data} />
         </FigureCard>
 

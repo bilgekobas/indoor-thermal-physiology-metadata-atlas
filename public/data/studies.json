@@ -6081,7 +6081,7 @@
     "pub-doi": "https://doi.org/10.1016/j.buildenv.2024.111223",
     "pub-type": "J",
     "exp-type": "Field",
-    "exp-spatial-typology": "Standing",
+    "exp-spatial-typology": "NR",
     "exp-domains": "Air temperature, Radiant temperature, Air velocity, Relative humidity",
     "data-avail": "Upon request",
     "pop-no-tot": "50",

@@ -17,6 +17,11 @@
     },
     {
       "exp-type": "Field",
+      "exp-spatial-typology": "NR",
+      "count": 1
+    },
+    {
+      "exp-type": "Field",
       "exp-spatial-typology": "Office/Workstations",
       "count": 24
     },
@@ -24,11 +29,6 @@
       "exp-type": "Field",
       "exp-spatial-typology": "Residential",
       "count": 3
-    },
-    {
-      "exp-type": "Field",
-      "exp-spatial-typology": "Standing",
-      "count": 1
     },
     {
       "exp-type": "Lab",

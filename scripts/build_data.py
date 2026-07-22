@@ -152,17 +152,13 @@ physio = df[['id','period','physio-parameter','physio-sensing-method','physio-bo
 # NR/NAN/NC are kept as their own sensing-method categories (rather than
 # dropped) so Sankey/heatmap totals reflect every row, not just the subset
 # with a named sensing method.
-# physio = physio[~physio['physio-sensing-method'].isin(CODES)]
-# physio = physio[physio['physio-sensing-method'].notna()]
 physio = physio[physio['physio-parameter'].notna()]
 physio['physio-sensing-method'] = physio['physio-sensing-method'].astype(str).str.strip()
 physio['physio-sensing-method'] = physio['physio-sensing-method'].replace({
     'Digital Sphygmomanometer': 'Digital sphygmomanometer',
     'Laser doppler': 'Laser Doppler',
 })
-physio['signal'] = physio['physio-parameter'].replace({
-    'Body temperature':'Core/Body temperature','Core temperature':'Core/Body temperature',
-})
+physio['signal'] = physio['physio-parameter']
 physio_dedup = physio.drop_duplicates(subset=['id','signal','physio-sensing-method'])
 
 signal_sensor_counts = (physio_dedup.groupby(['signal','physio-sensing-method'])
@@ -1230,8 +1226,8 @@ sb['physio-sensing-method'] = sb['physio-sensing-method'].replace({
     'Laser doppler': 'Laser Doppler',
 })
 sb['physio-sensor-brand'] = sb['physio-sensor-brand'].astype(str).str.strip()
-# sb = sb[~sb['physio-sensing-method'].isin(CODES) & sb['physio-sensing-method'].notna()]
-# sb = sb[~sb['physio-sensor-brand'].isin(CODES) & (sb['physio-sensor-brand'] != 'nan')]
+# NR/NAN/NC kept as their own brand/sensing-method nodes (not dropped) so
+# the Sankey's flow totals match the full corpus, matching the section-4 fix.
 
 # Reuse the same canonical-casing map built for sensor_brands so 'iButton '
 # and 'iButton' (or 'OMRON'/'Omron') collapse to one brand label here too.
@@ -2005,7 +2001,7 @@ bm = bm[~bm['physio-sensor-model'].isin(CODES) & (bm['physio-sensor-model'] != '
 bm['physio-sensing-method'] = bm['physio-sensing-method'].replace({
     'Digital Sphygmomanometer': 'Digital sphygmomanometer', 'Laser doppler': 'Laser Doppler',
 })
-bm['signal'] = bm['physio-parameter'].replace({'Body temperature': 'Core/Body temperature', 'Core temperature': 'Core/Body temperature'})
+bm['signal'] = bm['physio-parameter']
 # Reuse the same brand canonicalization already built for the standalone
 # brand chart and the signal->sensor->brand Sankey, so 'iButton '/'iButton'
 # and similar casing/whitespace variants collapse here too.
