@@ -1498,7 +1498,7 @@
       "signal": "Skin temperature",
       "sensing_method": "Thermochron",
       "site": "Chest",
-      "count": 53
+      "count": 54
     },
     {
       "signal": "Skin temperature",
@@ -1546,7 +1546,7 @@
       "signal": "Skin temperature",
       "sensing_method": "Thermochron",
       "site": "Forehead",
-      "count": 40
+      "count": 41
     },
     {
       "signal": "Skin temperature",
@@ -1570,7 +1570,7 @@
       "signal": "Skin temperature",
       "sensing_method": "Thermochron",
       "site": "Lower leg",
-      "count": 63
+      "count": 64
     },
     {
       "signal": "Skin temperature",
@@ -1600,13 +1600,13 @@
       "signal": "Skin temperature",
       "sensing_method": "Thermochron",
       "site": "Thigh",
-      "count": 54
+      "count": 55
     },
     {
       "signal": "Skin temperature",
       "sensing_method": "Thermochron",
       "site": "Upper arm",
-      "count": 43
+      "count": 44
     },
     {
       "signal": "Skin temperature",
@@ -1666,7 +1666,7 @@
       "signal": "Skin temperature",
       "sensing_method": "Thermocouple",
       "site": "Chest",
-      "count": 41
+      "count": 40
     },
     {
       "signal": "Skin temperature",
@@ -1696,7 +1696,7 @@
       "signal": "Skin temperature",
       "sensing_method": "Thermocouple",
       "site": "Forehead",
-      "count": 35
+      "count": 34
     },
     {
       "signal": "Skin temperature",
@@ -1720,7 +1720,7 @@
       "signal": "Skin temperature",
       "sensing_method": "Thermocouple",
       "site": "Lower leg",
-      "count": 44
+      "count": 43
     },
     {
       "signal": "Skin temperature",
@@ -1732,13 +1732,13 @@
       "signal": "Skin temperature",
       "sensing_method": "Thermocouple",
       "site": "Thigh",
-      "count": 44
+      "count": 43
     },
     {
       "signal": "Skin temperature",
       "sensing_method": "Thermocouple",
       "site": "Upper arm",
-      "count": 38
+      "count": 37
     },
     {
       "signal": "Skin temperature",

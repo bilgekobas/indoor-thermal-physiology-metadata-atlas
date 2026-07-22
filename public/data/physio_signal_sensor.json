@@ -473,12 +473,12 @@
     {
       "signal": "Skin temperature",
       "physio-sensing-method": "Thermochron",
-      "count": 75
+      "count": 77
     },
     {
       "signal": "Skin temperature",
       "physio-sensing-method": "Thermocouple",
-      "count": 59
+      "count": 57
     },
     {
       "signal": "Skin temperature",
@@ -1802,7 +1802,7 @@
       "signal": "Skin temperature",
       "physio-sensing-method": "Thermochron",
       "period": "2023\u201324",
-      "count": 25
+      "count": 27
     },
     {
       "signal": "Skin temperature",
@@ -1838,7 +1838,7 @@
       "signal": "Skin temperature",
       "physio-sensing-method": "Thermocouple",
       "period": "2023\u201324",
-      "count": 16
+      "count": 14
     },
     {
       "signal": "Skin temperature",
@@ -3740,7 +3740,7 @@
       "signal": "Skin temperature",
       "physio-sensing-method": "Thermochron",
       "brand": "iButton",
-      "count": 51
+      "count": 53
     },
     {
       "signal": "Skin temperature",
@@ -3819,12 +3819,6 @@
       "physio-sensing-method": "Thermocouple",
       "brand": "Testo",
       "count": 4
-    },
-    {
-      "signal": "Skin temperature",
-      "physio-sensing-method": "Thermocouple",
-      "brand": "iButton",
-      "count": 2
     },
     {
       "signal": "Skin temperature",

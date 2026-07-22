@@ -827,8 +827,8 @@
         "Infrared camera": 2,
         "RTD": 4,
         "Thermistor": 12,
-        "Thermochron": 63,
-        "Thermocouple": 44
+        "Thermochron": 64,
+        "Thermocouple": 43
       }
     },
     {
@@ -841,8 +841,8 @@
         "Infrared camera": 3,
         "RTD": 4,
         "Thermistor": 12,
-        "Thermochron": 54,
-        "Thermocouple": 44
+        "Thermochron": 55,
+        "Thermocouple": 43
       }
     },
     {
@@ -855,8 +855,8 @@
         "Infrared camera": 3,
         "RTD": 4,
         "Thermistor": 12,
-        "Thermochron": 53,
-        "Thermocouple": 41
+        "Thermochron": 54,
+        "Thermocouple": 40
       }
     },
     {
@@ -870,8 +870,8 @@
         "Infrared thermometer": 8,
         "RTD": 4,
         "Thermistor": 13,
-        "Thermochron": 40,
-        "Thermocouple": 35,
+        "Thermochron": 41,
+        "Thermocouple": 34,
         "Thermometer": 2
       }
     },
@@ -885,8 +885,8 @@
         "Infrared camera": 2,
         "RTD": 5,
         "Thermistor": 11,
-        "Thermochron": 43,
-        "Thermocouple": 38
+        "Thermochron": 44,
+        "Thermocouple": 37
       }
     },
     {

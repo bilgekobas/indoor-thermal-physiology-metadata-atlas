@@ -7746,12 +7746,12 @@
           {
             "period": "2023–24",
             "sensor_grp": "Thermochron",
-            "count": 25
+            "count": 27
           },
           {
             "period": "2023–24",
             "sensor_grp": "Thermocouple",
-            "count": 16
+            "count": 14
           }
         ],
         "sensor_order": [
@@ -74759,12 +74759,12 @@
       {
         "signal": "Skin temperature",
         "physio-sensing-method": "Thermochron",
-        "count": 75
+        "count": 77
       },
       {
         "signal": "Skin temperature",
         "physio-sensing-method": "Thermocouple",
-        "count": 59
+        "count": 57
       },
       {
         "signal": "Skin temperature",
@@ -76088,7 +76088,7 @@
         "signal": "Skin temperature",
         "physio-sensing-method": "Thermochron",
         "period": "2023–24",
-        "count": 25
+        "count": 27
       },
       {
         "signal": "Skin temperature",
@@ -76124,7 +76124,7 @@
         "signal": "Skin temperature",
         "physio-sensing-method": "Thermocouple",
         "period": "2023–24",
-        "count": 16
+        "count": 14
       },
       {
         "signal": "Skin temperature",
@@ -78026,7 +78026,7 @@
         "signal": "Skin temperature",
         "physio-sensing-method": "Thermochron",
         "brand": "iButton",
-        "count": 51
+        "count": 53
       },
       {
         "signal": "Skin temperature",
@@ -78105,12 +78105,6 @@
         "physio-sensing-method": "Thermocouple",
         "brand": "Testo",
         "count": 4
-      },
-      {
-        "signal": "Skin temperature",
-        "physio-sensing-method": "Thermocouple",
-        "brand": "iButton",
-        "count": 2
       },
       {
         "signal": "Skin temperature",
@@ -87815,7 +87809,7 @@
       {
         "physio-sensing-method": "Thermochron",
         "physio-sensor-brand": "iButton",
-        "count": 52
+        "count": 54
       },
       {
         "physio-sensing-method": "Thermocouple",
@@ -87881,11 +87875,6 @@
         "physio-sensing-method": "Thermocouple",
         "physio-sensor-brand": "Testo",
         "count": 4
-      },
-      {
-        "physio-sensing-method": "Thermocouple",
-        "physio-sensor-brand": "iButton",
-        "count": 2
       },
       {
         "physio-sensing-method": "Thermometer",
@@ -91382,7 +91371,7 @@
         "signal": "Skin temperature",
         "sensing_method": "Thermochron",
         "site": "Chest",
-        "count": 53
+        "count": 54
       },
       {
         "signal": "Skin temperature",
@@ -91430,7 +91419,7 @@
         "signal": "Skin temperature",
         "sensing_method": "Thermochron",
         "site": "Forehead",
-        "count": 40
+        "count": 41
       },
       {
         "signal": "Skin temperature",
@@ -91454,7 +91443,7 @@
         "signal": "Skin temperature",
         "sensing_method": "Thermochron",
         "site": "Lower leg",
-        "count": 63
+        "count": 64
       },
       {
         "signal": "Skin temperature",
@@ -91484,13 +91473,13 @@
         "signal": "Skin temperature",
         "sensing_method": "Thermochron",
         "site": "Thigh",
-        "count": 54
+        "count": 55
       },
       {
         "signal": "Skin temperature",
         "sensing_method": "Thermochron",
         "site": "Upper arm",
-        "count": 43
+        "count": 44
       },
       {
         "signal": "Skin temperature",
@@ -91550,7 +91539,7 @@
         "signal": "Skin temperature",
         "sensing_method": "Thermocouple",
         "site": "Chest",
-        "count": 41
+        "count": 40
       },
       {
         "signal": "Skin temperature",
@@ -91580,7 +91569,7 @@
         "signal": "Skin temperature",
         "sensing_method": "Thermocouple",
         "site": "Forehead",
-        "count": 35
+        "count": 34
       },
       {
         "signal": "Skin temperature",
@@ -91604,7 +91593,7 @@
         "signal": "Skin temperature",
         "sensing_method": "Thermocouple",
         "site": "Lower leg",
-        "count": 44
+        "count": 43
       },
       {
         "signal": "Skin temperature",
@@ -91616,13 +91605,13 @@
         "signal": "Skin temperature",
         "sensing_method": "Thermocouple",
         "site": "Thigh",
-        "count": 44
+        "count": 43
       },
       {
         "signal": "Skin temperature",
         "sensing_method": "Thermocouple",
         "site": "Upper arm",
-        "count": 38
+        "count": 37
       },
       {
         "signal": "Skin temperature",
@@ -93179,8 +93168,8 @@
           "Infrared camera": 2,
           "RTD": 4,
           "Thermistor": 12,
-          "Thermochron": 63,
-          "Thermocouple": 44
+          "Thermochron": 64,
+          "Thermocouple": 43
         }
       },
       {
@@ -93193,8 +93182,8 @@
           "Infrared camera": 3,
           "RTD": 4,
           "Thermistor": 12,
-          "Thermochron": 54,
-          "Thermocouple": 44
+          "Thermochron": 55,
+          "Thermocouple": 43
         }
       },
       {
@@ -93207,8 +93196,8 @@
           "Infrared camera": 3,
           "RTD": 4,
           "Thermistor": 12,
-          "Thermochron": 53,
-          "Thermocouple": 41
+          "Thermochron": 54,
+          "Thermocouple": 40
         }
       },
       {
@@ -93222,8 +93211,8 @@
           "Infrared thermometer": 8,
           "RTD": 4,
           "Thermistor": 13,
-          "Thermochron": 40,
-          "Thermocouple": 35,
+          "Thermochron": 41,
+          "Thermocouple": 34,
           "Thermometer": 2
         }
       },
@@ -93237,8 +93226,8 @@
           "Infrared camera": 2,
           "RTD": 5,
           "Thermistor": 11,
-          "Thermochron": 43,
-          "Thermocouple": 38
+          "Thermochron": 44,
+          "Thermocouple": 37
         }
       },
       {
@@ -99827,7 +99816,7 @@
     "n_variables": 206,
     "year_min": 2013,
     "year_max": 2024,
-    "generated_at": "2026-07-22T21:49:36.195163"
+    "generated_at": "2026-07-22T21:54:32.321307"
   },
   "world-countries-110m": {
     "type": "Topology",

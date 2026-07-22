@@ -1063,7 +1063,7 @@
     {
       "physio-sensing-method": "Thermochron",
       "physio-sensor-brand": "iButton",
-      "count": 52
+      "count": 54
     },
     {
       "physio-sensing-method": "Thermocouple",
@@ -1129,11 +1129,6 @@
       "physio-sensing-method": "Thermocouple",
       "physio-sensor-brand": "Testo",
       "count": 4
-    },
-    {
-      "physio-sensing-method": "Thermocouple",
-      "physio-sensor-brand": "iButton",
-      "count": 2
     },
     {
       "physio-sensing-method": "Thermometer",

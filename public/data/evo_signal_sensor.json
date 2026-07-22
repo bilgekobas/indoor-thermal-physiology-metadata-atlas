@@ -180,12 +180,12 @@
         {
           "period": "2023\u201324",
           "sensor_grp": "Thermochron",
-          "count": 25
+          "count": 27
         },
         {
           "period": "2023\u201324",
           "sensor_grp": "Thermocouple",
-          "count": 16
+          "count": 14
         }
       ],
       "sensor_order": [
