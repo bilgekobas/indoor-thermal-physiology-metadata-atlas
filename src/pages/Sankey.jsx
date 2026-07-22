@@ -61,7 +61,7 @@ export default function Sankey({ data }) {
   const brandPairs = data.sensor_type_brand.data
 
   const layout = useMemo(() => {
-    // True per-signal totals: distinct experiments reporting the signal,
+    // Conservative per-signal totals: experiment–signal–method instances,
     // NOT summed across sensing methods. Summing 'overall' across methods
     // double-counts any experiment using more than one sensing method for
     // the same signal (e.g. thermocouple at some skin sites, thermochron at
@@ -69,7 +69,7 @@ export default function Sankey({ data }) {
     // 13, Sweat indicators by 6, Core/Body temperature by 3, Heart/Pulse
     // rate by 2, Respiration by 1.
     const sigTotals = {}
-    data.physio_signal_sensor.signal_totals.forEach((r) => { sigTotals[r.signal] = r.count })
+    data.physio_signal_sensor.signal_instance_totals.forEach((r) => { sigTotals[r.signal] = r.count })
 
     // Active signals: >= 5 occurrences, ordered by fixed mechanism/domain order,
     // then by descending total within each domain.

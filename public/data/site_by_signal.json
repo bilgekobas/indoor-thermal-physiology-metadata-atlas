@@ -461,8 +461,8 @@
           "Sweat indicators": 3
         },
         "sensingMethods": {
-          "GSR/EDA": 1,
           "Corneometer": 1,
+          "GSR/EDA": 1,
           "Hygrochron": 2,
           "Tewameter": 1
         }

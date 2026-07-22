@@ -204,7 +204,8 @@
         "2019\u201320": 47,
         "2021\u201322": 64,
         "2023\u201324": 65
-      }
+      },
+      "multi_response": true
     },
     "Heart/Pulse rate": {
       "data": [
@@ -338,12 +339,14 @@
         "2019\u201320": 31,
         "2021\u201322": 45,
         "2023\u201324": 44
-      }
+      },
+      "multi_response": true
     },
     "Core/Body temperature": {
       "data": [],
       "sensor_order": [],
-      "period_totals": {}
+      "period_totals": {},
+      "multi_response": true
     },
     "Skin conductance": {
       "data": [
@@ -382,7 +385,8 @@
         "2019\u201320": 5,
         "2021\u201322": 7,
         "2023\u201324": 9
-      }
+      },
+      "multi_response": true
     }
   },
   "periods": [

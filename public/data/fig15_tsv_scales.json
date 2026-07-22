@@ -6448,19 +6448,19 @@
           "is_neutral": false
         },
         {
-          "value": -2.25,
+          "value": -2.0,
           "label": "cold but acceptable",
           "is_anchor": true,
           "is_neutral": false
         },
         {
-          "value": -1.5,
+          "value": -1.0,
           "label": "a little cold",
           "is_anchor": true,
           "is_neutral": false
         },
         {
-          "value": -0.75,
+          "value": -0.5,
           "label": "slightly cool but comfortable",
           "is_anchor": true,
           "is_neutral": false
@@ -6472,19 +6472,19 @@
           "is_neutral": true
         },
         {
-          "value": 0.75,
+          "value": 0.5,
           "label": "slightly hot but comfortable",
           "is_anchor": true,
           "is_neutral": false
         },
         {
-          "value": 1.5,
+          "value": 1.0,
           "label": "a little hot",
           "is_anchor": true,
           "is_neutral": false
         },
         {
-          "value": 2.25,
+          "value": 2.0,
           "label": "hot but acceptable",
           "is_anchor": true,
           "is_neutral": false
@@ -16035,14 +16035,6 @@
     {
       "points": 25,
       "count": 1
-    },
-    {
-      "points": "continuous",
-      "count": 2
-    },
-    {
-      "points": "vas",
-      "count": 2
     }
   ],
   "n_total": 230,

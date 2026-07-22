@@ -66,7 +66,7 @@
       "count": 2
     },
     {
-      "signal": "Biomarkers: Lysozyme ",
+      "signal": "Biomarkers: Lysozyme",
       "physio-sensing-method": "Nasal lavage fluid",
       "count": 1
     },
@@ -635,7 +635,7 @@
       "count": 2
     },
     {
-      "signal": "Biomarkers: Lysozyme ",
+      "signal": "Biomarkers: Lysozyme",
       "physio-sensing-method": "Nasal lavage fluid",
       "period": "2023\u201324",
       "count": 1
@@ -1997,7 +1997,7 @@
       "count": 2
     },
     {
-      "signal": "Biomarkers: Lysozyme ",
+      "signal": "Biomarkers: Lysozyme",
       "count": 1
     },
     {
@@ -2111,6 +2111,1846 @@
     {
       "signal": "Sweat indicators",
       "count": 35
+    }
+  ],
+  "signal_instance_totals": [
+    {
+      "signal": "Biomarkers: Alpha-amylase",
+      "count": 3
+    },
+    {
+      "signal": "Biomarkers: COX1",
+      "count": 1
+    },
+    {
+      "signal": "Biomarkers: COX2",
+      "count": 1
+    },
+    {
+      "signal": "Biomarkers: Catecholamines",
+      "count": 1
+    },
+    {
+      "signal": "Biomarkers: Cortisol",
+      "count": 2
+    },
+    {
+      "signal": "Biomarkers: Dopamine",
+      "count": 1
+    },
+    {
+      "signal": "Biomarkers: Estradiol",
+      "count": 1
+    },
+    {
+      "signal": "Biomarkers: Free thyroxine (FT4)",
+      "count": 2
+    },
+    {
+      "signal": "Biomarkers: Free triiodothyronine (FT3)",
+      "count": 1
+    },
+    {
+      "signal": "Biomarkers: Heat shock protein (HSP)",
+      "count": 2
+    },
+    {
+      "signal": "Biomarkers: Immunoglobulin A (IgA)",
+      "count": 1
+    },
+    {
+      "signal": "Biomarkers: Immunoglobulin E (IgE)",
+      "count": 2
+    },
+    {
+      "signal": "Biomarkers: Interleukin 6 (IL-6)",
+      "count": 2
+    },
+    {
+      "signal": "Biomarkers: Lysozyme",
+      "count": 1
+    },
+    {
+      "signal": "Biomarkers: PGE2",
+      "count": 1
+    },
+    {
+      "signal": "Biomarkers: Progesterone",
+      "count": 1
+    },
+    {
+      "signal": "Biomarkers: Tear film mucus",
+      "count": 1
+    },
+    {
+      "signal": "Biomarkers: Testosterone",
+      "count": 1
+    },
+    {
+      "signal": "Biomarkers: Thyroid-stimulating hormone (TSH)",
+      "count": 2
+    },
+    {
+      "signal": "Blood pressure",
+      "count": 43
+    },
+    {
+      "signal": "Body temperature",
+      "count": 32
+    },
+    {
+      "signal": "Core temperature",
+      "count": 19
+    },
+    {
+      "signal": "EEG",
+      "count": 39
+    },
+    {
+      "signal": "EMG",
+      "count": 3
+    },
+    {
+      "signal": "EOG",
+      "count": 5
+    },
+    {
+      "signal": "Exhaled breath temperature",
+      "count": 2
+    },
+    {
+      "signal": "Glucose",
+      "count": 2
+    },
+    {
+      "signal": "Heart/Pulse rate",
+      "count": 150
+    },
+    {
+      "signal": "Heat flux",
+      "count": 8
+    },
+    {
+      "signal": "Metabolic rate/Gas exchange",
+      "count": 19
+    },
+    {
+      "signal": "Movement",
+      "count": 13
+    },
+    {
+      "signal": "Near body temperature",
+      "count": 8
+    },
+    {
+      "signal": "Oxygen saturation",
+      "count": 32
+    },
+    {
+      "signal": "Perfusion index",
+      "count": 1
+    },
+    {
+      "signal": "Pupillometry",
+      "count": 1
+    },
+    {
+      "signal": "Respiration",
+      "count": 11
+    },
+    {
+      "signal": "Sensory nerve conduction velocity",
+      "count": 2
+    },
+    {
+      "signal": "Skin blood flow",
+      "count": 14
+    },
+    {
+      "signal": "Skin conductance",
+      "count": 25
+    },
+    {
+      "signal": "Skin hardness",
+      "count": 1
+    },
+    {
+      "signal": "Skin temperature",
+      "count": 253
+    },
+    {
+      "signal": "Sweat indicators",
+      "count": 41
+    }
+  ],
+  "signal_method_brand": [
+    {
+      "signal": "Biomarkers: Alpha-amylase",
+      "physio-sensing-method": "Saliva",
+      "brand": "NAN",
+      "count": 2
+    },
+    {
+      "signal": "Biomarkers: Alpha-amylase",
+      "physio-sensing-method": "Saliva",
+      "brand": "Nipro Inc.",
+      "count": 1
+    },
+    {
+      "signal": "Biomarkers: COX1",
+      "physio-sensing-method": "Blood",
+      "brand": "NAN",
+      "count": 1
+    },
+    {
+      "signal": "Biomarkers: COX2",
+      "physio-sensing-method": "Blood",
+      "brand": "NAN",
+      "count": 1
+    },
+    {
+      "signal": "Biomarkers: Catecholamines",
+      "physio-sensing-method": "Blood",
+      "brand": "Recipe",
+      "count": 1
+    },
+    {
+      "signal": "Biomarkers: Cortisol",
+      "physio-sensing-method": "Saliva",
+      "brand": "NAN",
+      "count": 2
+    },
+    {
+      "signal": "Biomarkers: Dopamine",
+      "physio-sensing-method": "Urine",
+      "brand": "NAN",
+      "count": 1
+    },
+    {
+      "signal": "Biomarkers: Estradiol",
+      "physio-sensing-method": "Blood",
+      "brand": "NAN",
+      "count": 1
+    },
+    {
+      "signal": "Biomarkers: Free thyroxine (FT4)",
+      "physio-sensing-method": "Blood",
+      "brand": "NAN",
+      "count": 1
+    },
+    {
+      "signal": "Biomarkers: Free thyroxine (FT4)",
+      "physio-sensing-method": "Blood",
+      "brand": "PerkinElmer",
+      "count": 1
+    },
+    {
+      "signal": "Biomarkers: Free triiodothyronine (FT3)",
+      "physio-sensing-method": "Blood",
+      "brand": "NAN",
+      "count": 1
+    },
+    {
+      "signal": "Biomarkers: Heat shock protein (HSP)",
+      "physio-sensing-method": "Blood",
+      "brand": "NAN",
+      "count": 2
+    },
+    {
+      "signal": "Biomarkers: Immunoglobulin A (IgA)",
+      "physio-sensing-method": "Nasal lavage fluid",
+      "brand": "NAN",
+      "count": 1
+    },
+    {
+      "signal": "Biomarkers: Immunoglobulin E (IgE)",
+      "physio-sensing-method": "Saliva",
+      "brand": "NAN",
+      "count": 2
+    },
+    {
+      "signal": "Biomarkers: Interleukin 6 (IL-6)",
+      "physio-sensing-method": "Blood",
+      "brand": "NAN",
+      "count": 2
+    },
+    {
+      "signal": "Biomarkers: Lysozyme",
+      "physio-sensing-method": "Nasal lavage fluid",
+      "brand": "NAN",
+      "count": 1
+    },
+    {
+      "signal": "Biomarkers: PGE2",
+      "physio-sensing-method": "Blood",
+      "brand": "NAN",
+      "count": 1
+    },
+    {
+      "signal": "Biomarkers: Progesterone",
+      "physio-sensing-method": "Blood",
+      "brand": "NAN",
+      "count": 1
+    },
+    {
+      "signal": "Biomarkers: Tear film mucus",
+      "physio-sensing-method": "Tear fluid",
+      "brand": "NR",
+      "count": 1
+    },
+    {
+      "signal": "Biomarkers: Testosterone",
+      "physio-sensing-method": "Blood",
+      "brand": "NAN",
+      "count": 1
+    },
+    {
+      "signal": "Biomarkers: Thyroid-stimulating hormone (TSH)",
+      "physio-sensing-method": "Blood",
+      "brand": "NAN",
+      "count": 1
+    },
+    {
+      "signal": "Biomarkers: Thyroid-stimulating hormone (TSH)",
+      "physio-sensing-method": "Blood",
+      "brand": "Roche Diagnostica",
+      "count": 1
+    },
+    {
+      "signal": "Blood pressure",
+      "physio-sensing-method": "Digital sphygmomanometer",
+      "brand": "ADInstruments",
+      "count": 1
+    },
+    {
+      "signal": "Blood pressure",
+      "physio-sensing-method": "Digital sphygmomanometer",
+      "brand": "Andon",
+      "count": 2
+    },
+    {
+      "signal": "Blood pressure",
+      "physio-sensing-method": "Digital sphygmomanometer",
+      "brand": "Beurer",
+      "count": 1
+    },
+    {
+      "signal": "Blood pressure",
+      "physio-sensing-method": "Digital sphygmomanometer",
+      "brand": "Contec Medical Systems",
+      "count": 1
+    },
+    {
+      "signal": "Blood pressure",
+      "physio-sensing-method": "Digital sphygmomanometer",
+      "brand": "Kofoe",
+      "count": 1
+    },
+    {
+      "signal": "Blood pressure",
+      "physio-sensing-method": "Digital sphygmomanometer",
+      "brand": "Libelium Co.",
+      "count": 1
+    },
+    {
+      "signal": "Blood pressure",
+      "physio-sensing-method": "Digital sphygmomanometer",
+      "brand": "NR",
+      "count": 1
+    },
+    {
+      "signal": "Blood pressure",
+      "physio-sensing-method": "Digital sphygmomanometer",
+      "brand": "Omron",
+      "count": 31
+    },
+    {
+      "signal": "Blood pressure",
+      "physio-sensing-method": "Digital sphygmomanometer",
+      "brand": "Panasonic",
+      "count": 1
+    },
+    {
+      "signal": "Blood pressure",
+      "physio-sensing-method": "Digital sphygmomanometer",
+      "brand": "Philips",
+      "count": 1
+    },
+    {
+      "signal": "Blood pressure",
+      "physio-sensing-method": "NR",
+      "brand": "OMRON",
+      "count": 1
+    },
+    {
+      "signal": "Blood pressure",
+      "physio-sensing-method": "Sonomic pick-up",
+      "brand": "Colin",
+      "count": 1
+    },
+    {
+      "signal": "Body temperature",
+      "physio-sensing-method": "Heat flux",
+      "brand": "greenTEG",
+      "count": 1
+    },
+    {
+      "signal": "Body temperature",
+      "physio-sensing-method": "Infrared thermometer",
+      "brand": "Braun",
+      "count": 4
+    },
+    {
+      "signal": "Body temperature",
+      "physio-sensing-method": "Infrared thermometer",
+      "brand": "NR",
+      "count": 2
+    },
+    {
+      "signal": "Body temperature",
+      "physio-sensing-method": "Infrared thermometer",
+      "brand": "Omega",
+      "count": 1
+    },
+    {
+      "signal": "Body temperature",
+      "physio-sensing-method": "Infrared thermometer",
+      "brand": "Omron",
+      "count": 7
+    },
+    {
+      "signal": "Body temperature",
+      "physio-sensing-method": "Infrared thermometer",
+      "brand": "iHealth",
+      "count": 1
+    },
+    {
+      "signal": "Body temperature",
+      "physio-sensing-method": "Mercury thermometer",
+      "brand": "NAN",
+      "count": 1
+    },
+    {
+      "signal": "Body temperature",
+      "physio-sensing-method": "Mercury thermometer",
+      "brand": "Yuwell",
+      "count": 1
+    },
+    {
+      "signal": "Body temperature",
+      "physio-sensing-method": "NR",
+      "brand": "NR",
+      "count": 7
+    },
+    {
+      "signal": "Body temperature",
+      "physio-sensing-method": "Thermistor",
+      "brand": "NR",
+      "count": 1
+    },
+    {
+      "signal": "Body temperature",
+      "physio-sensing-method": "Thermometer",
+      "brand": "Braun",
+      "count": 1
+    },
+    {
+      "signal": "Body temperature",
+      "physio-sensing-method": "Thermometer",
+      "brand": "Omron",
+      "count": 5
+    },
+    {
+      "signal": "Core temperature",
+      "physio-sensing-method": "Infrared thermometer",
+      "brand": "Braun",
+      "count": 1
+    },
+    {
+      "signal": "Core temperature",
+      "physio-sensing-method": "Ingestible pill",
+      "brand": "BodyCap",
+      "count": 2
+    },
+    {
+      "signal": "Core temperature",
+      "physio-sensing-method": "Ingestible pill",
+      "brand": "CorTemp",
+      "count": 1
+    },
+    {
+      "signal": "Core temperature",
+      "physio-sensing-method": "Ingestible pill",
+      "brand": "HQ",
+      "count": 3
+    },
+    {
+      "signal": "Core temperature",
+      "physio-sensing-method": "Ingestible pill",
+      "brand": "Hidalgo",
+      "count": 1
+    },
+    {
+      "signal": "Core temperature",
+      "physio-sensing-method": "Ingestible pill",
+      "brand": "Nihonkohden Co.",
+      "count": 3
+    },
+    {
+      "signal": "Core temperature",
+      "physio-sensing-method": "Probe",
+      "brand": "ETO DENKI",
+      "count": 1
+    },
+    {
+      "signal": "Core temperature",
+      "physio-sensing-method": "Probe",
+      "brand": "Measurement Specialities",
+      "count": 1
+    },
+    {
+      "signal": "Core temperature",
+      "physio-sensing-method": "Thermistor",
+      "brand": "Ellab",
+      "count": 1
+    },
+    {
+      "signal": "Core temperature",
+      "physio-sensing-method": "Thermistor",
+      "brand": "Nikkiso-Therm",
+      "count": 1
+    },
+    {
+      "signal": "Core temperature",
+      "physio-sensing-method": "Thermistor",
+      "brand": "Nikkiso-YSI",
+      "count": 1
+    },
+    {
+      "signal": "Core temperature",
+      "physio-sensing-method": "Thermochron",
+      "brand": "Opulus",
+      "count": 1
+    },
+    {
+      "signal": "Core temperature",
+      "physio-sensing-method": "Thermometer",
+      "brand": "NR",
+      "count": 2
+    },
+    {
+      "signal": "EEG",
+      "physio-sensing-method": "1-channel",
+      "brand": "Mind Media",
+      "count": 2
+    },
+    {
+      "signal": "EEG",
+      "physio-sensing-method": "14-channel",
+      "brand": "Emotiv",
+      "count": 14
+    },
+    {
+      "signal": "EEG",
+      "physio-sensing-method": "16-channel",
+      "brand": "Nihonkohden Co.",
+      "count": 1
+    },
+    {
+      "signal": "EEG",
+      "physio-sensing-method": "16-channel",
+      "brand": "OpenBCI",
+      "count": 1
+    },
+    {
+      "signal": "EEG",
+      "physio-sensing-method": "19-channel",
+      "brand": "CGX",
+      "count": 2
+    },
+    {
+      "signal": "EEG",
+      "physio-sensing-method": "19-channel",
+      "brand": "Wearable Sensing",
+      "count": 1
+    },
+    {
+      "signal": "EEG",
+      "physio-sensing-method": "2-channel",
+      "brand": "NR",
+      "count": 1
+    },
+    {
+      "signal": "EEG",
+      "physio-sensing-method": "2-channel",
+      "brand": "NeuroSky",
+      "count": 1
+    },
+    {
+      "signal": "EEG",
+      "physio-sensing-method": "2-channel",
+      "brand": "PLUX",
+      "count": 1
+    },
+    {
+      "signal": "EEG",
+      "physio-sensing-method": "3-channel",
+      "brand": "Intercross",
+      "count": 1
+    },
+    {
+      "signal": "EEG",
+      "physio-sensing-method": "3-channel",
+      "brand": "NeuroSky",
+      "count": 1
+    },
+    {
+      "signal": "EEG",
+      "physio-sensing-method": "4-channel",
+      "brand": "Brain Products",
+      "count": 1
+    },
+    {
+      "signal": "EEG",
+      "physio-sensing-method": "4-channel",
+      "brand": "InterAxon",
+      "count": 4
+    },
+    {
+      "signal": "EEG",
+      "physio-sensing-method": "5-channel",
+      "brand": "Emotiv",
+      "count": 1
+    },
+    {
+      "signal": "EEG",
+      "physio-sensing-method": "8-channel",
+      "brand": "BIOPAC",
+      "count": 3
+    },
+    {
+      "signal": "EEG",
+      "physio-sensing-method": "8-channel",
+      "brand": "NR",
+      "count": 1
+    },
+    {
+      "signal": "EEG",
+      "physio-sensing-method": "9-channel",
+      "brand": "Advanced Brain Monitoring",
+      "count": 3
+    },
+    {
+      "signal": "EMG",
+      "physio-sensing-method": "EMG",
+      "brand": "NR",
+      "count": 1
+    },
+    {
+      "signal": "EMG",
+      "physio-sensing-method": "EMG",
+      "brand": "O&R Medical",
+      "count": 1
+    },
+    {
+      "signal": "EMG",
+      "physio-sensing-method": "EMG",
+      "brand": "Qingdao University of Technology",
+      "count": 1
+    },
+    {
+      "signal": "EOG",
+      "physio-sensing-method": "EOG",
+      "brand": "BIOPAC",
+      "count": 1
+    },
+    {
+      "signal": "EOG",
+      "physio-sensing-method": "EOG",
+      "brand": "CGX",
+      "count": 2
+    },
+    {
+      "signal": "EOG",
+      "physio-sensing-method": "EOG",
+      "brand": "Mind Media",
+      "count": 1
+    },
+    {
+      "signal": "EOG",
+      "physio-sensing-method": "EOG",
+      "brand": "Tyco Healthcare Group LP",
+      "count": 1
+    },
+    {
+      "signal": "Exhaled breath temperature",
+      "physio-sensing-method": "Thermal picker",
+      "brand": "Nihonkohden Co.",
+      "count": 1
+    },
+    {
+      "signal": "Exhaled breath temperature",
+      "physio-sensing-method": "Thermistor",
+      "brand": "Murata",
+      "count": 1
+    },
+    {
+      "signal": "Glucose",
+      "physio-sensing-method": "Blood",
+      "brand": "Abbott",
+      "count": 1
+    },
+    {
+      "signal": "Glucose",
+      "physio-sensing-method": "Blood",
+      "brand": "Dr. Diary Plus",
+      "count": 1
+    },
+    {
+      "signal": "Heart/Pulse rate",
+      "physio-sensing-method": "Digital sphygmomanometer",
+      "brand": "Contec Medical Systems",
+      "count": 1
+    },
+    {
+      "signal": "Heart/Pulse rate",
+      "physio-sensing-method": "Digital sphygmomanometer",
+      "brand": "Omron",
+      "count": 20
+    },
+    {
+      "signal": "Heart/Pulse rate",
+      "physio-sensing-method": "Digital sphygmomanometer",
+      "brand": "Panasonic",
+      "count": 1
+    },
+    {
+      "signal": "Heart/Pulse rate",
+      "physio-sensing-method": "ECG",
+      "brand": "ADInstruments",
+      "count": 2
+    },
+    {
+      "signal": "Heart/Pulse rate",
+      "physio-sensing-method": "ECG",
+      "brand": "CGX",
+      "count": 2
+    },
+    {
+      "signal": "Heart/Pulse rate",
+      "physio-sensing-method": "ECG",
+      "brand": "Careshine",
+      "count": 1
+    },
+    {
+      "signal": "Heart/Pulse rate",
+      "physio-sensing-method": "ECG",
+      "brand": "Careshine Electronic",
+      "count": 1
+    },
+    {
+      "signal": "Heart/Pulse rate",
+      "physio-sensing-method": "ECG",
+      "brand": "CompuMedics Ltd.",
+      "count": 2
+    },
+    {
+      "signal": "Heart/Pulse rate",
+      "physio-sensing-method": "ECG",
+      "brand": "DMS",
+      "count": 2
+    },
+    {
+      "signal": "Heart/Pulse rate",
+      "physio-sensing-method": "ECG",
+      "brand": "Fukuda Denshi",
+      "count": 1
+    },
+    {
+      "signal": "Heart/Pulse rate",
+      "physio-sensing-method": "ECG",
+      "brand": "HeaLink",
+      "count": 3
+    },
+    {
+      "signal": "Heart/Pulse rate",
+      "physio-sensing-method": "ECG",
+      "brand": "Hidalgo",
+      "count": 3
+    },
+    {
+      "signal": "Heart/Pulse rate",
+      "physio-sensing-method": "ECG",
+      "brand": "MR&D Pulse",
+      "count": 1
+    },
+    {
+      "signal": "Heart/Pulse rate",
+      "physio-sensing-method": "ECG",
+      "brand": "Mind Media",
+      "count": 3
+    },
+    {
+      "signal": "Heart/Pulse rate",
+      "physio-sensing-method": "ECG",
+      "brand": "NR",
+      "count": 4
+    },
+    {
+      "signal": "Heart/Pulse rate",
+      "physio-sensing-method": "ECG",
+      "brand": "Nihonkohden Co.",
+      "count": 2
+    },
+    {
+      "signal": "Heart/Pulse rate",
+      "physio-sensing-method": "ECG",
+      "brand": "PLUX",
+      "count": 2
+    },
+    {
+      "signal": "Heart/Pulse rate",
+      "physio-sensing-method": "ECG",
+      "brand": "Polar",
+      "count": 26
+    },
+    {
+      "signal": "Heart/Pulse rate",
+      "physio-sensing-method": "ECG",
+      "brand": "Suunto",
+      "count": 12
+    },
+    {
+      "signal": "Heart/Pulse rate",
+      "physio-sensing-method": "ECG",
+      "brand": "TXZ",
+      "count": 1
+    },
+    {
+      "signal": "Heart/Pulse rate",
+      "physio-sensing-method": "ECG",
+      "brand": "Tianjin Jingjin",
+      "count": 1
+    },
+    {
+      "signal": "Heart/Pulse rate",
+      "physio-sensing-method": "ECG",
+      "brand": "Zephyr",
+      "count": 2
+    },
+    {
+      "signal": "Heart/Pulse rate",
+      "physio-sensing-method": "NR",
+      "brand": "NR",
+      "count": 11
+    },
+    {
+      "signal": "Heart/Pulse rate",
+      "physio-sensing-method": "NR",
+      "brand": "Shenzhen SYY Technology Co., Ltd.",
+      "count": 1
+    },
+    {
+      "signal": "Heart/Pulse rate",
+      "physio-sensing-method": "OHR/PPG",
+      "brand": "Cosinuss",
+      "count": 1
+    },
+    {
+      "signal": "Heart/Pulse rate",
+      "physio-sensing-method": "OHR/PPG",
+      "brand": "EMFIT",
+      "count": 1
+    },
+    {
+      "signal": "Heart/Pulse rate",
+      "physio-sensing-method": "OHR/PPG",
+      "brand": "Empatica",
+      "count": 14
+    },
+    {
+      "signal": "Heart/Pulse rate",
+      "physio-sensing-method": "OHR/PPG",
+      "brand": "Fitbit",
+      "count": 3
+    },
+    {
+      "signal": "Heart/Pulse rate",
+      "physio-sensing-method": "OHR/PPG",
+      "brand": "Hesvit",
+      "count": 1
+    },
+    {
+      "signal": "Heart/Pulse rate",
+      "physio-sensing-method": "OHR/PPG",
+      "brand": "Multiple brands",
+      "count": 1
+    },
+    {
+      "signal": "Heart/Pulse rate",
+      "physio-sensing-method": "OHR/PPG",
+      "brand": "NR",
+      "count": 1
+    },
+    {
+      "signal": "Heart/Pulse rate",
+      "physio-sensing-method": "OHR/PPG",
+      "brand": "Polar",
+      "count": 1
+    },
+    {
+      "signal": "Heart/Pulse rate",
+      "physio-sensing-method": "OHR/PPG",
+      "brand": "Samsung",
+      "count": 2
+    },
+    {
+      "signal": "Heart/Pulse rate",
+      "physio-sensing-method": "OHR/PPG",
+      "brand": "Seeed Studio",
+      "count": 1
+    },
+    {
+      "signal": "Heart/Pulse rate",
+      "physio-sensing-method": "OHR/PPG",
+      "brand": "Shimmer Sensing",
+      "count": 2
+    },
+    {
+      "signal": "Heart/Pulse rate",
+      "physio-sensing-method": "OHR/PPG",
+      "brand": "TDK",
+      "count": 1
+    },
+    {
+      "signal": "Heart/Pulse rate",
+      "physio-sensing-method": "OHR/PPG",
+      "brand": "Xiaomi",
+      "count": 1
+    },
+    {
+      "signal": "Heart/Pulse rate",
+      "physio-sensing-method": "Pulse oximeter",
+      "brand": "ADInstruments",
+      "count": 1
+    },
+    {
+      "signal": "Heart/Pulse rate",
+      "physio-sensing-method": "Pulse oximeter",
+      "brand": "Heal Force",
+      "count": 4
+    },
+    {
+      "signal": "Heart/Pulse rate",
+      "physio-sensing-method": "Pulse oximeter",
+      "brand": "Libelium Co.",
+      "count": 2
+    },
+    {
+      "signal": "Heart/Pulse rate",
+      "physio-sensing-method": "Pulse oximeter",
+      "brand": "Medisana",
+      "count": 1
+    },
+    {
+      "signal": "Heart/Pulse rate",
+      "physio-sensing-method": "Pulse oximeter",
+      "brand": "NR",
+      "count": 2
+    },
+    {
+      "signal": "Heart/Pulse rate",
+      "physio-sensing-method": "Pulse oximeter",
+      "brand": "Nonin Medical",
+      "count": 1
+    },
+    {
+      "signal": "Heart/Pulse rate",
+      "physio-sensing-method": "Pulse oximeter",
+      "brand": "O2HEALTH",
+      "count": 1
+    },
+    {
+      "signal": "Heart/Pulse rate",
+      "physio-sensing-method": "Pulse oximeter",
+      "brand": "Promise Technology",
+      "count": 1
+    },
+    {
+      "signal": "Heart/Pulse rate",
+      "physio-sensing-method": "Pulse oximeter",
+      "brand": "Yuwell",
+      "count": 2
+    },
+    {
+      "signal": "Heat flux",
+      "physio-sensing-method": "Heat flux/Heat flow",
+      "brand": "FluxTeq",
+      "count": 2
+    },
+    {
+      "signal": "Heat flux",
+      "physio-sensing-method": "Heat flux/Heat flow",
+      "brand": "Kyoto Electronics",
+      "count": 6
+    },
+    {
+      "signal": "Metabolic rate/Gas exchange",
+      "physio-sensing-method": "Capnometry/Capnography",
+      "brand": "Kingst",
+      "count": 1
+    },
+    {
+      "signal": "Metabolic rate/Gas exchange",
+      "physio-sensing-method": "Capnometry/Capnography",
+      "brand": "LifeSense",
+      "count": 2
+    },
+    {
+      "signal": "Metabolic rate/Gas exchange",
+      "physio-sensing-method": "Capnometry/Capnography",
+      "brand": "MedAir AB",
+      "count": 1
+    },
+    {
+      "signal": "Metabolic rate/Gas exchange",
+      "physio-sensing-method": "Capnometry/Capnography",
+      "brand": "Medtronic",
+      "count": 1
+    },
+    {
+      "signal": "Metabolic rate/Gas exchange",
+      "physio-sensing-method": "Exhaled gas analyzer",
+      "brand": "ADInstruments",
+      "count": 1
+    },
+    {
+      "signal": "Metabolic rate/Gas exchange",
+      "physio-sensing-method": "Exhaled gas analyzer",
+      "brand": "S&ME Company",
+      "count": 3
+    },
+    {
+      "signal": "Metabolic rate/Gas exchange",
+      "physio-sensing-method": "Metabolic cart",
+      "brand": "Cosmed",
+      "count": 3
+    },
+    {
+      "signal": "Metabolic rate/Gas exchange",
+      "physio-sensing-method": "Metabolic cart",
+      "brand": "Oxycon",
+      "count": 1
+    },
+    {
+      "signal": "Metabolic rate/Gas exchange",
+      "physio-sensing-method": "Metabolic cart",
+      "brand": "Vyaire Medical",
+      "count": 3
+    },
+    {
+      "signal": "Metabolic rate/Gas exchange",
+      "physio-sensing-method": "Respiration chamber",
+      "brand": "Maastricht Instruments",
+      "count": 2
+    },
+    {
+      "signal": "Metabolic rate/Gas exchange",
+      "physio-sensing-method": "Respiration chamber",
+      "brand": "Omnical",
+      "count": 1
+    },
+    {
+      "signal": "Movement",
+      "physio-sensing-method": "Accelerometer",
+      "brand": "Empatica",
+      "count": 6
+    },
+    {
+      "signal": "Movement",
+      "physio-sensing-method": "Accelerometer",
+      "brand": "Fitbit",
+      "count": 1
+    },
+    {
+      "signal": "Movement",
+      "physio-sensing-method": "Accelerometer",
+      "brand": "Maastricht Instruments",
+      "count": 2
+    },
+    {
+      "signal": "Movement",
+      "physio-sensing-method": "Accelerometer",
+      "brand": "Movisens",
+      "count": 1
+    },
+    {
+      "signal": "Movement",
+      "physio-sensing-method": "Accelerometer",
+      "brand": "POSH Mobile Ltd.",
+      "count": 1
+    },
+    {
+      "signal": "Movement",
+      "physio-sensing-method": "Accelerometer",
+      "brand": "TXZ",
+      "count": 1
+    },
+    {
+      "signal": "Movement",
+      "physio-sensing-method": "Step count",
+      "brand": "Fitbit",
+      "count": 1
+    },
+    {
+      "signal": "Near body temperature",
+      "physio-sensing-method": "Hygrochron",
+      "brand": "iButton",
+      "count": 3
+    },
+    {
+      "signal": "Near body temperature",
+      "physio-sensing-method": "Infrared camera",
+      "brand": "FLIR",
+      "count": 2
+    },
+    {
+      "signal": "Near body temperature",
+      "physio-sensing-method": "Silicon-based temperature sensor",
+      "brand": "Ambient labs",
+      "count": 1
+    },
+    {
+      "signal": "Near body temperature",
+      "physio-sensing-method": "Thermochron",
+      "brand": "iButton",
+      "count": 1
+    },
+    {
+      "signal": "Near body temperature",
+      "physio-sensing-method": "Thermocouple",
+      "brand": "NR",
+      "count": 1
+    },
+    {
+      "signal": "Oxygen saturation",
+      "physio-sensing-method": "NIRS",
+      "brand": "DynaSense",
+      "count": 1
+    },
+    {
+      "signal": "Oxygen saturation",
+      "physio-sensing-method": "NR",
+      "brand": "CompuMedics Ltd.",
+      "count": 2
+    },
+    {
+      "signal": "Oxygen saturation",
+      "physio-sensing-method": "OHR/PPG",
+      "brand": "NR",
+      "count": 1
+    },
+    {
+      "signal": "Oxygen saturation",
+      "physio-sensing-method": "Pulse oximeter",
+      "brand": "ADInstruments",
+      "count": 1
+    },
+    {
+      "signal": "Oxygen saturation",
+      "physio-sensing-method": "Pulse oximeter",
+      "brand": "Heal Force",
+      "count": 11
+    },
+    {
+      "signal": "Oxygen saturation",
+      "physio-sensing-method": "Pulse oximeter",
+      "brand": "Lepu Medical",
+      "count": 1
+    },
+    {
+      "signal": "Oxygen saturation",
+      "physio-sensing-method": "Pulse oximeter",
+      "brand": "Libelium Co.",
+      "count": 1
+    },
+    {
+      "signal": "Oxygen saturation",
+      "physio-sensing-method": "Pulse oximeter",
+      "brand": "LifeSense",
+      "count": 1
+    },
+    {
+      "signal": "Oxygen saturation",
+      "physio-sensing-method": "Pulse oximeter",
+      "brand": "Masimo",
+      "count": 1
+    },
+    {
+      "signal": "Oxygen saturation",
+      "physio-sensing-method": "Pulse oximeter",
+      "brand": "Medisana",
+      "count": 1
+    },
+    {
+      "signal": "Oxygen saturation",
+      "physio-sensing-method": "Pulse oximeter",
+      "brand": "NR",
+      "count": 3
+    },
+    {
+      "signal": "Oxygen saturation",
+      "physio-sensing-method": "Pulse oximeter",
+      "brand": "Nonin Medical",
+      "count": 2
+    },
+    {
+      "signal": "Oxygen saturation",
+      "physio-sensing-method": "Pulse oximeter",
+      "brand": "Omron",
+      "count": 1
+    },
+    {
+      "signal": "Oxygen saturation",
+      "physio-sensing-method": "Pulse oximeter",
+      "brand": "Philips",
+      "count": 1
+    },
+    {
+      "signal": "Oxygen saturation",
+      "physio-sensing-method": "Pulse oximeter",
+      "brand": "Promise Technology",
+      "count": 1
+    },
+    {
+      "signal": "Oxygen saturation",
+      "physio-sensing-method": "Pulse oximeter",
+      "brand": "Yuwell",
+      "count": 3
+    },
+    {
+      "signal": "Perfusion index",
+      "physio-sensing-method": "Pulse oximeter",
+      "brand": "Masimo",
+      "count": 1
+    },
+    {
+      "signal": "Pupillometry",
+      "physio-sensing-method": "Eye-tracking",
+      "brand": "Tobii",
+      "count": 1
+    },
+    {
+      "signal": "Respiration",
+      "physio-sensing-method": "BCG",
+      "brand": "EMFIT",
+      "count": 1
+    },
+    {
+      "signal": "Respiration",
+      "physio-sensing-method": "Capnometry/Capnography",
+      "brand": "Kingst",
+      "count": 1
+    },
+    {
+      "signal": "Respiration",
+      "physio-sensing-method": "Capnometry/Capnography",
+      "brand": "Nonin Medical",
+      "count": 1
+    },
+    {
+      "signal": "Respiration",
+      "physio-sensing-method": "Gas flowmeter",
+      "brand": "DFM20-10",
+      "count": 1
+    },
+    {
+      "signal": "Respiration",
+      "physio-sensing-method": "NR",
+      "brand": "CompuMedics Ltd.",
+      "count": 2
+    },
+    {
+      "signal": "Respiration",
+      "physio-sensing-method": "Respiration belt",
+      "brand": "CGX",
+      "count": 1
+    },
+    {
+      "signal": "Respiration",
+      "physio-sensing-method": "Respiration belt",
+      "brand": "Mind Media",
+      "count": 4
+    },
+    {
+      "signal": "Sensory nerve conduction velocity",
+      "physio-sensing-method": "EMG",
+      "brand": "Nihonkohden Co.",
+      "count": 1
+    },
+    {
+      "signal": "Sensory nerve conduction velocity",
+      "physio-sensing-method": "NR",
+      "brand": "NAN",
+      "count": 1
+    },
+    {
+      "signal": "Skin blood flow",
+      "physio-sensing-method": "Laser Doppler",
+      "brand": "Advance",
+      "count": 1
+    },
+    {
+      "signal": "Skin blood flow",
+      "physio-sensing-method": "Laser Doppler",
+      "brand": "BIOPAC",
+      "count": 2
+    },
+    {
+      "signal": "Skin blood flow",
+      "physio-sensing-method": "Laser Doppler",
+      "brand": "Moor",
+      "count": 1
+    },
+    {
+      "signal": "Skin blood flow",
+      "physio-sensing-method": "Laser Doppler",
+      "brand": "Omegawave Inc.",
+      "count": 1
+    },
+    {
+      "signal": "Skin blood flow",
+      "physio-sensing-method": "Laser Doppler",
+      "brand": "Perimed",
+      "count": 8
+    },
+    {
+      "signal": "Skin blood flow",
+      "physio-sensing-method": "OHR/PPG",
+      "brand": "Spirit-Mind",
+      "count": 1
+    },
+    {
+      "signal": "Skin conductance",
+      "physio-sensing-method": "GSR/EDA",
+      "brand": "ADInstruments",
+      "count": 1
+    },
+    {
+      "signal": "Skin conductance",
+      "physio-sensing-method": "GSR/EDA",
+      "brand": "Bitalino",
+      "count": 2
+    },
+    {
+      "signal": "Skin conductance",
+      "physio-sensing-method": "GSR/EDA",
+      "brand": "Empatica",
+      "count": 12
+    },
+    {
+      "signal": "Skin conductance",
+      "physio-sensing-method": "GSR/EDA",
+      "brand": "Hesvit",
+      "count": 1
+    },
+    {
+      "signal": "Skin conductance",
+      "physio-sensing-method": "GSR/EDA",
+      "brand": "Libelium Co.",
+      "count": 1
+    },
+    {
+      "signal": "Skin conductance",
+      "physio-sensing-method": "GSR/EDA",
+      "brand": "Mind Media",
+      "count": 1
+    },
+    {
+      "signal": "Skin conductance",
+      "physio-sensing-method": "GSR/EDA",
+      "brand": "NAN",
+      "count": 1
+    },
+    {
+      "signal": "Skin conductance",
+      "physio-sensing-method": "GSR/EDA",
+      "brand": "NR",
+      "count": 1
+    },
+    {
+      "signal": "Skin conductance",
+      "physio-sensing-method": "GSR/EDA",
+      "brand": "Shimmer Sensing",
+      "count": 3
+    },
+    {
+      "signal": "Skin conductance",
+      "physio-sensing-method": "GSR/EDA",
+      "brand": "TXZ",
+      "count": 1
+    },
+    {
+      "signal": "Skin conductance",
+      "physio-sensing-method": "Hygrochron",
+      "brand": "iButton",
+      "count": 1
+    },
+    {
+      "signal": "Skin hardness",
+      "physio-sensing-method": "Durometer",
+      "brand": "Teclock",
+      "count": 1
+    },
+    {
+      "signal": "Skin temperature",
+      "physio-sensing-method": "Dermal patch",
+      "brand": "Hidalgo",
+      "count": 3
+    },
+    {
+      "signal": "Skin temperature",
+      "physio-sensing-method": "Heat flux/Heat flow",
+      "brand": "KEM",
+      "count": 2
+    },
+    {
+      "signal": "Skin temperature",
+      "physio-sensing-method": "Heat flux/Heat flow",
+      "brand": "Kyoto Electronics",
+      "count": 4
+    },
+    {
+      "signal": "Skin temperature",
+      "physio-sensing-method": "Hygrochron",
+      "brand": "Multiple brands",
+      "count": 1
+    },
+    {
+      "signal": "Skin temperature",
+      "physio-sensing-method": "Hygrochron",
+      "brand": "iButton",
+      "count": 18
+    },
+    {
+      "signal": "Skin temperature",
+      "physio-sensing-method": "Infrared camera",
+      "brand": "Avio",
+      "count": 1
+    },
+    {
+      "signal": "Skin temperature",
+      "physio-sensing-method": "Infrared camera",
+      "brand": "CEM",
+      "count": 1
+    },
+    {
+      "signal": "Skin temperature",
+      "physio-sensing-method": "Infrared camera",
+      "brand": "FLIR",
+      "count": 15
+    },
+    {
+      "signal": "Skin temperature",
+      "physio-sensing-method": "Infrared camera",
+      "brand": "Melexis",
+      "count": 1
+    },
+    {
+      "signal": "Skin temperature",
+      "physio-sensing-method": "Infrared camera",
+      "brand": "NIPPON",
+      "count": 3
+    },
+    {
+      "signal": "Skin temperature",
+      "physio-sensing-method": "Infrared camera",
+      "brand": "NR",
+      "count": 2
+    },
+    {
+      "signal": "Skin temperature",
+      "physio-sensing-method": "Infrared thermometer",
+      "brand": "Beurer",
+      "count": 1
+    },
+    {
+      "signal": "Skin temperature",
+      "physio-sensing-method": "Infrared thermometer",
+      "brand": "EXTECH Instruments",
+      "count": 1
+    },
+    {
+      "signal": "Skin temperature",
+      "physio-sensing-method": "Infrared thermometer",
+      "brand": "FLIR",
+      "count": 1
+    },
+    {
+      "signal": "Skin temperature",
+      "physio-sensing-method": "Infrared thermometer",
+      "brand": "Fluke",
+      "count": 1
+    },
+    {
+      "signal": "Skin temperature",
+      "physio-sensing-method": "Infrared thermometer",
+      "brand": "Melexis",
+      "count": 5
+    },
+    {
+      "signal": "Skin temperature",
+      "physio-sensing-method": "Infrared thermometer",
+      "brand": "NR",
+      "count": 1
+    },
+    {
+      "signal": "Skin temperature",
+      "physio-sensing-method": "Infrared thermometer",
+      "brand": "Omron",
+      "count": 2
+    },
+    {
+      "signal": "Skin temperature",
+      "physio-sensing-method": "Infrared thermometer",
+      "brand": "TECNIMED SRL",
+      "count": 1
+    },
+    {
+      "signal": "Skin temperature",
+      "physio-sensing-method": "Infrared thermometer",
+      "brand": "Testo",
+      "count": 1
+    },
+    {
+      "signal": "Skin temperature",
+      "physio-sensing-method": "Infrared thermopile",
+      "brand": "Empatica",
+      "count": 13
+    },
+    {
+      "signal": "Skin temperature",
+      "physio-sensing-method": "NR",
+      "brand": "Microsoft",
+      "count": 1
+    },
+    {
+      "signal": "Skin temperature",
+      "physio-sensing-method": "NR",
+      "brand": "NR",
+      "count": 8
+    },
+    {
+      "signal": "Skin temperature",
+      "physio-sensing-method": "NR",
+      "brand": "Shenzhen SYY Technology Co., Ltd.",
+      "count": 1
+    },
+    {
+      "signal": "Skin temperature",
+      "physio-sensing-method": "Probe",
+      "brand": "Libelium Co.",
+      "count": 3
+    },
+    {
+      "signal": "Skin temperature",
+      "physio-sensing-method": "RTD",
+      "brand": "Honeywell",
+      "count": 2
+    },
+    {
+      "signal": "Skin temperature",
+      "physio-sensing-method": "RTD",
+      "brand": "NR",
+      "count": 3
+    },
+    {
+      "signal": "Skin temperature",
+      "physio-sensing-method": "Thermistor",
+      "brand": "BIOPAC",
+      "count": 7
+    },
+    {
+      "signal": "Skin temperature",
+      "physio-sensing-method": "Thermistor",
+      "brand": "ETO DENKI",
+      "count": 1
+    },
+    {
+      "signal": "Skin temperature",
+      "physio-sensing-method": "Thermistor",
+      "brand": "Hesvit",
+      "count": 1
+    },
+    {
+      "signal": "Skin temperature",
+      "physio-sensing-method": "Thermistor",
+      "brand": "Lattron",
+      "count": 1
+    },
+    {
+      "signal": "Skin temperature",
+      "physio-sensing-method": "Thermistor",
+      "brand": "Mind Media",
+      "count": 1
+    },
+    {
+      "signal": "Skin temperature",
+      "physio-sensing-method": "Thermistor",
+      "brand": "NR",
+      "count": 2
+    },
+    {
+      "signal": "Skin temperature",
+      "physio-sensing-method": "Thermistor",
+      "brand": "Nikkiso-Therm",
+      "count": 2
+    },
+    {
+      "signal": "Skin temperature",
+      "physio-sensing-method": "Thermistor",
+      "brand": "Nikkiso-YSI",
+      "count": 1
+    },
+    {
+      "signal": "Skin temperature",
+      "physio-sensing-method": "Thermistor",
+      "brand": "TDK",
+      "count": 1
+    },
+    {
+      "signal": "Skin temperature",
+      "physio-sensing-method": "Thermistor",
+      "brand": "Vernier",
+      "count": 4
+    },
+    {
+      "signal": "Skin temperature",
+      "physio-sensing-method": "Thermochron",
+      "brand": "NR",
+      "count": 1
+    },
+    {
+      "signal": "Skin temperature",
+      "physio-sensing-method": "Thermochron",
+      "brand": "Opulus",
+      "count": 23
+    },
+    {
+      "signal": "Skin temperature",
+      "physio-sensing-method": "Thermochron",
+      "brand": "iButton",
+      "count": 51
+    },
+    {
+      "signal": "Skin temperature",
+      "physio-sensing-method": "Thermocouple",
+      "brand": "ADInstruments",
+      "count": 1
+    },
+    {
+      "signal": "Skin temperature",
+      "physio-sensing-method": "Thermocouple",
+      "brand": "Agilent",
+      "count": 1
+    },
+    {
+      "signal": "Skin temperature",
+      "physio-sensing-method": "Thermocouple",
+      "brand": "BEC-Ca",
+      "count": 1
+    },
+    {
+      "signal": "Skin temperature",
+      "physio-sensing-method": "Thermocouple",
+      "brand": "BIOPAC",
+      "count": 2
+    },
+    {
+      "signal": "Skin temperature",
+      "physio-sensing-method": "Thermocouple",
+      "brand": "FluxTeq",
+      "count": 2
+    },
+    {
+      "signal": "Skin temperature",
+      "physio-sensing-method": "Thermocouple",
+      "brand": "GRAM Co.",
+      "count": 1
+    },
+    {
+      "signal": "Skin temperature",
+      "physio-sensing-method": "Thermocouple",
+      "brand": "HOBO",
+      "count": 5
+    },
+    {
+      "signal": "Skin temperature",
+      "physio-sensing-method": "Thermocouple",
+      "brand": "Innpitron",
+      "count": 1
+    },
+    {
+      "signal": "Skin temperature",
+      "physio-sensing-method": "Thermocouple",
+      "brand": "NR",
+      "count": 25
+    },
+    {
+      "signal": "Skin temperature",
+      "physio-sensing-method": "Thermocouple",
+      "brand": "Omega",
+      "count": 5
+    },
+    {
+      "signal": "Skin temperature",
+      "physio-sensing-method": "Thermocouple",
+      "brand": "Onset",
+      "count": 7
+    },
+    {
+      "signal": "Skin temperature",
+      "physio-sensing-method": "Thermocouple",
+      "brand": "TCSA",
+      "count": 2
+    },
+    {
+      "signal": "Skin temperature",
+      "physio-sensing-method": "Thermocouple",
+      "brand": "Testo",
+      "count": 4
+    },
+    {
+      "signal": "Skin temperature",
+      "physio-sensing-method": "Thermocouple",
+      "brand": "iButton",
+      "count": 2
+    },
+    {
+      "signal": "Skin temperature",
+      "physio-sensing-method": "Thermometer",
+      "brand": "Gigarise",
+      "count": 1
+    },
+    {
+      "signal": "Skin temperature",
+      "physio-sensing-method": "Thermometer",
+      "brand": "Yumo",
+      "count": 1
+    },
+    {
+      "signal": "Sweat indicators",
+      "physio-sensing-method": "Corneometer",
+      "brand": "Courage-Khazaka MPA-5",
+      "count": 1
+    },
+    {
+      "signal": "Sweat indicators",
+      "physio-sensing-method": "Digital moisture meter",
+      "brand": "CMM",
+      "count": 1
+    },
+    {
+      "signal": "Sweat indicators",
+      "physio-sensing-method": "High precision scale",
+      "brand": "ADInstruments",
+      "count": 3
+    },
+    {
+      "signal": "Sweat indicators",
+      "physio-sensing-method": "High precision scale",
+      "brand": "FHI",
+      "count": 1
+    },
+    {
+      "signal": "Sweat indicators",
+      "physio-sensing-method": "High precision scale",
+      "brand": "G.tech",
+      "count": 1
+    },
+    {
+      "signal": "Sweat indicators",
+      "physio-sensing-method": "High precision scale",
+      "brand": "KERN",
+      "count": 5
+    },
+    {
+      "signal": "Sweat indicators",
+      "physio-sensing-method": "High precision scale",
+      "brand": "Mettler Toledo",
+      "count": 2
+    },
+    {
+      "signal": "Sweat indicators",
+      "physio-sensing-method": "High precision scale",
+      "brand": "NR",
+      "count": 9
+    },
+    {
+      "signal": "Sweat indicators",
+      "physio-sensing-method": "High precision scale",
+      "brand": "Nanjing Ronghua",
+      "count": 3
+    },
+    {
+      "signal": "Sweat indicators",
+      "physio-sensing-method": "High precision scale",
+      "brand": "PESA",
+      "count": 1
+    },
+    {
+      "signal": "Sweat indicators",
+      "physio-sensing-method": "High precision scale",
+      "brand": "Tanita",
+      "count": 2
+    },
+    {
+      "signal": "Sweat indicators",
+      "physio-sensing-method": "Hygrochron",
+      "brand": "NR",
+      "count": 1
+    },
+    {
+      "signal": "Sweat indicators",
+      "physio-sensing-method": "Hygrochron",
+      "brand": "Opulus",
+      "count": 4
+    },
+    {
+      "signal": "Sweat indicators",
+      "physio-sensing-method": "Hygrochron",
+      "brand": "iButton",
+      "count": 2
+    },
+    {
+      "signal": "Sweat indicators",
+      "physio-sensing-method": "Microscope",
+      "brand": "Yukai",
+      "count": 1
+    },
+    {
+      "signal": "Sweat indicators",
+      "physio-sensing-method": "Moisture meter",
+      "brand": "National",
+      "count": 1
+    },
+    {
+      "signal": "Sweat indicators",
+      "physio-sensing-method": "Osmometer",
+      "brand": "Pocket-Pal",
+      "count": 1
+    },
+    {
+      "signal": "Sweat indicators",
+      "physio-sensing-method": "TEWL",
+      "brand": "Delfin Technologies",
+      "count": 1
+    },
+    {
+      "signal": "Sweat indicators",
+      "physio-sensing-method": "Tewameter",
+      "brand": "Courage-Khazaka MPA-5",
+      "count": 1
     }
   ],
   "periods": [

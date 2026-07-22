@@ -65,7 +65,7 @@ export default function Measurement({ data }) {
       <div className="px-10 py-8 border-b border-line">
         <h2 className="text-[16px] font-semibold mb-1">Most frequently measured signals</h2>
         <p className="text-[13px] text-inkmid mb-5">
-          Each study–signal–sensor combination counted once, regardless of body site. Hover for exact share.
+          Each experiment–signal combination is counted once, regardless of sensing method or body site. Hover for exact share.
         </p>
         <InteractiveBarChart
           data={fig17_physio_params.data.map((d) => ({ label: d.parameter, count: d.count }))}
@@ -79,7 +79,7 @@ export default function Measurement({ data }) {
       <div className="px-10 py-8 border-b border-line">
         <h2 className="text-[16px] font-semibold mb-1">Which signals get measured together</h2>
         <p className="text-[13px] text-inkmid mb-5 max-w-2xl">
-          Diagonal = total studies measuring that signal; off-diagonal = studies measuring both. Hover any cell.
+          The 11 most frequent signals are shown. Diagonal = experiments measuring that signal; off-diagonal = experiments measuring both. Hover any cell.
         </p>
         <CooccurrenceMatrix labels={fig18_physio_cooccurrence.labels} matrix={fig18_physio_cooccurrence.matrix} />
       </div>

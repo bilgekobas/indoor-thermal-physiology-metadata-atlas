@@ -148,11 +148,13 @@ print(f'studies.json written: {len(studies_records)} study-experiment rows')
 print("\nDone with base artifacts. Category-specific aggregates built separately.")
 
 # ── 4. Physiology: signal × sensor × period (for Sankey/heatmap reproduction) ─
-physio = df[['id','period','physio-parameter','physio-sensing-method','physio-body-site']].copy()
+physio = df[['id','period','physio-parameter','physio-sensing-method','physio-body-site','physio-sensor-brand']].copy()
 # NR/NAN/NC are kept as their own sensing-method categories (rather than
 # dropped) so Sankey/heatmap totals reflect every row, not just the subset
 # with a named sensing method.
 physio = physio[physio['physio-parameter'].notna()]
+physio['physio-parameter'] = physio['physio-parameter'].astype(str).str.strip()
+physio = physio[~physio['physio-parameter'].isin(CODES) & (physio['physio-parameter'] != 'nan')]
 physio['physio-sensing-method'] = physio['physio-sensing-method'].astype(str).str.strip()
 physio['physio-sensing-method'] = physio['physio-sensing-method'].replace({
     'Digital Sphygmomanometer': 'Digital sphygmomanometer',
@@ -177,12 +179,33 @@ signal_sensor_period = (physio_dedup.groupby(['signal','physio-sensing-method','
 # this field, not by summing 'overall'.
 signal_totals = (physio_dedup.drop_duplicates(subset=['id','signal'])
                   .groupby('signal').size().reset_index(name='count'))
+# Conservative Sankey unit: one signal instance = id × signal × sensing method.
+# Each instance receives exactly one consolidated brand status, so every
+# signal→method flow also has exactly one method→brand continuation.
+def _brand_for_instance(values):
+    vals = [str(v).strip() for v in values if v is not None and str(v).strip() != '']
+    substantive = sorted(set(v for v in vals if v not in CODES and v.lower() != 'nan'))
+    if len(substantive) == 1:
+        return substantive[0]
+    if len(substantive) > 1:
+        return 'Multiple brands'
+    for code in ('NR','MNR','NC','NAN'):
+        if code in vals:
+            return code
+    return 'NR'
+brand_instances = (physio.groupby(['id','period','signal','physio-sensing-method'], dropna=False)['physio-sensor-brand']
+                   .apply(_brand_for_instance).reset_index(name='brand'))
+signal_instance_totals = (brand_instances.groupby('signal').size().reset_index(name='count'))
+signal_method_brand = (brand_instances.groupby(['signal','physio-sensing-method','brand'])
+                       .size().reset_index(name='count'))
 
 with open(OUT_DIR / 'physio_signal_sensor.json', 'w') as f:
     json.dump({
         'overall': signal_sensor_counts.to_dict('records'),
         'by_period': signal_sensor_period.to_dict('records'),
         'signal_totals': signal_totals.to_dict('records'),
+        'signal_instance_totals': signal_instance_totals.to_dict('records'),
+        'signal_method_brand': signal_method_brand.to_dict('records'),
         'periods': [b[2] for b in BINS],
     }, f, indent=2, default=str)
 print(f'physio_signal_sensor.json written: {len(signal_sensor_counts)} signal-sensor pairs')
@@ -287,11 +310,38 @@ with open(OUT_DIR / 'skintemp_sites.json', 'w') as f:
     }, f, indent=2, default=str)
 print(f'skintemp_sites.json written: {len(site_totals)} sites')
 
-# ── 6. MST: calculated Y/N/NR by period, points, formula ──────────────────
-studies_mst = df.drop_duplicates(subset=['id'])[
-    ['id','period','physio-mst-calculated','physio-mst-points','physio-mst-formula']
-].copy()
+# ── 6. MST: calculated status, points, formula ──────────────────────────
+# Aggregate across all rows of each experiment. MST metadata are often coded
+# only on skin-temperature rows, so taking the first row per experiment loses
+# valid Y/formula/point information.
+def _first_substantive(values):
+    vals = [str(v).strip() for v in values if v is not None and str(v).strip() != '']
+    substantive = [v for v in vals if v not in CODES]
+    return substantive[0] if substantive else None
 
+def _mst_status(group):
+    vals = {str(v).strip() for v in group['physio-mst-calculated'] if v is not None}
+    if 'Y' in vals:
+        return 'Y'
+    # N is applicable only when skin temperature is measured.
+    has_skin = (group['physio-parameter'].astype(str).str.strip() == 'Skin temperature').any()
+    if has_skin and 'N' in vals:
+        return 'N'
+    if has_skin:
+        return 'NR'
+    return 'NAN'
+
+mst_rows = []
+for exp_id, g in df.groupby('id', sort=False):
+    period = next((v for v in g['period'] if v is not None), None)
+    status = _mst_status(g)
+    mst_rows.append({
+        'id': exp_id, 'period': period,
+        'physio-mst-calculated': status,
+        'physio-mst-points': _first_substantive(g['physio-mst-points']),
+        'physio-mst-formula': _first_substantive(g['physio-mst-formula']),
+    })
+studies_mst = pd.DataFrame(mst_rows)
 mst_rate = studies_mst.groupby(['period','physio-mst-calculated']).size().reset_index(name='count')
 
 def parse_pts(val):
@@ -312,22 +362,26 @@ mst_only = studies_mst[studies_mst['physio-mst-calculated']=='Y'].copy()
 mst_only['pts'] = mst_only['physio-mst-points'].apply(parse_pts)
 mst_only['formula'] = mst_only['physio-mst-formula'].apply(clean_formula)
 
-TOP_FORMULAS = ['Ramanathan (1964)','Hardy & DuBois (1938)','ISO 9886: 2004',
-                'Colin & Houdas (1982)','Ouyang (1985)','McIntyre (1980)']
 def formula_group(f):
-    # Keep formula labels disaggregated. The atlas view sorts them by count rather
-    # than hiding long-tail formulas under an 'Other' bucket.
-    return f or 'NR'
+    if f == 'NR': return 'NR'
+    if 'Ramanathan' in f: return 'Ramanathan (1964)'
+    if 'Hardy' in f and 'DuBois' in f: return 'Hardy & DuBois (1938)'
+    if 'ISO 9886' in f: return 'ISO 9886: 2004'
+    if 'Colin' in f or 'Houdas' in f: return 'Colin & Houdas (1982)'
+    if 'Ouyang' in f: return 'Ouyang (1985)'
+    if 'McIntyre' in f: return 'McIntyre (1980)'
+    return 'Other/Multiple'
 mst_only['formula_grp'] = mst_only['formula'].apply(formula_group)
-
 formula_by_period = mst_only.groupby(['period','formula_grp']).size().reset_index(name='count')
 
-def bucket_pt(p):
-    if p is None or (isinstance(p, float) and np.isnan(p)):
-        return None
-    return str(int(p))
+def bucket_pt(x):
+    if x is None or pd.isna(x): return 'Points NR/NC'
+    if x <= 4: return '2–4'
+    if x <= 8: return '5–8'
+    if x <= 14: return '9–14'
+    return '15+'
 mst_only['pt_bucket'] = mst_only['pts'].apply(bucket_pt)
-points_by_formula = mst_only.dropna(subset=['pt_bucket']).groupby(['pt_bucket','formula_grp']).size().reset_index(name='count')
+points_by_formula = mst_only.groupby(['pt_bucket','formula_grp']).size().reset_index(name='count')
 
 with open(OUT_DIR / 'mst.json', 'w') as f:
     json.dump({
@@ -859,44 +913,33 @@ def compute_grid(pts, range_vals, labels):
     offered, and mark which of those carry a verbal label ('anchor') vs which
     are unlabeled intermediate steps ('interpolated').
 
-    Approach: take low/high straight from range=(...), divide that span into
-    `points` equal steps (that's the full grid a respondent could pick from).
-    Then place the *meaningful* labels (i.e. excluding NR/NAN/NC/blank
-    filler entries) onto that grid by their ORDER, not their stated numeric
-    value: first meaningful label -> first grid point, last -> last grid
-    point, and the ones in between spread out at equal index-spacing. This
-    sidesteps float-matching a label's literal value back onto the
-    reconstructed grid (which breaks if the source's numbers don't land
-    exactly on the assumed-uniform steps) and only assumes what's actually
-    true of these scales: anchors are evenly spaced from end to end.
-
-    VAS/continuous scales (pts is None) have no fixed point count to divide
-    by, so we skip reconstruction and just plot the given anchors directly.
+    Two conventions show up in the source data:
+      1. range=/scale= list ONLY the verbal anchors (e.g. the classic 7-point
+         ASHRAE wording), while 'points=25' tells us the true scale had finer
+         granularity spanning the same low/high bounds in equal steps (e.g.
+         25 points = 0.25 steps). We reconstruct that full grid here and
+         backfill the unlabeled positions in between.
+      2. range=/scale= already enumerate every position, with 'NR' (or blank)
+         standing in for the label at unlabeled steps. Here len(range) ==
+         points already, so no reconstruction is needed - we just treat 'NR'
+         labels as unlabeled.
     """
     low, high = min(range_vals), max(range_vals)
-    meaningful = [(v, (l or '').strip()) for v, l in zip(range_vals, labels)
-                  if (l or '').strip() and (l or '').strip().upper() not in ('NR', 'NAN', 'NC', '-')]
+    anchor_map = {}
+    for v, l in zip(range_vals, labels):
+        ll = (l or '').strip()
+        if ll and ll.upper() not in ('NR', 'NAN', 'NC', ''):
+            anchor_map[round(v, 4)] = ll
 
-    if not (isinstance(pts, int) and pts >= 2) or not meaningful:
-        # No fixed grid to divide (VAS/continuous) - just plot what's given.
-        grid = []
-        for v, l in meaningful:
-            is_neutral = abs(v) < 1e-6 or 'neutral' in l.lower()
-            grid.append({'value': round(v, 4), 'label': l, 'is_anchor': True, 'is_neutral': is_neutral})
-        return sorted(grid, key=lambda g: g['value'])
-
-    step = (high - low) / (pts - 1)
-    full_positions = [round(low + i * step, 4) for i in range(pts)]
-
-    L = len(meaningful)
-    anchor_at_index = {}
-    for i, (v, l) in enumerate(meaningful):
-        grid_idx = round(i * (pts - 1) / (L - 1)) if L > 1 else round((pts - 1) / 2)
-        anchor_at_index[grid_idx] = l
+    if isinstance(pts, int) and pts >= 2 and pts != len(range_vals):
+        step = (high - low) / (pts - 1)
+        full_positions = [round(low + i * step, 4) for i in range(pts)]
+    else:
+        full_positions = sorted(round(v, 4) for v in set(range_vals))
 
     grid = []
-    for idx, pos in enumerate(full_positions):
-        label = anchor_at_index.get(idx)
+    for pos in full_positions:
+        label = anchor_map.get(pos)
         is_neutral = label is not None and (abs(pos) < 1e-6 or 'neutral' in label.lower())
         grid.append({'value': pos, 'label': label, 'is_anchor': label is not None, 'is_neutral': is_neutral})
     return grid
@@ -944,19 +987,8 @@ for _, row in studies_u.iterrows():
         p2['id'] = row['id']
         tcv_parsed.append(p2)
 
-def points_distribution(parsed):
-    """Bucket by point count, but keep VAS/continuous scales (points=None) as
-    their own category instead of letting pandas.value_counts() silently drop
-    them - otherwise the bars sum to less than n_total with no indication why.
-    """
-    labels = [p['points'] if isinstance(p['points'], int) else p['scale_type'] for p in parsed]
-    counts = pd.Series(labels).value_counts()
-    numeric_keys = sorted(k for k in counts.index if isinstance(k, int))
-    other_keys = sorted(k for k in counts.index if not isinstance(k, int))
-    return [{'points': k, 'count': int(counts[k])} for k in [*numeric_keys, *other_keys]]
-
-tsv_pts_dist = points_distribution(tsv_parsed)
-tcv_pts_dist = points_distribution(tcv_parsed)
+tsv_pts_dist = pd.Series([p['points'] for p in tsv_parsed]).value_counts().sort_index()
+tcv_pts_dist = pd.Series([p['points'] for p in tcv_parsed]).value_counts().sort_index()
 
 def code_breakdown(col):
     return {
@@ -968,14 +1000,14 @@ def code_breakdown(col):
 with open(OUT_DIR / 'fig15_tsv_scales.json', 'w') as f:
     json.dump({
         'studies': tsv_parsed,
-        'points_distribution': tsv_pts_dist,
+        'points_distribution': [{'points': int(k), 'count': int(v)} for k, v in tsv_pts_dist.items()],
         'n_total': len(tsv_parsed),
         'code_breakdown': code_breakdown(studies_u['ques-thermal-sensation']),
     }, f, indent=2)
 with open(OUT_DIR / 'fig16_tcv_scales.json', 'w') as f:
     json.dump({
         'studies': tcv_parsed,
-        'points_distribution': tcv_pts_dist,
+        'points_distribution': [{'points': int(k), 'count': int(v)} for k, v in tcv_pts_dist.items()],
         'n_total': len(tcv_parsed),
         'code_breakdown': code_breakdown(studies_u['ques-thermal-comfort']),
         'vas_unplaceable': vas_unplaceable_log,
@@ -1158,6 +1190,7 @@ for sig in TRACK_SIGNALS:
         'data': grouped.to_dict('records'),
         'sensor_order': top_sensors + (['Other'] if len(sensor_totals) > 6 else []),
         'period_totals': {k: int(v) for k, v in period_totals.items()},
+        'multi_response': True,
     }
 
 with open(OUT_DIR / 'evo_signal_sensor.json', 'w') as f:
@@ -1279,7 +1312,7 @@ print("\nAll top-5 follow-up artifacts built.")
 # Reuses the same casing/whitespace canonicalization as A5, but keyed by
 # sensing method (not just signal) since that's the actual middle node
 # the Sankey's third column hangs off of.
-sb = df[['id', 'physio-sensing-method', 'physio-sensor-brand']].copy()
+sb = brand_instances.rename(columns={'brand':'physio-sensor-brand'}).copy()
 sb['physio-sensing-method'] = sb['physio-sensing-method'].astype(str).str.strip()
 sb['physio-sensing-method'] = sb['physio-sensing-method'].replace({
     'Digital Sphygmomanometer': 'Digital sphygmomanometer',
@@ -1293,7 +1326,7 @@ sb['physio-sensor-brand'] = sb['physio-sensor-brand'].astype(str).str.strip()
 # and 'iButton' (or 'OMRON'/'Omron') collapse to one brand label here too.
 sb['physio-sensor-brand'] = sb['physio-sensor-brand'].apply(lambda v: canonical_label.get(v, v))
 
-sb_dedup = sb.drop_duplicates(subset=['id', 'physio-sensing-method', 'physio-sensor-brand'])
+sb_dedup = sb.drop_duplicates(subset=['id', 'signal', 'physio-sensing-method', 'physio-sensor-brand'])
 sensor_brand_pairs = sb_dedup.groupby(['physio-sensing-method', 'physio-sensor-brand']).size().reset_index(name='count')
 
 with open(OUT_DIR / 'sensor_type_brand.json', 'w') as f:
@@ -1984,32 +2017,33 @@ site_by_signal['Heart/Pulse rate']['by_period'] = {
     'periods': [b[2] for b in BINS],
 }
 
-# Skin conductance and sweat indicators are closely related sudomotor
-# measures (per the appendix's own domain grouping); combine their site
-# totals into one shared view as requested, alongside each signal's own
-# breakdown, summed at the (signal, site) level so the combined totals
-# don't conflate which signal contributed what.
-sudomotor_combined = {}
-for sig in ['Skin conductance', 'Sweat indicators']:
-    for row in site_by_signal[sig]['site_totals']:
-        key = row['site']
-        if key not in sudomotor_combined:
-            sudomotor_combined[key] = {
-                'site': key, 'count': 0, 'non_anatomical': row['non_anatomical'],
-                'by_signal': {}, 'sensingMethods': {},
-            }
-        sudomotor_combined[key]['count'] += row['count']
-        sudomotor_combined[key]['by_signal'][sig] = row['count']
-        for method, count in row.get('sensingMethods', {}).items():
-            sudomotor_combined[key]['sensingMethods'][method] = (
-                sudomotor_combined[key]['sensingMethods'].get(method, 0) + count
-            )
+# Combined sudomotor view: deduplicate across both signals at id × site so a
+# study measuring skin conductance and sweat at the same site contributes once.
+sud = df[df['physio-parameter'].isin(['Skin conductance', 'Sweat indicators'])][
+    ['id','physio-parameter','physio-body-site','physio-body-site-surface','physio-sensing-method']
+].copy()
+sud['physio-body-site'] = sud['physio-body-site'].astype(str).str.strip()
+sud['physio-sensing-method'] = sud['physio-sensing-method'].astype(str).str.strip().replace({
+    'Digital Sphygmomanometer': 'Digital sphygmomanometer', 'Laser doppler': 'Laser Doppler'})
+sud = sud[~sud['physio-body-site'].isin(CODES) & (sud['physio-body-site'] != 'nan')]
+sud = split_hand_foot_surface(sud)
+sud['site'] = sud['physio-body-site'].replace(SITE_MERGE)
+sud_unique = sud.drop_duplicates(subset=['id','site'])
+combined_totals = sud_unique['site'].value_counts()
+combined_rows = []
+for site, count in combined_totals.items():
+    site_raw = sud[sud['site'] == site]
+    by_signal = (site_raw.drop_duplicates(subset=['id','physio-parameter'])
+                 .groupby('physio-parameter')['id'].nunique().to_dict())
+    methods = (site_raw[~site_raw['physio-sensing-method'].isin(CODES) & (site_raw['physio-sensing-method'] != 'nan')]
+               .drop_duplicates(subset=['id','site','physio-sensing-method'])
+               .groupby('physio-sensing-method')['id'].nunique().to_dict())
+    combined_rows.append({'site': site, 'count': int(count), 'non_anatomical': site in NON_ANATOMICAL_SITES,
+                          'by_signal': {k:int(v) for k,v in by_signal.items()},
+                          'sensingMethods': {k:int(v) for k,v in methods.items()}})
 site_by_signal['Sudomotor (combined)'] = {
-    'site_totals': sorted(sudomotor_combined.values(), key=lambda r: -r['count']),
-    'n_studies_with_site': len(set(
-        s for sig in ['Skin conductance', 'Sweat indicators']
-        for s in df[(df['physio-parameter'] == sig) & (~df['physio-body-site'].isin(CODES)) & df['physio-body-site'].notna()]['id']
-    )),
+    'site_totals': sorted(combined_rows, key=lambda r: -r['count']),
+    'n_studies_with_site': int(sud_unique['id'].nunique()),
 }
 
 with open(OUT_DIR / 'site_by_signal.json', 'w') as f:

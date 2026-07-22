@@ -5524,13 +5524,13 @@
         "count": 12
       },
       {
-        "instrument": "Redirection task",
-        "domain": "Performance task — attention",
+        "instrument": "NASA-TLX",
+        "domain": "Subjective scale — workload",
         "count": 11
       },
       {
-        "instrument": "NASA-TLX",
-        "domain": "Subjective scale — workload",
+        "instrument": "Redirection task",
+        "domain": "Performance task — attention",
         "count": 11
       },
       {
@@ -5544,6 +5544,11 @@
         "count": 9
       },
       {
+        "instrument": "Overlapping task",
+        "domain": "Performance task — attention",
+        "count": 6
+      },
+      {
         "instrument": "Reasoning task (grammatical)",
         "domain": "Performance task — reasoning",
         "count": 6
@@ -5554,23 +5559,18 @@
         "count": 6
       },
       {
-        "instrument": "Overlapping task",
-        "domain": "Performance task — attention",
-        "count": 6
-      },
-      {
         "instrument": "Self-rated fatigue",
-        "domain": "Subjective scale — workload",
-        "count": 5
-      },
-      {
-        "instrument": "Self-rated performance/concentration",
         "domain": "Subjective scale — workload",
         "count": 5
       },
       {
         "instrument": "Cambridge Brain Sciences (CBS) battery",
         "domain": "Performance task — multi-domain battery",
+        "count": 5
+      },
+      {
+        "instrument": "Self-rated performance/concentration",
+        "domain": "Subjective scale — workload",
         "count": 5
       },
       {
@@ -5584,18 +5584,18 @@
         "count": 4
       },
       {
-        "instrument": "Vigilance/PVT",
-        "domain": "Performance task — sustained attention",
+        "instrument": "PANAS (mood)",
+        "domain": "Subjective scale — mood",
+        "count": 3
+      },
+      {
+        "instrument": "Go/no-go task",
+        "domain": "Performance task — inhibition/attention",
         "count": 3
       },
       {
         "instrument": "Fast-counting task",
         "domain": "Performance task — arithmetic",
-        "count": 3
-      },
-      {
-        "instrument": "PANAS (mood)",
-        "domain": "Subjective scale — mood",
         "count": 3
       },
       {
@@ -5609,18 +5609,18 @@
         "count": 3
       },
       {
-        "instrument": "Go/no-go task",
-        "domain": "Performance task — inhibition/attention",
-        "count": 3
-      },
-      {
         "instrument": "Visual reaction time",
         "domain": "Performance task — psychomotor speed",
         "count": 3
       },
       {
-        "instrument": "Motivation scale",
-        "domain": "Subjective scale — mood",
+        "instrument": "Vigilance/PVT",
+        "domain": "Performance task — sustained attention",
+        "count": 3
+      },
+      {
+        "instrument": "Visual search task",
+        "domain": "Performance task — attention",
         "count": 2
       },
       {
@@ -5629,13 +5629,13 @@
         "count": 2
       },
       {
-        "instrument": "Visual search task",
-        "domain": "Performance task — attention",
+        "instrument": "Self-rated work willingness",
+        "domain": "Subjective scale — workload",
         "count": 2
       },
       {
-        "instrument": "Self-rated work willingness",
-        "domain": "Subjective scale — workload",
+        "instrument": "Motivation scale",
+        "domain": "Subjective scale — mood",
         "count": 2
       },
       {
@@ -5649,138 +5649,8 @@
         "count": 2
       },
       {
-        "instrument": "Self-rated work progress (VAS)",
-        "domain": "Subjective scale — workload",
-        "count": 1
-      },
-      {
-        "instrument": "Self-rated sleepiness",
-        "domain": "Subjective scale — workload",
-        "count": 1
-      },
-      {
-        "instrument": "Self-rated stress (VAS)",
-        "domain": "Subjective scale — stress",
-        "count": 1
-      },
-      {
-        "instrument": "Self-rated relaxation (VAS)",
-        "domain": "Subjective scale — mood",
-        "count": 1
-      },
-      {
-        "instrument": "Short-term memory task (unspecified)",
-        "domain": "Performance task — memory",
-        "count": 1
-      },
-      {
-        "instrument": "Trier Social Stress Test (TSST)",
-        "domain": "Stress induction protocol",
-        "count": 1
-      },
-      {
-        "instrument": "Spatial working memory task",
-        "domain": "Performance task — working memory",
-        "count": 1
-      },
-      {
-        "instrument": "Word search task",
-        "domain": "Performance task — attention",
-        "count": 1
-      },
-      {
-        "instrument": "Stepuru task",
-        "domain": "Performance task — psychomotor speed",
-        "count": 1
-      },
-      {
-        "instrument": "Studying Efficiency Vote (SEV)",
-        "domain": "Subjective scale — workload",
-        "count": 1
-      },
-      {
-        "instrument": "Trail Making Test",
-        "domain": "Performance task — executive function",
-        "count": 1
-      },
-      {
-        "instrument": "Visual search task (letter)",
-        "domain": "Performance task — attention",
-        "count": 1
-      },
-      {
-        "instrument": "Uchida-Kraepelin test",
-        "domain": "Performance task — sustained attention",
-        "count": 1
-      },
-      {
-        "instrument": "Unspecified performance test (paper-based)",
-        "domain": "Performance task — unspecified",
-        "count": 1
-      },
-      {
-        "instrument": "Alternative Uses Task (AUT, creativity)",
-        "domain": "Performance task — creativity",
-        "count": 1
-      },
-      {
-        "instrument": "Visual search task (digit)",
-        "domain": "Performance task — attention",
-        "count": 1
-      },
-      {
-        "instrument": "Self-rated physical condition (VAS)",
-        "domain": "Subjective scale — workload",
-        "count": 1
-      },
-      {
-        "instrument": "Self-rated attention",
-        "domain": "Subjective scale — attention",
-        "count": 1
-      },
-      {
-        "instrument": "Self-rated learning performance",
-        "domain": "Subjective scale — work performance",
-        "count": 1
-      },
-      {
-        "instrument": "Operation span task",
-        "domain": "Performance task — working memory",
-        "count": 1
-      },
-      {
-        "instrument": "Flanker task",
-        "domain": "Performance task — inhibition/attention",
-        "count": 1
-      },
-      {
-        "instrument": "Groningen Sleep Quality Scale (GSQS)",
-        "domain": "Subjective scale — workload",
-        "count": 1
-      },
-      {
-        "instrument": "Hand-eye coordination task",
-        "domain": "Performance task — psychomotor coordination",
-        "count": 1
-      },
-      {
-        "instrument": "Digit recall task",
-        "domain": "Performance task — memory",
-        "count": 1
-      },
-      {
-        "instrument": "MATB-II (Multi-Attribute Task Battery)",
-        "domain": "Performance task — multi-domain battery",
-        "count": 1
-      },
-      {
         "instrument": "Continuous Performance Test (CPT)",
         "domain": "Performance task — sustained attention",
-        "count": 1
-      },
-      {
-        "instrument": "Computer Adaptive Test (CAT, Wonderlic-style)",
-        "domain": "Performance task — multi-domain battery",
         "count": 1
       },
       {
@@ -5789,7 +5659,32 @@
         "count": 1
       },
       {
-        "instrument": "Neuropsychological test battery (unspecified)",
+        "instrument": "Agility task (hand-eye coordination)",
+        "domain": "Performance task — psychomotor coordination",
+        "count": 1
+      },
+      {
+        "instrument": "Aim trainer",
+        "domain": "Performance task — psychomotor speed",
+        "count": 1
+      },
+      {
+        "instrument": "Alternative Uses Task (AUT, creativity)",
+        "domain": "Performance task — creativity",
+        "count": 1
+      },
+      {
+        "instrument": "Excitement Vote (EV)",
+        "domain": "Subjective scale — mood",
+        "count": 1
+      },
+      {
+        "instrument": "Digit recall task",
+        "domain": "Performance task — memory",
+        "count": 1
+      },
+      {
+        "instrument": "Computer Adaptive Test (CAT, Wonderlic-style)",
         "domain": "Performance task — multi-domain battery",
         "count": 1
       },
@@ -5799,23 +5694,48 @@
         "count": 1
       },
       {
+        "instrument": "Operation span task",
+        "domain": "Performance task — working memory",
+        "count": 1
+      },
+      {
         "instrument": "Oddball task",
         "domain": "Performance task — sustained attention",
         "count": 1
       },
       {
-        "instrument": "PASAT",
-        "domain": "Performance task — working memory",
+        "instrument": "MATB-II (Multi-Attribute Task Battery)",
+        "domain": "Performance task — multi-domain battery",
         "count": 1
       },
       {
-        "instrument": "Self-rated focus (VAS)",
+        "instrument": "Hand-eye coordination task",
+        "domain": "Performance task — psychomotor coordination",
+        "count": 1
+      },
+      {
+        "instrument": "Self-rated distraction",
         "domain": "Subjective scale — workload",
         "count": 1
       },
       {
-        "instrument": "Profile of Mood States (POMS)",
-        "domain": "Subjective scale — mood",
+        "instrument": "Self-rated attention",
+        "domain": "Subjective scale — attention",
+        "count": 1
+      },
+      {
+        "instrument": "Searching task (ascending-order number click)",
+        "domain": "Performance task — attention",
+        "count": 1
+      },
+      {
+        "instrument": "Schulte grid test",
+        "domain": "Performance task — sustained attention",
+        "count": 1
+      },
+      {
+        "instrument": "Reasoning task (graphical)",
+        "domain": "Unclassified",
         "count": 1
       },
       {
@@ -5834,32 +5754,37 @@
         "count": 1
       },
       {
-        "instrument": "Reasoning task (graphical)",
-        "domain": "Unclassified",
+        "instrument": "PASAT",
+        "domain": "Performance task — working memory",
         "count": 1
       },
       {
-        "instrument": "Aim trainer",
-        "domain": "Performance task — psychomotor speed",
-        "count": 1
-      },
-      {
-        "instrument": "Schulte grid test",
-        "domain": "Performance task — sustained attention",
-        "count": 1
-      },
-      {
-        "instrument": "Searching task (ascending-order number click)",
-        "domain": "Performance task — attention",
-        "count": 1
-      },
-      {
-        "instrument": "Excitement Vote (EV)",
+        "instrument": "Profile of Mood States (POMS)",
         "domain": "Subjective scale — mood",
         "count": 1
       },
       {
-        "instrument": "Self-rated distraction",
+        "instrument": "Flanker task",
+        "domain": "Performance task — inhibition/attention",
+        "count": 1
+      },
+      {
+        "instrument": "Groningen Sleep Quality Scale (GSQS)",
+        "domain": "Subjective scale — workload",
+        "count": 1
+      },
+      {
+        "instrument": "Neuropsychological test battery (unspecified)",
+        "domain": "Performance task — multi-domain battery",
+        "count": 1
+      },
+      {
+        "instrument": "Self-rated learning performance",
+        "domain": "Subjective scale — work performance",
+        "count": 1
+      },
+      {
+        "instrument": "Self-rated focus (VAS)",
         "domain": "Subjective scale — workload",
         "count": 1
       },
@@ -5869,8 +5794,83 @@
         "count": 1
       },
       {
-        "instrument": "Agility task (hand-eye coordination)",
-        "domain": "Performance task — psychomotor coordination",
+        "instrument": "Stepuru task",
+        "domain": "Performance task — psychomotor speed",
+        "count": 1
+      },
+      {
+        "instrument": "Spatial working memory task",
+        "domain": "Performance task — working memory",
+        "count": 1
+      },
+      {
+        "instrument": "Short-term memory task (unspecified)",
+        "domain": "Performance task — memory",
+        "count": 1
+      },
+      {
+        "instrument": "Self-rated work progress (VAS)",
+        "domain": "Subjective scale — workload",
+        "count": 1
+      },
+      {
+        "instrument": "Self-rated stress (VAS)",
+        "domain": "Subjective scale — stress",
+        "count": 1
+      },
+      {
+        "instrument": "Self-rated physical condition (VAS)",
+        "domain": "Subjective scale — workload",
+        "count": 1
+      },
+      {
+        "instrument": "Self-rated relaxation (VAS)",
+        "domain": "Subjective scale — mood",
+        "count": 1
+      },
+      {
+        "instrument": "Self-rated sleepiness",
+        "domain": "Subjective scale — workload",
+        "count": 1
+      },
+      {
+        "instrument": "Unspecified performance test (paper-based)",
+        "domain": "Performance task — unspecified",
+        "count": 1
+      },
+      {
+        "instrument": "Uchida-Kraepelin test",
+        "domain": "Performance task — sustained attention",
+        "count": 1
+      },
+      {
+        "instrument": "Trail Making Test",
+        "domain": "Performance task — executive function",
+        "count": 1
+      },
+      {
+        "instrument": "Trier Social Stress Test (TSST)",
+        "domain": "Stress induction protocol",
+        "count": 1
+      },
+      {
+        "instrument": "Studying Efficiency Vote (SEV)",
+        "domain": "Subjective scale — workload",
+        "count": 1
+      },
+      {
+        "instrument": "Visual search task (digit)",
+        "domain": "Performance task — attention",
+        "count": 1
+      },
+      {
+        "instrument": "Visual search task (letter)",
+        "domain": "Performance task — attention",
+        "count": 1
+      },
+      {
+        "instrument": "Word search task",
+        "domain": "Performance task — attention",
         "count": 1
       }
     ],
@@ -5892,11 +5892,11 @@
         "count": 21
       },
       {
-        "domain": "Performance task — psychomotor speed",
+        "domain": "Performance task — sustained attention",
         "count": 16
       },
       {
-        "domain": "Performance task — sustained attention",
+        "domain": "Performance task — psychomotor speed",
         "count": 16
       },
       {
@@ -5928,12 +5928,16 @@
         "count": 2
       },
       {
+        "domain": "Performance task — perception",
+        "count": 2
+      },
+      {
         "domain": "Performance task — psychomotor coordination",
         "count": 2
       },
       {
-        "domain": "Performance task — perception",
-        "count": 2
+        "domain": "Performance task — creativity",
+        "count": 1
       },
       {
         "domain": "Performance task — executive function",
@@ -5961,10 +5965,6 @@
       },
       {
         "domain": "Subjective scale — work performance",
-        "count": 1
-      },
-      {
-        "domain": "Performance task — creativity",
         "count": 1
       },
       {
@@ -7770,7 +7770,8 @@
           "2019–20": 47,
           "2021–22": 64,
           "2023–24": 65
-        }
+        },
+        "multi_response": true
       },
       "Heart/Pulse rate": {
         "data": [
@@ -7904,12 +7905,14 @@
           "2019–20": 31,
           "2021–22": 45,
           "2023–24": 44
-        }
+        },
+        "multi_response": true
       },
       "Core/Body temperature": {
         "data": [],
         "sensor_order": [],
-        "period_totals": {}
+        "period_totals": {},
+        "multi_response": true
       },
       "Skin conductance": {
         "data": [
@@ -7948,7 +7951,8 @@
           "2019–20": 5,
           "2021–22": 7,
           "2023–24": 9
-        }
+        },
+        "multi_response": true
       }
     },
     "periods": [
@@ -31113,19 +31117,19 @@
             "is_neutral": false
           },
           {
-            "value": -2.25,
+            "value": -2.0,
             "label": "cold but acceptable",
             "is_anchor": true,
             "is_neutral": false
           },
           {
-            "value": -1.5,
+            "value": -1.0,
             "label": "a little cold",
             "is_anchor": true,
             "is_neutral": false
           },
           {
-            "value": -0.75,
+            "value": -0.5,
             "label": "slightly cool but comfortable",
             "is_anchor": true,
             "is_neutral": false
@@ -31137,19 +31141,19 @@
             "is_neutral": true
           },
           {
-            "value": 0.75,
+            "value": 0.5,
             "label": "slightly hot but comfortable",
             "is_anchor": true,
             "is_neutral": false
           },
           {
-            "value": 1.5,
+            "value": 1.0,
             "label": "a little hot",
             "is_anchor": true,
             "is_neutral": false
           },
           {
-            "value": 2.25,
+            "value": 2.0,
             "label": "hot but acceptable",
             "is_anchor": true,
             "is_neutral": false
@@ -40700,14 +40704,6 @@
       {
         "points": 25,
         "count": 1
-      },
-      {
-        "points": "continuous",
-        "count": 2
-      },
-      {
-        "points": "vas",
-        "count": 2
       }
     ],
     "n_total": 230,
@@ -40970,25 +40966,19 @@
             "is_neutral": false
           },
           {
-            "value": -1.2,
+            "value": -1.0,
             "label": "uncomfortable",
             "is_anchor": true,
             "is_neutral": false
           },
           {
-            "value": -0.4,
-            "label": "just uncomfortable",
-            "is_anchor": true,
-            "is_neutral": false
-          },
-          {
-            "value": 0.4,
+            "value": 0.0,
             "label": "just comfortable",
             "is_anchor": true,
-            "is_neutral": false
+            "is_neutral": true
           },
           {
-            "value": 1.2,
+            "value": 1.0,
             "label": "comfortable",
             "is_anchor": true,
             "is_neutral": false
@@ -41030,25 +41020,19 @@
             "is_neutral": false
           },
           {
-            "value": -1.2,
+            "value": -1.0,
             "label": "uncomfortable",
             "is_anchor": true,
             "is_neutral": false
           },
           {
-            "value": -0.4,
-            "label": "just uncomfortable",
-            "is_anchor": true,
-            "is_neutral": false
-          },
-          {
-            "value": 0.4,
+            "value": -0.0,
             "label": "just comfortable",
             "is_anchor": true,
-            "is_neutral": false
+            "is_neutral": true
           },
           {
-            "value": 1.2,
+            "value": 1.0,
             "label": "comfortable",
             "is_anchor": true,
             "is_neutral": false
@@ -41090,25 +41074,19 @@
             "is_neutral": false
           },
           {
-            "value": -1.2,
+            "value": -1.0,
             "label": "uncomfortable",
             "is_anchor": true,
             "is_neutral": false
           },
           {
-            "value": -0.4,
-            "label": "just uncomfortable",
-            "is_anchor": true,
-            "is_neutral": false
-          },
-          {
-            "value": 0.4,
+            "value": -0.0,
             "label": "just comfortable",
             "is_anchor": true,
-            "is_neutral": false
+            "is_neutral": true
           },
           {
-            "value": 1.2,
+            "value": 1.0,
             "label": "comfortable",
             "is_anchor": true,
             "is_neutral": false
@@ -41150,25 +41128,25 @@
             "is_neutral": false
           },
           {
-            "value": -1.2,
+            "value": -1.0,
             "label": "uncomfortable",
             "is_anchor": true,
             "is_neutral": false
           },
           {
-            "value": -0.4,
+            "value": -0.01,
             "label": "just uncomfortable",
             "is_anchor": true,
             "is_neutral": false
           },
           {
-            "value": 0.4,
+            "value": 0.01,
             "label": "just comfortable",
             "is_anchor": true,
             "is_neutral": false
           },
           {
-            "value": 1.2,
+            "value": 1.0,
             "label": "comfortable",
             "is_anchor": true,
             "is_neutral": false
@@ -41666,25 +41644,25 @@
             "is_neutral": false
           },
           {
-            "value": -1.2,
+            "value": -1.0,
             "label": "uncomfortable",
             "is_anchor": true,
             "is_neutral": false
           },
           {
-            "value": -0.4,
+            "value": -0.01,
             "label": "just uncomfortable",
             "is_anchor": true,
             "is_neutral": false
           },
           {
-            "value": 0.4,
+            "value": 0.01,
             "label": "just comfortable",
             "is_anchor": true,
             "is_neutral": false
           },
           {
-            "value": 1.2,
+            "value": 1.0,
             "label": "comfortable",
             "is_anchor": true,
             "is_neutral": false
@@ -41770,25 +41748,25 @@
             "is_neutral": false
           },
           {
-            "value": -1.8,
+            "value": -2.0,
             "label": "uncomfortable",
             "is_anchor": true,
             "is_neutral": false
           },
           {
-            "value": -0.6,
+            "value": -1.0,
             "label": "just uncomfortable",
             "is_anchor": true,
             "is_neutral": false
           },
           {
-            "value": 0.6,
+            "value": 1.0,
             "label": "just comfortable",
             "is_anchor": true,
             "is_neutral": false
           },
           {
-            "value": 1.8,
+            "value": 2.0,
             "label": "comfortable",
             "is_anchor": true,
             "is_neutral": false
@@ -42089,14 +42067,14 @@
           },
           {
             "value": -3.0,
-            "label": null,
-            "is_anchor": false,
+            "label": "very uncomfortable",
+            "is_anchor": true,
             "is_neutral": false
           },
           {
             "value": -2.0,
-            "label": "very uncomfortable",
-            "is_anchor": true,
+            "label": null,
+            "is_anchor": false,
             "is_neutral": false
           },
           {
@@ -42670,25 +42648,25 @@
             "is_neutral": false
           },
           {
-            "value": -1.2,
+            "value": -1.0,
             "label": "uncomfortable",
             "is_anchor": true,
             "is_neutral": false
           },
           {
-            "value": -0.4,
+            "value": -0.01,
             "label": "just uncomfortable",
             "is_anchor": true,
             "is_neutral": false
           },
           {
-            "value": 0.4,
+            "value": 0.01,
             "label": "just comfortable",
             "is_anchor": true,
             "is_neutral": false
           },
           {
-            "value": 1.2,
+            "value": 1.0,
             "label": "comfortable",
             "is_anchor": true,
             "is_neutral": false
@@ -42971,8 +42949,8 @@
           },
           {
             "value": -2.2222,
-            "label": "uncomfortable",
-            "is_anchor": true,
+            "label": null,
+            "is_anchor": false,
             "is_neutral": false
           },
           {
@@ -42983,8 +42961,8 @@
           },
           {
             "value": -0.4444,
-            "label": "just comfortable",
-            "is_anchor": true,
+            "label": null,
+            "is_anchor": false,
             "is_neutral": false
           },
           {
@@ -43001,8 +42979,8 @@
           },
           {
             "value": 2.2222,
-            "label": "comfortable",
-            "is_anchor": true,
+            "label": null,
+            "is_anchor": false,
             "is_neutral": false
           },
           {
@@ -43252,37 +43230,37 @@
             "is_neutral": false
           },
           {
-            "value": -2.1429,
+            "value": -2.0,
             "label": "uncomfortable",
             "is_anchor": true,
             "is_neutral": false
           },
           {
-            "value": -1.2857,
-            "label": null,
-            "is_anchor": false,
-            "is_neutral": false
-          },
-          {
-            "value": -0.4286,
+            "value": -1.0,
             "label": "just uncomfortable",
             "is_anchor": true,
             "is_neutral": false
           },
           {
-            "value": 0.4286,
+            "value": -0.01,
+            "label": "-",
+            "is_anchor": true,
+            "is_neutral": false
+          },
+          {
+            "value": 0.01,
+            "label": "-",
+            "is_anchor": true,
+            "is_neutral": false
+          },
+          {
+            "value": 1.0,
             "label": "just comfortable",
             "is_anchor": true,
             "is_neutral": false
           },
           {
-            "value": 1.2857,
-            "label": null,
-            "is_anchor": false,
-            "is_neutral": false
-          },
-          {
-            "value": 2.1429,
+            "value": 2.0,
             "label": "comfortable",
             "is_anchor": true,
             "is_neutral": false
@@ -43324,25 +43302,19 @@
             "is_neutral": false
           },
           {
-            "value": -1.2,
+            "value": -1.0,
             "label": "uncomfortable",
             "is_anchor": true,
             "is_neutral": false
           },
           {
-            "value": -0.4,
-            "label": "just uncomfortable",
-            "is_anchor": true,
-            "is_neutral": false
-          },
-          {
-            "value": 0.4,
+            "value": -0.0,
             "label": "just comfortable",
             "is_anchor": true,
-            "is_neutral": false
+            "is_neutral": true
           },
           {
-            "value": 1.2,
+            "value": 1.0,
             "label": "comfortable",
             "is_anchor": true,
             "is_neutral": false
@@ -43452,25 +43424,25 @@
             "is_neutral": false
           },
           {
-            "value": -1.2,
+            "value": -1.0,
             "label": "uncomfortable",
             "is_anchor": true,
             "is_neutral": false
           },
           {
-            "value": -0.4,
+            "value": -0.01,
             "label": "just uncomfortable",
             "is_anchor": true,
             "is_neutral": false
           },
           {
-            "value": 0.4,
+            "value": 0.01,
             "label": "just comfortable",
             "is_anchor": true,
             "is_neutral": false
           },
           {
-            "value": 1.2,
+            "value": 1.0,
             "label": "comfortable",
             "is_anchor": true,
             "is_neutral": false
@@ -43568,25 +43540,25 @@
             "is_neutral": false
           },
           {
-            "value": -1.2,
+            "value": -1.0,
             "label": "uncomfortable",
             "is_anchor": true,
             "is_neutral": false
           },
           {
-            "value": -0.4,
+            "value": -0.01,
             "label": "just uncomfortable",
             "is_anchor": true,
             "is_neutral": false
           },
           {
-            "value": 0.4,
+            "value": 0.01,
             "label": "just comfortable",
             "is_anchor": true,
             "is_neutral": false
           },
           {
-            "value": 1.2,
+            "value": 1.0,
             "label": "comfortable",
             "is_anchor": true,
             "is_neutral": false
@@ -43628,25 +43600,25 @@
             "is_neutral": false
           },
           {
-            "value": -1.2,
+            "value": -1.0,
             "label": "uncomfortable",
             "is_anchor": true,
             "is_neutral": false
           },
           {
-            "value": -0.4,
+            "value": -0.01,
             "label": "just uncomfortable",
             "is_anchor": true,
             "is_neutral": false
           },
           {
-            "value": 0.4,
+            "value": 0.01,
             "label": "just comfortable",
             "is_anchor": true,
             "is_neutral": false
           },
           {
-            "value": 1.2,
+            "value": 1.0,
             "label": "comfortable",
             "is_anchor": true,
             "is_neutral": false
@@ -43688,25 +43660,25 @@
             "is_neutral": false
           },
           {
-            "value": -1.2,
+            "value": -1.0,
             "label": "uncomfortable",
             "is_anchor": true,
             "is_neutral": false
           },
           {
-            "value": -0.4,
+            "value": -0.01,
             "label": "just uncomfortable",
             "is_anchor": true,
             "is_neutral": false
           },
           {
-            "value": 0.4,
+            "value": 0.01,
             "label": "just comfortable",
             "is_anchor": true,
             "is_neutral": false
           },
           {
-            "value": 1.2,
+            "value": 1.0,
             "label": "comfortable",
             "is_anchor": true,
             "is_neutral": false
@@ -43748,25 +43720,25 @@
             "is_neutral": false
           },
           {
-            "value": -1.2,
+            "value": -1.0,
             "label": "uncomfortable",
             "is_anchor": true,
             "is_neutral": false
           },
           {
-            "value": -0.4,
+            "value": -0.01,
             "label": "just uncomfortable",
             "is_anchor": true,
             "is_neutral": false
           },
           {
-            "value": 0.4,
+            "value": 0.01,
             "label": "just comfortable",
             "is_anchor": true,
             "is_neutral": false
           },
           {
-            "value": 1.2,
+            "value": 1.0,
             "label": "comfortable",
             "is_anchor": true,
             "is_neutral": false
@@ -43808,25 +43780,25 @@
             "is_neutral": false
           },
           {
-            "value": -1.2,
+            "value": -1.0,
             "label": "uncomfortable",
             "is_anchor": true,
             "is_neutral": false
           },
           {
-            "value": -0.4,
+            "value": -0.01,
             "label": "just uncomfortable",
             "is_anchor": true,
             "is_neutral": false
           },
           {
-            "value": 0.4,
+            "value": 0.01,
             "label": "just comfortable",
             "is_anchor": true,
             "is_neutral": false
           },
           {
-            "value": 1.2,
+            "value": 1.0,
             "label": "comfortable",
             "is_anchor": true,
             "is_neutral": false
@@ -43881,8 +43853,8 @@
           },
           {
             "value": -2.2222,
-            "label": "uncomfortable",
-            "is_anchor": true,
+            "label": null,
+            "is_anchor": false,
             "is_neutral": false
           },
           {
@@ -43893,8 +43865,8 @@
           },
           {
             "value": -0.4444,
-            "label": "just comfortable",
-            "is_anchor": true,
+            "label": null,
+            "is_anchor": false,
             "is_neutral": false
           },
           {
@@ -43911,8 +43883,8 @@
           },
           {
             "value": 2.2222,
-            "label": "comfortable",
-            "is_anchor": true,
+            "label": null,
+            "is_anchor": false,
             "is_neutral": false
           },
           {
@@ -44050,13 +44022,13 @@
             "is_neutral": false
           },
           {
-            "value": -0.6667,
+            "value": -1.0,
             "label": "just uncomfortable",
             "is_anchor": true,
             "is_neutral": false
           },
           {
-            "value": 0.6667,
+            "value": 1.0,
             "label": "just comfortable",
             "is_anchor": true,
             "is_neutral": false
@@ -44097,32 +44069,32 @@
           },
           {
             "value": -2.0,
-            "label": null,
-            "is_anchor": false,
-            "is_neutral": false
-          },
-          {
-            "value": -1.0,
             "label": "discomfort",
             "is_anchor": true,
             "is_neutral": false
           },
           {
+            "value": -1.0,
+            "label": null,
+            "is_anchor": false,
+            "is_neutral": false
+          },
+          {
             "value": 0.0,
-            "label": "slight comfort",
-            "is_anchor": true,
-            "is_neutral": true
+            "label": null,
+            "is_anchor": false,
+            "is_neutral": false
           },
           {
             "value": 1.0,
-            "label": "comfort",
+            "label": "slight comfort",
             "is_anchor": true,
             "is_neutral": false
           },
           {
             "value": 2.0,
-            "label": null,
-            "is_anchor": false,
+            "label": "comfort",
+            "is_anchor": true,
             "is_neutral": false
           },
           {
@@ -44222,25 +44194,25 @@
             "is_neutral": false
           },
           {
-            "value": -1.2,
+            "value": -1.0,
             "label": "uncomfortable",
             "is_anchor": true,
             "is_neutral": false
           },
           {
-            "value": -0.4,
+            "value": -0.01,
             "label": "just uncomfortable",
             "is_anchor": true,
             "is_neutral": false
           },
           {
-            "value": 0.4,
+            "value": 0.01,
             "label": "just comfortable",
             "is_anchor": true,
             "is_neutral": false
           },
           {
-            "value": 1.2,
+            "value": 1.0,
             "label": "comfortable",
             "is_anchor": true,
             "is_neutral": false
@@ -44402,25 +44374,25 @@
             "is_neutral": false
           },
           {
-            "value": -1.2,
+            "value": -1.0,
             "label": "uncomfortable",
             "is_anchor": true,
             "is_neutral": false
           },
           {
-            "value": -0.4,
+            "value": -0.01,
             "label": "just uncomfortable",
             "is_anchor": true,
             "is_neutral": false
           },
           {
-            "value": 0.4,
+            "value": 0.01,
             "label": "just comfortable",
             "is_anchor": true,
             "is_neutral": false
           },
           {
-            "value": 1.2,
+            "value": 1.0,
             "label": "comfortable",
             "is_anchor": true,
             "is_neutral": false
@@ -44566,25 +44538,25 @@
             "is_neutral": false
           },
           {
-            "value": -1.8,
+            "value": -2.0,
             "label": "uncomfortable",
             "is_anchor": true,
             "is_neutral": false
           },
           {
-            "value": -0.6,
+            "value": -1.0,
             "label": "slightly uncomfortable",
             "is_anchor": true,
             "is_neutral": false
           },
           {
-            "value": 0.6,
+            "value": 1.0,
             "label": "slightly comfortable",
             "is_anchor": true,
             "is_neutral": false
           },
           {
-            "value": 1.8,
+            "value": 2.0,
             "label": "comfortable",
             "is_anchor": true,
             "is_neutral": false
@@ -44786,25 +44758,25 @@
             "is_neutral": false
           },
           {
-            "value": -1.2,
+            "value": -1.0,
             "label": "uncomfortable",
             "is_anchor": true,
             "is_neutral": false
           },
           {
-            "value": -0.4,
+            "value": -0.01,
             "label": "just uncomfortable",
             "is_anchor": true,
             "is_neutral": false
           },
           {
-            "value": 0.4,
+            "value": 0.01,
             "label": "just comfortable",
             "is_anchor": true,
             "is_neutral": false
           },
           {
-            "value": 1.2,
+            "value": 1.0,
             "label": "comfortable",
             "is_anchor": true,
             "is_neutral": false
@@ -44958,25 +44930,25 @@
             "is_neutral": false
           },
           {
-            "value": -1.2,
+            "value": -1.0,
             "label": "uncomfortable",
             "is_anchor": true,
             "is_neutral": false
           },
           {
-            "value": -0.4,
+            "value": -0.01,
             "label": "just uncomfortable",
             "is_anchor": true,
             "is_neutral": false
           },
           {
-            "value": 0.4,
+            "value": 0.01,
             "label": "just comfortable",
             "is_anchor": true,
             "is_neutral": false
           },
           {
-            "value": 1.2,
+            "value": 1.0,
             "label": "comfortable",
             "is_anchor": true,
             "is_neutral": false
@@ -45294,25 +45266,25 @@
             "is_neutral": false
           },
           {
-            "value": -1.8,
+            "value": -2.0,
             "label": "uncomfortable",
             "is_anchor": true,
             "is_neutral": false
           },
           {
-            "value": -0.6,
+            "value": -1.0,
             "label": "slightly uncomfortable",
             "is_anchor": true,
             "is_neutral": false
           },
           {
-            "value": 0.6,
+            "value": 1.0,
             "label": "slightly comfortable",
             "is_anchor": true,
             "is_neutral": false
           },
           {
-            "value": 1.8,
+            "value": 2.0,
             "label": "comfortable",
             "is_anchor": true,
             "is_neutral": false
@@ -45406,25 +45378,25 @@
             "is_neutral": false
           },
           {
-            "value": -1.2,
+            "value": -1.0,
             "label": "uncomfortable",
             "is_anchor": true,
             "is_neutral": false
           },
           {
-            "value": -0.4,
+            "value": -0.1,
             "label": "slightly uncomfortable",
             "is_anchor": true,
             "is_neutral": false
           },
           {
-            "value": 0.4,
+            "value": 0.1,
             "label": "slightly comfortable",
             "is_anchor": true,
             "is_neutral": false
           },
           {
-            "value": 1.2,
+            "value": 1.0,
             "label": "comfortable",
             "is_anchor": true,
             "is_neutral": false
@@ -45858,25 +45830,25 @@
             "is_neutral": false
           },
           {
-            "value": -1.2,
+            "value": -1.0,
             "label": "uncomfortable",
             "is_anchor": true,
             "is_neutral": false
           },
           {
-            "value": -0.4,
+            "value": -0.01,
             "label": "just uncomfortable",
             "is_anchor": true,
             "is_neutral": false
           },
           {
-            "value": 0.4,
+            "value": 0.01,
             "label": "just comfortable",
             "is_anchor": true,
             "is_neutral": false
           },
           {
-            "value": 1.2,
+            "value": 1.0,
             "label": "comfortable",
             "is_anchor": true,
             "is_neutral": false
@@ -45918,25 +45890,25 @@
             "is_neutral": false
           },
           {
-            "value": -1.2,
+            "value": -1.0,
             "label": "uncomfortable",
             "is_anchor": true,
             "is_neutral": false
           },
           {
-            "value": -0.4,
+            "value": -0.01,
             "label": "just uncomfortable",
             "is_anchor": true,
             "is_neutral": false
           },
           {
-            "value": 0.4,
+            "value": 0.01,
             "label": "just comfortable",
             "is_anchor": true,
             "is_neutral": false
           },
           {
-            "value": 1.2,
+            "value": 1.0,
             "label": "comfortable",
             "is_anchor": true,
             "is_neutral": false
@@ -45978,25 +45950,25 @@
             "is_neutral": false
           },
           {
-            "value": -1.2,
+            "value": -1.0,
             "label": "uncomfortable",
             "is_anchor": true,
             "is_neutral": false
           },
           {
-            "value": -0.4,
+            "value": -0.01,
             "label": "just uncomfortable",
             "is_anchor": true,
             "is_neutral": false
           },
           {
-            "value": 0.4,
+            "value": 0.01,
             "label": "just comfortable",
             "is_anchor": true,
             "is_neutral": false
           },
           {
-            "value": 1.2,
+            "value": 1.0,
             "label": "comfortable",
             "is_anchor": true,
             "is_neutral": false
@@ -46038,25 +46010,25 @@
             "is_neutral": false
           },
           {
-            "value": -1.2,
+            "value": -1.0,
             "label": "uncomfortable",
             "is_anchor": true,
             "is_neutral": false
           },
           {
-            "value": -0.4,
+            "value": -0.01,
             "label": "just uncomfortable",
             "is_anchor": true,
             "is_neutral": false
           },
           {
-            "value": 0.4,
+            "value": 0.01,
             "label": "just comfortable",
             "is_anchor": true,
             "is_neutral": false
           },
           {
-            "value": 1.2,
+            "value": 1.0,
             "label": "comfortable",
             "is_anchor": true,
             "is_neutral": false
@@ -46098,25 +46070,25 @@
             "is_neutral": false
           },
           {
-            "value": -1.2,
+            "value": -1.0,
             "label": "uncomfortable",
             "is_anchor": true,
             "is_neutral": false
           },
           {
-            "value": -0.4,
+            "value": -0.1,
             "label": "slightly uncomfortable",
             "is_anchor": true,
             "is_neutral": false
           },
           {
-            "value": 0.4,
+            "value": 0.1,
             "label": "slightly comfortable",
             "is_anchor": true,
             "is_neutral": false
           },
           {
-            "value": 1.2,
+            "value": 1.0,
             "label": "comfortable",
             "is_anchor": true,
             "is_neutral": false
@@ -46530,25 +46502,25 @@
             "is_neutral": false
           },
           {
-            "value": -1.2,
+            "value": -1.0,
             "label": "uncomfortable",
             "is_anchor": true,
             "is_neutral": false
           },
           {
-            "value": -0.4,
+            "value": -0.01,
             "label": "just uncomfortable",
             "is_anchor": true,
             "is_neutral": false
           },
           {
-            "value": 0.4,
+            "value": 0.01,
             "label": "just comfortable",
             "is_anchor": true,
             "is_neutral": false
           },
           {
-            "value": 1.2,
+            "value": 1.0,
             "label": "comfortable",
             "is_anchor": true,
             "is_neutral": false
@@ -46658,25 +46630,25 @@
             "is_neutral": false
           },
           {
-            "value": -1.2,
+            "value": -1.0,
             "label": "uncomfortable",
             "is_anchor": true,
             "is_neutral": false
           },
           {
-            "value": -0.4,
+            "value": -0.01,
             "label": "just uncomfortable",
             "is_anchor": true,
             "is_neutral": false
           },
           {
-            "value": 0.4,
+            "value": 0.01,
             "label": "just comfortable",
             "is_anchor": true,
             "is_neutral": false
           },
           {
-            "value": 1.2,
+            "value": 1.0,
             "label": "comfortable",
             "is_anchor": true,
             "is_neutral": false
@@ -46718,25 +46690,25 @@
             "is_neutral": false
           },
           {
-            "value": -1.2,
+            "value": -1.0,
             "label": "uncomfortable",
             "is_anchor": true,
             "is_neutral": false
           },
           {
-            "value": -0.4,
+            "value": -0.01,
             "label": "just uncomfortable",
             "is_anchor": true,
             "is_neutral": false
           },
           {
-            "value": 0.4,
+            "value": 0.01,
             "label": "just comfortable",
             "is_anchor": true,
             "is_neutral": false
           },
           {
-            "value": 1.2,
+            "value": 1.0,
             "label": "comfortable",
             "is_anchor": true,
             "is_neutral": false
@@ -46778,25 +46750,25 @@
             "is_neutral": false
           },
           {
-            "value": -1.2,
+            "value": -1.0,
             "label": "uncomfortable",
             "is_anchor": true,
             "is_neutral": false
           },
           {
-            "value": -0.4,
+            "value": -0.01,
             "label": "just uncomfortable",
             "is_anchor": true,
             "is_neutral": false
           },
           {
-            "value": 0.4,
+            "value": 0.01,
             "label": "just comfortable",
             "is_anchor": true,
             "is_neutral": false
           },
           {
-            "value": 1.2,
+            "value": 1.0,
             "label": "comfortable",
             "is_anchor": true,
             "is_neutral": false
@@ -47075,36 +47047,18 @@
         "grid": [
           {
             "value": 0.0,
-            "label": "very unsatisfied",
-            "is_anchor": true,
-            "is_neutral": true
-          },
-          {
-            "value": 0.5,
-            "label": "unsatisfied",
-            "is_anchor": true,
-            "is_neutral": false
-          },
-          {
-            "value": 1.0,
-            "label": "slightly unsatisfied",
-            "is_anchor": true,
-            "is_neutral": false
-          },
-          {
-            "value": 1.5,
             "label": "neutral",
             "is_anchor": true,
             "is_neutral": true
           },
           {
-            "value": 2.0,
+            "value": 1.0,
             "label": "slightly satisfied",
             "is_anchor": true,
             "is_neutral": false
           },
           {
-            "value": 2.5,
+            "value": 2.0,
             "label": "satisfied",
             "is_anchor": true,
             "is_neutral": false
@@ -47342,25 +47296,25 @@
             "is_neutral": false
           },
           {
-            "value": -1.2,
+            "value": -1.0,
             "label": "uncomfortable",
             "is_anchor": true,
             "is_neutral": false
           },
           {
-            "value": -0.4,
+            "value": -0.01,
             "label": "just uncomfortable",
             "is_anchor": true,
             "is_neutral": false
           },
           {
-            "value": 0.4,
+            "value": 0.01,
             "label": "just comfortable",
             "is_anchor": true,
             "is_neutral": false
           },
           {
-            "value": 1.2,
+            "value": 1.0,
             "label": "comfortable",
             "is_anchor": true,
             "is_neutral": false
@@ -47565,25 +47519,25 @@
         "grid": [
           {
             "value": -3.0,
-            "label": "comfortable",
+            "label": "very uncomfortable",
             "is_anchor": true,
             "is_neutral": false
           },
           {
             "value": -2.0,
-            "label": "slightly uncomfortable",
-            "is_anchor": true,
-            "is_neutral": false
-          },
-          {
-            "value": -1.0,
             "label": "uncomfortable",
             "is_anchor": true,
             "is_neutral": false
           },
           {
+            "value": -1.0,
+            "label": "slightly uncomfortable",
+            "is_anchor": true,
+            "is_neutral": false
+          },
+          {
             "value": 0.0,
-            "label": "very uncomfortable",
+            "label": "comfortable",
             "is_anchor": true,
             "is_neutral": true
           }
@@ -47829,37 +47783,37 @@
         "grid": [
           {
             "value": -2.0,
-            "label": "very comfortable",
+            "label": "very uncomfortable",
             "is_anchor": true,
             "is_neutral": false
           },
           {
-            "value": -1.2,
-            "label": "comfortable",
-            "is_anchor": true,
-            "is_neutral": false
-          },
-          {
-            "value": -0.4,
-            "label": "slightly comfortable",
-            "is_anchor": true,
-            "is_neutral": false
-          },
-          {
-            "value": 0.4,
-            "label": "slightly uncomfortable",
-            "is_anchor": true,
-            "is_neutral": false
-          },
-          {
-            "value": 1.2,
+            "value": -1.0,
             "label": "uncomfortable",
             "is_anchor": true,
             "is_neutral": false
           },
           {
+            "value": -0.1,
+            "label": "slightly uncomfortable",
+            "is_anchor": true,
+            "is_neutral": false
+          },
+          {
+            "value": 0.1,
+            "label": "slightly comfortable",
+            "is_anchor": true,
+            "is_neutral": false
+          },
+          {
+            "value": 1.0,
+            "label": "comfortable",
+            "is_anchor": true,
+            "is_neutral": false
+          },
+          {
             "value": 2.0,
-            "label": "very uncomfortable",
+            "label": "very comfortable",
             "is_anchor": true,
             "is_neutral": false
           }
@@ -47889,37 +47843,37 @@
         "grid": [
           {
             "value": -2.0,
-            "label": "very comfortable",
+            "label": "very uncomfortable",
             "is_anchor": true,
             "is_neutral": false
           },
           {
-            "value": -1.2,
-            "label": "comfortable",
-            "is_anchor": true,
-            "is_neutral": false
-          },
-          {
-            "value": -0.4,
-            "label": "slightly comfortable",
-            "is_anchor": true,
-            "is_neutral": false
-          },
-          {
-            "value": 0.4,
-            "label": "slightly uncomfortable",
-            "is_anchor": true,
-            "is_neutral": false
-          },
-          {
-            "value": 1.2,
+            "value": -1.0,
             "label": "uncomfortable",
             "is_anchor": true,
             "is_neutral": false
           },
           {
+            "value": -0.1,
+            "label": "slightly uncomfortable",
+            "is_anchor": true,
+            "is_neutral": false
+          },
+          {
+            "value": 0.1,
+            "label": "slightly comfortable",
+            "is_anchor": true,
+            "is_neutral": false
+          },
+          {
+            "value": 1.0,
+            "label": "comfortable",
+            "is_anchor": true,
+            "is_neutral": false
+          },
+          {
             "value": 2.0,
-            "label": "very uncomfortable",
+            "label": "very comfortable",
             "is_anchor": true,
             "is_neutral": false
           }
@@ -48244,14 +48198,6 @@
       {
         "points": 25,
         "count": 1
-      },
-      {
-        "points": "continuous",
-        "count": 2
-      },
-      {
-        "points": "vas",
-        "count": 4
       }
     ],
     "n_total": 133,
@@ -55005,12 +54951,12 @@
         "count": 100
       },
       {
-        "field": "Body fat %",
+        "field": "Ethnicity/nationality",
         "pct": 12.5,
         "count": 37
       },
       {
-        "field": "Ethnicity/nationality",
+        "field": "Body fat %",
         "pct": 12.5,
         "count": 37
       },
@@ -55045,12 +54991,12 @@
         "count": 8
       },
       {
-        "field": "Chronotype",
+        "field": "Alcohol use",
         "pct": 2.4,
         "count": 7
       },
       {
-        "field": "Alcohol use",
+        "field": "Chronotype",
         "pct": 2.4,
         "count": 7
       },
@@ -55060,12 +55006,12 @@
         "count": 6
       },
       {
-        "field": "Coffee consumption",
+        "field": "Regular sleep time",
         "pct": 1.7,
         "count": 5
       },
       {
-        "field": "Regular sleep time",
+        "field": "Coffee consumption",
         "pct": 1.7,
         "count": 5
       },
@@ -55080,12 +55026,12 @@
         "count": 1
       },
       {
-        "field": "Recent chronotype shift",
+        "field": "Basal/resting metabolic rate",
         "pct": 0.3,
         "count": 1
       },
       {
-        "field": "Basal/resting metabolic rate",
+        "field": "Recent chronotype shift",
         "pct": 0.3,
         "count": 1
       },
@@ -57476,303 +57422,6 @@
         0,
         0,
         0,
-        0,
-        1,
-        0,
-        0,
-        1,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        1,
-        1,
-        1,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        1,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        1,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        1,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        1,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        1,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        1,
-        0,
-        0,
-        0,
-        0,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        0,
-        0,
-        0,
-        1,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        1,
-        1,
-        0,
-        0,
-        1,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        1,
-        0,
-        0,
-        0,
-        1,
-        0,
-        1,
-        0,
-        0,
-        0,
-        1,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        1,
-        0,
-        0,
-        0,
-        1,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        1,
-        1,
-        1,
-        0,
-        1,
-        0,
-        0,
-        1,
-        0,
-        0,
-        1,
-        0,
-        0,
-        0,
-        1,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        1,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        1,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        1,
-        0,
-        0,
-        0
-      ],
-      [
-        0,
-        0,
-        0,
         1,
         0,
         1,
@@ -58067,6 +57716,303 @@
         0
       ],
       [
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        1,
+        0,
+        1,
+        0,
+        0,
+        1,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0
+      ],
+      [
         1,
         0,
         0,
@@ -59844,303 +59790,6 @@
         0,
         0,
         0,
-        0,
-        0,
-        0
-      ],
-      [
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        1,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        1,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        1,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        1,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        1,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        1,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        1,
         0,
         0,
         0
@@ -60447,24 +60096,6 @@
         0,
         0,
         0,
-        1,
-        0,
-        0,
-        1,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
         0,
         0,
         0,
@@ -60537,6 +60168,7 @@
         0,
         0,
         0,
+        1,
         0,
         0,
         0,
@@ -60589,6 +60221,7 @@
         0,
         0,
         0,
+        1,
         0,
         0,
         0,
@@ -60600,9 +60233,28 @@
         0,
         0,
         0,
+        1,
         0,
         0,
         0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
         0,
         0,
         0,
@@ -60672,9 +60324,6 @@
         0,
         0,
         0,
-        0,
-        0,
-        1,
         0,
         0,
         0,
@@ -60744,10 +60393,10 @@
         0,
         0,
         0,
+        1,
         0,
         0,
-        0,
-        0,
+        1,
         0,
         0,
         0,
@@ -60808,61 +60457,6 @@
         0,
         0,
         1,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        1,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        1,
-        1,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
         0,
         0,
         0,
@@ -61026,12 +60620,67 @@
         0,
         0,
         0,
+        1,
         0,
         0,
         0,
         0,
         0,
         0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
         0,
         0,
         0
@@ -61401,6 +61050,303 @@
         0,
         0,
         0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
         0,
         0,
         0,
@@ -61984,171 +61930,171 @@
         0,
         0,
         0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
         1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
         0,
         0,
         0,
@@ -62281,171 +62227,171 @@
         0,
         0,
         0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
         1,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
         0,
         0,
         0,
@@ -62828,23 +62774,23 @@
       "General health status",
       "Education/profession",
       "Thermal history",
-      "Body fat %",
       "Ethnicity/nationality",
+      "Body fat %",
       "Body surface area",
       "Activity level",
       "Thermal sensitivity/preference",
       "Smoking behaviour",
       "Psychological evaluation",
       "Menstrual timing",
-      "Chronotype",
       "Alcohol use",
+      "Chronotype",
       "Contraceptive method",
-      "Coffee consumption",
       "Regular sleep time",
+      "Coffee consumption",
       "Personality",
       "Ponderal index",
-      "Recent chronotype shift",
       "Basal/resting metabolic rate",
+      "Recent chronotype shift",
       "Regular work time"
     ],
     "n_studies": 295
@@ -62877,12 +62823,12 @@
         "count": 47
       },
       {
-        "field": "Age range",
+        "field": "Colour weak./eyesight",
         "pct": 12.5,
         "count": 37
       },
       {
-        "field": "Colour weak./eyesight",
+        "field": "Age range",
         "pct": 12.5,
         "count": 37
       },
@@ -62922,12 +62868,12 @@
         "count": 21
       },
       {
-        "field": "Activity level",
+        "field": "No metabolic syndrome",
         "pct": 3.4,
         "count": 10
       },
       {
-        "field": "No metabolic syndrome",
+        "field": "Activity level",
         "pct": 3.4,
         "count": 10
       },
@@ -64503,10 +64449,8 @@
         0,
         0,
         0,
-        1,
         0,
         0,
-        1,
         0,
         0,
         0,
@@ -64514,99 +64458,7 @@
         0,
         0,
         0,
-        1,
         0,
-        0,
-        0,
-        1,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        1,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        1,
-        1,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        1,
-        1,
-        0,
-        0,
-        0,
-        0,
-        0,
-        1,
-        0,
-        1,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        1,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        1,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        1,
         0,
         0,
         1,
@@ -64627,109 +64479,11 @@
         0,
         0,
         0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        1,
-        0,
-        0,
-        0,
-        0,
-        1,
-        1,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
         1,
         0,
         0,
         1,
         0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        1,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        1,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        1,
-        1,
-        1,
-        0,
-        0,
-        0,
-        0,
-        0,
-        1,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        1,
-        0,
-        1,
-        1,
-        1,
         0,
         0,
         0,
@@ -64763,20 +64517,212 @@
         0,
         0,
         0,
-        1,
-        0,
-        0,
-        1,
-        1,
-        0,
-        0,
-        0,
         0,
         0,
         0,
         1,
+        0,
+        0,
+        0,
+        0,
         1,
         0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        1,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        1,
+        1,
+        1,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        1,
+        0,
+        1,
         0,
         0
       ],
@@ -64800,11 +64746,10 @@
         0,
         0,
         0,
+        1,
         0,
         0,
-        0,
-        0,
-        0,
+        1,
         0,
         0,
         0,
@@ -64830,51 +64775,6 @@
         0,
         0,
         0,
-        1,
-        0,
-        0,
-        1,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        1,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        1,
-        0,
-        0,
-        0,
         0,
         1,
         0,
@@ -64887,36 +64787,6 @@
         0,
         0,
         1,
-        0,
-        0,
-        0,
-        0,
-        1,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        1,
-        0,
-        0,
-        0,
-        1,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
         1,
         0,
         0,
@@ -64926,11 +64796,6 @@
         0,
         1,
         1,
-        1,
-        1,
-        1,
-        0,
-        0,
         0,
         0,
         0,
@@ -64941,37 +64806,6 @@
         1,
         0,
         0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        1,
-        0,
-        0,
-        0,
-        0,
-        0,
-        1,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        1,
-        0,
-        1,
-        0,
-        1,
         0,
         0,
         0,
@@ -65004,17 +64838,6 @@
         0,
         0,
         0,
-        1,
-        0,
-        1,
-        1,
-        1,
-        0,
-        0,
-        0,
-        0,
-        1,
-        0,
         0,
         0,
         0,
@@ -65025,6 +64848,11 @@
         0,
         0,
         0,
+        0,
+        1,
+        0,
+        0,
+        1,
         0,
         0,
         0,
@@ -65042,7 +64870,8 @@
         0,
         0,
         0,
-        1,
+        0,
+        0,
         0,
         0,
         0,
@@ -65064,6 +64893,76 @@
         0,
         0,
         0,
+        1,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
         0,
         0,
         0,
@@ -65072,8 +64971,55 @@
         1,
         0,
         1,
+        1,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
         0,
         1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        1,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        0,
         0,
         0
       ],
@@ -67160,12 +67106,10 @@
         0,
         0,
         0,
-        1,
         0,
         0,
         0,
         0,
-        1,
         0,
         0,
         0,
@@ -67189,122 +67133,6 @@
         0,
         0,
         0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        1,
-        1,
-        1,
-        1,
         0,
         0,
         0,
@@ -67379,29 +67207,6 @@
         0,
         0,
         0,
-        1,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
         0,
         0,
         0,
@@ -67444,8 +67249,149 @@
         0,
         0,
         0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
         1,
         0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
         0,
         0,
         0,
@@ -67457,6 +67403,12 @@
         0,
         0,
         0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        1,
         0,
         0,
         0,
@@ -67484,6 +67436,118 @@
         0,
         0,
         0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1,
         0,
         0,
         0,
@@ -67558,11 +67622,6 @@
         0,
         0,
         0,
-        0,
-        0,
-        0,
-        0,
-        0,
         1,
         0,
         0,
@@ -67578,56 +67637,6 @@
         0,
         0,
         0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        1,
-        0,
-        0,
-        1,
         0,
         0,
         0,
@@ -67678,71 +67687,8 @@
         0,
         0,
         0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
         1,
         0,
-        0,
-        0,
-        1,
-        0,
-        0,
-        0,
-        0,
-        1,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        1,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        1,
         0,
         0,
         0,
@@ -71618,8 +71564,8 @@
       "No ongoing medication use",
       "No CV/BP disease",
       "Smoking status",
-      "Age range",
       "Colour weak./eyesight",
+      "Age range",
       "Sex",
       "BMI range",
       "No active/recent illness",
@@ -71627,8 +71573,8 @@
       "No neuro disease",
       "Language skills",
       "Alcohol",
-      "Activity level",
       "No metabolic syndrome",
+      "Activity level",
       "No previous knowledge",
       "Chronotype",
       "Dominant hand",
@@ -72786,13 +72732,8 @@
     "calc_rate_by_period": [
       {
         "period": "2013–14",
-        "physio-mst-calculated": "N",
-        "count": 1
-      },
-      {
-        "period": "2013–14",
         "physio-mst-calculated": "Y",
-        "count": 10
+        "count": 11
       },
       {
         "period": "2015–16",
@@ -72812,12 +72753,12 @@
       {
         "period": "2017–18",
         "physio-mst-calculated": "N",
-        "count": 15
+        "count": 16
       },
       {
         "period": "2017–18",
         "physio-mst-calculated": "NAN",
-        "count": 10
+        "count": 9
       },
       {
         "period": "2017–18",
@@ -72827,17 +72768,17 @@
       {
         "period": "2019–20",
         "physio-mst-calculated": "N",
-        "count": 23
+        "count": 22
       },
       {
         "period": "2019–20",
         "physio-mst-calculated": "NAN",
-        "count": 19
+        "count": 16
       },
       {
         "period": "2019–20",
         "physio-mst-calculated": "Y",
-        "count": 21
+        "count": 25
       },
       {
         "period": "2021–22",
@@ -72847,27 +72788,32 @@
       {
         "period": "2021–22",
         "physio-mst-calculated": "NAN",
-        "count": 23
+        "count": 17
       },
       {
         "period": "2021–22",
         "physio-mst-calculated": "Y",
-        "count": 32
+        "count": 38
       },
       {
         "period": "2023–24",
         "physio-mst-calculated": "N",
-        "count": 22
+        "count": 24
       },
       {
         "period": "2023–24",
         "physio-mst-calculated": "NAN",
-        "count": 27
+        "count": 13
+      },
+      {
+        "period": "2023–24",
+        "physio-mst-calculated": "NR",
+        "count": 2
       },
       {
         "period": "2023–24",
         "physio-mst-calculated": "Y",
-        "count": 29
+        "count": 39
       }
     ],
     "formula_by_period": [
@@ -72883,8 +72829,8 @@
       },
       {
         "period": "2013–14",
-        "formula_grp": "NR",
-        "count": 1
+        "formula_grp": "Other/Multiple",
+        "count": 3
       },
       {
         "period": "2013–14",
@@ -72892,11 +72838,6 @@
         "count": 1
       },
       {
-        "period": "2013–14",
-        "formula_grp": "Wang (2013)",
-        "count": 1
-      },
-      {
         "period": "2015–16",
         "formula_grp": "Hardy & DuBois (1938)",
         "count": 4
@@ -72908,7 +72849,7 @@
       },
       {
         "period": "2015–16",
-        "formula_grp": "NR",
+        "formula_grp": "Other/Multiple",
         "count": 1
       },
       {
@@ -72923,33 +72864,8 @@
       },
       {
         "period": "2017–18",
-        "formula_grp": "Area weighted",
-        "count": 4
-      },
-      {
-        "period": "2017–18",
-        "formula_grp": "Choi (1997)",
-        "count": 1
-      },
-      {
-        "period": "2017–18",
-        "formula_grp": "Fanger (1982)",
-        "count": 1
-      },
-      {
-        "period": "2017–18",
-        "formula_grp": "Gagge (1977)",
-        "count": 1
-      },
-      {
-        "period": "2017–18",
-        "formula_grp": "Gagge and Nishi (2011)",
-        "count": 3
-      },
-      {
-        "period": "2017–18",
         "formula_grp": "Hardy & DuBois (1938)",
-        "count": 1
+        "count": 2
       },
       {
         "period": "2017–18",
@@ -72958,13 +72874,13 @@
       },
       {
         "period": "2017–18",
-        "formula_grp": "ISO 9886: 2004, Hardy & DuBois (1938)",
-        "count": 1
+        "formula_grp": "McIntyre (1980)",
+        "count": 3
       },
       {
         "period": "2017–18",
-        "formula_grp": "McIntyre (1980)",
-        "count": 3
+        "formula_grp": "Other/Multiple",
+        "count": 10
       },
       {
         "period": "2017–18",
@@ -72993,28 +72909,13 @@
       },
       {
         "period": "2019–20",
-        "formula_grp": "Liu (2008)",
-        "count": 1
-      },
-      {
-        "period": "2019–20",
         "formula_grp": "McIntyre (1980)",
         "count": 2
       },
       {
         "period": "2019–20",
-        "formula_grp": "Mitchell & Wyndham (1969)",
-        "count": 1
-      },
-      {
-        "period": "2019–20",
-        "formula_grp": "Multiple",
-        "count": 1
-      },
-      {
-        "period": "2019–20",
-        "formula_grp": "NR",
-        "count": 2
+        "formula_grp": "Other/Multiple",
+        "count": 7
       },
       {
         "period": "2019–20",
@@ -73024,22 +72925,17 @@
       {
         "period": "2019–20",
         "formula_grp": "Ramanathan (1964)",
-        "count": 5
-      },
-      {
-        "period": "2021–22",
-        "formula_grp": "Colin & Houdas (1982)",
-        "count": 4
-      },
-      {
-        "period": "2021–22",
-        "formula_grp": "Hardy & DuBois (1938)",
         "count": 7
       },
       {
         "period": "2021–22",
-        "formula_grp": "Houdas & Ring (1982), Luo et al. (2020)",
-        "count": 1
+        "formula_grp": "Colin & Houdas (1982)",
+        "count": 5
+      },
+      {
+        "period": "2021–22",
+        "formula_grp": "Hardy & DuBois (1938)",
+        "count": 8
       },
       {
         "period": "2021–22",
@@ -73048,18 +72944,8 @@
       },
       {
         "period": "2021–22",
-        "formula_grp": "ISO 9920: 2007",
-        "count": 1
-      },
-      {
-        "period": "2021–22",
-        "formula_grp": "Multiple",
-        "count": 6
-      },
-      {
-        "period": "2021–22",
-        "formula_grp": "NR",
-        "count": 3
+        "formula_grp": "Other/Multiple",
+        "count": 10
       },
       {
         "period": "2021–22",
@@ -73069,37 +72955,27 @@
       {
         "period": "2021–22",
         "formula_grp": "Ramanathan (1964)",
-        "count": 5
+        "count": 10
       },
       {
         "period": "2023–24",
         "formula_grp": "Colin & Houdas (1982)",
-        "count": 1
+        "count": 3
       },
       {
         "period": "2023–24",
         "formula_grp": "Hardy & DuBois (1938)",
-        "count": 5
-      },
-      {
-        "period": "2023–24",
-        "formula_grp": "ISO 9886: 2004",
         "count": 7
       },
       {
         "period": "2023–24",
-        "formula_grp": "La Gennusa et al. (2005)",
-        "count": 1
+        "formula_grp": "ISO 9886: 2004",
+        "count": 8
       },
       {
         "period": "2023–24",
-        "formula_grp": "Liu et al. (2011)",
-        "count": 2
-      },
-      {
-        "period": "2023–24",
-        "formula_grp": "NR",
-        "count": 5
+        "formula_grp": "Other/Multiple",
+        "count": 10
       },
       {
         "period": "2023–24",
@@ -73109,245 +72985,109 @@
       {
         "period": "2023–24",
         "formula_grp": "Ramanathan (1964)",
-        "count": 2
-      },
-      {
-        "period": "2023–24",
-        "formula_grp": "Ramanathan (1984)",
-        "count": 3
-      },
-      {
-        "period": "2023–24",
-        "formula_grp": "Teichner et al. (1958)",
-        "count": 2
+        "count": 10
       }
     ],
     "points_by_formula": [
       {
-        "pt_bucket": "1",
-        "formula_grp": "Multiple",
-        "count": 1
+        "pt_bucket": "15+",
+        "formula_grp": "Other/Multiple",
+        "count": 2
       },
       {
-        "pt_bucket": "10",
-        "formula_grp": "Colin & Houdas (1982)",
-        "count": 6
-      },
-      {
-        "pt_bucket": "10",
-        "formula_grp": "NR",
-        "count": 3
-      },
-      {
-        "pt_bucket": "12",
-        "formula_grp": "Hardy & DuBois (1938)",
-        "count": 1
-      },
-      {
-        "pt_bucket": "14",
-        "formula_grp": "ISO 9886: 2004",
-        "count": 3
-      },
-      {
-        "pt_bucket": "14",
-        "formula_grp": "ISO 9920: 2007",
-        "count": 1
-      },
-      {
-        "pt_bucket": "16",
-        "formula_grp": "NR",
-        "count": 1
-      },
-      {
-        "pt_bucket": "3",
-        "formula_grp": "Fanger (1982)",
-        "count": 1
-      },
-      {
-        "pt_bucket": "3",
-        "formula_grp": "Multiple",
-        "count": 6
-      },
-      {
-        "pt_bucket": "32",
-        "formula_grp": "NR",
-        "count": 1
-      },
-      {
-        "pt_bucket": "4",
-        "formula_grp": "Area weighted",
-        "count": 4
-      },
-      {
-        "pt_bucket": "4",
+        "pt_bucket": "2–4",
         "formula_grp": "ISO 9886: 2004",
         "count": 4
       },
       {
-        "pt_bucket": "4",
+        "pt_bucket": "2–4",
         "formula_grp": "McIntyre (1980)",
         "count": 6
       },
       {
-        "pt_bucket": "4",
-        "formula_grp": "NR",
-        "count": 1
-      },
-      {
-        "pt_bucket": "4",
-        "formula_grp": "Ramanathan (1964)",
+        "pt_bucket": "2–4",
+        "formula_grp": "Other/Multiple",
         "count": 16
       },
       {
-        "pt_bucket": "4",
-        "formula_grp": "Ramanathan (1984)",
-        "count": 3
+        "pt_bucket": "2–4",
+        "formula_grp": "Ramanathan (1964)",
+        "count": 31
       },
       {
-        "pt_bucket": "4",
-        "formula_grp": "Teichner et al. (1958)",
-        "count": 2
-      },
-      {
-        "pt_bucket": "5",
-        "formula_grp": "Houdas & Ring (1982), Luo et al. (2020)",
+        "pt_bucket": "5–8",
+        "formula_grp": "Colin & Houdas (1982)",
         "count": 1
       },
       {
-        "pt_bucket": "5",
-        "formula_grp": "Mitchell & Wyndham (1969)",
-        "count": 1
-      },
-      {
-        "pt_bucket": "5",
-        "formula_grp": "NR",
-        "count": 1
-      },
-      {
-        "pt_bucket": "5",
-        "formula_grp": "Wang (2013)",
-        "count": 1
-      },
-      {
-        "pt_bucket": "6",
+        "pt_bucket": "5–8",
         "formula_grp": "Hardy & DuBois (1938)",
-        "count": 2
+        "count": 27
       },
       {
-        "pt_bucket": "6",
-        "formula_grp": "La Gennusa et al. (2005)",
-        "count": 1
+        "pt_bucket": "5–8",
+        "formula_grp": "ISO 9886: 2004",
+        "count": 12
       },
       {
-        "pt_bucket": "6",
-        "formula_grp": "Liu (2008)",
-        "count": 1
+        "pt_bucket": "5–8",
+        "formula_grp": "Other/Multiple",
+        "count": 14
       },
       {
-        "pt_bucket": "7",
-        "formula_grp": "Hardy & DuBois (1938)",
-        "count": 18
-      },
-      {
-        "pt_bucket": "7",
-        "formula_grp": "NR",
-        "count": 1
-      },
-      {
-        "pt_bucket": "7",
+        "pt_bucket": "5–8",
         "formula_grp": "Ouyang (1985)",
         "count": 1
       },
       {
-        "pt_bucket": "7",
+        "pt_bucket": "5–8",
         "formula_grp": "Ramanathan (1964)",
         "count": 1
       },
       {
-        "pt_bucket": "8",
-        "formula_grp": "Choi (1997)",
-        "count": 1
+        "pt_bucket": "9–14",
+        "formula_grp": "Colin & Houdas (1982)",
+        "count": 8
       },
       {
-        "pt_bucket": "8",
-        "formula_grp": "Gagge (1977)",
-        "count": 1
-      },
-      {
-        "pt_bucket": "8",
-        "formula_grp": "Gagge and Nishi (2011)",
-        "count": 3
-      },
-      {
-        "pt_bucket": "8",
+        "pt_bucket": "9–14",
         "formula_grp": "Hardy & DuBois (1938)",
-        "count": 3
+        "count": 1
       },
       {
-        "pt_bucket": "8",
+        "pt_bucket": "9–14",
         "formula_grp": "ISO 9886: 2004",
-        "count": 11
+        "count": 4
       },
       {
-        "pt_bucket": "8",
-        "formula_grp": "ISO 9886: 2004, Hardy & DuBois (1938)",
-        "count": 1
+        "pt_bucket": "9–14",
+        "formula_grp": "Other/Multiple",
+        "count": 8
       },
       {
-        "pt_bucket": "8",
-        "formula_grp": "NR",
-        "count": 2
-      },
-      {
-        "pt_bucket": "9",
-        "formula_grp": "ISO 9886: 2004",
-        "count": 1
-      },
-      {
-        "pt_bucket": "9",
-        "formula_grp": "Liu et al. (2011)",
-        "count": 2
-      },
-      {
-        "pt_bucket": "9",
-        "formula_grp": "NR",
-        "count": 1
-      },
-      {
-        "pt_bucket": "9",
+        "pt_bucket": "9–14",
         "formula_grp": "Ouyang (1985)",
         "count": 5
       },
       {
-        "pt_bucket": "9",
+        "pt_bucket": "9–14",
         "formula_grp": "Ramanathan (1964)",
         "count": 2
+      },
+      {
+        "pt_bucket": "Points NR/NC",
+        "formula_grp": "Other/Multiple",
+        "count": 1
       }
     ],
     "formula_order": [
-      "Area weighted",
-      "Choi (1997)",
       "Colin & Houdas (1982)",
-      "Fanger (1982)",
-      "Gagge (1977)",
-      "Gagge and Nishi (2011)",
       "Hardy & DuBois (1938)",
-      "Houdas & Ring (1982), Luo et al. (2020)",
       "ISO 9886: 2004",
-      "ISO 9886: 2004, Hardy & DuBois (1938)",
-      "ISO 9920: 2007",
-      "La Gennusa et al. (2005)",
-      "Liu (2008)",
-      "Liu et al. (2011)",
       "McIntyre (1980)",
-      "Mitchell & Wyndham (1969)",
-      "Multiple",
-      "NR",
+      "Other/Multiple",
       "Ouyang (1985)",
-      "Ramanathan (1964)",
-      "Ramanathan (1984)",
-      "Teichner et al. (1958)",
-      "Wang (2013)"
+      "Ramanathan (1964)"
     ],
     "periods": [
       "2013–14",
@@ -73357,7 +73097,7 @@
       "2021–22",
       "2023–24"
     ],
-    "n_mst_studies": 123
+    "n_mst_studies": 144
   },
   "open_data": {
     "data_avail_distribution": [
@@ -73472,14 +73212,14 @@
       },
       {
         "period": "2013–14",
-        "field": "Body fat %",
+        "field": "Ethnicity/nationality",
         "pct": 18.2,
         "count": 2,
         "n": 11
       },
       {
         "period": "2013–14",
-        "field": "Ethnicity/nationality",
+        "field": "Body fat %",
         "pct": 18.2,
         "count": 2,
         "n": 11
@@ -73528,14 +73268,14 @@
       },
       {
         "period": "2013–14",
-        "field": "Chronotype",
+        "field": "Alcohol use",
         "pct": 0.0,
         "count": 0,
         "n": 11
       },
       {
         "period": "2013–14",
-        "field": "Alcohol use",
+        "field": "Chronotype",
         "pct": 0.0,
         "count": 0,
         "n": 11
@@ -73549,14 +73289,14 @@
       },
       {
         "period": "2013–14",
-        "field": "Coffee consumption",
+        "field": "Regular sleep time",
         "pct": 0.0,
         "count": 0,
         "n": 11
       },
       {
         "period": "2013–14",
-        "field": "Regular sleep time",
+        "field": "Coffee consumption",
         "pct": 0.0,
         "count": 0,
         "n": 11
@@ -73577,14 +73317,14 @@
       },
       {
         "period": "2013–14",
-        "field": "Recent chronotype shift",
+        "field": "Basal/resting metabolic rate",
         "pct": 0.0,
         "count": 0,
         "n": 11
       },
       {
         "period": "2013–14",
-        "field": "Basal/resting metabolic rate",
+        "field": "Recent chronotype shift",
         "pct": 0.0,
         "count": 0,
         "n": 11
@@ -73654,16 +73394,16 @@
       },
       {
         "period": "2015–16",
-        "field": "Body fat %",
-        "pct": 0.0,
-        "count": 0,
+        "field": "Ethnicity/nationality",
+        "pct": 33.3,
+        "count": 5,
         "n": 15
       },
       {
         "period": "2015–16",
-        "field": "Ethnicity/nationality",
-        "pct": 33.3,
-        "count": 5,
+        "field": "Body fat %",
+        "pct": 0.0,
+        "count": 0,
         "n": 15
       },
       {
@@ -73710,14 +73450,14 @@
       },
       {
         "period": "2015–16",
-        "field": "Chronotype",
+        "field": "Alcohol use",
         "pct": 0.0,
         "count": 0,
         "n": 15
       },
       {
         "period": "2015–16",
-        "field": "Alcohol use",
+        "field": "Chronotype",
         "pct": 0.0,
         "count": 0,
         "n": 15
@@ -73731,14 +73471,14 @@
       },
       {
         "period": "2015–16",
-        "field": "Coffee consumption",
+        "field": "Regular sleep time",
         "pct": 0.0,
         "count": 0,
         "n": 15
       },
       {
         "period": "2015–16",
-        "field": "Regular sleep time",
+        "field": "Coffee consumption",
         "pct": 0.0,
         "count": 0,
         "n": 15
@@ -73759,14 +73499,14 @@
       },
       {
         "period": "2015–16",
-        "field": "Recent chronotype shift",
+        "field": "Basal/resting metabolic rate",
         "pct": 0.0,
         "count": 0,
         "n": 15
       },
       {
         "period": "2015–16",
-        "field": "Basal/resting metabolic rate",
+        "field": "Recent chronotype shift",
         "pct": 0.0,
         "count": 0,
         "n": 15
@@ -73836,16 +73576,16 @@
       },
       {
         "period": "2017–18",
-        "field": "Body fat %",
-        "pct": 8.5,
-        "count": 4,
+        "field": "Ethnicity/nationality",
+        "pct": 21.3,
+        "count": 10,
         "n": 47
       },
       {
         "period": "2017–18",
-        "field": "Ethnicity/nationality",
-        "pct": 21.3,
-        "count": 10,
+        "field": "Body fat %",
+        "pct": 8.5,
+        "count": 4,
         "n": 47
       },
       {
@@ -73892,16 +73632,16 @@
       },
       {
         "period": "2017–18",
-        "field": "Chronotype",
-        "pct": 2.1,
-        "count": 1,
+        "field": "Alcohol use",
+        "pct": 4.3,
+        "count": 2,
         "n": 47
       },
       {
         "period": "2017–18",
-        "field": "Alcohol use",
-        "pct": 4.3,
-        "count": 2,
+        "field": "Chronotype",
+        "pct": 2.1,
+        "count": 1,
         "n": 47
       },
       {
@@ -73913,16 +73653,16 @@
       },
       {
         "period": "2017–18",
-        "field": "Coffee consumption",
-        "pct": 2.1,
-        "count": 1,
+        "field": "Regular sleep time",
+        "pct": 0.0,
+        "count": 0,
         "n": 47
       },
       {
         "period": "2017–18",
-        "field": "Regular sleep time",
-        "pct": 0.0,
-        "count": 0,
+        "field": "Coffee consumption",
+        "pct": 2.1,
+        "count": 1,
         "n": 47
       },
       {
@@ -73941,16 +73681,16 @@
       },
       {
         "period": "2017–18",
-        "field": "Recent chronotype shift",
-        "pct": 0.0,
-        "count": 0,
+        "field": "Basal/resting metabolic rate",
+        "pct": 2.1,
+        "count": 1,
         "n": 47
       },
       {
         "period": "2017–18",
-        "field": "Basal/resting metabolic rate",
-        "pct": 2.1,
-        "count": 1,
+        "field": "Recent chronotype shift",
+        "pct": 0.0,
+        "count": 0,
         "n": 47
       },
       {
@@ -74018,16 +73758,16 @@
       },
       {
         "period": "2019–20",
-        "field": "Body fat %",
-        "pct": 6.3,
-        "count": 4,
+        "field": "Ethnicity/nationality",
+        "pct": 11.1,
+        "count": 7,
         "n": 63
       },
       {
         "period": "2019–20",
-        "field": "Ethnicity/nationality",
-        "pct": 11.1,
-        "count": 7,
+        "field": "Body fat %",
+        "pct": 6.3,
+        "count": 4,
         "n": 63
       },
       {
@@ -74074,16 +73814,16 @@
       },
       {
         "period": "2019–20",
-        "field": "Chronotype",
-        "pct": 3.2,
-        "count": 2,
+        "field": "Alcohol use",
+        "pct": 4.8,
+        "count": 3,
         "n": 63
       },
       {
         "period": "2019–20",
-        "field": "Alcohol use",
-        "pct": 4.8,
-        "count": 3,
+        "field": "Chronotype",
+        "pct": 3.2,
+        "count": 2,
         "n": 63
       },
       {
@@ -74095,16 +73835,16 @@
       },
       {
         "period": "2019–20",
-        "field": "Coffee consumption",
-        "pct": 4.8,
-        "count": 3,
+        "field": "Regular sleep time",
+        "pct": 1.6,
+        "count": 1,
         "n": 63
       },
       {
         "period": "2019–20",
-        "field": "Regular sleep time",
-        "pct": 1.6,
-        "count": 1,
+        "field": "Coffee consumption",
+        "pct": 4.8,
+        "count": 3,
         "n": 63
       },
       {
@@ -74123,14 +73863,14 @@
       },
       {
         "period": "2019–20",
-        "field": "Recent chronotype shift",
+        "field": "Basal/resting metabolic rate",
         "pct": 0.0,
         "count": 0,
         "n": 63
       },
       {
         "period": "2019–20",
-        "field": "Basal/resting metabolic rate",
+        "field": "Recent chronotype shift",
         "pct": 0.0,
         "count": 0,
         "n": 63
@@ -74200,16 +73940,16 @@
       },
       {
         "period": "2021–22",
-        "field": "Body fat %",
-        "pct": 19.8,
-        "count": 16,
+        "field": "Ethnicity/nationality",
+        "pct": 11.1,
+        "count": 9,
         "n": 81
       },
       {
         "period": "2021–22",
-        "field": "Ethnicity/nationality",
-        "pct": 11.1,
-        "count": 9,
+        "field": "Body fat %",
+        "pct": 19.8,
+        "count": 16,
         "n": 81
       },
       {
@@ -74256,16 +73996,16 @@
       },
       {
         "period": "2021–22",
-        "field": "Chronotype",
-        "pct": 2.5,
-        "count": 2,
+        "field": "Alcohol use",
+        "pct": 1.2,
+        "count": 1,
         "n": 81
       },
       {
         "period": "2021–22",
-        "field": "Alcohol use",
-        "pct": 1.2,
-        "count": 1,
+        "field": "Chronotype",
+        "pct": 2.5,
+        "count": 2,
         "n": 81
       },
       {
@@ -74277,16 +74017,16 @@
       },
       {
         "period": "2021–22",
-        "field": "Coffee consumption",
-        "pct": 1.2,
-        "count": 1,
+        "field": "Regular sleep time",
+        "pct": 2.5,
+        "count": 2,
         "n": 81
       },
       {
         "period": "2021–22",
-        "field": "Regular sleep time",
-        "pct": 2.5,
-        "count": 2,
+        "field": "Coffee consumption",
+        "pct": 1.2,
+        "count": 1,
         "n": 81
       },
       {
@@ -74305,14 +74045,14 @@
       },
       {
         "period": "2021–22",
-        "field": "Recent chronotype shift",
+        "field": "Basal/resting metabolic rate",
         "pct": 0.0,
         "count": 0,
         "n": 81
       },
       {
         "period": "2021–22",
-        "field": "Basal/resting metabolic rate",
+        "field": "Recent chronotype shift",
         "pct": 0.0,
         "count": 0,
         "n": 81
@@ -74382,16 +74122,16 @@
       },
       {
         "period": "2023–24",
-        "field": "Body fat %",
-        "pct": 14.1,
-        "count": 11,
+        "field": "Ethnicity/nationality",
+        "pct": 5.1,
+        "count": 4,
         "n": 78
       },
       {
         "period": "2023–24",
-        "field": "Ethnicity/nationality",
-        "pct": 5.1,
-        "count": 4,
+        "field": "Body fat %",
+        "pct": 14.1,
+        "count": 11,
         "n": 78
       },
       {
@@ -74438,16 +74178,16 @@
       },
       {
         "period": "2023–24",
-        "field": "Chronotype",
-        "pct": 2.6,
-        "count": 2,
+        "field": "Alcohol use",
+        "pct": 1.3,
+        "count": 1,
         "n": 78
       },
       {
         "period": "2023–24",
-        "field": "Alcohol use",
-        "pct": 1.3,
-        "count": 1,
+        "field": "Chronotype",
+        "pct": 2.6,
+        "count": 2,
         "n": 78
       },
       {
@@ -74459,16 +74199,16 @@
       },
       {
         "period": "2023–24",
-        "field": "Coffee consumption",
-        "pct": 0.0,
-        "count": 0,
+        "field": "Regular sleep time",
+        "pct": 2.6,
+        "count": 2,
         "n": 78
       },
       {
         "period": "2023–24",
-        "field": "Regular sleep time",
-        "pct": 2.6,
-        "count": 2,
+        "field": "Coffee consumption",
+        "pct": 0.0,
+        "count": 0,
         "n": 78
       },
       {
@@ -74487,16 +74227,16 @@
       },
       {
         "period": "2023–24",
-        "field": "Recent chronotype shift",
-        "pct": 1.3,
-        "count": 1,
+        "field": "Basal/resting metabolic rate",
+        "pct": 0.0,
+        "count": 0,
         "n": 78
       },
       {
         "period": "2023–24",
-        "field": "Basal/resting metabolic rate",
-        "pct": 0.0,
-        "count": 0,
+        "field": "Recent chronotype shift",
+        "pct": 1.3,
+        "count": 1,
         "n": 78
       },
       {
@@ -74516,23 +74256,23 @@
       "General health status",
       "Education/profession",
       "Thermal history",
-      "Body fat %",
       "Ethnicity/nationality",
+      "Body fat %",
       "Body surface area",
       "Activity level",
       "Thermal sensitivity/preference",
       "Smoking behaviour",
       "Psychological evaluation",
       "Menstrual timing",
-      "Chronotype",
       "Alcohol use",
+      "Chronotype",
       "Contraceptive method",
-      "Coffee consumption",
       "Regular sleep time",
+      "Coffee consumption",
       "Personality",
       "Ponderal index",
-      "Recent chronotype shift",
       "Basal/resting metabolic rate",
+      "Recent chronotype shift",
       "Regular work time"
     ],
     "periods": [
@@ -74612,7 +74352,7 @@
         "count": 2
       },
       {
-        "signal": "Biomarkers: Lysozyme ",
+        "signal": "Biomarkers: Lysozyme",
         "physio-sensing-method": "Nasal lavage fluid",
         "count": 1
       },
@@ -75181,7 +74921,7 @@
         "count": 2
       },
       {
-        "signal": "Biomarkers: Lysozyme ",
+        "signal": "Biomarkers: Lysozyme",
         "physio-sensing-method": "Nasal lavage fluid",
         "period": "2023–24",
         "count": 1
@@ -76543,7 +76283,7 @@
         "count": 2
       },
       {
-        "signal": "Biomarkers: Lysozyme ",
+        "signal": "Biomarkers: Lysozyme",
         "count": 1
       },
       {
@@ -76657,6 +76397,1846 @@
       {
         "signal": "Sweat indicators",
         "count": 35
+      }
+    ],
+    "signal_instance_totals": [
+      {
+        "signal": "Biomarkers: Alpha-amylase",
+        "count": 3
+      },
+      {
+        "signal": "Biomarkers: COX1",
+        "count": 1
+      },
+      {
+        "signal": "Biomarkers: COX2",
+        "count": 1
+      },
+      {
+        "signal": "Biomarkers: Catecholamines",
+        "count": 1
+      },
+      {
+        "signal": "Biomarkers: Cortisol",
+        "count": 2
+      },
+      {
+        "signal": "Biomarkers: Dopamine",
+        "count": 1
+      },
+      {
+        "signal": "Biomarkers: Estradiol",
+        "count": 1
+      },
+      {
+        "signal": "Biomarkers: Free thyroxine (FT4)",
+        "count": 2
+      },
+      {
+        "signal": "Biomarkers: Free triiodothyronine (FT3)",
+        "count": 1
+      },
+      {
+        "signal": "Biomarkers: Heat shock protein (HSP)",
+        "count": 2
+      },
+      {
+        "signal": "Biomarkers: Immunoglobulin A (IgA)",
+        "count": 1
+      },
+      {
+        "signal": "Biomarkers: Immunoglobulin E (IgE)",
+        "count": 2
+      },
+      {
+        "signal": "Biomarkers: Interleukin 6 (IL-6)",
+        "count": 2
+      },
+      {
+        "signal": "Biomarkers: Lysozyme",
+        "count": 1
+      },
+      {
+        "signal": "Biomarkers: PGE2",
+        "count": 1
+      },
+      {
+        "signal": "Biomarkers: Progesterone",
+        "count": 1
+      },
+      {
+        "signal": "Biomarkers: Tear film mucus",
+        "count": 1
+      },
+      {
+        "signal": "Biomarkers: Testosterone",
+        "count": 1
+      },
+      {
+        "signal": "Biomarkers: Thyroid-stimulating hormone (TSH)",
+        "count": 2
+      },
+      {
+        "signal": "Blood pressure",
+        "count": 43
+      },
+      {
+        "signal": "Body temperature",
+        "count": 32
+      },
+      {
+        "signal": "Core temperature",
+        "count": 19
+      },
+      {
+        "signal": "EEG",
+        "count": 39
+      },
+      {
+        "signal": "EMG",
+        "count": 3
+      },
+      {
+        "signal": "EOG",
+        "count": 5
+      },
+      {
+        "signal": "Exhaled breath temperature",
+        "count": 2
+      },
+      {
+        "signal": "Glucose",
+        "count": 2
+      },
+      {
+        "signal": "Heart/Pulse rate",
+        "count": 150
+      },
+      {
+        "signal": "Heat flux",
+        "count": 8
+      },
+      {
+        "signal": "Metabolic rate/Gas exchange",
+        "count": 19
+      },
+      {
+        "signal": "Movement",
+        "count": 13
+      },
+      {
+        "signal": "Near body temperature",
+        "count": 8
+      },
+      {
+        "signal": "Oxygen saturation",
+        "count": 32
+      },
+      {
+        "signal": "Perfusion index",
+        "count": 1
+      },
+      {
+        "signal": "Pupillometry",
+        "count": 1
+      },
+      {
+        "signal": "Respiration",
+        "count": 11
+      },
+      {
+        "signal": "Sensory nerve conduction velocity",
+        "count": 2
+      },
+      {
+        "signal": "Skin blood flow",
+        "count": 14
+      },
+      {
+        "signal": "Skin conductance",
+        "count": 25
+      },
+      {
+        "signal": "Skin hardness",
+        "count": 1
+      },
+      {
+        "signal": "Skin temperature",
+        "count": 253
+      },
+      {
+        "signal": "Sweat indicators",
+        "count": 41
+      }
+    ],
+    "signal_method_brand": [
+      {
+        "signal": "Biomarkers: Alpha-amylase",
+        "physio-sensing-method": "Saliva",
+        "brand": "NAN",
+        "count": 2
+      },
+      {
+        "signal": "Biomarkers: Alpha-amylase",
+        "physio-sensing-method": "Saliva",
+        "brand": "Nipro Inc.",
+        "count": 1
+      },
+      {
+        "signal": "Biomarkers: COX1",
+        "physio-sensing-method": "Blood",
+        "brand": "NAN",
+        "count": 1
+      },
+      {
+        "signal": "Biomarkers: COX2",
+        "physio-sensing-method": "Blood",
+        "brand": "NAN",
+        "count": 1
+      },
+      {
+        "signal": "Biomarkers: Catecholamines",
+        "physio-sensing-method": "Blood",
+        "brand": "Recipe",
+        "count": 1
+      },
+      {
+        "signal": "Biomarkers: Cortisol",
+        "physio-sensing-method": "Saliva",
+        "brand": "NAN",
+        "count": 2
+      },
+      {
+        "signal": "Biomarkers: Dopamine",
+        "physio-sensing-method": "Urine",
+        "brand": "NAN",
+        "count": 1
+      },
+      {
+        "signal": "Biomarkers: Estradiol",
+        "physio-sensing-method": "Blood",
+        "brand": "NAN",
+        "count": 1
+      },
+      {
+        "signal": "Biomarkers: Free thyroxine (FT4)",
+        "physio-sensing-method": "Blood",
+        "brand": "NAN",
+        "count": 1
+      },
+      {
+        "signal": "Biomarkers: Free thyroxine (FT4)",
+        "physio-sensing-method": "Blood",
+        "brand": "PerkinElmer",
+        "count": 1
+      },
+      {
+        "signal": "Biomarkers: Free triiodothyronine (FT3)",
+        "physio-sensing-method": "Blood",
+        "brand": "NAN",
+        "count": 1
+      },
+      {
+        "signal": "Biomarkers: Heat shock protein (HSP)",
+        "physio-sensing-method": "Blood",
+        "brand": "NAN",
+        "count": 2
+      },
+      {
+        "signal": "Biomarkers: Immunoglobulin A (IgA)",
+        "physio-sensing-method": "Nasal lavage fluid",
+        "brand": "NAN",
+        "count": 1
+      },
+      {
+        "signal": "Biomarkers: Immunoglobulin E (IgE)",
+        "physio-sensing-method": "Saliva",
+        "brand": "NAN",
+        "count": 2
+      },
+      {
+        "signal": "Biomarkers: Interleukin 6 (IL-6)",
+        "physio-sensing-method": "Blood",
+        "brand": "NAN",
+        "count": 2
+      },
+      {
+        "signal": "Biomarkers: Lysozyme",
+        "physio-sensing-method": "Nasal lavage fluid",
+        "brand": "NAN",
+        "count": 1
+      },
+      {
+        "signal": "Biomarkers: PGE2",
+        "physio-sensing-method": "Blood",
+        "brand": "NAN",
+        "count": 1
+      },
+      {
+        "signal": "Biomarkers: Progesterone",
+        "physio-sensing-method": "Blood",
+        "brand": "NAN",
+        "count": 1
+      },
+      {
+        "signal": "Biomarkers: Tear film mucus",
+        "physio-sensing-method": "Tear fluid",
+        "brand": "NR",
+        "count": 1
+      },
+      {
+        "signal": "Biomarkers: Testosterone",
+        "physio-sensing-method": "Blood",
+        "brand": "NAN",
+        "count": 1
+      },
+      {
+        "signal": "Biomarkers: Thyroid-stimulating hormone (TSH)",
+        "physio-sensing-method": "Blood",
+        "brand": "NAN",
+        "count": 1
+      },
+      {
+        "signal": "Biomarkers: Thyroid-stimulating hormone (TSH)",
+        "physio-sensing-method": "Blood",
+        "brand": "Roche Diagnostica",
+        "count": 1
+      },
+      {
+        "signal": "Blood pressure",
+        "physio-sensing-method": "Digital sphygmomanometer",
+        "brand": "ADInstruments",
+        "count": 1
+      },
+      {
+        "signal": "Blood pressure",
+        "physio-sensing-method": "Digital sphygmomanometer",
+        "brand": "Andon",
+        "count": 2
+      },
+      {
+        "signal": "Blood pressure",
+        "physio-sensing-method": "Digital sphygmomanometer",
+        "brand": "Beurer",
+        "count": 1
+      },
+      {
+        "signal": "Blood pressure",
+        "physio-sensing-method": "Digital sphygmomanometer",
+        "brand": "Contec Medical Systems",
+        "count": 1
+      },
+      {
+        "signal": "Blood pressure",
+        "physio-sensing-method": "Digital sphygmomanometer",
+        "brand": "Kofoe",
+        "count": 1
+      },
+      {
+        "signal": "Blood pressure",
+        "physio-sensing-method": "Digital sphygmomanometer",
+        "brand": "Libelium Co.",
+        "count": 1
+      },
+      {
+        "signal": "Blood pressure",
+        "physio-sensing-method": "Digital sphygmomanometer",
+        "brand": "NR",
+        "count": 1
+      },
+      {
+        "signal": "Blood pressure",
+        "physio-sensing-method": "Digital sphygmomanometer",
+        "brand": "Omron",
+        "count": 31
+      },
+      {
+        "signal": "Blood pressure",
+        "physio-sensing-method": "Digital sphygmomanometer",
+        "brand": "Panasonic",
+        "count": 1
+      },
+      {
+        "signal": "Blood pressure",
+        "physio-sensing-method": "Digital sphygmomanometer",
+        "brand": "Philips",
+        "count": 1
+      },
+      {
+        "signal": "Blood pressure",
+        "physio-sensing-method": "NR",
+        "brand": "OMRON",
+        "count": 1
+      },
+      {
+        "signal": "Blood pressure",
+        "physio-sensing-method": "Sonomic pick-up",
+        "brand": "Colin",
+        "count": 1
+      },
+      {
+        "signal": "Body temperature",
+        "physio-sensing-method": "Heat flux",
+        "brand": "greenTEG",
+        "count": 1
+      },
+      {
+        "signal": "Body temperature",
+        "physio-sensing-method": "Infrared thermometer",
+        "brand": "Braun",
+        "count": 4
+      },
+      {
+        "signal": "Body temperature",
+        "physio-sensing-method": "Infrared thermometer",
+        "brand": "NR",
+        "count": 2
+      },
+      {
+        "signal": "Body temperature",
+        "physio-sensing-method": "Infrared thermometer",
+        "brand": "Omega",
+        "count": 1
+      },
+      {
+        "signal": "Body temperature",
+        "physio-sensing-method": "Infrared thermometer",
+        "brand": "Omron",
+        "count": 7
+      },
+      {
+        "signal": "Body temperature",
+        "physio-sensing-method": "Infrared thermometer",
+        "brand": "iHealth",
+        "count": 1
+      },
+      {
+        "signal": "Body temperature",
+        "physio-sensing-method": "Mercury thermometer",
+        "brand": "NAN",
+        "count": 1
+      },
+      {
+        "signal": "Body temperature",
+        "physio-sensing-method": "Mercury thermometer",
+        "brand": "Yuwell",
+        "count": 1
+      },
+      {
+        "signal": "Body temperature",
+        "physio-sensing-method": "NR",
+        "brand": "NR",
+        "count": 7
+      },
+      {
+        "signal": "Body temperature",
+        "physio-sensing-method": "Thermistor",
+        "brand": "NR",
+        "count": 1
+      },
+      {
+        "signal": "Body temperature",
+        "physio-sensing-method": "Thermometer",
+        "brand": "Braun",
+        "count": 1
+      },
+      {
+        "signal": "Body temperature",
+        "physio-sensing-method": "Thermometer",
+        "brand": "Omron",
+        "count": 5
+      },
+      {
+        "signal": "Core temperature",
+        "physio-sensing-method": "Infrared thermometer",
+        "brand": "Braun",
+        "count": 1
+      },
+      {
+        "signal": "Core temperature",
+        "physio-sensing-method": "Ingestible pill",
+        "brand": "BodyCap",
+        "count": 2
+      },
+      {
+        "signal": "Core temperature",
+        "physio-sensing-method": "Ingestible pill",
+        "brand": "CorTemp",
+        "count": 1
+      },
+      {
+        "signal": "Core temperature",
+        "physio-sensing-method": "Ingestible pill",
+        "brand": "HQ",
+        "count": 3
+      },
+      {
+        "signal": "Core temperature",
+        "physio-sensing-method": "Ingestible pill",
+        "brand": "Hidalgo",
+        "count": 1
+      },
+      {
+        "signal": "Core temperature",
+        "physio-sensing-method": "Ingestible pill",
+        "brand": "Nihonkohden Co.",
+        "count": 3
+      },
+      {
+        "signal": "Core temperature",
+        "physio-sensing-method": "Probe",
+        "brand": "ETO DENKI",
+        "count": 1
+      },
+      {
+        "signal": "Core temperature",
+        "physio-sensing-method": "Probe",
+        "brand": "Measurement Specialities",
+        "count": 1
+      },
+      {
+        "signal": "Core temperature",
+        "physio-sensing-method": "Thermistor",
+        "brand": "Ellab",
+        "count": 1
+      },
+      {
+        "signal": "Core temperature",
+        "physio-sensing-method": "Thermistor",
+        "brand": "Nikkiso-Therm",
+        "count": 1
+      },
+      {
+        "signal": "Core temperature",
+        "physio-sensing-method": "Thermistor",
+        "brand": "Nikkiso-YSI",
+        "count": 1
+      },
+      {
+        "signal": "Core temperature",
+        "physio-sensing-method": "Thermochron",
+        "brand": "Opulus",
+        "count": 1
+      },
+      {
+        "signal": "Core temperature",
+        "physio-sensing-method": "Thermometer",
+        "brand": "NR",
+        "count": 2
+      },
+      {
+        "signal": "EEG",
+        "physio-sensing-method": "1-channel",
+        "brand": "Mind Media",
+        "count": 2
+      },
+      {
+        "signal": "EEG",
+        "physio-sensing-method": "14-channel",
+        "brand": "Emotiv",
+        "count": 14
+      },
+      {
+        "signal": "EEG",
+        "physio-sensing-method": "16-channel",
+        "brand": "Nihonkohden Co.",
+        "count": 1
+      },
+      {
+        "signal": "EEG",
+        "physio-sensing-method": "16-channel",
+        "brand": "OpenBCI",
+        "count": 1
+      },
+      {
+        "signal": "EEG",
+        "physio-sensing-method": "19-channel",
+        "brand": "CGX",
+        "count": 2
+      },
+      {
+        "signal": "EEG",
+        "physio-sensing-method": "19-channel",
+        "brand": "Wearable Sensing",
+        "count": 1
+      },
+      {
+        "signal": "EEG",
+        "physio-sensing-method": "2-channel",
+        "brand": "NR",
+        "count": 1
+      },
+      {
+        "signal": "EEG",
+        "physio-sensing-method": "2-channel",
+        "brand": "NeuroSky",
+        "count": 1
+      },
+      {
+        "signal": "EEG",
+        "physio-sensing-method": "2-channel",
+        "brand": "PLUX",
+        "count": 1
+      },
+      {
+        "signal": "EEG",
+        "physio-sensing-method": "3-channel",
+        "brand": "Intercross",
+        "count": 1
+      },
+      {
+        "signal": "EEG",
+        "physio-sensing-method": "3-channel",
+        "brand": "NeuroSky",
+        "count": 1
+      },
+      {
+        "signal": "EEG",
+        "physio-sensing-method": "4-channel",
+        "brand": "Brain Products",
+        "count": 1
+      },
+      {
+        "signal": "EEG",
+        "physio-sensing-method": "4-channel",
+        "brand": "InterAxon",
+        "count": 4
+      },
+      {
+        "signal": "EEG",
+        "physio-sensing-method": "5-channel",
+        "brand": "Emotiv",
+        "count": 1
+      },
+      {
+        "signal": "EEG",
+        "physio-sensing-method": "8-channel",
+        "brand": "BIOPAC",
+        "count": 3
+      },
+      {
+        "signal": "EEG",
+        "physio-sensing-method": "8-channel",
+        "brand": "NR",
+        "count": 1
+      },
+      {
+        "signal": "EEG",
+        "physio-sensing-method": "9-channel",
+        "brand": "Advanced Brain Monitoring",
+        "count": 3
+      },
+      {
+        "signal": "EMG",
+        "physio-sensing-method": "EMG",
+        "brand": "NR",
+        "count": 1
+      },
+      {
+        "signal": "EMG",
+        "physio-sensing-method": "EMG",
+        "brand": "O&R Medical",
+        "count": 1
+      },
+      {
+        "signal": "EMG",
+        "physio-sensing-method": "EMG",
+        "brand": "Qingdao University of Technology",
+        "count": 1
+      },
+      {
+        "signal": "EOG",
+        "physio-sensing-method": "EOG",
+        "brand": "BIOPAC",
+        "count": 1
+      },
+      {
+        "signal": "EOG",
+        "physio-sensing-method": "EOG",
+        "brand": "CGX",
+        "count": 2
+      },
+      {
+        "signal": "EOG",
+        "physio-sensing-method": "EOG",
+        "brand": "Mind Media",
+        "count": 1
+      },
+      {
+        "signal": "EOG",
+        "physio-sensing-method": "EOG",
+        "brand": "Tyco Healthcare Group LP",
+        "count": 1
+      },
+      {
+        "signal": "Exhaled breath temperature",
+        "physio-sensing-method": "Thermal picker",
+        "brand": "Nihonkohden Co.",
+        "count": 1
+      },
+      {
+        "signal": "Exhaled breath temperature",
+        "physio-sensing-method": "Thermistor",
+        "brand": "Murata",
+        "count": 1
+      },
+      {
+        "signal": "Glucose",
+        "physio-sensing-method": "Blood",
+        "brand": "Abbott",
+        "count": 1
+      },
+      {
+        "signal": "Glucose",
+        "physio-sensing-method": "Blood",
+        "brand": "Dr. Diary Plus",
+        "count": 1
+      },
+      {
+        "signal": "Heart/Pulse rate",
+        "physio-sensing-method": "Digital sphygmomanometer",
+        "brand": "Contec Medical Systems",
+        "count": 1
+      },
+      {
+        "signal": "Heart/Pulse rate",
+        "physio-sensing-method": "Digital sphygmomanometer",
+        "brand": "Omron",
+        "count": 20
+      },
+      {
+        "signal": "Heart/Pulse rate",
+        "physio-sensing-method": "Digital sphygmomanometer",
+        "brand": "Panasonic",
+        "count": 1
+      },
+      {
+        "signal": "Heart/Pulse rate",
+        "physio-sensing-method": "ECG",
+        "brand": "ADInstruments",
+        "count": 2
+      },
+      {
+        "signal": "Heart/Pulse rate",
+        "physio-sensing-method": "ECG",
+        "brand": "CGX",
+        "count": 2
+      },
+      {
+        "signal": "Heart/Pulse rate",
+        "physio-sensing-method": "ECG",
+        "brand": "Careshine",
+        "count": 1
+      },
+      {
+        "signal": "Heart/Pulse rate",
+        "physio-sensing-method": "ECG",
+        "brand": "Careshine Electronic",
+        "count": 1
+      },
+      {
+        "signal": "Heart/Pulse rate",
+        "physio-sensing-method": "ECG",
+        "brand": "CompuMedics Ltd.",
+        "count": 2
+      },
+      {
+        "signal": "Heart/Pulse rate",
+        "physio-sensing-method": "ECG",
+        "brand": "DMS",
+        "count": 2
+      },
+      {
+        "signal": "Heart/Pulse rate",
+        "physio-sensing-method": "ECG",
+        "brand": "Fukuda Denshi",
+        "count": 1
+      },
+      {
+        "signal": "Heart/Pulse rate",
+        "physio-sensing-method": "ECG",
+        "brand": "HeaLink",
+        "count": 3
+      },
+      {
+        "signal": "Heart/Pulse rate",
+        "physio-sensing-method": "ECG",
+        "brand": "Hidalgo",
+        "count": 3
+      },
+      {
+        "signal": "Heart/Pulse rate",
+        "physio-sensing-method": "ECG",
+        "brand": "MR&D Pulse",
+        "count": 1
+      },
+      {
+        "signal": "Heart/Pulse rate",
+        "physio-sensing-method": "ECG",
+        "brand": "Mind Media",
+        "count": 3
+      },
+      {
+        "signal": "Heart/Pulse rate",
+        "physio-sensing-method": "ECG",
+        "brand": "NR",
+        "count": 4
+      },
+      {
+        "signal": "Heart/Pulse rate",
+        "physio-sensing-method": "ECG",
+        "brand": "Nihonkohden Co.",
+        "count": 2
+      },
+      {
+        "signal": "Heart/Pulse rate",
+        "physio-sensing-method": "ECG",
+        "brand": "PLUX",
+        "count": 2
+      },
+      {
+        "signal": "Heart/Pulse rate",
+        "physio-sensing-method": "ECG",
+        "brand": "Polar",
+        "count": 26
+      },
+      {
+        "signal": "Heart/Pulse rate",
+        "physio-sensing-method": "ECG",
+        "brand": "Suunto",
+        "count": 12
+      },
+      {
+        "signal": "Heart/Pulse rate",
+        "physio-sensing-method": "ECG",
+        "brand": "TXZ",
+        "count": 1
+      },
+      {
+        "signal": "Heart/Pulse rate",
+        "physio-sensing-method": "ECG",
+        "brand": "Tianjin Jingjin",
+        "count": 1
+      },
+      {
+        "signal": "Heart/Pulse rate",
+        "physio-sensing-method": "ECG",
+        "brand": "Zephyr",
+        "count": 2
+      },
+      {
+        "signal": "Heart/Pulse rate",
+        "physio-sensing-method": "NR",
+        "brand": "NR",
+        "count": 11
+      },
+      {
+        "signal": "Heart/Pulse rate",
+        "physio-sensing-method": "NR",
+        "brand": "Shenzhen SYY Technology Co., Ltd.",
+        "count": 1
+      },
+      {
+        "signal": "Heart/Pulse rate",
+        "physio-sensing-method": "OHR/PPG",
+        "brand": "Cosinuss",
+        "count": 1
+      },
+      {
+        "signal": "Heart/Pulse rate",
+        "physio-sensing-method": "OHR/PPG",
+        "brand": "EMFIT",
+        "count": 1
+      },
+      {
+        "signal": "Heart/Pulse rate",
+        "physio-sensing-method": "OHR/PPG",
+        "brand": "Empatica",
+        "count": 14
+      },
+      {
+        "signal": "Heart/Pulse rate",
+        "physio-sensing-method": "OHR/PPG",
+        "brand": "Fitbit",
+        "count": 3
+      },
+      {
+        "signal": "Heart/Pulse rate",
+        "physio-sensing-method": "OHR/PPG",
+        "brand": "Hesvit",
+        "count": 1
+      },
+      {
+        "signal": "Heart/Pulse rate",
+        "physio-sensing-method": "OHR/PPG",
+        "brand": "Multiple brands",
+        "count": 1
+      },
+      {
+        "signal": "Heart/Pulse rate",
+        "physio-sensing-method": "OHR/PPG",
+        "brand": "NR",
+        "count": 1
+      },
+      {
+        "signal": "Heart/Pulse rate",
+        "physio-sensing-method": "OHR/PPG",
+        "brand": "Polar",
+        "count": 1
+      },
+      {
+        "signal": "Heart/Pulse rate",
+        "physio-sensing-method": "OHR/PPG",
+        "brand": "Samsung",
+        "count": 2
+      },
+      {
+        "signal": "Heart/Pulse rate",
+        "physio-sensing-method": "OHR/PPG",
+        "brand": "Seeed Studio",
+        "count": 1
+      },
+      {
+        "signal": "Heart/Pulse rate",
+        "physio-sensing-method": "OHR/PPG",
+        "brand": "Shimmer Sensing",
+        "count": 2
+      },
+      {
+        "signal": "Heart/Pulse rate",
+        "physio-sensing-method": "OHR/PPG",
+        "brand": "TDK",
+        "count": 1
+      },
+      {
+        "signal": "Heart/Pulse rate",
+        "physio-sensing-method": "OHR/PPG",
+        "brand": "Xiaomi",
+        "count": 1
+      },
+      {
+        "signal": "Heart/Pulse rate",
+        "physio-sensing-method": "Pulse oximeter",
+        "brand": "ADInstruments",
+        "count": 1
+      },
+      {
+        "signal": "Heart/Pulse rate",
+        "physio-sensing-method": "Pulse oximeter",
+        "brand": "Heal Force",
+        "count": 4
+      },
+      {
+        "signal": "Heart/Pulse rate",
+        "physio-sensing-method": "Pulse oximeter",
+        "brand": "Libelium Co.",
+        "count": 2
+      },
+      {
+        "signal": "Heart/Pulse rate",
+        "physio-sensing-method": "Pulse oximeter",
+        "brand": "Medisana",
+        "count": 1
+      },
+      {
+        "signal": "Heart/Pulse rate",
+        "physio-sensing-method": "Pulse oximeter",
+        "brand": "NR",
+        "count": 2
+      },
+      {
+        "signal": "Heart/Pulse rate",
+        "physio-sensing-method": "Pulse oximeter",
+        "brand": "Nonin Medical",
+        "count": 1
+      },
+      {
+        "signal": "Heart/Pulse rate",
+        "physio-sensing-method": "Pulse oximeter",
+        "brand": "O2HEALTH",
+        "count": 1
+      },
+      {
+        "signal": "Heart/Pulse rate",
+        "physio-sensing-method": "Pulse oximeter",
+        "brand": "Promise Technology",
+        "count": 1
+      },
+      {
+        "signal": "Heart/Pulse rate",
+        "physio-sensing-method": "Pulse oximeter",
+        "brand": "Yuwell",
+        "count": 2
+      },
+      {
+        "signal": "Heat flux",
+        "physio-sensing-method": "Heat flux/Heat flow",
+        "brand": "FluxTeq",
+        "count": 2
+      },
+      {
+        "signal": "Heat flux",
+        "physio-sensing-method": "Heat flux/Heat flow",
+        "brand": "Kyoto Electronics",
+        "count": 6
+      },
+      {
+        "signal": "Metabolic rate/Gas exchange",
+        "physio-sensing-method": "Capnometry/Capnography",
+        "brand": "Kingst",
+        "count": 1
+      },
+      {
+        "signal": "Metabolic rate/Gas exchange",
+        "physio-sensing-method": "Capnometry/Capnography",
+        "brand": "LifeSense",
+        "count": 2
+      },
+      {
+        "signal": "Metabolic rate/Gas exchange",
+        "physio-sensing-method": "Capnometry/Capnography",
+        "brand": "MedAir AB",
+        "count": 1
+      },
+      {
+        "signal": "Metabolic rate/Gas exchange",
+        "physio-sensing-method": "Capnometry/Capnography",
+        "brand": "Medtronic",
+        "count": 1
+      },
+      {
+        "signal": "Metabolic rate/Gas exchange",
+        "physio-sensing-method": "Exhaled gas analyzer",
+        "brand": "ADInstruments",
+        "count": 1
+      },
+      {
+        "signal": "Metabolic rate/Gas exchange",
+        "physio-sensing-method": "Exhaled gas analyzer",
+        "brand": "S&ME Company",
+        "count": 3
+      },
+      {
+        "signal": "Metabolic rate/Gas exchange",
+        "physio-sensing-method": "Metabolic cart",
+        "brand": "Cosmed",
+        "count": 3
+      },
+      {
+        "signal": "Metabolic rate/Gas exchange",
+        "physio-sensing-method": "Metabolic cart",
+        "brand": "Oxycon",
+        "count": 1
+      },
+      {
+        "signal": "Metabolic rate/Gas exchange",
+        "physio-sensing-method": "Metabolic cart",
+        "brand": "Vyaire Medical",
+        "count": 3
+      },
+      {
+        "signal": "Metabolic rate/Gas exchange",
+        "physio-sensing-method": "Respiration chamber",
+        "brand": "Maastricht Instruments",
+        "count": 2
+      },
+      {
+        "signal": "Metabolic rate/Gas exchange",
+        "physio-sensing-method": "Respiration chamber",
+        "brand": "Omnical",
+        "count": 1
+      },
+      {
+        "signal": "Movement",
+        "physio-sensing-method": "Accelerometer",
+        "brand": "Empatica",
+        "count": 6
+      },
+      {
+        "signal": "Movement",
+        "physio-sensing-method": "Accelerometer",
+        "brand": "Fitbit",
+        "count": 1
+      },
+      {
+        "signal": "Movement",
+        "physio-sensing-method": "Accelerometer",
+        "brand": "Maastricht Instruments",
+        "count": 2
+      },
+      {
+        "signal": "Movement",
+        "physio-sensing-method": "Accelerometer",
+        "brand": "Movisens",
+        "count": 1
+      },
+      {
+        "signal": "Movement",
+        "physio-sensing-method": "Accelerometer",
+        "brand": "POSH Mobile Ltd.",
+        "count": 1
+      },
+      {
+        "signal": "Movement",
+        "physio-sensing-method": "Accelerometer",
+        "brand": "TXZ",
+        "count": 1
+      },
+      {
+        "signal": "Movement",
+        "physio-sensing-method": "Step count",
+        "brand": "Fitbit",
+        "count": 1
+      },
+      {
+        "signal": "Near body temperature",
+        "physio-sensing-method": "Hygrochron",
+        "brand": "iButton",
+        "count": 3
+      },
+      {
+        "signal": "Near body temperature",
+        "physio-sensing-method": "Infrared camera",
+        "brand": "FLIR",
+        "count": 2
+      },
+      {
+        "signal": "Near body temperature",
+        "physio-sensing-method": "Silicon-based temperature sensor",
+        "brand": "Ambient labs",
+        "count": 1
+      },
+      {
+        "signal": "Near body temperature",
+        "physio-sensing-method": "Thermochron",
+        "brand": "iButton",
+        "count": 1
+      },
+      {
+        "signal": "Near body temperature",
+        "physio-sensing-method": "Thermocouple",
+        "brand": "NR",
+        "count": 1
+      },
+      {
+        "signal": "Oxygen saturation",
+        "physio-sensing-method": "NIRS",
+        "brand": "DynaSense",
+        "count": 1
+      },
+      {
+        "signal": "Oxygen saturation",
+        "physio-sensing-method": "NR",
+        "brand": "CompuMedics Ltd.",
+        "count": 2
+      },
+      {
+        "signal": "Oxygen saturation",
+        "physio-sensing-method": "OHR/PPG",
+        "brand": "NR",
+        "count": 1
+      },
+      {
+        "signal": "Oxygen saturation",
+        "physio-sensing-method": "Pulse oximeter",
+        "brand": "ADInstruments",
+        "count": 1
+      },
+      {
+        "signal": "Oxygen saturation",
+        "physio-sensing-method": "Pulse oximeter",
+        "brand": "Heal Force",
+        "count": 11
+      },
+      {
+        "signal": "Oxygen saturation",
+        "physio-sensing-method": "Pulse oximeter",
+        "brand": "Lepu Medical",
+        "count": 1
+      },
+      {
+        "signal": "Oxygen saturation",
+        "physio-sensing-method": "Pulse oximeter",
+        "brand": "Libelium Co.",
+        "count": 1
+      },
+      {
+        "signal": "Oxygen saturation",
+        "physio-sensing-method": "Pulse oximeter",
+        "brand": "LifeSense",
+        "count": 1
+      },
+      {
+        "signal": "Oxygen saturation",
+        "physio-sensing-method": "Pulse oximeter",
+        "brand": "Masimo",
+        "count": 1
+      },
+      {
+        "signal": "Oxygen saturation",
+        "physio-sensing-method": "Pulse oximeter",
+        "brand": "Medisana",
+        "count": 1
+      },
+      {
+        "signal": "Oxygen saturation",
+        "physio-sensing-method": "Pulse oximeter",
+        "brand": "NR",
+        "count": 3
+      },
+      {
+        "signal": "Oxygen saturation",
+        "physio-sensing-method": "Pulse oximeter",
+        "brand": "Nonin Medical",
+        "count": 2
+      },
+      {
+        "signal": "Oxygen saturation",
+        "physio-sensing-method": "Pulse oximeter",
+        "brand": "Omron",
+        "count": 1
+      },
+      {
+        "signal": "Oxygen saturation",
+        "physio-sensing-method": "Pulse oximeter",
+        "brand": "Philips",
+        "count": 1
+      },
+      {
+        "signal": "Oxygen saturation",
+        "physio-sensing-method": "Pulse oximeter",
+        "brand": "Promise Technology",
+        "count": 1
+      },
+      {
+        "signal": "Oxygen saturation",
+        "physio-sensing-method": "Pulse oximeter",
+        "brand": "Yuwell",
+        "count": 3
+      },
+      {
+        "signal": "Perfusion index",
+        "physio-sensing-method": "Pulse oximeter",
+        "brand": "Masimo",
+        "count": 1
+      },
+      {
+        "signal": "Pupillometry",
+        "physio-sensing-method": "Eye-tracking",
+        "brand": "Tobii",
+        "count": 1
+      },
+      {
+        "signal": "Respiration",
+        "physio-sensing-method": "BCG",
+        "brand": "EMFIT",
+        "count": 1
+      },
+      {
+        "signal": "Respiration",
+        "physio-sensing-method": "Capnometry/Capnography",
+        "brand": "Kingst",
+        "count": 1
+      },
+      {
+        "signal": "Respiration",
+        "physio-sensing-method": "Capnometry/Capnography",
+        "brand": "Nonin Medical",
+        "count": 1
+      },
+      {
+        "signal": "Respiration",
+        "physio-sensing-method": "Gas flowmeter",
+        "brand": "DFM20-10",
+        "count": 1
+      },
+      {
+        "signal": "Respiration",
+        "physio-sensing-method": "NR",
+        "brand": "CompuMedics Ltd.",
+        "count": 2
+      },
+      {
+        "signal": "Respiration",
+        "physio-sensing-method": "Respiration belt",
+        "brand": "CGX",
+        "count": 1
+      },
+      {
+        "signal": "Respiration",
+        "physio-sensing-method": "Respiration belt",
+        "brand": "Mind Media",
+        "count": 4
+      },
+      {
+        "signal": "Sensory nerve conduction velocity",
+        "physio-sensing-method": "EMG",
+        "brand": "Nihonkohden Co.",
+        "count": 1
+      },
+      {
+        "signal": "Sensory nerve conduction velocity",
+        "physio-sensing-method": "NR",
+        "brand": "NAN",
+        "count": 1
+      },
+      {
+        "signal": "Skin blood flow",
+        "physio-sensing-method": "Laser Doppler",
+        "brand": "Advance",
+        "count": 1
+      },
+      {
+        "signal": "Skin blood flow",
+        "physio-sensing-method": "Laser Doppler",
+        "brand": "BIOPAC",
+        "count": 2
+      },
+      {
+        "signal": "Skin blood flow",
+        "physio-sensing-method": "Laser Doppler",
+        "brand": "Moor",
+        "count": 1
+      },
+      {
+        "signal": "Skin blood flow",
+        "physio-sensing-method": "Laser Doppler",
+        "brand": "Omegawave Inc.",
+        "count": 1
+      },
+      {
+        "signal": "Skin blood flow",
+        "physio-sensing-method": "Laser Doppler",
+        "brand": "Perimed",
+        "count": 8
+      },
+      {
+        "signal": "Skin blood flow",
+        "physio-sensing-method": "OHR/PPG",
+        "brand": "Spirit-Mind",
+        "count": 1
+      },
+      {
+        "signal": "Skin conductance",
+        "physio-sensing-method": "GSR/EDA",
+        "brand": "ADInstruments",
+        "count": 1
+      },
+      {
+        "signal": "Skin conductance",
+        "physio-sensing-method": "GSR/EDA",
+        "brand": "Bitalino",
+        "count": 2
+      },
+      {
+        "signal": "Skin conductance",
+        "physio-sensing-method": "GSR/EDA",
+        "brand": "Empatica",
+        "count": 12
+      },
+      {
+        "signal": "Skin conductance",
+        "physio-sensing-method": "GSR/EDA",
+        "brand": "Hesvit",
+        "count": 1
+      },
+      {
+        "signal": "Skin conductance",
+        "physio-sensing-method": "GSR/EDA",
+        "brand": "Libelium Co.",
+        "count": 1
+      },
+      {
+        "signal": "Skin conductance",
+        "physio-sensing-method": "GSR/EDA",
+        "brand": "Mind Media",
+        "count": 1
+      },
+      {
+        "signal": "Skin conductance",
+        "physio-sensing-method": "GSR/EDA",
+        "brand": "NAN",
+        "count": 1
+      },
+      {
+        "signal": "Skin conductance",
+        "physio-sensing-method": "GSR/EDA",
+        "brand": "NR",
+        "count": 1
+      },
+      {
+        "signal": "Skin conductance",
+        "physio-sensing-method": "GSR/EDA",
+        "brand": "Shimmer Sensing",
+        "count": 3
+      },
+      {
+        "signal": "Skin conductance",
+        "physio-sensing-method": "GSR/EDA",
+        "brand": "TXZ",
+        "count": 1
+      },
+      {
+        "signal": "Skin conductance",
+        "physio-sensing-method": "Hygrochron",
+        "brand": "iButton",
+        "count": 1
+      },
+      {
+        "signal": "Skin hardness",
+        "physio-sensing-method": "Durometer",
+        "brand": "Teclock",
+        "count": 1
+      },
+      {
+        "signal": "Skin temperature",
+        "physio-sensing-method": "Dermal patch",
+        "brand": "Hidalgo",
+        "count": 3
+      },
+      {
+        "signal": "Skin temperature",
+        "physio-sensing-method": "Heat flux/Heat flow",
+        "brand": "KEM",
+        "count": 2
+      },
+      {
+        "signal": "Skin temperature",
+        "physio-sensing-method": "Heat flux/Heat flow",
+        "brand": "Kyoto Electronics",
+        "count": 4
+      },
+      {
+        "signal": "Skin temperature",
+        "physio-sensing-method": "Hygrochron",
+        "brand": "Multiple brands",
+        "count": 1
+      },
+      {
+        "signal": "Skin temperature",
+        "physio-sensing-method": "Hygrochron",
+        "brand": "iButton",
+        "count": 18
+      },
+      {
+        "signal": "Skin temperature",
+        "physio-sensing-method": "Infrared camera",
+        "brand": "Avio",
+        "count": 1
+      },
+      {
+        "signal": "Skin temperature",
+        "physio-sensing-method": "Infrared camera",
+        "brand": "CEM",
+        "count": 1
+      },
+      {
+        "signal": "Skin temperature",
+        "physio-sensing-method": "Infrared camera",
+        "brand": "FLIR",
+        "count": 15
+      },
+      {
+        "signal": "Skin temperature",
+        "physio-sensing-method": "Infrared camera",
+        "brand": "Melexis",
+        "count": 1
+      },
+      {
+        "signal": "Skin temperature",
+        "physio-sensing-method": "Infrared camera",
+        "brand": "NIPPON",
+        "count": 3
+      },
+      {
+        "signal": "Skin temperature",
+        "physio-sensing-method": "Infrared camera",
+        "brand": "NR",
+        "count": 2
+      },
+      {
+        "signal": "Skin temperature",
+        "physio-sensing-method": "Infrared thermometer",
+        "brand": "Beurer",
+        "count": 1
+      },
+      {
+        "signal": "Skin temperature",
+        "physio-sensing-method": "Infrared thermometer",
+        "brand": "EXTECH Instruments",
+        "count": 1
+      },
+      {
+        "signal": "Skin temperature",
+        "physio-sensing-method": "Infrared thermometer",
+        "brand": "FLIR",
+        "count": 1
+      },
+      {
+        "signal": "Skin temperature",
+        "physio-sensing-method": "Infrared thermometer",
+        "brand": "Fluke",
+        "count": 1
+      },
+      {
+        "signal": "Skin temperature",
+        "physio-sensing-method": "Infrared thermometer",
+        "brand": "Melexis",
+        "count": 5
+      },
+      {
+        "signal": "Skin temperature",
+        "physio-sensing-method": "Infrared thermometer",
+        "brand": "NR",
+        "count": 1
+      },
+      {
+        "signal": "Skin temperature",
+        "physio-sensing-method": "Infrared thermometer",
+        "brand": "Omron",
+        "count": 2
+      },
+      {
+        "signal": "Skin temperature",
+        "physio-sensing-method": "Infrared thermometer",
+        "brand": "TECNIMED SRL",
+        "count": 1
+      },
+      {
+        "signal": "Skin temperature",
+        "physio-sensing-method": "Infrared thermometer",
+        "brand": "Testo",
+        "count": 1
+      },
+      {
+        "signal": "Skin temperature",
+        "physio-sensing-method": "Infrared thermopile",
+        "brand": "Empatica",
+        "count": 13
+      },
+      {
+        "signal": "Skin temperature",
+        "physio-sensing-method": "NR",
+        "brand": "Microsoft",
+        "count": 1
+      },
+      {
+        "signal": "Skin temperature",
+        "physio-sensing-method": "NR",
+        "brand": "NR",
+        "count": 8
+      },
+      {
+        "signal": "Skin temperature",
+        "physio-sensing-method": "NR",
+        "brand": "Shenzhen SYY Technology Co., Ltd.",
+        "count": 1
+      },
+      {
+        "signal": "Skin temperature",
+        "physio-sensing-method": "Probe",
+        "brand": "Libelium Co.",
+        "count": 3
+      },
+      {
+        "signal": "Skin temperature",
+        "physio-sensing-method": "RTD",
+        "brand": "Honeywell",
+        "count": 2
+      },
+      {
+        "signal": "Skin temperature",
+        "physio-sensing-method": "RTD",
+        "brand": "NR",
+        "count": 3
+      },
+      {
+        "signal": "Skin temperature",
+        "physio-sensing-method": "Thermistor",
+        "brand": "BIOPAC",
+        "count": 7
+      },
+      {
+        "signal": "Skin temperature",
+        "physio-sensing-method": "Thermistor",
+        "brand": "ETO DENKI",
+        "count": 1
+      },
+      {
+        "signal": "Skin temperature",
+        "physio-sensing-method": "Thermistor",
+        "brand": "Hesvit",
+        "count": 1
+      },
+      {
+        "signal": "Skin temperature",
+        "physio-sensing-method": "Thermistor",
+        "brand": "Lattron",
+        "count": 1
+      },
+      {
+        "signal": "Skin temperature",
+        "physio-sensing-method": "Thermistor",
+        "brand": "Mind Media",
+        "count": 1
+      },
+      {
+        "signal": "Skin temperature",
+        "physio-sensing-method": "Thermistor",
+        "brand": "NR",
+        "count": 2
+      },
+      {
+        "signal": "Skin temperature",
+        "physio-sensing-method": "Thermistor",
+        "brand": "Nikkiso-Therm",
+        "count": 2
+      },
+      {
+        "signal": "Skin temperature",
+        "physio-sensing-method": "Thermistor",
+        "brand": "Nikkiso-YSI",
+        "count": 1
+      },
+      {
+        "signal": "Skin temperature",
+        "physio-sensing-method": "Thermistor",
+        "brand": "TDK",
+        "count": 1
+      },
+      {
+        "signal": "Skin temperature",
+        "physio-sensing-method": "Thermistor",
+        "brand": "Vernier",
+        "count": 4
+      },
+      {
+        "signal": "Skin temperature",
+        "physio-sensing-method": "Thermochron",
+        "brand": "NR",
+        "count": 1
+      },
+      {
+        "signal": "Skin temperature",
+        "physio-sensing-method": "Thermochron",
+        "brand": "Opulus",
+        "count": 23
+      },
+      {
+        "signal": "Skin temperature",
+        "physio-sensing-method": "Thermochron",
+        "brand": "iButton",
+        "count": 51
+      },
+      {
+        "signal": "Skin temperature",
+        "physio-sensing-method": "Thermocouple",
+        "brand": "ADInstruments",
+        "count": 1
+      },
+      {
+        "signal": "Skin temperature",
+        "physio-sensing-method": "Thermocouple",
+        "brand": "Agilent",
+        "count": 1
+      },
+      {
+        "signal": "Skin temperature",
+        "physio-sensing-method": "Thermocouple",
+        "brand": "BEC-Ca",
+        "count": 1
+      },
+      {
+        "signal": "Skin temperature",
+        "physio-sensing-method": "Thermocouple",
+        "brand": "BIOPAC",
+        "count": 2
+      },
+      {
+        "signal": "Skin temperature",
+        "physio-sensing-method": "Thermocouple",
+        "brand": "FluxTeq",
+        "count": 2
+      },
+      {
+        "signal": "Skin temperature",
+        "physio-sensing-method": "Thermocouple",
+        "brand": "GRAM Co.",
+        "count": 1
+      },
+      {
+        "signal": "Skin temperature",
+        "physio-sensing-method": "Thermocouple",
+        "brand": "HOBO",
+        "count": 5
+      },
+      {
+        "signal": "Skin temperature",
+        "physio-sensing-method": "Thermocouple",
+        "brand": "Innpitron",
+        "count": 1
+      },
+      {
+        "signal": "Skin temperature",
+        "physio-sensing-method": "Thermocouple",
+        "brand": "NR",
+        "count": 25
+      },
+      {
+        "signal": "Skin temperature",
+        "physio-sensing-method": "Thermocouple",
+        "brand": "Omega",
+        "count": 5
+      },
+      {
+        "signal": "Skin temperature",
+        "physio-sensing-method": "Thermocouple",
+        "brand": "Onset",
+        "count": 7
+      },
+      {
+        "signal": "Skin temperature",
+        "physio-sensing-method": "Thermocouple",
+        "brand": "TCSA",
+        "count": 2
+      },
+      {
+        "signal": "Skin temperature",
+        "physio-sensing-method": "Thermocouple",
+        "brand": "Testo",
+        "count": 4
+      },
+      {
+        "signal": "Skin temperature",
+        "physio-sensing-method": "Thermocouple",
+        "brand": "iButton",
+        "count": 2
+      },
+      {
+        "signal": "Skin temperature",
+        "physio-sensing-method": "Thermometer",
+        "brand": "Gigarise",
+        "count": 1
+      },
+      {
+        "signal": "Skin temperature",
+        "physio-sensing-method": "Thermometer",
+        "brand": "Yumo",
+        "count": 1
+      },
+      {
+        "signal": "Sweat indicators",
+        "physio-sensing-method": "Corneometer",
+        "brand": "Courage-Khazaka MPA-5",
+        "count": 1
+      },
+      {
+        "signal": "Sweat indicators",
+        "physio-sensing-method": "Digital moisture meter",
+        "brand": "CMM",
+        "count": 1
+      },
+      {
+        "signal": "Sweat indicators",
+        "physio-sensing-method": "High precision scale",
+        "brand": "ADInstruments",
+        "count": 3
+      },
+      {
+        "signal": "Sweat indicators",
+        "physio-sensing-method": "High precision scale",
+        "brand": "FHI",
+        "count": 1
+      },
+      {
+        "signal": "Sweat indicators",
+        "physio-sensing-method": "High precision scale",
+        "brand": "G.tech",
+        "count": 1
+      },
+      {
+        "signal": "Sweat indicators",
+        "physio-sensing-method": "High precision scale",
+        "brand": "KERN",
+        "count": 5
+      },
+      {
+        "signal": "Sweat indicators",
+        "physio-sensing-method": "High precision scale",
+        "brand": "Mettler Toledo",
+        "count": 2
+      },
+      {
+        "signal": "Sweat indicators",
+        "physio-sensing-method": "High precision scale",
+        "brand": "NR",
+        "count": 9
+      },
+      {
+        "signal": "Sweat indicators",
+        "physio-sensing-method": "High precision scale",
+        "brand": "Nanjing Ronghua",
+        "count": 3
+      },
+      {
+        "signal": "Sweat indicators",
+        "physio-sensing-method": "High precision scale",
+        "brand": "PESA",
+        "count": 1
+      },
+      {
+        "signal": "Sweat indicators",
+        "physio-sensing-method": "High precision scale",
+        "brand": "Tanita",
+        "count": 2
+      },
+      {
+        "signal": "Sweat indicators",
+        "physio-sensing-method": "Hygrochron",
+        "brand": "NR",
+        "count": 1
+      },
+      {
+        "signal": "Sweat indicators",
+        "physio-sensing-method": "Hygrochron",
+        "brand": "Opulus",
+        "count": 4
+      },
+      {
+        "signal": "Sweat indicators",
+        "physio-sensing-method": "Hygrochron",
+        "brand": "iButton",
+        "count": 2
+      },
+      {
+        "signal": "Sweat indicators",
+        "physio-sensing-method": "Microscope",
+        "brand": "Yukai",
+        "count": 1
+      },
+      {
+        "signal": "Sweat indicators",
+        "physio-sensing-method": "Moisture meter",
+        "brand": "National",
+        "count": 1
+      },
+      {
+        "signal": "Sweat indicators",
+        "physio-sensing-method": "Osmometer",
+        "brand": "Pocket-Pal",
+        "count": 1
+      },
+      {
+        "signal": "Sweat indicators",
+        "physio-sensing-method": "TEWL",
+        "brand": "Delfin Technologies",
+        "count": 1
+      },
+      {
+        "signal": "Sweat indicators",
+        "physio-sensing-method": "Tewameter",
+        "brand": "Courage-Khazaka MPA-5",
+        "count": 1
       }
     ],
     "periods": [
@@ -79101,14 +80681,14 @@
       },
       {
         "period": "2013–14",
-        "field": "Age range",
+        "field": "Colour weak./eyesight",
         "pct": 0.0,
         "count": 0,
         "n": 11
       },
       {
         "period": "2013–14",
-        "field": "Colour weak./eyesight",
+        "field": "Age range",
         "pct": 0.0,
         "count": 0,
         "n": 11
@@ -79164,16 +80744,16 @@
       },
       {
         "period": "2013–14",
-        "field": "Activity level",
-        "pct": 18.2,
-        "count": 2,
+        "field": "No metabolic syndrome",
+        "pct": 0.0,
+        "count": 0,
         "n": 11
       },
       {
         "period": "2013–14",
-        "field": "No metabolic syndrome",
-        "pct": 0.0,
-        "count": 0,
+        "field": "Activity level",
+        "pct": 18.2,
+        "count": 2,
         "n": 11
       },
       {
@@ -79304,16 +80884,16 @@
       },
       {
         "period": "2015–16",
-        "field": "Age range",
-        "pct": 13.3,
-        "count": 2,
+        "field": "Colour weak./eyesight",
+        "pct": 0.0,
+        "count": 0,
         "n": 15
       },
       {
         "period": "2015–16",
-        "field": "Colour weak./eyesight",
-        "pct": 0.0,
-        "count": 0,
+        "field": "Age range",
+        "pct": 13.3,
+        "count": 2,
         "n": 15
       },
       {
@@ -79367,14 +80947,14 @@
       },
       {
         "period": "2015–16",
-        "field": "Activity level",
+        "field": "No metabolic syndrome",
         "pct": 0.0,
         "count": 0,
         "n": 15
       },
       {
         "period": "2015–16",
-        "field": "No metabolic syndrome",
+        "field": "Activity level",
         "pct": 0.0,
         "count": 0,
         "n": 15
@@ -79507,16 +81087,16 @@
       },
       {
         "period": "2017–18",
-        "field": "Age range",
-        "pct": 14.9,
-        "count": 7,
+        "field": "Colour weak./eyesight",
+        "pct": 8.5,
+        "count": 4,
         "n": 47
       },
       {
         "period": "2017–18",
-        "field": "Colour weak./eyesight",
-        "pct": 8.5,
-        "count": 4,
+        "field": "Age range",
+        "pct": 14.9,
+        "count": 7,
         "n": 47
       },
       {
@@ -79570,16 +81150,16 @@
       },
       {
         "period": "2017–18",
-        "field": "Activity level",
-        "pct": 0.0,
-        "count": 0,
+        "field": "No metabolic syndrome",
+        "pct": 2.1,
+        "count": 1,
         "n": 47
       },
       {
         "period": "2017–18",
-        "field": "No metabolic syndrome",
-        "pct": 2.1,
-        "count": 1,
+        "field": "Activity level",
+        "pct": 0.0,
+        "count": 0,
         "n": 47
       },
       {
@@ -79710,14 +81290,14 @@
       },
       {
         "period": "2019–20",
-        "field": "Age range",
+        "field": "Colour weak./eyesight",
         "pct": 11.1,
         "count": 7,
         "n": 63
       },
       {
         "period": "2019–20",
-        "field": "Colour weak./eyesight",
+        "field": "Age range",
         "pct": 11.1,
         "count": 7,
         "n": 63
@@ -79773,16 +81353,16 @@
       },
       {
         "period": "2019–20",
-        "field": "Activity level",
-        "pct": 0.0,
-        "count": 0,
+        "field": "No metabolic syndrome",
+        "pct": 1.6,
+        "count": 1,
         "n": 63
       },
       {
         "period": "2019–20",
-        "field": "No metabolic syndrome",
-        "pct": 1.6,
-        "count": 1,
+        "field": "Activity level",
+        "pct": 0.0,
+        "count": 0,
         "n": 63
       },
       {
@@ -79913,16 +81493,16 @@
       },
       {
         "period": "2021–22",
-        "field": "Age range",
-        "pct": 8.6,
-        "count": 7,
+        "field": "Colour weak./eyesight",
+        "pct": 17.3,
+        "count": 14,
         "n": 81
       },
       {
         "period": "2021–22",
-        "field": "Colour weak./eyesight",
-        "pct": 17.3,
-        "count": 14,
+        "field": "Age range",
+        "pct": 8.6,
+        "count": 7,
         "n": 81
       },
       {
@@ -79976,16 +81556,16 @@
       },
       {
         "period": "2021–22",
-        "field": "Activity level",
-        "pct": 6.2,
-        "count": 5,
+        "field": "No metabolic syndrome",
+        "pct": 3.7,
+        "count": 3,
         "n": 81
       },
       {
         "period": "2021–22",
-        "field": "No metabolic syndrome",
-        "pct": 3.7,
-        "count": 3,
+        "field": "Activity level",
+        "pct": 6.2,
+        "count": 5,
         "n": 81
       },
       {
@@ -80116,16 +81696,16 @@
       },
       {
         "period": "2023–24",
-        "field": "Age range",
-        "pct": 17.9,
-        "count": 14,
+        "field": "Colour weak./eyesight",
+        "pct": 15.4,
+        "count": 12,
         "n": 78
       },
       {
         "period": "2023–24",
-        "field": "Colour weak./eyesight",
-        "pct": 15.4,
-        "count": 12,
+        "field": "Age range",
+        "pct": 17.9,
+        "count": 14,
         "n": 78
       },
       {
@@ -80179,16 +81759,16 @@
       },
       {
         "period": "2023–24",
-        "field": "Activity level",
-        "pct": 3.8,
-        "count": 3,
+        "field": "No metabolic syndrome",
+        "pct": 6.4,
+        "count": 5,
         "n": 78
       },
       {
         "period": "2023–24",
-        "field": "No metabolic syndrome",
-        "pct": 6.4,
-        "count": 5,
+        "field": "Activity level",
+        "pct": 3.8,
+        "count": 3,
         "n": 78
       },
       {
@@ -80289,8 +81869,8 @@
       "No ongoing medication use",
       "No CV/BP disease",
       "Smoking status",
-      "Age range",
       "Colour weak./eyesight",
+      "Age range",
       "Sex",
       "BMI range",
       "No active/recent illness",
@@ -80298,8 +81878,8 @@
       "No neuro disease",
       "Language skills",
       "Alcohol",
-      "Activity level",
       "No metabolic syndrome",
+      "Activity level",
       "No previous knowledge",
       "Chronotype",
       "Dominant hand",
@@ -85305,7 +86885,7 @@
       {
         "physio-sensing-method": "Blood",
         "physio-sensor-brand": "NAN",
-        "count": 4
+        "count": 13
       },
       {
         "physio-sensing-method": "Blood",
@@ -85325,7 +86905,7 @@
       {
         "physio-sensing-method": "Capnometry/Capnography",
         "physio-sensor-brand": "Kingst",
-        "count": 1
+        "count": 2
       },
       {
         "physio-sensing-method": "Capnometry/Capnography",
@@ -85380,7 +86960,7 @@
       {
         "physio-sensing-method": "Digital sphygmomanometer",
         "physio-sensor-brand": "Contec Medical Systems",
-        "count": 1
+        "count": 2
       },
       {
         "physio-sensing-method": "Digital sphygmomanometer",
@@ -85400,12 +86980,12 @@
       {
         "physio-sensing-method": "Digital sphygmomanometer",
         "physio-sensor-brand": "Omron",
-        "count": 38
+        "count": 51
       },
       {
         "physio-sensing-method": "Digital sphygmomanometer",
         "physio-sensor-brand": "Panasonic",
-        "count": 1
+        "count": 2
       },
       {
         "physio-sensing-method": "Digital sphygmomanometer",
@@ -85640,7 +87220,7 @@
       {
         "physio-sensing-method": "Heat flux/Heat flow",
         "physio-sensor-brand": "Kyoto Electronics",
-        "count": 6
+        "count": 10
       },
       {
         "physio-sensing-method": "High precision scale",
@@ -85689,6 +87269,11 @@
       },
       {
         "physio-sensing-method": "Hygrochron",
+        "physio-sensor-brand": "Multiple brands",
+        "count": 1
+      },
+      {
+        "physio-sensing-method": "Hygrochron",
         "physio-sensor-brand": "NR",
         "count": 1
       },
@@ -85700,7 +87285,7 @@
       {
         "physio-sensing-method": "Hygrochron",
         "physio-sensor-brand": "iButton",
-        "count": 22
+        "count": 24
       },
       {
         "physio-sensing-method": "Infrared camera",
@@ -85715,7 +87300,7 @@
       {
         "physio-sensing-method": "Infrared camera",
         "physio-sensor-brand": "FLIR",
-        "count": 15
+        "count": 17
       },
       {
         "physio-sensing-method": "Infrared camera",
@@ -85765,7 +87350,7 @@
       {
         "physio-sensing-method": "Infrared thermometer",
         "physio-sensor-brand": "NR",
-        "count": 2
+        "count": 3
       },
       {
         "physio-sensing-method": "Infrared thermometer",
@@ -85890,7 +87475,7 @@
       {
         "physio-sensing-method": "NR",
         "physio-sensor-brand": "CompuMedics Ltd.",
-        "count": 2
+        "count": 4
       },
       {
         "physio-sensing-method": "NR",
@@ -85905,7 +87490,7 @@
       {
         "physio-sensing-method": "NR",
         "physio-sensor-brand": "NR",
-        "count": 20
+        "count": 26
       },
       {
         "physio-sensing-method": "NR",
@@ -85915,12 +87500,12 @@
       {
         "physio-sensing-method": "NR",
         "physio-sensor-brand": "Shenzhen SYY Technology Co., Ltd.",
-        "count": 1
+        "count": 2
       },
       {
         "physio-sensing-method": "Nasal lavage fluid",
         "physio-sensor-brand": "NAN",
-        "count": 1
+        "count": 2
       },
       {
         "physio-sensing-method": "OHR/PPG",
@@ -85949,18 +87534,13 @@
       },
       {
         "physio-sensing-method": "OHR/PPG",
-        "physio-sensor-brand": "Logitech",
+        "physio-sensor-brand": "Multiple brands",
         "count": 1
       },
       {
         "physio-sensing-method": "OHR/PPG",
         "physio-sensor-brand": "NR",
-        "count": 1
-      },
-      {
-        "physio-sensing-method": "OHR/PPG",
-        "physio-sensor-brand": "NeuLog",
-        "count": 1
+        "count": 2
       },
       {
         "physio-sensing-method": "OHR/PPG",
@@ -86020,12 +87600,12 @@
       {
         "physio-sensing-method": "Pulse oximeter",
         "physio-sensor-brand": "ADInstruments",
-        "count": 1
+        "count": 2
       },
       {
         "physio-sensing-method": "Pulse oximeter",
         "physio-sensor-brand": "Heal Force",
-        "count": 11
+        "count": 15
       },
       {
         "physio-sensing-method": "Pulse oximeter",
@@ -86035,7 +87615,7 @@
       {
         "physio-sensing-method": "Pulse oximeter",
         "physio-sensor-brand": "Libelium Co.",
-        "count": 2
+        "count": 3
       },
       {
         "physio-sensing-method": "Pulse oximeter",
@@ -86045,22 +87625,22 @@
       {
         "physio-sensing-method": "Pulse oximeter",
         "physio-sensor-brand": "Masimo",
-        "count": 1
+        "count": 2
       },
       {
         "physio-sensing-method": "Pulse oximeter",
         "physio-sensor-brand": "Medisana",
-        "count": 1
+        "count": 2
       },
       {
         "physio-sensing-method": "Pulse oximeter",
         "physio-sensor-brand": "NR",
-        "count": 4
+        "count": 5
       },
       {
         "physio-sensing-method": "Pulse oximeter",
         "physio-sensor-brand": "Nonin Medical",
-        "count": 2
+        "count": 3
       },
       {
         "physio-sensing-method": "Pulse oximeter",
@@ -86080,12 +87660,12 @@
       {
         "physio-sensing-method": "Pulse oximeter",
         "physio-sensor-brand": "Promise Technology",
-        "count": 1
+        "count": 2
       },
       {
         "physio-sensing-method": "Pulse oximeter",
         "physio-sensor-brand": "Yuwell",
-        "count": 3
+        "count": 5
       },
       {
         "physio-sensing-method": "RTD",
@@ -86120,7 +87700,7 @@
       {
         "physio-sensing-method": "Saliva",
         "physio-sensor-brand": "NAN",
-        "count": 5
+        "count": 6
       },
       {
         "physio-sensing-method": "Saliva",
@@ -86200,17 +87780,17 @@
       {
         "physio-sensing-method": "Thermistor",
         "physio-sensor-brand": "NR",
-        "count": 2
+        "count": 3
       },
       {
         "physio-sensing-method": "Thermistor",
         "physio-sensor-brand": "Nikkiso-Therm",
-        "count": 2
+        "count": 3
       },
       {
         "physio-sensing-method": "Thermistor",
         "physio-sensor-brand": "Nikkiso-YSI",
-        "count": 1
+        "count": 2
       },
       {
         "physio-sensing-method": "Thermistor",
@@ -86230,12 +87810,12 @@
       {
         "physio-sensing-method": "Thermochron",
         "physio-sensor-brand": "Opulus",
-        "count": 23
+        "count": 24
       },
       {
         "physio-sensing-method": "Thermochron",
         "physio-sensor-brand": "iButton",
-        "count": 51
+        "count": 52
       },
       {
         "physio-sensing-method": "Thermocouple",
@@ -86280,7 +87860,7 @@
       {
         "physio-sensing-method": "Thermocouple",
         "physio-sensor-brand": "NR",
-        "count": 25
+        "count": 26
       },
       {
         "physio-sensing-method": "Thermocouple",
@@ -87810,7 +89390,7 @@
         "count": 2
       },
       {
-        "signal": "Biomarkers: Lysozyme ",
+        "signal": "Biomarkers: Lysozyme",
         "period": "2023–24",
         "count": 1
       },
@@ -90647,8 +92227,8 @@
             "Sweat indicators": 3
           },
           "sensingMethods": {
-            "GSR/EDA": 1,
             "Corneometer": 1,
+            "GSR/EDA": 1,
             "Hygrochron": 2,
             "Tewameter": 1
           }
@@ -98247,7 +99827,7 @@
     "n_variables": 206,
     "year_min": 2013,
     "year_max": 2024,
-    "generated_at": "2026-07-22T20:52:01.693456"
+    "generated_at": "2026-07-22T21:31:52.112255"
   },
   "world-countries-110m": {
     "type": "Topology",

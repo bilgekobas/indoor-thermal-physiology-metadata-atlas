@@ -11,7 +11,7 @@ const SENSOR_PALETTE = ['#5B5BFF', '#0A0A0A', '#FB3640', '#79FFFB', '#D5FF99', '
 
 function SensorStackChart({ signalData, periods }) {
   const { tip, showTip, moveTip, hideTip } = useTooltip()
-  const [scaleMode, setScaleMode] = useState('absolute')
+  const [scaleMode, setScaleMode] = useState('relative')
   const { data, sensor_order, period_totals } = signalData
   const byPeriod = useMemo(() => {
     const map = {}
@@ -19,29 +19,27 @@ function SensorStackChart({ signalData, periods }) {
     data.forEach((r) => { if (map[r.period]) map[r.period][r.sensor_grp] = r.count })
     return map
   }, [data, periods])
-  const maxTotal = Math.max(...periods.map((p) => period_totals[p] || 0), 1)
+  const maxCount = Math.max(...data.map((r) => r.count || 0), 1)
   return (
     <div>
-      <div className="font-data text-[10px] text-inkfaint mb-1">
-        y-axis: {scaleMode === 'absolute' ? 'absolute study count; all columns share the same count scale' : "% of that period's studies (measuring this signal) using each sensor type"}
+      <div className="font-data text-[10px] text-inkfaint mb-2">
+        Each method is an independent prevalence. Studies using multiple methods contribute to multiple bars; values within a period need not sum to 100%.
       </div>
-      <div className="flex gap-3 items-end h-36 mb-2">
+      <div className="flex gap-3 items-end h-40 mb-2">
         {periods.map((p) => {
           const total = period_totals[p] || 0
           const m = byPeriod[p]
-          const denom = scaleMode === 'relative' ? Math.max(total, 1) : maxTotal
           return (
             <div key={p} className="flex-1 flex flex-col items-center">
-              <div className="w-full flex flex-col-reverse h-28 rounded-sm overflow-hidden bg-line/35">
+              <div className="w-full h-30 flex items-end justify-center gap-[2px] bg-line/25 rounded-sm px-1">
                 {sensor_order.map((sensor, si) => {
                   const c = m[sensor] || 0
-                  if (c === 0 || denom === 0) return null
-                  return (
-                    <div key={sensor} style={{ height: `${(c / denom) * 100}%`, background: SENSOR_PALETTE[si % SENSOR_PALETTE.length] }}
-                      className="cursor-default hover:brightness-110"
-                      onMouseEnter={(e) => showTip(e, `${sensor}, ${p}: ${c} of ${total} · ${((c / Math.max(total, 1)) * 100).toFixed(1)}%`)}
-                      onMouseMove={moveTip} onMouseLeave={hideTip} />
-                  )
+                  const pct = total ? (c / total) * 100 : 0
+                  const h = scaleMode === 'relative' ? pct : (c / maxCount) * 100
+                  return <div key={sensor} className="flex-1 min-w-[3px] cursor-default hover:brightness-110 rounded-t-sm"
+                    style={{ height: `${h}%`, background: SENSOR_PALETTE[si % SENSOR_PALETTE.length] }}
+                    onMouseEnter={(e) => showTip(e, `${sensor}, ${p}: ${c} of ${total} signal-measuring experiments · ${pct.toFixed(1)}%`)}
+                    onMouseMove={moveTip} onMouseLeave={hideTip} />
                 })}
               </div>
               <div className="font-data text-[10px] text-inkfaint mt-1.5">{p}</div>
@@ -51,22 +49,15 @@ function SensorStackChart({ signalData, periods }) {
         })}
       </div>
       <div className="flex flex-wrap gap-x-3 gap-y-1">
-        {sensor_order.map((s, i) => (
-          <div key={s} className="flex items-center gap-1.5 text-[11px] text-inkmid">
-            <span className="w-2.5 h-2.5 rounded-sm inline-block" style={{ background: SENSOR_PALETTE[i % SENSOR_PALETTE.length] }} />{s}
-          </div>
-        ))}
+        {sensor_order.map((s, i) => <div key={s} className="flex items-center gap-1.5 text-[11px] text-inkmid"><span className="w-2.5 h-2.5 rounded-sm inline-block" style={{ background: SENSOR_PALETTE[i % SENSOR_PALETTE.length] }} />{s}</div>)}
       </div>
       <div className="flex gap-1.5 mt-4">
-        {['absolute', 'relative'].map((m) => (
-          <button key={m} onClick={() => setScaleMode(m)} className={`px-3 py-1 rounded text-[11px] font-data transition-colors ${scaleMode === m ? 'bg-ink text-paper' : 'bg-line/50 text-inkmid hover:bg-line'}`}>{m}</button>
-        ))}
+        {['relative','absolute'].map((m) => <button key={m} onClick={() => setScaleMode(m)} className={`px-3 py-1 rounded text-[11px] font-data transition-colors ${scaleMode === m ? 'bg-ink text-paper' : 'bg-line/50 text-inkmid hover:bg-line'}`}>{m}</button>)}
       </div>
       <TooltipPortal tip={tip} />
     </div>
   )
 }
-
 
 function SensorEvolutionToggle({ signals, evoData, periods }) {
   const [active, setActive] = useState(signals[0] || '')
@@ -117,7 +108,7 @@ function layoutColumn(entries, { x, gap, pxPerUnit, minH }) {
   return { nodes, totalHeight: y - gap }
 }
 
-function SignalSensorBrandSankey({ overall, signalTotals, brandModelData }) {
+function SignalSensorBrandSankey({ overall, signalInstanceTotals, brandData }) {
   const { tip, showTip, moveTip, hideTip } = useTooltip()
   // Selection state for click-to-isolate: null = nothing selected (show
   // everything at normal opacity). Otherwise { level: 'signal'|'sensor'|'brand', name }.
@@ -136,7 +127,7 @@ function SignalSensorBrandSankey({ overall, signalTotals, brandModelData }) {
     // sensing methods (see build_data.py comment on signal_totals for why
     // summing 'overall' inflates signals with multi-method experiments).
     const sigTotals = {}
-    signalTotals.forEach((r) => { sigTotals[r.signal] = r.count })
+    signalInstanceTotals.forEach((r) => { sigTotals[r.signal] = r.count })
     const activeSignalNames = Object.keys(sigTotals).filter((s) => sigTotals[s] >= 5)
     const signalEntries = []
     DOMAIN_ORDER.forEach((domain) => {
@@ -178,10 +169,12 @@ function SignalSensorBrandSankey({ overall, signalTotals, brandModelData }) {
     // exact OMRON bug from before, recurring one level over).
     const brandsBySensorType = {} // sensorType -> { brand -> total count }
     const brandSensorSignalRows = [] // flat rows for tooltip-level detail
-    brandModelData.forEach((r) => {
-      if (r.brand === 'NR' || !activeSensorNames.includes(r.sensing_method)) return
-      if (!brandsBySensorType[r.sensing_method]) brandsBySensorType[r.sensing_method] = {}
-      brandsBySensorType[r.sensing_method][r.brand] = (brandsBySensorType[r.sensing_method][r.brand] || 0) + r.count
+    brandData.forEach((r) => {
+      const method = r['physio-sensing-method']
+      const brand = r.brand
+      if (!activeSensorNames.includes(method)) return
+      if (!brandsBySensorType[method]) brandsBySensorType[method] = {}
+      brandsBySensorType[method][brand] = (brandsBySensorType[method][brand] || 0) + r.count
       brandSensorSignalRows.push(r)
     })
 
@@ -290,12 +283,12 @@ function SignalSensorBrandSankey({ overall, signalTotals, brandModelData }) {
       maxFlow: Math.max(...overall.map((r) => r.count), 1),
       signalDenom: signalEntries.reduce((a, d) => a + d.total, 0) || 1,
       sensorDenom: sensorEntries.reduce((a, d) => a + d.total, 0) || 1,
-      nTotalBrands: new Set(brandModelData.filter((r) => r.brand !== 'NR').map((r) => r.brand)).size,
+      nTotalBrands: new Set(brandData.map((r) => r.brand)).size,
       brandDenom: brandEntries.reduce((a, d) => a + d.total, 0) || 1,
       brandSensorMap,
       brandMode,
     }
-  }, [overall, signalTotals, brandModelData, brandMode])
+  }, [overall, signalInstanceTotals, brandData, brandMode])
 
   // Is a given link/node "active" under the current selection? Returns
   // true if nothing is selected (show everything normally) or if the
@@ -448,7 +441,7 @@ function SignalSensorBrandSankey({ overall, signalTotals, brandModelData }) {
         </svg>
       </div>
       <p className="font-data text-[10px] text-inkfaint mt-2">
-        Flow width and node height are proportional to study count; node and link colours mark physiological signal families; the central thermal-state family is highlighted in yellow. Node labels use one format throughout: name, study count, and percentage in parentheses. Signal and sensor-type percentages are within their displayed column. Link hover reports the percentage relative to the immediate parent node. Click any signal, sensor type, or brand to highlight all connected paths and rows across all three columns.
+        Flow width and node height are proportional to experiment–signal–method instances; node and link colours mark physiological signal families; the central thermal-state family is highlighted in yellow. Node labels use one format throughout: name, study count, and percentage in parentheses. Signal and sensor-type percentages are within their displayed instance column. Link hover reports the percentage relative to the immediate parent node. Click any signal, sensor type, or brand to highlight all connected paths and rows across all three columns.
         {' '}The brand-column toggle above switches between two parentages for the same underlying counts: "by sensor type" keeps each brand's node scoped to one sensor type (so a brand sold under two sensor types appears as two smaller nodes, and its brand percentage is relative to that one sensor type's total); "collapsed by brand" merges those into a single node per brand name with links fanning in from every sensor type it's used under (brand percentage is then relative to the top-{COLLAPSED_TOP_N} brands shown, not to any one sensor type).
       </p>
       <TooltipPortal tip={tip} />
@@ -878,7 +871,7 @@ export default function ChapterBody({ data }) {
           ]}
           footnote={`* Core temperature (${coreTempN} studies) and body temperature (${bodyTempN}) are shown as separate signals here — body temperature is used where a paper reported measuring "core body temperature" but the actual method wasn't a true core measure (e.g. forehead, axillary), reclassified to distinguish it from validated core-temperature methods (rectal, esophageal, ingestible pill).`}
         >
-          <SignalSensorBrandSankey overall={physio_signal_sensor.overall} signalTotals={physio_signal_sensor.signal_totals} brandModelData={data.brand_model_reference.data} />
+          <SignalSensorBrandSankey overall={physio_signal_sensor.overall} signalInstanceTotals={physio_signal_sensor.signal_instance_totals} brandData={physio_signal_sensor.signal_method_brand} />
         </FigureCard>
 
         <FigureCard figNumber="23" title="Where on the body each signal is measured" plotWidth={900} commentary={`Skin temperature is measured across the body fairly evenly (no single dominant site). Heart rate concentrates at the chest (${hrChest} of ${hrN} studies, ECG-strap territory) and wrist (${hrWrist}, optical wearables). The sudomotor signals split sharply by method: ${sweatWholeBody} sweat-indicator studies measure the whole body at once (not shown on the diagram, see the list at right), while skin conductance is almost always local — ${conductanceWrist} studies at the wrist, ${conductanceFinger} at the finger.`}>          <BodySiteToggle
@@ -894,9 +887,9 @@ export default function ChapterBody({ data }) {
 
       <ChapterSection
         title="How sensor choice has shifted over time"
-        intro="For skin temperature, thermocouples made up 55% of sensors in 2013–14 but only 25% by 2023–24, while Thermochron-type dataloggers (e.g. iButton) rose from 18% to 52% over the same span — the field's main displacement story. Each column below is normalised to 100% of that period's studies measuring the signal."
+        intro="For skin temperature, thermocouples made up 55% of sensors in 2013–14 but only 25% by 2023–24, while Thermochron-type dataloggers (e.g. iButton) rose from 18% to 52% over the same span — the field's main displacement story. Bars show method prevalence among experiments measuring the signal in each period. Because one experiment may use several methods, percentages need not sum to 100%."
       >
-        <FigureCard figNumber="24" title="Sensor choice by signal" size="wide" commentary="Use the signal toggles to compare how sensor-type composition changed over time. Each column is normalized within the studies measuring the selected signal in that 2-year period.">
+        <FigureCard figNumber="24" title="Sensor choice by signal" size="wide" commentary="Use the signal toggles to compare method prevalence over time. Each bar uses experiments measuring the selected signal in that period as its denominator; methods are non-exclusive.">
           <SensorEvolutionToggle signals={evoSignals} evoData={evo_signal_sensor} periods={evo_signal_sensor.periods} />
         </FigureCard>
       </ChapterSection>
