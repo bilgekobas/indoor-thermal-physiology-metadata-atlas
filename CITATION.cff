@@ -1,0 +1,27 @@
+cff-version: 1.2.0
+message: >-
+  If you use this software (the atlas site/codebase), please cite it as below.
+  If you use the underlying dataset, cite its separate DOI instead (see
+  README.md and About page for details).
+title: >-
+  Indoor Thermal-Physiology Metadata Atlas: an interactive corpus
+  of indoor thermal-physiology research
+type: software
+authors:
+  - given-names: Bilge
+    family-names: Kobas
+  - given-names: Tobias
+    family-names: Kramer
+  - given-names: Jian
+    family-names: Pan
+  - given-names: Cynthia
+    family-names: Ly
+  - given-names: Matteo
+    family-names: Favero
+repository-code: >-
+  https://github.com/bilgekobas/indoor-thermal-physiology-metadata-atlas
+url: >-
+  https://bilgekobas.github.io/indoor-thermal-physiology-metadata-atlas/
+doi: 10.5281/zenodo.21516763
+version: 1.0.0
+date-released: '2026-07-23'
