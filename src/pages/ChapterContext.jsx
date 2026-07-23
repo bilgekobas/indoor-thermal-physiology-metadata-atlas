@@ -418,6 +418,7 @@ export default function ChapterContext({ data }) {
     protocol_by_period,
     chapter_completeness,
     open_data,
+    author_network_summary,
     summary,
   } = data
 
@@ -498,7 +499,15 @@ export default function ChapterContext({ data }) {
         title="Authorship as field structure"
         intro="Before treating the corpus as a neutral pool of studies, it is useful to inspect the social structure behind it. Co-authorship does not measure scientific quality, but it does reveal repeated research lineages, dominant collaboration clusters, and the extent to which the evidence base is produced by a small number of connected groups."
       >
-        <FigureCard figNumber="1" title="Author co-authorship network" size="wide" commentary="Nodes are authors and links are co-authorship pairs. The default grouped view reduces the dense 808-author graph to connected collaboration components; the threshold controls can then expose either stable core groups or weaker one-study links. Colours identify collaboration clusters, not national origin.">
+        <FigureCard
+          figNumber="1"
+          title="Author co-authorship network"
+          size="wide"
+          commentary={author_network_summary ? [
+            `${author_network_summary.n_authors} authors across ${author_network_summary.n_studies_resolved} publications resolve into ${author_network_summary.n_components} connected components. One dominates: its largest holds ${author_network_summary.largest_component_size} authors — ${((author_network_summary.largest_component_size / author_network_summary.n_authors) * 100).toFixed(0)}% of everyone in the corpus — while the remaining ${author_network_summary.n_components - 1} components are small, mostly separate collaboration groups.`,
+            'Nodes are authors and links are co-authorship pairs. The default grouped view collapses this into connected components; the threshold controls expose either stable core groups or weaker one-study links. Colours identify collaboration clusters, not national origin.',
+          ] : 'Nodes are authors and links are co-authorship pairs. Colours identify collaboration clusters, not national origin.'}
+        >
           <AuthorNetworkEmbed />
         </FigureCard>
       </ChapterSection>

@@ -164,7 +164,7 @@ export default function ChapterEnvironment({ data }) {
         title="What gets measured together"
         intro="Air temperature, relative humidity, air velocity, and globe temperature form the field's standard environmental core. Other variables — surface temperature, CO₂, light, sound — appear much more selectively."
       >
-        <FigureCard figNumber="28" title="Environmental variable co-occurrence" plotWidth={760} commentary="Air temperature is the anchor variable; relative humidity, air velocity, and globe temperature cluster tightly around it. Everything else is a minority add-on, included only when a study's specific question calls for it.">
+        <FigureCard figNumber="29" title="Environmental variable co-occurrence" plotWidth={760} commentary="Air temperature is the anchor variable; relative humidity, air velocity, and globe temperature cluster tightly around it. Everything else is a minority add-on, included only when a study's specific question calls for it.">
           <CooccurrenceMatrix labels={fig12_env_cooccurrence.labels} matrix={fig12_env_cooccurrence.matrix} cellSize={38} />
         </FigureCard>
       </ChapterSection>
@@ -173,7 +173,7 @@ export default function ChapterEnvironment({ data }) {
         title="Where sensors are placed"
         intro="Most reported heights sit at one of the standard ankle, abdomen, seated-head, or standing-head levels, but a substantial minority do not. The scatter view below keeps every reported value visible while showing the distribution for each core variable."
       >
-        <FigureCard figNumber="29" title="Sensor heights for the core four variables" plotWidth={980} commentary="The four rows show the full distribution of reported heights for air temperature, relative humidity, air velocity, and globe temperature. Dots are individual reported values; the boxplot in each row summarizes the same distribution. Standard reference heights are marked with dotted vertical lines.">
+        <FigureCard figNumber="30" title="Sensor heights for the core four variables" plotWidth={980} commentary="The four rows show the full distribution of reported heights for air temperature, relative humidity, air velocity, and globe temperature. Dots are individual reported values; the boxplot in each row summarizes the same distribution. Standard reference heights are marked with dotted vertical lines.">
           <SensorHeightOverallChart heightData={fig13_sensor_heights.data} variables={fig13_sensor_heights.variables} />
         </FigureCard>
       </ChapterSection>

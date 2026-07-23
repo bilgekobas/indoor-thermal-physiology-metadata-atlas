@@ -3,13 +3,16 @@ import { ChapterHeader, ChapterSection } from '../components/Chapter.jsx'
 import FigureCard from '../components/FigureCard.jsx'
 import { useTooltip, TooltipPortal } from '../components/Tooltip.jsx'
 
-const TYPE_COLORS = {
-  'Performance task': '#0A0A0A',
-  'Subjective scale': '#0A0A0A',
-  'Stress induction': '#0A0A0A',
+// Same categorical palette as the physio signal → sensor type → brand Sankey
+// (Fig. 22, see DOMAIN_GROUPS in ChapterBody.jsx) -- reused here so the
+// site's two multi-column Sankeys read consistently. The colours are
+// arbitrary category markers in both places, not semantically linked.
+const MEASURE_TYPE_COLORS = {
+  'Performance task': '#5B5BFF',
+  'Subjective scale': '#FF4DA6',
+  'Stress induction': '#8A8A8A',
 }
-
-function domainColor() { return '#0A0A0A' }
+const DEFAULT_TYPE_COLOR = '#BBBBBB'
 
 function CognitiveSankey({ cognitive }) {
   const { tip, showTip, moveTip, hideTip } = useTooltip()
@@ -64,6 +67,30 @@ function CognitiveSankey({ cognitive }) {
     instrumentToDomains[r.instrument].push(r.domain_short)
   })
 
+  // A domain can in principle receive flow from more than one measure type
+  // (and an instrument from more than one domain); colour each by whichever
+  // parent contributes the most studies, same cascading approach the physio
+  // Sankey uses for its sensor/brand columns.
+  const domainPrimaryType = useMemo(() => {
+    const totals = {}
+    cognitive.flow_type_domain.forEach((r) => {
+      totals[r.domain_short] = totals[r.domain_short] || {}
+      totals[r.domain_short][r.measure_type] = (totals[r.domain_short][r.measure_type] || 0) + r.count
+    })
+    return Object.fromEntries(Object.entries(totals).map(([domain, byType]) => [domain, Object.entries(byType).sort((a, b) => b[1] - a[1])[0][0]]))
+  }, [cognitive])
+  const instrumentPrimaryDomain = useMemo(() => {
+    const totals = {}
+    cognitive.flow_domain_instrument.forEach((r) => {
+      totals[r.instrument] = totals[r.instrument] || {}
+      totals[r.instrument][r.domain_short] = (totals[r.instrument][r.domain_short] || 0) + r.count
+    })
+    return Object.fromEntries(Object.entries(totals).map(([instrument, byDomain]) => [instrument, Object.entries(byDomain).sort((a, b) => b[1] - a[1])[0][0]]))
+  }, [cognitive])
+  const colorForType = (name) => MEASURE_TYPE_COLORS[name] || DEFAULT_TYPE_COLOR
+  const colorForDomain = (name) => colorForType(domainPrimaryType[name])
+  const colorForInstrument = (name) => colorForDomain(instrumentPrimaryDomain[name])
+
   const isConnected = (obj) => {
     if (!selected) return true
     if (selected.kind === 'type') {
@@ -114,13 +141,13 @@ function CognitiveSankey({ cognitive }) {
         <text x={470} y={12} fontSize={10} fill="#8A8A8A" fontWeight="600">DOMAIN</text>
         <text x={790} y={12} fontSize={10} fill="#8A8A8A" fontWeight="600">INSTRUMENT</text>
         {links.map((l, i) => (
-          <path key={i} d={pathFor(l)} fill="none" stroke="#0A0A0A" strokeWidth={Math.max(1.2, (l.count / maxFlow) * 22)} opacity={isConnected(l) ? 0.22 : 0.03}
+          <path key={i} d={pathFor(l)} fill="none" stroke={l.type === 'type-domain' ? colorForType(l.a) : colorForDomain(l.a)} strokeWidth={Math.max(1.2, (l.count / maxFlow) * 22)} opacity={isConnected(l) ? 0.28 : 0.03}
             onMouseEnter={(e) => showTip(e, `${l.type === 'type-domain' ? `${l.a} → ${l.b}` : `${l.a} → ${l.b}`}: ${l.count} studies`)}
             onMouseMove={moveTip} onMouseLeave={hideTip} />
         ))}
-        {left.map((n) => renderNode(n, 'type', TYPE_COLORS[n.name] || '#0A0A0A', 'left'))}
-        {mid.map((n) => renderNode(n, 'domain', domainColor(n.name), 'right'))}
-        {right.map((n) => renderNode(n, 'instrument', '#0A0A0A', 'right'))}
+        {left.map((n) => renderNode(n, 'type', colorForType(n.name), 'left'))}
+        {mid.map((n) => renderNode(n, 'domain', colorForDomain(n.name), 'right'))}
+        {right.map((n) => renderNode(n, 'instrument', colorForInstrument(n.name), 'right'))}
       </svg>
       <p className="font-data text-[10px] text-inkfaint mt-2">Each flow is counted in unique-study uses. Click a node in any column to isolate all connected paths.</p>
       <TooltipPortal tip={tip} />
@@ -196,7 +223,7 @@ export default function ChapterCognitive({ data }) {
         title="What kind of measure is actually used"
         intro="Performance tasks and subjective scales are mixed in one raw dataset field, but they are not the same type of evidence. The Sankey makes that split explicit, then shows which domains and instruments each branch contains. Colours are intentionally not used as a second encoding; all nodes are black and links scale only by count."
       >
-        <FigureCard figNumber="33" title="Cognitive measure type → domain → instrument" plotWidth={1080} commentary="The first column distinguishes what the participant does (performance task), what they rate about themselves (subjective scale), or whether the entry is a deliberate stress-induction protocol. Flow width is proportional to unique-study use count.">
+        <FigureCard figNumber="34" title="Cognitive measure type → domain → instrument" plotWidth={1080} commentary="The first column distinguishes what the participant does (performance task), what they rate about themselves (subjective scale), or whether the entry is a deliberate stress-induction protocol. Flow width is proportional to unique-study use count.">
           <CognitiveSankey cognitive={cognitive_tests} />
         </FigureCard>
       </ChapterSection>

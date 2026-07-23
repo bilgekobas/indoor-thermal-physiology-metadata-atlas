@@ -68,6 +68,37 @@ def split_names(s):
     return [n.strip() for n in str(s).split(',') if n.strip()]
 
 
+def connected_component_sizes(nodes, edges):
+    """Plain BFS over the co-authorship graph (no networkx dependency).
+    Returns component sizes sorted largest-first -- used to give the Fig. 1
+    caption an actual finding (how connected the field is) instead of just
+    describing what nodes/links mean."""
+    name_to_idx = {n['name']: i for i, n in enumerate(nodes)}
+    adj = {i: set() for i in range(len(nodes))}
+    for e in edges:
+        a, b = name_to_idx[e['author_a']], name_to_idx[e['author_b']]
+        adj[a].add(b)
+        adj[b].add(a)
+    seen = set()
+    sizes = []
+    for i in range(len(nodes)):
+        if i in seen:
+            continue
+        stack = [i]
+        seen.add(i)
+        size = 0
+        while stack:
+            c = stack.pop()
+            size += 1
+            for nb in adj[c]:
+                if nb not in seen:
+                    seen.add(nb)
+                    stack.append(nb)
+        sizes.append(size)
+    sizes.sort(reverse=True)
+    return sizes
+
+
 def main():
     df = pd.read_csv(CORPUS, encoding='utf-8-sig', low_memory=False)
     df = df.replace({np.nan: None})
@@ -119,6 +150,29 @@ def main():
         'n_studies_total': n_total,
         'n_failed_dois': n_unresolved,
     }
+
+    # Small companion JSON (separate from the ~200KB embedded-HTML DATA
+    # blob above) so the React-side Fig. 1 caption in ChapterContext.jsx can
+    # cite live network stats instead of a hardcoded author count that goes
+    # stale every time the corpus grows. Picked up automatically by
+    # build_data.py's bundle.json glob -- no wiring needed there, but this
+    # script must still be re-run manually (see module docstring) whenever
+    # author-network is regenerated. n_isolated_authors reads oddly if 0;
+    # phrase around it in the caption ("all but N form connected groups")
+    # rather than treating it as a headline number.
+    component_sizes = connected_component_sizes(nodes, edges)
+    network_summary = {
+        'n_authors': len(nodes),
+        'n_pairs': len(edges),
+        'n_components': len(component_sizes),
+        'largest_component_size': component_sizes[0] if component_sizes else 0,
+        'n_isolated_authors': sum(1 for s in component_sizes if s == 1),
+        'n_studies_resolved': n_resolved,
+        'n_studies_total': n_total,
+    }
+    SUMMARY_OUT = Path(__file__).resolve().parents[1] / 'public' / 'data' / 'author_network_summary.json'
+    with open(SUMMARY_OUT, 'w', encoding='utf-8') as f:
+        json.dump(network_summary, f, indent=2)
 
     html = TEMPLATE.read_text(encoding='utf-8')
 

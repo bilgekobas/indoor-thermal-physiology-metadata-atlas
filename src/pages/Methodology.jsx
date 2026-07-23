@@ -28,10 +28,11 @@ export default function Methodology({ data }) {
             The search and screening process covered Web of Science, Scopus,
             PubMed, and ScienceDirect for peer-reviewed English-language publications from 2013 to
             2024. Search terms were grouped around thermal-comfort constructs, experimental context,
-            and physiological measurement. The initial search results yielded 6592 records across four databases. 
+            and physiological measurement. The initial search results yielded 6592 records across four databases —
+            a fixed count from the original search date, not derived from the live corpus below.
             After duplicate removal and title/abstract screening, 358 publications remained for full-text review. 
-            Of these, 273 studies met all inclusion and exclusion criteria. <br></br>
-            The current corpus contains {summary.n_publications} studies published between {summary.year_min} and {summary.year_max}.
+            Of these, {summary.n_publications} studies met all inclusion and exclusion criteria and make up the
+            current corpus, published between {summary.year_min} and {summary.year_max}.
           </p>
         </section>
 

@@ -31,7 +31,7 @@ function SensorStackChart({ signalData, periods }) {
           const m = byPeriod[p]
           return (
             <div key={p} className="flex-1 flex flex-col items-center">
-              <div className="w-full h-30 flex items-end justify-center gap-[2px] bg-line/25 rounded-sm px-1">
+              <div className="w-full h-[120px] flex items-end justify-center gap-[2px] bg-line/25 rounded-sm px-1">
                 {sensor_order.map((sensor, si) => {
                   const c = m[sensor] || 0
                   const pct = total ? (c / total) * 100 : 0
@@ -427,21 +427,16 @@ function SignalSensorBrandSankey({ overall, signalTotals, signalInstanceTotals, 
             })}
             {layout.sensor.map((n) => {
               const active = isActive({ sensor: n.name })
-              // Sensor methods may occur under multiple physiological signals. For the
-              // visible node label, use the dominant incoming signal so that the
-              // numerator and denominator describe the same population. The node height
-              // still represents all experiment–signal–method instances.
-              const primaryParent = [...(n.parentSignals || [])]
-                .sort((a, b) => b.count - a.count)[0] || null
-              const pct = primaryParent
-                ? (primaryParent.count / Math.max(primaryParent.denominator, 1)) * 100
+              const singleParent = n.parentSignals?.length === 1 ? n.parentSignals[0] : null
+              const pct = singleParent
+                ? (n.total / Math.max(singleParent.denominator, 1)) * 100
                 : null
-              const label = primaryParent
-                ? `${n.name}, ${primaryParent.count} (${pct.toFixed(0)}%)`
-                : `${n.name}, ${n.total}`
-              const parentDetail = primaryParent
-                ? `${primaryParent.count} of ${primaryParent.denominator} ${primaryParent.signal} experiments (${pct.toFixed(1)}%); ${n.total} total experiment–signal–method instances across ${n.parentSignals.length} connected signal${n.parentSignals.length === 1 ? '' : 's'}`
-                : `${n.total} experiment–signal–method instances`
+              const label = pct == null
+                ? `${n.name}, ${n.total}`
+                : `${n.name}, ${n.total} (${pct.toFixed(0)}%)`
+              const parentDetail = singleParent
+                ? `${n.total} of ${singleParent.denominator} ${singleParent.signal} experiments (${pct.toFixed(1)}%)`
+                : `${n.total} experiment–signal–method instances across ${n.parentSignals.length} parent signals; hover each incoming link for its signal-specific percentage`
               return (
                 <g key={n.name}
                   onClick={() => setSelected(selected?.level === 'sensor' && selected.name === n.name ? null : { level: 'sensor', name: n.name })}
@@ -505,26 +500,22 @@ function MstSankey({ mst, totalExperiments }) {
   const yCount = statusCounts.Y || mst.n_mst_studies
   const nonYCount = statusCounts['N/NR'] || Math.max((totalExperiments || 0) - yCount, 0)
 
-  const pointTotals = {}
-  const formulaTotals = {}
-  const pointFormulaLinks = []
-  mst.points_by_formula.forEach((r) => {
-    const point = String(r.pt_bucket || 'NR points')
-    const formula = String(r.formula_grp || 'NR')
-    pointTotals[point] = (pointTotals[point] || 0) + r.count
-    formulaTotals[formula] = (formulaTotals[formula] || 0) + r.count
-    pointFormulaLinks.push({ point, formula, count: r.count })
-  })
-  const knownPointTotal = Object.values(pointTotals).reduce((a, v) => a + v, 0)
-  const missingPoint = Math.max(yCount - knownPointTotal, 0)
-  if (missingPoint > 0) {
-    pointTotals['NR points'] = (pointTotals['NR points'] || 0) + missingPoint
-    formulaTotals.NR = (formulaTotals.NR || 0) + missingPoint
-    pointFormulaLinks.push({ point: 'NR points', formula: 'NR', count: missingPoint })
-  }
+  // Points: exact value per study (no ranges), ordered smallest -> largest,
+  // with the NR/NC bucket last. Exclusive -- every Y-study appears exactly
+  // once here, so these totals size the point-column nodes correctly.
+  const pointTotals = Object.fromEntries(mst.points_totals.map((r) => [String(r.pt_label), r.count]))
+  const pointLabel = (name) => (name === 'NR/NC' ? 'Points NR/NC' : name)
+  const points = mst.point_order
+    .filter((name) => pointTotals[name] > 0)
+    .map((name) => ({ name, total: pointTotals[name] }))
 
-  const points = Object.entries(pointTotals).map(([name, total]) => ({ name, total })).sort((a, b) => b.total - a.total)
+  // Formulas: every distinct formula named in the corpus, none collapsed
+  // into "Other". Non-exclusive -- a study naming several formulas is
+  // counted under each, so this can sum to more than yCount (see footnote).
+  const formulaTotals = Object.fromEntries(mst.formula_totals.map((r) => [r.formula, r.count]))
   const formulas = Object.entries(formulaTotals).map(([name, total]) => ({ name, total })).sort((a, b) => b.total - a.total)
+
+  const pointFormulaLinks = mst.point_formula_links.map((r) => ({ point: String(r.pt_label), formula: r.formula, count: r.count }))
 
   const layoutNodes = (entries, x, px = 1.25, minH = 14, gap = 8) => {
     let y = 26
@@ -583,13 +574,12 @@ function MstSankey({ mst, totalExperiments }) {
   const node = (n, type, color, denom) => {
     const isOn = connected({ name: n.name, [type]: n.name })
     const pct = denom ? (n.total / denom) * 100 : 0
-    const label = type === 'status' && n.name === 'MST measured: Y'
-      ? `${n.name}, ${n.total}`
-      : `${n.name}, ${n.total} (${pct.toFixed(0)}%)`
+    const displayName = type === 'point' ? pointLabel(n.name) : n.name
+    const label = `${displayName}, ${n.total} (${pct.toFixed(0)}%)`
     return (
       <g key={`${type}-${n.name}`} className="cursor-pointer" style={{ opacity: isOn ? 1 : 0.18 }}
         onClick={() => setSelected(selected?.type === type && selected.name === n.name ? null : { type, name: n.name })}
-        onMouseEnter={(e) => showTip(e, `${n.name}: ${n.total} studies${type !== 'status' ? ` (${pct.toFixed(1)}% of parent denominator)` : ''}. Click to isolate connected paths.`)} onMouseMove={moveTip} onMouseLeave={hideTip}>
+        onMouseEnter={(e) => showTip(e, `${displayName}: ${n.total} studies${type !== 'status' ? ` (${pct.toFixed(1)}% of parent denominator)` : ''}. Click to isolate connected paths.`)} onMouseMove={moveTip} onMouseLeave={hideTip}>
         <rect x={n.x} y={n.y} width={14} height={n.h} rx={2} fill={color} />
         <text x={type === 'status' ? n.x - 8 : n.x + 20} y={n.y + n.h / 2 + 3.5} fontSize={10.5} fill="#0A0A0A" textAnchor={type === 'status' ? 'end' : 'start'}>{label}</text>
       </g>
@@ -605,7 +595,7 @@ function MstSankey({ mst, totalExperiments }) {
         <text x={710} y={12} fontSize={10} fill="#8A8A8A" fontWeight="600">FORMULA</text>
         {links.map((l, i) => (
           <path key={i} d={pathFor(l)} fill="none" stroke={l.color} strokeWidth={Math.max(1.2, (l.count / maxFlow) * 30)} opacity={connected(l) ? 0.24 : 0.035}
-            onMouseEnter={(e) => showTip(e, `${l.kind === 'ypoint' ? 'MST measured Y → ' + l.point : l.point + ' points → ' + l.formula}: ${l.count} studies`)} onMouseMove={moveTip} onMouseLeave={hideTip} />
+            onMouseEnter={(e) => showTip(e, `${l.kind === 'ypoint' ? 'MST measured Y → ' + pointLabel(l.point) : pointLabel(l.point) + ' points → ' + l.formula}: ${l.count} studies`)} onMouseMove={moveTip} onMouseLeave={hideTip} />
         ))}
         {node(yNode, 'status', '#0A0A0A', yCount + nonYCount)}
         {node(nonYNode, 'status', '#BBBBBB', yCount + nonYCount)}
@@ -613,109 +603,7 @@ function MstSankey({ mst, totalExperiments }) {
         {right.map((n) => node(n, 'formula', '#0A0A0A', Object.values(formulaTotals).reduce((a, v) => a + v, 0) || 1))}
       </svg>
       <p className="font-data text-[10px] text-inkfaint mt-2">MST-specific denominator: {yCount} studies with MST calculated. Click any status, point-count, or formula node to isolate all connected paths.</p>
-      <TooltipPortal tip={tip} />
-    </div>
-  )
-}
-
-const FORMULA_COLORS = {
-  'Ramanathan (1964)': '#FB3640', 'Hardy & DuBois (1938)': '#FB3640', 'ISO 9886: 2004': '#FB3640',
-  'Colin & Houdas (1982)': '#D5FF99', 'Ouyang (1985)': '#5B5BFF', 'McIntyre (1980)': '#8A8A8A',
-  'Other/Multiple': '#BBBBBB', 'NR': '#E4E4E4',
-}
-function MstCharts({ mst }) {
-  const { tip, showTip, moveTip, hideTip } = useTooltip()
-  const periods = mst.periods
-  const rateByPeriod = useMemo(() => {
-    const map = {}
-    periods.forEach((p) => { map[p] = { Y: 0, N: 0, NAN: 0, total: 0 } })
-    mst.calc_rate_by_period.forEach((r) => {
-      if (!map[r.period]) return
-      map[r.period][r['physio-mst-calculated']] = r.count
-      map[r.period].total += r.count
-    })
-    return map
-  }, [mst, periods])
-  const formulaByPeriod = useMemo(() => {
-    const map = {}
-    periods.forEach((p) => { map[p] = {} })
-    mst.formula_by_period.forEach((r) => { if (map[r.period]) map[r.period][r.formula_grp] = r.count })
-    return map
-  }, [mst, periods])
-  return (
-    <div className="grid grid-cols-2 gap-10">
-      <div>
-        <div className="font-data text-[10px] text-inkfaint mb-1">y-axis: % of studies in that period calculating MST</div>
-        <div className="flex gap-2 items-end h-32 mb-1">
-          {periods.map((p) => {
-            const r = rateByPeriod[p], total = r.total || 1
-            return (
-              <div key={p} className="flex-1 flex flex-col items-center">
-                <div className="w-full flex flex-col-reverse h-24 rounded-sm overflow-hidden">
-                  <div
-                    style={{ height: `${(r.Y / total) * 100}%`, background: '#FB3640' }}
-                    className="cursor-default"
-                    onMouseEnter={(e) => showTip(e, `${p}: ${r.Y} of ${total} studies calculate MST (Y) · ${((r.Y / total) * 100).toFixed(0)}%`)}
-                    onMouseMove={moveTip} onMouseLeave={hideTip}
-                  />
-                  <div
-                    style={{ height: `${(r.N / total) * 100}%`, background: '#E4E4E4' }}
-                    className="cursor-default"
-                    onMouseEnter={(e) => showTip(e, `${p}: ${r.N} of ${total} studies measure sites but don't aggregate (N) · ${((r.N / total) * 100).toFixed(0)}%`)}
-                    onMouseMove={moveTip} onMouseLeave={hideTip}
-                  />
-                  <div
-                    style={{ height: `${(r.NAN / total) * 100}%`, background: '#EFEFEF' }}
-                    className="cursor-default"
-                    onMouseEnter={(e) => showTip(e, `${p}: ${r.NAN} of ${total} studies don't measure skin temperature at all (NAN)`)}
-                    onMouseMove={moveTip} onMouseLeave={hideTip}
-                  />
-                </div>
-                <div className="font-data text-[10px] text-inkmid mt-1.5">{p}</div>
-                <div className="font-data text-[9px] text-inkfaint">{Math.round((r.Y / total) * 100)}% · n={total}</div>
-              </div>
-            )
-          })}
-        </div>
-        <div className="flex flex-wrap gap-x-3 gap-y-1 mt-1 text-[10.5px] text-inkmid">
-          <span className="flex items-center gap-1"><span className="w-2 h-2 rounded-sm inline-block" style={{ background: '#FB3640' }} /> calculates MST</span>
-          <span className="flex items-center gap-1"><span className="w-2 h-2 rounded-sm inline-block" style={{ background: '#E4E4E4' }} /> measures sites, no MST</span>
-          <span className="flex items-center gap-1"><span className="w-2 h-2 rounded-sm inline-block" style={{ background: '#EFEFEF' }} /> no skin temp measured</span>
-        </div>
-      </div>
-      <div>
-        <div className="font-data text-[10px] text-inkfaint mb-1">y-axis: % of MST-calculating studies in that period using each formula</div>
-        <div className="flex gap-2 items-end h-32 mb-1">
-          {periods.map((p) => {
-            const m = formulaByPeriod[p]
-            const total = Object.values(m).reduce((a, b) => a + b, 0) || 1
-            return (
-              <div key={p} className="flex-1 flex flex-col items-center">
-                <div className="w-full flex flex-col-reverse h-24 rounded-sm overflow-hidden">
-                  {mst.formula_order.map((f) => (
-                    <div
-                      key={f}
-                      style={{ height: `${((m[f] || 0) / total) * 100}%`, background: FORMULA_COLORS[f] }}
-                      className="cursor-default"
-                      onMouseEnter={(e) => showTip(e, `${f}, ${p}: ${m[f] || 0} of ${total} MST-calculating studies · ${(((m[f] || 0) / total) * 100).toFixed(0)}%`)}
-                      onMouseMove={moveTip} onMouseLeave={hideTip}
-                    />
-                  ))}
-                </div>
-                <div className="font-data text-[10px] text-inkmid mt-1.5">{p}</div>
-                <div className="font-data text-[9px] text-inkfaint">n={total}</div>
-              </div>
-            )
-          })}
-        </div>
-        <div className="flex flex-wrap gap-x-3 gap-y-1 mt-1">
-          {mst.formula_order.map((f) => (
-            <div key={f} className="flex items-center gap-1 text-[10.5px] text-inkmid">
-              <span className="w-2 h-2 rounded-sm inline-block" style={{ background: FORMULA_COLORS[f] }} />{f}
-            </div>
-          ))}
-        </div>
-      </div>
+      <p className="font-data text-[10px] text-inkfaint mt-1">Formula counts are non-exclusive: a study naming more than one formula (e.g. "Ramanathan (1964), Hardy &amp; DuBois (1938)") is counted once under each, so the formula column can total more than {yCount}.</p>
       <TooltipPortal tip={tip} />
     </div>
   )
@@ -880,7 +768,7 @@ export default function ChapterBody({ data }) {
         title="What's measured, and how"
         intro={`Skin temperature (${skinTempN} studies, ${skinTempPct}%) and heart rate (${heartRateN}, ${heartRatePct}%) dominate by a wide margin over every other signal. Other signals appear far less often and are typically paired with skin temperature or heart rate rather than measured in isolation.`}
       >
-        <FigureCard figNumber="20" title="Most frequently measured signals" plotWidth={980} commentary={`Skin temperature dominates at ${skinTempN} of ${summary.n_experiments} experiments (${skinTempPct}%) — more than triple the next most common signal, heart/pulse rate at ${heartRateN} (${heartRatePct}%). After that the field thins out fast: core/body temperature and blood pressure each appear in well under a fifth of experiments.`}>
+        <FigureCard figNumber="21" title="Most frequently measured signals" plotWidth={980} commentary={`Skin temperature dominates at ${skinTempN} of ${summary.n_experiments} experiments (${skinTempPct}%) — more than triple the next most common signal, heart/pulse rate at ${heartRateN} (${heartRatePct}%). After that the field thins out fast: core/body temperature and blood pressure each appear in well under a fifth of experiments.`}>
           <PeriodHeatmap
             rows={fig17_physio_params.data.map((d) => d.parameter)}
             periods={signal_freq_by_period.periods}
@@ -892,7 +780,7 @@ export default function ChapterBody({ data }) {
           />
         </FigureCard>
 
-        <FigureCard figNumber="21" title="Which signals get measured together" plotWidth={680} commentary={`Skin temperature (${cooccurSkinTotal} studies) and heart/pulse rate (${cooccurHrTotal}) are individually the most common signals, and ${skinHrCooccur} studies measure both together — about ${hrAlsoSkinPct}% of all heart-rate studies also track skin temperature.`}>
+        <FigureCard figNumber="22" title="Which signals get measured together" plotWidth={680} commentary={`Skin temperature (${cooccurSkinTotal} studies) and heart/pulse rate (${cooccurHrTotal}) are individually the most common signals, and ${skinHrCooccur} studies measure both together — about ${hrAlsoSkinPct}% of all heart-rate studies also track skin temperature.`}>
           <CooccurrenceMatrix labels={fig18_physio_cooccurrence.labels} matrix={fig18_physio_cooccurrence.matrix} cellSize={38} colorScheme="blue" />
         </FigureCard>
       </ChapterSection>
@@ -902,7 +790,7 @@ export default function ChapterBody({ data }) {
         intro="The same signal can be captured by very different instruments. This flow covers 15 signals measured in ≥5 studies, 53 distinct sensor types used across them, and every commercial brand behind those sensors — ordered by thermophysiological mechanism."
       >
         <FigureCard
-          figNumber="22"
+          figNumber="23"
           title="Signal → sensor type → brand"
           plotWidth={1100}
           commentary={[
@@ -914,7 +802,7 @@ export default function ChapterBody({ data }) {
           <SignalSensorBrandSankey overall={physio_signal_sensor.overall} signalTotals={physio_signal_sensor.signal_totals} signalInstanceTotals={physio_signal_sensor.signal_instance_totals} brandData={physio_signal_sensor.signal_method_brand} nExperiments={summary.n_experiments} />
         </FigureCard>
 
-        <FigureCard figNumber="23" title="Where on the body each signal is measured" plotWidth={900} commentary={`Skin temperature is measured across the body fairly evenly (no single dominant site). Heart rate concentrates at the chest (${hrChest} of ${hrN} studies, ECG-strap territory) and wrist (${hrWrist}, optical wearables). The sudomotor signals split sharply by method: ${sweatWholeBody} sweat-indicator studies measure the whole body at once (not shown on the diagram, see the list at right), while skin conductance is almost always local — ${conductanceWrist} studies at the wrist, ${conductanceFinger} at the finger.`}>          <BodySiteToggle
+        <FigureCard figNumber="24" title="Where on the body each signal is measured" plotWidth={900} commentary={`Skin temperature is measured across the body fairly evenly (no single dominant site). Heart rate concentrates at the chest (${hrChest} of ${hrN} studies, ECG-strap territory) and wrist (${hrWrist}, optical wearables). The sudomotor signals split sharply by method: ${sweatWholeBody} sweat-indicator studies measure the whole body at once (not shown on the diagram, see the list at right), while skin conductance is almost always local — ${conductanceWrist} studies at the wrist, ${conductanceFinger} at the finger.`}>          <BodySiteToggle
             skinTempSites={skintemp_sites.site_totals}
             skinTempN={skintemp_sites.n_studies_with_site}
             hrSites={site_by_signal['Heart/Pulse rate'].site_totals}
@@ -929,7 +817,7 @@ export default function ChapterBody({ data }) {
         title="How sensor choice has shifted over time"
         intro="For skin temperature, thermocouples made up 55% of sensors in 2013–14 but only 25% by 2023–24, while Thermochron-type dataloggers (e.g. iButton) rose from 18% to 52% over the same span — the field's main displacement story. Bars show method prevalence among experiments measuring the signal in each period. Because one experiment may use several methods, percentages need not sum to 100%."
       >
-        <FigureCard figNumber="24" title="Sensor choice by signal" size="wide" commentary="Use the signal toggles to compare method prevalence over time. Each bar uses experiments measuring the selected signal in that period as its denominator; methods are non-exclusive.">
+        <FigureCard figNumber="25" title="Sensor choice by signal" size="wide" commentary="Use the signal toggles to compare method prevalence over time. Each bar uses experiments measuring the selected signal in that period as its denominator; methods are non-exclusive.">
           <SensorEvolutionToggle signals={evoSignals} evoData={evo_signal_sensor} periods={evo_signal_sensor.periods} />
         </FigureCard>
       </ChapterSection>
@@ -938,7 +826,7 @@ export default function ChapterBody({ data }) {
         title="Skin temperature body sites"
         intro="Where on the body skin temperature is measured, and how that has shifted across the decade. Only near-synonymous labels are collapsed (e.g. calf/shin → lower leg); distinct face sub-sites remain separate."
       >
-        <FigureCard figNumber="25" title="Site prevalence by period" plotWidth={980} commentary={`${topSkinSite.site} is the single most-measured site (${topSkinSite.total} of ${skintemp_sites.n_studies_with_site} skin-temperature studies, ${topSkinSitePct}%), followed closely by ${nextSkinSitesLabel} (all ${nextSkinSitesMin}–${nextSkinSitesMax} studies). No one site is measured in every study — choice of body site is still inconsistent across the field.`}>
+        <FigureCard figNumber="26" title="Site prevalence by period" plotWidth={980} commentary={`${topSkinSite.site} is the single most-measured site (${topSkinSite.total} of ${skintemp_sites.n_studies_with_site} skin-temperature studies, ${topSkinSitePct}%), followed closely by ${nextSkinSitesLabel} (all ${nextSkinSitesMin}–${nextSkinSitesMax} studies). No one site is measured in every study — choice of body site is still inconsistent across the field.`}>
           <PeriodHeatmap
             rows={allSites.map((s) => s.site)}
             periods={periods}
@@ -955,7 +843,7 @@ export default function ChapterBody({ data }) {
         title="Where other signals are measured"
         intro="Skin temperature isn't the only signal where measurement site reflects a real methodological choice. Heart rate's site splits roughly along sensor modality (chest straps vs. wrist/finger optical sensors); skin conductance follows electrode-placement convention; sweat is measured either at a local site or, more often, across the whole body at once — two fundamentally different kinds of measurement sharing one field name."
       >
-        <FigureCard figNumber="26" title="Heart/pulse rate measurement site" plotWidth={980} commentary={`Chest (${hrChest} of ${hrN} studies) and wrist (${hrWrist}) are the two dominant sites — roughly, ECG-strap vs. optical-wearable territory. The matrix below shows the full site distribution over time.`}>
+        <FigureCard figNumber="27" title="Heart/pulse rate measurement site" plotWidth={980} commentary={`Chest (${hrChest} of ${hrN} studies) and wrist (${hrWrist}) are the two dominant sites — roughly, ECG-strap vs. optical-wearable territory. The matrix below shows the full site distribution over time.`}>
           {(() => {
             const hr = site_by_signal['Heart/Pulse rate'].by_period
             const hrSites = site_by_signal['Heart/Pulse rate'].site_totals.map((d) => d.site)
@@ -979,7 +867,7 @@ export default function ChapterBody({ data }) {
         title="Mean skin temperature"
         intro={`${mst.n_mst_studies} studies explicitly calculate a weighted mean skin temperature. The calculation rate has declined over the decade even as formula choice has diversified beyond the classic Ramanathan formula.`}
       >
-        <FigureCard figNumber="27" title="MST calculation pathway" plotWidth={980} commentary="The Sankey separates whether MST is calculated at all from the details that only become meaningful once MST is calculated: number of skin-temperature points and formula label.">
+        <FigureCard figNumber="28" title="MST calculation pathway" plotWidth={980} commentary="The Sankey separates whether MST is calculated at all from the details that only become meaningful once MST is calculated: number of skin-temperature points and formula label.">
           <MstSankey mst={mst} totalExperiments={summary.n_experiments} />
         </FigureCard>
       </ChapterSection>

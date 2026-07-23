@@ -350,49 +350,61 @@ def parse_pts(val):
     nums = re.findall(r'\d+', str(val))
     return int(nums[0]) if nums else None
 
-def clean_formula(val):
-    if val is None or str(val).strip() in CODES or str(val).strip()=='':
-        return 'NR'
-    val = str(val).strip().replace('Hardy & Dubois','Hardy & DuBois')
-    if len(val) > 50 and (',' in val or '+' in val):
-        return 'Multiple'
-    return val
+def clean_formula_tokens(val):
+    """Split a possibly multi-formula MST-formula string into individual,
+    lightly-normalized labels. Returns [] for NR/NC/missing so the caller
+    falls back to a single 'NR' bucket. Deliberately does NOT collapse
+    long/multi-value entries into a generic 'Multiple' or 'Other' bucket --
+    every formula actually named in the corpus gets its own label, and a
+    study naming more than one formula (e.g. "Ramanathan (1964), Hardy &
+    DuBois (1938)") is counted once under each. This makes the formula
+    column non-exclusive: it can sum to more than the number of
+    MST-calculating studies. See the Fig. 27 footnote on the site."""
+    if val is None or str(val).strip() in CODES or str(val).strip() == '':
+        return []
+    tokens = []
+    for t in str(val).split(','):
+        t = t.strip()
+        if not t:
+            continue
+        t = t.replace('Hardy & Dubois', 'Hardy & DuBois')
+        t = t.replace('ISO 9920:2007', 'ISO 9920: 2007')
+        if t == 'Wang & Lian':  # same formula as 'Wang & Lian (2019)' elsewhere in the corpus, missing its year here
+            t = 'Wang & Lian (2019)'
+        tokens.append(t)
+    return tokens
 
 mst_only = studies_mst[studies_mst['physio-mst-calculated']=='Y'].copy()
 mst_only['pts'] = mst_only['physio-mst-points'].apply(parse_pts)
-mst_only['formula'] = mst_only['physio-mst-formula'].apply(clean_formula)
+mst_only['formula_tokens'] = mst_only['physio-mst-formula'].apply(clean_formula_tokens)
+mst_only['pt_label'] = mst_only['pts'].apply(lambda p: 'NR/NC' if p is None or pd.isna(p) else str(int(p)))
 
-def formula_group(f):
-    if f == 'NR': return 'NR'
-    if 'Ramanathan' in f: return 'Ramanathan (1964)'
-    if 'Hardy' in f and 'DuBois' in f: return 'Hardy & DuBois (1938)'
-    if 'ISO 9886' in f: return 'ISO 9886: 2004'
-    if 'Colin' in f or 'Houdas' in f: return 'Colin & Houdas (1982)'
-    if 'Ouyang' in f: return 'Ouyang (1985)'
-    if 'McIntyre' in f: return 'McIntyre (1980)'
-    return 'Other/Multiple'
-mst_only['formula_grp'] = mst_only['formula'].apply(formula_group)
-formula_by_period = mst_only.groupby(['period','formula_grp']).size().reset_index(name='count')
+# Exclusive: exactly one point-count bucket per Y-study (used to size the
+# point-column nodes -- must NOT be derived from the exploded links below,
+# since a study naming two formulas would otherwise get double-counted).
+points_totals = mst_only.groupby('pt_label').size().reset_index(name='count')
+numeric_points = sorted({int(p) for p in mst_only['pts'].dropna().unique()})
+point_order = [str(p) for p in numeric_points] + (['NR/NC'] if (mst_only['pt_label'] == 'NR/NC').any() else [])
 
-def bucket_pt(x):
-    if x is None or pd.isna(x): return 'Points NR/NC'
-    if x <= 4: return '2–4'
-    if x <= 8: return '5–8'
-    if x <= 14: return '9–14'
-    return '15+'
-mst_only['pt_bucket'] = mst_only['pts'].apply(bucket_pt)
-points_by_formula = mst_only.groupby(['pt_bucket','formula_grp']).size().reset_index(name='count')
+# Non-exclusive: one row per (study, formula-it-names) pair.
+pt_formula_rows = []
+for _, row in mst_only.iterrows():
+    for tok in (row['formula_tokens'] or ['NR']):
+        pt_formula_rows.append({'pt_label': row['pt_label'], 'formula': tok})
+pt_formula_df = pd.DataFrame(pt_formula_rows)
+point_formula_links = pt_formula_df.groupby(['pt_label', 'formula']).size().reset_index(name='count')
+formula_totals = pt_formula_df.groupby('formula').size().reset_index(name='count')
 
 with open(OUT_DIR / 'mst.json', 'w') as f:
     json.dump({
         'calc_rate_by_period': mst_rate.to_dict('records'),
-        'formula_by_period': formula_by_period.to_dict('records'),
-        'points_by_formula': points_by_formula.to_dict('records'),
-        'formula_order': sorted(mst_only['formula_grp'].dropna().unique().tolist()),
-        'periods': [b[2] for b in BINS],
+        'points_totals': points_totals.to_dict('records'),
+        'formula_totals': formula_totals.to_dict('records'),
+        'point_formula_links': point_formula_links.to_dict('records'),
+        'point_order': point_order,
         'n_mst_studies': int(len(mst_only)),
     }, f, indent=2, default=str)
-print(f'mst.json written: {len(mst_only)} studies calculating MST')
+print(f'mst.json written: {len(mst_only)} studies calculating MST, {len(formula_totals)} distinct formulas')
 
 # ── 7. Core/Body temperature sensor × site crossmap ────────────────────────
 SENSOR_MAP_CBT = {

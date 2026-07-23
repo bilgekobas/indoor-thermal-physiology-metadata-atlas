@@ -109,9 +109,11 @@ export default function About({ data }) {
         <section>
           <h2 className="text-[15px] font-semibold mb-2">Limitations & judgment calls</h2>
           <p className="text-[13.5px] text-inkmid leading-relaxed">
-            The general rule while extracting metadata from publications was "Only extract was it explicitly reported", 
-            however there were still several occasions they required judgment calls.
-            These are documented, with the exact reasoning and numbers affected, in{' '}
+            Turning the raw corpus into the figures on this site required real judgment calls —
+            how to classify thermal comfort scale polarity, how to harmonise free-text sensor
+            and cognitive-test names, how to resolve city names to map coordinates, which
+            thresholds keep a chart legible versus cluttered. Every one of these is documented,
+            with the exact reasoning and numbers affected, in{' '}
             <a
               href="https://github.com/bilgekobas/indoor-thermal-physiology-metadata-atlas/blob/main/LIMITATIONS.md"
               className="text-coreaccent hover:underline"
@@ -120,7 +122,7 @@ export default function About({ data }) {
             >
               LIMITATIONS.md
             </a>{' '}
-            in the repository.
+            in the repository. Start there before asking "how exactly did you handle X."
           </p>
         </section>
 
