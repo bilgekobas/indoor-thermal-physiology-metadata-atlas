@@ -306,7 +306,6 @@ function SignalSensorBrandSankey({ overall, signalTotals, signalInstanceTotals, 
       sigSenLinks, senBrandLinks, W: COL_BRAND + 190, H,
       maxFlow: Math.max(...overall.map((r) => r.count), 1),
       nExperiments: nExperiments || 1,
-      sensorDenom: sensorEntries.reduce((a, d) => a + d.total, 0) || 1,
       nTotalBrands: new Set(brandData.map((r) => r.brand)).size,
       brandDenom: brandEntries.reduce((a, d) => a + d.total, 0) || 1,
       brandSensorMap,
@@ -427,14 +426,16 @@ function SignalSensorBrandSankey({ overall, signalTotals, signalInstanceTotals, 
             })}
             {layout.sensor.map((n) => {
               const active = isActive({ sensor: n.name })
-              const singleParent = n.parentSignals?.length === 1 ? n.parentSignals[0] : null
-              const pct = singleParent
-                ? (n.total / Math.max(singleParent.denominator, 1)) * 100
-                : (n.total / layout.sensorDenom) * 100
+              const parentSignals = n.parentSignals || []
+              const dominant = parentSignals.length ? [...parentSignals].sort((a, b) => b.count - a.count)[0] : null
+              const isMixed = parentSignals.length > 1
+              const pct = dominant ? (n.total / Math.max(dominant.denominator, 1)) * 100 : 0
               const label = `${n.name}, ${n.total} (${pct.toFixed(0)}%)`
-              const parentDetail = singleParent
-                ? `${n.total} of ${singleParent.denominator} ${singleParent.signal} experiments (${pct.toFixed(1)}%)`
-                : `${n.total} experiment–signal–method instances across ${n.parentSignals.length} parent signals (${pct.toFixed(1)}% of all sensor-type flow instances shown here — this sensor type has no single unambiguous denominator; hover each incoming link for its signal-specific share)`
+              const parentDetail = !dominant
+                ? `${n.total} experiment–signal–method instances`
+                : isMixed
+                ? `${n.total} total (${dominant.count} of ${dominant.denominator} ${dominant.signal} experiments, ${pct.toFixed(1)}% — its dominant signal; ${n.total - dominant.count} more instance${n.total - dominant.count === 1 ? '' : 's'} come from ${parentSignals.length - 1} other signal${parentSignals.length - 1 === 1 ? '' : 's'}, see incoming links)`
+                : `${n.total} of ${dominant.denominator} ${dominant.signal} experiments (${pct.toFixed(1)}%)`
               return (
                 <g key={n.name}
                   onClick={() => setSelected(selected?.level === 'sensor' && selected.name === n.name ? null : { level: 'sensor', name: n.name })}
