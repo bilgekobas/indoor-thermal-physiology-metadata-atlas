@@ -423,6 +423,8 @@ export default function ChapterContext({ data }) {
   } = data
 
   const totalPubs = fig01_pubs_by_year.data.reduce((a, d) => a + d.count, 0)
+  const pubYearSorted = [...fig01_pubs_by_year.data].sort((a, b) => a.year - b.year)
+  const earliestYear = pubYearSorted[0]
   const [sessionStats, setSessionStats] = useState(null)
   const [normStats, setNormStats] = useState(null)
 
@@ -442,6 +444,7 @@ export default function ChapterContext({ data }) {
   }, [domain_detail])
 
   const peakYear = fig01_pubs_by_year.data.reduce((best, d) => (d.count > best.count ? d : best))
+  const growthMultiple = (peakYear.count / Math.max(earliestYear.count, 1)).toFixed(0)
   const topCountryShare = ((geo_choropleth.data[0].count / summary.n_publications) * 100).toFixed(0)
 
   // Fig 3 commentary inputs (city resolution rate, top-2 cities, China's
@@ -516,7 +519,7 @@ export default function ChapterContext({ data }) {
         title="When and where research happens"
         intro="Publication volume has risen steadily, with a dip during 2020–21. Research is geographically concentrated, and that concentration shapes more than just where studies happen — sample size patterns differ by country too, and the climate a study is conducted in often doesn't match the temperature values it tests."
       >
-        <FigureCard figNumber="2" title="Publications by year" size="wide" commentary="A clear upward trend with a COVID-era dip.">
+        <FigureCard figNumber="2" title="Publications by year" size="wide" commentary={`Output grew from ${earliestYear.count} studies in ${earliestYear.year} to a peak of ${peakYear.count} in ${peakYear.year} — roughly a ${growthMultiple}× increase over the review window. That growth isn't a straight line: year-to-year counts dip and rebound (note 2020–21), so a single year's count is noisier than the overall trend.`}>
           <PublicationsByYearChart data={fig01_pubs_by_year.data} totalPubs={totalPubs} />
         </FigureCard>
 
