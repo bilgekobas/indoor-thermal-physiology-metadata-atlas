@@ -427,16 +427,21 @@ function SignalSensorBrandSankey({ overall, signalTotals, signalInstanceTotals, 
             })}
             {layout.sensor.map((n) => {
               const active = isActive({ sensor: n.name })
-              const singleParent = n.parentSignals?.length === 1 ? n.parentSignals[0] : null
-              const pct = singleParent
-                ? (n.total / Math.max(singleParent.denominator, 1)) * 100
+              // Sensor methods may occur under multiple physiological signals. For the
+              // visible node label, use the dominant incoming signal so that the
+              // numerator and denominator describe the same population. The node height
+              // still represents all experiment–signal–method instances.
+              const primaryParent = [...(n.parentSignals || [])]
+                .sort((a, b) => b.count - a.count)[0] || null
+              const pct = primaryParent
+                ? (primaryParent.count / Math.max(primaryParent.denominator, 1)) * 100
                 : null
-              const label = pct == null
-                ? `${n.name}, ${n.total}`
-                : `${n.name}, ${n.total} (${pct.toFixed(0)}%)`
-              const parentDetail = singleParent
-                ? `${n.total} of ${singleParent.denominator} ${singleParent.signal} experiments (${pct.toFixed(1)}%)`
-                : `${n.total} experiment–signal–method instances across ${n.parentSignals.length} parent signals; hover each incoming link for its signal-specific percentage`
+              const label = primaryParent
+                ? `${n.name}, ${primaryParent.count} (${pct.toFixed(0)}%)`
+                : `${n.name}, ${n.total}`
+              const parentDetail = primaryParent
+                ? `${primaryParent.count} of ${primaryParent.denominator} ${primaryParent.signal} experiments (${pct.toFixed(1)}%); ${n.total} total experiment–signal–method instances across ${n.parentSignals.length} connected signal${n.parentSignals.length === 1 ? '' : 's'}`
+                : `${n.total} experiment–signal–method instances`
               return (
                 <g key={n.name}
                   onClick={() => setSelected(selected?.level === 'sensor' && selected.name === n.name ? null : { level: 'sensor', name: n.name })}
