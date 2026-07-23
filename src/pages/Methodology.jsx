@@ -6,16 +6,7 @@ export default function Methodology({ data }) {
   const { summary } = data
   return (
     <div>
-      <PageHeader eyebrow="Reference" title="Methodology">
-        <a
-          href="https://zenodo.org/records/20218318"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded border border-coreaccent text-coreaccent text-[12.5px] font-data hover:bg-coreaccent hover:text-white transition-colors"
-        >
-          ↓ Download the full dataset (Zenodo)
-        </a>
-      </PageHeader>
+      <PageHeader eyebrow="Reference" title="Methodology" />
 
       <div className="px-10 py-8 max-w-3xl space-y-8">
         <section>

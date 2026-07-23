@@ -76,7 +76,7 @@ export default function Sidebar({ summary }) {
             Overview
           </NavLink>
           <NavLink to="/browse" className={({ isActive }) => `block px-2 py-1.5 rounded text-[13.5px] mb-0.5 transition-colors leading-snug ${isActive ? 'bg-ink text-paper font-medium' : 'text-ink hover:bg-line/60'}`}>
-            Browse
+            Browse & Download
           </NavLink>
           <NavLink to="/dictionary" className={({ isActive }) => `block px-2 py-1.5 rounded text-[13.5px] mb-0.5 transition-colors leading-snug ${isActive ? 'bg-ink text-paper font-medium' : 'text-ink hover:bg-line/60'}`}>
             Variable dictionary

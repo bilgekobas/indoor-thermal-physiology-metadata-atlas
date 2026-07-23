@@ -113,11 +113,11 @@ export default function Overview({ data }) {
             to="/browse"
             className="inline-flex items-center px-4 py-2 rounded-md bg-ink text-paper text-[13.5px] font-medium hover:bg-coreaccent transition-colors"
           >
-            Browse the entire corpus →
+            Browse & download the data →
           </Link>
           <Link
             to="/dictionary"
-            className="inline-flex items-center px-4 py-2 rounded-md border border-ink text-ink text-[13.5px] font-medium hover:border-coreaccent hover:text-coreaccent transition-colors"
+            className="inline-flex items-center px-4 py-2 rounded-md bg-ink text-paper text-[13.5px] font-medium hover:bg-coreaccent transition-colors"
           >
             Browse the variable dictionary →
           </Link>
