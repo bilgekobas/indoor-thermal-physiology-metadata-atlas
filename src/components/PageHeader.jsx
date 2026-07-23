@@ -1,4 +1,4 @@
-export default function PageHeader({ eyebrow, title, description }) {
+export default function PageHeader({ eyebrow, title, description, children }) {
   return (
     <div className="px-10 pt-10 pb-6 border-b border-line">
       {eyebrow && (
@@ -12,6 +12,7 @@ export default function PageHeader({ eyebrow, title, description }) {
           {description}
         </p>
       )}
+      {children && <div className="mt-4">{children}</div>}
     </div>
   )
 }

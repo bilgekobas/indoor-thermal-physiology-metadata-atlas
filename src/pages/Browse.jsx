@@ -95,7 +95,16 @@ export default function Browse({ data }) {
         eyebrow="Explore"
         title="Browse studies"
         description="Filter the corpus by experiment type, country, signal, or publication year. Each row is one publication-experiment unit."
-      />
+      >
+        <a
+          href="https://zenodo.org/records/20218318"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded border border-coreaccent text-coreaccent text-[12.5px] font-data hover:bg-coreaccent hover:text-white transition-colors"
+        >
+          ↓ Download the full dataset (Zenodo)
+        </a>
+      </PageHeader>
 
       <div className="px-10 py-5 border-b border-line flex flex-wrap gap-3 items-center bg-white/30">
         <input type="text" placeholder="Search title, author, journal, DOI, signal…" value={query} onChange={(e) => setQuery(e.target.value)} className="px-3 py-1.5 rounded border border-line text-[13px] w-80 bg-white" />
