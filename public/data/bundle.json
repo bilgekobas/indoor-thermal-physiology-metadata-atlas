@@ -1,7 +1,7 @@
 {
   "author_network_summary": {
-    "n_authors": 792,
-    "n_pairs": 2316,
+    "n_authors": 788,
+    "n_pairs": 2282,
     "n_components": 85,
     "largest_component_size": 360,
     "n_isolated_authors": 1,
@@ -95828,7 +95828,7 @@
       "id-pub-id": 1075,
       "id": "1075_1",
       "id-title": "Effects of different classroom temperatures on cardiac autonomic control and cognitive performances in undergraduate students",
-      "id-authors": "Franca Barbic, M Minonzio, Beatrice Cairo, Dana Shiffer, Angelo Dipasquale, Luca Cerina, A Vatteroni, Vasile Urechie, P Verzeletti, Fabio Badilini, Martino Vaglio, R Iatrino, Alberto Porta, Marco D. Santambrogio, R Gatti, Raffaello Furlan",
+      "id-authors": "Franca Barbic, M Minonzio, Beatrice Cairo, Dana Shiffer, Angelo Dipasquale, Luca Cerina, A Vatteroni, Vasile Urechie, Paolo Verzeletti, Fabio Badilini, Martino Vaglio, R Iatrino, Alberto Porta, Marco D. Santambrogio, Roberto Gatti, Raffaello Furlan",
       "id-city": "Milan",
       "id-country": "Italy",
       "id-climate-class": "Cfa",
@@ -97466,7 +97466,7 @@
       "id-pub-id": 1145,
       "id": "1145_1",
       "id-title": "Physiological and subjective comfort evaluation under different airflow directions in a cooling environment",
-      "id-authors": "Kaori Tamura, Sayaka Matsumoto, Yu Hsuan Tseng, Takayuki Kobayashi, Jun’ichi Miwa, Ken’ichi Miyazawa, Toyotaka Hirao, Soichiro Matsumoto, Seiji Hiramatsu, Hiroyuki Otake, Tsuyoshi Okamoto",
+      "id-authors": "Kaori Tamura, Sayaka Matsumoto, Yu Hsuan Tseng, Takayuki Kobayashi, Jun'ichi Miwa, Ken'ichi Miyazawa, Toyotaka Hirao, Soichiro Matsumoto, Seiji Hiramatsu, Hiroyuki Otake, Tsuyoshi Okamoto",
       "id-city": "Aichi",
       "id-country": "Japan",
       "id-climate-class": "Cfa",
@@ -100347,7 +100347,7 @@
     "n_variables": 206,
     "year_min": 2013,
     "year_max": 2024,
-    "generated_at": "2026-07-29T16:08:34.410577"
+    "generated_at": "2026-07-29T16:38:52.597670"
   },
   "variable_dictionary": {
     "data": [
