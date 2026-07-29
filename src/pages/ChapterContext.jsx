@@ -446,7 +446,8 @@ export default function ChapterContext({ data }) {
 
   const peakYear = fig01_pubs_by_year.data.reduce((best, d) => (d.count > best.count ? d : best))
   const growthMultiple = (peakYear.count / Math.max(earliestYear.count, 1)).toFixed(0)
-  const topCountryShare = ((geo_choropleth.data[0].count / summary.n_publications) * 100).toFixed(0)
+  const topCountry = [...geo_choropleth.data].sort((a, b) => b.count - a.count)[0]
+  const topCountryShare = ((topCountry.count / summary.n_publications) * 100).toFixed(0)
 
   // Fig 3 commentary inputs (city resolution rate, top-2 cities, China's
   // share of studies from earliest to latest 2-year period). Computed from
@@ -495,7 +496,7 @@ export default function ChapterContext({ data }) {
         headline={[
           { value: summary.n_publications, label: 'Publications, ' + summary.year_min + '–' + summary.year_max },
           { value: peakYear.year, label: `Peak year (${peakYear.count} studies)`, color: '#0A0A0A' },
-          { value: `${topCountryShare}%`, label: `of studies from ${geo_choropleth.data[0].country}`, color: '#5B5BFF' },
+          { value: `${topCountryShare}%`, label: `of studies from ${topCountry.atlas_name}`, color: '#5B5BFF' },
         ]}
       />
 
