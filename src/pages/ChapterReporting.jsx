@@ -38,8 +38,6 @@ export default function ChapterReporting({ data }) {
   const { field_completeness_detailed, summary } = data
   const groups = Object.entries(field_completeness_detailed)
   const flat = groups.flatMap(([group, obj]) => obj.fields.map((f) => ({ ...f, group })))
-  const highest = [...flat].sort((a, b) => b.pct - a.pct)[0]
-  const lowest = [...flat].sort((a, b) => a.pct - b.pct)[0]
   const maxDenominator = Math.max(summary.n_experiments || 0, ...flat.map((f) => f.denominator || 0), 1)
 
   return (
@@ -63,8 +61,6 @@ export default function ChapterReporting({ data }) {
           </>
         }
         headline={[
-          { value: `${highest.pct}%`, label: `${highest.field} is the most complete evaluated field`, color: '#5B5BFF' },
-          { value: `${lowest.pct}%`, label: `${lowest.field} is the least complete evaluated field`, color: '#FB3640' },
           { value: flat.length, label: 'evaluated fields in this synthesis view', color: '#0A0A0A' },
           { value: summary.n_variables, label: 'coded variables across the corpus' },
         ]}

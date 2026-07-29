@@ -7374,6 +7374,7 @@
     }
   ],
   "n_total": 133,
+  "n_distinct_scales": 59,
   "code_breakdown": {
     "mnr": 7,
     "nr": 127,

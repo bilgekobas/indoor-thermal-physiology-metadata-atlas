@@ -130,72 +130,72 @@
     "fields": [
       {
         "field": "Sensor type",
-        "count": 285,
+        "count": 287,
         "denominator": 295,
-        "pct": 96.6,
+        "pct": 97.3,
         "rule": "general"
       },
       {
         "field": "Sensor brand",
-        "count": 252,
+        "count": 263,
         "denominator": 295,
-        "pct": 85.4,
+        "pct": 89.2,
         "rule": "general"
       },
       {
         "field": "Sensor model",
-        "count": 237,
+        "count": 255,
         "denominator": 295,
-        "pct": 80.3,
+        "pct": 86.4,
         "rule": "general"
       },
       {
         "field": "Body site",
-        "count": 286,
+        "count": 289,
         "denominator": 295,
-        "pct": 96.9,
+        "pct": 98.0,
         "rule": "general"
       },
       {
         "field": "Sagittal location",
-        "count": 117,
+        "count": 168,
         "denominator": 295,
-        "pct": 39.7,
+        "pct": 56.9,
         "rule": "general"
       },
       {
         "field": "Surface location",
-        "count": 184,
+        "count": 228,
         "denominator": 295,
-        "pct": 62.4,
+        "pct": 77.3,
         "rule": "general"
       },
       {
         "field": "Number of MST points",
-        "count": 122,
-        "denominator": 123,
-        "pct": 99.2,
+        "count": 143,
+        "denominator": 144,
+        "pct": 99.3,
         "rule": "mst"
       },
       {
         "field": "MST formula used",
-        "count": 111,
-        "denominator": 123,
-        "pct": 90.2,
+        "count": 132,
+        "denominator": 144,
+        "pct": 91.7,
         "rule": "mst"
       },
       {
         "field": "Full formula text",
-        "count": 102,
-        "denominator": 123,
-        "pct": 82.9,
+        "count": 121,
+        "denominator": 144,
+        "pct": 84.0,
         "rule": "mst"
       },
       {
         "field": "Weighting factors per region",
-        "count": 93,
-        "denominator": 123,
-        "pct": 75.6,
+        "count": 111,
+        "denominator": 144,
+        "pct": 77.1,
         "rule": "mst"
       }
     ]

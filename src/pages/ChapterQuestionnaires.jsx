@@ -213,7 +213,7 @@ export default function ChapterQuestionnaires({ data }) {
         headline={[
           { value: `${tsvPct}%`, label: 'of studies use a thermal sensation scale', color: '#5B5BFF' },
           { value: '77.8%', label: 'of TSV scales are the standard 7-point', color: '#FB3640' },
-          { value: fig16_tcv_scales.n_total, label: 'comfort-scale studies, with no dominant format', color: '#FB3640' },
+          { value: fig16_tcv_scales.n_distinct_scales, label: 'distinct comfort-scale structures in use, with no dominant format', color: '#FB3640' },
         ]}
       />
 

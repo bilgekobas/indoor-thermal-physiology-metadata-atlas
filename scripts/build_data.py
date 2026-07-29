@@ -1029,15 +1029,18 @@ with open(OUT_DIR / 'fig15_tsv_scales.json', 'w') as f:
         'n_total': len(tsv_parsed),
         'code_breakdown': code_breakdown(studies_u['ques-thermal-sensation']),
     }, f, indent=2)
+tcv_scale_signatures = {(s['points'], tuple(s['range']), tuple(s['labels'])) for s in tcv_parsed}
+
 with open(OUT_DIR / 'fig16_tcv_scales.json', 'w') as f:
     json.dump({
         'studies': tcv_parsed,
         'points_distribution': [{'points': int(k), 'count': int(v)} for k, v in tcv_pts_dist.items()],
         'n_total': len(tcv_parsed),
+        'n_distinct_scales': len(tcv_scale_signatures),
         'code_breakdown': code_breakdown(studies_u['ques-thermal-comfort']),
         'vas_unplaceable': vas_unplaceable_log,
     }, f, indent=2)
-print(f'fig15/16: {len(tsv_parsed)} TSV scales, {len(tcv_parsed)} TCV scales parsed')
+print(f'fig15/16: {len(tsv_parsed)} TSV scales, {len(tcv_parsed)} TCV scales parsed ({len(tcv_scale_signatures)} distinct structures)')
 if vas_typo_log:
     print(f'  \u26a0 {len(vas_typo_log)} VAS/continuous entries recovered despite a source typo (worth cleaning up):')
     for t in vas_typo_log:
@@ -1448,15 +1451,30 @@ print('chapter_completeness.json written for groups:', list(chapter_completeness
 #     excluded from this end-to-end completeness view because they are not
 #     required across all studies.
 
-def _valid_general(s):
-    return s.notna() & ~s.isin(CODES)
+def _any_row_bool(col, is_valid):
+    """Per-experiment-id boolean: True if ANY row for that id satisfies
+    is_valid(value). Needed because several physio-* fields (sensor brand,
+    sensor model, body-site, MST detail fields) are recorded per
+    physio-parameter row, not once per experiment -- studies_u keeps only
+    one arbitrary row per id, so checking that single row silently misses a
+    value that was actually reported on a different row of the same
+    experiment. Returns a dict {id: bool} to sum/count over.
+    """
+    def has_it(g):
+        return any(is_valid(v) for v in g[col])
+    return df.groupby('id', sort=False)[col].apply(lambda g: any(is_valid(v) for v in g)).to_dict()
 
-def _valid_optional_binary(s):
+def _valid_general(col):
+    per_id = _any_row_bool(col, lambda v: v is not None and str(v).strip() not in CODES and str(v).strip() != '')
+    return studies_u['id'].map(per_id).fillna(False)
+
+def _valid_optional_binary(col):
     # Optional Y/N or free-text fields: NR means the study explicitly did not use/report this item
     # and is excluded from the applicability denominator. MNR/NAN/blank remain missing.
-    st = s.astype(str).str.strip()
-    applicable = s.notna() & ~st.isin({'NR', 'NAN', ''})
-    valid = applicable & ~st.isin({'MNR'})
+    applicable_per_id = _any_row_bool(col, lambda v: v is not None and str(v).strip() not in ('NR', 'NAN', ''))
+    valid_per_id = _any_row_bool(col, lambda v: v is not None and str(v).strip() not in ('NR', 'NAN', 'MNR', ''))
+    applicable = studies_u['id'].map(applicable_per_id).fillna(False)
+    valid = studies_u['id'].map(valid_per_id).fillna(False)
     return valid, applicable
 
 FULL_COMPLETENESS_GROUPS = {
@@ -1498,7 +1516,8 @@ FULL_COMPLETENESS_GROUPS = {
     ],
 }
 
-mst_mask = studies_u['physio-mst-calculated'].astype(str).str.strip() == 'Y'
+mst_mask_per_id = _any_row_bool('physio-mst-calculated', lambda v: v is not None and str(v).strip() == 'Y')
+mst_mask = studies_u['id'].map(mst_mask_per_id).fillna(False)
 full_completeness = {}
 for group_name, specs in FULL_COMPLETENESS_GROUPS.items():
     rows = []
@@ -1506,17 +1525,14 @@ for group_name, specs in FULL_COMPLETENESS_GROUPS.items():
         if col not in studies_u.columns:
             continue
         if rule == 'mst':
-            sub = studies_u.loc[mst_mask, col]
             denom = int(mst_mask.sum())
-            valid = _valid_general(sub)
+            valid = _valid_general(col)[mst_mask]
         elif rule == 'optional_binary':
-            sub = studies_u[col]
-            valid, applicable = _valid_optional_binary(sub)
+            valid, applicable = _valid_optional_binary(col)
             denom = int(applicable.sum())
         else:
-            sub = studies_u[col]
             denom = len(studies_u)
-            valid = _valid_general(sub)
+            valid = _valid_general(col)
         count = int(valid.sum())
         rows.append({
             'field': label,
