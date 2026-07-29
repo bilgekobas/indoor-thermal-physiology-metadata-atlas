@@ -15706,7 +15706,7 @@
       "id": "1257_1"
     },
     {
-      "points": 25,
+      "points": 7,
       "scale_type": "discrete",
       "range": [
         -3.0,
@@ -15734,45 +15734,9 @@
           "is_neutral": false
         },
         {
-          "value": -2.75,
-          "label": null,
-          "is_anchor": false,
-          "is_neutral": false
-        },
-        {
-          "value": -2.5,
-          "label": null,
-          "is_anchor": false,
-          "is_neutral": false
-        },
-        {
-          "value": -2.25,
-          "label": null,
-          "is_anchor": false,
-          "is_neutral": false
-        },
-        {
           "value": -2.0,
           "label": "cool",
           "is_anchor": true,
-          "is_neutral": false
-        },
-        {
-          "value": -1.75,
-          "label": null,
-          "is_anchor": false,
-          "is_neutral": false
-        },
-        {
-          "value": -1.5,
-          "label": null,
-          "is_anchor": false,
-          "is_neutral": false
-        },
-        {
-          "value": -1.25,
-          "label": null,
-          "is_anchor": false,
           "is_neutral": false
         },
         {
@@ -15782,46 +15746,10 @@
           "is_neutral": false
         },
         {
-          "value": -0.75,
-          "label": null,
-          "is_anchor": false,
-          "is_neutral": false
-        },
-        {
-          "value": -0.5,
-          "label": null,
-          "is_anchor": false,
-          "is_neutral": false
-        },
-        {
-          "value": -0.25,
-          "label": null,
-          "is_anchor": false,
-          "is_neutral": false
-        },
-        {
           "value": 0.0,
           "label": "neutral",
           "is_anchor": true,
           "is_neutral": true
-        },
-        {
-          "value": 0.25,
-          "label": null,
-          "is_anchor": false,
-          "is_neutral": false
-        },
-        {
-          "value": 0.5,
-          "label": null,
-          "is_anchor": false,
-          "is_neutral": false
-        },
-        {
-          "value": 0.75,
-          "label": null,
-          "is_anchor": false,
-          "is_neutral": false
         },
         {
           "value": 1.0,
@@ -15830,45 +15758,9 @@
           "is_neutral": false
         },
         {
-          "value": 1.25,
-          "label": null,
-          "is_anchor": false,
-          "is_neutral": false
-        },
-        {
-          "value": 1.5,
-          "label": null,
-          "is_anchor": false,
-          "is_neutral": false
-        },
-        {
-          "value": 1.75,
-          "label": null,
-          "is_anchor": false,
-          "is_neutral": false
-        },
-        {
           "value": 2.0,
           "label": "warm",
           "is_anchor": true,
-          "is_neutral": false
-        },
-        {
-          "value": 2.25,
-          "label": null,
-          "is_anchor": false,
-          "is_neutral": false
-        },
-        {
-          "value": 2.5,
-          "label": null,
-          "is_anchor": false,
-          "is_neutral": false
-        },
-        {
-          "value": 2.75,
-          "label": null,
-          "is_anchor": false,
           "is_neutral": false
         },
         {
@@ -16022,7 +15914,7 @@
     },
     {
       "points": 7,
-      "count": 179
+      "count": 180
     },
     {
       "points": 9,
@@ -16030,10 +15922,6 @@
     },
     {
       "points": 13,
-      "count": 1
-    },
-    {
-      "points": 25,
       "count": 1
     }
   ],
