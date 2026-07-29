@@ -1190,7 +1190,7 @@ print(f'fig13_sensor_heights.json: {len(all_height_rows)} height observations')
 
 # ── A1. Signal × sensor composition by period (sensor displacement) ────
 # Reuses physio_dedup (already built above, with casing fixed)
-TRACK_SIGNALS = ['Skin temperature', 'Heart/Pulse rate', 'Core/Body temperature', 'Skin conductance']
+TRACK_SIGNALS = ['Skin temperature', 'Heart/Pulse rate', 'Core temperature', 'Body temperature', 'Skin conductance']
 signal_sensor_evolution = {}
 for sig in TRACK_SIGNALS:
     sub = physio_dedup[physio_dedup['signal'] == sig]

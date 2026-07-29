@@ -342,10 +342,170 @@
       },
       "multi_response": true
     },
-    "Core/Body temperature": {
-      "data": [],
-      "sensor_order": [],
-      "period_totals": {},
+    "Core temperature": {
+      "data": [
+        {
+          "period": "2013\u201314",
+          "sensor_grp": "Ingestible pill",
+          "count": 2
+        },
+        {
+          "period": "2013\u201314",
+          "sensor_grp": "Probe",
+          "count": 1
+        },
+        {
+          "period": "2013\u201314",
+          "sensor_grp": "Thermometer",
+          "count": 2
+        },
+        {
+          "period": "2015\u201316",
+          "sensor_grp": "Ingestible pill",
+          "count": 2
+        },
+        {
+          "period": "2017\u201318",
+          "sensor_grp": "Probe",
+          "count": 1
+        },
+        {
+          "period": "2019\u201320",
+          "sensor_grp": "Ingestible pill",
+          "count": 1
+        },
+        {
+          "period": "2019\u201320",
+          "sensor_grp": "Thermistor",
+          "count": 1
+        },
+        {
+          "period": "2021\u201322",
+          "sensor_grp": "Infrared thermometer",
+          "count": 1
+        },
+        {
+          "period": "2021\u201322",
+          "sensor_grp": "Ingestible pill",
+          "count": 4
+        },
+        {
+          "period": "2021\u201322",
+          "sensor_grp": "Thermistor",
+          "count": 2
+        },
+        {
+          "period": "2023\u201324",
+          "sensor_grp": "Ingestible pill",
+          "count": 1
+        },
+        {
+          "period": "2023\u201324",
+          "sensor_grp": "Thermochron",
+          "count": 1
+        }
+      ],
+      "sensor_order": [
+        "Ingestible pill",
+        "Thermistor",
+        "Thermometer",
+        "Probe",
+        "Infrared thermometer",
+        "Thermochron"
+      ],
+      "period_totals": {
+        "2013\u201314": 5,
+        "2015\u201316": 2,
+        "2017\u201318": 1,
+        "2019\u201320": 2,
+        "2021\u201322": 7,
+        "2023\u201324": 2
+      },
+      "multi_response": true
+    },
+    "Body temperature": {
+      "data": [
+        {
+          "period": "2015\u201316",
+          "sensor_grp": "Thermometer",
+          "count": 3
+        },
+        {
+          "period": "2017\u201318",
+          "sensor_grp": "Thermometer",
+          "count": 1
+        },
+        {
+          "period": "2019\u201320",
+          "sensor_grp": "Infrared thermometer",
+          "count": 2
+        },
+        {
+          "period": "2019\u201320",
+          "sensor_grp": "NR",
+          "count": 2
+        },
+        {
+          "period": "2019\u201320",
+          "sensor_grp": "Thermistor",
+          "count": 1
+        },
+        {
+          "period": "2019\u201320",
+          "sensor_grp": "Thermometer",
+          "count": 1
+        },
+        {
+          "period": "2021\u201322",
+          "sensor_grp": "Infrared thermometer",
+          "count": 4
+        },
+        {
+          "period": "2021\u201322",
+          "sensor_grp": "Mercury thermometer",
+          "count": 1
+        },
+        {
+          "period": "2021\u201322",
+          "sensor_grp": "NR",
+          "count": 5
+        },
+        {
+          "period": "2021\u201322",
+          "sensor_grp": "Thermometer",
+          "count": 1
+        },
+        {
+          "period": "2023\u201324",
+          "sensor_grp": "Heat flux/Heat flow",
+          "count": 1
+        },
+        {
+          "period": "2023\u201324",
+          "sensor_grp": "Infrared thermometer",
+          "count": 9
+        },
+        {
+          "period": "2023\u201324",
+          "sensor_grp": "Mercury thermometer",
+          "count": 1
+        }
+      ],
+      "sensor_order": [
+        "Infrared thermometer",
+        "NR",
+        "Thermometer",
+        "Mercury thermometer",
+        "Thermistor",
+        "Heat flux/Heat flow"
+      ],
+      "period_totals": {
+        "2015\u201316": 3,
+        "2017\u201318": 1,
+        "2019\u201320": 6,
+        "2021\u201322": 10,
+        "2023\u201324": 11
+      },
       "multi_response": true
     },
     "Skin conductance": {
