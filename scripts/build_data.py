@@ -810,9 +810,13 @@ physio_clean = df[['id', 'physio-parameter']].copy()
 physio_clean = physio_clean[~physio_clean['physio-parameter'].isin(CODES)]
 physio_clean = physio_clean[physio_clean['physio-parameter'].notna()]
 physio_clean['physio-parameter'] = physio_clean['physio-parameter'].astype(str).str.strip()
-physio_clean['physio-parameter'] = physio_clean['physio-parameter'].replace({
-    'Body temperature': 'Core/Body temperature', 'Core temperature': 'Core/Body temperature',
-})
+# NOTE: Core temperature and Body temperature are kept as separate rows here
+# (previously merged into a combined 'Core/Body temperature' label). That
+# merge caused a mismatch with physio_dedup/signal_freq_by_period, which
+# never merged these two -- so the Fig 21 by-period heatmap looked up a
+# 'Core/Body temperature' row that didn't exist in its period data and
+# rendered empty. Keeping both labels unmerged here makes fig17/fig18 and
+# the by-period heatmap consistent, and shows each signal's true count.
 physio_unique = physio_clean.drop_duplicates(subset=['id', 'physio-parameter'])
 
 param_counts = physio_unique['physio-parameter'].value_counts()

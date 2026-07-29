@@ -9,10 +9,6 @@
       "count": 148
     },
     {
-      "parameter": "Core/Body temperature",
-      "count": 48
-    },
-    {
       "parameter": "Blood pressure",
       "count": 43
     },
@@ -29,8 +25,16 @@
       "count": 32
     },
     {
+      "parameter": "Body temperature",
+      "count": 31
+    },
+    {
       "parameter": "Skin conductance",
       "count": 25
+    },
+    {
+      "parameter": "Core temperature",
+      "count": 19
     },
     {
       "parameter": "Metabolic rate/Gas exchange",

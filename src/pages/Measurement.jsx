@@ -5,7 +5,8 @@ import InteractiveBarChart from '../components/InteractiveBarChart.jsx'
 
 const DOMAIN_COLORS = {
   'Skin temperature': '#D94F6E',
-  'Core/Body temperature': '#E07820',
+  'Core temperature': '#E07820',
+  'Body temperature': '#F0A050',
   'Heart/Pulse rate': '#4855C8',
   'Skin conductance': '#B8C020',
   'Sweat indicators': '#B8C020',
