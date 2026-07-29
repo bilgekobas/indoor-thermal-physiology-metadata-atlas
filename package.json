@@ -7,7 +7,11 @@
     "dev": "vite",
     "build": "npm run build:data && npx --yes vite@5.4.21 build",
     "preview": "vite preview",
-    "build:data": "python3 scripts/build_data.py"
+    "build:data": "python3 scripts/build_data.py",
+    "export:figures": "node scripts/export_figures.mjs"
+  },
+  "devDependencies": {
+    "playwright": "^1.47.0"
   },
   "dependencies": {
     "@vitejs/plugin-react": "^4.3.1",

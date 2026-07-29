@@ -8,59 +8,23 @@ import BodySiteMap from '../components/BodySiteMap.jsx'
 import OverallByPeriod, { PeriodHeatmap } from '../components/OverallByPeriod.jsx'
 import { useTooltip, TooltipPortal } from '../components/Tooltip.jsx'
 
-const SENSOR_PALETTE = ['#5B5BFF', '#0A0A0A', '#FB3640', '#79FFFB', '#D5FF99', '#8A8A8A', '#4A4A4A', '#BBBBBB']
-
-function SensorPeriodBars({ signalData, period }) {
-  const { tip, showTip, moveTip, hideTip } = useTooltip()
-  const { data, sensor_order, period_n_all } = signalData
-  const rowCounts = useMemo(() => {
-    const m = {}
-    data.forEach((r) => { if (r.period === period) m[r.sensor_grp] = r.count })
-    return m
-  }, [data, period])
-  const denom = period_n_all[period] || 0
-  return (
-    <div className="space-y-1.5">
-      {sensor_order.map((sensor, si) => {
-        const c = rowCounts[sensor] || 0
-        const pct = denom ? (c / denom) * 100 : 0
-        return (
-          <div key={sensor} className="flex items-center gap-3 group">
-            <span className="text-[12.5px] w-40 shrink-0 truncate" title={sensor}>
-              {sensor}
-            </span>
-            <div
-              className="flex-1 rounded bg-line/50 overflow-hidden cursor-default"
-              style={{ height: 22 }}
-              onMouseEnter={(e) => showTip(e, `${sensor}, ${period}: ${c} of ${denom} experiments in this period · ${pct.toFixed(1)}%`)}
-              onMouseMove={moveTip}
-              onMouseLeave={hideTip}
-            >
-              <div
-                className="h-full rounded transition-[width] duration-150 group-hover:brightness-110"
-                style={{ width: `${Math.min(100, pct)}%`, background: SENSOR_PALETTE[si % SENSOR_PALETTE.length] }}
-              />
-            </div>
-            <span className="font-data text-[11.5px] w-20 text-right text-inkmid shrink-0">
-              {c} ({pct.toFixed(0)}%)
-            </span>
-          </div>
-        )
-      })}
-      <TooltipPortal tip={tip} />
-    </div>
-  )
-}
-
 function SensorEvolutionToggle({ signals, evoData, periods }) {
   const [activeSignal, setActiveSignal] = useState(signals[0] || '')
-  const [activePeriod, setActivePeriod] = useState(periods[periods.length - 1] || '')
   if (!signals.length || !activeSignal) return <div className="text-[12px] text-inkfaint">No data available.</div>
   const signalData = evoData.signals[activeSignal]
-  const periodDenom = signalData.period_n_all[activePeriod] || 0
+  const { data, sensor_order, period_n_all } = signalData
+  const countsBySensor = useMemo(() => {
+    const m = {}
+    sensor_order.forEach((s) => { m[s] = {} })
+    data.forEach((r) => { if (m[r.sensor_grp]) m[r.sensor_grp][r.period] = r.count })
+    return m
+  }, [data, sensor_order])
+  const rowTotals = Object.fromEntries(
+    sensor_order.map((s) => [s, periods.reduce((sum, p) => sum + (countsBySensor[s]?.[p] || 0), 0)])
+  )
   return (
     <div>
-      <div className="flex flex-wrap gap-1.5 mb-3">
+      <div className="flex flex-wrap gap-1.5 mb-4">
         {signals.map((sig) => (
           <button
             key={sig}
@@ -71,19 +35,15 @@ function SensorEvolutionToggle({ signals, evoData, periods }) {
           </button>
         ))}
       </div>
-      <div className="flex flex-wrap gap-1.5 mb-4">
-        {periods.map((p) => (
-          <button
-            key={p}
-            onClick={() => setActivePeriod(p)}
-            className={`px-2.5 py-1 rounded text-[11px] font-data transition-colors ${activePeriod === p ? 'bg-ink text-paper' : 'bg-line/50 text-inkmid hover:bg-line'}`}
-          >
-            {p}
-          </button>
-        ))}
-      </div>
-      <SensorPeriodBars signalData={signalData} period={activePeriod} />
-      <div className="font-data text-[10.5px] text-inkfaint mt-2">n = {periodDenom} experiments in {activePeriod}</div>
+      <PeriodHeatmap
+        rows={sensor_order}
+        periods={periods}
+        periodN={period_n_all}
+        rowTotals={rowTotals}
+        getCount={(sensor, p) => countsBySensor[sensor]?.[p] || 0}
+        labelWidth={150}
+        cellWidth={78}
+      />
     </div>
   )
 
@@ -861,9 +821,9 @@ export default function ChapterBody({ data }) {
 
       <ChapterSection
         title="How sensor choice has shifted over time"
-        intro={`For skin temperature, thermocouples made up ${thermocoupleEarlyPct}% of all experiments in ${evoFirstPeriod} but only ${thermocoupleLatePct}% by ${evoLastPeriod}, while Thermochron-type dataloggers (e.g. iButton) rose from ${thermochronEarlyPct}% to ${thermochronLatePct}% over the same span — the field's main displacement story. Bars show each sensor type's share of all experiments run in that period, not just those measuring the selected signal; toggle the period to compare. Because one experiment may use several methods, percentages need not sum to 100%.`}
+        intro={`For skin temperature, thermocouples made up ${thermocoupleEarlyPct}% of all experiments in ${evoFirstPeriod} but only ${thermocoupleLatePct}% by ${evoLastPeriod}, while Thermochron-type dataloggers (e.g. iButton) rose from ${thermochronEarlyPct}% to ${thermochronLatePct}% over the same span — the field's main displacement story. Cells show each sensor type's share of all experiments run in that period, not just those measuring the selected signal. Because one experiment may use several methods, percentages need not sum to 100%.`}
       >
-        <FigureCard figNumber={figNum('sensor-choice-by-signal')} title="Sensor choice by signal" size="wide" commentary="Use the signal and period toggles to compare method prevalence. Each bar is a share of all experiments run in the selected period (not just those measuring this signal); methods are non-exclusive.">
+        <FigureCard figNumber={figNum('sensor-choice-by-signal')} title="Sensor choice by signal" size="wide" commentary="Use the signal toggle to switch which signal's sensor breakdown is shown. Rows are sensor types, columns are 2-year periods; each cell is a share of all experiments run in that period (not just those measuring this signal), so it's directly comparable across signals and periods; methods are non-exclusive.">
           <SensorEvolutionToggle signals={evoSignals} evoData={evo_signal_sensor} periods={evoPeriods} />
         </FigureCard>
       </ChapterSection>

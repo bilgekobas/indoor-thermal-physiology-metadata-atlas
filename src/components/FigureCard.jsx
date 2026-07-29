@@ -12,7 +12,7 @@ export default function FigureCard({ figNumber, title, commentary, footnote, chi
   const paragraphs = Array.isArray(commentary) ? commentary : commentary ? [commentary] : []
 
   return (
-    <div className="mb-10 last:mb-0">
+    <div className="mb-10 last:mb-0" data-fig={figNumber}>
       <div className="flex items-baseline gap-2 mb-2">
         {figNumber && (
           <span className="font-data text-[11px] text-coreaccent font-medium shrink-0">Fig. {figNumber}</span>
