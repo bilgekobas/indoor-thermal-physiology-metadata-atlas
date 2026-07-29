@@ -9,75 +9,83 @@ import { useTooltip, TooltipPortal } from '../components/Tooltip.jsx'
 
 const SENSOR_PALETTE = ['#5B5BFF', '#0A0A0A', '#FB3640', '#79FFFB', '#D5FF99', '#8A8A8A', '#4A4A4A', '#BBBBBB']
 
-function SensorStackChart({ signalData, periods }) {
+function SensorPeriodBars({ signalData, period }) {
   const { tip, showTip, moveTip, hideTip } = useTooltip()
-  const [scaleMode, setScaleMode] = useState('relative')
-  const { data, sensor_order, period_totals } = signalData
-  const byPeriod = useMemo(() => {
-    const map = {}
-    periods.forEach((p) => { map[p] = {} })
-    data.forEach((r) => { if (map[r.period]) map[r.period][r.sensor_grp] = r.count })
-    return map
-  }, [data, periods])
-  const maxCount = Math.max(...data.map((r) => r.count || 0), 1)
+  const { data, sensor_order, period_n_all } = signalData
+  const rowCounts = useMemo(() => {
+    const m = {}
+    data.forEach((r) => { if (r.period === period) m[r.sensor_grp] = r.count })
+    return m
+  }, [data, period])
+  const denom = period_n_all[period] || 0
   return (
-    <div>
-      <div className="font-data text-[10px] text-inkfaint mb-2">
-        Each method is an independent prevalence. Studies using multiple methods contribute to multiple bars; values within a period need not sum to 100%.
-      </div>
-      <div className="flex gap-3 items-end h-40 mb-2">
-        {periods.map((p) => {
-          const total = period_totals[p] || 0
-          const m = byPeriod[p]
-          return (
-            <div key={p} className="flex-1 flex flex-col items-center">
-              <div className="w-full h-[120px] flex items-end justify-center gap-[2px] bg-line/25 rounded-sm px-1">
-                {sensor_order.map((sensor, si) => {
-                  const c = m[sensor] || 0
-                  const pct = total ? (c / total) * 100 : 0
-                  const h = scaleMode === 'relative' ? pct : (c / maxCount) * 100
-                  return <div key={sensor} className="flex-1 min-w-[3px] cursor-default hover:brightness-110 rounded-t-sm"
-                    style={{ height: `${h}%`, background: SENSOR_PALETTE[si % SENSOR_PALETTE.length] }}
-                    onMouseEnter={(e) => showTip(e, `${sensor}, ${p}: ${c} of ${total} signal-measuring experiments · ${pct.toFixed(1)}%`)}
-                    onMouseMove={moveTip} onMouseLeave={hideTip} />
-                })}
-              </div>
-              <div className="font-data text-[10px] text-inkfaint mt-1.5">{p}</div>
-              <div className="font-data text-[9px] text-inkfaint/70">n={total}</div>
+    <div className="space-y-1.5">
+      {sensor_order.map((sensor, si) => {
+        const c = rowCounts[sensor] || 0
+        const pct = denom ? (c / denom) * 100 : 0
+        return (
+          <div key={sensor} className="flex items-center gap-3 group">
+            <span className="text-[12.5px] w-40 shrink-0 truncate" title={sensor}>
+              {sensor}
+            </span>
+            <div
+              className="flex-1 rounded bg-line/50 overflow-hidden cursor-default"
+              style={{ height: 22 }}
+              onMouseEnter={(e) => showTip(e, `${sensor}, ${period}: ${c} of ${denom} experiments in this period · ${pct.toFixed(1)}%`)}
+              onMouseMove={moveTip}
+              onMouseLeave={hideTip}
+            >
+              <div
+                className="h-full rounded transition-[width] duration-150 group-hover:brightness-110"
+                style={{ width: `${Math.min(100, pct)}%`, background: SENSOR_PALETTE[si % SENSOR_PALETTE.length] }}
+              />
             </div>
-          )
-        })}
-      </div>
-      <div className="flex flex-wrap gap-x-3 gap-y-1">
-        {sensor_order.map((s, i) => <div key={s} className="flex items-center gap-1.5 text-[11px] text-inkmid"><span className="w-2.5 h-2.5 rounded-sm inline-block" style={{ background: SENSOR_PALETTE[i % SENSOR_PALETTE.length] }} />{s}</div>)}
-      </div>
-      <div className="flex gap-1.5 mt-4">
-        {['relative','absolute'].map((m) => <button key={m} onClick={() => setScaleMode(m)} className={`px-3 py-1 rounded text-[11px] font-data transition-colors ${scaleMode === m ? 'bg-ink text-paper' : 'bg-line/50 text-inkmid hover:bg-line'}`}>{m}</button>)}
-      </div>
+            <span className="font-data text-[11.5px] w-20 text-right text-inkmid shrink-0">
+              {c} ({pct.toFixed(0)}%)
+            </span>
+          </div>
+        )
+      })}
       <TooltipPortal tip={tip} />
     </div>
   )
 }
 
 function SensorEvolutionToggle({ signals, evoData, periods }) {
-  const [active, setActive] = useState(signals[0] || '')
-  if (!signals.length || !active) return <div className="text-[12px] text-inkfaint">No data available.</div>
+  const [activeSignal, setActiveSignal] = useState(signals[0] || '')
+  const [activePeriod, setActivePeriod] = useState(periods[periods.length - 1] || '')
+  if (!signals.length || !activeSignal) return <div className="text-[12px] text-inkfaint">No data available.</div>
+  const signalData = evoData.signals[activeSignal]
+  const periodDenom = signalData.period_n_all[activePeriod] || 0
   return (
     <div>
-      <div className="flex flex-wrap gap-1.5 mb-4">
+      <div className="flex flex-wrap gap-1.5 mb-3">
         {signals.map((sig) => (
           <button
             key={sig}
-            onClick={() => setActive(sig)}
-            className={`px-3 py-1 rounded text-[11.5px] font-data transition-colors ${active === sig ? 'bg-ink text-paper' : 'bg-line/50 text-inkmid hover:bg-line'}`}
+            onClick={() => setActiveSignal(sig)}
+            className={`px-3 py-1 rounded text-[11.5px] font-data transition-colors ${activeSignal === sig ? 'bg-ink text-paper' : 'bg-line/50 text-inkmid hover:bg-line'}`}
           >
             {sig}
           </button>
         ))}
       </div>
-      <SensorStackChart signalData={evoData.signals[active]} periods={periods} />
+      <div className="flex flex-wrap gap-1.5 mb-4">
+        {periods.map((p) => (
+          <button
+            key={p}
+            onClick={() => setActivePeriod(p)}
+            className={`px-2.5 py-1 rounded text-[11px] font-data transition-colors ${activePeriod === p ? 'bg-ink text-paper' : 'bg-line/50 text-inkmid hover:bg-line'}`}
+          >
+            {p}
+          </button>
+        ))}
+      </div>
+      <SensorPeriodBars signalData={signalData} period={activePeriod} />
+      <div className="font-data text-[10.5px] text-inkfaint mt-2">n = {periodDenom} experiments in {activePeriod}</div>
     </div>
   )
+
 }
 
 // ── Sankey (signal -> sensor type -> brand) ────────────────────────────
@@ -662,10 +670,48 @@ export default function ChapterBody({ data }) {
 
   const topSignal = fig17_physio_params.data[0]
   const evoSignals = Object.keys(evo_signal_sensor.signals)
+  const evoPeriods = evo_signal_sensor.periods
+  const evoFirstPeriod = evoPeriods[0]
+  const evoLastPeriod = evoPeriods[evoPeriods.length - 1]
+  // Dynamic thermocouple/Thermochron displacement stats for the section
+  // intro, normalized against ALL experiments run in that period (not just
+  // those measuring skin temperature) -- see build_data.py's period_n_all.
+  const skinEvo = evo_signal_sensor.signals['Skin temperature']
+  const skinEvoByPeriod = useMemo(() => {
+    const map = {}
+    skinEvo.data.forEach((r) => { (map[r.period] ??= {})[r.sensor_grp] = r.count })
+    return map
+  }, [skinEvo])
+  const skinSensorPct = (sensor, period) => {
+    const denom = skinEvo.period_n_all[period] || 0
+    const c = skinEvoByPeriod[period]?.[sensor] || 0
+    return denom ? ((c / denom) * 100).toFixed(0) : '0'
+  }
+  const thermocoupleEarlyPct = skinSensorPct('Thermocouple', evoFirstPeriod)
+  const thermocoupleLatePct = skinSensorPct('Thermocouple', evoLastPeriod)
+  const thermochronEarlyPct = skinSensorPct('Thermochron', evoFirstPeriod)
+  const thermochronLatePct = skinSensorPct('Thermochron', evoLastPeriod)
 
   const topSignalPct = ((topSignal.count / summary.n_experiments) * 100).toFixed(0)
   const mstPct = ((mst.n_mst_studies / summary.n_experiments) * 100).toFixed(0)
   const brandPct = ((sensor_brands.n_studies_with_brand / summary.n_experiments) * 100).toFixed(0)
+
+  // MST point-count choice by period (Fig 29), restricted to studies that
+  // actually calculate MST (mst.n_mst_studies), normalized against how many
+  // of those MST-calculating studies fall in each period (mst.period_n_mst)
+  // -- not against summary.n_experiments.
+  const mstPointLabel = (name) => (name === 'NR/NC' ? 'NR/NC' : `${name}-point`)
+  const mstPointRows = mst.point_order.map(mstPointLabel)
+  const mstPointRawByLabel = Object.fromEntries(mst.point_order.map((p) => [mstPointLabel(p), p]))
+  const mstPointsTotalsMap = Object.fromEntries(mst.points_totals.map((r) => [String(r.pt_label), r.count]))
+  const mstPointsByPeriod = useMemo(() => {
+    const map = {}
+    mst.point_order.forEach((p) => { map[p] = {} })
+    mst.points_by_period.forEach((r) => { if (map[r.pt_label]) map[r.pt_label][r.period] = r.count })
+    return map
+  }, [mst])
+  const topMstPoint = [...mst.points_totals].sort((a, b) => b.count - a.count)[0]
+  const topMstPointPct = ((topMstPoint.count / mst.n_mst_studies) * 100).toFixed(0)
 
   // Dynamic values for the "what's measured" intro/captions, so they track
   // summary.n_experiments and the current corpus instead of being hand-
@@ -814,10 +860,10 @@ export default function ChapterBody({ data }) {
 
       <ChapterSection
         title="How sensor choice has shifted over time"
-        intro="For skin temperature, thermocouples made up 55% of sensors in 2013–14 but only 25% by 2023–24, while Thermochron-type dataloggers (e.g. iButton) rose from 18% to 52% over the same span — the field's main displacement story. Bars show method prevalence among experiments measuring the signal in each period. Because one experiment may use several methods, percentages need not sum to 100%."
+        intro={`For skin temperature, thermocouples made up ${thermocoupleEarlyPct}% of all experiments in ${evoFirstPeriod} but only ${thermocoupleLatePct}% by ${evoLastPeriod}, while Thermochron-type dataloggers (e.g. iButton) rose from ${thermochronEarlyPct}% to ${thermochronLatePct}% over the same span — the field's main displacement story. Bars show each sensor type's share of all experiments run in that period, not just those measuring the selected signal; toggle the period to compare. Because one experiment may use several methods, percentages need not sum to 100%.`}
       >
-        <FigureCard figNumber="25" title="Sensor choice by signal" size="wide" commentary="Use the signal toggles to compare method prevalence over time. Each bar uses experiments measuring the selected signal in that period as its denominator; methods are non-exclusive.">
-          <SensorEvolutionToggle signals={evoSignals} evoData={evo_signal_sensor} periods={evo_signal_sensor.periods} />
+        <FigureCard figNumber="25" title="Sensor choice by signal" size="wide" commentary="Use the signal and period toggles to compare method prevalence. Each bar is a share of all experiments run in the selected period (not just those measuring this signal); methods are non-exclusive.">
+          <SensorEvolutionToggle signals={evoSignals} evoData={evo_signal_sensor} periods={evoPeriods} />
         </FigureCard>
       </ChapterSection>
 
@@ -868,6 +914,18 @@ export default function ChapterBody({ data }) {
       >
         <FigureCard figNumber="28" title="MST calculation pathway" plotWidth={980} commentary="The Sankey separates whether MST is calculated at all from the details that only become meaningful once MST is calculated: number of skin-temperature points and formula label.">
           <MstSankey mst={mst} totalExperiments={summary.n_experiments} />
+        </FigureCard>
+
+        <FigureCard figNumber="29" title="MST body-site point count by period" plotWidth={980} commentary={`${topMstPoint.pt_label}-point is the most common choice overall (${topMstPoint.count} of ${mst.n_mst_studies} MST-calculating studies, ${topMstPointPct}%). Percentages here are of MST-calculating studies in that period only, not of all experiments — so they show how point-count choice has shifted among researchers who compute MST, independent of the declining calculation rate itself.`}>
+          <PeriodHeatmap
+            rows={mstPointRows}
+            periods={mst.periods}
+            periodN={mst.period_n_mst}
+            rowTotals={Object.fromEntries(mstPointRows.map((label) => [label, mstPointsTotalsMap[mstPointRawByLabel[label]] || 0]))}
+            getCount={(label, p) => mstPointsByPeriod[mstPointRawByLabel[label]]?.[p] || 0}
+            labelWidth={100}
+            cellWidth={72}
+          />
         </FigureCard>
       </ChapterSection>
     </div>

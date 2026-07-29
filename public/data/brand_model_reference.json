@@ -1053,6 +1053,17 @@
     {
       "signal": "Heart/Pulse rate",
       "sensing_method": "ECG",
+      "brand": "Careshine Electronic",
+      "model": "CCS-103",
+      "count": 2,
+      "study_ids": [
+        "1160_1",
+        "1171_1"
+      ]
+    },
+    {
+      "signal": "Heart/Pulse rate",
+      "sensing_method": "ECG",
       "brand": "CompuMedics Ltd.",
       "model": "Somt\u00e9",
       "count": 2,
@@ -1278,26 +1289,6 @@
       "count": 1,
       "study_ids": [
         "1142_1"
-      ]
-    },
-    {
-      "signal": "Heart/Pulse rate",
-      "sensing_method": "ECG",
-      "brand": "Careshine",
-      "model": "CCS-103",
-      "count": 1,
-      "study_ids": [
-        "1160_1"
-      ]
-    },
-    {
-      "signal": "Heart/Pulse rate",
-      "sensing_method": "ECG",
-      "brand": "Careshine Electronic",
-      "model": "CCS-103",
-      "count": 1,
-      "study_ids": [
-        "1171_1"
       ]
     },
     {

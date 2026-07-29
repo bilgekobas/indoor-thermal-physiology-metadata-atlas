@@ -257,13 +257,8 @@
     },
     {
       "physio-sensing-method": "ECG",
-      "physio-sensor-brand": "Careshine",
-      "count": 1
-    },
-    {
-      "physio-sensing-method": "ECG",
       "physio-sensor-brand": "Careshine Electronic",
-      "count": 1
+      "count": 2
     },
     {
       "physio-sensing-method": "ECG",

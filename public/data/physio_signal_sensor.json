@@ -2828,14 +2828,8 @@
     {
       "signal": "Heart/Pulse rate",
       "physio-sensing-method": "ECG",
-      "brand": "Careshine",
-      "count": 1
-    },
-    {
-      "signal": "Heart/Pulse rate",
-      "physio-sensing-method": "ECG",
       "brand": "Careshine Electronic",
-      "count": 1
+      "count": 2
     },
     {
       "signal": "Heart/Pulse rate",

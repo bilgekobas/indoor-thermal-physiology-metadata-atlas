@@ -360,7 +360,7 @@ def clean_formula_tokens(val):
     DuBois (1938)") is counted once under each. This makes the formula
     column non-exclusive: it can sum to more than the number of
     MST-calculating studies. See the Fig. 27 footnote on the site."""
-    if val is None or str(val).strip() in CODES or str(val).strip() == '':
+    if pd.isna(val) or str(val).strip() in CODES or str(val).strip() == '':
         return []
     tokens = []
     for t in str(val).split(','):
@@ -395,6 +395,12 @@ pt_formula_df = pd.DataFrame(pt_formula_rows)
 point_formula_links = pt_formula_df.groupby(['pt_label', 'formula']).size().reset_index(name='count')
 formula_totals = pt_formula_df.groupby('formula').size().reset_index(name='count')
 
+# Points by period: one row per MST-calculating study (exclusive pt_label),
+# broken down by period, so we can chart how point-count choice has shifted
+# over time -- restricted to studies where MST was actually calculated.
+points_by_period = mst_only.groupby(['period', 'pt_label']).size().reset_index(name='count')
+period_n_mst = {k: int(v) for k, v in mst_only.groupby('period').size().to_dict().items()}
+
 with open(OUT_DIR / 'mst.json', 'w') as f:
     json.dump({
         'calc_rate_by_period': mst_rate.to_dict('records'),
@@ -402,6 +408,9 @@ with open(OUT_DIR / 'mst.json', 'w') as f:
         'formula_totals': formula_totals.to_dict('records'),
         'point_formula_links': point_formula_links.to_dict('records'),
         'point_order': point_order,
+        'points_by_period': points_by_period.to_dict('records'),
+        'period_n_mst': period_n_mst,
+        'periods': [b[2] for b in BINS],
         'n_mst_studies': int(len(mst_only)),
     }, f, indent=2, default=str)
 print(f'mst.json written: {len(mst_only)} studies calculating MST, {len(formula_totals)} distinct formulas')
@@ -1191,6 +1200,10 @@ print(f'fig13_sensor_heights.json: {len(all_height_rows)} height observations')
 # ── A1. Signal × sensor composition by period (sensor displacement) ────
 # Reuses physio_dedup (already built above, with casing fixed)
 TRACK_SIGNALS = ['Skin temperature', 'Heart/Pulse rate', 'Core temperature', 'Body temperature', 'Skin conductance']
+# Total experiments in each period, regardless of signal -- used to normalize
+# Fig 25 bars as "% of all experiments run in that period", not just the
+# subset measuring the currently-toggled signal.
+period_n_all = {k: int(v) for k, v in studies_u.groupby('period')['id'].nunique().to_dict().items()}
 signal_sensor_evolution = {}
 for sig in TRACK_SIGNALS:
     sub = physio_dedup[physio_dedup['signal'] == sig]
@@ -1206,6 +1219,7 @@ for sig in TRACK_SIGNALS:
         'data': grouped.to_dict('records'),
         'sensor_order': top_sensors + (['Other'] if len(sensor_totals) > 6 else []),
         'period_totals': {k: int(v) for k, v in period_totals.items()},
+        'period_n_all': period_n_all,
         'multi_response': True,
     }
 
