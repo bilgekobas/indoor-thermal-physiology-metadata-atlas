@@ -1,6 +1,7 @@
 import { useMemo, useState } from 'react'
 import { ChapterHeader, ChapterSection } from '../components/Chapter.jsx'
 import FigureCard from '../components/FigureCard.jsx'
+import { figNum } from '../figureRegistry.js'
 import { useTooltip, TooltipPortal } from '../components/Tooltip.jsx'
 
 // Same categorical palette as the physio signal → sensor type → brand Sankey
@@ -223,7 +224,7 @@ export default function ChapterCognitive({ data }) {
         title="What kind of measure is actually used"
         intro="Performance tasks and subjective scales are mixed in one raw dataset field, but they are not the same type of evidence. The Sankey makes that split explicit, then shows which domains and instruments each branch contains. Colours are intentionally not used as a second encoding; all nodes are black and links scale only by count."
       >
-        <FigureCard figNumber="34" title="Cognitive measure type → domain → instrument" plotWidth={1080} commentary="The first column distinguishes what the participant does (performance task), what they rate about themselves (subjective scale), or whether the entry is a deliberate stress-induction protocol. Flow width is proportional to unique-study use count.">
+        <FigureCard figNumber={figNum('cognitive-domain-flow')} title="Cognitive measure type → domain → instrument" plotWidth={1080} commentary="The first column distinguishes what the participant does (performance task), what they rate about themselves (subjective scale), or whether the entry is a deliberate stress-induction protocol. Flow width is proportional to unique-study use count.">
           <CognitiveSankey cognitive={cognitive_tests} />
         </FigureCard>
       </ChapterSection>

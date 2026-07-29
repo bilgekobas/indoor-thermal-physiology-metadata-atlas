@@ -1,5 +1,6 @@
 import { ChapterHeader, ChapterSection } from '../components/Chapter.jsx'
 import FigureCard from '../components/FigureCard.jsx'
+import { figNum } from '../figureRegistry.js'
 import { useTooltip, TooltipPortal } from '../components/Tooltip.jsx'
 
 function FieldCompletenessGroup({ title, rows, maxDenominator }) {
@@ -70,7 +71,7 @@ export default function ChapterReporting({ data }) {
       />
 
       <ChapterSection title="Full field-level completeness list" intro="Tracks are scaled to each field’s applicable denominator, then filled by reported count. This means one study has the same visual width everywhere, while denominator changes remain visible.">
-        <FigureCard figNumber="35" title="Evaluated reporting fields" plotWidth={980} commentary="Groups are arranged by chapter logic rather than by rank. Within each group, fields follow the dataset column order so the display can be checked against the coding sheet.">
+        <FigureCard figNumber={figNum('reporting-fields')} title="Evaluated reporting fields" plotWidth={980} commentary="Groups are arranged by chapter logic rather than by rank. Within each group, fields follow the dataset column order so the display can be checked against the coding sheet.">
           <div className="space-y-8 max-w-5xl">
             {groups.map(([group, obj]) => (
               <FieldCompletenessGroup key={group} title={group} rows={obj.fields} maxDenominator={maxDenominator} />

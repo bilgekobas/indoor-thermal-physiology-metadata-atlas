@@ -1,6 +1,7 @@
 import { useMemo, useState } from 'react'
 import { ChapterHeader, ChapterSection } from '../components/Chapter.jsx'
 import FigureCard from '../components/FigureCard.jsx'
+import { figNum } from '../figureRegistry.js'
 import InteractiveBarChart from '../components/InteractiveBarChart.jsx'
 import CooccurrenceMatrix from '../components/CooccurrenceMatrix.jsx'
 import BodySiteMap from '../components/BodySiteMap.jsx'
@@ -813,7 +814,7 @@ export default function ChapterBody({ data }) {
         title="What's measured, and how"
         intro={`Skin temperature (${skinTempN} studies, ${skinTempPct}%) and heart rate (${heartRateN}, ${heartRatePct}%) dominate by a wide margin over every other signal. Other signals appear far less often and are typically paired with skin temperature or heart rate rather than measured in isolation.`}
       >
-        <FigureCard figNumber="21" title="Most frequently measured signals" plotWidth={980} commentary={`Skin temperature dominates at ${skinTempN} of ${summary.n_experiments} experiments (${skinTempPct}%) — more than triple the next most common signal, heart/pulse rate at ${heartRateN} (${heartRatePct}%). After that the field thins out fast: core/body temperature and blood pressure each appear in well under a fifth of experiments.`}>
+        <FigureCard figNumber={figNum('signals-measured-freq')} title="Most frequently measured signals" plotWidth={980} commentary={`Skin temperature dominates at ${skinTempN} of ${summary.n_experiments} experiments (${skinTempPct}%) — more than triple the next most common signal, heart/pulse rate at ${heartRateN} (${heartRatePct}%). After that the field thins out fast: core/body temperature and blood pressure each appear in well under a fifth of experiments.`}>
           <PeriodHeatmap
             rows={fig17_physio_params.data.map((d) => d.parameter)}
             periods={signal_freq_by_period.periods}
@@ -825,7 +826,7 @@ export default function ChapterBody({ data }) {
           />
         </FigureCard>
 
-        <FigureCard figNumber="22" title="Which signals get measured together" plotWidth={680} commentary={`Skin temperature (${cooccurSkinTotal} studies) and heart/pulse rate (${cooccurHrTotal}) are individually the most common signals, and ${skinHrCooccur} studies measure both together — about ${hrAlsoSkinPct}% of all heart-rate studies also track skin temperature.`}>
+        <FigureCard figNumber={figNum('signals-cooccurrence')} title="Which signals get measured together" plotWidth={680} commentary={`Skin temperature (${cooccurSkinTotal} studies) and heart/pulse rate (${cooccurHrTotal}) are individually the most common signals, and ${skinHrCooccur} studies measure both together — about ${hrAlsoSkinPct}% of all heart-rate studies also track skin temperature.`}>
           <CooccurrenceMatrix labels={fig18_physio_cooccurrence.labels} matrix={fig18_physio_cooccurrence.matrix} cellSize={38} colorScheme="blue" />
         </FigureCard>
       </ChapterSection>
@@ -835,7 +836,7 @@ export default function ChapterBody({ data }) {
         intro="The same signal can be captured by very different instruments. This flow covers 15 signals measured in ≥5 studies, 53 distinct sensor types used across them, and every commercial brand behind those sensors — ordered by thermophysiological mechanism."
       >
         <FigureCard
-          figNumber="23"
+          figNumber={figNum('signal-sensor-brand')}
           title="Signal → sensor type → brand"
           plotWidth={1100}
           commentary={[
@@ -847,7 +848,7 @@ export default function ChapterBody({ data }) {
           <SignalSensorBrandSankey overall={physio_signal_sensor.overall} signalTotals={physio_signal_sensor.signal_totals} signalInstanceTotals={physio_signal_sensor.signal_instance_totals} brandData={physio_signal_sensor.signal_method_brand} nExperiments={summary.n_experiments} />
         </FigureCard>
 
-        <FigureCard figNumber="24" title="Where on the body each signal is measured" plotWidth={900} commentary={`Skin temperature is measured across the body fairly evenly (no single dominant site). Heart rate concentrates at the chest (${hrChest} of ${hrN} studies, ECG-strap territory) and wrist (${hrWrist}, optical wearables). The sudomotor signals split sharply by method: ${sweatWholeBody} sweat-indicator studies measure the whole body at once (not shown on the diagram, see the list at right), while skin conductance is almost always local — ${conductanceWrist} studies at the wrist, ${conductanceFinger} at the finger.`}>          <BodySiteToggle
+        <FigureCard figNumber={figNum('body-site-per-signal')} title="Where on the body each signal is measured" plotWidth={900} commentary={`Skin temperature is measured across the body fairly evenly (no single dominant site). Heart rate concentrates at the chest (${hrChest} of ${hrN} studies, ECG-strap territory) and wrist (${hrWrist}, optical wearables). The sudomotor signals split sharply by method: ${sweatWholeBody} sweat-indicator studies measure the whole body at once (not shown on the diagram, see the list at right), while skin conductance is almost always local — ${conductanceWrist} studies at the wrist, ${conductanceFinger} at the finger.`}>          <BodySiteToggle
             skinTempSites={skintemp_sites.site_totals}
             skinTempN={skintemp_sites.n_studies_with_site}
             hrSites={site_by_signal['Heart/Pulse rate'].site_totals}
@@ -862,7 +863,7 @@ export default function ChapterBody({ data }) {
         title="How sensor choice has shifted over time"
         intro={`For skin temperature, thermocouples made up ${thermocoupleEarlyPct}% of all experiments in ${evoFirstPeriod} but only ${thermocoupleLatePct}% by ${evoLastPeriod}, while Thermochron-type dataloggers (e.g. iButton) rose from ${thermochronEarlyPct}% to ${thermochronLatePct}% over the same span — the field's main displacement story. Bars show each sensor type's share of all experiments run in that period, not just those measuring the selected signal; toggle the period to compare. Because one experiment may use several methods, percentages need not sum to 100%.`}
       >
-        <FigureCard figNumber="25" title="Sensor choice by signal" size="wide" commentary="Use the signal and period toggles to compare method prevalence. Each bar is a share of all experiments run in the selected period (not just those measuring this signal); methods are non-exclusive.">
+        <FigureCard figNumber={figNum('sensor-choice-by-signal')} title="Sensor choice by signal" size="wide" commentary="Use the signal and period toggles to compare method prevalence. Each bar is a share of all experiments run in the selected period (not just those measuring this signal); methods are non-exclusive.">
           <SensorEvolutionToggle signals={evoSignals} evoData={evo_signal_sensor} periods={evoPeriods} />
         </FigureCard>
       </ChapterSection>
@@ -871,7 +872,7 @@ export default function ChapterBody({ data }) {
         title="Skin temperature body sites"
         intro="Where on the body skin temperature is measured, and how that has shifted across the decade. Only near-synonymous labels are collapsed (e.g. calf/shin → lower leg); distinct face sub-sites remain separate."
       >
-        <FigureCard figNumber="26" title="Site prevalence by period" plotWidth={980} commentary={`${topSkinSite.site} is the single most-measured site (${topSkinSite.total} of ${skintemp_sites.n_studies_with_site} skin-temperature studies, ${topSkinSitePct}%), followed closely by ${nextSkinSitesLabel} (all ${nextSkinSitesMin}–${nextSkinSitesMax} studies). No one site is measured in every study — choice of body site is still inconsistent across the field.`}>
+        <FigureCard figNumber={figNum('site-prevalence-by-period')} title="Site prevalence by period" plotWidth={980} commentary={`${topSkinSite.site} is the single most-measured site (${topSkinSite.total} of ${skintemp_sites.n_studies_with_site} skin-temperature studies, ${topSkinSitePct}%), followed closely by ${nextSkinSitesLabel} (all ${nextSkinSitesMin}–${nextSkinSitesMax} studies). No one site is measured in every study — choice of body site is still inconsistent across the field.`}>
           <PeriodHeatmap
             rows={allSites.map((s) => s.site)}
             periods={periods}
@@ -888,7 +889,7 @@ export default function ChapterBody({ data }) {
         title="Where other signals are measured"
         intro="Skin temperature isn't the only signal where measurement site reflects a real methodological choice. Heart rate's site splits roughly along sensor modality (chest straps vs. wrist/finger optical sensors); skin conductance follows electrode-placement convention; sweat is measured either at a local site or, more often, across the whole body at once — two fundamentally different kinds of measurement sharing one field name."
       >
-        <FigureCard figNumber="27" title="Heart/pulse rate measurement site" plotWidth={980} commentary={`Chest (${hrChest} of ${hrN} studies) and wrist (${hrWrist}) are the two dominant sites — roughly, ECG-strap vs. optical-wearable territory. The matrix below shows the full site distribution over time.`}>
+        <FigureCard figNumber={figNum('hr-measurement-site')} title="Heart/pulse rate measurement site" plotWidth={980} commentary={`Chest (${hrChest} of ${hrN} studies) and wrist (${hrWrist}) are the two dominant sites — roughly, ECG-strap vs. optical-wearable territory. The matrix below shows the full site distribution over time.`}>
           {(() => {
             const hr = site_by_signal['Heart/Pulse rate'].by_period
             const hrSites = site_by_signal['Heart/Pulse rate'].site_totals.map((d) => d.site)
@@ -912,11 +913,11 @@ export default function ChapterBody({ data }) {
         title="Mean skin temperature"
         intro={`${mst.n_mst_studies} studies explicitly calculate a weighted mean skin temperature. The calculation rate has declined over the decade even as formula choice has diversified beyond the classic Ramanathan formula.`}
       >
-        <FigureCard figNumber="28" title="MST calculation pathway" plotWidth={980} commentary="The Sankey separates whether MST is calculated at all from the details that only become meaningful once MST is calculated: number of skin-temperature points and formula label.">
+        <FigureCard figNumber={figNum('mst-calc-pathway')} title="MST calculation pathway" plotWidth={980} commentary="The Sankey separates whether MST is calculated at all from the details that only become meaningful once MST is calculated: number of skin-temperature points and formula label.">
           <MstSankey mst={mst} totalExperiments={summary.n_experiments} />
         </FigureCard>
 
-        <FigureCard figNumber="29" title="MST body-site point count by period" plotWidth={980} commentary={`${topMstPoint.pt_label}-point is the most common choice overall (${topMstPoint.count} of ${mst.n_mst_studies} MST-calculating studies, ${topMstPointPct}%). Percentages here are of MST-calculating studies in that period only, not of all experiments — so they show how point-count choice has shifted among researchers who compute MST, independent of the declining calculation rate itself.`}>
+        <FigureCard figNumber={figNum('mst-points-by-period')} title="MST body-site point count by period" plotWidth={980} commentary={`${topMstPoint.pt_label}-point is the most common choice overall (${topMstPoint.count} of ${mst.n_mst_studies} MST-calculating studies, ${topMstPointPct}%). Percentages here are of MST-calculating studies in that period only, not of all experiments — so they show how point-count choice has shifted among researchers who compute MST, independent of the declining calculation rate itself.`}>
           <PeriodHeatmap
             rows={mstPointRows}
             periods={mst.periods}

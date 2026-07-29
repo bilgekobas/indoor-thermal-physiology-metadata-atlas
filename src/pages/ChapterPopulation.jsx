@@ -1,6 +1,7 @@
 import { useMemo } from 'react'
 import { ChapterHeader, ChapterSection } from '../components/Chapter.jsx'
 import FigureCard from '../components/FigureCard.jsx'
+import { figNum } from '../figureRegistry.js'
 import StudyIntervalPlot from '../components/StudyIntervalPlot.jsx'
 import InteractiveBarChart from '../components/InteractiveBarChart.jsx'
 import { PeriodHeatmap } from '../components/OverallByPeriod.jsx'
@@ -220,7 +221,7 @@ export default function ChapterPopulation({ data }) {
         title="Demographics"
         intro={`${sexSummary.equal} of ${sexSummary.total} studies (${balancedPct}%) report a balanced sex split (45–55% male); ${sexSummary.male_gt} (${malePct}%) skew male and only ${sexSummary.female_gt} (${femalePct}%) skew female. Sample sizes are modest, with a median of ${medianSampleSize.toFixed(0)} participants.`}
       >
-        <FigureCard figNumber="14" title="Participant age" plotWidth={940} commentary={`Mean ± SD per study, sorted ascending by mean. ${fig08_age.studies.filter((s) => !s.std_reported).length} studies report a mean with no SD; these appear as a mean point with no range.`}>
+        <FigureCard figNumber={figNum('participant-age')} title="Participant age" plotWidth={940} commentary={`Mean ± SD per study, sorted ascending by mean. ${fig08_age.studies.filter((s) => !s.std_reported).length} studies report a mean with no SD; these appear as a mean point with no range.`}>
           <StudyIntervalPlot
             studies={fig08_age.studies}
             getLow={(s) => (s.std_reported ? s.mean - s.std : s.mean)}
@@ -235,7 +236,7 @@ export default function ChapterPopulation({ data }) {
           />
         </FigureCard>
 
-        <FigureCard figNumber="15" title="Participant BMI" plotWidth={940} commentary={`Mean ± SD per study, sorted ascending by mean. ${fig09_bmi.studies.filter((s) => !s.std_reported).length} studies report a mean with no SD; these appear as a mean point with no range.`}>
+        <FigureCard figNumber={figNum('participant-bmi')} title="Participant BMI" plotWidth={940} commentary={`Mean ± SD per study, sorted ascending by mean. ${fig09_bmi.studies.filter((s) => !s.std_reported).length} studies report a mean with no SD; these appear as a mean point with no range.`}>
           <StudyIntervalPlot
             studies={fig09_bmi.studies}
             getLow={(s) => (s.std_reported ? s.mean - s.std : s.mean)}
@@ -250,11 +251,11 @@ export default function ChapterPopulation({ data }) {
           />
         </FigureCard>
 
-        <FigureCard figNumber="16" title="Sex distribution" plotWidth={980} commentary={`Of ${fig10_sex_distribution.studies.length} studies reporting sex breakdown: ${sexSummary.male_gt} skew male (>55%), ${sexSummary.equal} are balanced, and ${sexSummary.female_gt} skew female.`}>
+        <FigureCard figNumber={figNum('sex-distribution')} title="Sex distribution" plotWidth={980} commentary={`Of ${fig10_sex_distribution.studies.length} studies reporting sex breakdown: ${sexSummary.male_gt} skew male (>55%), ${sexSummary.equal} are balanced, and ${sexSummary.female_gt} skew female.`}>
           <SexDistributionChart studies={fig10_sex_distribution.studies} width={920} />
         </FigureCard>
 
-        <FigureCard figNumber="17" title="Sample size distribution" plotWidth={980} commentary={`Distribution of total participants per study, shown on a linear participant scale with an overflow bin at 100+ so the shape remains intuitive while still retaining the largest studies. Median is ${medianSampleSize.toFixed(0)}.`}>
+        <FigureCard figNumber={figNum('sample-size-distribution')} title="Sample size distribution" plotWidth={980} commentary={`Distribution of total participants per study, shown on a linear participant scale with an overflow bin at 100+ so the shape remains intuitive while still retaining the largest studies. Median is ${medianSampleSize.toFixed(0)}.`}>
           <SampleSizeHistogramLinear studies={fig11_sample_size.studies} maxDisplay={100} binWidth={5} color="#5B5BFF" width={920} />
         </FigureCard>
       </ChapterSection>
@@ -265,7 +266,7 @@ export default function ChapterPopulation({ data }) {
         title="Was sample size justified?"
         intro="Sample size belongs with the population story: it conditions how much confidence we can place in all subgroup claims later in the paper."
       >
-        <FigureCard figNumber="18" title="Sample size calculation type" plotWidth={560} commentary="Among studies that justify sample size at all, most use an a priori power calculation rather than post-hoc reasoning or simple precedent from earlier literature.">
+        <FigureCard figNumber={figNum('sample-size-calc-type')} title="Sample size calculation type" plotWidth={560} commentary="Among studies that justify sample size at all, most use an a priori power calculation rather than post-hoc reasoning or simple precedent from earlier literature.">
           <InteractiveBarChart
             data={sample_justification.calc_type_distribution.map((d) => ({ label: d.type, count: d.count }))}
             total={sample_justification.calc_type_distribution.reduce((a, d) => a + d.count, 0)}
@@ -278,7 +279,7 @@ export default function ChapterPopulation({ data }) {
         title="Who was excluded, and why"
         intro={'"Healthy" is the dominant inclusion criterion, almost always without a stated method for verifying health status. Every other criterion shown appears in well under a third of studies — few select by a specific age or BMI range, or restrict recruitment to one sex.'}
       >
-        <FigureCard figNumber="19" title="Inclusion / exclusion criteria" plotWidth={980} commentary="Rows are fields; columns are 2-year periods; the final column shows the corpus-wide total count for the same row.">
+        <FigureCard figNumber={figNum('inclusion-exclusion')} title="Inclusion / exclusion criteria" plotWidth={980} commentary="Rows are fields; columns are 2-year periods; the final column shows the corpus-wide total count for the same row.">
           <PeriodHeatmap
             rows={selection_by_period.fields}
             periods={selection_by_period.periods}
@@ -295,7 +296,7 @@ export default function ChapterPopulation({ data }) {
         title="What else is known about participants"
         intro="Sex, age, height, and weight are reported in nearly every study. Thermal history, body fat, and menstrual or contraceptive status — all known to shift thermophysiological baselines — are reported much less often."
       >
-        <FigureCard figNumber="20" title="Participant metadata collected" plotWidth={980} commentary="Rows are fields; columns are 2-year periods; the final column shows the corpus-wide total count for the same row.">
+        <FigureCard figNumber={figNum('participant-metadata-collected')} title="Participant metadata collected" plotWidth={980} commentary="Rows are fields; columns are 2-year periods; the final column shows the corpus-wide total count for the same row.">
           <PeriodHeatmap
             rows={participant_by_period.fields}
             periods={participant_by_period.periods}
