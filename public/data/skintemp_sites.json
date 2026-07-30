@@ -118,7 +118,7 @@
     {
       "site": "Back",
       "period": "2023\u201324",
-      "count": 25
+      "count": 26
     },
     {
       "site": "Belly",
@@ -771,11 +771,6 @@
       "count": 34
     },
     {
-      "site": "Upper back",
-      "period": "2023\u201324",
-      "count": 1
-    },
-    {
       "site": "Waist",
       "period": "2017\u201318",
       "count": 1
@@ -906,7 +901,7 @@
     },
     {
       "site": "Back",
-      "total": 89,
+      "total": 90,
       "sensingMethods": {
         "Dermal patch": 3,
         "Heat flux/Heat flow": 1,
@@ -914,7 +909,7 @@
         "Infrared camera": 1,
         "RTD": 4,
         "Thermistor": 10,
-        "Thermochron": 30,
+        "Thermochron": 31,
         "Thermocouple": 23
       }
     },
@@ -1222,13 +1217,6 @@
     },
     {
       "site": "Belly",
-      "total": 1,
-      "sensingMethods": {
-        "Thermochron": 1
-      }
-    },
-    {
-      "site": "Upper back",
       "total": 1,
       "sensingMethods": {
         "Thermochron": 1

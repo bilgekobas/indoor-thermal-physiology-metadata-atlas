@@ -1486,7 +1486,7 @@
       "signal": "Skin temperature",
       "sensing_method": "Thermochron",
       "site": "Back",
-      "count": 30
+      "count": 31
     },
     {
       "signal": "Skin temperature",
@@ -1619,12 +1619,6 @@
       "sensing_method": "Thermochron",
       "site": "Upper arm",
       "count": 44
-    },
-    {
-      "signal": "Skin temperature",
-      "sensing_method": "Thermochron",
-      "site": "Upper back",
-      "count": 1
     },
     {
       "signal": "Skin temperature",
