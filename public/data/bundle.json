@@ -9881,100 +9881,100 @@
         {
           "field": "Air temperature",
           "count": 167,
-          "denominator": 292,
-          "pct": 57.2,
-          "rule": "optional_binary"
+          "denominator": 295,
+          "pct": 56.6,
+          "rule": "general"
         },
         {
           "field": "Relative humidity",
           "count": 139,
-          "denominator": 263,
-          "pct": 52.9,
-          "rule": "optional_binary"
+          "denominator": 295,
+          "pct": 47.1,
+          "rule": "general"
         },
         {
           "field": "Air velocity",
           "count": 117,
-          "denominator": 202,
-          "pct": 57.9,
-          "rule": "optional_binary"
+          "denominator": 295,
+          "pct": 39.7,
+          "rule": "general"
         },
         {
           "field": "Globe temperature",
           "count": 90,
-          "denominator": 157,
-          "pct": 57.3,
-          "rule": "optional_binary"
+          "denominator": 295,
+          "pct": 30.5,
+          "rule": "general"
         },
         {
           "field": "Surface temperatures",
           "count": 6,
-          "denominator": 28,
-          "pct": 21.4,
-          "rule": "optional_binary"
+          "denominator": 295,
+          "pct": 2.0,
+          "rule": "general"
         },
         {
           "field": "Wet-bulb temperature",
           "count": 9,
-          "denominator": 11,
-          "pct": 81.8,
-          "rule": "optional_binary"
+          "denominator": 295,
+          "pct": 3.1,
+          "rule": "general"
         },
         {
           "field": "Outdoor temperature",
           "count": 2,
-          "denominator": 18,
-          "pct": 11.1,
-          "rule": "optional_binary"
+          "denominator": 295,
+          "pct": 0.7,
+          "rule": "general"
         },
         {
           "field": "Outdoor RH",
           "count": 1,
-          "denominator": 8,
-          "pct": 12.5,
-          "rule": "optional_binary"
+          "denominator": 295,
+          "pct": 0.3,
+          "rule": "general"
         },
         {
           "field": "CO₂ concentration",
           "count": 31,
-          "denominator": 66,
-          "pct": 47.0,
-          "rule": "optional_binary"
+          "denominator": 295,
+          "pct": 10.5,
+          "rule": "general"
         },
         {
           "field": "VOC concentration",
           "count": 3,
-          "denominator": 8,
-          "pct": 37.5,
-          "rule": "optional_binary"
+          "denominator": 295,
+          "pct": 1.0,
+          "rule": "general"
         },
         {
           "field": "Illuminance",
-          "count": 32,
-          "denominator": 51,
-          "pct": 62.7,
-          "rule": "optional_binary"
+          "count": 31,
+          "denominator": 295,
+          "pct": 10.5,
+          "rule": "general"
         },
         {
           "field": "Light colour/CCT",
-          "count": 3,
-          "denominator": 5,
-          "pct": 60.0,
-          "rule": "optional_binary"
+          "count": 2,
+          "denominator": 295,
+          "pct": 0.7,
+          "rule": "general"
         },
         {
           "field": "Solar radiation",
           "count": 3,
-          "denominator": 10,
-          "pct": 30.0,
-          "rule": "optional_binary"
+          "denominator": 295,
+          "pct": 1.0,
+          "rule": "general"
         },
         {
           "field": "Sound level",
           "count": 5,
-          "denominator": 17,
-          "pct": 29.4,
-          "rule": "optional_binary"
+          "denominator": 295,
+          "pct": 1.7,
+          "rule": "general"
         }
       ]
     },
@@ -9982,80 +9982,80 @@
       "fields": [
         {
           "field": "Thermal sensation",
-          "count": 258,
-          "denominator": 259,
-          "pct": 99.6,
-          "rule": "optional_binary"
+          "count": 257,
+          "denominator": 295,
+          "pct": 87.1,
+          "rule": "general"
         },
         {
           "field": "Thermal comfort",
-          "count": 161,
-          "denominator": 168,
-          "pct": 95.8,
-          "rule": "optional_binary"
+          "count": 159,
+          "denominator": 295,
+          "pct": 53.9,
+          "rule": "general"
         },
         {
           "field": "Thermal preference",
           "count": 68,
-          "denominator": 70,
-          "pct": 97.1,
-          "rule": "optional_binary"
+          "denominator": 295,
+          "pct": 23.1,
+          "rule": "general"
         },
         {
           "field": "Thermal acceptability",
-          "count": 88,
-          "denominator": 92,
-          "pct": 95.7,
-          "rule": "optional_binary"
+          "count": 87,
+          "denominator": 295,
+          "pct": 29.5,
+          "rule": "general"
         },
         {
           "field": "Thermal satisfaction",
           "count": 20,
-          "denominator": 20,
-          "pct": 100.0,
-          "rule": "optional_binary"
+          "denominator": 295,
+          "pct": 6.8,
+          "rule": "general"
         },
         {
           "field": "Local thermal sensation",
           "count": 37,
-          "denominator": 37,
-          "pct": 100.0,
-          "rule": "optional_binary"
+          "denominator": 295,
+          "pct": 12.5,
+          "rule": "general"
         },
         {
           "field": "Air movement sensation",
           "count": 15,
-          "denominator": 15,
-          "pct": 100.0,
-          "rule": "optional_binary"
+          "denominator": 295,
+          "pct": 5.1,
+          "rule": "general"
         },
         {
           "field": "Humidity sensation",
           "count": 25,
-          "denominator": 25,
-          "pct": 100.0,
-          "rule": "optional_binary"
+          "denominator": 295,
+          "pct": 8.5,
+          "rule": "general"
         },
         {
           "field": "Light sensation",
           "count": 11,
-          "denominator": 13,
-          "pct": 84.6,
-          "rule": "optional_binary"
+          "denominator": 295,
+          "pct": 3.7,
+          "rule": "general"
         },
         {
           "field": "IAQ sensation",
           "count": 11,
-          "denominator": 12,
-          "pct": 91.7,
-          "rule": "optional_binary"
+          "denominator": 295,
+          "pct": 3.7,
+          "rule": "general"
         },
         {
           "field": "Acoustic sensation",
           "count": 4,
-          "denominator": 4,
-          "pct": 100.0,
-          "rule": "optional_binary"
+          "denominator": 295,
+          "pct": 1.4,
+          "rule": "general"
         }
       ]
     }
@@ -10110,295 +10110,6 @@
         "year": 2024,
         "count": 38
       }
-    ],
-    "by_country": [
-      {
-        "year": 2013,
-        "country": "China",
-        "count": 3
-      },
-      {
-        "year": 2013,
-        "country": "Other",
-        "count": 2
-      },
-      {
-        "year": 2014,
-        "country": "China",
-        "count": 3
-      },
-      {
-        "year": 2014,
-        "country": "Japan",
-        "count": 1
-      },
-      {
-        "year": 2014,
-        "country": "Other",
-        "count": 2
-      },
-      {
-        "year": 2015,
-        "country": "China",
-        "count": 2
-      },
-      {
-        "year": 2015,
-        "country": "Japan",
-        "count": 1
-      },
-      {
-        "year": 2015,
-        "country": "Other",
-        "count": 1
-      },
-      {
-        "year": 2015,
-        "country": "Republic of Korea",
-        "count": 1
-      },
-      {
-        "year": 2016,
-        "country": "China",
-        "count": 6
-      },
-      {
-        "year": 2016,
-        "country": "Other",
-        "count": 2
-      },
-      {
-        "year": 2016,
-        "country": "Republic of Korea",
-        "count": 1
-      },
-      {
-        "year": 2016,
-        "country": "USA",
-        "count": 1
-      },
-      {
-        "year": 2017,
-        "country": "China",
-        "count": 9
-      },
-      {
-        "year": 2017,
-        "country": "Other",
-        "count": 4
-      },
-      {
-        "year": 2017,
-        "country": "Republic of Korea",
-        "count": 1
-      },
-      {
-        "year": 2017,
-        "country": "USA",
-        "count": 1
-      },
-      {
-        "year": 2018,
-        "country": "China",
-        "count": 8
-      },
-      {
-        "year": 2018,
-        "country": "Japan",
-        "count": 1
-      },
-      {
-        "year": 2018,
-        "country": "Other",
-        "count": 7
-      },
-      {
-        "year": 2018,
-        "country": "Republic of Korea",
-        "count": 2
-      },
-      {
-        "year": 2018,
-        "country": "Singapore",
-        "count": 3
-      },
-      {
-        "year": 2018,
-        "country": "USA",
-        "count": 4
-      },
-      {
-        "year": 2019,
-        "country": "China",
-        "count": 15
-      },
-      {
-        "year": 2019,
-        "country": "Japan",
-        "count": 2
-      },
-      {
-        "year": 2019,
-        "country": "Other",
-        "count": 3
-      },
-      {
-        "year": 2019,
-        "country": "Republic of Korea",
-        "count": 1
-      },
-      {
-        "year": 2019,
-        "country": "USA",
-        "count": 7
-      },
-      {
-        "year": 2020,
-        "country": "China",
-        "count": 13
-      },
-      {
-        "year": 2020,
-        "country": "Japan",
-        "count": 1
-      },
-      {
-        "year": 2020,
-        "country": "Other",
-        "count": 8
-      },
-      {
-        "year": 2020,
-        "country": "Republic of Korea",
-        "count": 1
-      },
-      {
-        "year": 2020,
-        "country": "Singapore",
-        "count": 2
-      },
-      {
-        "year": 2020,
-        "country": "USA",
-        "count": 4
-      },
-      {
-        "year": 2021,
-        "country": "China",
-        "count": 15
-      },
-      {
-        "year": 2021,
-        "country": "Japan",
-        "count": 3
-      },
-      {
-        "year": 2021,
-        "country": "Other",
-        "count": 6
-      },
-      {
-        "year": 2021,
-        "country": "Republic of Korea",
-        "count": 1
-      },
-      {
-        "year": 2021,
-        "country": "USA",
-        "count": 2
-      },
-      {
-        "year": 2022,
-        "country": "China",
-        "count": 30
-      },
-      {
-        "year": 2022,
-        "country": "Japan",
-        "count": 1
-      },
-      {
-        "year": 2022,
-        "country": "Other",
-        "count": 12
-      },
-      {
-        "year": 2022,
-        "country": "Republic of Korea",
-        "count": 3
-      },
-      {
-        "year": 2022,
-        "country": "Singapore",
-        "count": 3
-      },
-      {
-        "year": 2022,
-        "country": "USA",
-        "count": 1
-      },
-      {
-        "year": 2023,
-        "country": "China",
-        "count": 22
-      },
-      {
-        "year": 2023,
-        "country": "Other",
-        "count": 6
-      },
-      {
-        "year": 2023,
-        "country": "Republic of Korea",
-        "count": 1
-      },
-      {
-        "year": 2023,
-        "country": "Singapore",
-        "count": 1
-      },
-      {
-        "year": 2023,
-        "country": "USA",
-        "count": 2
-      },
-      {
-        "year": 2024,
-        "country": "China",
-        "count": 27
-      },
-      {
-        "year": 2024,
-        "country": "Japan",
-        "count": 2
-      },
-      {
-        "year": 2024,
-        "country": "Other",
-        "count": 5
-      },
-      {
-        "year": 2024,
-        "country": "Republic of Korea",
-        "count": 2
-      },
-      {
-        "year": 2024,
-        "country": "Singapore",
-        "count": 1
-      },
-      {
-        "year": 2024,
-        "country": "USA",
-        "count": 1
-      }
-    ],
-    "top_countries": [
-      "China",
-      "USA",
-      "Republic of Korea",
-      "Japan",
-      "Singapore"
     ]
   },
   "fig02_geography": {
@@ -81228,7 +80939,8 @@
         "n": 30.0
       }
     ],
-    "min_count_threshold": 3
+    "min_count_threshold": 3,
+    "total_sample_size_all_countries": 13633.0
   },
   "selection_by_period": {
     "data": [
@@ -97580,7 +97292,7 @@
       "id-city": "Xi'an",
       "id-country": "China",
       "id-climate-class": "BSk",
-      "pub-name": "Building & Environment",
+      "pub-name": "Building and Environment",
       "pub-year": 2021,
       "pub-doi": "https://doi.org/10.1016/j.buildenv.2021.107808",
       "pub-type": "J",
@@ -98903,7 +98615,7 @@
       "id-city": "Changsha",
       "id-country": "China",
       "id-climate-class": "Cfa",
-      "pub-name": "Energy & Buildings",
+      "pub-name": "Energy and Buildings",
       "pub-year": 2023,
       "pub-doi": "https://doi.org/10.1016/j.enbuild.2023.113510",
       "pub-type": "J",
@@ -98945,7 +98657,7 @@
       "id-city": "Xi'an",
       "id-country": "China",
       "id-climate-class": "BSk",
-      "pub-name": "Building & Environment",
+      "pub-name": "Building and Environment",
       "pub-year": 2023,
       "pub-doi": "https://doi.org/10.1016/j.buildenv.2023.110643",
       "pub-type": "J",
@@ -98966,7 +98678,7 @@
       "id-city": "Xi'an",
       "id-country": "China",
       "id-climate-class": "BSk",
-      "pub-name": "Building & Environment",
+      "pub-name": "Building and Environment",
       "pub-year": 2023,
       "pub-doi": "https://doi.org/10.1016/j.buildenv.2023.110643",
       "pub-type": "J",
@@ -99218,7 +98930,7 @@
       "id-city": "Changsha",
       "id-country": "China",
       "id-climate-class": "Cfa",
-      "pub-name": "Energy & Buildings",
+      "pub-name": "Energy and Buildings",
       "pub-year": 2023,
       "pub-doi": "https://doi.org/10.1016/j.enbuild.2023.113440",
       "pub-type": "J",
@@ -99470,7 +99182,7 @@
       "id-city": "Seoul",
       "id-country": "Republic of Korea",
       "id-climate-class": "Dwa",
-      "pub-name": "Building & Environment",
+      "pub-name": "Building and Environment",
       "pub-year": 2023,
       "pub-doi": "https://doi.org/10.1016/j.buildenv.2023.110760",
       "pub-type": "J",
@@ -100394,7 +100106,7 @@
     "n_variables": 206,
     "year_min": 2013,
     "year_max": 2024,
-    "generated_at": "2026-08-01T13:57:58.262591"
+    "generated_at": "2026-08-01T17:39:10.414445"
   },
   "variable_dictionary": {
     "data": [

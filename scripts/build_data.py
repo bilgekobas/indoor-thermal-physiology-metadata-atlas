@@ -579,36 +579,11 @@ def parse_subgroup_pooled(mean_str, std_str):
     return pooled_mean, pooled_std, total_n, issue
 
 # ── Fig 1. Publications by year ────────────────────────────────────────
-pubs_dedup = df.drop_duplicates(subset=['id-pub-id'])
-pubs_by_year = pubs_dedup['pub-year'].value_counts().sort_index()
+pubs_by_year = df.drop_duplicates(subset=['id-pub-id'])['pub-year'].value_counts().sort_index()
 fig1 = [{'year': int(y), 'count': int(c)} for y, c in pubs_by_year.items()]
-
-# Per-year split by top-5 countries (by total publication count), with every
-# other country collapsed into 'Other'. Uses the same publication-level dedup
-# and raw id-country labels as fig1 above (no atlas-name crosswalk needed
-# here since this feeds a bar chart, not the choropleth map).
-pub_country = pubs_dedup[['pub-year', 'id-country']].copy()
-pub_country['id-country'] = pub_country['id-country'].astype(str).str.strip()
-pub_country = pub_country[pub_country['id-country'].notna() & ~pub_country['id-country'].isin(CODES)]
-
-top5_countries = pub_country['id-country'].value_counts().head(5).index.tolist()
-pub_country['country_bucket'] = pub_country['id-country'].apply(
-    lambda c: c if c in top5_countries else 'Other'
-)
-
-fig1_by_country_counts = pub_country.groupby(['pub-year', 'country_bucket']).size()
-fig1_by_country = [
-    {'year': int(y), 'country': c, 'count': int(n)}
-    for (y, c), n in fig1_by_country_counts.items()
-]
-
 with open(OUT_DIR / 'fig01_pubs_by_year.json', 'w') as f:
-    json.dump({
-        'data': fig1,
-        'by_country': fig1_by_country,
-        'top_countries': top5_countries,
-    }, f, indent=2)
-print('fig01_pubs_by_year.json:', len(fig1), 'years,', len(top5_countries), 'top countries + Other')
+    json.dump({'data': fig1}, f, indent=2)
+print('fig01_pubs_by_year.json:', len(fig1), 'years')
 
 # ── Fig 2. Geographical distribution ───────────────────────────────────
 country_counts = studies_u['id-country'].value_counts()
@@ -1523,21 +1498,21 @@ FULL_COMPLETENESS_GROUPS = {
         ('physio-formulas', 'Full formula text', 'mst'), ('physio-mst-weighting', 'Weighting factors per region', 'mst'),
     ],
     'Environment': [
-        ('env-tdb', 'Air temperature', 'optional_binary'), ('env-rh', 'Relative humidity', 'optional_binary'),
-        ('env-v', 'Air velocity', 'optional_binary'), ('env-tg', 'Globe temperature', 'optional_binary'),
-        ('env-tsurface', 'Surface temperatures', 'optional_binary'), ('env-twb', 'Wet-bulb temperature', 'optional_binary'),
-        ('env-tout', 'Outdoor temperature', 'optional_binary'), ('env-rhout', 'Outdoor RH', 'optional_binary'),
-        ('env-co2', 'CO₂ concentration', 'optional_binary'), ('env-voc', 'VOC concentration', 'optional_binary'),
-        ('env-illuminance', 'Illuminance', 'optional_binary'), ('env-light-color', 'Light colour/CCT', 'optional_binary'),
-        ('env-solar-rad', 'Solar radiation', 'optional_binary'), ('env-sound-level', 'Sound level', 'optional_binary'),
+        ('env-tdb', 'Air temperature', 'general'), ('env-rh', 'Relative humidity', 'general'),
+        ('env-v', 'Air velocity', 'general'), ('env-tg', 'Globe temperature', 'general'),
+        ('env-tsurface', 'Surface temperatures', 'general'), ('env-twb', 'Wet-bulb temperature', 'general'),
+        ('env-tout', 'Outdoor temperature', 'general'), ('env-rhout', 'Outdoor RH', 'general'),
+        ('env-co2', 'CO₂ concentration', 'general'), ('env-voc', 'VOC concentration', 'general'),
+        ('env-illuminance', 'Illuminance', 'general'), ('env-light-color', 'Light colour/CCT', 'general'),
+        ('env-solar-rad', 'Solar radiation', 'general'), ('env-sound-level', 'Sound level', 'general'),
     ],
     'Questionnaires': [
-        ('ques-thermal-sensation', 'Thermal sensation', 'optional_binary'), ('ques-thermal-comfort', 'Thermal comfort', 'optional_binary'),
-        ('ques-thermal-prefer', 'Thermal preference', 'optional_binary'), ('ques-thermal-accept', 'Thermal acceptability', 'optional_binary'),
-        ('ques-thermal-satisfaction', 'Thermal satisfaction', 'optional_binary'), ('ques-local-therm-sensation', 'Local thermal sensation', 'optional_binary'),
-        ('ques-airmove-sensation', 'Air movement sensation', 'optional_binary'), ('ques-humidity-sensation', 'Humidity sensation', 'optional_binary'),
-        ('ques-light-sensation', 'Light sensation', 'optional_binary'), ('ques-iaq-sensation', 'IAQ sensation', 'optional_binary'),
-        ('ques-acoustic-sensation', 'Acoustic sensation', 'optional_binary'),
+        ('ques-thermal-sensation', 'Thermal sensation', 'general'), ('ques-thermal-comfort', 'Thermal comfort', 'general'),
+        ('ques-thermal-prefer', 'Thermal preference', 'general'), ('ques-thermal-accept', 'Thermal acceptability', 'general'),
+        ('ques-thermal-satisfaction', 'Thermal satisfaction', 'general'), ('ques-local-therm-sensation', 'Local thermal sensation', 'general'),
+        ('ques-airmove-sensation', 'Air movement sensation', 'general'), ('ques-humidity-sensation', 'Humidity sensation', 'general'),
+        ('ques-light-sensation', 'Light sensation', 'general'), ('ques-iaq-sensation', 'IAQ sensation', 'general'),
+        ('ques-acoustic-sensation', 'Acoustic sensation', 'general'),
     ],
 }
 
@@ -1989,6 +1964,14 @@ ss_country = studies_u[['id', 'id-country', 'pop-no-tot']].copy()
 ss_country['pop-no-tot'] = ss_country['pop-no-tot'].apply(clean_num)
 ss_country = ss_country[~ss_country['id-country'].astype(str).isin(CODES) & ss_country['pop-no-tot'].notna()]
 
+# True corpus-wide total, computed BEFORE the >=3-studies-per-country filter below --
+# used client-side for "% of corpus" so that number reflects the whole corpus, not
+# just the subset of countries large enough to display individually. (Previously the
+# frontend summed only the filtered per-country `studies` array here, which understated
+# the denominator and inflated every country's displayed "% of corpus" share -- e.g.
+# China showed 74.4% against this partial sum instead of 69.9% against the true total.)
+total_corpus_participants = float(ss_country['pop-no-tot'].sum())
+
 country_stats = ss_country.groupby('id-country')['pop-no-tot'].agg(
     count='count', median='median', mean='mean', min='min', max='max'
 ).reset_index()
@@ -2005,8 +1988,10 @@ with open(OUT_DIR / 'sample_size_by_country.json', 'w') as f:
         'stats': country_stats.rename(columns={'id-country': 'country'}).to_dict('records'),
         'studies': country_studies.to_dict('records'),
         'min_count_threshold': 3,
+        'total_sample_size_all_countries': total_corpus_participants,
     }, f, indent=2, default=str)
-print(f'sample_size_by_country.json: {len(country_stats)} countries with >=3 studies')
+print(f'sample_size_by_country.json: {len(country_stats)} countries with >=3 studies, '
+      f'{total_corpus_participants:.0f} total corpus participants (true denominator)')
 
 # ── D3. Body site by signal: heart rate, skin conductance, sweat indicators ──
 # Generalizes the skin-temperature site-prevalence treatment (Ch.3) to three
