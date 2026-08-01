@@ -48,5 +48,294 @@
       "year": 2024,
       "count": 38
     }
+  ],
+  "by_country": [
+    {
+      "year": 2013,
+      "country": "China",
+      "count": 3
+    },
+    {
+      "year": 2013,
+      "country": "Other",
+      "count": 2
+    },
+    {
+      "year": 2014,
+      "country": "China",
+      "count": 3
+    },
+    {
+      "year": 2014,
+      "country": "Japan",
+      "count": 1
+    },
+    {
+      "year": 2014,
+      "country": "Other",
+      "count": 2
+    },
+    {
+      "year": 2015,
+      "country": "China",
+      "count": 2
+    },
+    {
+      "year": 2015,
+      "country": "Japan",
+      "count": 1
+    },
+    {
+      "year": 2015,
+      "country": "Other",
+      "count": 1
+    },
+    {
+      "year": 2015,
+      "country": "Republic of Korea",
+      "count": 1
+    },
+    {
+      "year": 2016,
+      "country": "China",
+      "count": 6
+    },
+    {
+      "year": 2016,
+      "country": "Other",
+      "count": 2
+    },
+    {
+      "year": 2016,
+      "country": "Republic of Korea",
+      "count": 1
+    },
+    {
+      "year": 2016,
+      "country": "USA",
+      "count": 1
+    },
+    {
+      "year": 2017,
+      "country": "China",
+      "count": 9
+    },
+    {
+      "year": 2017,
+      "country": "Other",
+      "count": 4
+    },
+    {
+      "year": 2017,
+      "country": "Republic of Korea",
+      "count": 1
+    },
+    {
+      "year": 2017,
+      "country": "USA",
+      "count": 1
+    },
+    {
+      "year": 2018,
+      "country": "China",
+      "count": 8
+    },
+    {
+      "year": 2018,
+      "country": "Japan",
+      "count": 1
+    },
+    {
+      "year": 2018,
+      "country": "Other",
+      "count": 7
+    },
+    {
+      "year": 2018,
+      "country": "Republic of Korea",
+      "count": 2
+    },
+    {
+      "year": 2018,
+      "country": "Singapore",
+      "count": 3
+    },
+    {
+      "year": 2018,
+      "country": "USA",
+      "count": 4
+    },
+    {
+      "year": 2019,
+      "country": "China",
+      "count": 15
+    },
+    {
+      "year": 2019,
+      "country": "Japan",
+      "count": 2
+    },
+    {
+      "year": 2019,
+      "country": "Other",
+      "count": 3
+    },
+    {
+      "year": 2019,
+      "country": "Republic of Korea",
+      "count": 1
+    },
+    {
+      "year": 2019,
+      "country": "USA",
+      "count": 7
+    },
+    {
+      "year": 2020,
+      "country": "China",
+      "count": 13
+    },
+    {
+      "year": 2020,
+      "country": "Japan",
+      "count": 1
+    },
+    {
+      "year": 2020,
+      "country": "Other",
+      "count": 8
+    },
+    {
+      "year": 2020,
+      "country": "Republic of Korea",
+      "count": 1
+    },
+    {
+      "year": 2020,
+      "country": "Singapore",
+      "count": 2
+    },
+    {
+      "year": 2020,
+      "country": "USA",
+      "count": 4
+    },
+    {
+      "year": 2021,
+      "country": "China",
+      "count": 15
+    },
+    {
+      "year": 2021,
+      "country": "Japan",
+      "count": 3
+    },
+    {
+      "year": 2021,
+      "country": "Other",
+      "count": 6
+    },
+    {
+      "year": 2021,
+      "country": "Republic of Korea",
+      "count": 1
+    },
+    {
+      "year": 2021,
+      "country": "USA",
+      "count": 2
+    },
+    {
+      "year": 2022,
+      "country": "China",
+      "count": 30
+    },
+    {
+      "year": 2022,
+      "country": "Japan",
+      "count": 1
+    },
+    {
+      "year": 2022,
+      "country": "Other",
+      "count": 12
+    },
+    {
+      "year": 2022,
+      "country": "Republic of Korea",
+      "count": 3
+    },
+    {
+      "year": 2022,
+      "country": "Singapore",
+      "count": 3
+    },
+    {
+      "year": 2022,
+      "country": "USA",
+      "count": 1
+    },
+    {
+      "year": 2023,
+      "country": "China",
+      "count": 22
+    },
+    {
+      "year": 2023,
+      "country": "Other",
+      "count": 6
+    },
+    {
+      "year": 2023,
+      "country": "Republic of Korea",
+      "count": 1
+    },
+    {
+      "year": 2023,
+      "country": "Singapore",
+      "count": 1
+    },
+    {
+      "year": 2023,
+      "country": "USA",
+      "count": 2
+    },
+    {
+      "year": 2024,
+      "country": "China",
+      "count": 27
+    },
+    {
+      "year": 2024,
+      "country": "Japan",
+      "count": 2
+    },
+    {
+      "year": 2024,
+      "country": "Other",
+      "count": 5
+    },
+    {
+      "year": 2024,
+      "country": "Republic of Korea",
+      "count": 2
+    },
+    {
+      "year": 2024,
+      "country": "Singapore",
+      "count": 1
+    },
+    {
+      "year": 2024,
+      "country": "USA",
+      "count": 1
+    }
+  ],
+  "top_countries": [
+    "China",
+    "USA",
+    "Republic of Korea",
+    "Japan",
+    "Singapore"
   ]
 }

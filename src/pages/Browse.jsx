@@ -97,7 +97,7 @@ export default function Browse({ data }) {
         description="Filter the corpus by experiment type, country, signal, or publication year. Each row is one publication-experiment unit."
       >
         <a
-          href="https://zenodo.org/records/21682911"
+          href="https://doi.org/10.5281/zenodo.21511034"
           target="_blank"
           rel="noopener noreferrer"
           className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded border border-coreaccent text-coreaccent text-[12.5px] font-data hover:bg-coreaccent hover:text-white transition-colors"

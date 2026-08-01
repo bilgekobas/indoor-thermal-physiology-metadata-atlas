@@ -33,7 +33,7 @@ There are two separate archives — cite the one relevant to what you used:
 - **This site/code** (this repository, as of the release you used):
   [10.5281/zenodo.21516763](https://doi.org/10.5281/zenodo.21516763)
 - **The underlying dataset** (`corpus_main_dataset.csv` + `variable_dictionary.csv`):
-  [10.5281/zenodo.21682911](https://doi.org/10.5281/zenodo.21682911)
+  [10.5281/zenodo.21511034](https://doi.org/10.5281/zenodo.21511034)
 
 Machine-readable citation metadata for the code is in [`CITATION.cff`](./CITATION.cff)
 (GitHub renders a "Cite this repository" button from it automatically). If you use

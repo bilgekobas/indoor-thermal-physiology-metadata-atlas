@@ -579,11 +579,36 @@ def parse_subgroup_pooled(mean_str, std_str):
     return pooled_mean, pooled_std, total_n, issue
 
 # ── Fig 1. Publications by year ────────────────────────────────────────
-pubs_by_year = df.drop_duplicates(subset=['id-pub-id'])['pub-year'].value_counts().sort_index()
+pubs_dedup = df.drop_duplicates(subset=['id-pub-id'])
+pubs_by_year = pubs_dedup['pub-year'].value_counts().sort_index()
 fig1 = [{'year': int(y), 'count': int(c)} for y, c in pubs_by_year.items()]
+
+# Per-year split by top-5 countries (by total publication count), with every
+# other country collapsed into 'Other'. Uses the same publication-level dedup
+# and raw id-country labels as fig1 above (no atlas-name crosswalk needed
+# here since this feeds a bar chart, not the choropleth map).
+pub_country = pubs_dedup[['pub-year', 'id-country']].copy()
+pub_country['id-country'] = pub_country['id-country'].astype(str).str.strip()
+pub_country = pub_country[pub_country['id-country'].notna() & ~pub_country['id-country'].isin(CODES)]
+
+top5_countries = pub_country['id-country'].value_counts().head(5).index.tolist()
+pub_country['country_bucket'] = pub_country['id-country'].apply(
+    lambda c: c if c in top5_countries else 'Other'
+)
+
+fig1_by_country_counts = pub_country.groupby(['pub-year', 'country_bucket']).size()
+fig1_by_country = [
+    {'year': int(y), 'country': c, 'count': int(n)}
+    for (y, c), n in fig1_by_country_counts.items()
+]
+
 with open(OUT_DIR / 'fig01_pubs_by_year.json', 'w') as f:
-    json.dump({'data': fig1}, f, indent=2)
-print('fig01_pubs_by_year.json:', len(fig1), 'years')
+    json.dump({
+        'data': fig1,
+        'by_country': fig1_by_country,
+        'top_countries': top5_countries,
+    }, f, indent=2)
+print('fig01_pubs_by_year.json:', len(fig1), 'years,', len(top5_countries), 'top countries + Other')
 
 # ── Fig 2. Geographical distribution ───────────────────────────────────
 country_counts = studies_u['id-country'].value_counts()

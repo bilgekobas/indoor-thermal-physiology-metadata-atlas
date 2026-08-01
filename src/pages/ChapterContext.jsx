@@ -353,8 +353,34 @@ function SettingSankey({ data, total }) {
   )
 }
 
-function PublicationsByYearChart({ data, totalPubs }) {
+// Fixed palette for the top-5-countries-by-total + 'Other' stack. 'Other'
+// always gets the neutral grey used elsewhere in the app for catch-all
+// buckets (e.g. the Sankey's grouped nodes), regardless of which countries
+// occupy the other five slots.
+const COUNTRY_STACK_PALETTE = ['#0A0A0A', '#5B5BFF', '#FB3640', '#4A4A4A', '#8A8A8A']
+const OTHER_COLOR = '#D9D9D9'
+
+function PublicationsByYearChart({ data, totalPubs, byCountry, topCountries }) {
   const { tip, showTip, moveTip, hideTip } = useTooltip()
+  const [splitByCountry, setSplitByCountry] = useState(false)
+  const canSplit = !!(byCountry && byCountry.length && topCountries && topCountries.length)
+
+  // Stack order is fixed (top countries by overall total, then 'Other' on
+  // top) so a given country always occupies the same band across every
+  // year's bar, making cross-year comparison meaningful.
+  const stackKeys = useMemo(() => (canSplit ? [...topCountries, 'Other'] : []), [canSplit, topCountries])
+  const colorFor = (key) => (key === 'Other' ? OTHER_COLOR : COUNTRY_STACK_PALETTE[stackKeys.indexOf(key) % COUNTRY_STACK_PALETTE.length])
+
+  const byYearCountry = useMemo(() => {
+    if (!canSplit) return {}
+    const m = {}
+    byCountry.forEach((d) => {
+      if (!m[d.year]) m[d.year] = {}
+      m[d.year][d.country] = d.count
+    })
+    return m
+  }, [byCountry, canSplit])
+
   const maxVal = data.reduce((m, d) => (d.count > m ? d.count : m), 1)
   const gridMax = Math.ceil(maxVal / 10) * 10
   const gridStep = 10
@@ -363,8 +389,26 @@ function PublicationsByYearChart({ data, totalPubs }) {
   const barGap = 6
   const barW = (W - barGap * (data.length - 1)) / data.length
   const yScale = (v) => H - (v / gridMax) * H
+  const showStacked = splitByCountry && canSplit
+
   return (
     <div className="no-horizontal-scroll">
+      {canSplit && (
+        <div className="flex gap-1 mb-3">
+          {[
+            { key: false, label: 'Total' },
+            { key: true, label: 'By country' },
+          ].map((t) => (
+            <button
+              key={String(t.key)}
+              onClick={() => setSplitByCountry(t.key)}
+              className={`px-3 py-1 rounded text-[11.5px] font-data transition-colors ${splitByCountry === t.key ? 'bg-ink text-paper' : 'bg-line/50 text-inkmid hover:bg-line'}`}
+            >
+              {t.label}
+            </button>
+          ))}
+        </div>
+      )}
       <svg width={W + 30} height={H + 24} className="font-data overflow-visible">
         {Array.from({ length: gridMax / gridStep + 1 }, (_, i) => i * gridStep).map((v) => (
           <g key={v}>
@@ -374,25 +418,65 @@ function PublicationsByYearChart({ data, totalPubs }) {
         ))}
         {data.map((d, i) => {
           const x = i * (barW + barGap)
-          const barH = (d.count / gridMax) * H
+          if (!showStacked) {
+            const barH = (d.count / gridMax) * H
+            return (
+              <g key={d.year} className="cursor-default">
+                <rect
+                  x={x}
+                  y={H - barH}
+                  width={barW}
+                  height={barH}
+                  fill="#0A0A0A"
+                  className="hover:fill-[#5B5BFF] transition-colors"
+                  onMouseEnter={(e) => showTip(e, `${d.year}: ${d.count} publications · ${((d.count / totalPubs) * 100).toFixed(1)}%`)}
+                  onMouseMove={moveTip}
+                  onMouseLeave={hideTip}
+                />
+                <text x={x + barW / 2} y={H + 22} fontSize={10} fill="#8A8A8A" textAnchor="middle">{d.year}</text>
+              </g>
+            )
+          }
+          const yearCounts = byYearCountry[d.year] || {}
+          let cumTop = H
           return (
             <g key={d.year} className="cursor-default">
-              <rect
-                x={x}
-                y={H - barH}
-                width={barW}
-                height={barH}
-                fill="#0A0A0A"
-                className="hover:fill-[#5B5BFF] transition-colors"
-                onMouseEnter={(e) => showTip(e, `${d.year}: ${d.count} publications · ${((d.count / totalPubs) * 100).toFixed(1)}%`)}
-                onMouseMove={moveTip}
-                onMouseLeave={hideTip}
-              />
+              {stackKeys.map((key) => {
+                const count = yearCounts[key] || 0
+                if (!count) return null
+                const segH = (count / gridMax) * H
+                const y = cumTop - segH
+                cumTop = y
+                return (
+                  <rect
+                    key={key}
+                    x={x}
+                    y={y}
+                    width={barW}
+                    height={segH}
+                    fill={colorFor(key)}
+                    className="hover:opacity-75 transition-opacity"
+                    onMouseEnter={(e) => showTip(e, `${d.year} · ${key}: ${count} publications · ${((count / d.count) * 100).toFixed(0)}% of that year`)}
+                    onMouseMove={moveTip}
+                    onMouseLeave={hideTip}
+                  />
+                )
+              })}
               <text x={x + barW / 2} y={H + 22} fontSize={10} fill="#8A8A8A" textAnchor="middle">{d.year}</text>
             </g>
           )
         })}
       </svg>
+      {showStacked && (
+        <div className="flex flex-wrap gap-x-4 gap-y-1 mt-2">
+          {stackKeys.map((key) => (
+            <div key={key} className="flex items-center gap-1.5 text-[11px] text-inkmid">
+              <span className="w-2.5 h-2.5 rounded-sm inline-block" style={{ background: colorFor(key) }} />
+              {key}
+            </div>
+          ))}
+        </div>
+      )}
       <TooltipPortal tip={tip} />
     </div>
   )
@@ -537,7 +621,12 @@ export default function ChapterContext({ data }) {
         intro="Publication volume has risen steadily, with a dip during 2020–21. Research is geographically concentrated, and that concentration shapes more than just where studies happen — sample size patterns differ by country too, and the climate a study is conducted in often doesn't match the temperature values it tests."
       >
         <FigureCard figNumber={figNum('pubs-by-year')} title="Publications by year" size="wide" commentary={`Output grew from ${earliestYear.count} studies in ${earliestYear.year} to a peak of ${peakYear.count} in ${peakYear.year} — roughly a ${growthMultiple}× increase over the review window. That growth isn't a straight line: year-to-year counts dip and rebound (note 2020–21), so a single year's count is noisier than the overall trend.`}>
-          <PublicationsByYearChart data={fig01_pubs_by_year.data} totalPubs={totalPubs} />
+          <PublicationsByYearChart
+            data={fig01_pubs_by_year.data}
+            totalPubs={totalPubs}
+            byCountry={fig01_pubs_by_year.by_country}
+            topCountries={fig01_pubs_by_year.top_countries}
+          />
         </FigureCard>
 
         <FigureCard figNumber={figNum('geography')} title="Geographical distribution" size="wide" commentary={`${geo_cities.n_studies_mapped} of ${geo_cities.n_studies_total} studies (${cityResolvedPct}%) resolve to a specific city; the rest report only a country or province. Research concentrates in a small number of cities — ${topTwoCities[0].city} and ${topTwoCities[1].city} alone account for ${topTwoCitiesTotal} studies. China's share has also grown over time, from ${chinaShareEarliest}% of studies in ${geoPeriods[0].period} to ${chinaShareLatest}% in ${geoPeriods[geoPeriods.length - 1].period}. The country map uses a log-scaled color ramp so China's count does not wash out every other country.`}>
