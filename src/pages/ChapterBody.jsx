@@ -10,9 +10,11 @@ import { useTooltip, TooltipPortal } from '../components/Tooltip.jsx'
 
 function SensorEvolutionToggle({ signals, evoData, periods }) {
   const [activeSignal, setActiveSignal] = useState(signals[0] || '')
+  const [denom, setDenom] = useState('all') // 'all' | 'signal'
   if (!signals.length || !activeSignal) return <div className="text-[12px] text-inkfaint">No data available.</div>
   const signalData = evoData.signals[activeSignal]
-  const { data, sensor_order, period_n_all } = signalData
+  const { data, sensor_order, period_n_all, period_totals } = signalData
+  const periodN = denom === 'all' ? period_n_all : period_totals
   const countsBySensor = useMemo(() => {
     const m = {}
     sensor_order.forEach((s) => { m[s] = {} })
@@ -24,7 +26,7 @@ function SensorEvolutionToggle({ signals, evoData, periods }) {
   )
   return (
     <div>
-      <div className="flex flex-wrap gap-1.5 mb-4">
+      <div className="flex flex-wrap gap-1.5 mb-3">
         {signals.map((sig) => (
           <button
             key={sig}
@@ -35,15 +37,35 @@ function SensorEvolutionToggle({ signals, evoData, periods }) {
           </button>
         ))}
       </div>
+      <div className="flex items-center gap-2 mb-4">
+        <span className="text-[10.5px] text-inkfaint font-data">n= denominator:</span>
+        <button
+          onClick={() => setDenom('all')}
+          className={`px-2 py-0.5 rounded text-[10.5px] font-data transition-colors ${denom === 'all' ? 'bg-ink text-paper' : 'bg-line/50 text-inkmid hover:bg-line'}`}
+        >
+          all experiments in period
+        </button>
+        <button
+          onClick={() => setDenom('signal')}
+          className={`px-2 py-0.5 rounded text-[10.5px] font-data transition-colors ${denom === 'signal' ? 'bg-ink text-paper' : 'bg-line/50 text-inkmid hover:bg-line'}`}
+        >
+          only studies measuring {activeSignal.toLowerCase()}
+        </button>
+      </div>
       <PeriodHeatmap
         rows={sensor_order}
         periods={periods}
-        periodN={period_n_all}
+        periodN={periodN}
         rowTotals={rowTotals}
         getCount={(sensor, p) => countsBySensor[sensor]?.[p] || 0}
         labelWidth={150}
         cellWidth={78}
       />
+      {denom === 'signal' && (
+        <p className="text-[11px] text-inkfaint mt-2">
+          Percentages now show each sensor type's share of studies that measured {activeSignal.toLowerCase()} in that period specifically — not comparable across signals, but shows within-signal sensor-choice trends more directly.
+        </p>
+      )}
     </div>
   )
 
