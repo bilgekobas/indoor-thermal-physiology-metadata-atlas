@@ -47890,10 +47890,10 @@
         "points": 4,
         "scale_type": "discrete",
         "range": [
-          0.0,
-          -1.0,
+          -3.0,
           -2.0,
-          -3.0
+          -1.0,
+          0.0
         ],
         "labels": [
           "comfortable",
@@ -47904,25 +47904,25 @@
         "grid": [
           {
             "value": -3.0,
-            "label": "very uncomfortable",
+            "label": "comfortable",
             "is_anchor": true,
             "is_neutral": false
           },
           {
             "value": -2.0,
-            "label": "uncomfortable",
-            "is_anchor": true,
-            "is_neutral": false
-          },
-          {
-            "value": -1.0,
             "label": "slightly uncomfortable",
             "is_anchor": true,
             "is_neutral": false
           },
           {
+            "value": -1.0,
+            "label": "uncomfortable",
+            "is_anchor": true,
+            "is_neutral": false
+          },
+          {
             "value": 0.0,
-            "label": "comfortable",
+            "label": "very uncomfortable",
             "is_anchor": true,
             "is_neutral": true
           }
@@ -48150,12 +48150,12 @@
         "points": 6,
         "scale_type": "discrete",
         "range": [
-          2.0,
-          1.0,
-          0.1,
-          -0.1,
+          -2.0,
           -1.0,
-          -2.0
+          -0.1,
+          0.1,
+          1.0,
+          2.0
         ],
         "labels": [
           "very comfortable",
@@ -48168,37 +48168,37 @@
         "grid": [
           {
             "value": -2.0,
-            "label": "very uncomfortable",
+            "label": "very comfortable",
             "is_anchor": true,
             "is_neutral": false
           },
           {
             "value": -1.0,
-            "label": "uncomfortable",
-            "is_anchor": true,
-            "is_neutral": false
-          },
-          {
-            "value": -0.1,
-            "label": "slightly uncomfortable",
-            "is_anchor": true,
-            "is_neutral": false
-          },
-          {
-            "value": 0.1,
-            "label": "slightly comfortable",
-            "is_anchor": true,
-            "is_neutral": false
-          },
-          {
-            "value": 1.0,
             "label": "comfortable",
             "is_anchor": true,
             "is_neutral": false
           },
           {
+            "value": -0.1,
+            "label": "slightly comfortable",
+            "is_anchor": true,
+            "is_neutral": false
+          },
+          {
+            "value": 0.1,
+            "label": "slightly uncomfortable",
+            "is_anchor": true,
+            "is_neutral": false
+          },
+          {
+            "value": 1.0,
+            "label": "uncomfortable",
+            "is_anchor": true,
+            "is_neutral": false
+          },
+          {
             "value": 2.0,
-            "label": "very comfortable",
+            "label": "very uncomfortable",
             "is_anchor": true,
             "is_neutral": false
           }
@@ -48210,12 +48210,12 @@
         "points": 6,
         "scale_type": "discrete",
         "range": [
-          2.0,
-          1.0,
-          0.1,
-          -0.1,
+          -2.0,
           -1.0,
-          -2.0
+          -0.1,
+          0.1,
+          1.0,
+          2.0
         ],
         "labels": [
           "very comfortable",
@@ -48228,37 +48228,37 @@
         "grid": [
           {
             "value": -2.0,
-            "label": "very uncomfortable",
+            "label": "very comfortable",
             "is_anchor": true,
             "is_neutral": false
           },
           {
             "value": -1.0,
-            "label": "uncomfortable",
-            "is_anchor": true,
-            "is_neutral": false
-          },
-          {
-            "value": -0.1,
-            "label": "slightly uncomfortable",
-            "is_anchor": true,
-            "is_neutral": false
-          },
-          {
-            "value": 0.1,
-            "label": "slightly comfortable",
-            "is_anchor": true,
-            "is_neutral": false
-          },
-          {
-            "value": 1.0,
             "label": "comfortable",
             "is_anchor": true,
             "is_neutral": false
           },
           {
+            "value": -0.1,
+            "label": "slightly comfortable",
+            "is_anchor": true,
+            "is_neutral": false
+          },
+          {
+            "value": 0.1,
+            "label": "slightly uncomfortable",
+            "is_anchor": true,
+            "is_neutral": false
+          },
+          {
+            "value": 1.0,
+            "label": "uncomfortable",
+            "is_anchor": true,
+            "is_neutral": false
+          },
+          {
             "value": 2.0,
-            "label": "very comfortable",
+            "label": "very uncomfortable",
             "is_anchor": true,
             "is_neutral": false
           }
@@ -100463,7 +100463,7 @@
     "n_variables": 206,
     "year_min": 2013,
     "year_max": 2024,
-    "generated_at": "2026-08-03T16:36:31.562169"
+    "generated_at": "2026-08-03T17:38:49.190701"
   },
   "variable_dictionary": {
     "data": [
