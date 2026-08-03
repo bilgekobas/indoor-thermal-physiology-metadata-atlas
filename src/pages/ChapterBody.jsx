@@ -10,11 +10,9 @@ import { useTooltip, TooltipPortal } from '../components/Tooltip.jsx'
 
 function SensorEvolutionToggle({ signals, evoData, periods }) {
   const [activeSignal, setActiveSignal] = useState(signals[0] || '')
-  const [denom, setDenom] = useState('all') // 'all' | 'signal'
   if (!signals.length || !activeSignal) return <div className="text-[12px] text-inkfaint">No data available.</div>
   const signalData = evoData.signals[activeSignal]
-  const { data, sensor_order, period_n_all, period_totals } = signalData
-  const periodN = denom === 'all' ? period_n_all : period_totals
+  const { data, sensor_order, period_totals } = signalData
   const countsBySensor = useMemo(() => {
     const m = {}
     sensor_order.forEach((s) => { m[s] = {} })
@@ -26,7 +24,7 @@ function SensorEvolutionToggle({ signals, evoData, periods }) {
   )
   return (
     <div>
-      <div className="flex flex-wrap gap-1.5 mb-3">
+      <div className="flex flex-wrap gap-1.5 mb-4">
         {signals.map((sig) => (
           <button
             key={sig}
@@ -37,35 +35,15 @@ function SensorEvolutionToggle({ signals, evoData, periods }) {
           </button>
         ))}
       </div>
-      <div className="flex items-center gap-2 mb-4">
-        <span className="text-[10.5px] text-inkfaint font-data">n= denominator:</span>
-        <button
-          onClick={() => setDenom('all')}
-          className={`px-2 py-0.5 rounded text-[10.5px] font-data transition-colors ${denom === 'all' ? 'bg-ink text-paper' : 'bg-line/50 text-inkmid hover:bg-line'}`}
-        >
-          all experiments in period
-        </button>
-        <button
-          onClick={() => setDenom('signal')}
-          className={`px-2 py-0.5 rounded text-[10.5px] font-data transition-colors ${denom === 'signal' ? 'bg-ink text-paper' : 'bg-line/50 text-inkmid hover:bg-line'}`}
-        >
-          only studies measuring {activeSignal.toLowerCase()}
-        </button>
-      </div>
       <PeriodHeatmap
         rows={sensor_order}
         periods={periods}
-        periodN={periodN}
+        periodN={period_totals}
         rowTotals={rowTotals}
         getCount={(sensor, p) => countsBySensor[sensor]?.[p] || 0}
         labelWidth={150}
         cellWidth={78}
       />
-      {denom === 'signal' && (
-        <p className="text-[11px] text-inkfaint mt-2">
-          Percentages now show each sensor type's share of studies that measured {activeSignal.toLowerCase()} in that period specifically — not comparable across signals, but shows within-signal sensor-choice trends more directly.
-        </p>
-      )}
     </div>
   )
 
@@ -842,7 +820,7 @@ export default function ChapterBody({ data }) {
         title="How sensor choice has shifted over time"
         intro={`For skin temperature, thermocouples made up ${thermocoupleEarlyPct}% of all experiments in ${evoFirstPeriod} but only ${thermocoupleLatePct}% by ${evoLastPeriod}, while Thermochron-type dataloggers (e.g. iButton) rose from ${thermochronEarlyPct}% to ${thermochronLatePct}% over the same span — the field's main displacement story. Cells show each sensor type's share of all experiments run in that period, not just those measuring the selected signal. Because one experiment may use several methods, percentages need not sum to 100%.`}
       >
-        <FigureCard figNumber={figNum('sensor-choice-by-signal')} title="Sensor choice by signal" size="wide" commentary="Use the signal toggle to switch which signal's sensor breakdown is shown. Rows are sensor types, columns are 2-year periods; each cell is a share of all experiments run in that period (not just those measuring this signal), so it's directly comparable across signals and periods; methods are non-exclusive.">
+        <FigureCard figNumber={figNum('sensor-choice-by-signal')} title="Sensor choice by signal" size="wide" commentary="Use the signal toggle to switch which signal's sensor breakdown is shown. Rows are sensor types, columns are 2-year periods; each cell is a share of studies that measured this signal in that period specifically, so percentages reflect within-signal sensor-choice trends (not directly comparable across signals, since the denominator changes with the toggle); methods are non-exclusive.">
           <SensorEvolutionToggle signals={evoSignals} evoData={evo_signal_sensor} periods={evoPeriods} />
         </FigureCard>
       </ChapterSection>
