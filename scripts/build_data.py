@@ -1914,6 +1914,19 @@ with open(OUT_DIR / 'open_data.json', 'w') as f:
     }, f, indent=2)
 print(f'open_data.json: {len(real_links)} studies with a real open-data link of {len(studies_u)}')
 
+# ── C3b. Data-availability status by period, for the Fig 12 heatmap ─────
+# Reuses period_n_all (total experiments per period, computed above at A1)
+# so the matrix is normalized the same way as the other corpus-wide period
+# heatmaps (Fig 21 etc.) rather than per-status.
+davail_by_period = studies_u.groupby(['period', 'data-avail']).size().reset_index(name='count')
+with open(OUT_DIR / 'data_avail_by_period.json', 'w') as f:
+    json.dump({
+        'data': davail_by_period.rename(columns={'data-avail': 'status'}).to_dict('records'),
+        'period_n': period_n_all,
+        'periods': [b[2] for b in BINS],
+    }, f, indent=2)
+print('data_avail_by_period.json written:', dict(data_avail_dist))
+
 # ── C4. Sample size justification type & participant payment ───────────
 calc_type_dist = studies_u[~studies_u['pop-sample-size-calc-type'].astype(str).isin(CODES) & studies_u['pop-sample-size-calc-type'].notna()]['pop-sample-size-calc-type'].value_counts()
 payment_dist = studies_u['pop-payment'].value_counts()

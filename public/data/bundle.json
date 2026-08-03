@@ -7103,6 +7103,116 @@
       }
     ]
   },
+  "data_avail_by_period": {
+    "data": [
+      {
+        "period": "2013–14",
+        "status": "NR",
+        "count": 11
+      },
+      {
+        "period": "2015–16",
+        "status": "NR",
+        "count": 15
+      },
+      {
+        "period": "2017–18",
+        "status": "NR",
+        "count": 47
+      },
+      {
+        "period": "2019–20",
+        "status": "Available",
+        "count": 1
+      },
+      {
+        "period": "2019–20",
+        "status": "NC",
+        "count": 6
+      },
+      {
+        "period": "2019–20",
+        "status": "NR",
+        "count": 54
+      },
+      {
+        "period": "2019–20",
+        "status": "Not available for sharing",
+        "count": 1
+      },
+      {
+        "period": "2019–20",
+        "status": "Upon request",
+        "count": 1
+      },
+      {
+        "period": "2021–22",
+        "status": "Available",
+        "count": 1
+      },
+      {
+        "period": "2021–22",
+        "status": "NC",
+        "count": 3
+      },
+      {
+        "period": "2021–22",
+        "status": "NR",
+        "count": 51
+      },
+      {
+        "period": "2021–22",
+        "status": "Not available for sharing",
+        "count": 8
+      },
+      {
+        "period": "2021–22",
+        "status": "Upon request",
+        "count": 18
+      },
+      {
+        "period": "2023–24",
+        "status": "Available",
+        "count": 4
+      },
+      {
+        "period": "2023–24",
+        "status": "NC",
+        "count": 3
+      },
+      {
+        "period": "2023–24",
+        "status": "NR",
+        "count": 12
+      },
+      {
+        "period": "2023–24",
+        "status": "Not available for sharing",
+        "count": 16
+      },
+      {
+        "period": "2023–24",
+        "status": "Upon request",
+        "count": 43
+      }
+    ],
+    "period_n": {
+      "2013–14": 11,
+      "2015–16": 15,
+      "2017–18": 47,
+      "2019–20": 63,
+      "2021–22": 81,
+      "2023–24": 78
+    },
+    "periods": [
+      "2013–14",
+      "2015–16",
+      "2017–18",
+      "2019–20",
+      "2021–22",
+      "2023–24"
+    ]
+  },
   "domain_comanipulation": {
     "n_domains_distribution": [
       {
@@ -100278,7 +100388,7 @@
     "n_variables": 206,
     "year_min": 2013,
     "year_max": 2024,
-    "generated_at": "2026-08-03T14:06:13.568426"
+    "generated_at": "2026-08-03T14:15:58.667153"
   },
   "variable_dictionary": {
     "data": [

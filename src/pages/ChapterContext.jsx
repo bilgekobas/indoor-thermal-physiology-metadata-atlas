@@ -503,6 +503,7 @@ export default function ChapterContext({ data }) {
     protocol_by_period,
     chapter_completeness,
     open_data,
+    data_avail_by_period,
     author_network_summary,
     summary,
   } = data
@@ -711,10 +712,14 @@ export default function ChapterContext({ data }) {
         intro={`A data-availability statement being present is not the same as data actually being shared. Of ${open_data.n_total} studies, only ${open_data.n_with_real_data_link} link to a real repository.`}
       >
         <FigureCard figNumber={figNum('data-availability')} title="Data availability statement, as reported" plotWidth={620} commentary="This belongs in the contextual layer of the corpus rather than in the closing synthesis: it describes the publication context of the studies themselves.">
-          <InteractiveBarChart
-            data={open_data.data_avail_distribution.map((d) => ({ label: d.status, count: d.count }))}
-            total={open_data.n_total}
-            color="#0A0A0A"
+          <PeriodHeatmap
+            rows={open_data.data_avail_distribution.map((d) => d.status)}
+            periods={data_avail_by_period.periods}
+            periodN={data_avail_by_period.period_n}
+            rowTotals={Object.fromEntries(open_data.data_avail_distribution.map((d) => [d.status, d.count]))}
+            getCount={(status, p) => data_avail_by_period.data.find((r) => r.status === status && r.period === p)?.count || 0}
+            labelWidth={170}
+            cellWidth={78}
           />
         </FigureCard>
       </ChapterSection>
