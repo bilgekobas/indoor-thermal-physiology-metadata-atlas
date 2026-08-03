@@ -79771,6 +79771,81 @@
       "2023–24"
     ]
   },
+  "sample_calc_type_by_period": {
+    "data": [
+      {
+        "period": "2013–14",
+        "type": "Precedence",
+        "count": 1
+      },
+      {
+        "period": "2015–16",
+        "type": "A priori",
+        "count": 1
+      },
+      {
+        "period": "2017–18",
+        "type": "A priori",
+        "count": 6
+      },
+      {
+        "period": "2017–18",
+        "type": "Precedence",
+        "count": 1
+      },
+      {
+        "period": "2019–20",
+        "type": "A priori",
+        "count": 9
+      },
+      {
+        "period": "2019–20",
+        "type": "Precedence",
+        "count": 3
+      },
+      {
+        "period": "2021–22",
+        "type": "A priori",
+        "count": 17
+      },
+      {
+        "period": "2021–22",
+        "type": "Precedence",
+        "count": 3
+      },
+      {
+        "period": "2023–24",
+        "type": "A priori",
+        "count": 24
+      },
+      {
+        "period": "2023–24",
+        "type": "Post hoc",
+        "count": 2
+      },
+      {
+        "period": "2023–24",
+        "type": "Precedence",
+        "count": 5
+      }
+    ],
+    "period_n": {
+      "2013–14": 11,
+      "2015–16": 15,
+      "2017–18": 47,
+      "2019–20": 63,
+      "2021–22": 81,
+      "2023–24": 78
+    },
+    "periods": [
+      "2013–14",
+      "2015–16",
+      "2017–18",
+      "2019–20",
+      "2021–22",
+      "2023–24"
+    ]
+  },
   "sample_justification": {
     "calc_type_distribution": [
       {
@@ -100388,7 +100463,7 @@
     "n_variables": 206,
     "year_min": 2013,
     "year_max": 2024,
-    "generated_at": "2026-08-03T14:17:33.794354"
+    "generated_at": "2026-08-03T16:36:31.562169"
   },
   "variable_dictionary": {
     "data": [

@@ -394,7 +394,7 @@ function PublicationsByYearChart({ data, totalPubs, byCountry, topCountries }) {
   return (
     <div className="no-horizontal-scroll">
       {canSplit && (
-        <div className="flex gap-1 mb-3">
+        <div className="flex gap-1 mb-3" data-toggle-group="content">
           {[
             { key: false, label: 'Total' },
             { key: true, label: 'By country' },

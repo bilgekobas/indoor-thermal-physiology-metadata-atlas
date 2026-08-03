@@ -166,6 +166,7 @@ export default function ChapterPopulation({ data }) {
     participant_by_period,
     chapter_completeness,
     sample_justification,
+    sample_calc_type_by_period,
   } = data
 
   const sampleSizes = useMemo(() => fig11_sample_size.studies.map((s) => Number(s.n)).filter((n) => Number.isFinite(n) && n > 0).sort((a, b) => a - b), [fig11_sample_size])
@@ -267,10 +268,14 @@ export default function ChapterPopulation({ data }) {
         intro="Sample size belongs with the population story: it conditions how much confidence we can place in all subgroup claims later in the paper."
       >
         <FigureCard figNumber={figNum('sample-size-calc-type')} title="Sample size calculation type" plotWidth={560} commentary="Among studies that justify sample size at all, most use an a priori power calculation rather than post-hoc reasoning or simple precedent from earlier literature.">
-          <InteractiveBarChart
-            data={sample_justification.calc_type_distribution.map((d) => ({ label: d.type, count: d.count }))}
-            total={sample_justification.calc_type_distribution.reduce((a, d) => a + d.count, 0)}
-            color="#0A0A0A"
+          <PeriodHeatmap
+            rows={sample_justification.calc_type_distribution.map((d) => d.type)}
+            periods={sample_calc_type_by_period.periods}
+            periodN={sample_calc_type_by_period.period_n}
+            rowTotals={Object.fromEntries(sample_justification.calc_type_distribution.map((d) => [d.type, d.count]))}
+            getCount={(type, p) => sample_calc_type_by_period.data.find((r) => r.type === type && r.period === p)?.count || 0}
+            labelWidth={150}
+            cellWidth={78}
           />
         </FigureCard>
       </ChapterSection>

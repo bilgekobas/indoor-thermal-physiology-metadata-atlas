@@ -24,7 +24,7 @@ function SensorEvolutionToggle({ signals, evoData, periods }) {
   )
   return (
     <div>
-      <div className="flex flex-wrap gap-1.5 mb-4">
+      <div className="flex flex-wrap gap-1.5 mb-4" data-toggle-group="content">
         {signals.map((sig) => (
           <button
             key={sig}
@@ -342,7 +342,7 @@ function SignalSensorBrandSankey({ overall, signalTotals, signalInstanceTotals, 
       )}
       <div className="flex items-center gap-2 mb-3">
         <span className="text-[10.5px] text-inkfaint font-data">brand column:</span>
-        <div className="flex gap-1">
+        <div className="flex gap-1" data-toggle-group="content">
           <button
             onClick={() => { setBrandMode('bySensor'); setSelected(null) }}
             className={`px-2 py-0.5 rounded text-[10.5px] font-data transition-colors ${
@@ -591,7 +591,7 @@ function BodySiteToggle({ skinTempSites, skinTempN, hrSites, hrN, sudomotorSites
       : { siteData: sudomotorSites, totalLabel: { n: sudomotorN } }
   return (
     <div>
-      <div className="flex gap-1 mb-4">
+      <div className="flex gap-1 mb-4" data-toggle-group="content">
         {tabs.map((t) => (
           <button
             key={t.key}

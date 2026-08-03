@@ -1,0 +1,75 @@
+{
+  "data": [
+    {
+      "period": "2013\u201314",
+      "type": "Precedence",
+      "count": 1
+    },
+    {
+      "period": "2015\u201316",
+      "type": "A priori",
+      "count": 1
+    },
+    {
+      "period": "2017\u201318",
+      "type": "A priori",
+      "count": 6
+    },
+    {
+      "period": "2017\u201318",
+      "type": "Precedence",
+      "count": 1
+    },
+    {
+      "period": "2019\u201320",
+      "type": "A priori",
+      "count": 9
+    },
+    {
+      "period": "2019\u201320",
+      "type": "Precedence",
+      "count": 3
+    },
+    {
+      "period": "2021\u201322",
+      "type": "A priori",
+      "count": 17
+    },
+    {
+      "period": "2021\u201322",
+      "type": "Precedence",
+      "count": 3
+    },
+    {
+      "period": "2023\u201324",
+      "type": "A priori",
+      "count": 24
+    },
+    {
+      "period": "2023\u201324",
+      "type": "Post hoc",
+      "count": 2
+    },
+    {
+      "period": "2023\u201324",
+      "type": "Precedence",
+      "count": 5
+    }
+  ],
+  "period_n": {
+    "2013\u201314": 11,
+    "2015\u201316": 15,
+    "2017\u201318": 47,
+    "2019\u201320": 63,
+    "2021\u201322": 81,
+    "2023\u201324": 78
+  },
+  "periods": [
+    "2013\u201314",
+    "2015\u201316",
+    "2017\u201318",
+    "2019\u201320",
+    "2021\u201322",
+    "2023\u201324"
+  ]
+}

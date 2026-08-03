@@ -1938,6 +1938,21 @@ with open(OUT_DIR / 'sample_justification.json', 'w') as f:
     }, f, indent=2)
 print(f'sample_justification.json: calc types {dict(calc_type_dist)}, payment {dict(payment_dist)}')
 
+# ── C4b. Sample-size calc type by period, for the Fig 18 heatmap ────────
+# Same filter as calc_type_dist above (excludes NR/NAN/NC/MNR -- studies
+# with no stated justification at all aren't a "calculation type"), and the
+# same period_n_all denominator as Fig 12's heatmap, so both stay directly
+# comparable across periods.
+calc_type_valid = studies_u[~studies_u['pop-sample-size-calc-type'].astype(str).isin(CODES) & studies_u['pop-sample-size-calc-type'].notna()]
+calc_type_by_period = calc_type_valid.groupby(['period', 'pop-sample-size-calc-type']).size().reset_index(name='count')
+with open(OUT_DIR / 'sample_calc_type_by_period.json', 'w') as f:
+    json.dump({
+        'data': calc_type_by_period.rename(columns={'pop-sample-size-calc-type': 'type'}).to_dict('records'),
+        'period_n': period_n_all,
+        'periods': [b[2] for b in BINS],
+    }, f, indent=2)
+print('sample_calc_type_by_period.json written:', dict(calc_type_dist))
+
 print("\nDataset audit follow-up artifacts built.")
 
 # ── D1. City-level map (replaces/supplements the country choropleth) ──────
