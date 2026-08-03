@@ -675,7 +675,7 @@
     },
     {
       "physio-sensor-brand": "Nihonkohden Co.",
-      "physio-parameter": "Core temperature",
+      "physio-parameter": "Core/Body temperature",
       "count": 3
     },
     {
@@ -705,7 +705,7 @@
     },
     {
       "physio-sensor-brand": "Omron",
-      "physio-parameter": "Body temperature",
+      "physio-parameter": "Core/Body temperature",
       "count": 12
     },
     {
@@ -730,7 +730,7 @@
     },
     {
       "physio-sensor-brand": "Opulus",
-      "physio-parameter": "Core temperature",
+      "physio-parameter": "Core/Body temperature",
       "count": 1
     },
     {

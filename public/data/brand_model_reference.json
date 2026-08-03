@@ -333,7 +333,7 @@
       ]
     },
     {
-      "signal": "Body temperature",
+      "signal": "Core/Body temperature",
       "sensing_method": "Infrared thermometer",
       "brand": "Omron",
       "model": "TH839S",
@@ -347,7 +347,7 @@
       ]
     },
     {
-      "signal": "Body temperature",
+      "signal": "Core/Body temperature",
       "sensing_method": "Infrared thermometer",
       "brand": "Braun",
       "model": "IRT6520",
@@ -360,7 +360,7 @@
       ]
     },
     {
-      "signal": "Body temperature",
+      "signal": "Core/Body temperature",
       "sensing_method": "Thermometer",
       "brand": "Omron",
       "model": "MC-246",
@@ -372,87 +372,7 @@
       ]
     },
     {
-      "signal": "Body temperature",
-      "sensing_method": "Heat flux/Heat flow",
-      "brand": "greenTEG",
-      "model": "CORE",
-      "count": 1,
-      "study_ids": [
-        "1250_1"
-      ]
-    },
-    {
-      "signal": "Body temperature",
-      "sensing_method": "Infrared thermometer",
-      "brand": "Omega",
-      "model": "HXK200",
-      "count": 1,
-      "study_ids": [
-        "1216_1"
-      ]
-    },
-    {
-      "signal": "Body temperature",
-      "sensing_method": "Infrared thermometer",
-      "brand": "Omron",
-      "model": "TH839",
-      "count": 1,
-      "study_ids": [
-        "1133_1"
-      ]
-    },
-    {
-      "signal": "Body temperature",
-      "sensing_method": "Infrared thermometer",
-      "brand": "Omron",
-      "model": "ThermoScan",
-      "count": 1,
-      "study_ids": [
-        "1084_1"
-      ]
-    },
-    {
-      "signal": "Body temperature",
-      "sensing_method": "Infrared thermometer",
-      "brand": "iHealth",
-      "model": "PT3",
-      "count": 1,
-      "study_ids": [
-        "1223_1"
-      ]
-    },
-    {
-      "signal": "Body temperature",
-      "sensing_method": "Thermometer",
-      "brand": "Braun",
-      "model": "ThermoScan",
-      "count": 1,
-      "study_ids": [
-        "1034_1"
-      ]
-    },
-    {
-      "signal": "Body temperature",
-      "sensing_method": "Thermometer",
-      "brand": "Omron",
-      "model": "MC-100L",
-      "count": 1,
-      "study_ids": [
-        "1012_1"
-      ]
-    },
-    {
-      "signal": "Body temperature",
-      "sensing_method": "Thermometer",
-      "brand": "Omron",
-      "model": "MC342FL",
-      "count": 1,
-      "study_ids": [
-        "1144_1"
-      ]
-    },
-    {
-      "signal": "Core temperature",
+      "signal": "Core/Body temperature",
       "sensing_method": "Ingestible pill",
       "brand": "BodyCap",
       "model": "eCelsius Performance",
@@ -463,7 +383,7 @@
       ]
     },
     {
-      "signal": "Core temperature",
+      "signal": "Core/Body temperature",
       "sensing_method": "Ingestible pill",
       "brand": "HQ",
       "model": "HT150001",
@@ -474,7 +394,7 @@
       ]
     },
     {
-      "signal": "Core temperature",
+      "signal": "Core/Body temperature",
       "sensing_method": "Ingestible pill",
       "brand": "Nihonkohden Co.",
       "model": "CorTemp HT150002",
@@ -485,7 +405,17 @@
       ]
     },
     {
-      "signal": "Core temperature",
+      "signal": "Core/Body temperature",
+      "sensing_method": "Heat flux/Heat flow",
+      "brand": "greenTEG",
+      "model": "CORE",
+      "count": 1,
+      "study_ids": [
+        "1250_1"
+      ]
+    },
+    {
+      "signal": "Core/Body temperature",
       "sensing_method": "Infrared thermometer",
       "brand": "Braun",
       "model": "Thermoscan 5 IRT6020",
@@ -495,7 +425,47 @@
       ]
     },
     {
-      "signal": "Core temperature",
+      "signal": "Core/Body temperature",
+      "sensing_method": "Infrared thermometer",
+      "brand": "Omega",
+      "model": "HXK200",
+      "count": 1,
+      "study_ids": [
+        "1216_1"
+      ]
+    },
+    {
+      "signal": "Core/Body temperature",
+      "sensing_method": "Infrared thermometer",
+      "brand": "Omron",
+      "model": "TH839",
+      "count": 1,
+      "study_ids": [
+        "1133_1"
+      ]
+    },
+    {
+      "signal": "Core/Body temperature",
+      "sensing_method": "Infrared thermometer",
+      "brand": "Omron",
+      "model": "ThermoScan",
+      "count": 1,
+      "study_ids": [
+        "1084_1"
+      ]
+    },
+    {
+      "signal": "Core/Body temperature",
+      "sensing_method": "Infrared thermometer",
+      "brand": "iHealth",
+      "model": "PT3",
+      "count": 1,
+      "study_ids": [
+        "1223_1"
+      ]
+    },
+    {
+      "signal": "Core/Body temperature",
       "sensing_method": "Ingestible pill",
       "brand": "CorTemp",
       "model": "HT150001",
@@ -505,7 +475,7 @@
       ]
     },
     {
-      "signal": "Core temperature",
+      "signal": "Core/Body temperature",
       "sensing_method": "Ingestible pill",
       "brand": "HQ",
       "model": "CorTemp 2000",
@@ -515,7 +485,7 @@
       ]
     },
     {
-      "signal": "Core temperature",
+      "signal": "Core/Body temperature",
       "sensing_method": "Ingestible pill",
       "brand": "Hidalgo",
       "model": "VitalSense",
@@ -525,7 +495,7 @@
       ]
     },
     {
-      "signal": "Core temperature",
+      "signal": "Core/Body temperature",
       "sensing_method": "Ingestible pill",
       "brand": "Nihonkohden Co.",
       "model": "CorTemp",
@@ -535,7 +505,7 @@
       ]
     },
     {
-      "signal": "Core temperature",
+      "signal": "Core/Body temperature",
       "sensing_method": "Probe",
       "brand": "ETO DENKI",
       "model": "Cadac Model 9200A",
@@ -545,7 +515,7 @@
       ]
     },
     {
-      "signal": "Core temperature",
+      "signal": "Core/Body temperature",
       "sensing_method": "Probe",
       "brand": "Measurement Specialities",
       "model": "MEAS 440",
@@ -555,7 +525,7 @@
       ]
     },
     {
-      "signal": "Core temperature",
+      "signal": "Core/Body temperature",
       "sensing_method": "Thermistor",
       "brand": "Ellab",
       "model": "MRB Rectal Probe",
@@ -565,7 +535,7 @@
       ]
     },
     {
-      "signal": "Core temperature",
+      "signal": "Core/Body temperature",
       "sensing_method": "Thermistor",
       "brand": "Nikkiso-YSI",
       "model": "ITPO10-11",
@@ -575,13 +545,43 @@
       ]
     },
     {
-      "signal": "Core temperature",
+      "signal": "Core/Body temperature",
       "sensing_method": "Thermochron",
       "brand": "Opulus",
       "model": "Pyrobutton L",
       "count": 1,
       "study_ids": [
         "1267_2"
+      ]
+    },
+    {
+      "signal": "Core/Body temperature",
+      "sensing_method": "Thermometer",
+      "brand": "Braun",
+      "model": "ThermoScan",
+      "count": 1,
+      "study_ids": [
+        "1034_1"
+      ]
+    },
+    {
+      "signal": "Core/Body temperature",
+      "sensing_method": "Thermometer",
+      "brand": "Omron",
+      "model": "MC-100L",
+      "count": 1,
+      "study_ids": [
+        "1012_1"
+      ]
+    },
+    {
+      "signal": "Core/Body temperature",
+      "sensing_method": "Thermometer",
+      "brand": "Omron",
+      "model": "MC342FL",
+      "count": 1,
+      "study_ids": [
+        "1144_1"
       ]
     },
     {

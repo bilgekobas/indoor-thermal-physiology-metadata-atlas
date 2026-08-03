@@ -106,64 +106,49 @@
       "count": 1
     },
     {
-      "signal": "Body temperature",
+      "signal": "Core/Body temperature",
       "physio-sensing-method": "Heat flux/Heat flow",
       "count": 1
     },
     {
-      "signal": "Body temperature",
+      "signal": "Core/Body temperature",
       "physio-sensing-method": "Infrared thermometer",
-      "count": 15
+      "count": 16
     },
     {
-      "signal": "Body temperature",
-      "physio-sensing-method": "Mercury thermometer",
-      "count": 2
-    },
-    {
-      "signal": "Body temperature",
-      "physio-sensing-method": "NR",
-      "count": 7
-    },
-    {
-      "signal": "Body temperature",
-      "physio-sensing-method": "Thermistor",
-      "count": 1
-    },
-    {
-      "signal": "Body temperature",
-      "physio-sensing-method": "Thermometer",
-      "count": 6
-    },
-    {
-      "signal": "Core temperature",
-      "physio-sensing-method": "Infrared thermometer",
-      "count": 1
-    },
-    {
-      "signal": "Core temperature",
+      "signal": "Core/Body temperature",
       "physio-sensing-method": "Ingestible pill",
       "count": 10
     },
     {
-      "signal": "Core temperature",
+      "signal": "Core/Body temperature",
+      "physio-sensing-method": "Mercury thermometer",
+      "count": 2
+    },
+    {
+      "signal": "Core/Body temperature",
+      "physio-sensing-method": "NR",
+      "count": 7
+    },
+    {
+      "signal": "Core/Body temperature",
       "physio-sensing-method": "Probe",
       "count": 2
     },
     {
-      "signal": "Core temperature",
+      "signal": "Core/Body temperature",
       "physio-sensing-method": "Thermistor",
-      "count": 3
+      "count": 4
     },
     {
-      "signal": "Core temperature",
+      "signal": "Core/Body temperature",
       "physio-sensing-method": "Thermochron",
       "count": 1
     },
     {
-      "signal": "Core temperature",
+      "signal": "Core/Body temperature",
       "physio-sensing-method": "Thermometer",
-      "count": 2
+      "count": 8
     },
     {
       "signal": "EEG",
@@ -708,154 +693,142 @@
       "count": 1
     },
     {
-      "signal": "Body temperature",
+      "signal": "Core/Body temperature",
       "physio-sensing-method": "Heat flux/Heat flow",
       "period": "2023\u201324",
       "count": 1
     },
     {
-      "signal": "Body temperature",
+      "signal": "Core/Body temperature",
       "physio-sensing-method": "Infrared thermometer",
       "period": "2019\u201320",
       "count": 2
     },
     {
-      "signal": "Body temperature",
+      "signal": "Core/Body temperature",
       "physio-sensing-method": "Infrared thermometer",
       "period": "2021\u201322",
-      "count": 4
+      "count": 5
     },
     {
-      "signal": "Body temperature",
+      "signal": "Core/Body temperature",
       "physio-sensing-method": "Infrared thermometer",
       "period": "2023\u201324",
       "count": 9
     },
     {
-      "signal": "Body temperature",
-      "physio-sensing-method": "Mercury thermometer",
-      "period": "2021\u201322",
-      "count": 1
-    },
-    {
-      "signal": "Body temperature",
-      "physio-sensing-method": "Mercury thermometer",
-      "period": "2023\u201324",
-      "count": 1
-    },
-    {
-      "signal": "Body temperature",
-      "physio-sensing-method": "NR",
-      "period": "2019\u201320",
-      "count": 2
-    },
-    {
-      "signal": "Body temperature",
-      "physio-sensing-method": "NR",
-      "period": "2021\u201322",
-      "count": 5
-    },
-    {
-      "signal": "Body temperature",
-      "physio-sensing-method": "Thermistor",
-      "period": "2019\u201320",
-      "count": 1
-    },
-    {
-      "signal": "Body temperature",
-      "physio-sensing-method": "Thermometer",
-      "period": "2015\u201316",
-      "count": 3
-    },
-    {
-      "signal": "Body temperature",
-      "physio-sensing-method": "Thermometer",
-      "period": "2017\u201318",
-      "count": 1
-    },
-    {
-      "signal": "Body temperature",
-      "physio-sensing-method": "Thermometer",
-      "period": "2019\u201320",
-      "count": 1
-    },
-    {
-      "signal": "Body temperature",
-      "physio-sensing-method": "Thermometer",
-      "period": "2021\u201322",
-      "count": 1
-    },
-    {
-      "signal": "Core temperature",
-      "physio-sensing-method": "Infrared thermometer",
-      "period": "2021\u201322",
-      "count": 1
-    },
-    {
-      "signal": "Core temperature",
+      "signal": "Core/Body temperature",
       "physio-sensing-method": "Ingestible pill",
       "period": "2013\u201314",
       "count": 2
     },
     {
-      "signal": "Core temperature",
+      "signal": "Core/Body temperature",
       "physio-sensing-method": "Ingestible pill",
       "period": "2015\u201316",
       "count": 2
     },
     {
-      "signal": "Core temperature",
+      "signal": "Core/Body temperature",
       "physio-sensing-method": "Ingestible pill",
       "period": "2019\u201320",
       "count": 1
     },
     {
-      "signal": "Core temperature",
+      "signal": "Core/Body temperature",
       "physio-sensing-method": "Ingestible pill",
       "period": "2021\u201322",
       "count": 4
     },
     {
-      "signal": "Core temperature",
+      "signal": "Core/Body temperature",
       "physio-sensing-method": "Ingestible pill",
       "period": "2023\u201324",
       "count": 1
     },
     {
-      "signal": "Core temperature",
+      "signal": "Core/Body temperature",
+      "physio-sensing-method": "Mercury thermometer",
+      "period": "2021\u201322",
+      "count": 1
+    },
+    {
+      "signal": "Core/Body temperature",
+      "physio-sensing-method": "Mercury thermometer",
+      "period": "2023\u201324",
+      "count": 1
+    },
+    {
+      "signal": "Core/Body temperature",
+      "physio-sensing-method": "NR",
+      "period": "2019\u201320",
+      "count": 2
+    },
+    {
+      "signal": "Core/Body temperature",
+      "physio-sensing-method": "NR",
+      "period": "2021\u201322",
+      "count": 5
+    },
+    {
+      "signal": "Core/Body temperature",
       "physio-sensing-method": "Probe",
       "period": "2013\u201314",
       "count": 1
     },
     {
-      "signal": "Core temperature",
+      "signal": "Core/Body temperature",
       "physio-sensing-method": "Probe",
       "period": "2017\u201318",
       "count": 1
     },
     {
-      "signal": "Core temperature",
+      "signal": "Core/Body temperature",
       "physio-sensing-method": "Thermistor",
       "period": "2019\u201320",
-      "count": 1
+      "count": 2
     },
     {
-      "signal": "Core temperature",
+      "signal": "Core/Body temperature",
       "physio-sensing-method": "Thermistor",
       "period": "2021\u201322",
       "count": 2
     },
     {
-      "signal": "Core temperature",
+      "signal": "Core/Body temperature",
       "physio-sensing-method": "Thermochron",
       "period": "2023\u201324",
       "count": 1
     },
     {
-      "signal": "Core temperature",
+      "signal": "Core/Body temperature",
       "physio-sensing-method": "Thermometer",
       "period": "2013\u201314",
       "count": 2
+    },
+    {
+      "signal": "Core/Body temperature",
+      "physio-sensing-method": "Thermometer",
+      "period": "2015\u201316",
+      "count": 3
+    },
+    {
+      "signal": "Core/Body temperature",
+      "physio-sensing-method": "Thermometer",
+      "period": "2017\u201318",
+      "count": 1
+    },
+    {
+      "signal": "Core/Body temperature",
+      "physio-sensing-method": "Thermometer",
+      "period": "2019\u201320",
+      "count": 1
+    },
+    {
+      "signal": "Core/Body temperature",
+      "physio-sensing-method": "Thermometer",
+      "period": "2021\u201322",
+      "count": 1
     },
     {
       "signal": "EEG",
@@ -2014,12 +1987,8 @@
       "count": 43
     },
     {
-      "signal": "Body temperature",
-      "count": 31
-    },
-    {
-      "signal": "Core temperature",
-      "count": 19
+      "signal": "Core/Body temperature",
+      "count": 48
     },
     {
       "signal": "EEG",
@@ -2184,12 +2153,8 @@
       "count": 43
     },
     {
-      "signal": "Body temperature",
-      "count": 32
-    },
-    {
-      "signal": "Core temperature",
-      "count": 19
+      "signal": "Core/Body temperature",
+      "count": 51
     },
     {
       "signal": "EEG",
@@ -2478,154 +2443,148 @@
       "count": 1
     },
     {
-      "signal": "Body temperature",
+      "signal": "Core/Body temperature",
       "physio-sensing-method": "Heat flux/Heat flow",
       "brand": "greenTEG",
       "count": 1
     },
     {
-      "signal": "Body temperature",
+      "signal": "Core/Body temperature",
       "physio-sensing-method": "Infrared thermometer",
       "brand": "Braun",
-      "count": 4
+      "count": 5
     },
     {
-      "signal": "Body temperature",
+      "signal": "Core/Body temperature",
       "physio-sensing-method": "Infrared thermometer",
       "brand": "NR",
       "count": 2
     },
     {
-      "signal": "Body temperature",
+      "signal": "Core/Body temperature",
       "physio-sensing-method": "Infrared thermometer",
       "brand": "Omega",
       "count": 1
     },
     {
-      "signal": "Body temperature",
+      "signal": "Core/Body temperature",
       "physio-sensing-method": "Infrared thermometer",
       "brand": "Omron",
       "count": 7
     },
     {
-      "signal": "Body temperature",
+      "signal": "Core/Body temperature",
       "physio-sensing-method": "Infrared thermometer",
       "brand": "iHealth",
       "count": 1
     },
     {
-      "signal": "Body temperature",
-      "physio-sensing-method": "Mercury thermometer",
-      "brand": "NAN",
-      "count": 1
-    },
-    {
-      "signal": "Body temperature",
-      "physio-sensing-method": "Mercury thermometer",
-      "brand": "Yuwell",
-      "count": 1
-    },
-    {
-      "signal": "Body temperature",
-      "physio-sensing-method": "NR",
-      "brand": "NR",
-      "count": 7
-    },
-    {
-      "signal": "Body temperature",
-      "physio-sensing-method": "Thermistor",
-      "brand": "NR",
-      "count": 1
-    },
-    {
-      "signal": "Body temperature",
-      "physio-sensing-method": "Thermometer",
-      "brand": "Braun",
-      "count": 1
-    },
-    {
-      "signal": "Body temperature",
-      "physio-sensing-method": "Thermometer",
-      "brand": "Omron",
-      "count": 5
-    },
-    {
-      "signal": "Core temperature",
-      "physio-sensing-method": "Infrared thermometer",
-      "brand": "Braun",
-      "count": 1
-    },
-    {
-      "signal": "Core temperature",
+      "signal": "Core/Body temperature",
       "physio-sensing-method": "Ingestible pill",
       "brand": "BodyCap",
       "count": 2
     },
     {
-      "signal": "Core temperature",
+      "signal": "Core/Body temperature",
       "physio-sensing-method": "Ingestible pill",
       "brand": "CorTemp",
       "count": 1
     },
     {
-      "signal": "Core temperature",
+      "signal": "Core/Body temperature",
       "physio-sensing-method": "Ingestible pill",
       "brand": "HQ",
       "count": 3
     },
     {
-      "signal": "Core temperature",
+      "signal": "Core/Body temperature",
       "physio-sensing-method": "Ingestible pill",
       "brand": "Hidalgo",
       "count": 1
     },
     {
-      "signal": "Core temperature",
+      "signal": "Core/Body temperature",
       "physio-sensing-method": "Ingestible pill",
       "brand": "Nihonkohden Co.",
       "count": 3
     },
     {
-      "signal": "Core temperature",
+      "signal": "Core/Body temperature",
+      "physio-sensing-method": "Mercury thermometer",
+      "brand": "NAN",
+      "count": 1
+    },
+    {
+      "signal": "Core/Body temperature",
+      "physio-sensing-method": "Mercury thermometer",
+      "brand": "Yuwell",
+      "count": 1
+    },
+    {
+      "signal": "Core/Body temperature",
+      "physio-sensing-method": "NR",
+      "brand": "NR",
+      "count": 7
+    },
+    {
+      "signal": "Core/Body temperature",
       "physio-sensing-method": "Probe",
       "brand": "ETO DENKI",
       "count": 1
     },
     {
-      "signal": "Core temperature",
+      "signal": "Core/Body temperature",
       "physio-sensing-method": "Probe",
       "brand": "Measurement Specialities",
       "count": 1
     },
     {
-      "signal": "Core temperature",
+      "signal": "Core/Body temperature",
       "physio-sensing-method": "Thermistor",
       "brand": "Ellab",
       "count": 1
     },
     {
-      "signal": "Core temperature",
+      "signal": "Core/Body temperature",
+      "physio-sensing-method": "Thermistor",
+      "brand": "NR",
+      "count": 1
+    },
+    {
+      "signal": "Core/Body temperature",
       "physio-sensing-method": "Thermistor",
       "brand": "Nikkiso-Therm",
       "count": 1
     },
     {
-      "signal": "Core temperature",
+      "signal": "Core/Body temperature",
       "physio-sensing-method": "Thermistor",
       "brand": "Nikkiso-YSI",
       "count": 1
     },
     {
-      "signal": "Core temperature",
+      "signal": "Core/Body temperature",
       "physio-sensing-method": "Thermochron",
       "brand": "Opulus",
       "count": 1
     },
     {
-      "signal": "Core temperature",
+      "signal": "Core/Body temperature",
+      "physio-sensing-method": "Thermometer",
+      "brand": "Braun",
+      "count": 1
+    },
+    {
+      "signal": "Core/Body temperature",
       "physio-sensing-method": "Thermometer",
       "brand": "NR",
       "count": 2
+    },
+    {
+      "signal": "Core/Body temperature",
+      "physio-sensing-method": "Thermometer",
+      "brand": "Omron",
+      "count": 5
     },
     {
       "signal": "EEG",

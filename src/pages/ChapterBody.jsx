@@ -61,7 +61,7 @@ const DOMAIN_ORDER = [
 const DOMAIN_GROUPS = {
   'PERIPHERAL THERMAL EXCHANGE': { color: '#5B5BFF', signals: ['Skin temperature', 'Near body temperature', 'Heat flux', 'Skin blood flow'] },
   'CARDIOVASCULAR HEAT TRANSPORT': { color: '#FF4DA6', signals: ['Heart/Pulse rate', 'Blood pressure', 'Oxygen saturation'] },
-  'CENTRAL THERMAL STATE': { color: '#F1FF71', signals: ['Core temperature', 'Body temperature', 'Exhaled breath temperature'] },
+  'CENTRAL THERMAL STATE': { color: '#F1FF71', signals: ['Core/Body temperature', 'Exhaled breath temperature'] },
   'SUDOMOTOR / ELECTRODERMAL': { color: '#79FFFB', signals: ['Sweat indicators', 'Skin conductance'] },
   'NEURO-MUSCULAR ELECTROPHYSIOLOGY': { color: '#4A4A4A', signals: ['EEG', 'EMG', 'EOG', 'Movement', 'Respiration'] },
   'METABOLIC & BIOCHEMICAL': { color: '#BBBBBB', signals: ['Metabolic rate/Gas exchange', 'Biomarkers'] },
@@ -739,8 +739,6 @@ export default function ChapterBody({ data }) {
   const omronBySignal = Object.fromEntries(brandStats.topSignalsFor('Omron'))
   const iButtonTotal = brandStats.sumFor('iButton')
   const iButtonSkin = brandStats.totals['iButton']?.['Skin temperature'] || 0
-  const coreTempN = signalTotalsMap['Core temperature'] || 0
-  const bodyTempN = signalTotalsMap['Body temperature'] || 0
 
   return (
     <div>
@@ -801,9 +799,8 @@ export default function ChapterBody({ data }) {
           plotWidth={1100}
           commentary={[
             `Skin temperature is measured in ${skinTempN} of ${summary.n_experiments} experiments (${skinTempPct}%), followed by heart/pulse rate in ${heartRateN} (${heartRatePct}%). Every other signal sits in single digits. Sensing-type choice is far from standardized even within one signal: skin temperature alone is measured via ${nSensorTypesSkinTemp} distinct sensor types, with no single method used in a majority of studies.`,
-            `OMRON is the most-cited brand overall (${omronTotal}, counted once per signal it's used for), but spread across signals — it makes combination devices covering blood pressure (${omronBySignal['Blood pressure'] || 0}), heart rate (${omronBySignal['Heart/Pulse rate'] || 0}), and core temperature (${omronBySignal['Core temperature'] || 0}). iButton (${iButtonTotal}) is the opposite pattern: concentrated almost entirely in one signal, skin temperature (${iButtonSkin} of its ${iButtonTotal}). Flow and node thickness are proportional to study count — hover for the exact number, or click any signal, sensor type, or brand to isolate its paths.`,
+            `OMRON is the most-cited brand overall (${omronTotal}, counted once per signal it's used for), but spread across signals — it makes combination devices covering blood pressure (${omronBySignal['Blood pressure'] || 0}), heart rate (${omronBySignal['Heart/Pulse rate'] || 0}), and core/body temperature (${omronBySignal['Core/Body temperature'] || 0}). iButton (${iButtonTotal}) is the opposite pattern: concentrated almost entirely in one signal, skin temperature (${iButtonSkin} of its ${iButtonTotal}). Flow and node thickness are proportional to study count — hover for the exact number, or click any signal, sensor type, or brand to isolate its paths.`,
           ]}
-          footnote={`* Core temperature (${coreTempN} studies) and body temperature (${bodyTempN}) are shown as separate signals here — body temperature is used where a paper reported measuring "core body temperature" but the actual method wasn't a true core measure (e.g. forehead, axillary), reclassified to distinguish it from validated core-temperature methods (rectal, esophageal, ingestible pill).`}
         >
           <SignalSensorBrandSankey overall={physio_signal_sensor.overall} signalTotals={physio_signal_sensor.signal_totals} signalInstanceTotals={physio_signal_sensor.signal_instance_totals} brandData={physio_signal_sensor.signal_method_brand} nExperiments={summary.n_experiments} />
         </FigureCard>

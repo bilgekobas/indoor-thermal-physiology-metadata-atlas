@@ -81,7 +81,7 @@
     "pop-no-tot": "40",
     "pop-male-no": "40",
     "pop-fem-no": "0",
-    "signals_measured": "Core temperature, Skin temperature"
+    "signals_measured": "Core/Body temperature, Skin temperature"
   },
   {
     "id-pub-id": 1005,
@@ -102,7 +102,7 @@
     "pop-no-tot": "20",
     "pop-male-no": "10",
     "pop-fem-no": "10",
-    "signals_measured": "Core temperature, Skin temperature"
+    "signals_measured": "Core/Body temperature, Skin temperature"
   },
   {
     "id-pub-id": 1006,
@@ -123,7 +123,7 @@
     "pop-no-tot": "10",
     "pop-male-no": "10",
     "pop-fem-no": "0",
-    "signals_measured": "Core temperature, Heat flux, Metabolic rate/Gas exchange, Skin temperature, Sweat indicators"
+    "signals_measured": "Core/Body temperature, Heat flux, Metabolic rate/Gas exchange, Skin temperature, Sweat indicators"
   },
   {
     "id-pub-id": 1007,
@@ -165,7 +165,7 @@
     "pop-no-tot": "20",
     "pop-male-no": "0",
     "pop-fem-no": "20",
-    "signals_measured": "Biomarkers: Catecholamines, Biomarkers: Free thyroxine (FT4), Biomarkers: Thyroid-stimulating hormone (TSH), Core temperature, Skin temperature"
+    "signals_measured": "Biomarkers: Catecholamines, Biomarkers: Free thyroxine (FT4), Biomarkers: Thyroid-stimulating hormone (TSH), Core/Body temperature, Skin temperature"
   },
   {
     "id-pub-id": 1009,
@@ -186,7 +186,7 @@
     "pop-no-tot": "40",
     "pop-male-no": "40",
     "pop-fem-no": "0",
-    "signals_measured": "Core temperature, Skin temperature"
+    "signals_measured": "Core/Body temperature, Skin temperature"
   },
   {
     "id-pub-id": 1010,
@@ -249,7 +249,7 @@
     "pop-no-tot": "8",
     "pop-male-no": "0",
     "pop-fem-no": "8",
-    "signals_measured": "Biomarkers: Estradiol, Biomarkers: Free thyroxine (FT4), Biomarkers: Free triiodothyronine (FT3), Biomarkers: Progesterone, Biomarkers: Testosterone, Biomarkers: Thyroid-stimulating hormone (TSH), Blood pressure, Body temperature, Core temperature, Heart/Pulse rate, Metabolic rate/Gas exchange, Skin blood flow, Skin temperature"
+    "signals_measured": "Biomarkers: Estradiol, Biomarkers: Free thyroxine (FT4), Biomarkers: Free triiodothyronine (FT3), Biomarkers: Progesterone, Biomarkers: Testosterone, Biomarkers: Thyroid-stimulating hormone (TSH), Blood pressure, Core/Body temperature, Heart/Pulse rate, Metabolic rate/Gas exchange, Skin blood flow, Skin temperature"
   },
   {
     "id-pub-id": 1013,
@@ -291,7 +291,7 @@
     "pop-no-tot": "24",
     "pop-male-no": "12",
     "pop-fem-no": "12",
-    "signals_measured": "Biomarkers: Heat shock protein (HSP), Biomarkers: Interleukin 6 (IL-6), Body temperature, Heart/Pulse rate, Oxygen saturation, Respiration, Skin temperature"
+    "signals_measured": "Biomarkers: Heat shock protein (HSP), Biomarkers: Interleukin 6 (IL-6), Core/Body temperature, Heart/Pulse rate, Oxygen saturation, Respiration, Skin temperature"
   },
   {
     "id-pub-id": 1015,
@@ -459,7 +459,7 @@
     "pop-no-tot": "24",
     "pop-male-no": "12",
     "pop-fem-no": "12",
-    "signals_measured": "Biomarkers: Heat shock protein (HSP), Biomarkers: Interleukin 6 (IL-6), Body temperature, Heart/Pulse rate, Oxygen saturation, Respiration, Skin temperature"
+    "signals_measured": "Biomarkers: Heat shock protein (HSP), Biomarkers: Interleukin 6 (IL-6), Core/Body temperature, Heart/Pulse rate, Oxygen saturation, Respiration, Skin temperature"
   },
   {
     "id-pub-id": 1023,
@@ -522,7 +522,7 @@
     "pop-no-tot": "13",
     "pop-male-no": "7",
     "pop-fem-no": "6",
-    "signals_measured": "Core temperature, Heart/Pulse rate, Skin temperature"
+    "signals_measured": "Core/Body temperature, Heart/Pulse rate, Skin temperature"
   },
   {
     "id-pub-id": 1026,
@@ -753,7 +753,7 @@
     "pop-no-tot": "12",
     "pop-male-no": "6",
     "pop-fem-no": "6",
-    "signals_measured": "Biomarkers: Alpha-amylase, Biomarkers: Cortisol, Blood pressure, Body temperature, Heart/Pulse rate, Metabolic rate/Gas exchange, Oxygen saturation, Skin temperature, Sweat indicators"
+    "signals_measured": "Biomarkers: Alpha-amylase, Biomarkers: Cortisol, Blood pressure, Core/Body temperature, Heart/Pulse rate, Metabolic rate/Gas exchange, Oxygen saturation, Skin temperature, Sweat indicators"
   },
   {
     "id-pub-id": 1035,
@@ -1341,7 +1341,7 @@
     "pop-no-tot": "41",
     "pop-male-no": "41",
     "pop-fem-no": "0",
-    "signals_measured": "Core temperature, Heart/Pulse rate, Skin temperature, Sweat indicators"
+    "signals_measured": "Core/Body temperature, Heart/Pulse rate, Skin temperature, Sweat indicators"
   },
   {
     "id-pub-id": 1059,
@@ -1908,7 +1908,7 @@
     "pop-no-tot": "32",
     "pop-male-no": "16",
     "pop-fem-no": "16",
-    "signals_measured": "Blood pressure, Body temperature, EEG, Heart/Pulse rate, Metabolic rate/Gas exchange, Movement, Oxygen saturation, Skin temperature, Sweat indicators"
+    "signals_measured": "Blood pressure, Core/Body temperature, EEG, Heart/Pulse rate, Metabolic rate/Gas exchange, Movement, Oxygen saturation, Skin temperature, Sweat indicators"
   },
   {
     "id-pub-id": 1085,
@@ -1971,7 +1971,7 @@
     "pop-no-tot": "8",
     "pop-male-no": "8",
     "pop-fem-no": "0",
-    "signals_measured": "Core temperature, Heart/Pulse rate, Metabolic rate/Gas exchange, Skin temperature, Sweat indicators"
+    "signals_measured": "Core/Body temperature, Heart/Pulse rate, Metabolic rate/Gas exchange, Skin temperature, Sweat indicators"
   },
   {
     "id-pub-id": 1088,
@@ -2055,7 +2055,7 @@
     "pop-no-tot": "24",
     "pop-male-no": "12",
     "pop-fem-no": "12",
-    "signals_measured": "Blood pressure, Body temperature, Heart/Pulse rate, Skin temperature"
+    "signals_measured": "Blood pressure, Core/Body temperature, Heart/Pulse rate, Skin temperature"
   },
   {
     "id-pub-id": 1092,
@@ -2307,7 +2307,7 @@
     "pop-no-tot": "32",
     "pop-male-no": "16",
     "pop-fem-no": "16",
-    "signals_measured": "Body temperature, EEG, Heart/Pulse rate, Metabolic rate/Gas exchange, Oxygen saturation, Skin temperature, Sweat indicators"
+    "signals_measured": "Core/Body temperature, EEG, Heart/Pulse rate, Metabolic rate/Gas exchange, Oxygen saturation, Skin temperature, Sweat indicators"
   },
   {
     "id-pub-id": 1102,
@@ -2370,7 +2370,7 @@
     "pop-no-tot": "12",
     "pop-male-no": "6",
     "pop-fem-no": "6",
-    "signals_measured": "Body temperature, Heat flux, Metabolic rate/Gas exchange, Skin temperature, Sweat indicators"
+    "signals_measured": "Core/Body temperature, Heat flux, Metabolic rate/Gas exchange, Skin temperature, Sweat indicators"
   },
   {
     "id-pub-id": 1105,
@@ -2412,7 +2412,7 @@
     "pop-no-tot": "30",
     "pop-male-no": "NR",
     "pop-fem-no": "NR",
-    "signals_measured": "Body temperature, Heart/Pulse rate, Skin temperature"
+    "signals_measured": "Core/Body temperature, Heart/Pulse rate, Skin temperature"
   },
   {
     "id-pub-id": 1107,
@@ -2538,7 +2538,7 @@
     "pop-no-tot": "18",
     "pop-male-no": "18",
     "pop-fem-no": "0",
-    "signals_measured": "Core temperature, Heart/Pulse rate, Heat flux, Skin temperature"
+    "signals_measured": "Core/Body temperature, Heart/Pulse rate, Heat flux, Skin temperature"
   },
   {
     "id-pub-id": 1113,
@@ -2811,7 +2811,7 @@
     "pop-no-tot": "66",
     "pop-male-no": "33",
     "pop-fem-no": "33",
-    "signals_measured": "Blood pressure, Body temperature, Heart/Pulse rate, Skin temperature"
+    "signals_measured": "Blood pressure, Core/Body temperature, Heart/Pulse rate, Skin temperature"
   },
   {
     "id-pub-id": 1125,
@@ -2916,7 +2916,7 @@
     "pop-no-tot": "48",
     "pop-male-no": "24",
     "pop-fem-no": "24",
-    "signals_measured": "Blood pressure, Body temperature, Core temperature, Heart/Pulse rate, Metabolic rate/Gas exchange, Oxygen saturation, Respiration, Skin temperature, Sweat indicators"
+    "signals_measured": "Blood pressure, Core/Body temperature, Heart/Pulse rate, Metabolic rate/Gas exchange, Oxygen saturation, Respiration, Skin temperature, Sweat indicators"
   },
   {
     "id-pub-id": 1130,
@@ -3021,7 +3021,7 @@
     "pop-no-tot": "24",
     "pop-male-no": "12",
     "pop-fem-no": "12",
-    "signals_measured": "Blood pressure, Body temperature, Heart/Pulse rate, Metabolic rate/Gas exchange, Skin temperature, Sweat indicators"
+    "signals_measured": "Blood pressure, Core/Body temperature, Heart/Pulse rate, Metabolic rate/Gas exchange, Skin temperature, Sweat indicators"
   },
   {
     "id-pub-id": 1134,
@@ -3042,7 +3042,7 @@
     "pop-no-tot": "32",
     "pop-male-no": "16",
     "pop-fem-no": "16",
-    "signals_measured": "Body temperature, Heart/Pulse rate, Skin temperature, Sweat indicators"
+    "signals_measured": "Core/Body temperature, Heart/Pulse rate, Skin temperature, Sweat indicators"
   },
   {
     "id-pub-id": 1134,
@@ -3063,7 +3063,7 @@
     "pop-no-tot": "24",
     "pop-male-no": "12",
     "pop-fem-no": "12",
-    "signals_measured": "Body temperature, Heart/Pulse rate, Skin temperature, Sweat indicators"
+    "signals_measured": "Core/Body temperature, Heart/Pulse rate, Skin temperature, Sweat indicators"
   },
   {
     "id-pub-id": 1134,
@@ -3084,7 +3084,7 @@
     "pop-no-tot": "48",
     "pop-male-no": "24",
     "pop-fem-no": "24",
-    "signals_measured": "Body temperature, Heart/Pulse rate, Skin temperature, Sweat indicators"
+    "signals_measured": "Core/Body temperature, Heart/Pulse rate, Skin temperature, Sweat indicators"
   },
   {
     "id-pub-id": 1134,
@@ -3105,7 +3105,7 @@
     "pop-no-tot": "32",
     "pop-male-no": "16",
     "pop-fem-no": "16",
-    "signals_measured": "Body temperature, Heart/Pulse rate, Skin temperature, Sweat indicators"
+    "signals_measured": "Core/Body temperature, Heart/Pulse rate, Skin temperature, Sweat indicators"
   },
   {
     "id-pub-id": 1135,
@@ -3315,7 +3315,7 @@
     "pop-no-tot": "16",
     "pop-male-no": "8",
     "pop-fem-no": "8",
-    "signals_measured": "Blood pressure, Body temperature, Heart/Pulse rate, Oxygen saturation"
+    "signals_measured": "Blood pressure, Core/Body temperature, Heart/Pulse rate, Oxygen saturation"
   },
   {
     "id-pub-id": 1145,
@@ -3420,7 +3420,7 @@
     "pop-no-tot": "16",
     "pop-male-no": "16",
     "pop-fem-no": "0",
-    "signals_measured": "Blood pressure, Core temperature, Heart/Pulse rate, Metabolic rate/Gas exchange, Movement, Skin temperature"
+    "signals_measured": "Blood pressure, Core/Body temperature, Heart/Pulse rate, Metabolic rate/Gas exchange, Movement, Skin temperature"
   },
   {
     "id-pub-id": 1150,
@@ -3441,7 +3441,7 @@
     "pop-no-tot": "9",
     "pop-male-no": "9",
     "pop-fem-no": "0",
-    "signals_measured": "Biomarkers: COX1, Biomarkers: COX2, Biomarkers: PGE2, Core temperature, Skin temperature"
+    "signals_measured": "Biomarkers: COX1, Biomarkers: COX2, Biomarkers: PGE2, Core/Body temperature, Skin temperature"
   },
   {
     "id-pub-id": 1151,
@@ -3483,7 +3483,7 @@
     "pop-no-tot": "24",
     "pop-male-no": "24",
     "pop-fem-no": "0",
-    "signals_measured": "Core temperature, Heart/Pulse rate, Heat flux, Skin temperature"
+    "signals_measured": "Core/Body temperature, Heart/Pulse rate, Heat flux, Skin temperature"
   },
   {
     "id-pub-id": 1153,
@@ -3504,7 +3504,7 @@
     "pop-no-tot": "18",
     "pop-male-no": "18",
     "pop-fem-no": "0",
-    "signals_measured": "Blood pressure, Core temperature, Heart/Pulse rate, Skin blood flow, Skin temperature, Sweat indicators"
+    "signals_measured": "Blood pressure, Core/Body temperature, Heart/Pulse rate, Skin blood flow, Skin temperature, Sweat indicators"
   },
   {
     "id-pub-id": 1154,
@@ -3567,7 +3567,7 @@
     "pop-no-tot": "20",
     "pop-male-no": "9",
     "pop-fem-no": "11",
-    "signals_measured": "Body temperature, EEG, EMG, Heart/Pulse rate, Skin conductance"
+    "signals_measured": "Core/Body temperature, EEG, EMG, Heart/Pulse rate, Skin conductance"
   },
   {
     "id-pub-id": 1157,
@@ -3609,7 +3609,7 @@
     "pop-no-tot": "14",
     "pop-male-no": "7",
     "pop-fem-no": "7",
-    "signals_measured": "Biomarkers: Immunoglobulin E (IgE), Body temperature, Heart/Pulse rate, Skin temperature"
+    "signals_measured": "Biomarkers: Immunoglobulin E (IgE), Core/Body temperature, Heart/Pulse rate, Skin temperature"
   },
   {
     "id-pub-id": 1159,
@@ -4050,7 +4050,7 @@
     "pop-no-tot": "48",
     "pop-male-no": "24",
     "pop-fem-no": "24",
-    "signals_measured": "Core temperature, Heart/Pulse rate, Skin temperature"
+    "signals_measured": "Core/Body temperature, Heart/Pulse rate, Skin temperature"
   },
   {
     "id-pub-id": 1180,
@@ -4071,7 +4071,7 @@
     "pop-no-tot": "1",
     "pop-male-no": "1",
     "pop-fem-no": "0",
-    "signals_measured": "Body temperature, Skin temperature"
+    "signals_measured": "Core/Body temperature, Skin temperature"
   },
   {
     "id-pub-id": 1181,
@@ -4092,7 +4092,7 @@
     "pop-no-tot": "6",
     "pop-male-no": "3",
     "pop-fem-no": "3",
-    "signals_measured": "Core temperature, Metabolic rate/Gas exchange, Skin temperature"
+    "signals_measured": "Core/Body temperature, Metabolic rate/Gas exchange, Skin temperature"
   },
   {
     "id-pub-id": 1182,
@@ -4848,7 +4848,7 @@
     "pop-no-tot": "12",
     "pop-male-no": "6",
     "pop-fem-no": "6",
-    "signals_measured": "Blood pressure, Body temperature, Heart/Pulse rate, Oxygen saturation"
+    "signals_measured": "Blood pressure, Core/Body temperature, Heart/Pulse rate, Oxygen saturation"
   },
   {
     "id-pub-id": 1217,
@@ -5037,7 +5037,7 @@
     "pop-no-tot": "20",
     "pop-male-no": "10",
     "pop-fem-no": "10",
-    "signals_measured": "Blood pressure, Body temperature, Heart/Pulse rate, Oxygen saturation"
+    "signals_measured": "Blood pressure, Core/Body temperature, Heart/Pulse rate, Oxygen saturation"
   },
   {
     "id-pub-id": 1224,
@@ -5352,7 +5352,7 @@
     "pop-no-tot": "32",
     "pop-male-no": "NR",
     "pop-fem-no": "NR",
-    "signals_measured": "Body temperature, Heart/Pulse rate, Skin temperature"
+    "signals_measured": "Core/Body temperature, Heart/Pulse rate, Skin temperature"
   },
   {
     "id-pub-id": 1237,
@@ -5373,7 +5373,7 @@
     "pop-no-tot": "24",
     "pop-male-no": "NR",
     "pop-fem-no": "NR",
-    "signals_measured": "Body temperature, Heart/Pulse rate, Skin temperature"
+    "signals_measured": "Core/Body temperature, Heart/Pulse rate, Skin temperature"
   },
   {
     "id-pub-id": 1237,
@@ -5394,7 +5394,7 @@
     "pop-no-tot": "48",
     "pop-male-no": "NR",
     "pop-fem-no": "NR",
-    "signals_measured": "Body temperature, Heart/Pulse rate, Skin temperature"
+    "signals_measured": "Core/Body temperature, Heart/Pulse rate, Skin temperature"
   },
   {
     "id-pub-id": 1238,
@@ -5625,7 +5625,7 @@
     "pop-no-tot": "144",
     "pop-male-no": "46",
     "pop-fem-no": "98",
-    "signals_measured": "Blood pressure, Body temperature, EEG, Heart/Pulse rate, Oxygen saturation"
+    "signals_measured": "Blood pressure, Core/Body temperature, EEG, Heart/Pulse rate, Oxygen saturation"
   },
   {
     "id-pub-id": 1248,
@@ -5688,7 +5688,7 @@
     "pop-no-tot": "16",
     "pop-male-no": "8",
     "pop-fem-no": "8",
-    "signals_measured": "Body temperature, Heart/Pulse rate, Skin temperature"
+    "signals_measured": "Core/Body temperature, Heart/Pulse rate, Skin temperature"
   },
   {
     "id-pub-id": 1251,
@@ -5730,7 +5730,7 @@
     "pop-no-tot": "32",
     "pop-male-no": "16",
     "pop-fem-no": "16",
-    "signals_measured": "Body temperature, Heart/Pulse rate, Skin temperature"
+    "signals_measured": "Core/Body temperature, Heart/Pulse rate, Skin temperature"
   },
   {
     "id-pub-id": 1253,
@@ -5856,7 +5856,7 @@
     "pop-no-tot": "14",
     "pop-male-no": "14",
     "pop-fem-no": "0",
-    "signals_measured": "Body temperature, Heart/Pulse rate, Skin temperature, Sweat indicators"
+    "signals_measured": "Core/Body temperature, Heart/Pulse rate, Skin temperature, Sweat indicators"
   },
   {
     "id-pub-id": 1259,
@@ -6003,7 +6003,7 @@
     "pop-no-tot": "11",
     "pop-male-no": "11",
     "pop-fem-no": "0",
-    "signals_measured": "Blood pressure, Body temperature, Heart/Pulse rate, Skin temperature, Sweat indicators"
+    "signals_measured": "Blood pressure, Core/Body temperature, Heart/Pulse rate, Skin temperature, Sweat indicators"
   },
   {
     "id-pub-id": 1266,
@@ -6045,7 +6045,7 @@
     "pop-no-tot": "14",
     "pop-male-no": "7",
     "pop-fem-no": "7",
-    "signals_measured": "Core temperature, Skin temperature"
+    "signals_measured": "Core/Body temperature, Skin temperature"
   },
   {
     "id-pub-id": 1267,
@@ -6066,7 +6066,7 @@
     "pop-no-tot": "26",
     "pop-male-no": "13",
     "pop-fem-no": "13",
-    "signals_measured": "Core temperature, Skin temperature"
+    "signals_measured": "Core/Body temperature, Skin temperature"
   },
   {
     "id-pub-id": 1268,
@@ -6192,6 +6192,6 @@
     "pop-no-tot": "26",
     "pop-male-no": "15",
     "pop-fem-no": "11",
-    "signals_measured": "Biomarkers: Immunoglobulin A (IgA), Biomarkers: Lysozyme, Blood pressure, Body temperature, Heart/Pulse rate"
+    "signals_measured": "Biomarkers: Immunoglobulin A (IgA), Biomarkers: Lysozyme, Blood pressure, Core/Body temperature, Heart/Pulse rate"
   }
 ]

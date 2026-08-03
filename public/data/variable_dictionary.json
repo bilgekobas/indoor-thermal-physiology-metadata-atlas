@@ -88,7 +88,7 @@
       "data_type": "categorical",
       "unit": "-",
       "allowed_values": "NR, any value",
-      "description": "Köppen–Geiger climate classification assigned based on city and country information."
+      "description": "K\u00f6ppen\u2013Geiger climate classification assigned based on city and country information."
     },
     {
       "col_id": 10,
@@ -286,7 +286,7 @@
       "col_pretty_name": "Minimum tested temperature",
       "category_pretty_names": "Experiment",
       "data_type": "float",
-      "unit": "°C, or °F",
+      "unit": "\u00b0C, or \u00b0F",
       "allowed_values": "NR, NAN, NC, any value",
       "description": "Minimum temperature that was tested in the experiment. If reported I take operative temperature, if not, air temperature. Stored as Celsius. "
     },
@@ -296,7 +296,7 @@
       "col_pretty_name": "Maximum tested temperature",
       "category_pretty_names": "Experiment",
       "data_type": "float",
-      "unit": "°C, or °F",
+      "unit": "\u00b0C, or \u00b0F",
       "allowed_values": "NR, NAN, NC, any value",
       "description": "Maximum temperature that was tested in the experiment. If reported I take operative temperature, if not, air temperature. Stored as Celsius. "
     },
@@ -306,7 +306,7 @@
       "col_pretty_name": "Tested temperatures",
       "category_pretty_names": "Experiment",
       "data_type": "float",
-      "unit": "°C, or °F",
+      "unit": "\u00b0C, or \u00b0F",
       "allowed_values": "NR, NAN, NC, Free running, any value",
       "description": "Target temperatures of all tested scenarios, comma separated. Can be any number, any number range, or Free running.\n\nIf the test scenario was a ramp, then stated with a dash in between. ie. 28, 28-16, 16 would mean there were two static conditions tested seoarately, at 16 and 28C, and a third scenario where the temperature started from 28 and decreased to 16 was tested.\n\nFree running is when there were no target temperatures."
     },
@@ -587,7 +587,7 @@
       "category_pretty_names": "Physiological",
       "data_type": "categorical",
       "unit": "-",
-      "allowed_values": "Biomarkers: Alpha-amylase\nBiomarkers: Catecholamines\nBiomarkers: Cortisol\nBiomarkers: COX1\nBiomarkers: COX2\nBiomarkers: Dopamine\nBiomarkers: Estradiol\nBiomarkers: Free thyroxine (FT4)\nBiomarkers: Free triiodothyronine (FT3)\nBiomarkers: Heat shock protein (HSP)\nBiomarkers: Immunoglobulin A (IgA)\nBiomarkers: Immunoglobulin E (IgE)\nBiomarkers: Interleukin 6 (IL-6)\nBiomarkers: Lysozyme \nBiomarkers: PGE2\nBiomarkers: Progesterone\nBiomarkers: Tear film mucus\nBiomarkers: Testosterone\nBiomarkers: Thyroid-stimulating hormone (TSH)\nBlood pressure\nBody temperature\nCore temperature\nEEG\nEMG\nEOG\nExhaled breath temperature\nGlucose\nHeart/Pulse rate\nHeat flux\nMetabolic rate/Gas exchange\nMovement\nNear body temperature\nOxygen saturation\nPerfusion index\nPupillometry\nRespiration\nSensory nerve conduction velocity\n\"Sensory nerve\nconduction velocity\"\nSkin blood flow\nSkin conductance\nSkin hardness\nSkin temperature\nSweat indicators",
+      "allowed_values": "Biomarkers: Alpha-amylase\nBiomarkers: Catecholamines\nBiomarkers: Cortisol\nBiomarkers: COX1\nBiomarkers: COX2\nBiomarkers: Dopamine\nBiomarkers: Estradiol\nBiomarkers: Free thyroxine (FT4)\nBiomarkers: Free triiodothyronine (FT3)\nBiomarkers: Heat shock protein (HSP)\nBiomarkers: Immunoglobulin A (IgA)\nBiomarkers: Immunoglobulin E (IgE)\nBiomarkers: Interleukin 6 (IL-6)\nBiomarkers: Lysozyme \nBiomarkers: PGE2\nBiomarkers: Progesterone\nBiomarkers: Tear film mucus\nBiomarkers: Testosterone\nBiomarkers: Thyroid-stimulating hormone (TSH)\nBlood pressure\nCore/Body temperature\nEEG\nEMG\nEOG\nExhaled breath temperature\nGlucose\nHeart/Pulse rate\nHeat flux\nMetabolic rate/Gas exchange\nMovement\nNear body temperature\nOxygen saturation\nPerfusion index\nPupillometry\nRespiration\nSensory nerve conduction velocity\n\"Sensory nerve\nconduction velocity\"\nSkin blood flow\nSkin conductance\nSkin hardness\nSkin temperature\nSweat indicators",
       "description": "This field cannot be NR, NAN or NC. Otherwise publication/experiment does not satisfy inclusion/selection criteria."
     },
     {
@@ -706,7 +706,7 @@
       "col_pretty_name": "Dry bulb temperature (tdb)",
       "category_pretty_names": "Environment",
       "data_type": "string",
-      "unit": "°C, or °F",
+      "unit": "\u00b0C, or \u00b0F",
       "allowed_values": "NR, MNR, NC, any value",
       "description": "If it was measured = vertical height/s separate by comma when multiple, if measured heights are not reported = MNR, if not reported = NR, if reported but data unclear = NC"
     },
@@ -726,7 +726,7 @@
       "col_pretty_name": "Air velocity (v)",
       "category_pretty_names": "Environment",
       "data_type": "string",
-      "unit": "m·s⁻¹",
+      "unit": "m\u00b7s\u207b\u00b9",
       "allowed_values": "NR, MNR, NC, any value",
       "description": "Same as tdb"
     },
@@ -736,17 +736,17 @@
       "col_pretty_name": "Globe temperature (tg)",
       "category_pretty_names": "Environment",
       "data_type": "string",
-      "unit": "°C, or °F",
+      "unit": "\u00b0C, or \u00b0F",
       "allowed_values": "NR, MNR, NC, any value",
       "description": "Same as tdb"
     },
     {
       "col_id": 75,
       "col_name": "env-tsurface",
-      "col_pretty_name": "Surface temperature (°C)",
+      "col_pretty_name": "Surface temperature (\u00b0C)",
       "category_pretty_names": "Environment",
       "data_type": "string",
-      "unit": "°C, or °F",
+      "unit": "\u00b0C, or \u00b0F",
       "allowed_values": "NR, MNR, NC, any value",
       "description": "Same as tdb"
     },
@@ -756,7 +756,7 @@
       "col_pretty_name": "Wetbulb temperature (twb)",
       "category_pretty_names": "Environment",
       "data_type": "string",
-      "unit": "°C, or °F",
+      "unit": "\u00b0C, or \u00b0F",
       "allowed_values": "NR, MNR, NC, any value",
       "description": "Same as tdb"
     },
@@ -796,7 +796,7 @@
       "col_pretty_name": "Outdoor  temperature",
       "category_pretty_names": "Environment",
       "data_type": "string",
-      "unit": "°C, or °F",
+      "unit": "\u00b0C, or \u00b0F",
       "allowed_values": "NR, MNR, NC, any value",
       "description": "Same as tdb"
     },
@@ -816,7 +816,7 @@
       "col_pretty_name": "VOC",
       "category_pretty_names": "Environment",
       "data_type": "string",
-      "unit": "ppb, or µg·m⁻³",
+      "unit": "ppb, or \u00b5g\u00b7m\u207b\u00b3",
       "allowed_values": "NR, MNR, NC, any value",
       "description": "Same as tdb"
     },
@@ -836,7 +836,7 @@
       "col_pretty_name": "Solar radiation",
       "category_pretty_names": "Environment",
       "data_type": "string",
-      "unit": "W·m⁻²",
+      "unit": "W\u00b7m\u207b\u00b2",
       "allowed_values": "NR, MNR, NC, any value",
       "description": "Same as tdb"
     },
@@ -1648,7 +1648,7 @@
       "data_type": "boolean",
       "unit": "-",
       "allowed_values": "Y, NR, NC",
-      "description": "Also known as Corpulence Index. Different than BMI, calculated with PI = weight / height³"
+      "description": "Also known as Corpulence Index. Different than BMI, calculated with PI = weight / height\u00b3"
     },
     {
       "col_id": 166,

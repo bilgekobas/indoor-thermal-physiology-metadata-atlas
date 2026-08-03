@@ -146,59 +146,34 @@
       "count": 16
     },
     {
-      "signal": "Body temperature",
-      "period": "2015\u201316",
-      "count": 3
-    },
-    {
-      "signal": "Body temperature",
-      "period": "2017\u201318",
-      "count": 1
-    },
-    {
-      "signal": "Body temperature",
-      "period": "2019\u201320",
-      "count": 6
-    },
-    {
-      "signal": "Body temperature",
-      "period": "2021\u201322",
-      "count": 10
-    },
-    {
-      "signal": "Body temperature",
-      "period": "2023\u201324",
-      "count": 11
-    },
-    {
-      "signal": "Core temperature",
+      "signal": "Core/Body temperature",
       "period": "2013\u201314",
       "count": 5
     },
     {
-      "signal": "Core temperature",
+      "signal": "Core/Body temperature",
       "period": "2015\u201316",
-      "count": 2
+      "count": 4
     },
     {
-      "signal": "Core temperature",
+      "signal": "Core/Body temperature",
       "period": "2017\u201318",
-      "count": 1
+      "count": 2
     },
     {
-      "signal": "Core temperature",
+      "signal": "Core/Body temperature",
       "period": "2019\u201320",
-      "count": 2
+      "count": 8
     },
     {
-      "signal": "Core temperature",
+      "signal": "Core/Body temperature",
       "period": "2021\u201322",
-      "count": 7
+      "count": 16
     },
     {
-      "signal": "Core temperature",
+      "signal": "Core/Body temperature",
       "period": "2023\u201324",
-      "count": 2
+      "count": 13
     },
     {
       "signal": "EEG",

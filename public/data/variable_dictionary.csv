@@ -1,4 +1,4 @@
-﻿col_id,col_name,col_pretty_name,category_pretty_names,data_type,unit,allowed_values,description
+col_id,col_name,col_pretty_name,category_pretty_names,data_type,unit,allowed_values,description
 1,id-pub-id,Publication ID,ID,integer,-,Any value,"Publication IDs are in 0000 format, with the initial number indicating the dataset update round, and the last three numbers indicating the publication id assigned within that round."
 2,id-exp-id,Experiment ID,ID,integer,-,Any value,"If the publication includes results from more then one experiment, each individual experiment is differentiated here."
 3,id,Unique study ID,ID,text,-,Any value,"ID combining the publication and experiment IDs, resulting in unique study ID"
@@ -126,8 +126,7 @@ Biomarkers: Tear film mucus
 Biomarkers: Testosterone
 Biomarkers: Thyroid-stimulating hormone (TSH)
 Blood pressure
-Body temperature
-Core temperature
+Core/Body temperature
 EEG
 EMG
 EOG

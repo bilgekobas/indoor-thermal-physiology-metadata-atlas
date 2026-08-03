@@ -1,4 +1,4 @@
-import { useState, useCallback } from 'react'
+import { useState, useCallback, useEffect } from 'react'
 import { createPortal } from 'react-dom'
 
 export function useTooltip() {
@@ -13,6 +13,27 @@ export function useTooltip() {
   }, [])
 
   const hideTip = useCallback(() => setTip(null), [])
+
+  // Safety net: onMouseLeave doesn't fire if the hovered element unmounts
+  // first (e.g. clicking a toggle/tab re-renders the row/cell mid-hover),
+  // which otherwise leaves the tooltip stuck on screen indefinitely.
+  // setTip(null) is a cheap no-op re-render when already null, so these
+  // listeners can just stay registered for the component's lifetime rather
+  // than being tied to tip state (which changes on every mouse move).
+  useEffect(() => {
+    const clear = () => setTip(null)
+    const clearIfLeftWindow = (e) => { if (!e.relatedTarget) clear() }
+    window.addEventListener('mousedown', clear, true)
+    window.addEventListener('scroll', clear, true)
+    window.addEventListener('blur', clear)
+    window.addEventListener('mouseout', clearIfLeftWindow)
+    return () => {
+      window.removeEventListener('mousedown', clear, true)
+      window.removeEventListener('scroll', clear, true)
+      window.removeEventListener('blur', clear)
+      window.removeEventListener('mouseout', clearIfLeftWindow)
+    }
+  }, [])
 
   return { tip, showTip, moveTip, hideTip }
 }

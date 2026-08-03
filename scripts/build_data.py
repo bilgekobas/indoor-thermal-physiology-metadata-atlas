@@ -423,7 +423,7 @@ SENSOR_MAP_CBT = {
 }
 KEEP_SITES_CBT = ['Tympanic canal','Gastrointestinal tract','Oral cavity','Rectal','Axilla','Forehead']
 
-cbt = df[df['physio-parameter'].isin(['Body temperature','Core temperature'])][
+cbt = df[df['physio-parameter'] == 'Core/Body temperature'][
     ['id','physio-body-site','physio-sensing-method']].copy()
 cbt = cbt[~cbt['physio-body-site'].isin(CODES)]
 cbt = cbt[cbt['physio-body-site'].notna()]
@@ -844,13 +844,6 @@ physio_clean = df[['id', 'physio-parameter']].copy()
 physio_clean = physio_clean[~physio_clean['physio-parameter'].isin(CODES)]
 physio_clean = physio_clean[physio_clean['physio-parameter'].notna()]
 physio_clean['physio-parameter'] = physio_clean['physio-parameter'].astype(str).str.strip()
-# NOTE: Core temperature and Body temperature are kept as separate rows here
-# (previously merged into a combined 'Core/Body temperature' label). That
-# merge caused a mismatch with physio_dedup/signal_freq_by_period, which
-# never merged these two -- so the Fig 21 by-period heatmap looked up a
-# 'Core/Body temperature' row that didn't exist in its period data and
-# rendered empty. Keeping both labels unmerged here makes fig17/fig18 and
-# the by-period heatmap consistent, and shows each signal's true count.
 physio_unique = physio_clean.drop_duplicates(subset=['id', 'physio-parameter'])
 
 param_counts = physio_unique['physio-parameter'].value_counts()
@@ -1227,7 +1220,7 @@ print(f'fig13_sensor_heights.json: {len(all_height_rows)} height observations')
 
 # ── A1. Signal × sensor composition by period (sensor displacement) ────
 # Reuses physio_dedup (already built above, with casing fixed)
-TRACK_SIGNALS = ['Skin temperature', 'Heart/Pulse rate', 'Core temperature', 'Body temperature', 'Skin conductance']
+TRACK_SIGNALS = ['Skin temperature', 'Heart/Pulse rate', 'Core/Body temperature', 'Skin conductance']
 # Total experiments in each period, regardless of signal -- used to normalize
 # Fig 25 bars as "% of all experiments run in that period", not just the
 # subset measuring the currently-toggled signal.
@@ -2145,7 +2138,7 @@ sms = sms[~sms['physio-sensing-method'].isin(CODES) & ~sms['physio-body-site'].i
 sms['physio-sensing-method'] = sms['physio-sensing-method'].replace({
     'Digital Sphygmomanometer': 'Digital sphygmomanometer', 'Laser doppler': 'Laser Doppler',
 })
-sms['signal'] = sms['physio-parameter'].replace({'Body temperature': 'Core/Body temperature', 'Core temperature': 'Core/Body temperature'})
+sms['signal'] = sms['physio-parameter']
 # Apply the same site-consolidation rules used for the skin-temperature site
 # heatmap (Ch.3), but ONLY to skin-temperature rows — these merge rules
 # (Lower arm→Forearm, Calf/Shin→Lower leg, facial sub-sites→Face, etc.) were

@@ -358,7 +358,7 @@
       },
       "multi_response": true
     },
-    "Core temperature": {
+    "Core/Body temperature": {
       "data": [
         {
           "period": "2013\u201314",
@@ -380,75 +380,6 @@
           "sensor_grp": "Ingestible pill",
           "count": 2
         },
-        {
-          "period": "2017\u201318",
-          "sensor_grp": "Probe",
-          "count": 1
-        },
-        {
-          "period": "2019\u201320",
-          "sensor_grp": "Ingestible pill",
-          "count": 1
-        },
-        {
-          "period": "2019\u201320",
-          "sensor_grp": "Thermistor",
-          "count": 1
-        },
-        {
-          "period": "2021\u201322",
-          "sensor_grp": "Infrared thermometer",
-          "count": 1
-        },
-        {
-          "period": "2021\u201322",
-          "sensor_grp": "Ingestible pill",
-          "count": 4
-        },
-        {
-          "period": "2021\u201322",
-          "sensor_grp": "Thermistor",
-          "count": 2
-        },
-        {
-          "period": "2023\u201324",
-          "sensor_grp": "Ingestible pill",
-          "count": 1
-        },
-        {
-          "period": "2023\u201324",
-          "sensor_grp": "Thermochron",
-          "count": 1
-        }
-      ],
-      "sensor_order": [
-        "Ingestible pill",
-        "Thermistor",
-        "Thermometer",
-        "Probe",
-        "Infrared thermometer",
-        "Thermochron"
-      ],
-      "period_totals": {
-        "2013\u201314": 5,
-        "2015\u201316": 2,
-        "2017\u201318": 1,
-        "2019\u201320": 2,
-        "2021\u201322": 7,
-        "2023\u201324": 2
-      },
-      "period_n_all": {
-        "2013\u201314": 11,
-        "2015\u201316": 15,
-        "2017\u201318": 47,
-        "2019\u201320": 63,
-        "2021\u201322": 81,
-        "2023\u201324": 78
-      },
-      "multi_response": true
-    },
-    "Body temperature": {
-      "data": [
         {
           "period": "2015\u201316",
           "sensor_grp": "Thermometer",
@@ -456,6 +387,11 @@
         },
         {
           "period": "2017\u201318",
+          "sensor_grp": "Probe",
+          "count": 1
+        },
+        {
+          "period": "2017\u201318",
           "sensor_grp": "Thermometer",
           "count": 1
         },
@@ -463,6 +399,11 @@
           "period": "2019\u201320",
           "sensor_grp": "Infrared thermometer",
           "count": 2
+        },
+        {
+          "period": "2019\u201320",
+          "sensor_grp": "Ingestible pill",
+          "count": 1
         },
         {
           "period": "2019\u201320",
@@ -472,7 +413,7 @@
         {
           "period": "2019\u201320",
           "sensor_grp": "Thermistor",
-          "count": 1
+          "count": 2
         },
         {
           "period": "2019\u201320",
@@ -482,12 +423,12 @@
         {
           "period": "2021\u201322",
           "sensor_grp": "Infrared thermometer",
-          "count": 4
+          "count": 5
         },
         {
           "period": "2021\u201322",
-          "sensor_grp": "Mercury thermometer",
-          "count": 1
+          "sensor_grp": "Ingestible pill",
+          "count": 4
         },
         {
           "period": "2021\u201322",
@@ -496,12 +437,17 @@
         },
         {
           "period": "2021\u201322",
-          "sensor_grp": "Thermometer",
+          "sensor_grp": "Other",
           "count": 1
         },
         {
-          "period": "2023\u201324",
-          "sensor_grp": "Heat flux/Heat flow",
+          "period": "2021\u201322",
+          "sensor_grp": "Thermistor",
+          "count": 2
+        },
+        {
+          "period": "2021\u201322",
+          "sensor_grp": "Thermometer",
           "count": 1
         },
         {
@@ -511,24 +457,31 @@
         },
         {
           "period": "2023\u201324",
-          "sensor_grp": "Mercury thermometer",
+          "sensor_grp": "Ingestible pill",
           "count": 1
+        },
+        {
+          "period": "2023\u201324",
+          "sensor_grp": "Other",
+          "count": 3
         }
       ],
       "sensor_order": [
         "Infrared thermometer",
-        "NR",
+        "Ingestible pill",
         "Thermometer",
-        "Mercury thermometer",
+        "NR",
         "Thermistor",
-        "Heat flux/Heat flow"
+        "Probe",
+        "Other"
       ],
       "period_totals": {
-        "2015\u201316": 3,
-        "2017\u201318": 1,
-        "2019\u201320": 6,
-        "2021\u201322": 10,
-        "2023\u201324": 11
+        "2013\u201314": 5,
+        "2015\u201316": 4,
+        "2017\u201318": 2,
+        "2019\u201320": 8,
+        "2021\u201322": 16,
+        "2023\u201324": 13
       },
       "period_n_all": {
         "2013\u201314": 11,
