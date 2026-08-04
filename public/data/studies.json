@@ -3252,7 +3252,7 @@
     "pop-no-tot": "14",
     "pop-male-no": "7",
     "pop-fem-no": "7",
-    "signals_measured": "Heart/Pulse rate, Oxygen saturation, Skin conductance, Skin temperature"
+    "signals_measured": "Heart/Pulse rate, Oxygen saturation, Skin temperature, Sweat indicators"
   },
   {
     "id-pub-id": 1142,

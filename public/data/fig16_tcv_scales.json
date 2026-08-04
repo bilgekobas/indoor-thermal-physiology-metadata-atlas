@@ -1515,6 +1515,74 @@
       "id": "1055_2"
     },
     {
+      "points": 7,
+      "scale_type": "discrete",
+      "range": [
+        -3.0,
+        -2.0,
+        -1.0,
+        0.0,
+        1.0,
+        2.0,
+        3.0
+      ],
+      "labels": [
+        "much too cool",
+        "too coold",
+        "comfortably cool",
+        "comfortable",
+        "comfortably warm",
+        "warm",
+        "much too wamr"
+      ],
+      "grid": [
+        {
+          "value": -3.0,
+          "label": "much too cool",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": -2.0,
+          "label": "too coold",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": -1.0,
+          "label": "comfortably cool",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 0.0,
+          "label": "comfortable",
+          "is_anchor": true,
+          "is_neutral": true
+        },
+        {
+          "value": 1.0,
+          "label": "comfortably warm",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 2.0,
+          "label": "warm",
+          "is_anchor": true,
+          "is_neutral": false
+        },
+        {
+          "value": 3.0,
+          "label": "much too wamr",
+          "is_anchor": true,
+          "is_neutral": false
+        }
+      ],
+      "comfort_pole": null,
+      "id": "1060_1"
+    },
+    {
       "points": null,
       "scale_type": "vas",
       "range": [
@@ -7358,7 +7426,7 @@
     },
     {
       "points": 7,
-      "count": 25
+      "count": 26
     },
     {
       "points": 8,
@@ -7373,8 +7441,8 @@
       "count": 2
     }
   ],
-  "n_total": 133,
-  "n_distinct_scales": 59,
+  "n_total": 134,
+  "n_distinct_scales": 60,
   "code_breakdown": {
     "mnr": 7,
     "nr": 127,

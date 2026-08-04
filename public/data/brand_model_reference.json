@@ -2242,16 +2242,6 @@
       ]
     },
     {
-      "signal": "Skin conductance",
-      "sensing_method": "Hygrochron",
-      "brand": "iButton",
-      "model": "DS1923",
-      "count": 1,
-      "study_ids": [
-        "1141_1"
-      ]
-    },
-    {
       "signal": "Skin hardness",
       "sensing_method": "Durometer",
       "brand": "Teclock",
@@ -3162,6 +3152,18 @@
     },
     {
       "signal": "Sweat indicators",
+      "sensing_method": "Hygrochron",
+      "brand": "iButton",
+      "model": "DS1923",
+      "count": 3,
+      "study_ids": [
+        "1095_1",
+        "1141_1",
+        "1208_1"
+      ]
+    },
+    {
+      "signal": "Sweat indicators",
       "sensing_method": "High precision scale",
       "brand": "ADInstruments",
       "model": "GP 100K",
@@ -3180,17 +3182,6 @@
       "study_ids": [
         "1082_1",
         "1117_1"
-      ]
-    },
-    {
-      "signal": "Sweat indicators",
-      "sensing_method": "Hygrochron",
-      "brand": "iButton",
-      "model": "DS1923",
-      "count": 2,
-      "study_ids": [
-        "1095_1",
-        "1208_1"
       ]
     },
     {

@@ -1011,12 +1011,29 @@ def parse_scale_tcv(text):
         return None
     pole_low = classify_comfort_pole(base['labels'][0])
     pole_high = classify_comfort_pole(base['labels'][-1])
-    # Only keep studies where we can confidently identify which end is which;
-    # if neither endpoint contains a recognisable comfort/discomfort word,
-    # we cannot safely color it and exclude it rather than guess.
-    if pole_low is None and pole_high is None:
+    # Some scales are U-shaped (discomfort at BOTH ends, comfort in the
+    # middle -- e.g. "much too cool" ... "comfortable" ... "much too warm"),
+    # so a low/high endpoint check alone wrongly excludes them even though
+    # individual points (like "comfortable" itself) are perfectly
+    # classifiable. Check every label, not just the two endpoints, before
+    # deciding a scale truly can't be colored at all.
+    any_classifiable = any(classify_comfort_pole(l) is not None for l in base['labels'])
+    if not any_classifiable:
+        # Genuinely no comfort/discomfort language anywhere in this scale
+        # (e.g. a thermal-sensation-worded scale coded under the TCV field) --
+        # exclude, since there is nothing to color from the label text at all.
         return None
-    base['comfort_pole'] = 'high' if pole_high == 'comfort' or pole_low == 'discomfort' else 'low'
+    if pole_low is None and pole_high is None:
+        # Not a simple low<->high polarity (U-shaped, or the classifiable
+        # label(s) sit in the middle) -- leave comfort_pole unset. The
+        # frontend already colors each point by its OWN label first and only
+        # falls back to comfort_pole for unlabelable points, so this
+        # correctly renders "comfortable" in the middle in its own color
+        # while leaving genuinely ambiguous endpoints neutral grey, rather
+        # than forcing a misleading low/high direction onto the whole scale.
+        base['comfort_pole'] = None
+    else:
+        base['comfort_pole'] = 'high' if pole_high == 'comfort' or pole_low == 'discomfort' else 'low'
     return base
 
 tsv_parsed, tcv_parsed = [], []

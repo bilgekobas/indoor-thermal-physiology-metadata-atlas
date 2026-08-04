@@ -391,11 +391,6 @@
       "count": 24
     },
     {
-      "signal": "Skin conductance",
-      "physio-sensing-method": "Hygrochron",
-      "count": 1
-    },
-    {
       "signal": "Skin hardness",
       "physio-sensing-method": "Durometer",
       "count": 1
@@ -483,7 +478,7 @@
     {
       "signal": "Sweat indicators",
       "physio-sensing-method": "Hygrochron",
-      "count": 7
+      "count": 8
     },
     {
       "signal": "Sweat indicators",
@@ -1503,12 +1498,6 @@
       "count": 9
     },
     {
-      "signal": "Skin conductance",
-      "physio-sensing-method": "Hygrochron",
-      "period": "2021\u201322",
-      "count": 1
-    },
-    {
       "signal": "Skin hardness",
       "physio-sensing-method": "Durometer",
       "period": "2017\u201318",
@@ -1871,6 +1860,12 @@
     {
       "signal": "Sweat indicators",
       "physio-sensing-method": "Hygrochron",
+      "period": "2021\u201322",
+      "count": 1
+    },
+    {
+      "signal": "Sweat indicators",
+      "physio-sensing-method": "Hygrochron",
       "period": "2023\u201324",
       "count": 2
     },
@@ -2056,7 +2051,7 @@
     },
     {
       "signal": "Skin conductance",
-      "count": 25
+      "count": 24
     },
     {
       "signal": "Skin hardness",
@@ -2068,7 +2063,7 @@
     },
     {
       "signal": "Sweat indicators",
-      "count": 35
+      "count": 36
     }
   ],
   "signal_instance_totals": [
@@ -2222,7 +2217,7 @@
     },
     {
       "signal": "Skin conductance",
-      "count": 25
+      "count": 24
     },
     {
       "signal": "Skin hardness",
@@ -2234,7 +2229,7 @@
     },
     {
       "signal": "Sweat indicators",
-      "count": 41
+      "count": 42
     }
   ],
   "signal_method_brand": [
@@ -3433,12 +3428,6 @@
       "count": 1
     },
     {
-      "signal": "Skin conductance",
-      "physio-sensing-method": "Hygrochron",
-      "brand": "iButton",
-      "count": 1
-    },
-    {
       "signal": "Skin hardness",
       "physio-sensing-method": "Durometer",
       "brand": "Teclock",
@@ -3850,7 +3839,7 @@
       "signal": "Sweat indicators",
       "physio-sensing-method": "Hygrochron",
       "brand": "iButton",
-      "count": 2
+      "count": 3
     },
     {
       "signal": "Sweat indicators",

@@ -765,18 +765,13 @@
     },
     {
       "physio-sensor-brand": "iButton",
-      "physio-parameter": "Skin conductance",
-      "count": 1
-    },
-    {
-      "physio-sensor-brand": "iButton",
       "physio-parameter": "Skin temperature",
       "count": 72
     },
     {
       "physio-sensor-brand": "iButton",
       "physio-parameter": "Sweat indicators",
-      "count": 2
+      "count": 3
     }
   ]
 }

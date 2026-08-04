@@ -2252,16 +2252,6 @@
         ]
       },
       {
-        "signal": "Skin conductance",
-        "sensing_method": "Hygrochron",
-        "brand": "iButton",
-        "model": "DS1923",
-        "count": 1,
-        "study_ids": [
-          "1141_1"
-        ]
-      },
-      {
         "signal": "Skin hardness",
         "sensing_method": "Durometer",
         "brand": "Teclock",
@@ -3172,6 +3162,18 @@
       },
       {
         "signal": "Sweat indicators",
+        "sensing_method": "Hygrochron",
+        "brand": "iButton",
+        "model": "DS1923",
+        "count": 3,
+        "study_ids": [
+          "1095_1",
+          "1141_1",
+          "1208_1"
+        ]
+      },
+      {
+        "signal": "Sweat indicators",
         "sensing_method": "High precision scale",
         "brand": "ADInstruments",
         "model": "GP 100K",
@@ -3190,17 +3192,6 @@
         "study_ids": [
           "1082_1",
           "1117_1"
-        ]
-      },
-      {
-        "signal": "Sweat indicators",
-        "sensing_method": "Hygrochron",
-        "brand": "iButton",
-        "model": "DS1923",
-        "count": 2,
-        "study_ids": [
-          "1095_1",
-          "1208_1"
         ]
       },
       {
@@ -8133,24 +8124,18 @@
             "count": 6
           },
           {
-            "period": "2021–22",
-            "sensor_grp": "Hygrochron",
-            "count": 1
-          },
-          {
             "period": "2023–24",
             "sensor_grp": "GSR/EDA",
             "count": 9
           }
         ],
         "sensor_order": [
-          "GSR/EDA",
-          "Hygrochron"
+          "GSR/EDA"
         ],
         "period_totals": {
           "2017–18": 4,
           "2019–20": 5,
-          "2021–22": 7,
+          "2021–22": 6,
           "2023–24": 9
         },
         "period_n_all": {
@@ -42615,6 +42600,74 @@
         "id": "1055_2"
       },
       {
+        "points": 7,
+        "scale_type": "discrete",
+        "range": [
+          -3.0,
+          -2.0,
+          -1.0,
+          0.0,
+          1.0,
+          2.0,
+          3.0
+        ],
+        "labels": [
+          "much too cool",
+          "too coold",
+          "comfortably cool",
+          "comfortable",
+          "comfortably warm",
+          "warm",
+          "much too wamr"
+        ],
+        "grid": [
+          {
+            "value": -3.0,
+            "label": "much too cool",
+            "is_anchor": true,
+            "is_neutral": false
+          },
+          {
+            "value": -2.0,
+            "label": "too coold",
+            "is_anchor": true,
+            "is_neutral": false
+          },
+          {
+            "value": -1.0,
+            "label": "comfortably cool",
+            "is_anchor": true,
+            "is_neutral": false
+          },
+          {
+            "value": 0.0,
+            "label": "comfortable",
+            "is_anchor": true,
+            "is_neutral": true
+          },
+          {
+            "value": 1.0,
+            "label": "comfortably warm",
+            "is_anchor": true,
+            "is_neutral": false
+          },
+          {
+            "value": 2.0,
+            "label": "warm",
+            "is_anchor": true,
+            "is_neutral": false
+          },
+          {
+            "value": 3.0,
+            "label": "much too wamr",
+            "is_anchor": true,
+            "is_neutral": false
+          }
+        ],
+        "comfort_pole": null,
+        "id": "1060_1"
+      },
+      {
         "points": null,
         "scale_type": "vas",
         "range": [
@@ -48458,7 +48511,7 @@
       },
       {
         "points": 7,
-        "count": 25
+        "count": 26
       },
       {
         "points": 8,
@@ -48473,8 +48526,8 @@
         "count": 2
       }
     ],
-    "n_total": 133,
-    "n_distinct_scales": 59,
+    "n_total": 134,
+    "n_distinct_scales": 60,
     "code_breakdown": {
       "mnr": 7,
       "nr": 127,
@@ -48506,7 +48559,7 @@
       },
       {
         "parameter": "Sweat indicators",
-        "count": 35
+        "count": 36
       },
       {
         "parameter": "Oxygen saturation",
@@ -48514,7 +48567,7 @@
       },
       {
         "parameter": "Skin conductance",
-        "count": 25
+        "count": 24
       },
       {
         "parameter": "Metabolic rate/Gas exchange",
@@ -48671,9 +48724,9 @@
         42,
         34,
         15,
-        33,
+        34,
         25,
-        19,
+        18,
         19,
         14,
         11
@@ -48684,9 +48737,9 @@
         37,
         42,
         19,
-        23,
-        31,
         24,
+        31,
+        23,
         15,
         10,
         12
@@ -48731,13 +48784,13 @@
         2
       ],
       [
-        33,
-        23,
+        34,
+        24,
         16,
         7,
         3,
-        35,
-        5,
+        36,
+        6,
         0,
         11,
         7,
@@ -48749,22 +48802,22 @@
         10,
         15,
         5,
-        5,
+        6,
         32,
-        4,
+        3,
         4,
         0,
         2
       ],
       [
-        19,
-        24,
+        18,
+        23,
         1,
         5,
         6,
         0,
-        4,
-        25,
+        3,
+        24,
         0,
         0,
         7
@@ -75353,11 +75406,6 @@
         "count": 24
       },
       {
-        "signal": "Skin conductance",
-        "physio-sensing-method": "Hygrochron",
-        "count": 1
-      },
-      {
         "signal": "Skin hardness",
         "physio-sensing-method": "Durometer",
         "count": 1
@@ -75445,7 +75493,7 @@
       {
         "signal": "Sweat indicators",
         "physio-sensing-method": "Hygrochron",
-        "count": 7
+        "count": 8
       },
       {
         "signal": "Sweat indicators",
@@ -76465,12 +76513,6 @@
         "count": 9
       },
       {
-        "signal": "Skin conductance",
-        "physio-sensing-method": "Hygrochron",
-        "period": "2021–22",
-        "count": 1
-      },
-      {
         "signal": "Skin hardness",
         "physio-sensing-method": "Durometer",
         "period": "2017–18",
@@ -76833,6 +76875,12 @@
       {
         "signal": "Sweat indicators",
         "physio-sensing-method": "Hygrochron",
+        "period": "2021–22",
+        "count": 1
+      },
+      {
+        "signal": "Sweat indicators",
+        "physio-sensing-method": "Hygrochron",
         "period": "2023–24",
         "count": 2
       },
@@ -77018,7 +77066,7 @@
       },
       {
         "signal": "Skin conductance",
-        "count": 25
+        "count": 24
       },
       {
         "signal": "Skin hardness",
@@ -77030,7 +77078,7 @@
       },
       {
         "signal": "Sweat indicators",
-        "count": 35
+        "count": 36
       }
     ],
     "signal_instance_totals": [
@@ -77184,7 +77232,7 @@
       },
       {
         "signal": "Skin conductance",
-        "count": 25
+        "count": 24
       },
       {
         "signal": "Skin hardness",
@@ -77196,7 +77244,7 @@
       },
       {
         "signal": "Sweat indicators",
-        "count": 41
+        "count": 42
       }
     ],
     "signal_method_brand": [
@@ -78395,12 +78443,6 @@
         "count": 1
       },
       {
-        "signal": "Skin conductance",
-        "physio-sensing-method": "Hygrochron",
-        "brand": "iButton",
-        "count": 1
-      },
-      {
         "signal": "Skin hardness",
         "physio-sensing-method": "Durometer",
         "brand": "Teclock",
@@ -78812,7 +78854,7 @@
         "signal": "Sweat indicators",
         "physio-sensing-method": "Hygrochron",
         "brand": "iButton",
-        "count": 2
+        "count": 3
       },
       {
         "signal": "Sweat indicators",
@@ -83352,18 +83394,13 @@
       },
       {
         "physio-sensor-brand": "iButton",
-        "physio-parameter": "Skin conductance",
-        "count": 1
-      },
-      {
-        "physio-sensor-brand": "iButton",
         "physio-parameter": "Skin temperature",
         "count": 72
       },
       {
         "physio-sensor-brand": "iButton",
         "physio-parameter": "Sweat indicators",
-        "count": 2
+        "count": 3
       }
     ]
   },
@@ -90421,7 +90458,7 @@
       {
         "signal": "Skin conductance",
         "period": "2021–22",
-        "count": 7
+        "count": 6
       },
       {
         "signal": "Skin conductance",
@@ -90486,7 +90523,7 @@
       {
         "signal": "Sweat indicators",
         "period": "2021–22",
-        "count": 10
+        "count": 11
       },
       {
         "signal": "Sweat indicators",
@@ -97513,7 +97550,7 @@
       "pop-no-tot": "14",
       "pop-male-no": "7",
       "pop-fem-no": "7",
-      "signals_measured": "Heart/Pulse rate, Oxygen saturation, Skin conductance, Skin temperature"
+      "signals_measured": "Heart/Pulse rate, Oxygen saturation, Skin temperature, Sweat indicators"
     },
     {
       "id-pub-id": 1142,
@@ -100463,7 +100500,7 @@
     "n_variables": 206,
     "year_min": 2013,
     "year_max": 2024,
-    "generated_at": "2026-08-03T17:38:49.190701"
+    "generated_at": "2026-08-04T13:47:05.868960"
   },
   "variable_dictionary": {
     "data": [
