@@ -29,21 +29,25 @@ const SITE_COORDS = {
   'Back': [1340 / TAX_W, 521 / TAX_H],      // 9PM
   'Lower back': [1340 / TAX_W, 760 / TAX_H],// 14PM (lumbar)
   'Buttocks': [1441 / TAX_W, 859 / TAX_H],  // 16PR
-  'Foot (plantar)': [1380 / TAX_W, 1700 / TAX_H], // 24PR, posterior panel, explicitly labelled PLANTAR
   'Waist': [721 / TAX_W, 786 / TAX_H],      // 13AL, lateral to Abdomen (13AM)
 
   'Upper arm': [478 / TAX_W, 580 / TAX_H],  // 11AR
   'Elbow': [476 / TAX_W, 700 / TAX_H],      // 12AR
   'Forearm': [420 / TAX_W, 808 / TAX_H],    // 15R
   'Wrist': [413 / TAX_W, 888 / TAX_H],      // 17R
-  'Hand (palmar)': [440 / TAX_W, 963 / TAX_H], // 18AR, anterior panel = palm-facing
-  'Hand (dorsal)': [1589 / TAX_W, 969 / TAX_H], // 18PR, posterior panel = back-of-hand
+  // Palmar/dorsal and plantar/dorsal counts are collapsed into one 'Hand'
+  // and one 'Foot' point (same treatment as Lower leg, which already folds
+  // shin + calf into a single anterior-side marker) — anatomical surface
+  // (palm vs. back of hand, sole vs. top of foot) isn't the focus of this
+  // map, so a single anterior-panel point per limb-end avoids splitting one
+  // body part's count across two dots on opposite sides of the figure.
+  'Hand': [440 / TAX_W, 963 / TAX_H],       // 18AR, anterior panel
   'Finger': [365 / TAX_W, 1058 / TAX_H],    // 19AR
 
   'Thigh': [589 / TAX_W, 1120 / TAX_H],     // 20AR
   'Lower leg': [589 / TAX_W, 1420 / TAX_H], // 21AR (shin)
   'Ankle': [589 / TAX_W, 1605 / TAX_H],     // 22AR
-  'Foot (dorsal)': [595 / TAX_W, 1690 / TAX_H], // 23AR, anterior panel = top-of-foot
+  'Foot': [595 / TAX_W, 1690 / TAX_H],      // 23AR, anterior panel
 }
 // Sites below were NOT part of the taxonomy's own numbered sensor-placement
 // points — they're specific enough to place, but there's no labelled dot to
@@ -69,8 +73,6 @@ const NON_PLACEABLE_NOTE = {
   'Leg': 'too unspecific to place (could be thigh or lower leg)',
   'Head': 'too unspecific to place (could be any part of the head)',
   'Face': 'too unspecific to place (could be forehead, cheek, temple, or nose)',
-  'Hand (surface not reported)': "measured on the hand, but whether it's the back (dorsal) or palm side isn't specified in the source paper",
-  'Foot (surface not reported)': "measured on the foot, but whether it's the top (dorsal) or sole side isn't specified in the source paper",
 }
 
 const SITE_ALIASES = {
@@ -81,6 +83,14 @@ const SITE_ALIASES = {
   'upperarm': 'Upper arm',
   'upper arm': 'Upper arm',
   'heart rate chest': 'Chest',
+  // Collapse surface-specific hand/foot labels (including "surface not
+  // reported") into one Hand / Foot total — see note above SITE_COORDS.
+  'hand (palmar)': 'Hand',
+  'hand (dorsal)': 'Hand',
+  'hand (surface not reported)': 'Hand',
+  'foot (plantar)': 'Foot',
+  'foot (dorsal)': 'Foot',
+  'foot (surface not reported)': 'Foot',
 }
 
 
@@ -115,18 +125,39 @@ export default function BodySiteMap({ siteData, totalLabel, color = '#5B5BFF', h
   const [activeSensor, setActiveSensor] = useState('all')
   const taxonomySrc = `${import.meta.env.BASE_URL}images/anatomical-taxonomy.jpg`
 
-  const normalized = useMemo(() => siteData.map((s) => {
-    const site = canonicalSite(s.site)
-    const sensors = sensorEntries(s)
-    const sensorTotal = sensors.reduce((sum, d) => sum + d.count, 0)
-    return {
-      ...s,
-      site,
-      sensors,
-      count: Number(s.count ?? s.total ?? sensorTotal ?? 0),
-      non_anatomical: Boolean(s.non_anatomical),
-    }
-  }), [siteData])
+  const normalized = useMemo(() => {
+    // Several raw site labels can alias to the same canonical site (e.g.
+    // 'Hand (palmar)' / 'Hand (dorsal)' / 'Hand (surface not reported)' all
+    // fold into 'Hand'). Group by canonical site and sum counts/sensor
+    // breakdowns rather than keeping separate rows, which would otherwise
+    // collide on the same map marker and React key.
+    const bySite = new Map()
+    siteData.forEach((s) => {
+      const site = canonicalSite(s.site)
+      const sensors = sensorEntries(s)
+      const sensorTotal = sensors.reduce((sum, d) => sum + d.count, 0)
+      const count = Number(s.count ?? s.total ?? sensorTotal ?? 0)
+      const existing = bySite.get(site)
+      if (!existing) {
+        bySite.set(site, {
+          ...s,
+          site,
+          sensors: sensors.map((d) => ({ ...d })),
+          count,
+          non_anatomical: Boolean(s.non_anatomical),
+        })
+        return
+      }
+      existing.count += count
+      existing.non_anatomical = existing.non_anatomical || Boolean(s.non_anatomical)
+      sensors.forEach((d) => {
+        const match = existing.sensors.find((e) => e.sensor === d.sensor)
+        if (match) match.count += d.count
+        else existing.sensors.push({ ...d })
+      })
+    })
+    return [...bySite.values()]
+  }, [siteData])
 
   const sensorNames = useMemo(() => {
     const totals = new Map()
