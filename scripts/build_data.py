@@ -1635,15 +1635,22 @@ flagged_for_review = []  # raw tokens the data-enterer themselves flagged (e.g. 
 
 for _, row in cog_done.iterrows():
     seen_in_study = set()
-    # Performance tasks: domain comes from DOMAIN_MAP (via canonicalize_token)
+    # Performance tasks: as of this corpus update, the raw
+    # cognitive-domain-performance column now carries an explicit trailing
+    # domain tag per entry too (e.g. "Tsai-Partington Test (attention)"),
+    # matching how cognitive-domain-subjective already worked. Use the
+    # explicit tag when present; DOMAIN_MAP is kept only as a fallback for
+    # any older/untagged entries so this doesn't break on partial data.
     for t in split_cognitive_tests(row['cognitive-domain-performance']):
         if t == 'NAN' or not t:
             continue
-        canon, domain, ok = canonicalize_token(t)
+        base, tag = split_domain_tag(t)
+        canon, fallback_domain, ok = canonicalize_token(base)
         if not ok:
             unrecognized_log.append({'id': row['id'], 'raw': t, 'column': 'performance'})
         if any(w in t.lower() for w in ('verify', 'unclear')):
             flagged_for_review.append({'id': row['id'], 'raw': t, 'column': 'performance'})
+        domain = f'Performance task — {tag}' if tag else fallback_domain
         if canon in seen_in_study:
             continue
         seen_in_study.add(canon)

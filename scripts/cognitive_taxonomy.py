@@ -228,6 +228,7 @@ DOMAIN_MAP = {
     'Reasoning task (numeric)': 'Performance task — reasoning',
     'Reasoning task (spatial)': 'Performance task — reasoning',
     'Reasoning task (grammatical)': 'Performance task — reasoning',
+    'Reasoning task (graphical)': 'Performance task — reasoning',
     'Reasoning task (grammatical/deductive/sequential)': 'Performance task — reasoning',
     'Mental rotation task': 'Performance task — reasoning',
     'Spatial working memory task': 'Performance task — working memory',
@@ -270,8 +271,8 @@ DOMAIN_MAP = {
     'Self-rated learning performance': 'Subjective scale — work performance',
     'Self-rated attention': 'Subjective scale — attention',
     'Self-rated work performance': 'Subjective scale — work performance',
-    'Self-rated work willingness': 'Subjective scale — work performance',
-    'Self-rated work motivation': 'Subjective scale — work performance',
+    'Self-rated work willingness': 'Subjective scale — motivation',
+    'Self-rated work motivation': 'Subjective scale — motivation',
 
     'Digit span task (backward)': 'Performance task — working memory',
     'N-back task (2-back)': 'Performance task — working memory',
@@ -300,13 +301,13 @@ DOMAIN_MAP = {
     # the explicit tag on cognitive-domain-subjective (see split_domain_tag
     # in canonicalize_token's caller), but filled in for consistency in case
     # this function is used standalone.
-    'Excitement Vote (EV)': 'Subjective scale — mood',
+    'Excitement Vote (EV)': 'Subjective scale — affect/arousal',
     'Self-rated focus (VAS)': 'Subjective scale — attention',
     'Groningen Sleep Quality Scale (GSQS)': 'Subjective scale — sleep quality',
-    'Motivation scale': 'Subjective scale — mood',
+    'Motivation scale': 'Subjective scale — motivation',
     'Self-rated physical condition (VAS)': 'Subjective scale — physical condition',
     'Self-rated relaxation (VAS)': 'Subjective scale — mood',
-    'Self-Assessment Manikin (SAM)': 'Subjective scale — mood',
+    'Self-Assessment Manikin (SAM)': 'Subjective scale — affect/arousal',
     'Self-rated performance/concentration': 'Subjective scale — work performance',
     'Self-rated stress (VAS)': 'Subjective scale — stress',
     'Studying Efficiency Vote (SEV)': 'Subjective scale — work performance',
@@ -363,7 +364,19 @@ def strip_trailing_suffix_word(s):
 # paren-stripping could match a specific instrument to an over-generic
 # existing label (e.g. an Alertness-via-KSS write-up collapsing to generic
 # 'Self-rated alertness').
-DOMAIN_TAGS = {'workload', 'mood', 'stress'}
+DOMAIN_TAGS = {
+    # subjective-scale tags
+    'workload', 'mood', 'stress', 'stress induction', 'sleepiness', 'fatigue',
+    'motivation', 'perceived performance', 'physical state', 'sleep quality',
+    'distraction', 'work performance',
+    # performance-task tags (added when cognitive-domain-performance gained
+    # explicit trailing tags, matching cognitive-domain-subjective's format)
+    'arithmetic', 'attention', 'comprehension', 'creativity',
+    'executive function', 'learning/memory', 'memory',
+    'multi-domain cognition', 'multi-domain performance', 'perception',
+    'psychomotor', 'reaction time', 'reasoning', 'spatial cognition',
+    'unspecified performance', 'working memory',
+}
 
 
 def split_domain_tag(token):

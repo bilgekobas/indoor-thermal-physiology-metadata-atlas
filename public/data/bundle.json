@@ -5437,22 +5437,22 @@
       },
       {
         "instrument": "Stroop task",
-        "domain": "Performance task — inhibition/attention",
+        "domain": "Performance task — executive function",
         "count": 20
       },
       {
         "instrument": "Karolinska Sleepiness Scale (KSS)",
-        "domain": "Subjective scale — workload",
+        "domain": "Subjective scale — sleepiness",
         "count": 13
       },
       {
         "instrument": "Typing task",
-        "domain": "Performance task — psychomotor speed",
+        "domain": "Performance task — work performance",
         "count": 13
       },
       {
         "instrument": "Visual learning task",
-        "domain": "Performance task — memory",
+        "domain": "Performance task — learning/memory",
         "count": 12
       },
       {
@@ -5467,12 +5467,12 @@
       },
       {
         "instrument": "Redirection task",
-        "domain": "Performance task — attention",
+        "domain": "Performance task — executive function",
         "count": 11
       },
       {
         "instrument": "d2 Test of Attention",
-        "domain": "Performance task — sustained attention",
+        "domain": "Performance task — attention",
         "count": 10
       },
       {
@@ -5482,7 +5482,7 @@
       },
       {
         "instrument": "Overlapping task",
-        "domain": "Performance task — attention",
+        "domain": "Performance task — executive function",
         "count": 6
       },
       {
@@ -5492,32 +5492,32 @@
       },
       {
         "instrument": "Self-rated work performance",
-        "domain": "Subjective scale — workload",
+        "domain": "Subjective scale — perceived performance",
         "count": 6
       },
       {
         "instrument": "Self-rated fatigue",
-        "domain": "Subjective scale — workload",
+        "domain": "Subjective scale — fatigue",
         "count": 5
       },
       {
         "instrument": "Cambridge Brain Sciences (CBS) battery",
-        "domain": "Performance task — multi-domain battery",
+        "domain": "Performance task — multi-domain cognition",
         "count": 5
       },
       {
         "instrument": "Self-rated performance/concentration",
-        "domain": "Subjective scale — workload",
+        "domain": "Subjective scale — perceived performance",
         "count": 5
       },
       {
         "instrument": "Tsai-Partington test",
-        "domain": "Performance task — cue utilization/attention",
+        "domain": "Performance task — attention",
         "count": 4
       },
       {
         "instrument": "Mental rotation task",
-        "domain": "Performance task — reasoning",
+        "domain": "Performance task — spatial cognition",
         "count": 4
       },
       {
@@ -5527,7 +5527,7 @@
       },
       {
         "instrument": "Go/no-go task",
-        "domain": "Performance task — inhibition/attention",
+        "domain": "Performance task — executive function",
         "count": 3
       },
       {
@@ -5542,17 +5542,17 @@
       },
       {
         "instrument": "Reasoning task (spatial)",
-        "domain": "Performance task — reasoning",
+        "domain": "Performance task — spatial cognition",
         "count": 3
       },
       {
         "instrument": "Visual reaction time",
-        "domain": "Performance task — psychomotor speed",
+        "domain": "Performance task — reaction time",
         "count": 3
       },
       {
         "instrument": "Vigilance/PVT",
-        "domain": "Performance task — sustained attention",
+        "domain": "Performance task — attention",
         "count": 3
       },
       {
@@ -5567,17 +5567,17 @@
       },
       {
         "instrument": "Self-rated work willingness",
-        "domain": "Subjective scale — workload",
+        "domain": "Subjective scale — motivation",
         "count": 2
       },
       {
         "instrument": "Motivation scale",
-        "domain": "Subjective scale — mood",
+        "domain": "Subjective scale — motivation",
         "count": 2
       },
       {
         "instrument": "Hampshire Tree Task",
-        "domain": "Performance task — planning",
+        "domain": "Performance task — reasoning",
         "count": 2
       },
       {
@@ -5587,22 +5587,22 @@
       },
       {
         "instrument": "Continuous Performance Test (CPT)",
-        "domain": "Performance task — sustained attention",
+        "domain": "Performance task — attention",
         "count": 1
       },
       {
         "instrument": "Choice reaction time",
-        "domain": "Performance task — psychomotor speed",
+        "domain": "Performance task — reaction time",
         "count": 1
       },
       {
         "instrument": "Agility task (hand-eye coordination)",
-        "domain": "Performance task — psychomotor coordination",
+        "domain": "Performance task — psychomotor",
         "count": 1
       },
       {
         "instrument": "Aim trainer",
-        "domain": "Performance task — psychomotor speed",
+        "domain": "Performance task — psychomotor",
         "count": 1
       },
       {
@@ -5622,7 +5622,7 @@
       },
       {
         "instrument": "Computer Adaptive Test (CAT, Wonderlic-style)",
-        "domain": "Performance task — multi-domain battery",
+        "domain": "Performance task — multi-domain cognition",
         "count": 1
       },
       {
@@ -5637,27 +5637,27 @@
       },
       {
         "instrument": "Oddball task",
-        "domain": "Performance task — sustained attention",
+        "domain": "Performance task — attention",
         "count": 1
       },
       {
         "instrument": "MATB-II (Multi-Attribute Task Battery)",
-        "domain": "Performance task — multi-domain battery",
+        "domain": "Performance task — multi-domain performance",
         "count": 1
       },
       {
         "instrument": "Hand-eye coordination task",
-        "domain": "Performance task — psychomotor coordination",
+        "domain": "Performance task — psychomotor",
         "count": 1
       },
       {
         "instrument": "Self-rated distraction",
-        "domain": "Subjective scale — workload",
+        "domain": "Subjective scale — distraction",
         "count": 1
       },
       {
         "instrument": "Self-rated attention",
-        "domain": "Subjective scale — attention",
+        "domain": "Performance task — attention",
         "count": 1
       },
       {
@@ -5667,27 +5667,27 @@
       },
       {
         "instrument": "Schulte grid test",
-        "domain": "Performance task — sustained attention",
+        "domain": "Performance task — attention",
         "count": 1
       },
       {
         "instrument": "Reasoning task (graphical)",
-        "domain": "Unclassified",
+        "domain": "Performance task — reasoning",
         "count": 1
       },
       {
         "instrument": "Rapid Visual Information Processing (RVIP)",
-        "domain": "Performance task — sustained attention",
+        "domain": "Performance task — attention",
         "count": 1
       },
       {
         "instrument": "Reaction time task (unspecified)",
-        "domain": "Performance task — psychomotor speed",
+        "domain": "Performance task — reaction time",
         "count": 1
       },
       {
         "instrument": "Reading comprehension task",
-        "domain": "Performance task — verbal comprehension",
+        "domain": "Performance task — comprehension",
         "count": 1
       },
       {
@@ -5702,37 +5702,37 @@
       },
       {
         "instrument": "Flanker task",
-        "domain": "Performance task — inhibition/attention",
+        "domain": "Performance task — executive function",
         "count": 1
       },
       {
         "instrument": "Groningen Sleep Quality Scale (GSQS)",
-        "domain": "Subjective scale — workload",
+        "domain": "Subjective scale — sleep quality",
         "count": 1
       },
       {
         "instrument": "Neuropsychological test battery (unspecified)",
-        "domain": "Performance task — multi-domain battery",
+        "domain": "Performance task — multi-domain cognition",
         "count": 1
       },
       {
         "instrument": "Self-rated learning performance",
-        "domain": "Subjective scale — work performance",
+        "domain": "Performance task — learning/memory",
         "count": 1
       },
       {
         "instrument": "Self-rated focus (VAS)",
-        "domain": "Subjective scale — workload",
+        "domain": "Subjective scale — perceived performance",
         "count": 1
       },
       {
         "instrument": "Self-rated efficiency",
-        "domain": "Subjective scale — workload",
+        "domain": "Subjective scale — perceived performance",
         "count": 1
       },
       {
         "instrument": "Stepuru task",
-        "domain": "Performance task — psychomotor speed",
+        "domain": "Performance task — unspecified performance",
         "count": 1
       },
       {
@@ -5747,7 +5747,7 @@
       },
       {
         "instrument": "Self-rated work progress (VAS)",
-        "domain": "Subjective scale — workload",
+        "domain": "Subjective scale — perceived performance",
         "count": 1
       },
       {
@@ -5757,7 +5757,7 @@
       },
       {
         "instrument": "Self-rated physical condition (VAS)",
-        "domain": "Subjective scale — workload",
+        "domain": "Subjective scale — physical state",
         "count": 1
       },
       {
@@ -5767,17 +5767,17 @@
       },
       {
         "instrument": "Self-rated sleepiness",
-        "domain": "Subjective scale — workload",
+        "domain": "Subjective scale — sleepiness",
         "count": 1
       },
       {
         "instrument": "Unspecified performance test (paper-based)",
-        "domain": "Performance task — unspecified",
+        "domain": "Performance task — unspecified performance",
         "count": 1
       },
       {
         "instrument": "Uchida-Kraepelin test",
-        "domain": "Performance task — sustained attention",
+        "domain": "Performance task — arithmetic",
         "count": 1
       },
       {
@@ -5792,7 +5792,7 @@
       },
       {
         "instrument": "Studying Efficiency Vote (SEV)",
-        "domain": "Subjective scale — workload",
+        "domain": "Subjective scale — perceived performance",
         "count": 1
       },
       {
@@ -5813,55 +5813,79 @@
     ],
     "domain_totals": [
       {
-        "domain": "Subjective scale — workload",
-        "count": 27
-      },
-      {
         "domain": "Performance task — arithmetic",
-        "count": 24
+        "count": 25
       },
       {
         "domain": "Performance task — working memory",
         "count": 24
       },
       {
-        "domain": "Performance task — inhibition/attention",
-        "count": 21
-      },
-      {
-        "domain": "Performance task — sustained attention",
-        "count": 16
-      },
-      {
-        "domain": "Performance task — psychomotor speed",
-        "count": 16
-      },
-      {
-        "domain": "Performance task — memory",
-        "count": 15
+        "domain": "Performance task — executive function",
+        "count": 22
       },
       {
         "domain": "Performance task — attention",
-        "count": 15
+        "count": 21
       },
       {
-        "domain": "Performance task — reasoning",
+        "domain": "Subjective scale — perceived performance",
         "count": 14
       },
       {
-        "domain": "Subjective scale — mood",
-        "count": 9
+        "domain": "Subjective scale — sleepiness",
+        "count": 14
       },
       {
-        "domain": "Performance task — multi-domain battery",
+        "domain": "Performance task — work performance",
+        "count": 13
+      },
+      {
+        "domain": "Performance task — learning/memory",
+        "count": 13
+      },
+      {
+        "domain": "Subjective scale — workload",
+        "count": 11
+      },
+      {
+        "domain": "Performance task — reasoning",
+        "count": 10
+      },
+      {
+        "domain": "Subjective scale — mood",
+        "count": 8
+      },
+      {
+        "domain": "Performance task — spatial cognition",
         "count": 7
       },
       {
-        "domain": "Performance task — cue utilization/attention",
+        "domain": "Performance task — multi-domain cognition",
+        "count": 6
+      },
+      {
+        "domain": "Subjective scale — fatigue",
+        "count": 5
+      },
+      {
+        "domain": "Performance task — reaction time",
+        "count": 5
+      },
+      {
+        "domain": "Subjective scale — motivation",
         "count": 4
       },
       {
-        "domain": "Performance task — planning",
+        "domain": "Performance task — psychomotor",
+        "count": 3
+      },
+      {
+        "domain": "Performance task — memory",
+        "count": 3
+      },
+      {
+        "domain": "Performance task — unspecified performance",
         "count": 2
       },
       {
@@ -5869,23 +5893,15 @@
         "count": 2
       },
       {
-        "domain": "Performance task — psychomotor coordination",
-        "count": 2
+        "domain": "Performance task — multi-domain performance",
+        "count": 1
       },
       {
         "domain": "Performance task — creativity",
         "count": 1
       },
       {
-        "domain": "Performance task — executive function",
-        "count": 1
-      },
-      {
-        "domain": "Performance task — unspecified",
-        "count": 1
-      },
-      {
-        "domain": "Performance task — verbal comprehension",
+        "domain": "Performance task — comprehension",
         "count": 1
       },
       {
@@ -5893,19 +5909,19 @@
         "count": 1
       },
       {
-        "domain": "Subjective scale — attention",
+        "domain": "Subjective scale — distraction",
+        "count": 1
+      },
+      {
+        "domain": "Subjective scale — physical state",
+        "count": 1
+      },
+      {
+        "domain": "Subjective scale — sleep quality",
         "count": 1
       },
       {
         "domain": "Subjective scale — stress",
-        "count": 1
-      },
-      {
-        "domain": "Subjective scale — work performance",
-        "count": 1
-      },
-      {
-        "domain": "Unclassified",
         "count": 1
       }
     ],
@@ -6495,18 +6511,18 @@
     "flow_type_domain": [
       {
         "measure_type": "Performance task",
-        "domain_short": "Unclassified",
-        "count": 1
-      },
-      {
-        "measure_type": "Performance task",
         "domain_short": "arithmetic",
-        "count": 24
+        "count": 25
       },
       {
         "measure_type": "Performance task",
         "domain_short": "attention",
-        "count": 16
+        "count": 21
+      },
+      {
+        "measure_type": "Performance task",
+        "domain_short": "comprehension",
+        "count": 1
       },
       {
         "measure_type": "Performance task",
@@ -6515,28 +6531,28 @@
       },
       {
         "measure_type": "Performance task",
-        "domain_short": "cue utilization/attention",
-        "count": 4
-      },
-      {
-        "measure_type": "Performance task",
         "domain_short": "executive function",
-        "count": 1
+        "count": 22
       },
       {
         "measure_type": "Performance task",
-        "domain_short": "inhibition/attention",
-        "count": 21
+        "domain_short": "learning/memory",
+        "count": 13
       },
       {
         "measure_type": "Performance task",
         "domain_short": "memory",
-        "count": 15
+        "count": 3
       },
       {
         "measure_type": "Performance task",
-        "domain_short": "multi-domain battery",
-        "count": 7
+        "domain_short": "multi-domain cognition",
+        "count": 6
+      },
+      {
+        "measure_type": "Performance task",
+        "domain_short": "multi-domain performance",
+        "count": 1
       },
       {
         "measure_type": "Performance task",
@@ -6545,43 +6561,33 @@
       },
       {
         "measure_type": "Performance task",
-        "domain_short": "planning",
-        "count": 2
+        "domain_short": "psychomotor",
+        "count": 3
       },
       {
         "measure_type": "Performance task",
-        "domain_short": "psychomotor coordination",
-        "count": 2
-      },
-      {
-        "measure_type": "Performance task",
-        "domain_short": "psychomotor speed",
-        "count": 16
+        "domain_short": "reaction time",
+        "count": 5
       },
       {
         "measure_type": "Performance task",
         "domain_short": "reasoning",
-        "count": 14
+        "count": 10
       },
       {
         "measure_type": "Performance task",
-        "domain_short": "sustained attention",
-        "count": 16
+        "domain_short": "spatial cognition",
+        "count": 7
       },
       {
         "measure_type": "Performance task",
-        "domain_short": "unspecified",
-        "count": 1
-      },
-      {
-        "measure_type": "Performance task",
-        "domain_short": "verbal comprehension",
-        "count": 1
+        "domain_short": "unspecified performance",
+        "count": 2
       },
       {
         "measure_type": "Performance task",
         "domain_short": "work performance",
-        "count": 1
+        "count": 13
       },
       {
         "measure_type": "Performance task",
@@ -6595,8 +6601,43 @@
       },
       {
         "measure_type": "Subjective scale",
+        "domain_short": "distraction",
+        "count": 1
+      },
+      {
+        "measure_type": "Subjective scale",
+        "domain_short": "fatigue",
+        "count": 5
+      },
+      {
+        "measure_type": "Subjective scale",
         "domain_short": "mood",
-        "count": 9
+        "count": 8
+      },
+      {
+        "measure_type": "Subjective scale",
+        "domain_short": "motivation",
+        "count": 4
+      },
+      {
+        "measure_type": "Subjective scale",
+        "domain_short": "perceived performance",
+        "count": 14
+      },
+      {
+        "measure_type": "Subjective scale",
+        "domain_short": "physical state",
+        "count": 1
+      },
+      {
+        "measure_type": "Subjective scale",
+        "domain_short": "sleep quality",
+        "count": 1
+      },
+      {
+        "measure_type": "Subjective scale",
+        "domain_short": "sleepiness",
+        "count": 14
       },
       {
         "measure_type": "Subjective scale",
@@ -6606,18 +6647,13 @@
       {
         "measure_type": "Subjective scale",
         "domain_short": "workload",
-        "count": 27
+        "count": 11
       }
     ],
     "flow_domain_instrument": [
       {
         "domain_short": "Stress induction protocol",
         "instrument": "Trier Social Stress Test (TSST)",
-        "count": 1
-      },
-      {
-        "domain_short": "Unclassified",
-        "instrument": "Reasoning task (graphical)",
         "count": 1
       },
       {
@@ -6631,14 +6667,29 @@
         "count": 21
       },
       {
-        "domain_short": "attention",
-        "instrument": "Overlapping task",
-        "count": 6
+        "domain_short": "arithmetic",
+        "instrument": "Uchida-Kraepelin test",
+        "count": 1
       },
       {
         "domain_short": "attention",
-        "instrument": "Redirection task",
-        "count": 11
+        "instrument": "Continuous Performance Test (CPT)",
+        "count": 1
+      },
+      {
+        "domain_short": "attention",
+        "instrument": "Oddball task",
+        "count": 1
+      },
+      {
+        "domain_short": "attention",
+        "instrument": "Rapid Visual Information Processing (RVIP)",
+        "count": 1
+      },
+      {
+        "domain_short": "attention",
+        "instrument": "Schulte grid test",
+        "count": 1
       },
       {
         "domain_short": "attention",
@@ -6649,6 +6700,16 @@
         "domain_short": "attention",
         "instrument": "Self-rated attention",
         "count": 1
+      },
+      {
+        "domain_short": "attention",
+        "instrument": "Tsai-Partington test",
+        "count": 4
+      },
+      {
+        "domain_short": "attention",
+        "instrument": "Vigilance/PVT",
+        "count": 3
       },
       {
         "domain_short": "attention",
@@ -6671,14 +6732,49 @@
         "count": 1
       },
       {
+        "domain_short": "attention",
+        "instrument": "d2 Test of Attention",
+        "count": 10
+      },
+      {
+        "domain_short": "comprehension",
+        "instrument": "Reading comprehension task",
+        "count": 1
+      },
+      {
         "domain_short": "creativity",
         "instrument": "Alternative Uses Task (AUT, creativity)",
         "count": 1
       },
       {
-        "domain_short": "cue utilization/attention",
-        "instrument": "Tsai-Partington test",
-        "count": 4
+        "domain_short": "distraction",
+        "instrument": "Self-rated distraction",
+        "count": 1
+      },
+      {
+        "domain_short": "executive function",
+        "instrument": "Flanker task",
+        "count": 1
+      },
+      {
+        "domain_short": "executive function",
+        "instrument": "Go/no-go task",
+        "count": 3
+      },
+      {
+        "domain_short": "executive function",
+        "instrument": "Overlapping task",
+        "count": 6
+      },
+      {
+        "domain_short": "executive function",
+        "instrument": "Redirection task",
+        "count": 11
+      },
+      {
+        "domain_short": "executive function",
+        "instrument": "Stroop task",
+        "count": 20
       },
       {
         "domain_short": "executive function",
@@ -6686,19 +6782,19 @@
         "count": 1
       },
       {
-        "domain_short": "inhibition/attention",
-        "instrument": "Flanker task",
+        "domain_short": "fatigue",
+        "instrument": "Self-rated fatigue",
+        "count": 5
+      },
+      {
+        "domain_short": "learning/memory",
+        "instrument": "Self-rated learning performance",
         "count": 1
       },
       {
-        "domain_short": "inhibition/attention",
-        "instrument": "Go/no-go task",
-        "count": 3
-      },
-      {
-        "domain_short": "inhibition/attention",
-        "instrument": "Stroop task",
-        "count": 20
+        "domain_short": "learning/memory",
+        "instrument": "Visual learning task",
+        "count": 12
       },
       {
         "domain_short": "memory",
@@ -6716,19 +6812,9 @@
         "count": 1
       },
       {
-        "domain_short": "memory",
-        "instrument": "Visual learning task",
-        "count": 12
-      },
-      {
         "domain_short": "mood",
         "instrument": "Excitement Vote (EV)",
         "count": 1
-      },
-      {
-        "domain_short": "mood",
-        "instrument": "Motivation scale",
-        "count": 2
       },
       {
         "domain_short": "mood",
@@ -6751,23 +6837,63 @@
         "count": 1
       },
       {
-        "domain_short": "multi-domain battery",
+        "domain_short": "motivation",
+        "instrument": "Motivation scale",
+        "count": 2
+      },
+      {
+        "domain_short": "motivation",
+        "instrument": "Self-rated work willingness",
+        "count": 2
+      },
+      {
+        "domain_short": "multi-domain cognition",
         "instrument": "Cambridge Brain Sciences (CBS) battery",
         "count": 5
       },
       {
-        "domain_short": "multi-domain battery",
+        "domain_short": "multi-domain cognition",
         "instrument": "Computer Adaptive Test (CAT, Wonderlic-style)",
         "count": 1
       },
       {
-        "domain_short": "multi-domain battery",
+        "domain_short": "multi-domain cognition",
+        "instrument": "Neuropsychological test battery (unspecified)",
+        "count": 1
+      },
+      {
+        "domain_short": "multi-domain performance",
         "instrument": "MATB-II (Multi-Attribute Task Battery)",
         "count": 1
       },
       {
-        "domain_short": "multi-domain battery",
-        "instrument": "Neuropsychological test battery (unspecified)",
+        "domain_short": "perceived performance",
+        "instrument": "Self-rated efficiency",
+        "count": 1
+      },
+      {
+        "domain_short": "perceived performance",
+        "instrument": "Self-rated focus (VAS)",
+        "count": 1
+      },
+      {
+        "domain_short": "perceived performance",
+        "instrument": "Self-rated performance/concentration",
+        "count": 5
+      },
+      {
+        "domain_short": "perceived performance",
+        "instrument": "Self-rated work performance",
+        "count": 6
+      },
+      {
+        "domain_short": "perceived performance",
+        "instrument": "Self-rated work progress (VAS)",
+        "count": 1
+      },
+      {
+        "domain_short": "perceived performance",
+        "instrument": "Studying Efficiency Vote (SEV)",
         "count": 1
       },
       {
@@ -6776,47 +6902,37 @@
         "count": 2
       },
       {
-        "domain_short": "planning",
-        "instrument": "Hampshire Tree Task",
-        "count": 2
+        "domain_short": "physical state",
+        "instrument": "Self-rated physical condition (VAS)",
+        "count": 1
       },
       {
-        "domain_short": "psychomotor coordination",
+        "domain_short": "psychomotor",
         "instrument": "Agility task (hand-eye coordination)",
         "count": 1
       },
       {
-        "domain_short": "psychomotor coordination",
-        "instrument": "Hand-eye coordination task",
-        "count": 1
-      },
-      {
-        "domain_short": "psychomotor speed",
+        "domain_short": "psychomotor",
         "instrument": "Aim trainer",
         "count": 1
       },
       {
-        "domain_short": "psychomotor speed",
+        "domain_short": "psychomotor",
+        "instrument": "Hand-eye coordination task",
+        "count": 1
+      },
+      {
+        "domain_short": "reaction time",
         "instrument": "Choice reaction time",
         "count": 1
       },
       {
-        "domain_short": "psychomotor speed",
+        "domain_short": "reaction time",
         "instrument": "Reaction time task (unspecified)",
         "count": 1
       },
       {
-        "domain_short": "psychomotor speed",
-        "instrument": "Stepuru task",
-        "count": 1
-      },
-      {
-        "domain_short": "psychomotor speed",
-        "instrument": "Typing task",
-        "count": 13
-      },
-      {
-        "domain_short": "psychomotor speed",
+        "domain_short": "reaction time",
         "instrument": "Visual reaction time",
         "count": 3
       },
@@ -6827,8 +6943,8 @@
       },
       {
         "domain_short": "reasoning",
-        "instrument": "Mental rotation task",
-        "count": 4
+        "instrument": "Hampshire Tree Task",
+        "count": 2
       },
       {
         "domain_short": "reasoning",
@@ -6837,6 +6953,31 @@
       },
       {
         "domain_short": "reasoning",
+        "instrument": "Reasoning task (graphical)",
+        "count": 1
+      },
+      {
+        "domain_short": "sleep quality",
+        "instrument": "Groningen Sleep Quality Scale (GSQS)",
+        "count": 1
+      },
+      {
+        "domain_short": "sleepiness",
+        "instrument": "Karolinska Sleepiness Scale (KSS)",
+        "count": 13
+      },
+      {
+        "domain_short": "sleepiness",
+        "instrument": "Self-rated sleepiness",
+        "count": 1
+      },
+      {
+        "domain_short": "spatial cognition",
+        "instrument": "Mental rotation task",
+        "count": 4
+      },
+      {
+        "domain_short": "spatial cognition",
         "instrument": "Reasoning task (spatial)",
         "count": 3
       },
@@ -6846,54 +6987,19 @@
         "count": 1
       },
       {
-        "domain_short": "sustained attention",
-        "instrument": "Continuous Performance Test (CPT)",
+        "domain_short": "unspecified performance",
+        "instrument": "Stepuru task",
         "count": 1
       },
       {
-        "domain_short": "sustained attention",
-        "instrument": "Oddball task",
-        "count": 1
-      },
-      {
-        "domain_short": "sustained attention",
-        "instrument": "Rapid Visual Information Processing (RVIP)",
-        "count": 1
-      },
-      {
-        "domain_short": "sustained attention",
-        "instrument": "Schulte grid test",
-        "count": 1
-      },
-      {
-        "domain_short": "sustained attention",
-        "instrument": "Uchida-Kraepelin test",
-        "count": 1
-      },
-      {
-        "domain_short": "sustained attention",
-        "instrument": "Vigilance/PVT",
-        "count": 3
-      },
-      {
-        "domain_short": "sustained attention",
-        "instrument": "d2 Test of Attention",
-        "count": 10
-      },
-      {
-        "domain_short": "unspecified",
+        "domain_short": "unspecified performance",
         "instrument": "Unspecified performance test (paper-based)",
         "count": 1
       },
       {
-        "domain_short": "verbal comprehension",
-        "instrument": "Reading comprehension task",
-        "count": 1
-      },
-      {
         "domain_short": "work performance",
-        "instrument": "Self-rated learning performance",
-        "count": 1
+        "instrument": "Typing task",
+        "count": 13
       },
       {
         "domain_short": "working memory",
@@ -6922,73 +7028,8 @@
       },
       {
         "domain_short": "workload",
-        "instrument": "Groningen Sleep Quality Scale (GSQS)",
-        "count": 1
-      },
-      {
-        "domain_short": "workload",
-        "instrument": "Karolinska Sleepiness Scale (KSS)",
-        "count": 13
-      },
-      {
-        "domain_short": "workload",
         "instrument": "NASA-TLX",
         "count": 11
-      },
-      {
-        "domain_short": "workload",
-        "instrument": "Self-rated distraction",
-        "count": 1
-      },
-      {
-        "domain_short": "workload",
-        "instrument": "Self-rated efficiency",
-        "count": 1
-      },
-      {
-        "domain_short": "workload",
-        "instrument": "Self-rated fatigue",
-        "count": 5
-      },
-      {
-        "domain_short": "workload",
-        "instrument": "Self-rated focus (VAS)",
-        "count": 1
-      },
-      {
-        "domain_short": "workload",
-        "instrument": "Self-rated performance/concentration",
-        "count": 5
-      },
-      {
-        "domain_short": "workload",
-        "instrument": "Self-rated physical condition (VAS)",
-        "count": 1
-      },
-      {
-        "domain_short": "workload",
-        "instrument": "Self-rated sleepiness",
-        "count": 1
-      },
-      {
-        "domain_short": "workload",
-        "instrument": "Self-rated work performance",
-        "count": 6
-      },
-      {
-        "domain_short": "workload",
-        "instrument": "Self-rated work progress (VAS)",
-        "count": 1
-      },
-      {
-        "domain_short": "workload",
-        "instrument": "Self-rated work willingness",
-        "count": 2
-      },
-      {
-        "domain_short": "workload",
-        "instrument": "Studying Efficiency Vote (SEV)",
-        "count": 1
       }
     ],
     "n_studies_with_cognitive_test": 66,
@@ -100508,7 +100549,7 @@
     "n_variables": 206,
     "year_min": 2013,
     "year_max": 2024,
-    "generated_at": "2026-08-10T18:49:06.641601"
+    "generated_at": "2026-08-10T19:24:53.450228"
   },
   "variable_dictionary": {
     "data": [
