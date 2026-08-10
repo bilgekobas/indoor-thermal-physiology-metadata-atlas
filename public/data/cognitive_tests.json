@@ -117,7 +117,7 @@
     },
     {
       "instrument": "Visual reaction time",
-      "domain": "Performance task \u2014 reaction time",
+      "domain": "Performance task \u2014 processing speed",
       "count": 3
     },
     {
@@ -162,7 +162,7 @@
     },
     {
       "instrument": "Choice reaction time",
-      "domain": "Performance task \u2014 reaction time",
+      "domain": "Performance task \u2014 processing speed",
       "count": 1
     },
     {
@@ -252,7 +252,7 @@
     },
     {
       "instrument": "Reaction time task (unspecified)",
-      "domain": "Performance task \u2014 reaction time",
+      "domain": "Performance task \u2014 processing speed",
       "count": 1
     },
     {
@@ -439,7 +439,7 @@
       "count": 5
     },
     {
-      "domain": "Performance task \u2014 reaction time",
+      "domain": "Performance task \u2014 processing speed",
       "count": 5
     },
     {
@@ -1131,13 +1131,13 @@
     },
     {
       "measure_type": "Performance task",
-      "domain_short": "psychomotor",
-      "count": 3
+      "domain_short": "processing speed",
+      "count": 5
     },
     {
       "measure_type": "Performance task",
-      "domain_short": "reaction time",
-      "count": 5
+      "domain_short": "psychomotor",
+      "count": 3
     },
     {
       "measure_type": "Performance task",
@@ -1477,6 +1477,21 @@
       "count": 1
     },
     {
+      "domain_short": "processing speed",
+      "instrument": "Choice reaction time",
+      "count": 1
+    },
+    {
+      "domain_short": "processing speed",
+      "instrument": "Reaction time task (unspecified)",
+      "count": 1
+    },
+    {
+      "domain_short": "processing speed",
+      "instrument": "Visual reaction time",
+      "count": 3
+    },
+    {
       "domain_short": "psychomotor",
       "instrument": "Agility task (hand-eye coordination)",
       "count": 1
@@ -1490,21 +1505,6 @@
       "domain_short": "psychomotor",
       "instrument": "Hand-eye coordination task",
       "count": 1
-    },
-    {
-      "domain_short": "reaction time",
-      "instrument": "Choice reaction time",
-      "count": 1
-    },
-    {
-      "domain_short": "reaction time",
-      "instrument": "Reaction time task (unspecified)",
-      "count": 1
-    },
-    {
-      "domain_short": "reaction time",
-      "instrument": "Visual reaction time",
-      "count": 3
     },
     {
       "domain_short": "reasoning",

@@ -375,7 +375,7 @@ DOMAIN_TAGS = {
     'executive function', 'learning/memory', 'memory',
     'multi-domain cognition', 'multi-domain performance', 'perception',
     'psychomotor', 'reaction time', 'reasoning', 'spatial cognition',
-    'unspecified performance', 'working memory',
+    'unspecified performance', 'working memory', 'processing speed',
 }
 
 

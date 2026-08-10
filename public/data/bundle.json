@@ -5547,7 +5547,7 @@
       },
       {
         "instrument": "Visual reaction time",
-        "domain": "Performance task — reaction time",
+        "domain": "Performance task — processing speed",
         "count": 3
       },
       {
@@ -5592,7 +5592,7 @@
       },
       {
         "instrument": "Choice reaction time",
-        "domain": "Performance task — reaction time",
+        "domain": "Performance task — processing speed",
         "count": 1
       },
       {
@@ -5682,7 +5682,7 @@
       },
       {
         "instrument": "Reaction time task (unspecified)",
-        "domain": "Performance task — reaction time",
+        "domain": "Performance task — processing speed",
         "count": 1
       },
       {
@@ -5869,7 +5869,7 @@
         "count": 5
       },
       {
-        "domain": "Performance task — reaction time",
+        "domain": "Performance task — processing speed",
         "count": 5
       },
       {
@@ -6561,13 +6561,13 @@
       },
       {
         "measure_type": "Performance task",
-        "domain_short": "psychomotor",
-        "count": 3
+        "domain_short": "processing speed",
+        "count": 5
       },
       {
         "measure_type": "Performance task",
-        "domain_short": "reaction time",
-        "count": 5
+        "domain_short": "psychomotor",
+        "count": 3
       },
       {
         "measure_type": "Performance task",
@@ -6907,6 +6907,21 @@
         "count": 1
       },
       {
+        "domain_short": "processing speed",
+        "instrument": "Choice reaction time",
+        "count": 1
+      },
+      {
+        "domain_short": "processing speed",
+        "instrument": "Reaction time task (unspecified)",
+        "count": 1
+      },
+      {
+        "domain_short": "processing speed",
+        "instrument": "Visual reaction time",
+        "count": 3
+      },
+      {
         "domain_short": "psychomotor",
         "instrument": "Agility task (hand-eye coordination)",
         "count": 1
@@ -6920,21 +6935,6 @@
         "domain_short": "psychomotor",
         "instrument": "Hand-eye coordination task",
         "count": 1
-      },
-      {
-        "domain_short": "reaction time",
-        "instrument": "Choice reaction time",
-        "count": 1
-      },
-      {
-        "domain_short": "reaction time",
-        "instrument": "Reaction time task (unspecified)",
-        "count": 1
-      },
-      {
-        "domain_short": "reaction time",
-        "instrument": "Visual reaction time",
-        "count": 3
       },
       {
         "domain_short": "reasoning",
@@ -100549,7 +100549,7 @@
     "n_variables": 206,
     "year_min": 2013,
     "year_max": 2024,
-    "generated_at": "2026-08-10T19:24:53.450228"
+    "generated_at": "2026-08-10T19:56:31.482968"
   },
   "variable_dictionary": {
     "data": [
