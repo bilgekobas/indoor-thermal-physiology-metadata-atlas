@@ -12,7 +12,7 @@ export default function Methodology({ data }) {
         <section>
           <h2 className="text-[15px] font-semibold mb-2">Scope and purpose</h2>
           <p className="text-[13.5px] text-inkmid leading-relaxed">
-            This live atlas is a descriptive metadata analysis of indoor thermal-physiology
+            The Living Metadata Atlas is a descriptive metadata analysis of indoor thermal-physiology
             experiments in the thermal-comfort field. It documents how experiments are reported:
             study context, time factors, thermal conditions, participants, environmental variables,
             physiological measurements, questionnaires, cognitive measures, inclusion/exclusion

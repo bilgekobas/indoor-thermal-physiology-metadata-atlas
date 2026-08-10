@@ -137,18 +137,19 @@ export default function ChapterEnvironment({ data }) {
   const nWithHeight = fig12_env_cooccurrence.air_temp_height_given
   const pctHeight = Math.round((nWithHeight / coreTotal) * 1000) / 10
 
-  const ISO_HEIGHTS = new Set([0.1, 0.6, 1.1])
-  const idsWithIsoHeight = new Set(
-    fig13_sensor_heights.data
-      .filter(d => d.variable === 'Air temperature' && ISO_HEIGHTS.has(d.height))
-      .map(d => d.id)
-  )
-  // Numerator from fig13's parsed heights (fine for checking specific values);
-  // denominator from fig12's accurate has-a-value count (fig13's own count
-  // undercounts -- see build_data.py comment). Since ~14 experiments with a
-  // real height aren't in fig13's parsed numerator either, this is a slight
-  // underestimate of the true ISO-height share, not an exact figure.
-  const pctIso = Math.round((idsWithIsoHeight.size / nWithHeight) * 1000) / 10
+  // Matches the same stat already shown on the Overview page: % of
+  // individual reported height OBSERVATIONS (not studies) that fall at a
+  // standard position, pooled across all four core variables -- a study
+  // reporting a 3-height profile (e.g. 0.1/0.6/1.1) for one variable
+  // contributes 3 observations, not 1. Previously this card computed a
+  // different thing (% of air-temperature studies with >=1 standard
+  // height, using only 3 of the 4 reference heights), which produced a
+  // different, inconsistent-looking number for what read as the same
+  // claim. Now uses the same method and the same 4 reference heights
+  // (0.1/0.6/1.1/1.7 m) as the rest of the site.
+  const STANDARD_HEIGHTS = new Set([0.1, 0.6, 1.1, 1.7])
+  const nIsoObs = fig13_sensor_heights.data.filter(d => STANDARD_HEIGHTS.has(d.height)).length
+  const pctIso = Math.round((nIsoObs / fig13_sensor_heights.data.length) * 1000) / 10
 
   const pctCore4 = Math.round((fig12_env_cooccurrence.core4_together / 295) * 1000) / 10
 
@@ -177,7 +178,7 @@ export default function ChapterEnvironment({ data }) {
           { value: `${pctMeasure}%`, label: 'measure air temperature', color: '#FB3640' },
           { value: `${pctHeight}%`, label: 'of those report sensor height', color: '#5B5BFF' },
           { value: `${pctCore4}%`, label: 'measure temp., humidity, air velocity & globe temp. together', color: '#FB3640' },
-          { value: `${pctIso}%`, label: 'of those with a height use an ISO 7726 standard one (0.1/0.6/1.1 m)', color: '#5B5BFF' },
+          { value: `${pctIso}%`, label: 'of reported heights (all 4 variables) sit at a standard ISO 7726 position (0.1/0.6/1.1/1.7 m)', color: '#5B5BFF' },
         ]}
       />
 

@@ -58,7 +58,7 @@ export default function Sidebar({ summary }) {
     <aside className="w-64 shrink-0 border-r border-line h-screen sticky top-0 flex flex-col">
       <Link to="/" className="block px-5 pt-6 pb-5 border-b border-line hover:bg-white/50 transition-colors">
         <div className="font-data text-[11px] text-inkmid tracking-wide uppercase">
-          Living Atlas
+          Living Metadata Atlas
         </div>
         <h1 className="font-semibold text-[14px] leading-snug mt-1">
           How indoor thermal-physiology research is structured

@@ -11,8 +11,8 @@ export default function About({ data }) {
         <section>
           <h2 className="text-[15px] font-semibold mb-2">What this is</h2>
           <p className="text-[13.5px] text-inkmid leading-relaxed">
-            A living atlas and structured metadata corpus of indoor thermal-physiology experiments
-            published between {summary.year_min} and {summary.year_max}. It documents how studies
+            The Living Metadata Atlas is a structured, re-extractable record of indoor thermal-physiology
+            experiments published between {summary.year_min} and {summary.year_max}. It documents how studies
             report their experimental design, environment, physiological measurements,
             questionnaires, participant characteristics, and protocol controls — not the
             physiological results themselves.
