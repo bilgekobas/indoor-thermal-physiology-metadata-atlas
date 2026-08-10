@@ -81,7 +81,7 @@ export default function Measurement({ data }) {
         <p className="text-[13px] text-inkmid mb-5 max-w-2xl">
           The 11 most frequent signals are shown. Diagonal = experiments measuring that signal; off-diagonal = experiments measuring both. Hover any cell.
         </p>
-        <CooccurrenceMatrix labels={fig18_physio_cooccurrence.labels} matrix={fig18_physio_cooccurrence.matrix} />
+        <CooccurrenceMatrix labels={fig18_physio_cooccurrence.labels} matrix={fig18_physio_cooccurrence.matrix} corpusN={295} />
       </div>
 
       {/* Environmental co-occurrence (Fig 12) */}
@@ -90,7 +90,7 @@ export default function Measurement({ data }) {
         <p className="text-[13px] text-inkmid mb-5 max-w-2xl">
           Air temperature, humidity, air velocity, and globe temperature form the standard four-variable core.
         </p>
-        <CooccurrenceMatrix labels={fig12_env_cooccurrence.labels} matrix={fig12_env_cooccurrence.matrix} cellSize={28} />
+        <CooccurrenceMatrix labels={fig12_env_cooccurrence.labels} matrix={fig12_env_cooccurrence.matrix} cellSize={28} corpusN={295} />
       </div>
 
       {/* Skin temp site prevalence heatmap */}

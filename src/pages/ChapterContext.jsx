@@ -703,7 +703,7 @@ export default function ChapterContext({ data }) {
         </FigureCard>
 
         <FigureCard figNumber={figNum('domains-manipulated-together')} title="Which domains are manipulated together" plotWidth={620} commentary="Diagonal cells show the total number of studies manipulating each domain; off-diagonal cells show co-manipulation. This keeps the univariate counts while making the coupled experimental designs visible.">
-          <CooccurrenceMatrix labels={domain_cooccurrence.labels} matrix={domain_cooccurrence.matrix} cellSize={38} />
+          <CooccurrenceMatrix labels={domain_cooccurrence.labels} matrix={domain_cooccurrence.matrix} cellSize={38} corpusN={295} />
         </FigureCard>
       </ChapterSection>
 

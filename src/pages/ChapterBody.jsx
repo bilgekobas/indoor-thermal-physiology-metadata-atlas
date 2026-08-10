@@ -785,7 +785,7 @@ export default function ChapterBody({ data }) {
         </FigureCard>
 
         <FigureCard figNumber={figNum('signals-cooccurrence')} title="Which signals get measured together" plotWidth={680} commentary={`Skin temperature (${cooccurSkinTotal} studies) and heart/pulse rate (${cooccurHrTotal}) are individually the most common signals, and ${skinHrCooccur} studies measure both together — about ${hrAlsoSkinPct}% of all heart-rate studies also track skin temperature.`}>
-          <CooccurrenceMatrix labels={fig18_physio_cooccurrence.labels} matrix={fig18_physio_cooccurrence.matrix} cellSize={38} colorScheme="blue" />
+          <CooccurrenceMatrix labels={fig18_physio_cooccurrence.labels} matrix={fig18_physio_cooccurrence.matrix} cellSize={38} colorScheme="blue" corpusN={295} />
         </FigureCard>
       </ChapterSection>
 

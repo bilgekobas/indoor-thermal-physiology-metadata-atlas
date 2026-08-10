@@ -67,7 +67,7 @@ export function PeriodBarGroup({ periods, periodN, getValue, getTooltip, color =
 // triggered by clicking the toggle itself. That causes React to unmount and
 // remount the whole toggle group on every click, which is what made the
 // buttons intermittently behave as if they weren't clickable.
-function ToggleGroup({ value, onChange, options }) {
+export function ToggleGroup({ value, onChange, options }) {
   return (
     <div className="flex gap-1">
       {options.map((opt) => (
