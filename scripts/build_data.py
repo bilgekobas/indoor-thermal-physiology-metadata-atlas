@@ -813,6 +813,12 @@ with open(OUT_DIR / 'fig11_sample_size.json', 'w') as f:
 print(f'fig11_sample_size.json: {len(n_tot_rows)} studies')
 
 # ── Fig 12. Environmental variable co-occurrence ───────────────────────
+# Tier 1 ("was this variable measured at all") -- MNR counts as measured,
+# since MNR means "measured, height/detail just not given" (see the
+# two-tier completeness note in Methods). Only NR (and NAN/blank) count as
+# not measured here. This was previously using the stricter Tier 2
+# definition (MNR excluded), which undercounted co-occurrence relative to
+# what the manuscript's own Results/Appendix report for these variables.
 ENV_VARS = {
     'env-tdb': 'Air temp.', 'env-rh': 'Relative humidity', 'env-v': 'Air velocity',
     'env-tg': 'Globe temp.', 'env-tsurface': 'Surface temp.', 'env-twb': 'Wet bulb temp.',
@@ -820,8 +826,9 @@ ENV_VARS = {
     'env-sound-level': 'Sound levels', 'env-tout': 'Outdoor temp.', 'env-rhout': 'Outdoor rel. humidity',
     'env-voc': 'VOC levels', 'env-light-color': 'Light colour', 'env-solar-rad': 'Solar radiation',
 }
+NOT_MEASURED = {'NR', 'NAN'}
 env_reported = pd.DataFrame({
-    label: ~studies_u[col].isin(CODES) & studies_u[col].notna()
+    label: ~studies_u[col].isin(NOT_MEASURED) & studies_u[col].notna()
     for col, label in ENV_VARS.items()
 })
 labels = list(ENV_VARS.values())
