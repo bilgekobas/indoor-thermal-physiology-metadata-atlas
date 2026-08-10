@@ -826,7 +826,7 @@ ENV_VARS = {
     'env-sound-level': 'Sound levels', 'env-tout': 'Outdoor temp.', 'env-rhout': 'Outdoor rel. humidity',
     'env-voc': 'VOC levels', 'env-light-color': 'Light colour', 'env-solar-rad': 'Solar radiation',
 }
-NOT_MEASURED = {'NR', 'NAN'}
+NOT_MEASURED = {'NR', 'NAN', 'NC'}
 env_reported = pd.DataFrame({
     label: ~studies_u[col].isin(NOT_MEASURED) & studies_u[col].notna()
     for col, label in ENV_VARS.items()
