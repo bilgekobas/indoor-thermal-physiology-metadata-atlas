@@ -4051,5 +4051,11 @@
     "Relative humidity",
     "Air velocity",
     "Globe temperature"
-  ]
+  ],
+  "non_numeric_counts": {
+    "Air temperature": 14,
+    "Relative humidity": 12,
+    "Air velocity": 6,
+    "Globe temperature": 4
+  }
 }

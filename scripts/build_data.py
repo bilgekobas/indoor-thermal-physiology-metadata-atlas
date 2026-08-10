@@ -838,10 +838,23 @@ for a in labels:
         cooc.loc[a, b] = int((env_reported[a] & env_reported[b]).sum())
 totals = {l: int(env_reported[l].sum()) for l in labels}
 
+core4_cols = ['env-tdb', 'env-rh', 'env-v', 'env-tg']
+core4_together = int(sum(
+    all(str(studies_u.iloc[i][c]) not in NOT_MEASURED for c in core4_cols)
+    for i in range(len(studies_u))
+))
+# Tier 2 count for air temperature specifically (has a real value, not MNR/NR/NAN/NC)
+# -- uses the same simple has-a-value logic as the rest of this file, not
+# fig13's stricter numeric-parsing-with-plausibility-filter, which silently
+# drops entries with harder-to-parse height text and undercounts.
+air_temp_height_given = int((~studies_u['env-tdb'].isin(NOT_MEASURED | {'MNR'}) & studies_u['env-tdb'].notna()).sum())
+
 with open(OUT_DIR / 'fig12_env_cooccurrence.json', 'w') as f:
     json.dump({
         'labels': labels,
         'matrix': cooc.values.tolist(),
+        'core4_together': core4_together,
+        'air_temp_height_given': air_temp_height_given,
         'totals': totals,
     }, f, indent=2)
 print('fig12_env_cooccurrence.json written')
@@ -1225,17 +1238,30 @@ def parse_heights(v):
     return heights
 
 height_data = {}
+non_numeric_counts = {}
 for col, label in ENV_HEIGHT_COLS.items():
     rows = []
+    n_non_numeric = 0
     for _, row in studies_u.iterrows():
-        hs = parse_heights(row.get(col))
-        for h in hs:
-            rows.append({'id': row['id'], 'variable': label, 'height': h})
+        v = row.get(col)
+        if v is None or str(v).strip() in CODES or str(v).strip() == '':
+            continue
+        hs = parse_heights(v)
+        if hs:
+            for h in hs:
+                rows.append({'id': row['id'], 'variable': label, 'height': h})
+        else:
+            # has a real value (e.g. "Desk") but nothing numeric to plot --
+            # counted separately rather than silently dropped, so the site
+            # can show "N studies gave a non-numeric position" alongside
+            # the plotted numeric heights.
+            n_non_numeric += 1
     height_data[label] = rows
+    non_numeric_counts[label] = n_non_numeric
 
 all_height_rows = [r for rows in height_data.values() for r in rows]
 with open(OUT_DIR / 'fig13_sensor_heights.json', 'w') as f:
-    json.dump({'data': all_height_rows, 'variables': list(ENV_HEIGHT_COLS.values())}, f, indent=2)
+    json.dump({'data': all_height_rows, 'variables': list(ENV_HEIGHT_COLS.values()), 'non_numeric_counts': non_numeric_counts}, f, indent=2)
 print(f'fig13_sensor_heights.json: {len(all_height_rows)} height observations')
 
 # ════════════════════════════════════════════════════════════════════════

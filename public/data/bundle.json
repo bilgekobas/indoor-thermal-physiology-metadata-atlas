@@ -20696,6 +20696,8 @@
         10
       ]
     ],
+    "core4_together": 130,
+    "air_temp_height_given": 167,
     "totals": {
       "Air temp.": 292,
       "Relative humidity": 263,
@@ -24766,7 +24768,13 @@
       "Relative humidity",
       "Air velocity",
       "Globe temperature"
-    ]
+    ],
+    "non_numeric_counts": {
+      "Air temperature": 14,
+      "Relative humidity": 12,
+      "Air velocity": 6,
+      "Globe temperature": 4
+    }
   },
   "fig14_questionnaire_domains": {
     "Thermal": {
@@ -100500,7 +100508,7 @@
     "n_variables": 206,
     "year_min": 2013,
     "year_max": 2024,
-    "generated_at": "2026-08-10T17:53:32.931587"
+    "generated_at": "2026-08-10T18:07:56.499671"
   },
   "variable_dictionary": {
     "data": [
