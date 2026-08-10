@@ -86,7 +86,7 @@ export default function Overview({ data }) {
     <div>
       <div className="px-10 pt-12 pb-10 border-b border-line bg-white/30">
         <div className="font-data text-[11px] uppercase tracking-wider text-coreaccent mb-3">
-          Living metadata corpus
+          Living Atlas
         </div>
         <h1 className="text-[34px] font-semibold leading-[1.15] tracking-tight max-w-3xl">
           How indoor thermal-physiology research is structured
