@@ -90,9 +90,17 @@ export default function About({ data }) {
             </p>
 
             <p className="mt-3">
-              OSF registration and manuscript links will be added here once
-              the corresponding records are public and stable.
-              Dataset can be downloaded t Zenodo: https://doi.org/10.5281/zenodo.21511034
+              OSF registration and manuscript links will be added here once the
+              corresponding records are public and stable. The dataset is available on{' '}
+              <a
+                href="https://doi.org/10.5281/zenodo.21511034"
+                className="text-coreaccent hover:underline"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Zenodo
+              </a>
+              .
             </p>
           </div>
         </section>
