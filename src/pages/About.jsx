@@ -55,7 +55,7 @@ export default function About({ data }) {
 
             <p>
               <a
-                href="https://www.ukaachen.de/kliniken-institute/institut-fuer-arbeits-sozial-und-umweltmedizin/institut/team/wissenschaftliches-personal/jian-pan/"
+                href="https://orcid.org/0009-0007-2605-0515"
                 className="text-coreaccent hover:underline"
                 target="_blank"
                 rel="noopener noreferrer"
