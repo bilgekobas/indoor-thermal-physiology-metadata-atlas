@@ -469,8 +469,7 @@ function MstSankey({ mst, totalExperiments }) {
   const nonYCount = statusCounts['N/NR'] || Math.max((totalExperiments || 0) - yCount, 0)
 
   // Points: exact value per study (no ranges), ordered smallest -> largest,
-  // with the NR/NC bucket last. Exclusive -- every Y-study appears exactly
-  // once here, so these totals size the point-column nodes correctly.
+  // with the NR/NC bucket last. Non-exclusive: experiments using multiple configurations appear in each point category.
   const pointTotals = Object.fromEntries(mst.points_totals.map((r) => [String(r.pt_label), r.count]))
   const pointLabel = (name) => (name === 'NR/NC' ? 'Points NR/NC' : name)
   const points = mst.point_order
@@ -570,8 +569,8 @@ function MstSankey({ mst, totalExperiments }) {
         {mid.map((n) => node(n, 'point', '#0A0A0A', yCount))}
         {right.map((n) => node(n, 'formula', '#0A0A0A', Object.values(formulaTotals).reduce((a, v) => a + v, 0) || 1))}
       </svg>
-      <p className="font-data text-[10px] text-inkfaint mt-2">MST-specific denominator: {yCount} studies with MST calculated. Click any status, point-count, or formula node to isolate all connected paths.</p>
-      <p className="font-data text-[10px] text-inkfaint mt-1">Formula counts are non-exclusive: a study naming more than one formula (e.g. "Ramanathan (1964), Hardy &amp; DuBois (1938)") is counted once under each, so the formula column can total more than {yCount}.</p>
+      <p className="font-data text-[10px] text-inkfaint mt-2">MST-specific denominator: {yCount} experiments calculating MST. Click any status, point-count, or formula node to isolate all connected paths.</p>
+      <p className="font-data text-[10px] text-inkfaint mt-1">Point-count and formula prevalence are non-exclusive: an experiment may contribute to several configurations. Each point-to-formula connection represents a documented pairing; the one-point single-site estimate is explicitly labelled as having no formula.</p>
       <TooltipPortal tip={tip} />
     </div>
   )
