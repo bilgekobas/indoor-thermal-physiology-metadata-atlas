@@ -349,7 +349,7 @@ def parse_pts(val):
     if val is None or str(val).strip() in CODES or str(val).strip() == '':
         return []
     tokens = [t.strip() for t in str(val).split(',')]
-    return [int(t) for t in tokens if re.fullmatch(r'\\d+', t)]
+    return [int(t) for t in tokens if re.fullmatch(r'\d+', t)]
 
 def clean_formula_tokens(val):
     if pd.isna(val) or str(val).strip() in CODES or str(val).strip() == '':
