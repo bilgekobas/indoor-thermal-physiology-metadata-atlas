@@ -345,60 +345,76 @@ studies_mst = pd.DataFrame(mst_rows)
 mst_rate = studies_mst.groupby(['period','physio-mst-calculated']).size().reset_index(name='count')
 
 def parse_pts(val):
-    if val is None or str(val).strip() in CODES or str(val).strip()=='':
-        return None
-    nums = re.findall(r'\d+', str(val))
-    return int(nums[0]) if nums else None
+    """Return every coded MST point count, preserving order and repeats."""
+    if val is None or str(val).strip() in CODES or str(val).strip() == '':
+        return []
+    tokens = [t.strip() for t in str(val).split(',')]
+    return [int(t) for t in tokens if re.fullmatch(r'\\d+', t)]
 
 def clean_formula_tokens(val):
-    """Split a possibly multi-formula MST-formula string into individual,
-    lightly-normalized labels. Returns [] for NR/NC/missing so the caller
-    falls back to a single 'NR' bucket. Deliberately does NOT collapse
-    long/multi-value entries into a generic 'Multiple' or 'Other' bucket --
-    every formula actually named in the corpus gets its own label, and a
-    study naming more than one formula (e.g. "Ramanathan (1964), Hardy &
-    DuBois (1938)") is counted once under each. This makes the formula
-    column non-exclusive: it can sum to more than the number of
-    MST-calculating studies. See the Fig. 27 footnote on the site."""
     if pd.isna(val) or str(val).strip() in CODES or str(val).strip() == '':
         return []
     tokens = []
     for t in str(val).split(','):
-        t = t.strip()
-        if not t:
-            continue
-        t = t.replace('Hardy & Dubois', 'Hardy & DuBois')
-        t = t.replace('ISO 9920:2007', 'ISO 9920: 2007')
-        if t == 'Wang & Lian':  # same formula as 'Wang & Lian (2019)' elsewhere in the corpus, missing its year here
+        t = t.strip().replace('Hardy & Dubois', 'Hardy & DuBois').replace('ISO 9920:2007', 'ISO 9920: 2007')
+        if t == 'Wang & Lian':
             t = 'Wang & Lian (2019)'
-        tokens.append(t)
+        if t:
+            tokens.append(t)
     return tokens
 
-mst_only = studies_mst[studies_mst['physio-mst-calculated']=='Y'].copy()
-mst_only['pts'] = mst_only['physio-mst-points'].apply(parse_pts)
+mst_only = studies_mst[studies_mst['physio-mst-calculated'] == 'Y'].copy()
+mst_only['point_tokens'] = mst_only['physio-mst-points'].apply(parse_pts)
 mst_only['formula_tokens'] = mst_only['physio-mst-formula'].apply(clean_formula_tokens)
-mst_only['pt_label'] = mst_only['pts'].apply(lambda p: 'NR/NC' if p is None or pd.isna(p) else str(int(p)))
 
-# Exclusive: exactly one point-count bucket per Y-study (used to size the
-# point-column nodes -- must NOT be derived from the exploded links below,
-# since a study naming two formulas would otherwise get double-counted).
-points_totals = mst_only.groupby('pt_label').size().reset_index(name='count')
-numeric_points = sorted({int(p) for p in mst_only['pts'].dropna().unique()})
-point_order = [str(p) for p in numeric_points] + (['NR/NC'] if (mst_only['pt_label'] == 'NR/NC').any() else [])
+# Important: point and formula lists are aligned by position where there
+# are equally many entries. Repeated counts represent distinct formulas
+# using the same number of points; do not deduplicate before pairing.
+# Wang/Chang/Lian (2022), experiment 1170_1, additionally reports a
+# one-point estimate with no formula, followed by 7/10/14-point formulae.
+# Its 1,7,10,14 and three-formula lists therefore have an explicit offset.
+def _mst_pairs(row):
+    pts = row['point_tokens']
+    formulas = row['formula_tokens']
+    if row['id'] == '1170_1':
+        if pts != [1, 7, 10, 14] or formulas != [
+            'Hardy & DuBois (1938)', 'Colin & Houdas (1982)', 'Wang & Lian (2019)'
+        ]:
+            raise ValueError('MST 1170_1 source values changed: recheck mapping')
+        return [(1, 'No formula (single-site)'), (7, formulas[0]),
+                (10, formulas[1]), (14, formulas[2])]
+    if not pts:
+        return [('NR/NC', f) for f in (formulas or ['NR'])]
+    if len(pts) == len(formulas):
+        return list(zip(pts, formulas))
+    if len(pts) == 1:
+        return [(pts[0], f) for f in (formulas or ['NR'])]
+    if not formulas:
+        return [(p, 'NR') for p in pts]
+    raise ValueError(f"Ambiguous MST point/formula mapping for {row['id']}: {pts!r} / {formulas!r}")
 
-# Non-exclusive: one row per (study, formula-it-names) pair.
-pt_formula_rows = []
+# Study prevalence is counted only once per point count, even if that
+# study evaluates several formulae with the same number of points.
+point_study_rows, pair_study_rows = [], []
 for _, row in mst_only.iterrows():
-    for tok in (row['formula_tokens'] or ['NR']):
-        pt_formula_rows.append({'pt_label': row['pt_label'], 'formula': tok})
-pt_formula_df = pd.DataFrame(pt_formula_rows)
+    pairs = _mst_pairs(row)
+    for p in set(p for p, _ in pairs):
+        point_study_rows.append({'id': row['id'], 'period': row['period'], 'pt_label': str(p)})
+    for p, formula in set(pairs):
+        pair_study_rows.append({'id': row['id'], 'pt_label': str(p), 'formula': formula})
+
+point_studies_df = pd.DataFrame(point_study_rows)
+pt_formula_df = pd.DataFrame(pair_study_rows)
+points_totals = point_studies_df.groupby('pt_label').size().reset_index(name='count')
+numeric_points = sorted(int(p) for p in point_studies_df['pt_label'].unique() if p != 'NR/NC')
+point_order = [str(p) for p in numeric_points] + (['NR/NC'] if 'NR/NC' in set(point_studies_df['pt_label']) else [])
 point_formula_links = pt_formula_df.groupby(['pt_label', 'formula']).size().reset_index(name='count')
-formula_totals = pt_formula_df.groupby('formula').size().reset_index(name='count')
+formula_totals = pt_formula_df.drop_duplicates(['id', 'formula']).groupby('formula').size().reset_index(name='count')
 
 # Points by period: one row per MST-calculating study (exclusive pt_label),
 # broken down by period, so we can chart how point-count choice has shifted
 # over time -- restricted to studies where MST was actually calculated.
-points_by_period = mst_only.groupby(['period', 'pt_label']).size().reset_index(name='count')
+points_by_period = point_studies_df.groupby(['period', 'pt_label']).size().reset_index(name='count')
 period_n_mst = {k: int(v) for k, v in mst_only.groupby('period').size().to_dict().items()}
 
 with open(OUT_DIR / 'mst.json', 'w') as f:
