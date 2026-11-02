@@ -1,6 +1,12 @@
 import { useState, useEffect, useMemo } from 'react'
-import { MapContainer, TileLayer, CircleMarker, GeoJSON, Tooltip as LeafletTooltip, useMap, useMapEvents } from 'react-leaflet'
+import { MapContainer, CircleMarker, GeoJSON, Tooltip as LeafletTooltip, useMap, useMapEvents } from 'react-leaflet'
 import * as topojson from 'topojson-client'
+import { maplibreGL } from '@maplibre/maplibre-gl-leaflet'
+import { setWorkerUrl } from 'maplibre-gl'
+import maplibreWorkerUrl from 'maplibre-gl/dist/maplibre-gl-worker.mjs?worker&url'
+import 'maplibre-gl/dist/maplibre-gl.css'
+
+setWorkerUrl(maplibreWorkerUrl)
 
 const CLIMATE_COLORS = {
   'Tropical': '#FB3640',
@@ -19,8 +25,19 @@ function climateColor(g) { return CLIMATE_COLORS[g] || '#BBBBBB' }
 
 const INITIAL_ZOOM = 2
 
-// OpenStreetMap community raster tiles provide place names without a proprietary
-// maps API or access key. Keep OSM data attribution visible immediately below the map.
+// OpenFreeMap Positron vector basemap with muted colours and place names.
+// The Leaflet adapter preserves existing marker, choropleth, and zoom layers.
+const BASEMAP_STYLE = 'https://tiles.openfreemap.org/styles/positron'
+
+function PositronBasemap() {
+  const map = useMap()
+  useEffect(() => {
+    const layer = maplibreGL({ style: BASEMAP_STYLE, attribution: '' }).addTo(map)
+    layer.bringToBack()
+    return () => map.removeLayer(layer)
+  }, [map])
+  return null
+}
 
 // Tracks the current zoom level so city marker radii can grow/shrink with
 // it -- Leaflet's CircleMarker radius is a fixed pixel size by default and
@@ -155,7 +172,7 @@ export default function WorldMapExplorer({ cityData, countryData, height = 460 }
             attributionControl={false}
             style={{ height: '100%', width: '100%', background: '#FAFAF8' }}
           >
-            <TileLayer url="https://tile.openstreetmap.org/{z}/{x}/{y}.png" maxZoom={19} />
+            <PositronBasemap />
             {mode === 'country' && countryGeoJSON && (
               <GeoJSON key="country-layer" data={countryGeoJSON} style={countryStyle} onEachFeature={onEachCountry} />
             )}
@@ -165,7 +182,7 @@ export default function WorldMapExplorer({ cityData, countryData, height = 460 }
         )}
       </div>
       <div className="text-[10px] text-inkfaint text-right mt-1.5">
-        Map data: <a className="underline underline-offset-2" href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener noreferrer">© OpenStreetMap contributors (ODbL)</a>
+        Basemap: <a className="underline underline-offset-2" href="https://openfreemap.org/" target="_blank" rel="noopener noreferrer">OpenFreeMap</a> · Map data: <a className="underline underline-offset-2" href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener noreferrer">© OpenStreetMap contributors</a>
       </div>
       {mode === 'city' ? (
         <div>
