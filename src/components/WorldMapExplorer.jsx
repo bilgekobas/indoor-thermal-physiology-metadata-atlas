@@ -32,8 +32,7 @@ const BASEMAP_STYLE = 'https://tiles.openfreemap.org/styles/positron'
 function PositronBasemap() {
   const map = useMap()
   useEffect(() => {
-    const layer = maplibreGL({ style: BASEMAP_STYLE, attribution: '' }).addTo(map)
-    layer.bringToBack()
+    const layer = maplibreGL({ style: BASEMAP_STYLE, attribution: '', pane: 'tilePane' }).addTo(map)
     return () => map.removeLayer(layer)
   }, [map])
   return null
