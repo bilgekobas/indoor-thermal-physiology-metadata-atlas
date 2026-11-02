@@ -14,10 +14,12 @@
     "playwright": "^1.62.1"
   },
   "dependencies": {
+    "@maplibre/maplibre-gl-leaflet": "^0.1.4",
     "@vitejs/plugin-react": "^4.3.1",
     "autoprefixer": "^10.4.20",
     "d3-geo": "^3.1.1",
     "leaflet": "^1.9.4",
+    "maplibre-gl": "^6.3.0",
     "postcss": "^8.4.41",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
