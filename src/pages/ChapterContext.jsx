@@ -646,7 +646,7 @@ export default function ChapterContext({ data }) {
           />
         </FigureCard>
 
-        <FigureCard figNumber={figNum('temp-by-climate')} title="Tested temperature values by host climate" size="wide" commentary="Humid subtropical and continental climates together account for most studies with a known climate, including much of the warm-condition research. Only a small minority were run in genuinely hot climates. The figure now focuses on the actual tested temperature values rather than per-study min–max spans, making the setpoint clustering easier to see.">
+        <FigureCard figNumber={figNum('temp-by-climate')} title="Tested temperature values by host climate" size="wide" commentary="Humid subtropical and continental climate classifications account for the largest shares of studies with known climate information. The chart also shows the temperatures tested within these climate groups.">
           <ClimateTempChart
             studies={climate_vs_temp.studies}
             climateCounts={climate_vs_temp.climate_counts}
@@ -659,11 +659,11 @@ export default function ChapterContext({ data }) {
         title="Setting and timing"
         intro="Lab studies dominate; office-like spaces are the most common spatial typology. Sessions cluster under 3 hours, normalization periods are often short, and almost all testing happens in daytime hours."
       >
-        <FigureCard figNumber={figNum('setting-type')} title="Experimental setting type" plotWidth={760} commentary={`${labCount} of ${settingTotal} experiments (${labPct}%) are run in a lab; Field and Living Lab split the remainder almost evenly. The Sankey makes the spatial typologies legible without flattening them into a single categorical count.`}>
+        <FigureCard figNumber={figNum('setting-type')} title="Experimental setting type" plotWidth={760} commentary={`${labCount} of ${settingTotal} experiments (${labPct}%) are run in a lab; Field and Living Lab split the remainder almost evenly. The flows distinguish the reported spatial typologies.`}>
           <SettingSankey data={fig06_setting_typology.data} total={summary.n_experiments} />
         </FigureCard>
 
-        <FigureCard figNumber={figNum('time-of-day')} title="Time of day distribution" size="wide" commentary={`Testing peaks in the mid-afternoon. ${fig05_time_of_day.n_circadian_considered} of ${fig05_time_of_day.n_reporting} reporting studies explicitly mention circadian timing; the rest mostly standardize implicitly by testing during a fairly narrow daytime window.`}>
+        <FigureCard figNumber={figNum('time-of-day')} title="Time of day distribution" size="wide" commentary={`Reported testing times are concentrated in the daytime, with the highest frequency in the afternoon.`}>
           <TimeOfDayChart sessions={fig05_time_of_day.sessions} />
         </FigureCard>
 
@@ -694,7 +694,7 @@ export default function ChapterContext({ data }) {
         title="How many variables are manipulated at once"
         intro={`${domain_comanipulation.n_domains_distribution.filter((d) => d.n_domains >= 2).reduce((a, d) => a + d.count, 0)} of ${domain_comanipulation.n_studies} studies manipulate more than one environmental domain simultaneously (e.g. air temperature crossed with humidity, or with air movement). The rest isolate a single variable, the classic thermal-comfort design.`}
       >
-        <FigureCard figNumber={figNum('domains-manipulated-count')} title="Number of domains manipulated per study" plotWidth={560} commentary="Most studies still isolate a single variable — the classic thermal-comfort design. Two-domain experiments form the main minority; three-domain designs are relatively rare.">
+        <FigureCard figNumber={figNum('domains-manipulated-count')} title="Number of domains manipulated per study" plotWidth={560} commentary="Most studies manipulate one environmental domain. Simultaneous manipulation of two or more domains is less frequent.">
           <InteractiveBarChart
             data={domain_comanipulation.n_domains_distribution.map((d) => ({ label: `${d.n_domains} domain${d.n_domains === 1 ? '' : 's'}`, count: d.count }))}
             total={domain_comanipulation.n_studies}
@@ -702,7 +702,7 @@ export default function ChapterContext({ data }) {
           />
         </FigureCard>
 
-        <FigureCard figNumber={figNum('domains-manipulated-together')} title="Which domains are manipulated together" plotWidth={620} commentary="Diagonal cells show the total number of studies manipulating each domain; off-diagonal cells show co-manipulation. This keeps the univariate counts while making the coupled experimental designs visible.">
+        <FigureCard figNumber={figNum('domains-manipulated-together')} title="Which domains are manipulated together" plotWidth={620} commentary="Diagonal cells count studies manipulating each domain; off-diagonal cells count studies manipulating each pair together.">
           <CooccurrenceMatrix labels={domain_cooccurrence.labels} matrix={domain_cooccurrence.matrix} cellSize={38} corpusN={295} />
         </FigureCard>
       </ChapterSection>
@@ -711,7 +711,7 @@ export default function ChapterContext({ data }) {
         title="Open data, in practice"
         intro={`A data-availability statement being present is not the same as data actually being shared. Of ${open_data.n_total} studies, only ${open_data.n_with_real_data_link} link to a real repository.`}
       >
-        <FigureCard figNumber={figNum('data-availability')} title="Data availability statement, as reported" plotWidth={620} commentary="This belongs in the contextual layer of the corpus rather than in the closing synthesis: it describes the publication context of the studies themselves.">
+        <FigureCard figNumber={figNum('data-availability')} title="Data availability statement, as reported" plotWidth={620} commentary="The chart distinguishes reported data-availability categories across publication periods. A statement of availability does not itself establish that a reusable dataset can be accessed.">
           <PeriodHeatmap
             rows={open_data.data_avail_distribution.map((d) => d.status)}
             periods={data_avail_by_period.periods}
@@ -728,7 +728,7 @@ export default function ChapterContext({ data }) {
         title="Protocol & standardisation controls"
         intro="Protocol reporting belongs to the general experimental setup: clothing, activity, pre-session instructions, blinding, randomisation, and timing controls define how the study was run before any physiological signal is interpreted."
       >
-        <FigureCard figNumber={figNum('protocol-standardisation')} title="Protocol & standardisation controls" plotWidth={980} commentary="Rows are controls; columns are 2-year periods; the right-hand bar gives the overall count for the same row.">
+        <FigureCard figNumber={figNum('protocol-standardisation')} title="Protocol & standardisation controls" plotWidth={980} commentary="Rows identify reported controls; columns show 2-year periods; the bar at right gives the overall count per control.">
           <PeriodHeatmap
             rows={protocol_by_period.fields}
             periods={protocol_by_period.periods}
