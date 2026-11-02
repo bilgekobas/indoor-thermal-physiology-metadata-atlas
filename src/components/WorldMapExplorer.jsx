@@ -1,5 +1,5 @@
 import { useState, useEffect, useMemo } from 'react'
-import { MapContainer, TileLayer, CircleMarker, GeoJSON, Tooltip as LeafletTooltip, useMap, useMapEvents } from 'react-leaflet'
+import { MapContainer, CircleMarker, GeoJSON, Tooltip as LeafletTooltip, useMap, useMapEvents } from 'react-leaflet'
 import * as topojson from 'topojson-client'
 
 const CLIMATE_COLORS = {
@@ -19,11 +19,8 @@ function climateColor(g) { return CLIMATE_COLORS[g] || '#BBBBBB' }
 
 const INITIAL_ZOOM = 2
 
-// CARTO Voyager: a restrained geographical basemap with legible borders,
-// water bodies, and place names, while keeping the study markers prominent.
-const TILE_URL = 'https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png'
-const TILE_ATTRIBUTION =
-  '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>'
+// The basemap uses the Atlas's bundled world-country geometry rather than
+// third-party map tiles; no provider watermark or remote tile requests.
 
 // Tracks the current zoom level so city marker radii can grow/shrink with
 // it -- Leaflet's CircleMarker radius is a fixed pixel size by default and
@@ -112,7 +109,7 @@ export default function WorldMapExplorer({ cityData, countryData, height = 460 }
     const fill = countryColor(count)
     return {
       fillColor: fill || '#F4F4F4',
-      fillOpacity: fill ? 0.72 : 0.15,
+      fillOpacity: fill ? 0.72 : 1,
       color: '#B9B9B9',
       weight: 0.6,
     }
@@ -126,6 +123,7 @@ export default function WorldMapExplorer({ cityData, countryData, height = 460 }
   }
 
   const resetCenter = [15, 10]
+  const baseCountryStyle = { fillColor: '#EDEDEB', fillOpacity: 1, color: '#BBBBB7', weight: 0.65 }
 
   return (
     <div>
@@ -155,9 +153,12 @@ export default function WorldMapExplorer({ cityData, countryData, height = 460 }
             minZoom={2}
             maxZoom={9}
             worldCopyJump
-            style={{ height: '100%', width: '100%', background: '#F4F4F4' }}
+            attributionControl={false}
+            style={{ height: '100%', width: '100%', background: '#FAFAF8' }}
           >
-            <TileLayer url={TILE_URL} attribution={TILE_ATTRIBUTION} />
+            {mode === 'city' && countryGeoJSON && (
+              <GeoJSON key="city-basemap" data={countryGeoJSON} style={baseCountryStyle} interactive={false} />
+            )}
             {mode === 'country' && countryGeoJSON && (
               <GeoJSON key="country-layer" data={countryGeoJSON} style={countryStyle} onEachFeature={onEachCountry} />
             )}
