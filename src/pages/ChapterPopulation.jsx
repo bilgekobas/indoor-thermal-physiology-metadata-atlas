@@ -256,7 +256,7 @@ export default function ChapterPopulation({ data }) {
           <SexDistributionChart studies={fig10_sex_distribution.studies} width={920} />
         </FigureCard>
 
-        <FigureCard figNumber={figNum('sample-size-distribution')} title="Sample size distribution" plotWidth={980} commentary={`Distribution of total participants per study, shown on a linear participant scale with an overflow bin at 100+ so the shape remains intuitive while still retaining the largest studies. Median is ${medianSampleSize.toFixed(0)}.`}>
+        <FigureCard figNumber={figNum('sample-size-distribution')} title="Sample size distribution" plotWidth={980} commentary={`Distribution of participants per study, with studies enrolling 100 or more participants grouped in an overflow bin. Median is ${medianSampleSize.toFixed(0)}.`}>
           <SampleSizeHistogramLinear studies={fig11_sample_size.studies} maxDisplay={100} binWidth={5} color="#5B5BFF" width={920} />
         </FigureCard>
       </ChapterSection>
@@ -267,7 +267,7 @@ export default function ChapterPopulation({ data }) {
         title="Was sample size justified?"
         intro="Sample size belongs with the population story: it conditions how much confidence we can place in all subgroup claims later in the paper."
       >
-        <FigureCard figNumber={figNum('sample-size-calc-type')} title="Sample size calculation type" plotWidth={560} commentary="Among studies that justify sample size at all, most use an a priori power calculation rather than post-hoc reasoning or simple precedent from earlier literature.">
+        <FigureCard figNumber={figNum('sample-size-calc-type')} title="Sample size calculation type" plotWidth={560} commentary="Among studies reporting a sample-size justification, a priori power calculations are the most frequently recorded approach.">
           <PeriodHeatmap
             rows={sample_justification.calc_type_distribution.map((d) => d.type)}
             periods={sample_calc_type_by_period.periods}
