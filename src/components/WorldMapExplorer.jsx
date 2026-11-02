@@ -19,10 +19,9 @@ function climateColor(g) { return CLIMATE_COLORS[g] || '#BBBBBB' }
 
 const INITIAL_ZOOM = 2
 
-// CartoDB Positron: a light basemap that already bakes in country and city
-// name labels, so we get real geography (coastlines, borders, place names)
-// for free instead of drawing a flat vector silhouette ourselves.
-const TILE_URL = 'https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png'
+// CARTO Voyager: a restrained geographical basemap with legible borders,
+// water bodies, and place names, while keeping the study markers prominent.
+const TILE_URL = 'https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png'
 const TILE_ATTRIBUTION =
   '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>'
 
