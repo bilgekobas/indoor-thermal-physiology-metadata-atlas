@@ -692,7 +692,7 @@ export default function ChapterContext({ data }) {
 
       <ChapterSection
         title="How many variables are manipulated at once"
-        intro={`${domain_comanipulation.n_domains_distribution.filter((d) => d.n_domains >= 2).reduce((a, d) => a + d.count, 0)} of ${domain_comanipulation.n_studies} studies manipulate more than one environmental domain simultaneously (e.g. air temperature crossed with humidity, or with air movement). The rest isolate a single variable, the classic thermal-comfort design.`}
+        intro={`${domain_comanipulation.n_domains_distribution.filter((d) => d.n_domains >= 2).reduce((a, d) => a + d.count, 0)} of ${domain_comanipulation.n_studies} studies manipulate more than one environmental domain simultaneously (e.g. air temperature crossed with humidity, or with air movement). The remaining studies manipulate one domain.`}
       >
         <FigureCard figNumber={figNum('domains-manipulated-count')} title="Number of domains manipulated per study" plotWidth={560} commentary="Most studies manipulate one environmental domain. Simultaneous manipulation of two or more domains is less frequent.">
           <InteractiveBarChart
@@ -711,7 +711,7 @@ export default function ChapterContext({ data }) {
         title="Open data, in practice"
         intro={`A data-availability statement being present is not the same as data actually being shared. Of ${open_data.n_total} studies, only ${open_data.n_with_real_data_link} link to a real repository.`}
       >
-        <FigureCard figNumber={figNum('data-availability')} title="Data availability statement, as reported" plotWidth={620} commentary="The chart distinguishes reported data-availability categories across publication periods. A statement of availability does not itself establish that a reusable dataset can be accessed.">
+        <FigureCard figNumber={figNum('data-availability')} title="Data availability statement, as reported" plotWidth={620}>
           <PeriodHeatmap
             rows={open_data.data_avail_distribution.map((d) => d.status)}
             periods={data_avail_by_period.periods}
