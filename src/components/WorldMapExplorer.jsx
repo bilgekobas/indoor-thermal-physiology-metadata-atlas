@@ -1,5 +1,5 @@
 import { useState, useEffect, useMemo } from 'react'
-import { MapContainer, CircleMarker, GeoJSON, Tooltip as LeafletTooltip, useMap, useMapEvents } from 'react-leaflet'
+import { MapContainer, TileLayer, CircleMarker, GeoJSON, Tooltip as LeafletTooltip, useMap, useMapEvents } from 'react-leaflet'
 import * as topojson from 'topojson-client'
 
 const CLIMATE_COLORS = {
@@ -19,8 +19,8 @@ function climateColor(g) { return CLIMATE_COLORS[g] || '#BBBBBB' }
 
 const INITIAL_ZOOM = 2
 
-// The basemap uses the Atlas's bundled world-country geometry rather than
-// third-party map tiles; no provider watermark or remote tile requests.
+// OpenStreetMap community raster tiles provide place names without a proprietary
+// maps API or access key. Keep OSM data attribution visible immediately below the map.
 
 // Tracks the current zoom level so city marker radii can grow/shrink with
 // it -- Leaflet's CircleMarker radius is a fixed pixel size by default and
@@ -123,7 +123,6 @@ export default function WorldMapExplorer({ cityData, countryData, height = 460 }
   }
 
   const resetCenter = [15, 10]
-  const baseCountryStyle = { fillColor: '#EDEDEB', fillOpacity: 1, color: '#BBBBB7', weight: 0.65 }
 
   return (
     <div>
@@ -156,9 +155,7 @@ export default function WorldMapExplorer({ cityData, countryData, height = 460 }
             attributionControl={false}
             style={{ height: '100%', width: '100%', background: '#FAFAF8' }}
           >
-            {mode === 'city' && countryGeoJSON && (
-              <GeoJSON key="city-basemap" data={countryGeoJSON} style={baseCountryStyle} interactive={false} />
-            )}
+            <TileLayer url="https://tile.openstreetmap.org/{z}/{x}/{y}.png" maxZoom={19} />
             {mode === 'country' && countryGeoJSON && (
               <GeoJSON key="country-layer" data={countryGeoJSON} style={countryStyle} onEachFeature={onEachCountry} />
             )}
@@ -166,6 +163,9 @@ export default function WorldMapExplorer({ cityData, countryData, height = 460 }
             <MapZoomButtons resetCenter={resetCenter} />
           </MapContainer>
         )}
+      </div>
+      <div className="text-[10px] text-inkfaint text-right mt-1.5">
+        Map data: <a className="underline underline-offset-2" href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener noreferrer">© OpenStreetMap contributors (ODbL)</a>
       </div>
       {mode === 'city' ? (
         <div>
