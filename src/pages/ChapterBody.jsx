@@ -2,11 +2,12 @@ import { useMemo, useState } from 'react'
 import { ChapterHeader, ChapterSection } from '../components/Chapter.jsx'
 import FigureCard from '../components/FigureCard.jsx'
 import { figNum } from '../figureRegistry.js'
-import InteractiveBarChart from '../components/InteractiveBarChart.jsx'
+import MeasurementScene from '../components/MeasurementScene.jsx'
 import CooccurrenceMatrix from '../components/CooccurrenceMatrix.jsx'
 import BodySiteMap from '../components/BodySiteMap.jsx'
-import OverallByPeriod, { PeriodHeatmap } from '../components/OverallByPeriod.jsx'
+import { PeriodHeatmap } from '../components/OverallByPeriod.jsx'
 import { useTooltip, TooltipPortal } from '../components/Tooltip.jsx'
+import './ChapterBody.css'
 
 function SensorEvolutionToggle({ signals, evoData, periods }) {
   const [activeSignal, setActiveSignal] = useState(signals[0] || '')
@@ -673,30 +674,20 @@ export default function ChapterBody({ data }) {
   const topMstPoint = [...mst.points_totals].sort((a, b) => b.count - a.count)[0]
   const topMstPointPct = ((topMstPoint.count / mst.n_mst_studies) * 100).toFixed(0)
 
-  // Dynamic values for the "what's measured" intro/captions, so they track
-  // summary.n_experiments and the current corpus instead of being hand-
-  // written prose that drifts out of sync as the corpus grows. Signal
-  // totals come from signal_totals (true distinct-experiment counts), not
-  // by summing 'overall' across sensing methods -- see build_data.py.
-  const signalTotalsMap = Object.fromEntries(physio_signal_sensor.signal_totals.map((r) => [r.signal, r.count]))
-  const skinTempN = signalTotalsMap['Skin temperature']
-  const heartRateN = signalTotalsMap['Heart/Pulse rate']
-  const skinTempPct = ((skinTempN / summary.n_experiments) * 100).toFixed(0)
+  const signalTotals = Object.fromEntries(fig17_physio_params.data.map((row) => [row.parameter, row.count]))
+  const skinTempN = signalTotals['Skin temperature']
+  const heartRateN = signalTotals['Heart/Pulse rate']
   const heartRatePct = ((heartRateN / summary.n_experiments) * 100).toFixed(0)
-  const nSensorTypesSkinTemp = new Set(
-    physio_signal_sensor.overall.filter((r) => r.signal === 'Skin temperature').map((r) => r['physio-sensing-method'])
-  ).size
+  const skinMethods = physio_signal_sensor.overall.filter((row) => row.signal === 'Skin temperature')
+  const thermochronN = skinMethods.find((row) => row['physio-sensing-method'] === 'Thermochron')?.count || 0
+  const thermocoupleN = skinMethods.find((row) => row['physio-sensing-method'] === 'Thermocouple')?.count || 0
 
   const cooccurLabels = fig18_physio_cooccurrence.labels
   const cooccurMatrix = fig18_physio_cooccurrence.matrix
   const iSkin = cooccurLabels.indexOf('Skin temperature')
   const iHr = cooccurLabels.indexOf('Heart/Pulse rate')
   const skinHrCooccur = cooccurMatrix[iSkin][iHr]
-  // Use the matrix's own diagonal totals (not signal_totals) so the
-  // percentage is self-consistent with what this specific chart shows --
-  // fig18 doesn't require a sensing method to be reported, so its totals
-  // differ slightly from physio_signal_sensor's method-conditioned counts.
-  const cooccurSkinTotal = cooccurMatrix[iSkin][iSkin]
+  // Use the matrix's own diagonal for its row percentage.
   const cooccurHrTotal = cooccurMatrix[iHr][iHr]
   const hrAlsoSkinPct = ((skinHrCooccur / cooccurHrTotal) * 100).toFixed(0)
 
@@ -717,30 +708,8 @@ export default function ChapterBody({ data }) {
   const conductanceWrist = sudoSites.find((s) => s.site === 'Wrist')?.by_signal?.['Skin conductance'] || 0
   const conductanceFinger = sudoSites.find((s) => s.site === 'Finger')?.by_signal?.['Skin conductance'] || 0
 
-  // Brand stats for the Signal -> sensor type -> brand caption. Counted by
-  // summing each brand's appearances across signals (so a combination
-  // device that reports e.g. both blood pressure and heart rate counts
-  // once per signal) -- this is the metric the caption's framing already
-  // assumes ("OMRON... spread across signals"), kept consistent here
-  // rather than switching to a distinct-experiment count, which would
-  // answer a different question and isn't comparable to it.
-  const brandStats = useMemo(() => {
-    const totals = {}
-    data.brand_model_reference.data.forEach((r) => {
-      totals[r.brand] = totals[r.brand] || {}
-      totals[r.brand][r.signal] = (totals[r.brand][r.signal] || 0) + r.study_ids.length
-    })
-    const sumFor = (b) => Object.values(totals[b] || {}).reduce((a, c) => a + c, 0)
-    const topSignalsFor = (b) => Object.entries(totals[b] || {}).sort((a, b2) => b2[1] - a[1])
-    return { totals, sumFor, topSignalsFor }
-  }, [data.brand_model_reference.data])
-  const omronTotal = brandStats.sumFor('Omron')
-  const omronBySignal = Object.fromEntries(brandStats.topSignalsFor('Omron'))
-  const iButtonTotal = brandStats.sumFor('iButton')
-  const iButtonSkin = brandStats.totals['iButton']?.['Skin temperature'] || 0
-
   return (
-    <div>
+    <div className="measuring-human">
       <ChapterHeader
         eyebrow="Chapter 3 of 7"
         title="Measuring the human"
@@ -767,42 +736,52 @@ export default function ChapterBody({ data }) {
         ]}
       />
 
-      <ChapterSection
-        title="What's measured, and how"
-        intro={`Skin temperature (${skinTempN} studies, ${skinTempPct}%) and heart rate (${heartRateN}, ${heartRatePct}%) dominate by a wide margin over every other signal. Other signals appear far less often and are typically paired with skin temperature or heart rate rather than measured in isolation.`}
-      >
-        <FigureCard figNumber={figNum('signals-measured-freq')} title="Most frequently measured signals" plotWidth={980} commentary={`Skin temperature dominates at ${skinTempN} of ${summary.n_experiments} experiments (${skinTempPct}%) — more than triple the next most common signal, heart/pulse rate at ${heartRateN} (${heartRatePct}%). After that the field thins out fast: core/body temperature and blood pressure each appear in well under a fifth of experiments.`}>
+      <ChapterSection title="What's measured, and how">
+        <MeasurementScene
+          figNumber={figNum('signals-measured-freq')}
+          title="Most frequently measured signals"
+          step="01"
+          heading="Which signals are measured?"
+          lead={`Skin temperature appears in ${skinTempN} of ${summary.n_experiments} experiments (${topSignalPct}%). Heart/pulse rate is next, in ${heartRateN} experiments (${heartRatePct}%).`}
+          detail="By default, each cell shows the share of experiments measuring that signal in its period. The bars at the right show totals across the corpus."
+          plotWidth={980}
+        >
           <PeriodHeatmap
             rows={fig17_physio_params.data.map((d) => d.parameter)}
             periods={signal_freq_by_period.periods}
             periodN={signal_freq_by_period.period_n}
-            rowTotals={Object.fromEntries(fig17_physio_params.data.map((d) => [d.parameter, d.count]))}
+            rowTotals={signalTotals}
             getCount={(sig, p) => signal_freq_by_period.data.find((r) => r.signal === sig && r.period === p)?.count || 0}
-            labelWidth={200}
-            cellWidth={88}
+            labelWidth={180}
+            cellWidth={64}
           />
-        </FigureCard>
+        </MeasurementScene>
 
-        <FigureCard figNumber={figNum('signals-cooccurrence')} title="Which signals get measured together" plotWidth={680} commentary={`Skin temperature (${cooccurSkinTotal} studies) and heart/pulse rate (${cooccurHrTotal}) are individually the most common signals, and ${skinHrCooccur} studies measure both together — about ${hrAlsoSkinPct}% of all heart-rate studies also track skin temperature.`}>
-          <CooccurrenceMatrix labels={fig18_physio_cooccurrence.labels} matrix={fig18_physio_cooccurrence.matrix} cellSize={38} colorScheme="blue" corpusN={295} />
-        </FigureCard>
+        <MeasurementScene
+          figNumber={figNum('signals-cooccurrence')}
+          title="Which signals get measured together"
+          step="02"
+          heading="Which signals are paired?"
+          lead={`Skin temperature and heart/pulse rate are measured together in ${skinHrCooccur} experiments. That is ${hrAlsoSkinPct}% of the ${cooccurHrTotal} experiments that measure heart/pulse rate.`}
+          detail="The diagonal shows how many experiments measured each signal. Off the diagonal, switch between counts, the share of experiments measuring the row signal, and the share of the full corpus."
+          plotWidth={680}
+        >
+          <CooccurrenceMatrix labels={cooccurLabels} matrix={cooccurMatrix} cellSize={38} colorScheme="blue" corpusN={summary.n_experiments} />
+        </MeasurementScene>
       </ChapterSection>
 
-      <ChapterSection
-        title="Signals, sensor types, and brands"
-        intro="The same signal can be captured by very different instruments. This flow covers 15 signals measured in ≥5 studies, 53 distinct sensor types used across them, and every commercial brand behind those sensors — ordered by thermophysiological mechanism."
-      >
-        <FigureCard
+      <ChapterSection title="Signals, sensor types, and brands">
+        <MeasurementScene
           figNumber={figNum('signal-sensor-brand')}
           title="Signal → sensor type → brand"
+          step="03"
+          heading="How is the same signal measured?"
+          lead={`The links from skin temperature to Thermochron dataloggers and to thermocouples represent ${thermochronN} and ${thermocoupleN} experiments, respectively. Hover over a link to see its count.`}
+          detail="Click a signal, sensor type, or brand to isolate its paths. The brand column can show the top three brands per sensor type or the top 15 overall across sensor types."
           plotWidth={1100}
-          commentary={[
-            `Skin temperature is measured in ${skinTempN} of ${summary.n_experiments} experiments (${skinTempPct}%), followed by heart/pulse rate in ${heartRateN} (${heartRatePct}%). Every other signal sits in single digits. Sensing-type choice is far from standardized even within one signal: skin temperature alone is measured via ${nSensorTypesSkinTemp} distinct sensor types, with no single method used in a majority of studies.`,
-            `OMRON is the most-cited brand overall (${omronTotal}, counted once per signal it's used for), but spread across signals — it makes combination devices covering blood pressure (${omronBySignal['Blood pressure'] || 0}), heart rate (${omronBySignal['Heart/Pulse rate'] || 0}), and core/body temperature (${omronBySignal['Core/Body temperature'] || 0}). iButton (${iButtonTotal}) is the opposite pattern: concentrated almost entirely in one signal, skin temperature (${iButtonSkin} of its ${iButtonTotal}). Flow and node thickness are proportional to study count — hover for the exact number, or click any signal, sensor type, or brand to isolate its paths.`,
-          ]}
         >
           <SignalSensorBrandSankey overall={physio_signal_sensor.overall} signalTotals={physio_signal_sensor.signal_totals} signalInstanceTotals={physio_signal_sensor.signal_instance_totals} brandData={physio_signal_sensor.signal_method_brand} nExperiments={summary.n_experiments} />
-        </FigureCard>
+        </MeasurementScene>
 
         <FigureCard figNumber={figNum('body-site-per-signal')} title="Where on the body each signal is measured" plotWidth={900} commentary={`Skin-temperature measurements span multiple anatomical sites. Heart rate concentrates at the chest (${hrChest} of ${hrN} studies, where ECG-based measurements are often obtained) and wrist (${hrWrist}, where optical wearables are often placed). The sudomotor signals split sharply by method: ${sweatWholeBody} sweat-indicator studies measure the whole body at once (not shown on the diagram, see the list at right), while skin conductance is almost always local — ${conductanceWrist} studies at the wrist, ${conductanceFinger} at the finger.`}>          <BodySiteToggle
             skinTempSites={skintemp_sites.site_totals}

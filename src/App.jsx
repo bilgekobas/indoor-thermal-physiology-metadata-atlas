@@ -35,7 +35,8 @@ function ScrollToHash() {
     const tryScroll = () => {
       const el = document.getElementById(id)
       if (el) {
-        el.scrollIntoView({ behavior: 'smooth', block: 'start' })
+        const reduceMotion = location.pathname === '/body' && window.matchMedia('(prefers-reduced-motion: reduce)').matches
+        el.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'start' })
       } else if (attempts < 20) {
         attempts += 1
         setTimeout(tryScroll, 100)
@@ -70,9 +71,10 @@ function RoutedPages({ data }) {
 
 export default function App() {
   const { data, error, loading } = useCorpusData()
+  const { pathname } = useLocation()
 
   return (
-    <div className="flex min-h-screen bg-paper text-ink">
+    <div className={`flex min-h-screen bg-paper text-ink ${pathname === '/body' ? 'atlas-body-route' : ''}`}>
       <ScrollToHash />
       <Sidebar summary={data?.summary} />
       <main className="flex-1 min-w-0">

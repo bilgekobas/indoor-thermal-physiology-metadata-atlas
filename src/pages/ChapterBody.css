@@ -1,0 +1,95 @@
+.measurement-scene {
+  display: grid;
+  gap: 1rem;
+  border-top: 1px solid #E4E4E4;
+  margin-top: 1.25rem;
+  padding: 1.25rem 0;
+}
+
+.measurement-narrative {
+  display: grid;
+  gap: 0.75rem;
+  align-content: start;
+}
+
+.measurement-beat {
+  border-left: 2px solid #FB3640;
+  padding-left: 0.875rem;
+}
+
+.measurement-figure {
+  min-width: 0;
+}
+
+.measurement-scene .atlas-figure-plot {
+  padding: 0.5rem 0 !important;
+}
+
+.measurement-plot {
+  overflow-x: auto;
+  padding: 2px;
+}
+
+.measurement-plot:focus-visible {
+  outline: 2px solid #FB3640;
+  outline-offset: 2px;
+}
+
+/* Keep controls readable while the wide matrix or Sankey pans independently. */
+.measurement-plot > div > .flex:first-child {
+  flex-wrap: wrap;
+}
+
+@media (min-width: 1200px) and (min-height: 540px) and (prefers-reduced-motion: no-preference) {
+  .measurement-scene {
+    grid-template-columns: minmax(10rem, 1fr) minmax(0, 4fr);
+    gap: clamp(1.25rem, 2.3vw, 3rem);
+    min-height: max(calc(100svh + 6rem), calc(var(--figure-height, 0px) + 10rem));
+  }
+
+  .measurement-narrative {
+    grid-template-rows: minmax(36svh, auto) 1fr;
+  }
+
+  .measurement-beat {
+    align-self: start;
+  }
+
+  .measurement-beat-detail {
+    position: sticky;
+    top: 2rem;
+  }
+
+  .measurement-figure {
+    position: sticky;
+    align-self: start;
+    top: min(1rem, calc(100svh - var(--figure-height, 0px) - 1rem));
+  }
+}
+
+@media (max-width: 767px) {
+  .atlas-body-route {
+    flex-direction: column;
+  }
+
+  .atlas-body-route > aside {
+    position: static;
+    width: 100%;
+    height: auto;
+    border-right: 0;
+    border-bottom: 1px solid #E4E4E4;
+  }
+
+  .atlas-body-route > aside > nav {
+    max-height: 11rem;
+    flex: none;
+  }
+
+  .measuring-human > .px-10 {
+    padding-inline: 1rem;
+  }
+
+  .measuring-human .atlas-figure-plot {
+    overflow-x: auto;
+  }
+}
