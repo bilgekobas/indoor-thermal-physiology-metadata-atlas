@@ -1,4 +1,4 @@
-import { Routes, Route, useLocation } from 'react-router-dom'
+import { Routes, Route, useLocation, useMatch } from 'react-router-dom'
 import { useEffect } from 'react'
 import Sidebar from './components/Sidebar.jsx'
 import ErrorBoundary from './components/ErrorBoundary.jsx'
@@ -23,7 +23,7 @@ import VariableDictionary from './pages/VariableDictionary.jsx'
 // yet at the instant this effect first runs. Retries briefly rather than
 // giving up after one failed lookup, since "the data hasn't arrived yet"
 // is the common case on a fresh page load via a sidebar subtitle link.
-function ScrollToHash() {
+function ScrollToHash({ isBodyChapter }) {
   const location = useLocation()
   useEffect(() => {
     if (!location.hash) {
@@ -35,7 +35,7 @@ function ScrollToHash() {
     const tryScroll = () => {
       const el = document.getElementById(id)
       if (el) {
-        const reduceMotion = location.pathname === '/body' && window.matchMedia('(prefers-reduced-motion: reduce)').matches
+        const reduceMotion = isBodyChapter && window.matchMedia('(prefers-reduced-motion: reduce)').matches
         el.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'start' })
       } else if (attempts < 20) {
         attempts += 1
@@ -43,7 +43,7 @@ function ScrollToHash() {
       }
     }
     tryScroll()
-  }, [location.pathname, location.hash])
+  }, [location.pathname, location.hash, isBodyChapter])
   return null
 }
 
@@ -71,11 +71,11 @@ function RoutedPages({ data }) {
 
 export default function App() {
   const { data, error, loading } = useCorpusData()
-  const { pathname } = useLocation()
+  const isBodyChapter = Boolean(useMatch('/body'))
 
   return (
-    <div className={`flex min-h-screen bg-paper text-ink ${pathname === '/body' ? 'atlas-body-route' : ''}`}>
-      <ScrollToHash />
+    <div className={`flex min-h-screen bg-paper text-ink ${isBodyChapter ? 'atlas-body-route' : ''}`}>
+      <ScrollToHash isBodyChapter={isBodyChapter} />
       <Sidebar summary={data?.summary} />
       <main className="flex-1 min-w-0">
         {loading && (
