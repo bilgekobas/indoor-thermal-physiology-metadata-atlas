@@ -1,0 +1,150 @@
+{
+  "created": "2026-11-13",
+  "source": "public/data/corpus_main_dataset.csv",
+  "cleaned": "public/data/corpus_main_dataset_cleaned_2026-11-13.csv",
+  "source_rows": 2200,
+  "unique_experiments": 295,
+  "columns_original": 206,
+  "columns_cleaned": 210,
+  "changes": {
+    "country": 42,
+    "city": 20,
+    "tcv": 75,
+    "whitespace": 37,
+    "precision": {
+      "city": 1911,
+      "region": 93,
+      "institution": 33,
+      "multiple": 24,
+      "unknown": 139
+    }
+  },
+  "examples": [
+    {
+      "field": "country",
+      "old": "Republic of Korea",
+      "new": "South Korea"
+    },
+    {
+      "field": "city",
+      "old": "Qiqihaer",
+      "new": "Qiqihar"
+    },
+    {
+      "field": "city",
+      "old": "Qiqihaer",
+      "new": "Qiqihar"
+    },
+    {
+      "field": "city",
+      "old": "Qiqihaer",
+      "new": "Qiqihar"
+    },
+    {
+      "field": "city",
+      "old": "Qiqihaer",
+      "new": "Qiqihar"
+    },
+    {
+      "field": "city",
+      "old": "Qiqihaer",
+      "new": "Qiqihar"
+    },
+    {
+      "field": "city",
+      "old": "Qiqihaer",
+      "new": "Qiqihar"
+    },
+    {
+      "field": "city",
+      "old": "Qiqihaer",
+      "new": "Qiqihar"
+    },
+    {
+      "field": "country",
+      "old": "Republic of Korea",
+      "new": "South Korea"
+    },
+    {
+      "field": "country",
+      "old": "Republic of Korea",
+      "new": "South Korea"
+    },
+    {
+      "field": "city",
+      "old": "Paraiba",
+      "new": "Paraíba"
+    },
+    {
+      "field": "city",
+      "old": "Paraiba",
+      "new": "Paraíba"
+    },
+    {
+      "field": "country",
+      "old": "Republic of Korea",
+      "new": "South Korea"
+    },
+    {
+      "field": "country",
+      "old": "Republic of Korea",
+      "new": "South Korea"
+    },
+    {
+      "field": "country",
+      "old": "Republic of Korea",
+      "new": "South Korea"
+    },
+    {
+      "field": "country",
+      "old": "Republic of Korea",
+      "new": "South Korea"
+    }
+  ],
+  "country_aliases": {
+    "Republic of Korea": "South Korea",
+    "Great Britain": "UK"
+  },
+  "city_aliases": {
+    "Naogoya": "Nagoya",
+    "Qiqihaer": "Qiqihar",
+    "Paraiba": "Paraíba",
+    "Joao Pessoa": "João Pessoa",
+    "Piaui": "Piauí"
+  },
+  "precision_rules": {
+    "region": [
+      "California",
+      "Hunan",
+      "Paraíba",
+      "Kanagawa",
+      "Washington",
+      "Virginia",
+      "Shaanxi",
+      "Aichi",
+      "Anhui",
+      "Guangdong",
+      "Jiangsu",
+      "North Dakota",
+      "Shandong Province"
+    ],
+    "institution": [
+      "Meijo",
+      "Tsinghua"
+    ],
+    "multiple": "comma-separated location values remain multi-location, not one city",
+    "unknown": "NR preserved"
+  },
+  "thermal_comfort": {
+    "usable": 159,
+    "distinct": 82,
+    "singleton": 58,
+    "unique_share_pct": 36.48
+  },
+  "restrictions": [
+    "Do not equate province/state labels with actual city of experiment",
+    "All original country/city/TCV values retained in audit columns",
+    "Cleaned TCV comparisons only normalize whitespace, not underlying scale coding",
+    "This branch is separate from main"
+  ]
+}
