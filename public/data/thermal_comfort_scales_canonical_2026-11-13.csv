@@ -1,0 +1,83 @@
+Canonical scale-and-label definition,N experiments
+"points=6; range=(-2, -1, -0.01, +0.01, +1, +2); scale=(""very uncomfortable"", ""uncomfortable"", ""just uncomfortable"", ""just comfortable"", ""comfortable"", ""very comfortable"")",22
+"points=7; range=(-3, -2, -1, 0, +1, +2, +3); scale=(""very uncomfortable"", ""uncomfortable"", ""slightly uncomfortable"", ""neutral"", ""slightly comfortable"", ""comfortable"", ""very comfortable"")",17
+"points=4; range=(+1, +2, +3, +4); scale=(""comfortable"", ""slightly uncomfortable"", ""uncomfortable"", ""very uncomfortable"")",6
+"points=4; range=(-3, -2, -1, 0); scale=(""very uncomfortable"", ""uncomfortable"", ""slightly uncomfortable"", ""comfortable"")",5
+"points=5; range=(-2, -1, 0, +1, +2); scale=(""very uncomfortable"", ""uncomfortable"", ""neutral"", ""comfortable"", ""very comfortable"")",5
+"points=5; range=(0, +1, +2, +3, +4); scale=(""comfortable"", ""slightly uncomfortable"", ""uncomfortable"", ""very uncomfortable"", ""extremely uncomfortable"")",5
+"points=4; range=(0, +1, +2, +3); scale=(""comfortable"", ""slightly uncomfortable"", ""uncomfortable"", ""very uncomfortable"")",4
+"points=4; scale=(""very uncomfortable"", ""uncomfortable"", ""slightly uncomfortable"", ""comfortable"")",4
+"points=6; range=(-2, -1, -0, +0, +1, +2); scale=(""very uncomfortable"", ""uncomfortable"", ""just uncomfortable"", ""just comfortable"", ""comfortable"", ""very comfortable"")",3
+"points=10; range=(-4, -3, -2, -1, +0.01, +1, +2, +3, +4); scale=(""very uncomfortable"", ""NR"", ""uncomfortable"", ""NR"", ""just comfortable"", ""NR"", ""comfortable"", ""NR"", ""very comfortable"")",2
+"points=4; range=(-3, -2, -1, 0); scale=(""very uncomfortable"", ""uncomfortable"", ""just uncomfortable"", ""comfortable"")",2
+"points=4; range=(-3, -2); scale=(""very uncomfortable"", ""uncomfortable"")",2
+"points=5; range=(-2, -1, 0, +1, +2); scale=(""high cold discomfort"", ""cold discomfort"", ""comfortable"", ""warm discomfort"", ""high warm discomfort"")",2
+"points=5; range=(+1, +2, +3, +4, +5); scale=(""very uncomfortable"", ""uncomfortable"", ""slightly uncomfortable"", ""comfortable"", ""very comfortable"")",2
+"points=5; range=(0, +1, +2, +3, +4); scale=(""comfortable, ""slightly uncomfortable"", ""uncomfortable, ""very uncomfortable"", ""limited tolerance"")",2
+"points=5; range=(0, +1, +2, +3, +4); scale=(""comfortable"", ""slightly uncomfortable"", ""uncomfortable"", ""very uncomfortable"", ""limited tolerance"")",2
+"points=5; range=(0, +1, +2, +3, +4); scale=(""comfortable"", ""slightly uncomfortable"", ""uncomfortable"", ""very uncomfortable"", ""unbearable"")",2
+"points=6; range=(-2, -1, -0.1, +0.1, +1, +2); scale=(""very comfortable"", ""comfortable"", ""slightly comfortable"", ""slightly uncomfortable"", ""uncomfortable"", ""very uncomfortable"")",2
+"points=6; range=(-2, -1, -0.1, +0.1, +1, +2); scale=(""very uncomfortable"", ""uncomfortable"", ""slightly uncomfortable"", ""slightly comfortable"", ""comfortable"", ""very comfortable"")",2
+"points=6; range=(-3, -2, -1, +1, +2, +3); scale=(""very uncomfortable"", ""uncomfortable"", ""slightly uncomfortable"", ""slightly comfortable"", ""comfortable"", ""very comfortable"")",2
+"points=6; scale=(""very uncomfortable"", ""uncomfortable"", ""just uncomfortable"", ""just comfortable"", ""comfortable"", ""very comfortable"")",2
+"points=7; range=(-3, -2, -1, 0, +1, +2, +3); scale=(""very uncomfortable"", ""uncomfortable"", ""just uncomfortable"", ""unclear"", ""just comfortable"", ""comfortable"", ""very comfortable"")",2
+"points=7; scale=(""much too warm"", ""uncomfortably warm"", ""comfortably warm"", ""comfortable"", ""comfortably cool"", ""uncomfortably cool"", ""much too cool"")",2
+"points=VAS; range=(-50, +50); scale=(""very uncomfortable"", ""very comfortable"")",2
+"points=3; range=(-1, 0, +1); scale=(""cool discomfort"", ""comfort"", ""warm discomfort"")",1
+"points=4",1
+"points=4; range=(-2, -1, +1, +2); scale=(""very uncomfortable"", ""just uncomfortable"", ""just comfortable"", ""very comfortable"")",1
+"points=4; range=(-3, -2, -1, 0); scale=(""comfortable"", ""slightly uncomfortable"", ""uncomfortable"", ""very uncomfortable"")",1
+"points=4; range=(-3, -2, -1, 0); scale=(""high discomfort"", ""discomfort"", ""slight discomfort"", ""comfort"")",1
+"points=4; range=(-3, -2, -1, 0); scale=(""severe discomfort"", ""discomfort"", ""slight discomfort"", ""comfort"")",1
+"points=4; range=(-3, -2, -1, 0); scale=(""very discomfort"", ""discomfort"", ""slight discomfort"", ""comfort"")",1
+"points=4; range=(-3, -2, -1, 0); scale=(""very discomfort"", ""discomfort"", ""slightly discomfort"", ""comfort"")",1
+"points=4; range=(0, +1, +2, +3); scale=(""comfort"", ""slightly discomfort"", ""discomfort"", ""very discomfort"")",1
+"points=4; range=(0, +1, +2, +3); scale=(""comfortable"", ""just comfortable"", ""just uncomfortable"", ""very uncomfortable"")",1
+"points=4; range=(0, +1, +2, +3); scale=(""comfortable"", ""slightly comfortable"", ""slightly uncomfortable"", ""uncomfortable"")",1
+"points=4; scale=(""comfortable"", ""just comfortable"", ""just not comfortable"", ""not comfortable"")",1
+"points=4; scale=(""comfortable"", ""just uncomfortable"", ""uncomfortable"", ""very uncomfortable"")",1
+"points=5",1
+"points=5; range=(-1, 0, +1, +2, +3); scale=(""comfortable"", ""slightly uncomfortable"", ""uncomfortable"", ""very uncomfortable"", ""unendurable"")",1
+"points=5; range=(-2, -1, 0, +1, +2)",1
+"points=5; range=(-2, -1, 0, +1, +2); scale=(""discomfort"", ""NR"", ""NR"", ""NR"", ""comfort"")",1
+"points=5; range=(-2, -1, 0, +1, +2); scale=(""very uncomfortable"", ""uncomfortable"", ""moderate"", ""comfortable"", ""very comfortable"")",1
+"points=5; range=(-3, -2, -1, 0, +1); scale=(""very uncomfortable"", ""uncomfortable"", ""slightly uncomfortable"", ""indifferent"", ""comfortable"")",1
+"points=5; range=(-4, -3, -2, -1, 0); scale=(""extreme uncomfortable"", ""very uncomfortable"", ""NR"", ""NR"", ""comfortable"")",1
+"points=5; range=(-4, -3, -2, -1, 0); scale=(""extremely uncomfortable"", ""very uncomfortable"", ""uncomfortable"", ""slightly uncomfortable"", ""comfortable"")",1
+"points=5; range=(-4, -3, -2, -1, 0); scale=(""intolerable"", ""very uncomfortable"", ""uncomfortable"", ""slightly uncomfortable"", ""comfortable"")",1
+"points=5; range=(+1, +2, +3, +4, +5); scale=(""comfortable"", ""slightly uncomfortable"", ""uncomfortable"", ""very uncomfortable"", ""intolerable"")",1
+"points=5; range=(+1, +2, +3, +4, +5); scale=(""comfortable"", ""slightly uncomfortable"", ""uncomfortable"", ""very uncomfortable"", ""unbearable"")",1
+"points=5; range=(0, +1, +2, +3, +4, +5); scale=(""comfortable"", ""lightly uncomfortable"", ""uncomfortable"", ""very uncomfortable"", ""unbearable"")",1
+"points=5; range=(0, +1, +2, +3, +4); scale=(""comfortable"", ""NR"", ""NR"", ""NR"", ""unbearable"")",1
+"points=5; range=(0, +1, +2, +3, +4); scale=(""comfortable"", ""slightly uncomfortable"", ""uncomfortable"", ""very uncomfortable"", ""intolerable"")",1
+"points=5; range=(0, +1, +2, +3, +4); scale=(""comfortable"", ""slightly uncomfortable"", ""uncomfortable"", ""very uncomfortable"", ""intolerably uncomfortable"")",1
+"points=5; scale=(""uncomfortable"", ""slightly uncomfortable"", ""neutral"", ""slightly comfortable"", ""comfortable"")",1
+"points=6; range=(-2, -1, 0, 0, +1, +2); scale=(""very uncomfortable"", ""uncomfortable"", ""just uncomfortable"", ""just comfortable"", ""comfortable"", ""very comfortable"")",1
+"points=6; range=(-3, -2, -1, +1, +2, +3); scale=(""very uncomfortable"", ""uncomfortable"", ""just uncomfortable"", ""just comfortable"", ""comfortable"", ""very comfortable"")",1
+"points=6; range=(+1, +2, +3, +4, +5, +6); scale=(""very uncomfortable"", ""uncomfortable"", ""just uncomfortable"", ""just comfortable"", ""comfortable"", ""very comfortable"")",1
+"points=6; range=(+1, +2, +3, +4, +5, +6); scale=(""very uncomfortable"", ""uncomfortable"", ""slightly uncomfortable"", ""slightly comfortable"", ""comfortable"", ""very comfortable"")",1
+"points=6; range=(0, +1, +2, +3, +4, +5); scale=(""very comfortable"", ""comfortable"", ""uncomfortable but acceptable"", ""uncomfortable and unacceptable"", ""very uncomfortable"", ""unacceptable"")",1
+"points=6; range=(0, +1, +2, +3, +4, +5); scale=(""very comfortable"", ""comfortable"", ""uncomfortable but acceptable"", ""uncomfortable and unsatisfied"", ""very uncomfortable"", ""unbearable"")",1
+"points=6; scale=(""very comfortable"", ""comfortable"", ""just comfortable"", ""just uncomfortable"", ""uncomfortable"", ""very uncomfortable"")",1
+"points=6; scale=(""very comfortable"", ""comfortable"", ""slightly comfortable"", ""slightly uncomfortable"", ""uncomfortable"", ""very uncomfortable"")",1
+"points=7; range=(-3, -2, -1, 0, +1, +2, +3)",1
+"points=7; range=(-3, -2, -1, 0, +1, +2, +3); scale=(""cold"", ""cool"", ""slight cool"", ""neutral"", ""slight warm"", ""warm"", ""hot"")",1
+"points=7; range=(-3, -2, -1, 0, +1, +2, +3); scale=(""much too cool"", ""too coold"", ""comfortably cool"", ""comfortable"", ""comfortably warm"", ""warm"", ""much too wamr"")",1
+"points=7; range=(-3, -2, -1, 0, +1, +2, +3); scale=(""very uncomfortable"", ""uncomfortable"", ""just uncomfortable"", ""neutral"", ""just comfortable"", ""comfortable"", ""very comfortable"")",1
+"points=7; range=(-3, -2, -1, 0, +1, +2, +3); scale=(""very uncomfortable"", ""uncomfortable"", ""slightly uncomfortable"", ""neither comfortable nor uncomfortable"", ""slightly comfortable"", ""comfortable"", ""very comfortable"")",1
+"points=7; range=(-3, -2, -1, 0, +1, +2, +3); scale=(""very uncomfortable"", ""uncomfortable"", ""slightly uncomfortable"", ""unclear"", ""slightly comfortable"", ""comfortable"", ""very comfortable"")",1
+"points=7; range=(-3, -2, +1, +2, +3); scale=(""high discomfort"", ""discomfort"", ""slight comfort"", ""comfort"", ""high comfort"")",1
+"points=7; range=(-3, +3)",1
+"points=7; range=(+1, +2, +3, +4, +5, +6, +7); scale=(""too cool"", ""NR"", ""NR"", ""NR"", ""NR"", ""NR"", ""much too warm)",1
+"points=7; range=(+1, +2, +3, +4, +5, +6, +7); scale=(""very comfortable"", ""moderately comfortable"", ""slightly comfortable"", ""neutral"", ""slightly uncomfortable"", ""moderately uncomfortable"", ""very uncomfortable"")",1
+"points=7; range=(3, 2, 1, 0, +1, +2, +3); scale=(""very unsatisfied"", ""unsatisfied"", ""slightly unsatisfied"", ""neutral"", ""slightly satisfied"", ""satisfied"", ""very satisfied"")",1
+"points=7; scale=""medium ASHRAE 7-point scale"" (Thermal Comfort Vote, TCV)- exact anchor labels not detailed in extracted text figure",1
+"points=7; scale=(""very comfortable"", ""moderately comfortable"", ""slightly comfortable"", ""neutral"", ""slightly uncomfortable"", ""moderately uncomfortable"", ""very uncomfortable"")",1
+"points=7; scale=(""very uncomfortable"", ""uncomfortable"", ""slightly uncomfortable"", ""neutral"", ""slightly comfortable"", ""comfortable"", ""very comfortable"")",1
+"points=8; range=(-3, -2, -1, -0.01, +0.01, +1, +2, +3); scale=(""very uncomfortable"", ""uncomfortable"", ""just uncomfortable"", ""-"", ""-"", ""just comfortable"", ""comfortable"", ""very comfortable"")",1
+"points=9; range=(-4, -3, -2, -1, 0, +1, +2, +3, +4); scale=(""very uncomfortable"", ""quite uncomfortable"", ""uncomfortable"", ""slightly uncomfortable"", ""neutral"", ""slightly comfortable"", ""comfortable"", ""quite comfortable"", ""very comfortable"")",1
+"points=continuous; range=(-3, +3); scale=(""clearly uncomfortable"", ""just uncomfortable"", ""just comfortable"", ""clearly comfortable"")",1
+"points=continuous; range=(-3, +3); scale=(""very uncomfortable"", ""very comfortable"")",1
+"points=continuous; range=(-50, +50); scale=(""extremely uncomfortable"", ""etremely comfortable"")",1
+"points=VAS; range=(-3, -2, -1, +1, +2, +3); scale=(""very comfortable"", ""comfortable"", ""just comfortable"", ""just uncomfortable"", ""uncomfortable"", ""very uncomfortable"")",1
+"points=VAS; range=(0, +100); scale=(""very uncomfortable"", ""very comfortable"")",1
