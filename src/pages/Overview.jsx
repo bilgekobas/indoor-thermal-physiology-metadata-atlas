@@ -52,10 +52,8 @@ export default function Overview({ data }) {
   const skinPct = ((skin.count / n) * 100).toFixed(0)
   const heartPct = ((heart.count / n) * 100).toFixed(0)
   const sevenPointTSV = fig15_tsv_scales.points_distribution.find((d) => d.points === 7)?.count || 0
-  const sevenPointTSVPct = ((sevenPointTSV / fig15_tsv_scales.n_total) * 100).toFixed(0)
-  const tcvScaleDefinitions = new Set(
-    fig16_tcv_scales.studies.map((s) => `${JSON.stringify(s.range || [])}|${JSON.stringify((s.labels || []).map((x) => String(x).toLowerCase()))}`)
-  ).size
+  const sevenPointTSVPct = ((sevenPointTSV / fig15_tsv_scales.n_discrete) * 100).toFixed(1)
+  const tcvScaleDefinitions = fig16_tcv_scales.n_distinct_scale_descriptions
   const standardHeights = new Set([0.1, 0.6, 1.1, 1.7])
   const heightRows = fig13_sensor_heights.data || []
   const standardHeightCount = heightRows.filter((r) => standardHeights.has(Number(Number(r.height).toFixed(2)))).length
@@ -140,7 +138,7 @@ export default function Overview({ data }) {
             share of skin-temperature studies using a thermocouple, {evoFirstPeriod} to {evoLastPeriod} — displaced by button-type loggers such as iButton or Pyrobutton, which rose from {buttonLoggerFirstPct}% to a total of {buttonLoggerLastPct}% over the same span.
           </FindingCard>
           <FindingCard value={sevenPointTSVPct} unit="%" accent="#5B5BFF" to="/questionnaires#scale-heterogeneity-sensation-vs-comfort">
-            of thermal sensation scales use the standard 7-point format, while thermal comfort scales show {tcvScaleDefinitions} distinct coded scale definitions in this corpus.
+            of discrete thermal-sensation scales use the standard seven-point format, while thermal-comfort scales show {tcvScaleDefinitions} normalised scale-and-label combinations in this corpus.
           </FindingCard>
           <FindingCard value={standardHeightPct} unit="%" accent="#0A0A0A" to="/environment#where-sensors-are-placed">
             of reported air-temperature, humidity, globe-temperature, and air-velocity sensor heights sit at one of the standard 0.1, 0.6, 1.1, or 1.7 m positions.

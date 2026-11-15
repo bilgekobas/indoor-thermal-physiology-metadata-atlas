@@ -114,7 +114,9 @@ export default function Questionnaires({ data }) {
       <div className="px-10 py-8 border-b border-line">
         <h2 className="text-[16px] font-semibold mb-1">Thermal Sensation Vote (TSV)</h2>
         <p className="text-[13px] text-inkmid mb-5 max-w-2xl">
-          {fig15_tsv_scales.n_total} studies' scales mapped onto a common axis (cold → hot). Most use the same
+          {fig15_tsv_scales.n_grid} fully specified discrete TSV scales mapped onto a common axis (cold → hot).
+          The point-count distribution includes all {fig15_tsv_scales.n_discrete} discrete TSV scales with a stated
+          number of points. Most use the same
           7 verbal anchors; higher point counts (e.g. 13, 25) are usually that same 7-point scale with extra
           unlabelled steps interpolated in between, shown here as fine ticks rather than a wider vocabulary.
         </p>
@@ -128,8 +130,8 @@ export default function Questionnaires({ data }) {
             />
           </div>
           <div>
-            <h3 className="text-[12.5px] font-medium mb-2 text-inkmid">Points per scale</h3>
-            <PointsBar distribution={fig15_tsv_scales.points_distribution} total={fig15_tsv_scales.n_total} color="#4855C8" />
+            <h3 className="text-[12.5px] font-medium mb-2 text-inkmid">Points per discrete scale</h3>
+            <PointsBar distribution={fig15_tsv_scales.points_distribution} total={fig15_tsv_scales.n_discrete} color="#4855C8" />
           </div>
         </div>
       </div>
@@ -137,7 +139,9 @@ export default function Questionnaires({ data }) {
       <div className="px-10 py-8">
         <h2 className="text-[16px] font-semibold mb-1">Thermal Comfort Vote (TCV)</h2>
         <p className="text-[13px] text-inkmid mb-5 max-w-2xl">
-          {fig16_tcv_scales.n_total} studies' scales mapped the same way (most comfortable → least). Far more
+          {fig16_tcv_scales.n_grid} fully specified discrete TCV scales mapped the same way (most comfortable → least).
+          The point-count distribution includes all {fig16_tcv_scales.n_discrete} discrete TCV scales with a stated
+          number of points. Far more
           heterogeneous than TSV: point counts, labels, and what the "center" represents all vary.
         </p>
         <div className="grid grid-cols-3 gap-8">
@@ -150,8 +154,8 @@ export default function Questionnaires({ data }) {
             />
           </div>
           <div>
-            <h3 className="text-[12.5px] font-medium mb-2 text-inkmid">Points per scale</h3>
-            <PointsBar distribution={fig16_tcv_scales.points_distribution} total={fig16_tcv_scales.n_total} color="#D94F6E" />
+            <h3 className="text-[12.5px] font-medium mb-2 text-inkmid">Points per discrete scale</h3>
+            <PointsBar distribution={fig16_tcv_scales.points_distribution} total={fig16_tcv_scales.n_discrete} color="#D94F6E" />
           </div>
         </div>
       </div>

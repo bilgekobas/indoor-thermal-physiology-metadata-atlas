@@ -1083,8 +1083,60 @@ for _, row in studies_u.iterrows():
         p2['id'] = row['id']
         tcv_parsed.append(p2)
 
-tsv_pts_dist = pd.Series([p['points'] for p in tsv_parsed]).value_counts().sort_index()
-tcv_pts_dist = pd.Series([p['points'] for p in tcv_parsed]).value_counts().sort_index()
+def scale_population_summary(col, kind, parsed):
+    """Return corpus-level counts separately from the drawable-scale subset.
+
+    A reported questionnaire is not necessarily drawable on the common axis:
+    some records specify only a point count, omit the numeric positions or
+    anchors, or (for TCV) cannot be assigned a comfort/discomfort meaning.
+    Keeping those populations separate prevents the figure's technical
+    inclusion rule from changing the scientific denominator.
+    """
+    reported = studies_u.loc[
+        studies_u[col].notna() & ~studies_u[col].astype(str).str.strip().isin(CODES),
+        ['id', col],
+    ].copy()
+    point_tokens = reported[col].astype(str).str.extract(
+        r'points\s*=\s*(\d+|VAS|continuous(?:\s+with\s+break)?)',
+        flags=re.I,
+        expand=False,
+    )
+    discrete = point_tokens.str.fullmatch(r'\d+', case=False, na=False)
+    point_counts = point_tokens[discrete].astype(int).value_counts().sort_index()
+
+    def normalise_definition(value):
+        # Whitespace and quoting differences are transcription artefacts, not
+        # different scale definitions. For TSV, seven records give the
+        # canonical seven verbal anchors but omit the conventional −3…+3
+        # numeric range; Table S12 treats this as the same scale definition.
+        definition = re.sub(r'\s+', '', str(value).lower())
+        if kind == 'tsv' and definition == (
+            'points=7;scale=("cold","cool","slightlycool","neutral",'
+            '"slightlywarm","warm","hot")'
+        ):
+            return (
+                'points=7;range=(-3,-2,-1,0,+1,+2,+3);'
+                'scale=("cold","cool","slightlycool","neutral",'
+                '"slightlywarm","warm","hot")'
+            )
+        return definition
+
+    grid_studies = [p for p in parsed if p['scale_type'] == 'discrete']
+    return {
+        'n_reported': int(len(reported)),
+        'n_discrete': int(discrete.sum()),
+        'n_continuous': int((~discrete).sum()),
+        'n_grid': int(len(grid_studies)),
+        'n_not_on_grid': int(len(reported) - len(grid_studies)),
+        'n_distinct_scale_descriptions': int(len({normalise_definition(v) for v in reported[col]})),
+        'points_distribution': [
+            {'points': int(k), 'count': int(v)} for k, v in point_counts.items()
+        ],
+        'grid_studies': grid_studies,
+    }
+
+tsv_summary = scale_population_summary('ques-thermal-sensation', 'tsv', tsv_parsed)
+tcv_summary = scale_population_summary('ques-thermal-comfort', 'tcv', tcv_parsed)
 
 def code_breakdown(col):
     return {
@@ -1095,23 +1147,23 @@ def code_breakdown(col):
 
 with open(OUT_DIR / 'fig15_tsv_scales.json', 'w') as f:
     json.dump({
-        'studies': tsv_parsed,
-        'points_distribution': [{'points': int(k), 'count': int(v)} for k, v in tsv_pts_dist.items()],
-        'n_total': len(tsv_parsed),
+        'studies': tsv_summary['grid_studies'],
+        **{k: v for k, v in tsv_summary.items() if k != 'grid_studies'},
         'code_breakdown': code_breakdown(studies_u['ques-thermal-sensation']),
     }, f, indent=2)
-tcv_scale_signatures = {(s['points'], tuple(s['range']), tuple(s['labels'])) for s in tcv_parsed}
 
 with open(OUT_DIR / 'fig16_tcv_scales.json', 'w') as f:
     json.dump({
-        'studies': tcv_parsed,
-        'points_distribution': [{'points': int(k), 'count': int(v)} for k, v in tcv_pts_dist.items()],
-        'n_total': len(tcv_parsed),
-        'n_distinct_scales': len(tcv_scale_signatures),
+        'studies': tcv_summary['grid_studies'],
+        **{k: v for k, v in tcv_summary.items() if k != 'grid_studies'},
         'code_breakdown': code_breakdown(studies_u['ques-thermal-comfort']),
         'vas_unplaceable': vas_unplaceable_log,
     }, f, indent=2)
-print(f'fig15/16: {len(tsv_parsed)} TSV scales, {len(tcv_parsed)} TCV scales parsed ({len(tcv_scale_signatures)} distinct structures)')
+print(
+    'fig15/16: '
+    f"{tsv_summary['n_reported']} TSV reported, {tsv_summary['n_grid']} on the discrete grid; "
+    f"{tcv_summary['n_reported']} TCV reported, {tcv_summary['n_grid']} on the discrete grid"
+)
 if vas_typo_log:
     print(f'  \u26a0 {len(vas_typo_log)} VAS/continuous entries recovered despite a source typo (worth cleaning up):')
     for t in vas_typo_log:
