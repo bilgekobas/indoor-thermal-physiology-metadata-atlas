@@ -93,7 +93,7 @@
     },
     {
       "pt_label": "10",
-      "count": 11
+      "count": 12
     },
     {
       "pt_label": "12",
@@ -101,7 +101,7 @@
     },
     {
       "pt_label": "14",
-      "count": 5
+      "count": 6
     },
     {
       "pt_label": "16",
@@ -117,27 +117,27 @@
     },
     {
       "pt_label": "4",
-      "count": 49
+      "count": 55
     },
     {
       "pt_label": "5",
-      "count": 4
+      "count": 6
     },
     {
       "pt_label": "6",
-      "count": 5
+      "count": 6
     },
     {
       "pt_label": "7",
-      "count": 24
+      "count": 26
     },
     {
       "pt_label": "8",
-      "count": 23
+      "count": 25
     },
     {
       "pt_label": "9",
-      "count": 11
+      "count": 12
     },
     {
       "pt_label": "NR/NC",
@@ -145,6 +145,10 @@
     }
   ],
   "formula_totals": [
+    {
+      "formula": "14-site ISO method (Parsons 2014)",
+      "count": 1
+    },
     {
       "formula": "Area weighted",
       "count": 4
@@ -194,10 +198,6 @@
       "count": 22
     },
     {
-      "formula": "ISO 9920: 2007",
-      "count": 2
-    },
-    {
       "formula": "Kurazumi et al. (1994)",
       "count": 1
     },
@@ -212,6 +212,10 @@
     {
       "formula": "Liu et al. (2011)",
       "count": 2
+    },
+    {
+      "formula": "Luo et al. (2016)",
+      "count": 1
     },
     {
       "formula": "Luo et al. (2020)",
@@ -232,6 +236,10 @@
     {
       "formula": "Newburgh & Spealman (1943)",
       "count": 6
+    },
+    {
+      "formula": "No formula (single-site)",
+      "count": 1
     },
     {
       "formula": "Ouyang (1985)",
@@ -261,23 +269,13 @@
   "point_formula_links": [
     {
       "pt_label": "1",
-      "formula": "Colin & Houdas (1982)",
-      "count": 1
-    },
-    {
-      "pt_label": "1",
-      "formula": "Hardy & DuBois (1938)",
-      "count": 1
-    },
-    {
-      "pt_label": "1",
-      "formula": "Wang & Lian (2019)",
+      "formula": "No formula (single-site)",
       "count": 1
     },
     {
       "pt_label": "10",
       "formula": "Colin & Houdas (1982)",
-      "count": 8
+      "count": 9
     },
     {
       "pt_label": "10",
@@ -287,6 +285,11 @@
     {
       "pt_label": "12",
       "formula": "Hardy & DuBois (1938)",
+      "count": 1
+    },
+    {
+      "pt_label": "14",
+      "formula": "14-site ISO method (Parsons 2014)",
       "count": 1
     },
     {
@@ -301,7 +304,7 @@
     },
     {
       "pt_label": "14",
-      "formula": "ISO 9920: 2007",
+      "formula": "Wang & Lian (2019)",
       "count": 1
     },
     {
@@ -316,43 +319,8 @@
     },
     {
       "pt_label": "3",
-      "formula": "Equally distributed",
-      "count": 1
-    },
-    {
-      "pt_label": "3",
       "formula": "Fanger (1982)",
       "count": 1
-    },
-    {
-      "pt_label": "3",
-      "formula": "Hardy & DuBois (1938)",
-      "count": 1
-    },
-    {
-      "pt_label": "3",
-      "formula": "ISO 9886: 2004",
-      "count": 1
-    },
-    {
-      "pt_label": "3",
-      "formula": "ISO 9920: 2007",
-      "count": 1
-    },
-    {
-      "pt_label": "3",
-      "formula": "Newburgh & Spealman (1943)",
-      "count": 6
-    },
-    {
-      "pt_label": "3",
-      "formula": "Ouyang (1985)",
-      "count": 2
-    },
-    {
-      "pt_label": "3",
-      "formula": "Ramanathan (1964)",
-      "count": 6
     },
     {
       "pt_label": "32",
@@ -381,8 +349,13 @@
     },
     {
       "pt_label": "4",
+      "formula": "Newburgh & Spealman (1943)",
+      "count": 5
+    },
+    {
+      "pt_label": "4",
       "formula": "Ramanathan (1964)",
-      "count": 31
+      "count": 37
     },
     {
       "pt_label": "4",
@@ -416,6 +389,16 @@
     },
     {
       "pt_label": "5",
+      "formula": "Newburgh & Spealman (1943)",
+      "count": 1
+    },
+    {
+      "pt_label": "5",
+      "formula": "Ouyang (1985)",
+      "count": 1
+    },
+    {
+      "pt_label": "5",
       "formula": "Wang (2013)",
       "count": 1
     },
@@ -435,9 +418,14 @@
       "count": 1
     },
     {
+      "pt_label": "6",
+      "formula": "Ouyang (1985)",
+      "count": 1
+    },
+    {
       "pt_label": "7",
       "formula": "Hardy & DuBois (1938)",
-      "count": 20
+      "count": 22
     },
     {
       "pt_label": "7",
@@ -466,6 +454,11 @@
     },
     {
       "pt_label": "8",
+      "formula": "Equally distributed",
+      "count": 1
+    },
+    {
+      "pt_label": "8",
       "formula": "Gagge (1977)",
       "count": 1
     },
@@ -482,7 +475,7 @@
     {
       "pt_label": "8",
       "formula": "ISO 9886: 2004",
-      "count": 13
+      "count": 14
     },
     {
       "pt_label": "8",
@@ -498,6 +491,11 @@
       "pt_label": "9",
       "formula": "Liu et al. (2011)",
       "count": 2
+    },
+    {
+      "pt_label": "9",
+      "formula": "Luo et al. (2016)",
+      "count": 1
     },
     {
       "pt_label": "9",
@@ -635,12 +633,12 @@
     {
       "period": "2019\u201320",
       "pt_label": "4",
-      "count": 13
+      "count": 14
     },
     {
       "period": "2019\u201320",
       "pt_label": "5",
-      "count": 1
+      "count": 2
     },
     {
       "period": "2019\u201320",
@@ -650,17 +648,17 @@
     {
       "period": "2019\u201320",
       "pt_label": "7",
-      "count": 4
+      "count": 5
     },
     {
       "period": "2019\u201320",
       "pt_label": "8",
-      "count": 1
+      "count": 2
     },
     {
       "period": "2019\u201320",
       "pt_label": "9",
-      "count": 2
+      "count": 3
     },
     {
       "period": "2021\u201322",
@@ -670,12 +668,12 @@
     {
       "period": "2021\u201322",
       "pt_label": "10",
-      "count": 5
+      "count": 6
     },
     {
       "period": "2021\u201322",
       "pt_label": "14",
-      "count": 1
+      "count": 2
     },
     {
       "period": "2021\u201322",
@@ -685,27 +683,27 @@
     {
       "period": "2021\u201322",
       "pt_label": "4",
-      "count": 9
+      "count": 14
     },
     {
       "period": "2021\u201322",
       "pt_label": "5",
-      "count": 1
+      "count": 2
     },
     {
       "period": "2021\u201322",
       "pt_label": "6",
-      "count": 1
+      "count": 2
     },
     {
       "period": "2021\u201322",
       "pt_label": "7",
-      "count": 8
+      "count": 9
     },
     {
       "period": "2021\u201322",
       "pt_label": "8",
-      "count": 4
+      "count": 5
     },
     {
       "period": "2021\u201322",
