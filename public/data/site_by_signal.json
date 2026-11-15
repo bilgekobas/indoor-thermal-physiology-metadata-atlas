@@ -32,12 +32,12 @@
       },
       {
         "site": "Finger",
-        "count": 10,
+        "count": 11,
         "non_anatomical": false,
         "sensingMethods": {
           "Digital sphygmomanometer": 1,
           "ECG": 1,
-          "OHR/PPG": 1,
+          "OHR/PPG": 2,
           "Pulse oximeter": 7
         }
       },
@@ -71,14 +71,6 @@
         "non_anatomical": true,
         "sensingMethods": {
           "ECG": 1
-        }
-      },
-      {
-        "site": "Pulse oximeter",
-        "count": 1,
-        "non_anatomical": false,
-        "sensingMethods": {
-          "OHR/PPG": 1
         }
       }
     ],
@@ -143,7 +135,7 @@
         {
           "site": "Finger",
           "period": "2023\u201324",
-          "count": 4
+          "count": 5
         },
         {
           "site": "Hand (surface not reported)",
@@ -153,11 +145,6 @@
         {
           "site": "Limbs",
           "period": "2021\u201322",
-          "count": 1
-        },
-        {
-          "site": "Pulse oximeter",
-          "period": "2023\u201324",
           "count": 1
         },
         {
@@ -319,14 +306,6 @@
         }
       },
       {
-        "site": "Temple",
-        "count": 3,
-        "non_anatomical": false,
-        "sensingMethods": {
-          "Hygrochron": 3
-        }
-      },
-      {
         "site": "Forearm",
         "count": 3,
         "non_anatomical": false,
@@ -334,6 +313,14 @@
           "Corneometer": 1,
           "Hygrochron": 2,
           "Tewameter": 1
+        }
+      },
+      {
+        "site": "Temple",
+        "count": 3,
+        "non_anatomical": false,
+        "sensingMethods": {
+          "Hygrochron": 3
         }
       },
       {
@@ -345,19 +332,19 @@
         }
       },
       {
-        "site": "Finger",
-        "count": 1,
-        "non_anatomical": false,
-        "sensingMethods": {
-          "Microscope": 1
-        }
-      },
-      {
         "site": "Urine",
         "count": 1,
         "non_anatomical": true,
         "sensingMethods": {
           "Osmometer": 1
+        }
+      },
+      {
+        "site": "Finger",
+        "count": 1,
+        "non_anatomical": false,
+        "sensingMethods": {
+          "Microscope": 1
         }
       },
       {

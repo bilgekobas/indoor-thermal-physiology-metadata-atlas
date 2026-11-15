@@ -400,13 +400,7 @@
       "signal": "Heart/Pulse rate",
       "sensing_method": "OHR/PPG",
       "site": "Finger",
-      "count": 1
-    },
-    {
-      "signal": "Heart/Pulse rate",
-      "sensing_method": "OHR/PPG",
-      "site": "Pulse oximeter",
-      "count": 1
+      "count": 2
     },
     {
       "signal": "Heart/Pulse rate",
@@ -663,7 +657,7 @@
     {
       "signal": "Oxygen saturation",
       "sensing_method": "OHR/PPG",
-      "site": "Pulse oximeter",
+      "site": "Finger",
       "count": 1
     },
     {
