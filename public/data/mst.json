@@ -146,10 +146,6 @@
   ],
   "formula_totals": [
     {
-      "formula": "14-site ISO method (Parsons 2014)",
-      "count": 1
-    },
-    {
       "formula": "Area weighted",
       "count": 4
     },
@@ -195,7 +191,7 @@
     },
     {
       "formula": "ISO 9886: 2004",
-      "count": 22
+      "count": 23
     },
     {
       "formula": "Kurazumi et al. (1994)",
@@ -289,18 +285,13 @@
     },
     {
       "pt_label": "14",
-      "formula": "14-site ISO method (Parsons 2014)",
-      "count": 1
-    },
-    {
-      "pt_label": "14",
       "formula": "Average",
       "count": 1
     },
     {
       "pt_label": "14",
       "formula": "ISO 9886: 2004",
-      "count": 3
+      "count": 4
     },
     {
       "pt_label": "14",
