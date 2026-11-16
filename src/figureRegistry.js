@@ -44,6 +44,7 @@ const FIGURE_ORDER = [
   'sensor-choice-by-signal',
   'site-prevalence-by-period',
   'hr-measurement-site',
+  'mst-calculation-prevalence',
   'mst-calc-pathway',
   'mst-points-by-period',
   'env-cooccurrence',                // ChapterEnvironment
