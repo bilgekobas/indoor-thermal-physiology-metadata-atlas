@@ -480,7 +480,7 @@ function MstCalculationPrevalence({ mst }) {
         <div className="grid grid-cols-6 gap-3 min-w-[650px]">
           {byPeriod.map(({ period, calculated, total, share }) => (
             <div key={period} className="min-w-0 text-center">
-              <div className="h-7 flex items-end justify-center font-data text-[15px] text-ink tabular-nums">
+              <div className="h-5 flex items-end justify-center font-data text-[11px] text-inkmid tabular-nums">
                 {share.toFixed(share === 100 ? 0 : 1)}%
               </div>
               <div
