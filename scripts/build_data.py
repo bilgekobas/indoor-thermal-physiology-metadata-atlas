@@ -365,6 +365,11 @@ def clean_formula_tokens(val):
         t = t.strip().replace('Hardy & Dubois', 'Hardy & DuBois').replace('ISO 9920:2007', 'ISO 9920: 2007')
         if t == 'Wang & Lian':
             t = 'Wang & Lian (2019)'
+        # These labels both denote an arithmetic (equal-weight) mean across
+        # the measured sites. Preserve the original source wording in the
+        # corpus, but aggregate them under one comparable MST treatment.
+        if t in {'Average', 'Equally distributed'}:
+            t = 'Unweighted average'
         if t:
             tokens.append(t)
     return tokens
