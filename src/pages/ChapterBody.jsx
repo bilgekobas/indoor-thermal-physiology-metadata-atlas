@@ -457,40 +457,51 @@ function SignalSensorBrandSankey({ overall, signalTotals, signalInstanceTotals, 
 
 function MstCalculationPrevalence({ mst }) {
   const byPeriod = mst.periods.map((period) => {
+    const allStatuses = mst.calc_rate_by_period.filter((r) => r.period === period)
     // NAN denotes experiments without skin-temperature measurement and is
     // therefore outside the population at risk of calculating MST.
-    const statuses = mst.calc_rate_by_period.filter(
-      (r) => r.period === period && r['physio-mst-calculated'] !== 'NAN'
-    )
-    const calculated = statuses
+    const skinTempStatuses = allStatuses.filter((r) => r['physio-mst-calculated'] !== 'NAN')
+    const calculated = skinTempStatuses
       .filter((r) => r['physio-mst-calculated'] === 'Y')
       .reduce((sum, r) => sum + r.count, 0)
-    const total = statuses.reduce((sum, r) => sum + r.count, 0)
-    return { period, calculated, total, share: total ? (calculated / total) * 100 : 0 }
+    const skinTempTotal = skinTempStatuses.reduce((sum, r) => sum + r.count, 0)
+    const allTotal = allStatuses.reduce((sum, r) => sum + r.count, 0)
+    return {
+      period,
+      calculated,
+      skinTempTotal,
+      allTotal,
+      calcAmongSkinTemp: skinTempTotal ? (calculated / skinTempTotal) * 100 : 0,
+      skinTempAmongAll: allTotal ? (skinTempTotal / allTotal) * 100 : 0,
+      calcAmongAll: allTotal ? (calculated / allTotal) * 100 : 0,
+    }
   })
 
   return (
     <div className="max-w-[760px]">
       <div className="flex flex-wrap items-center gap-x-4 gap-y-1 mb-4 font-data text-[10px] text-inkfaint">
-        <span>Each column = 100% of experiments measuring skin temperature in its period</span>
+        <span>Each column = 100% of experiments in its period</span>
+        <span>Top label: MST calculated / skin-temperature experiments</span>
         <span className="inline-flex items-center gap-1.5"><span className="w-2 h-2 rounded-sm bg-[#FB3640]" />MST calculated</span>
-        <span className="inline-flex items-center gap-1.5"><span className="w-2 h-2 rounded-sm bg-[#E8E4DD]" />MST not calculated or not reported</span>
+        <span className="inline-flex items-center gap-1.5"><span className="w-2 h-2 rounded-sm bg-[#B7B4F4]" />Skin temperature, no MST / NR</span>
+        <span className="inline-flex items-center gap-1.5"><span className="w-2 h-2 rounded-sm bg-[#F1EDE6]" />No skin temperature</span>
       </div>
       <div className="overflow-x-auto">
         <div className="grid grid-cols-6 gap-3 min-w-[650px]">
-          {byPeriod.map(({ period, calculated, total, share }) => (
+          {byPeriod.map(({ period, calculated, skinTempTotal, allTotal, calcAmongSkinTemp, skinTempAmongAll, calcAmongAll }) => (
             <div key={period} className="min-w-0 text-center">
               <div className="h-5 flex items-end justify-center font-data text-[11px] text-inkmid tabular-nums">
-                {share.toFixed(share === 100 ? 0 : 1)}%
+                {calcAmongSkinTemp.toFixed(calcAmongSkinTemp === 100 ? 0 : 1)}%
               </div>
               <div
-                className="relative h-32 mt-1 overflow-hidden rounded-sm border border-line bg-[#E8E4DD]"
-                title={`${period}: ${calculated} of ${total} skin-temperature experiments (${share.toFixed(1)}%) explicitly calculated MST`}
+                className="relative h-32 mt-1 overflow-hidden rounded-sm border border-line bg-[#F1EDE6]"
+                title={`${period}: skin temperature in ${skinTempTotal} of ${allTotal} experiments (${skinTempAmongAll.toFixed(1)}%); MST calculated in ${calculated} of ${skinTempTotal} skin-temperature experiments (${calcAmongSkinTemp.toFixed(1)}%)`}
               >
-                <div className="absolute inset-x-0 bottom-0 bg-[#FB3640]" style={{ height: `${share}%` }} />
+                <div className="absolute inset-x-0 bottom-0 bg-[#B7B4F4]" style={{ height: `${skinTempAmongAll}%` }} />
+                <div className="absolute inset-x-0 bottom-0 bg-[#FB3640]" style={{ height: `${calcAmongAll}%` }} />
               </div>
               <div className="mt-2 font-data text-[11px] text-inkmid">{period}</div>
-              <div className="font-data text-[10px] text-inkfaint tabular-nums">{calculated}/{total}</div>
+              <div className="font-data text-[10px] text-inkfaint tabular-nums">Tsk {skinTempTotal}/{allTotal} ({skinTempAmongAll.toFixed(0)}%)</div>
             </div>
           ))}
         </div>
@@ -917,9 +928,9 @@ export default function ChapterBody({ data }) {
 
       <ChapterSection
         title="Mean skin temperature"
-        intro={`${mst.n_mst_studies} studies explicitly calculate a weighted mean skin temperature. Among experiments measuring skin temperature, calculation was universal in 2013–14, then declined to approximately 53–64% in subsequent periods; the studies that calculate MST use a wide range of point configurations and weighting formulas.`}
+        intro={`Skin temperature was measured in 75–100% of experiments across periods. Among those experiments, ${mst.n_mst_studies} explicitly calculated a weighted mean skin temperature: universal in 2013–14, then approximately 53–64% in subsequent periods. The studies that calculate MST use a wide range of point configurations and weighting formulas.`}
       >
-        <FigureCard figNumber={figNum('mst-calculation-prevalence')} title="MST calculation among skin-temperature experiments" plotWidth={980} commentary="Each column represents experiments measuring skin temperature in a two-year period. Coral shows explicit MST calculation; the pale remainder combines explicit non-calculation and calculation status not reported. Experiments without skin-temperature measurement are excluded from the denominator. The rate fell after 2013–14 and then remained at approximately 53–64%.">
+        <FigureCard figNumber={figNum('mst-calculation-prevalence')} title="Skin-temperature measurement and MST calculation by period" plotWidth={980} commentary="Each column represents all experiments in a two-year period. Coral shows explicit MST calculation; lavender shows skin-temperature measurement without an explicit calculation; pale background shows experiments without skin-temperature measurement. The percentage above each bar is MST calculation among skin-temperature experiments; the label beneath gives skin-temperature coverage of all experiments in that period.">
           <MstCalculationPrevalence mst={mst} />
         </FigureCard>
 
