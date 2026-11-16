@@ -339,7 +339,10 @@ for exp_id, g in df.groupby('id', sort=False):
         'id': exp_id, 'period': period,
         'physio-mst-calculated': status,
         'physio-mst-points': _first_substantive(g['physio-mst-points']),
-        'physio-mst-formula': _first_substantive(g['physio-mst-formula']),
+        # NC in this field means a specified equation with an unidentified
+        # original formula; it must not be merged with NR (formula unreported).
+        'physio-mst-formula': _first_substantive(g['physio-mst-formula']) or
+            ('NC' if (g['physio-mst-formula'].astype(str).str.strip() == 'NC').any() else None),
     })
 studies_mst = pd.DataFrame(mst_rows)
 mst_rate = studies_mst.groupby(['period','physio-mst-calculated']).size().reset_index(name='count')
@@ -352,7 +355,7 @@ def parse_pts(val):
     return [int(t) for t in tokens if re.fullmatch(r'\d+', t)]
 
 def clean_formula_tokens(val):
-    if pd.isna(val) or str(val).strip() in CODES or str(val).strip() == '':
+    if pd.isna(val) or str(val).strip() in {'NR', 'MNR', 'NAN'} or str(val).strip() == '':
         return []
     tokens = []
     for t in str(val).split(','):
