@@ -915,11 +915,11 @@ export default function ChapterBody({ data }) {
         title="Mean skin temperature"
         intro={`${mst.n_mst_studies} studies explicitly calculate a weighted mean skin temperature. Calculation was universal in 2013–14, then fell and remained at approximately 40–50% of experiments from 2017 onward; the studies that calculate MST use a wide range of point configurations and weighting formulas.`}
       >
-        <FigureCard figNumber={figNum('mst-calc-pathway', 'a')} title="MST calculation prevalence by period" plotWidth={980} commentary="Each column represents all experiments in a two-year period. Coral shows experiments that explicitly calculated MST; the pale remainder contains all other experiments. The rate fell after 2013–14 and then remained near one half of the corpus, rather than declining continuously.">
+        <FigureCard figNumber={figNum('mst-calculation-prevalence')} title="MST calculation prevalence by period" plotWidth={980} commentary="Each column represents all experiments in a two-year period. Coral shows experiments that explicitly calculated MST; the pale remainder contains all other experiments. The rate fell after 2013–14 and then remained near one half of the corpus, rather than declining continuously.">
           <MstCalculationPrevalence mst={mst} />
         </FigureCard>
 
-        <FigureCard figNumber={figNum('mst-calc-pathway', 'b')} title="MST calculation pathway" plotWidth={980} commentary="The flow distinguishes experiments calculating mean skin temperature (MST) and, within that group, the documented number of measurement points and calculation formulas. Formula counts are experiment–formula instances rather than unique experiments, because individual experiments may compare more than one formula.">
+        <FigureCard figNumber={figNum('mst-calc-pathway')} title="MST calculation pathway" plotWidth={980} commentary="The flow distinguishes experiments calculating mean skin temperature (MST) and, within that group, the documented number of measurement points and calculation formulas. Formula counts are experiment–formula instances rather than unique experiments, because individual experiments may compare more than one formula.">
           <MstSankey mst={mst} totalExperiments={summary.n_experiments} />
         </FigureCard>
 
