@@ -19,10 +19,13 @@ export default function Mst({ data }) {
 
   const rateByPeriod = useMemo(() => {
     const map = {}
-    periods.forEach((p) => { map[p] = { Y: 0, N: 0, NAN: 0, total: 0 } })
+    periods.forEach((p) => { map[p] = { Y: 0, N: 0, NR: 0, total: 0 } })
     mst.calc_rate_by_period.forEach((r) => {
       if (!map[r.period]) return
-      map[r.period][r['physio-mst-calculated']] = r.count
+      const status = r['physio-mst-calculated']
+      // Exclude experiments that did not measure skin temperature (NAN).
+      if (status === 'NAN') return
+      map[r.period][status] = r.count
       map[r.period].total += r.count
     })
     return map
@@ -52,11 +55,11 @@ export default function Mst({ data }) {
 
       {/* MST calculation rate */}
       <div className="px-10 py-8 border-b border-line">
-        <h2 className="text-[16px] font-semibold mb-1">Calculation rate is declining</h2>
+        <h2 className="text-[16px] font-semibold mb-1">MST calculation among skin-temperature experiments</h2>
         <p className="text-[13px] text-inkmid mb-5 max-w-2xl">
-          Share of studies in each period that explicitly calculated mean skin temperature
+          Among studies measuring skin temperature, share that explicitly calculated mean skin temperature
           (<CodeChip code="Y" />) versus measured local sites without aggregating
-          (<CodeChip code="N" />) or did not report (<CodeChip code="NAN" />).
+          (<CodeChip code="N" />) or did not report calculation status (<CodeChip code="NR" />).
         </p>
         <div className="flex gap-3 items-end h-40 max-w-2xl">
           {periods.map((p) => {
@@ -67,7 +70,7 @@ export default function Mst({ data }) {
                 <div className="w-full flex flex-col-reverse h-32 rounded-sm overflow-hidden">
                   <div style={{ height: `${(r.Y / total) * 100}%`, background: '#D94F6E' }} title={`Y: ${r.Y}`} />
                   <div style={{ height: `${(r.N / total) * 100}%`, background: '#E2DED4' }} title={`N: ${r.N}`} />
-                  <div style={{ height: `${(r.NAN / total) * 100}%`, background: '#F1EDE6' }} title={`NAN: ${r.NAN}`} />
+                  <div style={{ height: `${(r.NR / total) * 100}%`, background: '#F1EDE6' }} title={`NR: ${r.NR}`} />
                 </div>
                 <div className="font-data text-[11px] text-inkmid mt-2">{p}</div>
                 <div className="font-data text-[10px] text-inkfaint">{Math.round((r.Y/total)*100)}%</div>
