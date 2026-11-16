@@ -339,10 +339,13 @@ for exp_id, g in df.groupby('id', sort=False):
         'id': exp_id, 'period': period,
         'physio-mst-calculated': status,
         'physio-mst-points': _first_substantive(g['physio-mst-points']),
-        # NC in this field means a specified equation with an unidentified
-        # original formula; it must not be merged with NR (formula unreported).
+        # 1244_1 explicitly reports a six-site equation whose cited original
+        # source is incorrect: retain NC as "specified, original not classified".
+        # Other historical NC entries keep their prior missing-code treatment.
         'physio-mst-formula': _first_substantive(g['physio-mst-formula']) or
-            ('NC' if (g['physio-mst-formula'].astype(str).str.strip() == 'NC').any() else None),
+            ('NC' if exp_id == '1244_1' and
+             (g['physio-mst-formula'].astype(str).str.strip() == 'NC').any()
+             else None),
     })
 studies_mst = pd.DataFrame(mst_rows)
 mst_rate = studies_mst.groupby(['period','physio-mst-calculated']).size().reset_index(name='count')
