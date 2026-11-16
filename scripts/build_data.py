@@ -409,7 +409,9 @@ points_totals = point_studies_df.groupby('pt_label').size().reset_index(name='co
 numeric_points = sorted(int(p) for p in point_studies_df['pt_label'].unique() if p != 'NR/NC')
 point_order = [str(p) for p in numeric_points] + (['NR/NC'] if 'NR/NC' in set(point_studies_df['pt_label']) else [])
 point_formula_links = pt_formula_df.groupby(['pt_label', 'formula']).size().reset_index(name='count')
-formula_totals = pt_formula_df.drop_duplicates(['id', 'formula']).groupby('formula').size().reset_index(name='count')
+# Count distinct experiment–point-count–formula combinations. An experiment may
+# use multiple site-count variants of the same named formula (e.g. Ouyang 5/9).
+formula_totals = pt_formula_df.groupby('formula').size().reset_index(name='count')
 
 # Points by period: one row per MST-calculating study (exclusive pt_label),
 # broken down by period, so we can chart how point-count choice has shifted
