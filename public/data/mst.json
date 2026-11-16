@@ -158,10 +158,6 @@
       "count": 6
     },
     {
-      "formula": "Choi (1997)",
-      "count": 1
-    },
-    {
       "formula": "Colin & Houdas (1982)",
       "count": 9
     },
@@ -175,6 +171,10 @@
     },
     {
       "formula": "Gagge (1977)",
+      "count": 1
+    },
+    {
+      "formula": "Gagge & Nishi (1977)",
       "count": 1
     },
     {
@@ -198,19 +198,11 @@
       "count": 1
     },
     {
-      "formula": "La Gennusa et al. (2005)",
-      "count": 1
-    },
-    {
       "formula": "Liu (2008)",
       "count": 1
     },
     {
-      "formula": "Liu et al. (2011)",
-      "count": 2
-    },
-    {
-      "formula": "Luo et al. (2020)",
+      "formula": "Liu et al. (2021)",
       "count": 1
     },
     {
@@ -222,8 +214,8 @@
       "count": 1
     },
     {
-      "formula": "NR",
-      "count": 12
+      "formula": "NC",
+      "count": 1
     },
     {
       "formula": "Newburgh & Spealman (1943)",
@@ -234,8 +226,12 @@
       "count": 1
     },
     {
+      "formula": "NR",
+      "count": 12
+    },
+    {
       "formula": "Ouyang (1985)",
-      "count": 9
+      "count": 11
     },
     {
       "formula": "Ramanathan (1964)",
@@ -246,11 +242,11 @@
       "count": 2
     },
     {
-      "formula": "Wang & Lian (2019)",
+      "formula": "Wang (2013)",
       "count": 1
     },
     {
-      "formula": "Wang (2013)",
+      "formula": "Wang & Lian (2019)",
       "count": 1
     },
     {
@@ -331,13 +327,13 @@
     },
     {
       "pt_label": "4",
-      "formula": "NR",
-      "count": 1
+      "formula": "Newburgh & Spealman (1943)",
+      "count": 5
     },
     {
       "pt_label": "4",
-      "formula": "Newburgh & Spealman (1943)",
-      "count": 5
+      "formula": "NR",
+      "count": 1
     },
     {
       "pt_label": "4",
@@ -361,7 +357,7 @@
     },
     {
       "pt_label": "5",
-      "formula": "Luo et al. (2020)",
+      "formula": "Liu et al. (2021)",
       "count": 1
     },
     {
@@ -371,12 +367,12 @@
     },
     {
       "pt_label": "5",
-      "formula": "NR",
+      "formula": "Newburgh & Spealman (1943)",
       "count": 1
     },
     {
       "pt_label": "5",
-      "formula": "Newburgh & Spealman (1943)",
+      "formula": "NR",
       "count": 1
     },
     {
@@ -396,12 +392,12 @@
     },
     {
       "pt_label": "6",
-      "formula": "La Gennusa et al. (2005)",
+      "formula": "Liu (2008)",
       "count": 1
     },
     {
       "pt_label": "6",
-      "formula": "Liu (2008)",
+      "formula": "NC",
       "count": 1
     },
     {
@@ -436,17 +432,17 @@
     },
     {
       "pt_label": "8",
-      "formula": "Choi (1997)",
-      "count": 1
-    },
-    {
-      "pt_label": "8",
       "formula": "Equally distributed",
       "count": 1
     },
     {
       "pt_label": "8",
       "formula": "Gagge (1977)",
+      "count": 1
+    },
+    {
+      "pt_label": "8",
+      "formula": "Gagge & Nishi (1977)",
       "count": 1
     },
     {
@@ -476,18 +472,13 @@
     },
     {
       "pt_label": "9",
-      "formula": "Liu et al. (2011)",
-      "count": 2
-    },
-    {
-      "pt_label": "9",
       "formula": "NR",
       "count": 1
     },
     {
       "pt_label": "9",
       "formula": "Ouyang (1985)",
-      "count": 6
+      "count": 8
     },
     {
       "pt_label": "9",
