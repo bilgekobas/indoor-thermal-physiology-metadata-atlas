@@ -455,6 +455,45 @@ function SignalSensorBrandSankey({ overall, signalTotals, signalInstanceTotals, 
 
 
 
+function MstCalculationPrevalence({ mst }) {
+  const byPeriod = mst.periods.map((period) => {
+    const statuses = mst.calc_rate_by_period.filter((r) => r.period === period)
+    const calculated = statuses
+      .filter((r) => r['physio-mst-calculated'] === 'Y')
+      .reduce((sum, r) => sum + r.count, 0)
+    const total = statuses.reduce((sum, r) => sum + r.count, 0)
+    return { period, calculated, total, share: total ? (calculated / total) * 100 : 0 }
+  })
+
+  return (
+    <div className="max-w-[760px]">
+      <div className="flex flex-wrap items-center gap-x-4 gap-y-1 mb-4 font-data text-[10px] text-inkfaint">
+        <span>Each column = 100% of experiments in its period</span>
+        <span className="inline-flex items-center gap-1.5"><span className="w-2 h-2 rounded-sm bg-[#FB3640]" />MST calculated</span>
+        <span className="inline-flex items-center gap-1.5"><span className="w-2 h-2 rounded-sm bg-[#E8E4DD]" />All other experiments</span>
+      </div>
+      <div className="overflow-x-auto">
+        <div className="grid grid-cols-6 gap-3 min-w-[650px]">
+          {byPeriod.map(({ period, calculated, total, share }) => (
+            <div key={period} className="min-w-0 text-center">
+              <div className="h-7 flex items-end justify-center font-data text-[15px] text-ink tabular-nums">
+                {share.toFixed(share === 100 ? 0 : 1)}%
+              </div>
+              <div
+                className="relative h-32 mt-1 overflow-hidden rounded-sm border border-line bg-[#E8E4DD]"
+                title={`${period}: ${calculated} of ${total} experiments (${share.toFixed(1)}%) explicitly calculated MST`}
+              >
+                <div className="absolute inset-x-0 bottom-0 bg-[#FB3640]" style={{ height: `${share}%` }} />
+              </div>
+              <div className="mt-2 font-data text-[11px] text-inkmid">{period}</div>
+              <div className="font-data text-[10px] text-inkfaint tabular-nums">{calculated}/{total}</div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  )
+}
 
 function MstSankey({ mst, totalExperiments }) {
   const { tip, showTip, moveTip, hideTip } = useTooltip()
@@ -874,9 +913,13 @@ export default function ChapterBody({ data }) {
 
       <ChapterSection
         title="Mean skin temperature"
-        intro={`${mst.n_mst_studies} studies explicitly calculate a weighted mean skin temperature. The calculation rate has declined over the decade even as formula choice has diversified beyond the classic Ramanathan formula.`}
+        intro={`${mst.n_mst_studies} studies explicitly calculate a weighted mean skin temperature. Calculation was universal in 2013–14, then fell and remained at approximately 40–50% of experiments from 2017 onward; the studies that calculate MST use a wide range of point configurations and weighting formulas.`}
       >
-        <FigureCard figNumber={figNum('mst-calc-pathway')} title="MST calculation pathway" plotWidth={980} commentary="The flow distinguishes experiments calculating mean skin temperature (MST) and, within that group, the documented number of measurement points and calculation formulas. Formula counts are experiment–formula instances rather than unique experiments, because individual experiments may compare more than one formula.">
+        <FigureCard figNumber={figNum('mst-calc-pathway', 'a')} title="MST calculation prevalence by period" plotWidth={980} commentary="Each column represents all experiments in a two-year period. Coral shows experiments that explicitly calculated MST; the pale remainder contains all other experiments. The rate fell after 2013–14 and then remained near one half of the corpus, rather than declining continuously.">
+          <MstCalculationPrevalence mst={mst} />
+        </FigureCard>
+
+        <FigureCard figNumber={figNum('mst-calc-pathway', 'b')} title="MST calculation pathway" plotWidth={980} commentary="The flow distinguishes experiments calculating mean skin temperature (MST) and, within that group, the documented number of measurement points and calculation formulas. Formula counts are experiment–formula instances rather than unique experiments, because individual experiments may compare more than one formula.">
           <MstSankey mst={mst} totalExperiments={summary.n_experiments} />
         </FigureCard>
 
