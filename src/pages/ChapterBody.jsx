@@ -7,6 +7,7 @@ import CooccurrenceMatrix from '../components/CooccurrenceMatrix.jsx'
 import BodySiteMap from '../components/BodySiteMap.jsx'
 import OverallByPeriod, { PeriodHeatmap } from '../components/OverallByPeriod.jsx'
 import { useTooltip, TooltipPortal } from '../components/Tooltip.jsx'
+import { CodeChip } from '../components/CodeChip.jsx'
 
 function SensorEvolutionToggle({ signals, evoData, periods }) {
   const [activeSignal, setActiveSignal] = useState(signals[0] || '')
@@ -481,6 +482,8 @@ function MstSankey({ mst, totalExperiments }) {
   // counted under each, so this can sum to more than yCount (see footnote).
   const formulaTotals = Object.fromEntries(mst.formula_totals.map((r) => [r.formula, r.count]))
   const formulas = Object.entries(formulaTotals).map(([name, total]) => ({ name, total })).sort((a, b) => b.total - a.total)
+  const formulaInstanceTotal = Object.values(formulaTotals).reduce((a, v) => a + v, 0) || 1
+  const formulaNrTotal = formulaTotals.NR || 0
 
   const pointFormulaLinks = mst.point_formula_links.map((r) => ({ point: String(r.pt_label), formula: r.formula, count: r.count }))
 
@@ -543,10 +546,14 @@ function MstSankey({ mst, totalExperiments }) {
     const pct = denom ? (n.total / denom) * 100 : 0
     const displayName = type === 'point' ? pointLabel(n.name) : n.name
     const label = `${displayName}, ${n.total} (${pct.toFixed(0)}%)`
+    const unit = type === 'formula' ? 'formula instances' : 'experiments'
+    const denominatorLabel = type === 'formula'
+      ? `${formulaInstanceTotal} formula instances, including NR`
+      : 'the parent experiment group'
     return (
       <g key={`${type}-${n.name}`} className="cursor-pointer" style={{ opacity: isOn ? 1 : 0.18 }}
         onClick={() => setSelected(selected?.type === type && selected.name === n.name ? null : { type, name: n.name })}
-        onMouseEnter={(e) => showTip(e, `${displayName}: ${n.total} studies${type !== 'status' ? ` (${pct.toFixed(1)}% of parent denominator)` : ''}. Click to isolate connected paths.`)} onMouseMove={moveTip} onMouseLeave={hideTip}>
+        onMouseEnter={(e) => showTip(e, `${displayName}: ${n.total} ${unit}${type !== 'status' ? ` (${pct.toFixed(1)}% of ${denominatorLabel})` : ''}. Click to isolate connected paths.`)} onMouseMove={moveTip} onMouseLeave={hideTip}>
         <rect x={n.x} y={n.y} width={14} height={n.h} rx={2} fill={color} />
         <text x={type === 'status' ? n.x - 8 : n.x + 20} y={n.y + n.h / 2 + 3.5} fontSize={10.5} fill="#0A0A0A" textAnchor={type === 'status' ? 'end' : 'start'}>{label}</text>
       </g>
@@ -559,7 +566,7 @@ function MstSankey({ mst, totalExperiments }) {
       <svg width={980} height={H + 24} className="font-data block overflow-visible">
         <text x={160} y={12} fontSize={10} fill="#8A8A8A" fontWeight="600" textAnchor="middle">MST STATUS</text>
         <text x={430} y={12} fontSize={10} fill="#8A8A8A" fontWeight="600">NUMBER OF POINTS</text>
-        <text x={710} y={12} fontSize={10} fill="#8A8A8A" fontWeight="600">FORMULA</text>
+        <text x={710} y={12} fontSize={10} fill="#8A8A8A" fontWeight="600">FORMULA USES (n = {formulaInstanceTotal})</text>
         {links.map((l, i) => (
           <path key={i} d={pathFor(l)} fill="none" stroke={l.color} strokeWidth={Math.max(1.2, (l.count / maxFlow) * 30)} opacity={connected(l) ? 0.24 : 0.035}
             onMouseEnter={(e) => showTip(e, `${l.kind === 'ypoint' ? 'MST measured Y → ' + pointLabel(l.point) : pointLabel(l.point) + ' points → ' + l.formula}: ${l.count} studies`)} onMouseMove={moveTip} onMouseLeave={hideTip} />
@@ -567,10 +574,10 @@ function MstSankey({ mst, totalExperiments }) {
         {node(yNode, 'status', '#0A0A0A', yCount + nonYCount)}
         {node(nonYNode, 'status', '#BBBBBB', yCount + nonYCount)}
         {mid.map((n) => node(n, 'point', '#0A0A0A', yCount))}
-        {right.map((n) => node(n, 'formula', '#0A0A0A', Object.values(formulaTotals).reduce((a, v) => a + v, 0) || 1))}
+        {right.map((n) => node(n, 'formula', '#0A0A0A', formulaInstanceTotal))}
       </svg>
-      <p className="font-data text-[10px] text-inkfaint mt-2">MST-specific denominator: {yCount} experiments calculating MST. Click any status, point-count, or formula node to isolate all connected paths.</p>
-      <p className="font-data text-[10px] text-inkfaint mt-1">Point-count and formula prevalence are non-exclusive: an experiment may contribute to several configurations. Each point-to-formula connection represents a documented pairing; the one-point single-site estimate is explicitly labelled as having no formula.</p>
+      <p className="font-data text-[10px] text-inkfaint mt-2">MST-specific denominator: {yCount} experiments calculated MST. Point-count nodes are experiment-level; formula nodes represent {formulaInstanceTotal} experiment–formula instances because an experiment may use or compare more than one formula.</p>
+      <p className="font-data text-[10px] text-inkfaint mt-1">Formula percentages use {formulaInstanceTotal} formula instances as their denominator, including {formulaNrTotal} entries coded <CodeChip code="NR" />. Each point-to-formula connection represents a documented pairing; the one-point single-site estimate is explicitly labelled as having no formula.</p>
       <TooltipPortal tip={tip} />
     </div>
   )
@@ -869,7 +876,7 @@ export default function ChapterBody({ data }) {
         title="Mean skin temperature"
         intro={`${mst.n_mst_studies} studies explicitly calculate a weighted mean skin temperature. The calculation rate has declined over the decade even as formula choice has diversified beyond the classic Ramanathan formula.`}
       >
-        <FigureCard figNumber={figNum('mst-calc-pathway')} title="MST calculation pathway" plotWidth={980} commentary="The flow distinguishes studies calculating mean skin temperature (MST) and, within that group, the documented number of measurement points and calculation formulas.">
+        <FigureCard figNumber={figNum('mst-calc-pathway')} title="MST calculation pathway" plotWidth={980} commentary="The flow distinguishes experiments calculating mean skin temperature (MST) and, within that group, the documented number of measurement points and calculation formulas. Formula counts are experiment–formula instances rather than unique experiments, because individual experiments may compare more than one formula.">
           <MstSankey mst={mst} totalExperiments={summary.n_experiments} />
         </FigureCard>
 
