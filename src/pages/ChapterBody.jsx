@@ -457,7 +457,11 @@ function SignalSensorBrandSankey({ overall, signalTotals, signalInstanceTotals, 
 
 function MstCalculationPrevalence({ mst }) {
   const byPeriod = mst.periods.map((period) => {
-    const statuses = mst.calc_rate_by_period.filter((r) => r.period === period)
+    // NAN denotes experiments without skin-temperature measurement and is
+    // therefore outside the population at risk of calculating MST.
+    const statuses = mst.calc_rate_by_period.filter(
+      (r) => r.period === period && r['physio-mst-calculated'] !== 'NAN'
+    )
     const calculated = statuses
       .filter((r) => r['physio-mst-calculated'] === 'Y')
       .reduce((sum, r) => sum + r.count, 0)
@@ -468,9 +472,9 @@ function MstCalculationPrevalence({ mst }) {
   return (
     <div className="max-w-[760px]">
       <div className="flex flex-wrap items-center gap-x-4 gap-y-1 mb-4 font-data text-[10px] text-inkfaint">
-        <span>Each column = 100% of experiments in its period</span>
+        <span>Each column = 100% of experiments measuring skin temperature in its period</span>
         <span className="inline-flex items-center gap-1.5"><span className="w-2 h-2 rounded-sm bg-[#FB3640]" />MST calculated</span>
-        <span className="inline-flex items-center gap-1.5"><span className="w-2 h-2 rounded-sm bg-[#E8E4DD]" />All other experiments</span>
+        <span className="inline-flex items-center gap-1.5"><span className="w-2 h-2 rounded-sm bg-[#E8E4DD]" />MST not calculated or not reported</span>
       </div>
       <div className="overflow-x-auto">
         <div className="grid grid-cols-6 gap-3 min-w-[650px]">
@@ -481,7 +485,7 @@ function MstCalculationPrevalence({ mst }) {
               </div>
               <div
                 className="relative h-32 mt-1 overflow-hidden rounded-sm border border-line bg-[#E8E4DD]"
-                title={`${period}: ${calculated} of ${total} experiments (${share.toFixed(1)}%) explicitly calculated MST`}
+                title={`${period}: ${calculated} of ${total} skin-temperature experiments (${share.toFixed(1)}%) explicitly calculated MST`}
               >
                 <div className="absolute inset-x-0 bottom-0 bg-[#FB3640]" style={{ height: `${share}%` }} />
               </div>
@@ -913,9 +917,9 @@ export default function ChapterBody({ data }) {
 
       <ChapterSection
         title="Mean skin temperature"
-        intro={`${mst.n_mst_studies} studies explicitly calculate a weighted mean skin temperature. Calculation was universal in 2013–14, then fell and remained at approximately 40–50% of experiments from 2017 onward; the studies that calculate MST use a wide range of point configurations and weighting formulas.`}
+        intro={`${mst.n_mst_studies} studies explicitly calculate a weighted mean skin temperature. Among experiments measuring skin temperature, calculation was universal in 2013–14, then declined to approximately 53–64% in subsequent periods; the studies that calculate MST use a wide range of point configurations and weighting formulas.`}
       >
-        <FigureCard figNumber={figNum('mst-calculation-prevalence')} title="MST calculation prevalence by period" plotWidth={980} commentary="Each column represents all experiments in a two-year period. Coral shows experiments that explicitly calculated MST; the pale remainder contains all other experiments. The rate fell after 2013–14 and then remained near one half of the corpus, rather than declining continuously.">
+        <FigureCard figNumber={figNum('mst-calculation-prevalence')} title="MST calculation among skin-temperature experiments" plotWidth={980} commentary="Each column represents experiments measuring skin temperature in a two-year period. Coral shows explicit MST calculation; the pale remainder combines explicit non-calculation and calculation status not reported. Experiments without skin-temperature measurement are excluded from the denominator. The rate fell after 2013–14 and then remained at approximately 53–64%.">
           <MstCalculationPrevalence mst={mst} />
         </FigureCard>
 
