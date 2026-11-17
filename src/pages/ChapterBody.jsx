@@ -491,20 +491,26 @@ function MstCalculationPrevalence({ mst }) {
           ]}
         />
       </div>
-      <div className="flex flex-wrap items-center gap-x-4 gap-y-1 mb-4 font-data text-[10px] text-inkfaint">
+      <div className="mb-4 font-data text-[10px] text-inkfaint">
         {view === 'allExperiments' ? (
           <>
-            <span>Each column = 100% of experiments in its period</span>
-            <span>Top label: MST calculated / skin-temperature experiments</span>
-            <span className="inline-flex items-center gap-1.5"><span className="w-2 h-2 rounded-sm bg-[#5B5BFF]" />MST calculated</span>
-            <span className="inline-flex items-center gap-1.5"><span className="w-2 h-2 rounded-sm bg-[#0A0A0A]" />Skin temperature, no MST / NR</span>
-            <span className="inline-flex items-center gap-1.5"><span className="w-2 h-2 rounded-sm bg-[#EFEFEF] border border-line" />No skin temperature</span>
+            <div className="flex flex-wrap gap-x-4 gap-y-1 mb-2">
+              <span>Each column = 100% of experiments in its period</span>
+              <span>Top label: MST calculated / skin-temperature experiments</span>
+            </div>
+            <div className="flex flex-wrap items-center gap-x-4 gap-y-1">
+              <span className="inline-flex items-center gap-1.5"><span className="w-2 h-2 rounded-sm bg-[#5B5BFF]" />MST calculated</span>
+              <span className="inline-flex items-center gap-1.5"><span className="w-2 h-2 rounded-sm bg-[#0A0A0A]" />Skin temperature, no MST / NR</span>
+              <span className="inline-flex items-center gap-1.5"><span className="w-2 h-2 rounded-sm bg-[#EFEFEF] border border-line" />No skin temperature</span>
+            </div>
           </>
         ) : (
           <>
-            <span>Each column = 100% of experiments measuring skin temperature in its period</span>
-            <span className="inline-flex items-center gap-1.5"><span className="w-2 h-2 rounded-sm bg-[#5B5BFF]" />MST calculated</span>
-            <span className="inline-flex items-center gap-1.5"><span className="w-2 h-2 rounded-sm bg-[#0A0A0A]" />No MST / NR</span>
+            <div className="mb-2">Each column = 100% of experiments measuring skin temperature in its period</div>
+            <div className="flex flex-wrap items-center gap-x-4 gap-y-1">
+              <span className="inline-flex items-center gap-1.5"><span className="w-2 h-2 rounded-sm bg-[#5B5BFF]" />MST calculated</span>
+              <span className="inline-flex items-center gap-1.5"><span className="w-2 h-2 rounded-sm bg-[#0A0A0A]" />No MST / NR</span>
+            </div>
           </>
         )}
       </div>
