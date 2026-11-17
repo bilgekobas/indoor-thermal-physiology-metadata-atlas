@@ -9,10 +9,18 @@ export function useCorpusData() {
   useEffect(() => {
     if (cache) return
     const base = import.meta.env.BASE_URL
-    fetch(`${base}data/bundle.json`)
-      .then((res) => {
-        if (!res.ok) throw new Error(`Failed to load corpus data (${res.status})`)
-        return res.json()
+    // The open-data artifact carries the resource-level metadata used by the
+    // context chapter, so it is loaded independently rather than reducing it
+    // to the compact copy embedded in bundle.json.
+    Promise.all([
+      fetch(`${base}data/bundle.json`),
+      fetch(`${base}data/open_data.json`),
+    ])
+      .then(async ([bundleResponse, openDataResponse]) => {
+        if (!bundleResponse.ok) throw new Error(`Failed to load corpus data (${bundleResponse.status})`)
+        if (!openDataResponse.ok) throw new Error(`Failed to load open-data records (${openDataResponse.status})`)
+        const [bundle, open_data] = await Promise.all([bundleResponse.json(), openDataResponse.json()])
+        return { ...bundle, open_data }
       })
       .then((json) => {
         cache = json
