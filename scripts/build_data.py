@@ -2040,6 +2040,30 @@ real_links = studies_u[~studies_u['data-link'].astype(str).isin(CODES) & studies
 # internal space (likely from a line-wrap when the data was originally
 # entered), which would otherwise render as a broken link on the site.
 real_links['data-link'] = real_links['data-link'].astype(str).str.replace(' ', '', regex=False)
+# One historic local-network URL was retained during corpus import although
+# the supplement's verified link is its persistent Dryad DOI.
+real_links.loc[real_links['id'] == '1269_1', 'data-link'] = 'https://doi.org/10.5061/dryad.1vhhmgr1x'
+
+def data_resource_type(link):
+    """Human-readable type for the six directly accessible resources."""
+    link = str(link).lower()
+    if 'datadryad.org' in link or 'dryad.' in link:
+        return 'Dryad data repository'
+    if 'figshare' in link or 'fgshare' in link:
+        return 'figshare data repository'
+    if 'mendeley.com' in link:
+        return 'Mendeley Data repository'
+    if 'github.com' in link:
+        return 'GitHub repository'
+    if 'onlinelibrary.wiley.com' in link:
+        return 'Publisher supplementary file'
+    return 'Accessible resource'
+
+data_resources = real_links[['id', 'id-title', 'pub-doi', 'data-link']].copy()
+data_resources = data_resources.rename(columns={
+    'id-title': 'title', 'pub-doi': 'article_link', 'data-link': 'link'
+})
+data_resources['resource_type'] = data_resources['link'].apply(data_resource_type)
 supp_links = studies_u[~studies_u['data-supp-link'].astype(str).isin(CODES) & studies_u['data-supp-link'].notna()]
 
 with open(OUT_DIR / 'open_data.json', 'w') as f:
@@ -2048,7 +2072,7 @@ with open(OUT_DIR / 'open_data.json', 'w') as f:
         'n_with_real_data_link': len(real_links),
         'n_with_supplementary_link': len(supp_links),
         'n_total': len(studies_u),
-        'studies_with_link': real_links[['id', 'data-link']].rename(columns={'data-link': 'link'}).to_dict('records'),
+        'studies_with_link': data_resources.to_dict('records'),
     }, f, indent=2)
 print(f'open_data.json: {len(real_links)} studies with a real open-data link of {len(studies_u)}')
 
