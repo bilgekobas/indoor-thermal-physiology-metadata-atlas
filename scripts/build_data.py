@@ -362,14 +362,20 @@ def clean_formula_tokens(val):
         return []
     tokens = []
     for t in str(val).split(','):
-        t = t.strip().replace('Hardy & Dubois', 'Hardy & DuBois').replace('ISO 9920:2007', 'ISO 9920: 2007')
-        if t == 'Wang & Lian':
-            t = 'Wang & Lian (2019)'
-        # These labels both denote an arithmetic (equal-weight) mean across
-        # the measured sites. Preserve the original source wording in the
-        # corpus, but aggregate them under one comparable MST treatment.
+        t = (t.strip()
+             .replace('Hardy & Dubois', 'Hardy & DuBois')
+             .replace('ISO 9920:2007', 'ISO 9920: 2007')
+             .replace('ISO 9886: 2004', 'ISO 9886:2004'))
+        # Compatibility with earlier corpus labels.  Table S9 uses the
+        # standardized forms below, which are also the published atlas labels.
+        if t in {'Wang & Lian', 'Wang & Lian (2019)'}:
+            t = 'Wang & Lian (2020)'
         if t in {'Average', 'Equally distributed'}:
-            t = 'Unweighted average'
+            t = 'Equally distributed (unweighted)'
+        if t == 'Teichner et al. (1958)':
+            t = 'Teichner (1958)'
+        if t == 'Wu et al (2020)':
+            t = 'Wu et al. (2020)'
         if t:
             tokens.append(t)
     return tokens
@@ -383,16 +389,17 @@ mst_only['formula_tokens'] = mst_only['physio-mst-formula'].apply(clean_formula_
 # using the same number of points; do not deduplicate before pairing.
 # Wang/Chang/Lian (2022), experiment 1170_1, additionally reports a
 # one-point estimate with no formula, followed by 7/10/14-point formulae.
-# Its 1,7,10,14 and three-formula lists therefore have an explicit offset.
+# Its one-point estimate is retained for point-count reporting but has no
+# formula-use record, consistent with Table S9.
 def _mst_pairs(row):
     pts = row['point_tokens']
     formulas = row['formula_tokens']
     if row['id'] == '1170_1':
         if pts != [1, 7, 10, 14] or formulas != [
-            'Hardy & DuBois (1938)', 'Colin & Houdas (1982)', 'Wang & Lian (2019)'
+            'Hardy & DuBois (1938)', 'Colin & Houdas (1982)', 'Wang & Lian (2020)'
         ]:
             raise ValueError('MST 1170_1 source values changed: recheck mapping')
-        return [(1, 'No formula (single-site)'), (7, formulas[0]),
+        return [(1, None), (7, formulas[0]),
                 (10, formulas[1]), (14, formulas[2])]
     if not pts:
         return [('NR/NC', f) for f in (formulas or ['NR'])]
@@ -412,7 +419,11 @@ for _, row in mst_only.iterrows():
     for p in set(p for p, _ in pairs):
         point_study_rows.append({'id': row['id'], 'period': row['period'], 'pt_label': str(p)})
     for p, formula in set(pairs):
-        pair_study_rows.append({'id': row['id'], 'pt_label': str(p), 'formula': formula})
+        if formula is not None:
+            pair_study_rows.append({
+                'id': row['id'], 'period': row['period'],
+                'pt_label': str(p), 'formula': formula,
+            })
 
 point_studies_df = pd.DataFrame(point_study_rows)
 pt_formula_df = pd.DataFrame(pair_study_rows)
@@ -423,6 +434,22 @@ point_formula_links = pt_formula_df.groupby(['pt_label', 'formula']).size().rese
 # Count distinct experiment–point-count–formula combinations. An experiment may
 # use multiple site-count variants of the same named formula (e.g. Ouyang 5/9).
 formula_totals = pt_formula_df.groupby('formula').size().reset_index(name='count')
+
+# The compact period chart separates the six most frequent named formulae,
+# preserves unreported formulations, and groups the remaining named methods.
+FORMULA_ORDER = [
+    'Ramanathan (1964)', 'Hardy & DuBois (1938)', 'ISO 9886:2004',
+    'Colin & Houdas (1982)', 'Ouyang (1985)', 'McIntyre (1980)',
+    'Other/Multiple', 'NR',
+]
+formula_period = pt_formula_df.copy()
+formula_period['formula_grp'] = formula_period['formula'].where(
+    formula_period['formula'].isin(FORMULA_ORDER[:6]),
+    formula_period['formula'].map(lambda x: 'NR' if x == 'NR' else 'Other/Multiple'),
+)
+formula_by_period = (
+    formula_period.groupby(['period', 'formula_grp']).size().reset_index(name='count')
+)
 
 # Points by period: one row per MST-calculating study (exclusive pt_label),
 # broken down by period, so we can chart how point-count choice has shifted
@@ -435,6 +462,8 @@ with open(OUT_DIR / 'mst.json', 'w') as f:
         'calc_rate_by_period': mst_rate.to_dict('records'),
         'points_totals': points_totals.to_dict('records'),
         'formula_totals': formula_totals.to_dict('records'),
+        'formula_by_period': formula_by_period.to_dict('records'),
+        'formula_order': FORMULA_ORDER,
         'point_formula_links': point_formula_links.to_dict('records'),
         'point_order': point_order,
         'points_by_period': points_by_period.to_dict('records'),
