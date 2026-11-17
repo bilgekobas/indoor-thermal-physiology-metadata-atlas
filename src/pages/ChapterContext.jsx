@@ -29,6 +29,43 @@ function GeographyToggle({ cityData, countryData }) {
   return <WorldMapExplorer cityData={cityData} countryData={countryData} />
 }
 
+function AccessibleDataResources({ resources }) {
+  if (!resources?.length) return null
+  return (
+    <details open className="max-w-[760px] mt-4 group">
+      <summary className="cursor-pointer select-none font-data text-[11px] text-inkmid hover:text-coreaccent marker:text-coreaccent">
+        Accessible resources ({resources.length})
+      </summary>
+      <p className="mt-2 mb-2 text-[11px] text-inkfaint leading-relaxed">
+        Four archival data repositories, one GitHub repository, and one publisher-hosted supplementary file.
+      </p>
+      <ol className="border-t border-line">
+        {resources.map((resource) => (
+          <li key={resource.id} className="flex flex-wrap items-baseline gap-x-2 gap-y-1 border-b border-line py-2 text-[11px] leading-snug">
+            <span className="font-data text-inkfaint shrink-0">{resource.id}</span>
+            <a
+              href={resource.article_link}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-ink hover:text-coreaccent hover:underline min-w-[220px] flex-1"
+            >
+              {resource.title}
+            </a>
+            <a
+              href={resource.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-data text-coreaccent hover:underline shrink-0"
+            >
+              {resource.resource_type} ↗
+            </a>
+          </li>
+        ))}
+      </ol>
+    </details>
+  )
+}
+
 
 function TimeOfDayChart({ sessions }) {
   const { tip, showTip, moveTip, hideTip } = useTooltip()
@@ -709,7 +746,7 @@ export default function ChapterContext({ data }) {
 
       <ChapterSection
         title="Open data, in practice"
-        intro={`A data-availability statement being present is not the same as data actually being shared. Of ${open_data.n_total} studies, only ${open_data.n_with_real_data_link} link to a real repository.`}
+        intro={`A data-availability statement is not equivalent to usable data access. Of ${open_data.n_total} studies, only ${open_data.n_with_real_data_link} provided an accessible resource: four archival data repositories, one GitHub repository, and one publisher-hosted supplementary file.`}
       >
         <FigureCard figNumber={figNum('data-availability')} title="Data availability statement, as reported" plotWidth={620}>
           <PeriodHeatmap
@@ -722,6 +759,7 @@ export default function ChapterContext({ data }) {
             cellWidth={78}
           />
         </FigureCard>
+        <AccessibleDataResources resources={open_data.studies_with_link} />
       </ChapterSection>
 
       <ChapterSection
