@@ -27,27 +27,45 @@
   "studies_with_link": [
     {
       "id": "1083_1",
-      "link": "https://datadryad.org/dataset/doi:10.15146/R3S68S"
+      "title": "Personal thermal comfort models with wearable sensors",
+      "article_link": "https://doi.org/10.1016/j.buildenv.2019.106281",
+      "link": "https://datadryad.org/dataset/doi:10.15146/R3S68S",
+      "resource_type": "Dryad data repository"
     },
     {
       "id": "1160_1",
-      "link": "https://onlinelibrary.wiley.com/action/downloadSupplement?doi=10.1111%2Fina.12916&file=ina12916-sup-0001-Supinfo.docx"
+      "title": "Cognitive performance was reduced by higher air temperature even when thermal comfort was maintained over the 24-28\u00b0C range",
+      "article_link": "https://doi.org/10.1111/ina.12916",
+      "link": "https://onlinelibrary.wiley.com/action/downloadSupplement?doi=10.1111%2Fina.12916&file=ina12916-sup-0001-Supinfo.docx",
+      "resource_type": "Publisher supplementary file"
     },
     {
       "id": "1188_1",
-      "link": "https://github.com/FedericoTartarini/dorn-longitudinal-tc-study"
+      "title": "Personal comfort models based on a 6-month experiment using environmental parameters and data from wearables",
+      "article_link": "https://doi.org/10.1111/ina.13160",
+      "link": "https://github.com/FedericoTartarini/dorn-longitudinal-tc-study",
+      "resource_type": "GitHub repository"
     },
     {
       "id": "1212_1",
-      "link": "https://doi.org/10.6084/m9.fgshare.21878520.v1"
+      "title": "Effect of time-of-day on human dynamic thermal perception",
+      "article_link": "https://doi.org/10.1038/s41598-023-29615-8",
+      "link": "https://doi.org/10.6084/m9.fgshare.21878520.v1",
+      "resource_type": "figshare data repository"
     },
     {
       "id": "1243_1",
-      "link": "https://data.mendeley.com/datasets/nx8kd33dng/4"
+      "title": "Comparative feasibility study of physiological signals from wristband-type wearable sensors to assess occupants' thermal comfort",
+      "article_link": "https://doi.org/10.1016/j.enbuild.2024.114032",
+      "link": "https://data.mendeley.com/datasets/nx8kd33dng/4",
+      "resource_type": "Mendeley Data repository"
     },
     {
       "id": "1269_1",
-      "link": "http://10.0.19.197/dryad.1vhhmgr1x"
+      "title": "The effect of indoor temperature on work performance of fifty-eight people in a simulated office environment",
+      "article_link": "https://doi.org/10.1016/j.buildenv.2024.111813",
+      "link": "https://doi.org/10.5061/dryad.1vhhmgr1x",
+      "resource_type": "Dryad data repository"
     }
   ]
 }
