@@ -665,7 +665,7 @@ function MstSankey({ mst, totalExperiments }) {
         {right.map((n) => node(n, 'formula', '#0A0A0A', formulaInstanceTotal))}
       </svg>
       <p className="font-data text-[10px] text-inkfaint mt-2">MST-specific denominator: {yCount} experiments calculated MST. Point-count nodes are experiment-level; formula nodes represent {formulaInstanceTotal} experiment–formula instances because an experiment may use or compare more than one formula.</p>
-      <p className="font-data text-[10px] text-inkfaint mt-1">Formula percentages use {formulaInstanceTotal} formula instances as their denominator, including {formulaNrTotal} entries coded <CodeChip code="NR" />. Each point-to-formula connection represents a documented pairing. One single-site estimate is retained in the point-count column but excluded here because no MST formula was specified.</p>
+      <p className="font-data text-[10px] text-inkfaint mt-1">Formula percentages use {formulaInstanceTotal} formula instances as their denominator, including {formulaNrTotal} entries coded <CodeChip code="NR" />. Each point-to-formula connection represents a documented pairing. Single-site temperatures are not treated as MST calculations.</p>
       <TooltipPortal tip={tip} />
     </div>
   )

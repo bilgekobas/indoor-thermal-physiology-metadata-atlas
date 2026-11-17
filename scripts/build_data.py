@@ -387,20 +387,11 @@ mst_only['formula_tokens'] = mst_only['physio-mst-formula'].apply(clean_formula_
 # Important: point and formula lists are aligned by position where there
 # are equally many entries. Repeated counts represent distinct formulas
 # using the same number of points; do not deduplicate before pairing.
-# Wang/Chang/Lian (2022), experiment 1170_1, additionally reports a
-# one-point estimate with no formula, followed by 7/10/14-point formulae.
-# Its one-point estimate is retained for point-count reporting but has no
-# formula-use record, consistent with Table S9.
+# A single-site temperature is not an MST calculation and is therefore
+# excluded from the source MST-point field and this pathway.
 def _mst_pairs(row):
     pts = row['point_tokens']
     formulas = row['formula_tokens']
-    if row['id'] == '1170_1':
-        if pts != [1, 7, 10, 14] or formulas != [
-            'Hardy & DuBois (1938)', 'Colin & Houdas (1982)', 'Wang & Lian (2020)'
-        ]:
-            raise ValueError('MST 1170_1 source values changed: recheck mapping')
-        return [(1, None), (7, formulas[0]),
-                (10, formulas[1]), (14, formulas[2])]
     if not pts:
         return [('NR/NC', f) for f in (formulas or ['NR'])]
     if len(pts) == len(formulas):
