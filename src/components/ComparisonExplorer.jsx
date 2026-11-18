@@ -1,7 +1,8 @@
 import { useMemo, useState } from 'react'
+import { useSearchParams } from 'react-router-dom'
 import { ToggleGroup } from './OverallByPeriod.jsx'
 import { ExperimentList } from './CombinationViews.jsx'
-import { buildComparison, comparisonCell } from '../utils/comparisons.js'
+import { buildComparison, comparisonCell, comparisonDimensions, SIGNAL_COMBINATIONS } from '../utils/comparisons.js'
 
 function VariableMenu({ dimensions, value, other, label, onChange }) {
   const groups = [...new Set(dimensions.map(d => d.group))]
@@ -16,24 +17,33 @@ function VariableMenu({ dimensions, value, other, label, onChange }) {
 }
 
 export default function ComparisonExplorer({ explorer, studies }) {
-  const [rowKey, setRowKey] = useState('signals')
-  const [columnKey, setColumnKey] = useState('setting')
+  const [searchParams, setSearchParams] = useSearchParams()
+  const dimensions = useMemo(() => comparisonDimensions(explorer), [explorer])
+  const available = key => dimensions.some(d => d.key === key)
+  const rowKey = available(searchParams.get('rows')) ? searchParams.get('rows') : 'signals'
+  const requestedColumn = searchParams.get('columns')
+  const columnKey = available(requestedColumn) && requestedColumn !== rowKey ? requestedColumn : rowKey === 'setting' ? 'signals' : 'setting'
   const [mode, setMode] = useState('count')
   const [showAll, setShowAll] = useState(false)
   const [selected, setSelected] = useState(null)
   const matrix = useMemo(() => buildComparison(explorer, rowKey, columnKey), [explorer, rowKey, columnKey])
   const rows = showAll ? matrix.rows : matrix.rows.slice(0, 12)
   const columns = showAll ? matrix.columns : matrix.columns.slice(0, 8)
-  const change = setter => value => { setter(value); setSelected(null); setShowAll(false) }
-  const swap = () => { setRowKey(columnKey); setColumnKey(rowKey); setSelected(null); setShowAll(false) }
+  const change = (row, column) => {
+    setSearchParams({ rows: row, columns: column }, { replace: true })
+    setSelected(null)
+    setShowAll(false)
+  }
+  const swap = () => change(columnKey, rowKey)
+  const rowLabelWidth = rowKey === SIGNAL_COMBINATIONS ? 384 : 240
   const colour = fraction => {
     const t = Math.min(Math.max(fraction, 0), 1)
     return `rgb(${Math.round(239 - 148 * t)}, ${Math.round(239 - 148 * t)}, ${Math.round(239 + 16 * t)})`
   }
   return <div className="max-w-6xl">
     <div className="grid md:grid-cols-[1fr_1fr_auto] gap-5 items-end mb-6">
-      <VariableMenu dimensions={explorer.dimensions} value={rowKey} other={columnKey} label="First variable (rows)" onChange={change(setRowKey)} />
-      <VariableMenu dimensions={explorer.dimensions} value={columnKey} other={rowKey} label="Second variable (columns)" onChange={change(setColumnKey)} />
+      <VariableMenu dimensions={dimensions} value={rowKey} other={columnKey} label="First variable (rows)" onChange={value => change(value, columnKey)} />
+      <VariableMenu dimensions={dimensions} value={columnKey} other={rowKey} label="Second variable (columns)" onChange={value => change(rowKey, value)} />
       <button type="button" onClick={swap} className="border border-line rounded px-3 py-2.5 text-[12px] hover:bg-line/40">Swap axes</button>
     </div>
     <div className="mb-5 max-w-3xl space-y-1 text-[12px] text-inkmid leading-relaxed">
@@ -49,11 +59,12 @@ export default function ComparisonExplorer({ explorer, studies }) {
         ]} />
       </div>
     </div>
-    <p className="font-data text-[11px] text-inkfaint mb-4">{matrix.n} experiments · {matrix.rows.length} row categories · {matrix.columns.length} column categories</p>
+    <p className="font-data text-[11px] text-inkfaint mb-4">{matrix.exactSets ? `${matrix.n} experiments measuring ≥2 signals (of ${matrix.totalN} in the corpus)` : `${matrix.n} experiments`} · {matrix.rows.length} row categories · {matrix.columns.length} column categories</p>
+    {matrix.exactSets && <p className="text-[12px] text-inkmid mb-4 max-w-3xl">All category totals and percentages in this view use the experiments measuring at least two signals. Each complete set includes every coded physiological signal in the experiment.</p>}
     <div className="overflow-auto max-h-[680px] border-y border-line">
-      <table className="border-collapse text-[11px] w-full" aria-label={`${matrix.rowDimension.label} by ${matrix.columnDimension.label}`} style={{ minWidth: Math.max(760, 240 + columns.length * 82) }}>
+      <table className="border-collapse text-[11px] w-full" aria-label={`${matrix.rowDimension.label} by ${matrix.columnDimension.label}`} style={{ minWidth: Math.max(760, rowLabelWidth + columns.length * 82) }}>
         <thead className="sticky top-0 z-20 bg-paper"><tr>
-          <th scope="col" className="sticky left-0 z-30 bg-paper text-left w-60 pr-4 py-3 font-medium text-inkmid">{matrix.rowDimension.label}</th>
+          <th scope="col" className="sticky left-0 z-30 bg-paper text-left pr-4 py-3 font-medium text-inkmid" style={{ width: rowLabelWidth, minWidth: rowLabelWidth }}>{matrix.rowDimension.label}</th>
           {columns.map(column => <th scope="col" key={column.label} className="px-2 py-3 font-medium text-center text-inkmid min-w-[82px] max-w-40">
             {column.label}<span className="block font-data text-[10px] text-inkfaint font-normal mt-1">n={column.n}</span>
           </th>)}

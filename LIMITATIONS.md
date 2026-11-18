@@ -182,6 +182,13 @@ unique-experiment category totals across all records, including categories
 outside the displayed leading subset. Multi-valued categories overlap, so
 cells need not sum to the experiment count or 100%.
 
+Selecting "Complete signal combinations (≥2)" on either axis restricts the
+cohort to experiments with at least two distinct substantive signal labels.
+Each category is the entire coded signal set, including less common signals;
+extra methods, sites or repeated rows do not enlarge the set. These categories
+are mutually exclusive. All category totals and percentage denominators are
+recomputed within this eligible cohort, also after swapping axes.
+
 When both variables describe physiological measurements (signal, method,
 anatomical site or brand), a pair must occur on the same coded measurement
 row. Other pairs establish co-occurrence within the same experiment. Neither

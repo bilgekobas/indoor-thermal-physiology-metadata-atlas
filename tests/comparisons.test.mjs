@@ -1,7 +1,7 @@
 import test from 'node:test'
 import assert from 'node:assert/strict'
 import { readFileSync } from 'node:fs'
-import { buildComparison, comparisonCell } from '../src/utils/comparisons.js'
+import { buildComparison, comparisonCell, comparisonDimensions, SIGNAL_COMBINATIONS } from '../src/utils/comparisons.js'
 import { figNum } from '../src/figureRegistry.js'
 
 const dimensions = [
@@ -66,9 +66,43 @@ test('original figure numbers remain stable and the explorer has no numbered fig
   assert.throws(() => figNum('signal-by-setting'), /unknown figure key/)
 })
 
-test('every available pair covers the corpus without exceeding either category total', () => {
+test('complete sets exclude single-signal experiments and keep larger batteries separate', () => {
+  const single = { ...record, id: 'single', values: { ...record.values, signals: ['Skin'] } }
+  const missing = { ...single, id: 'missing', values: { ...single.values, signals: ['Skin', 'Not reported'] } }
+  const larger = { ...record, id: 'larger', values: { ...record.values, signals: ['Skin', 'Core', 'BP'], setting: ['Field'] } }
+  const source = { dimensions, records: [record, record, single, missing, larger] }
+  const matrix = buildComparison(source, SIGNAL_COMBINATIONS, 'setting')
+  assert.equal(matrix.n, 2)
+  assert.equal(matrix.totalN, 4)
+  assert.equal(matrix.rows.length, 2)
+  assert.equal(matrix.rows.reduce((sum, row) => sum + row.n, 0), 2)
+  assert.equal(matrix.columns.find(c => c.label === 'Lab').n, 1)
+  const pair = matrix.rows.find(row => row.label.split(' + ').length === 2)
+  assert.deepEqual(comparisonCell(matrix, pair.label, 'Lab').ids, ['a'])
+  assert.equal(comparisonCell(matrix, pair.label, 'Field').count, 0)
+  const reverse = buildComparison(source, 'setting', SIGNAL_COMBINATIONS)
+  assert.equal(reverse.n, 2)
+  assert.deepEqual(comparisonCell(reverse, 'Lab', pair.label), comparisonCell(matrix, pair.label, 'Lab'))
+})
+
+test('the corpus has 176 multi-signal experiments in 81 mutually exclusive complete sets', () => {
   const explorer = JSON.parse(readFileSync(new URL('../public/data/comparison_explorer.json', import.meta.url), 'utf8'))
-  for (const row of explorer.dimensions) for (const column of explorer.dimensions) {
+  const options = comparisonDimensions(explorer)
+  assert.equal(options[0].key, 'signals')
+  assert.equal(options[1].key, SIGNAL_COMBINATIONS)
+  const matrix = buildComparison(explorer, SIGNAL_COMBINATIONS, 'setting')
+  assert.equal(matrix.n, 176)
+  assert.equal(matrix.totalN, 295)
+  assert.equal(matrix.rows.length, 81)
+  assert.equal(matrix.rows.reduce((sum, row) => sum + row.n, 0), 176)
+  assert.equal(matrix.columns.reduce((sum, column) => sum + column.n, 0), 176)
+  assert.equal(matrix.rows.find(row => row.label === 'Skin temperature + Heart/Pulse rate').n, 19)
+})
+
+test('every available pair covers its eligible cohort without exceeding either category total', () => {
+  const explorer = JSON.parse(readFileSync(new URL('../public/data/comparison_explorer.json', import.meta.url), 'utf8'))
+  const options = comparisonDimensions(explorer)
+  for (const row of options) for (const column of options) {
     if (row.key === column.key) continue
     const matrix = buildComparison(explorer, row.key, column.key)
     const rowTotals = new Map(matrix.rows.map(r => [r.label, r.n]))
@@ -81,6 +115,8 @@ test('every available pair covers the corpus without exceeding either category t
       assert.ok(cell.count <= columnTotals.get(c))
       cell.ids.forEach(id => covered.add(id))
     }
-    assert.equal(covered.size, 295, `${row.label} × ${column.label}`)
+    const eligibleN = row.key === SIGNAL_COMBINATIONS || column.key === SIGNAL_COMBINATIONS ? 176 : 295
+    assert.equal(matrix.n, eligibleN)
+    assert.equal(covered.size, eligibleN, `${row.label} × ${column.label}`)
   }
 })
