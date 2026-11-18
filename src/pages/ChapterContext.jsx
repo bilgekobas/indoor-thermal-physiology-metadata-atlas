@@ -734,8 +734,8 @@ export default function ChapterContext({ data }) {
           />
         </FigureCard>
 
-        <FigureCard figNumber={figNum('domains-manipulated-together')} title="Which domains are manipulated together" plotWidth={620} commentary="Diagonal cells count experiments with each coded manipulation domain; off-diagonal cells count experiments with both domains. Joint coding does not establish a factorial design or simultaneous exposure.">
-          <CooccurrenceMatrix labels={domain_cooccurrence.labels} matrix={domain_cooccurrence.matrix} cellSize={38} corpusN={295} />
+        <FigureCard figNumber={figNum('domains-manipulated-together')} title="Which domains are manipulated together" size="wide" commentary="Diagonal cells count experiments with each coded manipulation domain; off-diagonal cells count experiments with both domains. Joint coding does not establish a factorial design or simultaneous exposure.">
+          <CooccurrenceMatrix labels={domain_cooccurrence.labels} matrix={domain_cooccurrence.matrix} corpusN={295} />
         </FigureCard>
       </ChapterSection>
 

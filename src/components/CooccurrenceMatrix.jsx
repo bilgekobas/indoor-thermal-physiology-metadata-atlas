@@ -2,9 +2,26 @@ import { useState } from 'react'
 import { useTooltip, TooltipPortal } from './Tooltip.jsx'
 import { ToggleGroup } from './OverallByPeriod.jsx'
 
-export default function CooccurrenceMatrix({ labels, matrix, cellSize = 46, colorScheme = 'blue', corpusN = null }) {
+const COLUMN_LABELS = {
+  'Skin temperature': 'Skin temp.',
+  'Core/Body temperature': 'Core/body temp.',
+  'Sweat indicators': 'Sweat',
+  'Oxygen saturation': 'O₂ sat.',
+  'Skin conductance': 'Skin conduct.',
+  'Metabolic rate/Gas exchange': 'Metabolic / gas',
+  'Relative humidity': 'Rel. hum.',
+  'CO2 concentration': 'CO₂',
+  'Illuminance levels': 'Light level',
+  'Outdoor temp.': 'Out. temp.',
+  'Outdoor rel. humidity': 'Out. RH',
+  'VOC levels': 'VOCs',
+  'Solar radiation': 'Solar rad.',
+}
+
+export default function CooccurrenceMatrix({ labels, matrix, cellWidth = null, cellHeight = 30, colorScheme = 'blue', corpusN = null }) {
   const { tip, showTip, moveTip, hideTip } = useTooltip()
   const [cellMode, setCellMode] = useState('count') // 'count' | 'pctRow' | 'pctCorpus'
+  const [totalMode, setTotalMode] = useState('count')
   if (!labels?.length || !matrix?.length) return <div className="text-[12px] text-inkfaint">No data available.</div>
 
   const rowTotal = (i) => matrix[i][i]
@@ -29,7 +46,11 @@ export default function CooccurrenceMatrix({ labels, matrix, cellSize = 46, colo
   // printed number changes.
   const offDiagValues = matrix.flatMap((row, i) => row.filter((_, j) => j !== i))
   const max = Math.max(...offDiagValues, 1)
-  const labelWidth = 158
+  const labelWidth = 200
+  const barWidth = 140
+  const totalWidth = barWidth + 38
+  const columnWidth = cellWidth || Math.min(68, Math.floor((980 - labelWidth - totalWidth - 12) / labels.length))
+  const maxTotal = Math.max(...matrix.map((row, i) => row[i]), 1)
   const diagonalFill = '#D9D9D9'
   const diagonalText = '#4A4A4A'
 
@@ -63,49 +84,48 @@ export default function CooccurrenceMatrix({ labels, matrix, cellSize = 46, colo
 
   return (
     <div>
-      <div className="flex items-center gap-2 mb-3">
-        <span className="text-[10.5px] text-inkfaint font-data">matrix cells:</span>
-        <ToggleGroup
-          value={cellMode}
-          onChange={setCellMode}
-          options={[
+      <div className="flex items-center gap-5 mb-3 flex-wrap">
+        <div className="flex items-center gap-2" role="group" aria-label="Co-occurrence cell values">
+          <span className="text-[10.5px] text-inkfaint font-data">matrix cells:</span>
+          <ToggleGroup
+            value={cellMode}
+            onChange={setCellMode}
+            options={[
+              { value: 'count', label: 'count' },
+              { value: 'pctRow', label: '% of row' },
+              { value: 'pctCorpus', label: '% of corpus' },
+            ]}
+          />
+        </div>
+        <div className="flex items-center gap-2" role="group" aria-label="Co-occurrence totals">
+          <span className="text-[10.5px] text-inkfaint font-data">totals:</span>
+          <ToggleGroup value={totalMode} onChange={setTotalMode} options={[
             { value: 'count', label: 'count' },
-            { value: 'pctRow', label: '% of row' },
-            { value: 'pctCorpus', label: '% of corpus' },
-          ]}
-        />
-        {cellMode === 'pctRow' && (
-          <span className="text-[10.5px] text-inkfaint">
-            — denominator: experiments with the row item; the two directions can have different percentages
-          </span>
-        )}
+            { value: 'pct', label: '% of corpus' },
+          ]} />
+        </div>
       </div>
-      <div className="inline-block">
-        <div className="flex" style={{ marginLeft: labelWidth }}>
+      <div className="overflow-x-auto pb-1">
+      <div className="w-max" role="table" aria-label="Experiment co-occurrence matrix">
+        <div className="flex items-end" role="row">
+          <div role="columnheader" aria-label="Row item" className="shrink-0" style={{ width: labelWidth }} />
           {labels.map((l) => (
             <div
               key={l}
-              className="text-[12px] text-inkmid whitespace-nowrap overflow-hidden"
-              style={{
-                width: cellSize,
-                height: 110,
-                writingMode: 'vertical-lr',
-                transform: 'rotate(180deg)',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'flex-start',
-                paddingBottom: 8,
-                paddingRight: 8,
-              }}
+              role="columnheader"
+              aria-label={l}
+              className="text-[11px] text-inkmid text-center shrink-0 pb-1 leading-tight"
+              style={{ width: columnWidth }}
               title={l}
             >
-              {l}
+              {COLUMN_LABELS[l] || l}
             </div>
           ))}
+          <div role="columnheader" className="text-[12px] text-inkmid text-center shrink-0 border-l border-line ml-3 pl-3" style={{ width: totalWidth }}>Total</div>
         </div>
         {labels.map((rowLabel, i) => (
-          <div key={rowLabel} className="flex items-center">
-            <div className="text-[12px] shrink-0 text-right pr-2" style={{ width: labelWidth }} title={rowLabel}>
+          <div key={rowLabel} className="flex items-center" role="row">
+            <div role="rowheader" className="text-[12px] shrink-0 text-right pr-3" style={{ width: labelWidth }} title={rowLabel}>
               {rowLabel}
             </div>
             {labels.map((colLabel, j) => {
@@ -114,10 +134,12 @@ export default function CooccurrenceMatrix({ labels, matrix, cellSize = 46, colo
               return (
                 <div
                   key={colLabel}
+                  role="cell"
+                  aria-label={tooltipFor(rowLabel, colLabel, i, j)}
                   className="shrink-0 flex items-center justify-center font-data text-[10px] cursor-default border border-paper"
                   style={{
-                    width: cellSize,
-                    height: cellSize,
+                    width: columnWidth,
+                    height: cellHeight,
                     background: isDiagonal ? diagonalFill : colorFor(v),
                     color: isDiagonal ? diagonalText : (v / max > 0.55 ? 'white' : '#0A0A0A'),
                     outline: isDiagonal ? '1.5px solid #0A0A0A' : 'none',
@@ -131,16 +153,24 @@ export default function CooccurrenceMatrix({ labels, matrix, cellSize = 46, colo
                 </div>
               )
             })}
+            <div role="cell" aria-label={`${rowLabel}: ${rowTotal(i)} of ${corpusN} experiments in total`} className="shrink-0 flex items-center gap-2 border-l border-line ml-3 pl-3" style={{ width: totalWidth, height: cellHeight }}>
+              <div className="h-4 rounded-sm bg-[#5B5BFF]" style={{ width: `${rowTotal(i) / maxTotal * barWidth}px` }} />
+              <div className="font-data text-[10px] text-inkmid w-8 text-right">
+                {totalMode === 'count' ? rowTotal(i) : `${corpusN ? Math.round(rowTotal(i) / corpusN * 100) : 0}%`}
+              </div>
+            </div>
           </div>
         ))}
       </div>
+      </div>
+      {cellMode === 'pctRow' && <p className="text-[11px] text-inkfaint mt-2">Cell percentages use the row total; the two directions can have different percentages.</p>}
       <div className="flex flex-wrap items-center gap-4 mt-3 font-data text-[10.5px] text-inkfaint">
         <span className="flex items-center gap-1.5">
           <span className="w-3 h-3 inline-block" style={{ background: diagonalFill, border: '1.5px solid #0A0A0A' }} />
-          Grey outlined cells count experiments with that item, including experiments with other items. Diagonals always show counts; the colour scale below applies to off-diagonal cells.
+          Grey diagonal cells and total bars count experiments with the row item, including those with other items.
         </span>
         <span className="flex items-center gap-2">
-          <span>co-occurrence scale (always by count, regardless of cell display mode):</span>
+          <span>off-diagonal count scale:</span>
           <span className="w-3 h-3 inline-block" style={{ background: '#EFEFEF' }} /> 0
           <span className="w-3 h-3 inline-block" style={{ background: colorFor(max * 0.5) }} /> {Math.round(max * 0.5)}
           <span className="w-3 h-3 inline-block" style={{ background: colorFor(max) }} /> {max} (max off-diagonal)
