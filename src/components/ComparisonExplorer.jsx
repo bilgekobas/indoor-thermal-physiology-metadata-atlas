@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react'
+import { useEffect, useMemo, useRef, useState } from 'react'
 import { useSearchParams } from 'react-router-dom'
 import { ToggleGroup } from './OverallByPeriod.jsx'
 import { ExperimentList } from './CombinationViews.jsx'
@@ -6,9 +6,9 @@ import { buildComparison, comparisonCell, comparisonDimensions, SIGNAL_COMBINATI
 
 function VariableMenu({ dimensions, value, other, label, onChange }) {
   const groups = [...new Set(dimensions.map(d => d.group))]
-  return <label className="block text-[12px] text-inkmid font-medium">{label}
+  return <label className="block min-w-0 text-[12px] text-inkmid font-medium">{label}
     <select aria-label={label} value={value} onChange={e => onChange(e.target.value)}
-      className="mt-2 block w-full border border-line rounded bg-white px-3 py-2.5 text-[14px] font-normal text-ink">
+      className="mt-2 block min-w-0 w-full max-w-full border border-line rounded bg-white px-3 py-2.5 text-[14px] font-normal text-ink">
       {groups.map(group => <optgroup key={group} label={group}>
         {dimensions.filter(d => d.group === group).map(d => <option key={d.key} value={d.key} disabled={d.key === other}>{d.label}</option>)}
       </optgroup>)}
@@ -26,22 +26,45 @@ export default function ComparisonExplorer({ explorer, studies }) {
   const [mode, setMode] = useState('count')
   const [showAll, setShowAll] = useState(false)
   const [selected, setSelected] = useState(null)
+  const [columnPage, setColumnPage] = useState(0)
+  const [tableWidth, setTableWidth] = useState(960)
+  const frame = useRef(null)
+  useEffect(() => {
+    const element = frame.current
+    const update = () => setTableWidth(Math.floor(element.getBoundingClientRect().width))
+    update()
+    const observer = new ResizeObserver(update)
+    observer.observe(element)
+    return () => observer.disconnect()
+  }, [])
   const matrix = useMemo(() => buildComparison(explorer, rowKey, columnKey), [explorer, rowKey, columnKey])
   const rows = showAll ? matrix.rows : matrix.rows.slice(0, 12)
-  const columns = showAll ? matrix.columns : matrix.columns.slice(0, 8)
+  const availableColumns = showAll ? matrix.columns : matrix.columns.slice(0, 8)
+  // Reserve space for the vertical scrollbar, then fit complete columns.
+  // Wide comparisons use pages instead of squeezing labels or scrolling sideways.
+  const usableWidth = Math.max(0, tableWidth - 16)
+  const rowLabelWidth = Math.min(rowKey === SIGNAL_COMBINATIONS ? 384 : 240, Math.max(96, usableWidth * 0.36), usableWidth * 0.55)
+  const minColumnWidth = columnKey === SIGNAL_COMBINATIONS ? 160 : 72
+  const columnsPerPage = Math.max(1, Math.floor((usableWidth - rowLabelWidth) / minColumnWidth))
+  const pageCount = Math.max(1, Math.ceil(availableColumns.length / columnsPerPage))
+  const currentPage = Math.min(columnPage, pageCount - 1)
+  const columnStart = currentPage * columnsPerPage
+  const columns = availableColumns.slice(columnStart, columnStart + columnsPerPage)
+  useEffect(() => setColumnPage(page => Math.min(page, pageCount - 1)), [pageCount])
   const change = (row, column) => {
     setSearchParams({ rows: row, columns: column }, { replace: true })
     setSelected(null)
     setShowAll(false)
+    setColumnPage(0)
   }
   const swap = () => change(columnKey, rowKey)
-  const rowLabelWidth = rowKey === SIGNAL_COMBINATIONS ? 384 : 240
+  const changePage = page => { setColumnPage(page); setSelected(null) }
   const colour = fraction => {
     const t = Math.min(Math.max(fraction, 0), 1)
     return `rgb(${Math.round(239 - 148 * t)}, ${Math.round(239 - 148 * t)}, ${Math.round(239 + 16 * t)})`
   }
-  return <div className="max-w-6xl">
-    <div className="grid md:grid-cols-[1fr_1fr_auto] gap-5 items-end mb-6">
+  return <div className="w-full min-w-0 max-w-6xl">
+    <div className="grid md:grid-cols-[minmax(0,1fr)_minmax(0,1fr)_auto] gap-5 items-end mb-6">
       <VariableMenu dimensions={dimensions} value={rowKey} other={columnKey} label="First variable (rows)" onChange={value => change(value, columnKey)} />
       <VariableMenu dimensions={dimensions} value={columnKey} other={rowKey} label="Second variable (columns)" onChange={value => change(rowKey, value)} />
       <button type="button" onClick={swap} className="border border-line rounded px-3 py-2.5 text-[12px] hover:bg-line/40">Swap axes</button>
@@ -61,16 +84,25 @@ export default function ComparisonExplorer({ explorer, studies }) {
     </div>
     <p className="font-data text-[11px] text-inkfaint mb-4">{matrix.exactSets ? `${matrix.n} experiments measuring ≥2 signals (of ${matrix.totalN} in the corpus)` : `${matrix.n} experiments`} · {matrix.rows.length} row categories · {matrix.columns.length} column categories</p>
     {matrix.exactSets && <p className="text-[12px] text-inkmid mb-4 max-w-3xl">All category totals and percentages in this view use the experiments measuring at least two signals. Each complete set includes every coded physiological signal in the experiment.</p>}
-    <div className="overflow-auto max-h-[680px] border-y border-line">
-      <table className="border-collapse text-[11px] w-full" aria-label={`${matrix.rowDimension.label} by ${matrix.columnDimension.label}`} style={{ minWidth: Math.max(760, rowLabelWidth + columns.length * 82) }}>
+    {pageCount > 1 && <div className="flex flex-wrap items-center justify-between gap-3 mb-3 text-[11px] text-inkmid" role="group" aria-label="Column pages">
+      <span>Columns {columnStart + 1}–{columnStart + columns.length} of {availableColumns.length}</span>
+      <div className="flex items-center gap-2">
+        <button type="button" aria-label="Previous columns" disabled={currentPage === 0} onClick={() => changePage(currentPage - 1)} className="px-2 py-1 border border-line rounded disabled:opacity-30 hover:bg-line/40">Previous</button>
+        <span className="font-data text-[10px]">{currentPage + 1}/{pageCount}</span>
+        <button type="button" aria-label="Next columns" disabled={currentPage === pageCount - 1} onClick={() => changePage(currentPage + 1)} className="px-2 py-1 border border-line rounded disabled:opacity-30 hover:bg-line/40">Next</button>
+      </div>
+    </div>}
+    <div ref={frame} className="min-w-0 overflow-y-auto max-h-[680px] border-y border-line">
+      <table className="table-fixed border-collapse text-[11px] w-full [overflow-wrap:anywhere]" aria-label={`${matrix.rowDimension.label} by ${matrix.columnDimension.label}`}>
+        <colgroup><col style={{ width: rowLabelWidth }} /><col span={columns.length} /></colgroup>
         <thead className="sticky top-0 z-20 bg-paper"><tr>
-          <th scope="col" className="sticky left-0 z-30 bg-paper text-left pr-4 py-3 font-medium text-inkmid" style={{ width: rowLabelWidth, minWidth: rowLabelWidth }}>{matrix.rowDimension.label}</th>
-          {columns.map(column => <th scope="col" key={column.label} className="px-2 py-3 font-medium text-center text-inkmid min-w-[82px] max-w-40">
+          <th scope="col" className="bg-paper text-left pr-4 py-3 font-medium text-inkmid">{matrix.rowDimension.label}</th>
+          {columns.map(column => <th scope="col" key={column.label} className="px-2 py-3 font-medium text-center text-inkmid">
             {column.label}<span className="block font-data text-[10px] text-inkfaint font-normal mt-1">n={column.n}</span>
           </th>)}
         </tr></thead>
         <tbody>{rows.map(row => <tr key={row.label}>
-          <th scope="row" className="sticky left-0 z-10 bg-paper font-normal text-left pr-4 py-2 text-[12px] leading-snug">
+          <th scope="row" className="bg-paper font-normal text-left pr-4 py-2 text-[12px] leading-snug">
             {row.label}<span className="font-data text-[10px] text-inkfaint ml-2">n={row.n}</span>
           </th>
           {columns.map(column => {
@@ -84,7 +116,7 @@ export default function ComparisonExplorer({ explorer, studies }) {
                 aria-label={`${row.label}, ${column.label}: ${cell.count} experiment${cell.count === 1 ? '' : 's'}`}
                 title={`${cell.count} experiment${cell.count === 1 ? '' : 's'}; ${(cell.count / row.n * 100).toFixed(1)}% of row (n=${row.n}); ${(cell.count / column.n * 100).toFixed(1)}% of column (n=${column.n}). Select to inspect experiments.`}
                 onClick={() => setSelected({ row: row.label, column: column.label, ...cell })}
-                className={`font-data text-[10.5px] block w-full h-9 px-1 hover:outline hover:outline-1 hover:outline-ink ${active ? 'outline outline-2 outline-ink outline-offset-[-2px]' : ''}`}
+                className={`font-data text-[10.5px] block w-full h-9 px-0.5 hover:outline hover:outline-1 hover:outline-ink hover:outline-offset-[-1px] focus-visible:outline-offset-[-2px] ${active ? 'outline outline-2 outline-ink outline-offset-[-2px]' : ''}`}
                 style={{ background: colour(fraction), color: fraction > 0.55 ? '#FFFFFF' : '#0A0A0A' }}>
                 {mode === 'count' ? cell.count || '–' : cell.count ? `${percent.toFixed(1)}%` : '–'}
               </button>
@@ -95,7 +127,7 @@ export default function ComparisonExplorer({ explorer, studies }) {
     </div>
     <div className="flex flex-wrap items-center justify-between gap-3 mt-3 text-[11px] text-inkfaint">
       <span>Showing {rows.length} of {matrix.rows.length} row categories and {columns.length} of {matrix.columns.length} column categories.</span>
-      {(matrix.rows.length > 12 || matrix.columns.length > 8) && <button type="button" onClick={() => setShowAll(!showAll)} className="text-coreaccent hover:underline">
+      {(matrix.rows.length > 12 || matrix.columns.length > 8) && <button type="button" onClick={() => { setShowAll(!showAll); setColumnPage(0); setSelected(null) }} className="text-coreaccent hover:underline">
         {showAll ? 'Show leading categories' : 'Show all categories'}
       </button>}
     </div>
@@ -104,7 +136,7 @@ export default function ComparisonExplorer({ explorer, studies }) {
       <p>{matrix.linked
         ? 'Both variables describe physiological measurements. Each cell requires the two categories on the same coded measurement row and counts each contributing experiment once.'
         : 'Each cell counts distinct experiments containing both categories. An experiment can contribute to several rows or columns, so cell counts and percentages may not sum to the corpus total or 100%.'}</p>
-      <p>Category totals (n) include all experiments in that category, including categories outside the displayed subset. Missing-code categories remain visible. “No listed item reported” describes missing positive reporting; it does not establish that an item was absent in practice. Select a cell to inspect its experiment IDs.</p>
+      <p>Category totals (n) use the full selected cohort, including categories outside the displayed subset or on other pages. Missing-code categories remain visible. “No listed item reported” describes missing positive reporting; it does not establish that an item was absent in practice. Select a cell to inspect its experiment IDs.</p>
     </div>
     {selected && <div className="mt-6 border-l-2 border-coreaccent pl-5" aria-live="polite">
       <p className="text-[13px] font-medium">{selected.row} × {selected.column}: {selected.count} experiment{selected.count === 1 ? '' : 's'}</p>
