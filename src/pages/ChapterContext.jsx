@@ -569,7 +569,8 @@ export default function ChapterContext({ data }) {
   const peakYear = fig01_pubs_by_year.data.reduce((best, d) => (d.count > best.count ? d : best))
   const growthMultiple = (peakYear.count / Math.max(earliestYear.count, 1)).toFixed(0)
   const topCountry = [...geo_choropleth.data].sort((a, b) => b.count - a.count)[0]
-  const topCountryShare = ((topCountry.count / summary.n_experiments) * 100).toFixed(1)
+  const topCountryReportedCount = data.studies.filter(r => r['id-country'] === topCountry.atlas_name).length
+  const topCountryShare = ((topCountryReportedCount / summary.n_experiments) * 100).toFixed(1)
   // Share of total corpus SAMPLE SIZE (participants), not study count, that
   // comes from the top country -- a distinct claim from topCountryShare
   // above (which is a share of studies). Uses total_corpus_participants
@@ -583,7 +584,7 @@ export default function ChapterContext({ data }) {
   const topCountryParticipants = sample_size_by_country.studies
     .filter((s) => s.country === topCountry.atlas_name)
     .reduce((a, s) => a + (s.n || 0), 0)
-  const topCountrySamplePct = Math.round((topCountryParticipants / totalParticipants) * 100)
+  const topCountrySamplePct = ((topCountryParticipants / totalParticipants) * 100).toFixed(1)
 
   // Fig 3 commentary inputs (city resolution rate, top-2 cities, China's
   // share of studies from earliest to latest 2-year period). Computed from

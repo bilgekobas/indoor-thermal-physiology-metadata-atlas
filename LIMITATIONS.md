@@ -42,6 +42,7 @@ repository's lookup and harmonisation rules. Unresolvable cities are omitted
 from the city map, while records can still contribute to country summaries.
 Köppen classes are assigned from the recorded location and grouped for display.
 For combined class strings, the existing grouping uses the first class.
+Headline country shares retain reported country labels, while the map may combine labels to match its geographic categories. A raster basemap preserves the map when WebGL2 is unavailable.
 Host climate is a locational descriptor, not a measurement of participants'
 thermal history or achieved indoor exposure.
 

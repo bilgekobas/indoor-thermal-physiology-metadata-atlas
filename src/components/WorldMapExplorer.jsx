@@ -1,5 +1,5 @@
 import { useState, useEffect, useMemo } from 'react'
-import { MapContainer, CircleMarker, GeoJSON, Tooltip as LeafletTooltip, useMap, useMapEvents } from 'react-leaflet'
+import { MapContainer, TileLayer, CircleMarker, GeoJSON, Tooltip as LeafletTooltip, useMap, useMapEvents } from 'react-leaflet'
 import * as topojson from 'topojson-client'
 import { maplibreGL } from '@maplibre/maplibre-gl-leaflet'
 import { setWorkerUrl } from 'maplibre-gl'
@@ -31,11 +31,21 @@ const BASEMAP_STYLE = 'https://tiles.openfreemap.org/styles/positron'
 
 function PositronBasemap() {
   const map = useMap()
+  const [supportsVectorMap] = useState(() => {
+    try {
+      return Boolean(document.createElement('canvas').getContext('webgl2'))
+    } catch {
+      return false
+    }
+  })
   useEffect(() => {
+    if (!supportsVectorMap) return
     const layer = maplibreGL({ style: BASEMAP_STYLE, attribution: '', pane: 'tilePane' }).addTo(map)
     return () => map.removeLayer(layer)
-  }, [map])
-  return null
+  }, [map, supportsVectorMap])
+  return supportsVectorMap ? null : <TileLayer
+    url="https://tile.openstreetmap.org/{z}/{x}/{y}.png"
+    className="atlas-raster-basemap" />
 }
 
 // Tracks the current zoom level so city marker radii can grow/shrink with
@@ -181,7 +191,7 @@ export default function WorldMapExplorer({ cityData, countryData, height = 460 }
         )}
       </div>
       <div className="text-[10px] text-inkfaint text-right mt-1.5">
-        Basemap: <a className="underline underline-offset-2" href="https://openfreemap.org/" target="_blank" rel="noopener noreferrer">OpenFreeMap</a> · Map data: <a className="underline underline-offset-2" href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener noreferrer">© OpenStreetMap contributors</a>
+        Basemap: <a className="underline underline-offset-2" href="https://openfreemap.org/" target="_blank" rel="noopener noreferrer">OpenFreeMap</a> / <a className="underline underline-offset-2" href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener noreferrer">OpenStreetMap</a> · Map data: <a className="underline underline-offset-2" href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener noreferrer">© OpenStreetMap contributors</a>
       </div>
       {mode === 'city' ? (
         <div>
@@ -193,7 +203,7 @@ export default function WorldMapExplorer({ cityData, countryData, height = 460 }
               </div>
             ))}
           </div>
-          <div className="font-data text-[10px] text-inkfaint mt-2">Marker area ∝ experiment count and grows as you zoom in. Color = Köppen climate group at that city.</div>
+          <div className="font-data text-[10px] text-inkfaint mt-2">Marker size increases with experiment count and zoom level. Colour = Köppen climate group at that city.</div>
         </div>
       ) : (
         <div className="flex items-center gap-3 mt-2 flex-wrap">
@@ -207,6 +217,9 @@ export default function WorldMapExplorer({ cityData, countryData, height = 460 }
           <span className="flex items-center gap-1.5"><span className="w-3 h-3 rounded-sm inline-block border border-line" style={{ background: '#F4F4F4' }} /><span className="font-data text-[10.5px] text-inkmid">0</span></span>
         </div>
       )}
+      <p className="text-[10px] text-inkfaint mt-2 max-w-3xl">
+        For geographic display, the map combines recorded labels where they share a map category (including China and Hong Kong). Headline country shares follow the reported country labels in the dataset.
+      </p>
     </div>
   )
 }

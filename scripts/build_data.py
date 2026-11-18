@@ -1937,9 +1937,11 @@ print(f'selection_by_period.json: {len(selection_by_period["data"])} rows')
 # Bug guard: country_map_df was built from a CODES-filtered subset of
 # studies_u (264 rows) while studies_u itself has 270 — a positional
 # `.values` assignment would silently misalign rows. Join on id instead.
-geo_period = country_map_df.copy()
-geo_period['id'] = studies_u.loc[country_map_df.index, 'id'].values
-geo_period = geo_period.merge(studies_u[['id', 'period']], on='id', how='left')
+geo_period = studies_u[['id', 'period', 'id-country']].copy()
+geo_period = geo_period[geo_period['id-country'].notna() & ~geo_period['id-country'].isin(CODES)]
+# Headline shares follow the recorded country labels. Geometry harmonisation
+# can combine distinct labels (e.g. China/Hong Kong) for map display only.
+geo_period = geo_period.rename(columns={'id-country': 'atlas_name'})
 geo_by_period = geo_period.groupby(['period', 'atlas_name']).size().reset_index(name='count')
 # also compute the share of studies from the single top country, per period,
 # as a simple concentration metric

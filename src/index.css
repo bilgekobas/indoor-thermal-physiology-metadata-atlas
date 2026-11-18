@@ -88,3 +88,6 @@ svg { overflow: visible; }
 }
 
 .figure-note { margin-top: 12px; line-height: 1.45; }
+
+/* Preserve the muted basemap when a browser cannot initialise WebGL2. */
+.atlas-raster-basemap { filter: grayscale(1); opacity: 0.72; }

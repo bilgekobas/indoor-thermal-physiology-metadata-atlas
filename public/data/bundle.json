@@ -88098,9 +88098,9 @@
       {
         "period": "2023–24",
         "top_country": "China",
-        "top_count": 57,
+        "top_count": 56,
         "total": 78,
-        "pct": 73.1
+        "pct": 71.8
       }
     ],
     "top_country": "China"
@@ -115651,7 +115651,7 @@
     "n_variables": 206,
     "year_min": 2013,
     "year_max": 2024,
-    "generated_at": "2026-11-18T12:17:52.896575"
+    "generated_at": "2026-11-18T12:26:46.557199"
   },
   "variable_dictionary": {
     "data": [
