@@ -1,7 +1,6 @@
 import { ChapterHeader, ChapterSection } from '../components/Chapter.jsx'
 import FigureCard from '../components/FigureCard.jsx'
 import { figNum } from '../figureRegistry.js'
-import { JointReporting } from '../components/CombinationViews.jsx'
 import { useTooltip, TooltipPortal } from '../components/Tooltip.jsx'
 
 function FieldCompletenessGroup({ title, rows, maxDenominator }) {
@@ -49,10 +48,10 @@ export default function ChapterReporting({ data }) {
         framing={
           <>
             <p>
-              This chapter describes the availability of individual metadata fields and their joint availability within experiments. Applicability depends on the field: environmental placement details are assessed among experiments measuring that variable, and MST details among experiments explicitly calculating MST.
+              This chapter describes the availability of individual metadata fields. Applicability depends on the field: environmental placement details are assessed among experiments measuring that variable, and MST details among experiments explicitly calculating MST.
             </p>
             <p>
-              A field counts as documented when it contains a substantive coded value. For physiological fields, this first view requires a value on at least one measurement row in the experiment; it does not establish that every signal or site is documented. Environmental rows evaluate placement detail, and questionnaire rows evaluate scale descriptions. Measured-but-unspecified and unclear details remain incomplete. Participant-state and protocol fields are presented in their relevant chapters.
+              A field counts as documented when it contains a substantive coded value. For physiological fields, this view requires a value on at least one measurement row in the experiment; it does not establish that every signal or site is documented. Environmental rows evaluate placement detail, and questionnaire rows evaluate scale descriptions. Measured-but-unspecified and unclear details remain incomplete. Participant-state and protocol fields are presented in their relevant chapters.
             </p>
           </>
         }
@@ -63,20 +62,12 @@ export default function ChapterReporting({ data }) {
       />
 
       <ChapterSection title="Full field-level completeness list" intro="Tracks are scaled to each field’s applicable denominator and filled by documented count. Environmental rows refer to placement descriptions, which may be numeric heights or descriptions such as “desk”. Ratios at right make the denominator explicit.">
-        <FigureCard figNumber={figNum('reporting-fields', 'a')} title="Evaluated reporting fields" plotWidth={980} commentary="Rows identify coded reporting fields; the display preserves their order in the dataset.">
+        <FigureCard figNumber={figNum('reporting-fields')} title="Evaluated reporting fields" plotWidth={980} commentary="Rows identify coded reporting fields; the display preserves their order in the dataset.">
           <div className="space-y-8 max-w-5xl">
             {groups.map(([group, obj]) => (
               <FieldCompletenessGroup key={group} title={group} rows={obj.fields} maxDenominator={maxDenominator} />
             ))}
           </div>
-        </FigureCard>
-      </ChapterSection>
-
-      <ChapterSection title="Which details are documented together?"
-        intro="High reporting for individual fields does not establish that the information is available together in the same experiments. Select a set of requirements to count their intersection; each experiment contributes once.">
-        <FigureCard figNumber={figNum('reporting-fields', 'b')} title="Joint availability of reporting fields" plotWidth={1060}
-          commentary="The environmental preset starts with the four commonly measured variables. Add the height requirement to see how many experiments also code numeric sensor heights for all four. Physiological presets restrict the denominator to experiments measuring the selected signal.">
-          <JointReporting presets={data.combination_views.joint_reporting} studies={data.studies} />
         </FigureCard>
       </ChapterSection>
 

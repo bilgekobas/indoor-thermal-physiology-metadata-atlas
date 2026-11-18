@@ -53,7 +53,6 @@ const FIGURE_ORDER = [
   'tsv-scales',
   'tcv-scales',
   'cognitive-domain-flow',           // ChapterCognitive
-  'signal-by-setting',               // ChapterCombinations
   'reporting-fields',                // ChapterReporting
 ]
 

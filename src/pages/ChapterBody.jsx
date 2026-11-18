@@ -1,5 +1,4 @@
 import { useMemo, useState } from 'react'
-import { Link } from 'react-router-dom'
 import { ChapterHeader, ChapterSection } from '../components/Chapter.jsx'
 import FigureCard from '../components/FigureCard.jsx'
 import { figNum } from '../figureRegistry.js'
@@ -9,13 +8,12 @@ import BodySiteMap from '../components/BodySiteMap.jsx'
 import OverallByPeriod, { PeriodHeatmap, ToggleGroup } from '../components/OverallByPeriod.jsx'
 import { useTooltip, TooltipPortal } from '../components/Tooltip.jsx'
 import { CodeChip } from '../components/CodeChip.jsx'
-import { CoreTemperatureView, ExactSignalCombinations, ChoiceButtons } from '../components/CombinationViews.jsx'
+import { ChoiceButtons } from '../components/CombinationViews.jsx'
 
-function SensorEvolutionToggle({ signals, evoData, periods, core }) {
+function SensorEvolutionToggle({ signals, evoData, periods }) {
   const [activeSignal, setActiveSignal] = useState(signals[0] || '')
   if (!signals.length || !activeSignal) return <div className="text-[12px] text-inkfaint">No data available.</div>
-  const isCoreClass = activeSignal === 'core-class'
-  const signalData = evoData.signals[isCoreClass ? 'Core/Body temperature' : activeSignal]
+  const signalData = evoData.signals[activeSignal]
   const { data, sensor_order, period_totals } = signalData
   const countsBySensor = useMemo(() => {
     const m = {}
@@ -29,17 +27,17 @@ function SensorEvolutionToggle({ signals, evoData, periods, core }) {
   return (
     <div>
       <div className="flex flex-wrap gap-1.5 mb-4" data-toggle-group="content">
-        {[...signals, 'core-class'].map((sig) => (
+        {signals.map((sig) => (
           <button
             key={sig}
             onClick={() => setActiveSignal(sig)}
             className={`px-3 py-1 rounded text-[11.5px] font-data transition-colors ${activeSignal === sig ? 'bg-ink text-paper' : 'bg-line/50 text-inkmid hover:bg-line'}`}
           >
-            {sig === 'core-class' ? 'Core/body: measurement class' : sig}
+            {sig}
           </button>
         ))}
       </div>
-      {isCoreClass ? <CoreTemperatureView core={core} /> : <PeriodHeatmap
+      <PeriodHeatmap
         rows={sensor_order}
         periods={periods}
         periodN={period_totals}
@@ -47,7 +45,7 @@ function SensorEvolutionToggle({ signals, evoData, periods, core }) {
         getCount={(sensor, p) => countsBySensor[sensor]?.[p] || 0}
         labelWidth={150}
         cellWidth={78}
-      />}
+      />
     </div>
   )
 
@@ -59,7 +57,11 @@ function OtherSignalSiteToggle({ siteData, core }) {
   return <div>
     <ChoiceButtons label="Other physiological measurement sites" value={signal} onChange={setSignal}
       options={[{ key: 'heart', label: 'Heart/pulse rate' }, { key: 'core', label: 'Core/body temperature' }]} />
-    {signal === 'core' ? <CoreTemperatureView core={core} /> : <PeriodHeatmap
+    {signal === 'core' ? <PeriodHeatmap
+      rows={core.sites.map(r => r.label)} periods={core.periods} periodN={core.period_n}
+      rowTotals={Object.fromEntries(core.sites.map(r => [r.label, r.count]))}
+      getCount={(site, p) => core.site_by_period.find(r => r.label === site && r.period === p)?.count || 0}
+      labelWidth={220} cellWidth={78} /> : <PeriodHeatmap
       rows={hr.site_totals.map(r => r.site)} periods={hr.by_period.periods} periodN={hr.by_period.period_n}
       rowTotals={Object.fromEntries(hr.site_totals.map(r => [r.site, r.count]))}
       getCount={(site, p) => hr.by_period.data.find(r => r.site === site && r.period === p)?.count || 0}
@@ -893,22 +895,9 @@ export default function ChapterBody({ data }) {
           />
         </FigureCard>
 
-        <FigureCard figNumber={figNum('signals-cooccurrence', 'a')} title="Which signals get measured together" size="wide" commentary={`Skin temperature (${cooccurSkinTotal} experiments) and heart/pulse rate (${cooccurHrTotal}) are individually the most common signals, and ${skinHrCooccur} experiments measure both together — about ${hrAlsoSkinPct}% of all heart-rate experiments also track skin temperature.`}>
-          <CooccurrenceMatrix labels={fig18_physio_cooccurrence.labels} matrix={fig18_physio_cooccurrence.matrix} colorScheme="blue" corpusN={295} />
+        <FigureCard figNumber={figNum('signals-cooccurrence')} title="Which signals get measured together" plotWidth={680} commentary={`Skin temperature (${cooccurSkinTotal} experiments) and heart/pulse rate (${cooccurHrTotal}) are individually the most common signals, and ${skinHrCooccur} experiments measure both together — about ${hrAlsoSkinPct}% of all heart-rate experiments also track skin temperature.`}>
+          <CooccurrenceMatrix labels={fig18_physio_cooccurrence.labels} matrix={fig18_physio_cooccurrence.matrix} cellSize={38} colorScheme="blue" corpusN={295} />
         </FigureCard>
-      </ChapterSection>
-
-      <ChapterSection
-        title="Complete measurement combinations"
-        intro={`The pairwise matrix above counts every experiment containing a pair, including experiments with additional signals. Here, each row is the complete coded measurement set. ${data.combination_views.battery_sizes.find(r => r.size === 1)?.count || 0} of ${summary.n_experiments} experiments measure one coded signal; ${data.combination_views.signal_bundles.find(r => r.signals.length === 1 && r.signals[0] === 'Skin temperature')?.count || 0} measure skin temperature alone.`}
-      >
-        <FigureCard figNumber={figNum('signals-cooccurrence', 'b')} title="Exact physiological measurement combinations" plotWidth={1120}
-          commentary="For example, a row with filled dots for skin temperature and heart/pulse rate counts experiments measuring precisely those two coded parameters. Experiments also measuring blood pressure appear in a different row. Select a row to inspect its experiment IDs.">
-          <ExactSignalCombinations views={data.combination_views} studies={data.studies} />
-        </FigureCard>
-        <p className="text-[12px] text-inkmid max-w-3xl">
-          To examine where these signals are measured, <Link to="/combinations" className="text-coreaccent hover:underline">compare measurements across experimental settings</Link>.
-        </p>
       </ChapterSection>
 
       <ChapterSection
@@ -942,8 +931,8 @@ export default function ChapterBody({ data }) {
         title="How sensor choice has shifted over time"
         intro={`For skin temperature, thermocouples were used in ${thermocoupleEarlyPct}% of skin-temperature experiments in ${evoFirstPeriod} but only ${thermocoupleLatePct}% by ${evoLastPeriod}, while Thermochron-type dataloggers (e.g. iButton) rose from ${thermochronEarlyPct}% to ${thermochronLatePct}% over the same span in this corpus. Both this comparison and the matrix use experiments measuring the selected signal in each period as their denominator. Methods are non-exclusive: an experiment using several methods contributes to each.`}
       >
-        <FigureCard figNumber={figNum('sensor-choice-by-signal')} title="Sensing methods and core/body measurement classes" size="wide" commentary="Select a signal to inspect its coded sensing methods, or use the core/body measurement-class view. Rows are sensing methods or measurement classes, depending on the view. Percentages use experiments measuring that signal in the corresponding two-year period. Sensing methods and anatomical sites are non-exclusive; the measurement classes assign each experiment once.">
-          <SensorEvolutionToggle signals={evoSignals} evoData={evo_signal_sensor} periods={evoPeriods} core={data.combination_views.core} />
+        <FigureCard figNumber={figNum('sensor-choice-by-signal')} title="Sensing methods by signal and period" size="wide" commentary="Select a signal to inspect its coded sensing methods. Percentages use experiments measuring that signal in the corresponding two-year period. Methods are non-exclusive: an experiment using several methods contributes to each.">
+          <SensorEvolutionToggle signals={evoSignals} evoData={evo_signal_sensor} periods={evoPeriods} />
         </FigureCard>
       </ChapterSection>
 
@@ -968,7 +957,7 @@ export default function ChapterBody({ data }) {
         title="Where other signals are measured"
         intro="Skin temperature isn't the only signal where measurement site reflects a real methodological choice. Heart rate's site splits roughly along sensor modality (chest straps vs. wrist/finger optical sensors); skin conductance follows electrode-placement convention; sweat is measured either at a local site or, more often, across the whole body at once — two fundamentally different kinds of measurement sharing one field name."
       >
-        <FigureCard figNumber={figNum('hr-measurement-site')} title="Heart/pulse rate and core/body temperature sites" plotWidth={980} commentary={`Chest (${hrChest} of ${hrN} experiments) and wrist (${hrWrist}) are the two dominant sites — roughly, ECG-strap vs. optical-wearable territory. The heart-rate matrix uses experiments with a coded site as its denominator. Switch to core/body temperature to inspect measurement classes or anatomical sites; its denominator is all experiments measuring that signal in each period.`}>
+        <FigureCard figNumber={figNum('hr-measurement-site')} title="Heart/pulse rate and core/body temperature sites" plotWidth={980} commentary={`Chest (${hrChest} of ${hrN} experiments) and wrist (${hrWrist}) are the two dominant heart-rate sites. Use the signal toggle to inspect anatomical sites directly. The heart-rate denominator is experiments with a coded site; core/body temperature uses all experiments measuring that signal in each period. Sites are non-exclusive, and “Mouth” is harmonised with oral cavity.`}>
           <OtherSignalSiteToggle siteData={site_by_signal} core={data.combination_views.core} />
         </FigureCard>
       </ChapterSection>

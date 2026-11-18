@@ -2,7 +2,6 @@ import { useMemo } from 'react'
 import { ChapterHeader, ChapterSection } from '../components/Chapter.jsx'
 import FigureCard from '../components/FigureCard.jsx'
 import { figNum } from '../figureRegistry.js'
-import { SexHormoneContext } from '../components/CombinationViews.jsx'
 import StudyIntervalPlot from '../components/StudyIntervalPlot.jsx'
 import InteractiveBarChart from '../components/InteractiveBarChart.jsx'
 import { PeriodHeatmap } from '../components/OverallByPeriod.jsx'
@@ -293,7 +292,7 @@ export default function ChapterPopulation({ data }) {
         title="What else is known about participants"
         intro="Basic demographic descriptors are reported more frequently than thermal history, body composition, menstrual timing or contraceptive method. These metadata flags indicate that a characteristic was documented; they do not necessarily provide the numeric summaries needed for quantitative comparison."
       >
-        <FigureCard figNumber={figNum('participant-metadata-collected', 'a')} title="Participant metadata collected" plotWidth={980} commentary="Rows are fields; columns are 2-year periods; the final column shows the corpus-wide total count for the same row.">
+        <FigureCard figNumber={figNum('participant-metadata-collected')} title="Participant metadata collected" plotWidth={980} commentary="Rows are fields; columns are 2-year periods; the final column shows the corpus-wide total count for the same row.">
           <PeriodHeatmap
             rows={participant_by_period.fields}
             periods={participant_by_period.periods}
@@ -303,13 +302,6 @@ export default function ChapterPopulation({ data }) {
             labelWidth={210}
             cellWidth={88}
           />
-        </FigureCard>
-      </ChapterSection>
-      <ChapterSection title="Sex and hormone-related experiment design"
-        intro="Sex composition, recruitment criteria, participant-state metadata and protocol controls describe different aspects of a experiment. This view includes single-sex samples and documented sex- or hormone-related eligibility criteria, alongside menstrual and contraceptive metadata and menstrual-timing controls.">
-        <FigureCard figNumber={figNum('participant-metadata-collected', 'b')} title="Sex- and hormone-related design and characterisation" plotWidth={1060}
-          commentary="The default view includes every experiment. Use the cohort selector to inspect male-only, female-only or mixed-sex samples, or experiments reporting female participants. Composition that cannot be resolved from reported male/female counts remains a separate category. The combined count is the union of the listed characteristics.">
-          <SexHormoneContext context={data.combination_views.sex_context} studies={data.studies} />
         </FigureCard>
       </ChapterSection>
     </div>

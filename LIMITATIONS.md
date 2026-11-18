@@ -155,7 +155,7 @@ links count distinct experiments per connection; domain-to-instrument links
 count distinct experiment–instrument uses. Several instruments in one
 experiment can therefore produce different totals across the two stages.
 
-## 11. Reporting completeness and joint reporting
+## 11. Reporting completeness
 
 The field-level view counts experiments with at least one substantive value for
 the relevant field. For physiological fields this does not establish that every
@@ -173,25 +173,28 @@ applicability sets. Measured-but-unspecified and unclear details are incomplete;
 MST-specific fields are evaluated among experiments explicitly calculating MST.
 Other participant-state and protocol fields are shown in their relevant chapters.
 
-The joint-reporting view counts the intersection of selected requirements.
-Physiological presets require the selected measurement fields on every row for
-the selected signal. These counts describe metadata availability, not an overall
-quality score, scientific equivalence or established poolability.
+## 12. Comparison explorer
 
-## 12. Complete signal sets and setting combinations
+The unnumbered explorer compares two selected categorical variables. A cell
+counts distinct experiment IDs, including when the experiment has several
+sites, devices or repeated measurement rows. Row and column percentages use
+unique-experiment category totals across all records, including categories
+outside the displayed leading subset. Multi-valued categories overlap, so
+cells need not sum to the experiment count or 100%.
 
-Exact signal sets use distinct coded physiological parameter labels per
-experiment. Additional sites, repetitions or sensing methods for the same
-parameter do not increase the set size. Each experiment belongs to exactly one
-complete set. The displayed leading sets are a subset of all sets, and the
-number of hidden sets and experiments is reported explicitly.
+When both variables describe physiological measurements (signal, method,
+anatomical site or brand), a pair must occur on the same coded measurement
+row. Other pairs establish co-occurrence within the same experiment. Neither
+case resolves unrecorded session or protocol-phase relationships. Setting
+remains a single recorded classification; mixed settings are not split.
 
-The setting matrix assigns each experiment to one recorded setting, retaining
-mixed and unspecified settings. Within-setting percentages divide by all
-experiments in that setting; within-signal percentages divide by all experiments
-measuring that signal. Mixed experiments are not split into unrecorded phases.
-These descriptive comparisons do not explain method choice or establish a
-causal effect of setting on measurement practice.
+Missing and unclear codes remain separate categories for single-valued fields.
+Positive protocol, participant-metadata and recruitment flags require Y.
+Environmental and questionnaire presence includes substantive entries and the
+explicit measured-but-not-reported code MNR, but excludes NC. An empty set of
+positive items is labelled "No listed item reported", which does not establish
+absence in practice. Descriptive combinations do not establish causality,
+measurement equivalence, adherence or poolability.
 
 ## 13. Sex and hormone-related characterisation
 
@@ -200,13 +203,11 @@ male/female counts. Unresolved composition remains separate. Sex-based
 recruitment criteria are retained independently, so experiments without a
 resolved count breakdown can still contribute to that criterion.
 
-The participant view includes single-sex samples, sex-based recruitment,
-contraceptive-method, pregnancy/breastfeeding, hormone-therapy and menopausal-
-status criteria, menstrual and contraceptive metadata, and menstrual-timing
-protocol controls. These categories overlap; their combined count is a union
-of experiment IDs. Single-sex recruitment does not itself establish hormonal
-status or menstrual control. A sex-hormone assay as an outcome is not inferred
-to be an eligibility criterion. Applicability varies by participants and question.
+The explorer can compare sex composition, recruitment criteria, participant
+metadata and protocol controls. These are separate variables; single-sex
+recruitment does not establish hormonal status or menstrual control. A
+sex-hormone assay as an outcome is not inferred to be an eligibility criterion.
+Applicability varies by participants and research question.
 
 ## 14. Testing windows and durations
 

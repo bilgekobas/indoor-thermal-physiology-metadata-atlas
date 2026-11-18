@@ -2403,6 +2403,8 @@ print(f'brand_model_reference.json: {len(bm_grouped)} signal-method-brand-model 
 
 from build_combination_views import write_views
 write_views(df, OUT_DIR)
+from build_comparison_explorer import write_explorer
+write_explorer(df, OUT_DIR, FIELD_PRETTY_NAMES)
 
 # ── D6. Runtime bundle for the React frontend ─────────────────────────────
 # The site fetches public/data/bundle.json at runtime rather than fetching each

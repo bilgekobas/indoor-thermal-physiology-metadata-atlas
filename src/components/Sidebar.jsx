@@ -13,11 +13,11 @@ const CHAPTERS = [
   },
   {
     to: '/population', label: 'Who is studied',
-    subtitles: ['Demographics', 'Was sample size justified?', 'Who was excluded, and why', 'What else is known about participants', 'Sex and hormone-related study design'],
+    subtitles: ['Demographics', 'Was sample size justified?', 'Who was excluded, and why', 'What else is known about participants'],
   },
   {
     to: '/body', label: 'Measuring the human',
-    subtitles: ["What's measured, and how", 'Complete measurement combinations', 'Signals, sensor types, and brands', 'How sensor choice has shifted over time', 'Skin temperature body sites', 'Where other signals are measured', 'Mean skin temperature'],
+    subtitles: ["What's measured, and how", 'Signals, sensor types, and brands', 'How sensor choice has shifted over time', 'Skin temperature body sites', 'Where other signals are measured', 'Mean skin temperature'],
   },
   {
     to: '/environment', label: 'Measuring the environment',
@@ -32,12 +32,12 @@ const CHAPTERS = [
     subtitles: ['What kind of measure is actually used'],
   },
   {
-    to: '/combinations', label: 'Combining context and measurement',
-    subtitles: ['Physiological signals across study settings'],
+    to: '/combinations', label: 'Explore combinations',
+    subtitles: ['Choose what to compare'],
   },
   {
     to: '/reporting', label: 'Data completeness',
-    subtitles: ['Full field-level completeness list', 'Which details are documented together?'],
+    subtitles: ['Full field-level completeness list'],
   },
 ]
 

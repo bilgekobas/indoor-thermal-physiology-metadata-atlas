@@ -183,8 +183,8 @@ export default function ChapterEnvironment({ data }) {
         title="What gets measured together"
         intro="Air temperature, relative humidity, air velocity, and globe temperature form the field's standard environmental core. Other variables — surface temperature, CO₂, light, sound — appear much more selectively."
       >
-        <FigureCard figNumber={figNum('env-cooccurrence')} title="Environmental variable co-occurrence" size="wide" commentary="Air temperature is the most frequently documented environmental measurement. Relative humidity, air velocity, and globe temperature are also commonly reported; other environmental variables appear less frequently.">
-          <CooccurrenceMatrix labels={fig12_env_cooccurrence.labels} matrix={fig12_env_cooccurrence.matrix} corpusN={295} />
+        <FigureCard figNumber={figNum('env-cooccurrence')} title="Environmental variable co-occurrence" plotWidth={760} commentary="Air temperature is the most frequently documented environmental measurement. Relative humidity, air velocity, and globe temperature are also commonly reported; other environmental variables appear less frequently.">
+          <CooccurrenceMatrix labels={fig12_env_cooccurrence.labels} matrix={fig12_env_cooccurrence.matrix} cellSize={38} corpusN={295} />
         </FigureCard>
       </ChapterSection>
 
