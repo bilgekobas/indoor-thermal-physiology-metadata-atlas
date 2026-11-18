@@ -100,7 +100,7 @@ export default function StudyIntervalPlot({
         {boxStats && (
           <g
             className="cursor-default"
-            onMouseEnter={(e) => showTip(e, `Study means: mean ${boxStats.mean.toFixed(1)}${unit}, median ${boxStats.med.toFixed(1)}${unit}, IQR ${boxStats.q1.toFixed(1)}–${boxStats.q3.toFixed(1)}${unit}, range ${boxStats.min.toFixed(1)}–${boxStats.max.toFixed(1)}${unit}`)}
+            onMouseEnter={(e) => showTip(e, `Experiment means: mean ${boxStats.mean.toFixed(1)}${unit}, median ${boxStats.med.toFixed(1)}${unit}, IQR ${boxStats.q1.toFixed(1)}–${boxStats.q3.toFixed(1)}${unit}, range ${boxStats.min.toFixed(1)}–${boxStats.max.toFixed(1)}${unit}`)}
             onMouseMove={moveTip}
             onMouseLeave={hideTip}
           >
@@ -129,7 +129,7 @@ export default function StudyIntervalPlot({
         {xAxisLabel && <text x={width + 8} y={totalHeight + 12} fontSize={10} fill="#8A8A8A" textAnchor="start">{xAxisLabel}</text>}
       </svg>
       <div className="font-data text-[10.5px] text-inkfaint mt-1">
-        {studies.length} studies, sorted ascending by mean. Each line shows mean ± SD; the central point marks the mean. Boxplot summarizes the distribution of study means; dotted vertical guides mark Q1, median, Q3, and mean.
+        {studies.length} experiments, sorted ascending by mean. Each line shows mean ± SD; the central point marks the mean. Boxplot summarizes the distribution of experiment means; dotted vertical guides mark Q1, median, Q3, and mean.
       </div>
       <TooltipPortal tip={tip} />
     </div>

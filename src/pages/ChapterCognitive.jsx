@@ -126,7 +126,7 @@ function CognitiveSankey({ cognitive }) {
     return (
       <g key={`${kind}-${n.name}`} className="cursor-pointer" style={{ opacity: on ? 1 : 0.14 }}
         onClick={() => setSelected(selected?.kind === kind && selected.name === n.name ? null : { kind, name: n.name })}
-        onMouseEnter={(e) => showTip(e, `${n.name}: ${n.total} study uses. Click to highlight connected paths.`)}
+        onMouseEnter={(e) => showTip(e, `${n.name}: ${n.total} uses across the connected links. Click to highlight paths.`)}
         onMouseMove={moveTip} onMouseLeave={hideTip}>
         <rect x={n.x} y={n.y} width={14} height={n.h} rx={2} fill={color} />
         <text x={labelSide === 'left' ? n.x - 8 : n.x + 20} y={n.y + n.h / 2 + 3.5} fontSize={10.5} textAnchor={labelSide === 'left' ? 'end' : 'start'} fill="#0A0A0A">{nodeLabel(n.name, n.total)}</text>
@@ -143,14 +143,14 @@ function CognitiveSankey({ cognitive }) {
         <text x={790} y={12} fontSize={10} fill="#8A8A8A" fontWeight="600">INSTRUMENT</text>
         {links.map((l, i) => (
           <path key={i} d={pathFor(l)} fill="none" stroke={l.type === 'type-domain' ? colorForType(l.a) : colorForDomain(l.a)} strokeWidth={Math.max(1.2, (l.count / maxFlow) * 22)} opacity={isConnected(l) ? 0.28 : 0.03}
-            onMouseEnter={(e) => showTip(e, `${l.type === 'type-domain' ? `${l.a} → ${l.b}` : `${l.a} → ${l.b}`}: ${l.count} studies`)}
+            onMouseEnter={(e) => showTip(e, `${l.type === 'type-domain' ? `${l.a} → ${l.b}` : `${l.a} → ${l.b}`}: ${l.count} experiments`)}
             onMouseMove={moveTip} onMouseLeave={hideTip} />
         ))}
         {left.map((n) => renderNode(n, 'type', colorForType(n.name), 'left'))}
         {mid.map((n) => renderNode(n, 'domain', colorForDomain(n.name), 'right'))}
         {right.map((n) => renderNode(n, 'instrument', colorForInstrument(n.name), 'right'))}
       </svg>
-      <p className="font-data text-[10px] text-inkfaint mt-2">Each flow is counted in unique-study uses. Click a node in any column to isolate all connected paths.</p>
+      <p className="font-data text-[10px] text-inkfaint mt-2">Type-to-domain links count distinct experiments in each domain. Domain-to-instrument links count distinct experiment–instrument uses; several instruments in one experiment can therefore contribute separately to the second stage. Click a node in any column to isolate all connected paths.</p>
       <TooltipPortal tip={tip} />
     </div>
   )
@@ -168,13 +168,13 @@ function BatterySizeChart({ studyInstruments }) {
   const order = ['1', '2', '3', '4', '5', '6+']
   return (
     <div>
-      <div className="font-data text-[10px] text-inkfaint mb-1.5">n = {nStudies} cognitive-testing studies total.</div>
+      <div className="font-data text-[10px] text-inkfaint mb-1.5">n = {nStudies} cognitive-testing experiments total.</div>
       <div className="space-y-1.5">
         {order.filter((k) => buckets[k]).map((k) => (
           <div key={k} className="flex items-center gap-3 group">
             <span className="text-[12px] w-28 shrink-0 font-data">{k} instrument{k !== '1' ? 's' : ''}</span>
             <div className="flex-1 h-4 rounded bg-line/50 overflow-hidden cursor-default"
-              onMouseEnter={(e) => showTip(e, `${buckets[k]} studies use ${k} instrument${k !== '1' ? 's' : ''}`)}
+              onMouseEnter={(e) => showTip(e, `${buckets[k]} experiments use ${k} instrument${k !== '1' ? 's' : ''}`)}
               onMouseMove={moveTip} onMouseLeave={hideTip}>
               <div className="h-full group-hover:brightness-110" style={{ width: `${(buckets[k] / Math.max(nStudies, 1)) * 100}%`, background: '#5B5BFF' }} />
             </div>
@@ -196,14 +196,12 @@ export default function ChapterCognitive({ data }) {
   return (
     <div>
       <ChapterHeader
-        eyebrow="Chapter 6 of 7"
-        title="Measuring the mental-load"
+        eyebrow="Chapter 6 of 8"
+        title="Cognition and subjective state"
         framing={
           <>
             <p>
-              A minority of studies pair physiological measurement with a cognitive or mental-load
-              test — asking not just how the body responds to a thermal condition, but how the mind
-              performs under it.
+              A subset of experiments pair physiological measurement with performance tasks, subjective-state instruments or stress-induction protocols. These include objective task performance and self-reported states such as sleepiness or workload.
             </p>
             <p>
               The raw corpus field is free text with no controlled vocabulary. We harmonised every
@@ -213,10 +211,10 @@ export default function ChapterCognitive({ data }) {
           </>
         }
         headline={[
-          { value: `${pct}%`, label: 'of studies apply a cognitive test', color: '#5B5BFF' },
+          { value: `${pct}%`, label: 'use a task, state instrument or stress protocol', color: '#5B5BFF' },
           { value: cognitive_tests.instrument_totals.length, label: 'canonical instruments after harmonisation', color: '#FB3640' },
-          { value: performanceCount, label: 'performance-task uses', color: '#FB3640' },
-          { value: subjectiveCount, label: 'subjective-scale uses', color: '#8A8A8A' },
+          { value: performanceCount, label: 'experiment–performance-domain combinations', color: '#FB3640' },
+          { value: subjectiveCount, label: 'experiment–subjective-domain combinations', color: '#8A8A8A' },
         ]}
       />
 
@@ -224,7 +222,7 @@ export default function ChapterCognitive({ data }) {
         title="What kind of measure is actually used"
         intro="The Sankey shows cognitive, performance, and subjective-state instruments, split by domains."
       >
-        <FigureCard figNumber={figNum('cognitive-domain-flow')} title="Cognitive measure type → domain → instrument" plotWidth={1080} commentary="The first column distinguishes what the participant does (performance task), what they rate about themselves (subjective scale), or whether the entry is a deliberate stress-induction protocol. Flow width is proportional to unique-study use count.">
+        <FigureCard figNumber={figNum('cognitive-domain-flow')} title="Cognitive measure type → domain → instrument" plotWidth={1080} commentary="The first column distinguishes what the participant does (performance task), what they rate about themselves (subjective scale), or whether the entry is a deliberate stress-induction protocol. Type-to-domain links count distinct experiments per connection; domain-to-instrument links count distinct experiment–instrument uses. The two stages therefore need not have equal totals.">
           <CognitiveSankey cognitive={cognitive_tests} />
         </FigureCard>
       </ChapterSection>

@@ -53,11 +53,11 @@ export default function CooccurrenceMatrix({ labels, matrix, cellSize = 46, colo
     const isDiagonal = i === j
     if (isDiagonal) {
       const pctOfCorpus = corpusN ? ` (${Math.round((v / corpusN) * 1000) / 10}% of corpus)` : ''
-      return `${rowLabel}: measured in ${v} studies${pctOfCorpus} (diagonal = single-variable total, shown in gray — not on the co-occurrence color scale)`
+      return `${rowLabel}: measured in ${v} experiments${pctOfCorpus} (diagonal = single-variable total, shown in gray — not on the co-occurrence color scale)`
     }
     const pctRow = rowTotal(i) ? Math.round((v / rowTotal(i)) * 1000) / 10 : 0
     const pctCorpus = corpusN ? Math.round((v / corpusN) * 1000) / 10 : null
-    return `${rowLabel} + ${colLabel}: co-occur in ${v} studies (${pctRow}% of ${rowLabel} studies` +
+    return `${rowLabel} + ${colLabel}: co-occur in ${v} experiments (${pctRow}% of ${rowLabel} experiments` +
       (pctCorpus != null ? `; ${pctCorpus}% of full corpus)` : ')')
   }
 
@@ -76,7 +76,7 @@ export default function CooccurrenceMatrix({ labels, matrix, cellSize = 46, colo
         />
         {cellMode === 'pctRow' && (
           <span className="text-[10.5px] text-inkfaint">
-            — of the row variable's own studies; not symmetric (A+B ≠ B+A as %)
+            — of the row variable's own experiments; not symmetric (A+B ≠ B+A as %)
           </span>
         )}
       </div>
@@ -137,7 +137,7 @@ export default function CooccurrenceMatrix({ labels, matrix, cellSize = 46, colo
       <div className="flex flex-wrap items-center gap-4 mt-3 font-data text-[10.5px] text-inkfaint">
         <span className="flex items-center gap-1.5">
           <span className="w-3 h-3 inline-block" style={{ background: diagonalFill, border: '1.5px solid #0A0A0A' }} />
-          gray outlined cell = diagonal (single-variable count, n studies measuring that one variable — not on the color scale below, and always shown as a count regardless of the toggle above)
+          gray outlined cell = diagonal (single-variable count, n experiments measuring that one variable — not on the color scale below, and always shown as a count regardless of the toggle above)
         </span>
         <span className="flex items-center gap-2">
           <span>co-occurrence scale (always by count, regardless of cell display mode):</span>

@@ -16,7 +16,7 @@ export default function Methodology({ data }) {
             experiments in the thermal-comfort field. It documents how experiments are reported:
             study context, time factors, thermal conditions, participants, environmental variables,
             physiological measurements, questionnaires, cognitive measures, inclusion/exclusion
-            criteria, protocol controls, and stated limitations. The atlas is not a reporting
+            criteria and protocol controls. The atlas is not a reporting
             standard by itself; it is the empirical layer used to make later standardisation and
             reproducibility discussions more concrete.
           </p>
@@ -31,7 +31,7 @@ export default function Methodology({ data }) {
             and physiological measurement. The initial search results yielded 6592 records across four databases —
             a fixed count from the original search date, not derived from the live corpus below.
             After duplicate removal and title/abstract screening, 358 publications remained for full-text review. 
-            Of these, {summary.n_publications} studies met all inclusion and exclusion criteria and make up the
+            Of these, {summary.n_publications} publications describing {summary.n_experiments} experiments make up the
             current corpus, published between {summary.year_min} and {summary.year_max}.
           </p>
         </section>
@@ -54,11 +54,11 @@ export default function Methodology({ data }) {
         <section>
           <h2 className="text-[15px] font-semibold mb-2">Metadata architecture</h2>
           <p className="text-[13.5px] text-inkmid leading-relaxed mb-3">
-            The current extraction sheet contains 14 metadata categories and 206 fields. The fields
+            The current extraction sheet contains 14 metadata categories and {summary.n_variables} fields. The fields
             cover identifiers, timing, context, study domains, target thermal conditions, population
             characteristics, environmental measurements, physiological measurements, questionnaires,
             cognitive/mental-load measurements, eligibility criteria, participant metadata, protocol
-            controls, and limitations.
+            and controls.
           </p>
           <CodeLegend />
           <p className="text-[13.5px] text-inkmid leading-relaxed mt-4">

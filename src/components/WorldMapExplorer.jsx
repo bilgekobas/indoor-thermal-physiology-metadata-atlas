@@ -75,7 +75,7 @@ function CityMarkers({ cityData }) {
             }}
           >
             <LeafletTooltip direction="top" offset={[0, -4]} opacity={0.95}>
-              {c.city}: {c.count} {c.count === 1 ? 'study' : 'studies'}, {c.climate_group}{caveat}
+              {c.city}: {c.count} {c.count === 1 ? 'experiment' : 'experiments'}, {c.climate_group}{caveat}
             </LeafletTooltip>
           </CircleMarker>
         )
@@ -135,7 +135,7 @@ export default function WorldMapExplorer({ cityData, countryData, height = 460 }
     const entry = countByAtlas[feature.properties.name]
     const count = entry?.count || 0
     const place = entry ? entry.raw_labels.join(' + ') : feature.properties.name
-    layer.bindTooltip(`${place}: ${count} ${count === 1 ? 'study' : 'studies'}`, { sticky: true })
+    layer.bindTooltip(`${place}: ${count} ${count === 1 ? 'experiment' : 'experiments'}`, { sticky: true })
   }
 
   const resetCenter = [15, 10]
@@ -193,11 +193,11 @@ export default function WorldMapExplorer({ cityData, countryData, height = 460 }
               </div>
             ))}
           </div>
-          <div className="font-data text-[10px] text-inkfaint mt-2">Marker area ∝ study count and grows as you zoom in. Color = Köppen climate group at that city.</div>
+          <div className="font-data text-[10px] text-inkfaint mt-2">Marker area ∝ experiment count and grows as you zoom in. Color = Köppen climate group at that city.</div>
         </div>
       ) : (
         <div className="flex items-center gap-3 mt-2 flex-wrap">
-          <span className="font-data text-[10.5px] text-inkfaint">Studies by country (log scale):</span>
+          <span className="font-data text-[10.5px] text-inkfaint">Experiments by country (log scale):</span>
           {legendStops.map((v) => (
             <span key={v} className="flex items-center gap-1.5">
               <span className="w-3 h-3 rounded-sm inline-block border border-line" style={{ background: countryColor(v) }} />

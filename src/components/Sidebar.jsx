@@ -13,11 +13,11 @@ const CHAPTERS = [
   },
   {
     to: '/population', label: 'Who is studied',
-    subtitles: ['Demographics', 'Was sample size justified?', 'Who was excluded, and why', 'What else is known about participants'],
+    subtitles: ['Demographics', 'Was sample size justified?', 'Who was excluded, and why', 'What else is known about participants', 'Sex and hormone-related study design'],
   },
   {
     to: '/body', label: 'Measuring the human',
-    subtitles: ["What's measured, and how", 'Signals, sensor types, and brands', 'How sensor choice has shifted over time', 'Skin temperature body sites', 'Where other signals are measured', 'Mean skin temperature'],
+    subtitles: ["What's measured, and how", 'Complete measurement combinations', 'Signals, sensor types, and brands', 'How sensor choice has shifted over time', 'Skin temperature body sites', 'Where other signals are measured', 'Mean skin temperature'],
   },
   {
     to: '/environment', label: 'Measuring the environment',
@@ -28,12 +28,16 @@ const CHAPTERS = [
     subtitles: ['Questionnaire usage by domain', 'Scale heterogeneity: sensation vs. comfort'],
   },
   {
-    to: '/cognitive', label: 'Measuring the mental-load',
+    to: '/cognitive', label: 'Cognition and subjective state',
     subtitles: ['What kind of measure is actually used'],
   },
   {
+    to: '/combinations', label: 'Combining context and measurement',
+    subtitles: ['Physiological signals across study settings'],
+  },
+  {
     to: '/reporting', label: 'Data completeness',
-    subtitles: ['Full field-level completeness list'],
+    subtitles: ['Full field-level completeness list', 'Which details are documented together?'],
   },
 ]
 
@@ -65,7 +69,7 @@ export default function Sidebar({ summary }) {
         </h1>
         {summary && (
           <div className="font-data text-[11px] text-inkfaint mt-2">
-            {summary.n_publications} studies · {summary.year_min}–{summary.year_max}
+            {summary.n_publications} publications · {summary.year_min}–{summary.year_max}
           </div>
         )}
       </Link>

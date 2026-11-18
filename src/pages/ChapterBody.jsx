@@ -8,11 +8,13 @@ import BodySiteMap from '../components/BodySiteMap.jsx'
 import OverallByPeriod, { PeriodHeatmap, ToggleGroup } from '../components/OverallByPeriod.jsx'
 import { useTooltip, TooltipPortal } from '../components/Tooltip.jsx'
 import { CodeChip } from '../components/CodeChip.jsx'
+import { CoreTemperatureView, ExactSignalCombinations, ChoiceButtons } from '../components/CombinationViews.jsx'
 
-function SensorEvolutionToggle({ signals, evoData, periods }) {
+function SensorEvolutionToggle({ signals, evoData, periods, core }) {
   const [activeSignal, setActiveSignal] = useState(signals[0] || '')
   if (!signals.length || !activeSignal) return <div className="text-[12px] text-inkfaint">No data available.</div>
-  const signalData = evoData.signals[activeSignal]
+  const isCoreClass = activeSignal === 'core-class'
+  const signalData = evoData.signals[isCoreClass ? 'Core/Body temperature' : activeSignal]
   const { data, sensor_order, period_totals } = signalData
   const countsBySensor = useMemo(() => {
     const m = {}
@@ -26,17 +28,17 @@ function SensorEvolutionToggle({ signals, evoData, periods }) {
   return (
     <div>
       <div className="flex flex-wrap gap-1.5 mb-4" data-toggle-group="content">
-        {signals.map((sig) => (
+        {[...signals, 'core-class'].map((sig) => (
           <button
             key={sig}
             onClick={() => setActiveSignal(sig)}
             className={`px-3 py-1 rounded text-[11.5px] font-data transition-colors ${activeSignal === sig ? 'bg-ink text-paper' : 'bg-line/50 text-inkmid hover:bg-line'}`}
           >
-            {sig}
+            {sig === 'core-class' ? 'Core/body: measurement class' : sig}
           </button>
         ))}
       </div>
-      <PeriodHeatmap
+      {isCoreClass ? <CoreTemperatureView core={core} /> : <PeriodHeatmap
         rows={sensor_order}
         periods={periods}
         periodN={period_totals}
@@ -44,10 +46,24 @@ function SensorEvolutionToggle({ signals, evoData, periods }) {
         getCount={(sensor, p) => countsBySensor[sensor]?.[p] || 0}
         labelWidth={150}
         cellWidth={78}
-      />
+      />}
     </div>
   )
 
+}
+
+function OtherSignalSiteToggle({ siteData, core }) {
+  const [signal, setSignal] = useState('heart')
+  const hr = siteData['Heart/Pulse rate']
+  return <div>
+    <ChoiceButtons label="Other physiological measurement sites" value={signal} onChange={setSignal}
+      options={[{ key: 'heart', label: 'Heart/pulse rate' }, { key: 'core', label: 'Core/body temperature' }]} />
+    {signal === 'core' ? <CoreTemperatureView core={core} /> : <PeriodHeatmap
+      rows={hr.site_totals.map(r => r.site)} periods={hr.by_period.periods} periodN={hr.by_period.period_n}
+      rowTotals={Object.fromEntries(hr.site_totals.map(r => [r.site, r.count]))}
+      getCount={(site, p) => hr.by_period.data.find(r => r.site === site && r.period === p)?.count || 0}
+      labelWidth={220} cellWidth={78} />}
+  </div>
 }
 
 // ── Sankey (signal -> sensor type -> brand) ────────────────────────────
@@ -327,7 +343,7 @@ function SignalSensorBrandSankey({ overall, signalTotals, signalInstanceTotals, 
       <path d={`M ${x1} ${y1} C ${mx} ${y1}, ${mx} ${y2}, ${x2} ${y2}`} fill="none" stroke={color}
         strokeWidth={strokeW} opacity={active ? 0.32 : 0.06}
         className="cursor-default transition-opacity duration-150"
-        onMouseEnter={(e) => showTip(e, `${link.label}: ${link.count} studies (${((link.count / Math.max(parentDenominator, 1)) * 100).toFixed(1)}% of ${link.from.name})`)} onMouseMove={moveTip} onMouseLeave={hideTip} />
+        onMouseEnter={(e) => showTip(e, `${link.label}: ${link.count} instances (${((link.count / Math.max(parentDenominator, 1)) * 100).toFixed(1)}% of ${link.from.name})`)} onMouseMove={moveTip} onMouseLeave={hideTip} />
     )
   }
 
@@ -399,8 +415,8 @@ function SignalSensorBrandSankey({ overall, signalTotals, signalInstanceTotals, 
               const parentSignals = n.parentSignals || []
               const dominant = parentSignals.length ? [...parentSignals].sort((a, b) => b.count - a.count)[0] : null
               const isMixed = parentSignals.length > 1
-              const pct = dominant ? (n.total / Math.max(dominant.denominator, 1)) * 100 : 0
-              const label = `${n.name}, ${n.total} (${pct.toFixed(0)}%)`
+              const pct = dominant ? (dominant.count / Math.max(dominant.denominator, 1)) * 100 : 0
+              const label = isMixed ? `${n.name}, ${n.total}` : `${n.name}, ${n.total} (${pct.toFixed(0)}%)`
               const parentDetail = !dominant
                 ? `${n.total} experiment–signal–method instances`
                 : isMixed
@@ -426,8 +442,8 @@ function SignalSensorBrandSankey({ overall, signalTotals, signalInstanceTotals, 
                   })()
                 : ((n.total / layout.brandDenom) * 100).toFixed(0)
               const tipText = brandMode === 'bySensor'
-                ? `${n.name}: ${n.total} studies (${pct}% of ${n.sensorType}) — click to isolate`
-                : `${n.name}: ${n.total} studies across ${sensorsOfBrand.length} sensor type${sensorsOfBrand.length === 1 ? '' : 's'} (${sensorsOfBrand.join(', ')}) — click to isolate`
+                ? `${n.name}: ${n.total} instances (${pct}% of ${n.sensorType}) — click to isolate`
+                : `${n.name}: ${n.total} instances across ${sensorsOfBrand.length} sensor type${sensorsOfBrand.length === 1 ? '' : 's'} (${sensorsOfBrand.join(', ')}) — click to isolate`
               return (
                 <g key={n.key}
                   onClick={() => setSelected(selected?.level === 'brand' && selected.name === n.key ? null : { level: 'brand', name: n.key })}
@@ -445,7 +461,7 @@ function SignalSensorBrandSankey({ overall, signalTotals, signalInstanceTotals, 
         </svg>
       </div>
       <p className="font-data text-[10px] text-inkfaint mt-2">
-        Flow width and node height are proportional to experiment–signal–method instances; node and link colours mark physiological signal families; the central thermal-state family is highlighted in yellow. Node labels use one format throughout: name, study count, and percentage in parentheses. Signal labels show unique experiment counts and percentages of all experiments. Sensor-type counts and flow widths represent experiment–signal–method instances. When a sensor type belongs to one signal, its label percentage is calculated against the number of experiments measuring that signal; for sensor types shared by several signals, the node shows a count only and each incoming link reports its signal-specific percentage. Link hover reports the percentage relative to the immediate parent signal or sensor-type node. Click any signal, sensor type, or brand to highlight all connected paths and rows across all three columns.
+        Flow width and node height are proportional to experiment–signal–method instances; node and link colours mark physiological signal families; the central thermal-state family is highlighted in yellow. Node labels show counts and, where a single denominator applies, percentages. Signal labels show unique experiment counts and percentages of all experiments. Sensor-type counts and flow widths represent experiment–signal–method instances. When a sensor type belongs to one signal, its label percentage is calculated against the number of experiments measuring that signal; for sensor types shared by several signals, the node shows a count only and each incoming link reports its signal-specific percentage. Link hover reports the percentage relative to the immediate parent signal or sensor-type node. Click any signal, sensor type, or brand to highlight all connected paths and rows across all three columns.
         {' '}The brand-column toggle above switches between two parentages for the same underlying counts: "by sensor type" keeps each brand's node scoped to one sensor type (so a brand sold under two sensor types appears as two smaller nodes, and its brand percentage is relative to that one sensor type's total); "collapsed by brand" merges those into a single node per brand name with links fanning in from every sensor type it's used under (brand percentage is then relative to the top-{COLLAPSED_TOP_N} brands shown, not to any one sensor type).
       </p>
       <TooltipPortal tip={tip} />
@@ -584,7 +600,7 @@ function MstSankey({ mst, totalExperiments }) {
       return n
     })
   }
-  const left = layoutNodes([{ name: 'MST measured: Y', total: yCount }, { name: 'MST measured: N/NR', total: nonYCount }], 160, 1.05, 24, 14)
+  const left = layoutNodes([{ name: 'MST calculated: Y', total: yCount }, { name: 'MST calculated: N/NR', total: nonYCount }], 160, 1.05, 24, 14)
   const mid = layoutNodes(points, 430, 1.15, 14, 7)
   const right = layoutNodes(formulas, 710, 1.15, 14, 7)
   const H = Math.max(230, ...[...left, ...mid, ...right].map((n) => n.y + n.h)) + 18
@@ -595,7 +611,7 @@ function MstSankey({ mst, totalExperiments }) {
   const yNode = left[0]
   const nonYNode = left[1]
   const links = []
-  mid.forEach((p) => links.push({ from: yNode, to: p, count: p.total, kind: 'ypoint', status: 'MST measured: Y', point: p.name, color: '#0A0A0A' }))
+  mid.forEach((p) => links.push({ from: yNode, to: p, count: p.total, kind: 'ypoint', status: 'MST calculated: Y', point: p.name, color: '#0A0A0A' }))
   pointFormulaLinks.forEach((l) => {
     const from = pointBy[l.point]
     const to = formulaBy[l.formula]
@@ -605,16 +621,16 @@ function MstSankey({ mst, totalExperiments }) {
   const connected = (obj) => {
     if (!selected) return true
     if (selected.type === 'status') {
-      if (selected.name === 'MST measured: N/NR') return obj.name === selected.name || obj.status === selected.name
+      if (selected.name === 'MST calculated: N/NR') return obj.name === selected.name || obj.status === selected.name
       return obj.name === selected.name || obj.status === selected.name || obj.kind === 'ypoint' || obj.kind === 'formula'
     }
     if (selected.type === 'point') {
-      return obj.name === selected.name || obj.point === selected.name || obj.name === 'MST measured: Y' || obj.status === 'MST measured: Y' ||
+      return obj.name === selected.name || obj.point === selected.name || obj.name === 'MST calculated: Y' || obj.status === 'MST calculated: Y' ||
         (obj.formula && pointFormulaLinks.some((l) => l.point === selected.name && l.formula === obj.formula))
     }
     if (selected.type === 'formula') {
       const connectedPoints = new Set(pointFormulaLinks.filter((l) => l.formula === selected.name).map((l) => l.point))
-      return obj.name === selected.name || obj.formula === selected.name || obj.name === 'MST measured: Y' || obj.status === 'MST measured: Y' ||
+      return obj.name === selected.name || obj.formula === selected.name || obj.name === 'MST calculated: Y' || obj.status === 'MST calculated: Y' ||
         (obj.point && connectedPoints.has(obj.point))
     }
     return true
@@ -657,14 +673,14 @@ function MstSankey({ mst, totalExperiments }) {
         <text x={710} y={12} fontSize={10} fill="#8A8A8A" fontWeight="600">FORMULA USES (n = {formulaInstanceTotal})</text>
         {links.map((l, i) => (
           <path key={i} d={pathFor(l)} fill="none" stroke={l.color} strokeWidth={Math.max(1.2, (l.count / maxFlow) * 30)} opacity={connected(l) ? 0.24 : 0.035}
-            onMouseEnter={(e) => showTip(e, `${l.kind === 'ypoint' ? 'MST measured Y → ' + pointLabel(l.point) : pointLabel(l.point) + ' points → ' + l.formula}: ${l.count} studies`)} onMouseMove={moveTip} onMouseLeave={hideTip} />
+            onMouseEnter={(e) => showTip(e, `${l.kind === 'ypoint' ? 'MST calculated Y → ' + pointLabel(l.point) : pointLabel(l.point) + ' points → ' + l.formula}: ${l.count} experiments`)} onMouseMove={moveTip} onMouseLeave={hideTip} />
         ))}
         {node(yNode, 'status', '#0A0A0A', yCount + nonYCount)}
         {node(nonYNode, 'status', '#BBBBBB', yCount + nonYCount)}
         {mid.map((n) => node(n, 'point', '#0A0A0A', yCount))}
         {right.map((n) => node(n, 'formula', '#0A0A0A', formulaInstanceTotal))}
       </svg>
-      <p className="font-data text-[10px] text-inkfaint mt-2">MST-specific denominator: {yCount} experiments calculated MST. Point-count nodes are experiment-level; formula nodes represent {formulaInstanceTotal} experiment–formula instances because an experiment may use or compare more than one formula.</p>
+      <p className="font-data text-[10px] text-inkfaint mt-2">MST-specific denominator: {yCount} experiments calculated MST. Point-count nodes are experiment-level; formula nodes represent {formulaInstanceTotal} experiment–point-count–formula instances because an experiment may use or compare more than one formula.</p>
       <p className="font-data text-[10px] text-inkfaint mt-1">Formula percentages use {formulaInstanceTotal} formula instances as their denominator, including {formulaNrTotal} entries coded <CodeChip code="NR" />. Each point-to-formula connection represents a documented pairing. Single-site temperatures are not treated as MST calculations.</p>
       <TooltipPortal tip={tip} />
     </div>
@@ -729,8 +745,8 @@ export default function ChapterBody({ data }) {
   const evoFirstPeriod = evoPeriods[0]
   const evoLastPeriod = evoPeriods[evoPeriods.length - 1]
   // Dynamic thermocouple/Thermochron displacement stats for the section
-  // intro, normalized against ALL experiments run in that period (not just
-  // those measuring skin temperature) -- see build_data.py's period_n_all.
+  // intro, normalized among skin-temperature experiments in each period (not
+  // the full corpus) to match the matrix denominator.
   const skinEvo = evo_signal_sensor.signals['Skin temperature']
   const skinEvoByPeriod = useMemo(() => {
     const map = {}
@@ -738,7 +754,7 @@ export default function ChapterBody({ data }) {
     return map
   }, [skinEvo])
   const skinSensorPct = (sensor, period) => {
-    const denom = skinEvo.period_n_all[period] || 0
+    const denom = skinEvo.period_totals[period] || 0
     const c = skinEvoByPeriod[period]?.[sensor] || 0
     return denom ? ((c / denom) * 100).toFixed(0) : '0'
   }
@@ -779,7 +795,7 @@ export default function ChapterBody({ data }) {
   const skinTempPct = ((skinTempN / summary.n_experiments) * 100).toFixed(0)
   const heartRatePct = ((heartRateN / summary.n_experiments) * 100).toFixed(0)
   const nSensorTypesSkinTemp = new Set(
-    physio_signal_sensor.overall.filter((r) => r.signal === 'Skin temperature').map((r) => r['physio-sensing-method'])
+    physio_signal_sensor.overall.filter((r) => r.signal === 'Skin temperature' && !['NR', 'MNR', 'NAN', 'NC'].includes(r['physio-sensing-method'])).map((r) => r['physio-sensing-method'])
   ).size
 
   const cooccurLabels = fig18_physio_cooccurrence.labels
@@ -837,7 +853,7 @@ export default function ChapterBody({ data }) {
   return (
     <div>
       <ChapterHeader
-        eyebrow="Chapter 3 of 7"
+        eyebrow="Chapter 3 of 8"
         title="Measuring the human"
         framing={
           <>
@@ -848,9 +864,7 @@ export default function ChapterBody({ data }) {
             </p>
             <p>
               We looked for sensor type, brand, model, and body site because the same signal name can
-              hide very different measurement realities — "skin temperature" via thermocouple, infrared
-              camera, or wearable patch are not interchangeable, and the corpus lets us see exactly which
-              choice each study made.
+              hide very different measurement realities — "skin temperature" measured with a thermocouple, infrared camera, or wearable patch can differ in measurement principle and anatomical coverage, and the corpus lets us see which choices were coded for each experiment, including missing details and permitted device-based inferences.
             </p>
           </>
         }
@@ -858,15 +872,15 @@ export default function ChapterBody({ data }) {
           { value: summary.n_experiments, label: 'Experiments' },
           { value: `${topSignalPct}%`, label: `measure ${topSignal.parameter.toLowerCase()}`, color: '#FB3640' },
           { value: `${mstPct}%`, label: 'calculate MST', color: '#FB3640' },
-          { value: `${brandPct}%`, label: 'report a sensor brand', color: '#5B5BFF' },
+          { value: `${brandPct}%`, label: 'have a coded brand for at least one measurement', color: '#5B5BFF' },
         ]}
       />
 
       <ChapterSection
         title="What's measured, and how"
-        intro={`Skin temperature (${skinTempN} studies, ${skinTempPct}%) and heart rate (${heartRateN}, ${heartRatePct}%) dominate by a wide margin over every other signal. Other signals appear far less often and are typically paired with skin temperature or heart rate rather than measured in isolation.`}
+        intro={`Skin temperature (${skinTempN} experiments, ${skinTempPct}%) and heart rate (${heartRateN}, ${heartRatePct}%) dominate by a wide margin over every other signal. Other signals appear far less often and are typically paired with skin temperature or heart rate rather than measured in isolation.`}
       >
-        <FigureCard figNumber={figNum('signals-measured-freq')} title="Most frequently measured signals" plotWidth={980} commentary={`Skin temperature dominates at ${skinTempN} of ${summary.n_experiments} experiments (${skinTempPct}%) — more than triple the next most common signal, heart/pulse rate at ${heartRateN} (${heartRatePct}%). After that the field thins out fast: core/body temperature and blood pressure each appear in well under a fifth of experiments.`}>
+        <FigureCard figNumber={figNum('signals-measured-freq')} title="Most frequently measured signals" plotWidth={980} commentary={`Skin temperature dominates at ${skinTempN} of ${summary.n_experiments} experiments (${skinTempPct}%) — compared with heart/pulse rate at ${heartRateN} (${heartRatePct}%). After that the field thins out fast: core/body temperature and blood pressure each appear in well under a fifth of experiments.`}>
           <PeriodHeatmap
             rows={fig17_physio_params.data.map((d) => d.parameter)}
             periods={signal_freq_by_period.periods}
@@ -878,28 +892,38 @@ export default function ChapterBody({ data }) {
           />
         </FigureCard>
 
-        <FigureCard figNumber={figNum('signals-cooccurrence')} title="Which signals get measured together" plotWidth={680} commentary={`Skin temperature (${cooccurSkinTotal} studies) and heart/pulse rate (${cooccurHrTotal}) are individually the most common signals, and ${skinHrCooccur} studies measure both together — about ${hrAlsoSkinPct}% of all heart-rate studies also track skin temperature.`}>
+        <FigureCard figNumber={figNum('signals-cooccurrence', 'a')} title="Which signals get measured together" plotWidth={680} commentary={`Skin temperature (${cooccurSkinTotal} experiments) and heart/pulse rate (${cooccurHrTotal}) are individually the most common signals, and ${skinHrCooccur} experiments measure both together — about ${hrAlsoSkinPct}% of all heart-rate experiments also track skin temperature.`}>
           <CooccurrenceMatrix labels={fig18_physio_cooccurrence.labels} matrix={fig18_physio_cooccurrence.matrix} cellSize={38} colorScheme="blue" corpusN={295} />
         </FigureCard>
       </ChapterSection>
 
       <ChapterSection
+        title="Complete measurement combinations"
+        intro={`The pairwise matrix above counts every experiment containing a pair, including experiments with additional signals. Here, each row is the complete coded measurement set. ${data.combination_views.battery_sizes.find(r => r.size === 1)?.count || 0} of ${summary.n_experiments} experiments measure one coded signal; ${data.combination_views.signal_bundles.find(r => r.signals.length === 1 && r.signals[0] === 'Skin temperature')?.count || 0} measure skin temperature alone.`}
+      >
+        <FigureCard figNumber={figNum('signals-cooccurrence', 'b')} title="Exact physiological measurement combinations" plotWidth={1120}
+          commentary="For example, a row with filled dots for skin temperature and heart/pulse rate counts experiments measuring precisely those two coded parameters. Experiments also measuring blood pressure appear in a different row. Select a row to inspect its experiment IDs.">
+          <ExactSignalCombinations views={data.combination_views} studies={data.studies} />
+        </FigureCard>
+      </ChapterSection>
+
+      <ChapterSection
         title="Signals, sensor types, and brands"
-        intro="The same signal can be captured by very different instruments. This flow covers 15 signals measured in ≥5 studies, 53 distinct sensor types used across them, and every commercial brand behind those sensors — ordered by thermophysiological mechanism."
+        intro="The same signal can be captured by different instruments. The flow includes signals measured in at least five experiments, with their coded sensing methods and brand status. Signals are grouped by physiological domain. The default brand view shows the three most frequent brand categories per sensing method; the alternative combines brands across methods."
       >
         <FigureCard
           figNumber={figNum('signal-sensor-brand')}
           title="Signal → sensor type → brand"
           plotWidth={1100}
           commentary={[
-            `Skin temperature is measured in ${skinTempN} of ${summary.n_experiments} experiments (${skinTempPct}%), followed by heart/pulse rate in ${heartRateN} (${heartRatePct}%). Every other signal sits in single digits. Sensing-type choice is far from standardized even within one signal: skin temperature alone is measured via ${nSensorTypesSkinTemp} distinct sensor types, with no single method used in a majority of studies.`,
-            `OMRON is the most-cited brand overall (${omronTotal}, counted once per signal it's used for), but spread across signals — it makes combination devices covering blood pressure (${omronBySignal['Blood pressure'] || 0}), heart rate (${omronBySignal['Heart/Pulse rate'] || 0}), and core/body temperature (${omronBySignal['Core/Body temperature'] || 0}). iButton (${iButtonTotal}) is the opposite pattern: concentrated almost entirely in one signal, skin temperature (${iButtonSkin} of its ${iButtonTotal}). Flow and node thickness are proportional to study count — hover for the exact number, or click any signal, sensor type, or brand to isolate its paths.`,
+            `Skin temperature is measured in ${skinTempN} of ${summary.n_experiments} experiments (${skinTempPct}%), followed by heart/pulse rate in ${heartRateN} (${heartRatePct}%). Other signals are less frequently recorded; several still occur in more than 10% of experiments. Sensing-type choice is far from standardized even within one signal: skin temperature alone is measured via ${nSensorTypesSkinTemp} distinct substantive sensing-method labels. Missing-code categories are displayed separately.`,
+            `Flow widths count experiment–signal–sensing-method instances, so one experiment can contribute more than once. Signal labels show unique-experiment prevalence. Brand categories include missing or multiple-brand status; displayed brand paths are restricted to the leading categories in the selected view. Hover to inspect counts or select a node to highlight its connections.`,
           ]}
         >
           <SignalSensorBrandSankey overall={physio_signal_sensor.overall} signalTotals={physio_signal_sensor.signal_totals} signalInstanceTotals={physio_signal_sensor.signal_instance_totals} brandData={physio_signal_sensor.signal_method_brand} nExperiments={summary.n_experiments} />
         </FigureCard>
 
-        <FigureCard figNumber={figNum('body-site-per-signal')} title="Where on the body each signal is measured" plotWidth={900} commentary={`Skin-temperature measurements span multiple anatomical sites. Heart rate concentrates at the chest (${hrChest} of ${hrN} studies, where ECG-based measurements are often obtained) and wrist (${hrWrist}, where optical wearables are often placed). The sudomotor signals split sharply by method: ${sweatWholeBody} sweat-indicator studies measure the whole body at once (not shown on the diagram, see the list at right), while skin conductance is almost always local — ${conductanceWrist} studies at the wrist, ${conductanceFinger} at the finger.`}>          <BodySiteToggle
+        <FigureCard figNumber={figNum('body-site-per-signal')} title="Where on the body each signal is measured" plotWidth={900} commentary={`Skin-temperature measurements span multiple anatomical sites. Heart rate concentrates at the chest (${hrChest} of ${hrN} experiments, where ECG-based measurements are often obtained) and wrist (${hrWrist}, where optical wearables are often placed). The sudomotor signals split sharply by method: ${sweatWholeBody} sweat-indicator experiments measure the whole body at once (not shown on the diagram, see the list at right), while skin conductance is almost always local — ${conductanceWrist} experiments at the wrist, ${conductanceFinger} at the finger.`}>          <BodySiteToggle
             skinTempSites={skintemp_sites.site_totals}
             skinTempN={skintemp_sites.n_studies_with_site}
             hrSites={site_by_signal['Heart/Pulse rate'].site_totals}
@@ -912,10 +936,10 @@ export default function ChapterBody({ data }) {
 
       <ChapterSection
         title="How sensor choice has shifted over time"
-        intro={`For skin temperature, thermocouples made up ${thermocoupleEarlyPct}% of all experiments in ${evoFirstPeriod} but only ${thermocoupleLatePct}% by ${evoLastPeriod}, while Thermochron-type dataloggers (e.g. iButton) rose from ${thermochronEarlyPct}% to ${thermochronLatePct}% over the same span — the field's main displacement story. Cells show each sensor type's share of all experiments run in that period, not just those measuring the selected signal. Because one experiment may use several methods, percentages need not sum to 100%.`}
+        intro={`For skin temperature, thermocouples were used in ${thermocoupleEarlyPct}% of skin-temperature experiments in ${evoFirstPeriod} but only ${thermocoupleLatePct}% by ${evoLastPeriod}, while Thermochron-type dataloggers (e.g. iButton) rose from ${thermochronEarlyPct}% to ${thermochronLatePct}% over the same span in this corpus. Both this comparison and the matrix use experiments measuring the selected signal in each period as their denominator. Methods are non-exclusive: an experiment using several methods contributes to each.`}
       >
-        <FigureCard figNumber={figNum('sensor-choice-by-signal')} title="Sensor choice by signal" size="wide" commentary="Select a signal to inspect its reported sensor types. Rows are sensor types, columns are 2-year periods; each cell is a share of studies that measured this signal in that period specifically, so percentages reflect within-signal sensor-choice trends (not directly comparable across signals, since the denominator changes with the toggle); methods are non-exclusive.">
-          <SensorEvolutionToggle signals={evoSignals} evoData={evo_signal_sensor} periods={evoPeriods} />
+        <FigureCard figNumber={figNum('sensor-choice-by-signal')} title="Sensing methods and core/body measurement classes" size="wide" commentary="Select a signal to inspect its coded sensing methods, or use the core/body measurement-class view. Rows are sensing methods or measurement classes, depending on the view. Percentages use experiments measuring that signal in the corresponding two-year period. Sensing methods and anatomical sites are non-exclusive; the measurement classes assign each experiment once.">
+          <SensorEvolutionToggle signals={evoSignals} evoData={evo_signal_sensor} periods={evoPeriods} core={data.combination_views.core} />
         </FigureCard>
       </ChapterSection>
 
@@ -923,7 +947,7 @@ export default function ChapterBody({ data }) {
         title="Skin temperature body sites"
         intro="Where on the body skin temperature is measured, and how that has shifted across the decade. Only near-synonymous labels are collapsed (e.g. calf/shin → lower leg); distinct face sub-sites remain separate."
       >
-        <FigureCard figNumber={figNum('site-prevalence-by-period')} title="Site prevalence by period" plotWidth={980} commentary={`${topSkinSite.site} is the single most-measured site (${topSkinSite.total} of ${skintemp_sites.n_studies_with_site} skin-temperature studies, ${topSkinSitePct}%), followed closely by ${nextSkinSitesLabel} (all ${nextSkinSitesMin}–${nextSkinSitesMax} studies). No one site is measured in every study — choice of body site is still inconsistent across the field.`}>
+        <FigureCard figNumber={figNum('site-prevalence-by-period')} title="Site prevalence by period" plotWidth={980} commentary={`${topSkinSite.site} is the single most-measured site (${topSkinSite.total} of ${skintemp_sites.n_studies_with_site} skin-temperature experiments, ${topSkinSitePct}%), followed closely by ${nextSkinSitesLabel} (all ${nextSkinSitesMin}–${nextSkinSitesMax} experiments). No one site is measured in every experiment — anatomical sampling varies across the included experiments.`}>
           <PeriodHeatmap
             rows={allSites.map((s) => s.site)}
             periods={periods}
@@ -940,39 +964,24 @@ export default function ChapterBody({ data }) {
         title="Where other signals are measured"
         intro="Skin temperature isn't the only signal where measurement site reflects a real methodological choice. Heart rate's site splits roughly along sensor modality (chest straps vs. wrist/finger optical sensors); skin conductance follows electrode-placement convention; sweat is measured either at a local site or, more often, across the whole body at once — two fundamentally different kinds of measurement sharing one field name."
       >
-        <FigureCard figNumber={figNum('hr-measurement-site')} title="Heart/pulse rate measurement site" plotWidth={980} commentary={`Chest (${hrChest} of ${hrN} studies) and wrist (${hrWrist}) are the two dominant sites — roughly, ECG-strap vs. optical-wearable territory. The matrix shows reported anatomical sites across study periods.`}>
-          {(() => {
-            const hr = site_by_signal['Heart/Pulse rate'].by_period
-            const hrSites = site_by_signal['Heart/Pulse rate'].site_totals.map((d) => d.site)
-            const totals = Object.fromEntries(site_by_signal['Heart/Pulse rate'].site_totals.map((d) => [d.site, d.count]))
-            return (
-              <PeriodHeatmap
-                rows={hrSites}
-                periods={hr.periods}
-                periodN={hr.period_n}
-                rowTotals={totals}
-                getCount={(site, p) => hr.data.find((r) => r.site === site && r.period === p)?.count || 0}
-                labelWidth={150}
-                cellWidth={88}
-              />
-            )
-          })()}
+        <FigureCard figNumber={figNum('hr-measurement-site')} title="Heart/pulse rate and core/body temperature sites" plotWidth={980} commentary={`Chest (${hrChest} of ${hrN} experiments) and wrist (${hrWrist}) are the two dominant sites — roughly, ECG-strap vs. optical-wearable territory. The heart-rate matrix uses experiments with a coded site as its denominator. Switch to core/body temperature to inspect measurement classes or anatomical sites; its denominator is all experiments measuring that signal in each period.`}>
+          <OtherSignalSiteToggle siteData={site_by_signal} core={data.combination_views.core} />
         </FigureCard>
       </ChapterSection>
 
       <ChapterSection
         title="Mean skin temperature"
-        intro={`Skin temperature was measured in 75–100% of experiments across periods. Among those experiments, ${mst.n_mst_studies} explicitly calculated a weighted mean skin temperature: universal in 2013–14, then approximately 53–64% in subsequent periods. The studies that calculate MST use a wide range of point configurations and weighting formulas.`}
+        intro={`Skin temperature was measured in 75–100% of experiments across periods. Among those experiments, ${mst.n_mst_studies} explicitly calculated mean skin temperature. The figure distinguishes calculation from skin-temperature measurement and retains weighted and unweighted calculations as coded. The experiments that calculate MST use a wide range of point configurations and weighting formulas.`}
       >
         <FigureCard figNumber={figNum('mst-calculation-prevalence')} title="Skin-temperature measurement and MST calculation by period" plotWidth={980} commentary="In all-experiments view, each column is the full period cohort: blue shows explicit MST calculation, black skin-temperature measurement without an explicit calculation, and pale grey no skin-temperature measurement. The top percentage is MST calculation among skin-temperature experiments; the label beneath gives skin-temperature coverage of the full period. Switch to within skin temperature to normalize the same calculation choice to the eligible experiments only.">
           <MstCalculationPrevalence mst={mst} />
         </FigureCard>
 
-        <FigureCard figNumber={figNum('mst-calc-pathway')} title="MST calculation pathway" plotWidth={980} commentary="The flow distinguishes experiments calculating mean skin temperature (MST) and, within that group, the documented number of measurement points and calculation formulas. Formula counts are experiment–formula instances rather than unique experiments, because individual experiments may compare more than one formula.">
+        <FigureCard figNumber={figNum('mst-calc-pathway')} title="MST calculation pathway" plotWidth={980} commentary="The flow distinguishes experiments calculating mean skin temperature (MST) and, within that group, the documented number of measurement points and calculation formulas. Formula counts are experiment–point-count–formula instances rather than unique experiments, because individual experiments may compare more than one formula.">
           <MstSankey mst={mst} totalExperiments={summary.n_experiments} />
         </FigureCard>
 
-        <FigureCard figNumber={figNum('mst-points-by-period')} title="MST body-site point count by period" plotWidth={980} commentary={`${topMstPoint.pt_label}-point is the most common choice overall (${topMstPoint.count} of ${mst.n_mst_studies} MST-calculating studies, ${topMstPointPct}%). Percentages here are of MST-calculating studies in that period only, not of all experiments — so they show how point-count choice has shifted among researchers who compute MST, independent of the declining calculation rate itself.`}>
+        <FigureCard figNumber={figNum('mst-points-by-period')} title="MST body-site point count by period" plotWidth={980} commentary={`${topMstPoint.pt_label}-point is the most common choice overall (${topMstPoint.count} of ${mst.n_mst_studies} MST-calculating experiments, ${topMstPointPct}%). Percentages here are of MST-calculating experiments in that period only, not of all experiments — so they show how point-count choice has shifted among researchers who compute MST, independent of the declining calculation rate itself.`}>
           <PeriodHeatmap
             rows={mstPointRows}
             periods={mst.periods}

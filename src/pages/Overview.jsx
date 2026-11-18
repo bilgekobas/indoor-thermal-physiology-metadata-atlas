@@ -94,7 +94,7 @@ export default function Overview({ data }) {
         </p>
         <p className="text-[14px] text-inkmid mt-4 max-w-2xl leading-relaxed">
           A structured, re-extractable record of published experiments between {summary.year_min}–{summary.year_max} illustrating the landscape of the field.{' '}
-          <Link to="/Methodology" className="text-coreaccent hover:underline">
+          <Link to="/methodology" className="text-coreaccent hover:underline">
             Read more on how the current corpus is selected.
           </Link>
         </p>
@@ -126,28 +126,28 @@ export default function Overview({ data }) {
         <h2 className="text-[16px] font-semibold mb-5">Things worth knowing before you dig in</h2>
         <div className="grid grid-cols-1 xl:grid-cols-2 gap-3 max-w-6xl">
           <FindingCard value={latestGeo.pct.toFixed(0)} unit="%" accent="#5B5BFF" to="/context#when-and-where-research-happens">
-            of {latestGeo.period} studies are from {latestGeo.top_country} alone. The total share for {firstGeo.period} was {firstGeo.pct.toFixed(0)}%.
+            of {latestGeo.period} experiments with resolved country information are from {latestGeo.top_country} alone. The total share for {firstGeo.period} was {firstGeo.pct.toFixed(0)}%.
           </FindingCard>
           <FindingCard value={openDataPct} unit="%" accent="#FB3640" to="/context#open-data-in-practice">
-            of studies share data directly and openly ({open_data.n_with_real_data_link} of {open_data.n_total}).
+            of experiments link to an accessible data or code resource ({open_data.n_with_real_data_link} of {open_data.n_total}).
           </FindingCard>
           <FindingCard value={skinPct} unit="%" accent="#5B5BFF" to="/body#whats-measured-and-how">
             of experiments measure skin temperature, the single most measured signal, followed by {heartPct}% measuring heart or pulse rate.
           </FindingCard>
           <FindingCard value={`${thermocoupleFirstPct}→${thermocoupleLastPct}`} unit="%" accent="#0A0A0A" to="/body#how-sensor-choice-has-shifted-over-time">
-            share of skin-temperature studies using a thermocouple, {evoFirstPeriod} to {evoLastPeriod} — displaced by button-type loggers such as iButton or Pyrobutton, which rose from {buttonLoggerFirstPct}% to a total of {buttonLoggerLastPct}% over the same span.
+            share of skin-temperature experiments using a thermocouple, {evoFirstPeriod} to {evoLastPeriod} — while the recorded share of button-type loggers increased from {buttonLoggerFirstPct}% to a total of {buttonLoggerLastPct}% over the same span.
           </FindingCard>
           <FindingCard value={sevenPointTSVPct} unit="%" accent="#5B5BFF" to="/questionnaires#scale-heterogeneity-sensation-vs-comfort">
-            of discrete thermal-sensation scales use the standard seven-point format, while thermal-comfort scales show {tcvScaleDefinitions} normalised scale-and-label combinations in this corpus.
+            of discrete thermal-sensation scales have seven response positions; their wording may still differ. Thermal-comfort scales show {tcvScaleDefinitions} normalised scale-and-label combinations in this corpus.
           </FindingCard>
           <FindingCard value={standardHeightPct} unit="%" accent="#0A0A0A" to="/environment#where-sensors-are-placed">
-            of reported air-temperature, humidity, globe-temperature, and air-velocity sensor heights sit at one of the standard 0.1, 0.6, 1.1, or 1.7 m positions.
+            of reported air-temperature, humidity, globe-temperature, and air-velocity sensor heights match the 0.1, 0.6, 1.1 or 1.7 m reference levels. Matching a height alone does not establish standards compliance.
           </FindingCard>
           <FindingCard value={timeReportingPct} unit="%" accent="#5B5BFF" to="/context#setting-and-timing">
-            of studies report time-of-day information ({fig05_time_of_day.n_reporting} of {n}).
+            of experiments have parseable testing-time ranges ({fig05_time_of_day.n_reporting} of {n}).
           </FindingCard>
           <FindingCard value={maleOnlyPct} unit="%" accent="#FB3640" to="/population#demographics">
-            of studies are male-only ({maleOnly} of {n}).
+            of all included experiments report male-only samples ({maleOnly} of {n}).
           </FindingCard>
         </div>
       </div>

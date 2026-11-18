@@ -101,7 +101,7 @@
       "count": 12
     },
     {
-      "field": "Observed metabolic rate",
+      "field": "Observed / estimated metabolic activity",
       "pct": 3.7,
       "count": 11
     }
@@ -6366,7 +6366,7 @@
     "Controlled water intake",
     "Activity diary use",
     "Avoid heavy meals",
-    "Observed metabolic rate"
+    "Observed / estimated metabolic activity"
   ],
   "n_studies": 295
 }

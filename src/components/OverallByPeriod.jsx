@@ -111,7 +111,7 @@ export function PeriodHeatmap({ rows, periods, periodN, getCount, rowTotals = nu
         </div>
         <div className="flex items-center gap-2">
           <span className="text-[10.5px] text-inkfaint font-data">totals:</span>
-          <ToggleGroup value={totalMode} onChange={setTotalMode} options={[{ value: 'count', label: 'count' }, { value: 'pct', label: '% of corpus' }]} />
+          <ToggleGroup value={totalMode} onChange={setTotalMode} options={[{ value: 'count', label: 'count' }, { value: 'pct', label: '% of eligible experiments' }]} />
         </div>
         {cellMode === 'pct' && lowN.length > 0 && (
           <button
@@ -144,7 +144,7 @@ export function PeriodHeatmap({ rows, periods, periodN, getCount, rowTotals = nu
                   key={p}
                   className="shrink-0 flex items-center justify-center font-data text-[10px] cursor-default border border-paper"
                   style={{ width: cellWidth, height: cellHeight, background: colorFor(pct), color: pct > 55 ? 'white' : '#0A0A0A' }}
-                  onMouseEnter={(e) => showTip(e, `${row}, ${p}: ${count} of ${n} studies · ${pct.toFixed(1)}%`)}
+                  onMouseEnter={(e) => showTip(e, `${row}, ${p}: ${count} of ${n} experiments · ${pct.toFixed(1)}%`)}
                   onMouseMove={moveTip}
                   onMouseLeave={hideTip}
                 >

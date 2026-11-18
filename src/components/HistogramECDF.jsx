@@ -60,7 +60,7 @@ export default function HistogramECDF({ values, binWidth = 1, xLabel = '', unit 
             </text>
           </g>
         ))}
-        <text x={0} y={10} fontSize={9} fill="#8A8A8A">studies</text>
+        <text x={0} y={10} fontSize={9} fill="#8A8A8A">experiments</text>
 
         <g transform={`translate(${yAxisW}, 0)`}>
           {bins.map((b, i) => {
@@ -80,7 +80,7 @@ export default function HistogramECDF({ values, binWidth = 1, xLabel = '', unit 
                 onMouseEnter={(e) =>
                   showTip(
                     e,
-                    `${fmt(b.start)} to ${fmt(b.end)}: ${b.count} studies in this bin · ${((b.count / total) * 100).toFixed(1)}%`
+                    `${fmt(b.start)} to ${fmt(b.end)}: ${b.count} experiments in this bin · ${((b.count / total) * 100).toFixed(1)}%`
                   )
                 }
                 onMouseMove={moveTip}
@@ -107,7 +107,7 @@ export default function HistogramECDF({ values, binWidth = 1, xLabel = '', unit 
                 r={2.6}
                 fill={lineColor}
                 className="cursor-default"
-                onMouseEnter={(e) => showTip(e, `Cumulative through this bin: ${(y * 100).toFixed(1)}% of studies ≤ ${fmt(bins[i].end)}`)}
+                onMouseEnter={(e) => showTip(e, `Cumulative through this bin: ${(y * 100).toFixed(1)}% of experiments ≤ ${fmt(bins[i].end)}`)}
                 onMouseMove={moveTip}
                 onMouseLeave={hideTip}
               />

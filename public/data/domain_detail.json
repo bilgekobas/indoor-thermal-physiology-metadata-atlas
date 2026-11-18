@@ -25,27 +25,27 @@
       "count": 12
     },
     {
-      "token": "Radiant temperature",
-      "count": 10
-    },
-    {
       "token": "Illumination",
       "count": 10
     },
     {
-      "token": "Light colour",
-      "count": 6
+      "token": "Radiant temperature",
+      "count": 10
     },
     {
       "token": "Clothing",
       "count": 6
     },
     {
-      "token": "Sound level",
-      "count": 5
+      "token": "Light colour",
+      "count": 6
     },
     {
       "token": "CO2",
+      "count": 5
+    },
+    {
+      "token": "Sound level",
       "count": 5
     },
     {
@@ -53,19 +53,19 @@
       "count": 4
     },
     {
-      "token": "Relative humidity: Ramp",
-      "count": 3
-    },
-    {
-      "token": "Adaptive behaviour",
-      "count": 3
-    },
-    {
       "token": "Airflow direction",
       "count": 3
     },
     {
       "token": "Air temperature: Non-uniform",
+      "count": 3
+    },
+    {
+      "token": "Relative humidity: Ramp",
+      "count": 3
+    },
+    {
+      "token": "Adaptive behaviour",
       "count": 3
     },
     {
@@ -77,11 +77,11 @@
       "count": 1
     },
     {
-      "token": "Air velocity: Ramp",
+      "token": "Radiant temperature: Ramp",
       "count": 1
     },
     {
-      "token": "Radiant temperature: Ramp",
+      "token": "Air velocity: Ramp",
       "count": 1
     },
     {

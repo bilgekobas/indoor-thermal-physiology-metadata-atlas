@@ -130,11 +130,11 @@ function SensorHeightOverallChart({ heightData, variables }) {
 }
 
 export default function ChapterEnvironment({ data }) {
-  const { fig12_env_cooccurrence, fig13_sensor_heights, chapter_completeness } = data
+  const { fig12_env_cooccurrence, fig13_sensor_heights, chapter_completeness, summary } = data
   const coreTotal = fig12_env_cooccurrence.totals['Air temp.']
-  const pctMeasure = Math.round((coreTotal / 295) * 1000) / 10
+  const pctMeasure = Math.round((coreTotal / summary.n_experiments) * 1000) / 10
 
-  const nWithHeight = fig12_env_cooccurrence.air_temp_height_given
+  const nWithHeight = new Set(fig13_sensor_heights.data.filter(r => r.variable === 'Air temperature').map(r => r.id)).size
   const pctHeight = Math.round((nWithHeight / coreTotal) * 1000) / 10
 
   // Matches the same stat already shown on the Overview page: % of
@@ -151,34 +151,31 @@ export default function ChapterEnvironment({ data }) {
   const nIsoObs = fig13_sensor_heights.data.filter(d => STANDARD_HEIGHTS.has(d.height)).length
   const pctIso = Math.round((nIsoObs / fig13_sensor_heights.data.length) * 1000) / 10
 
-  const pctCore4 = Math.round((fig12_env_cooccurrence.core4_together / 295) * 1000) / 10
+  const pctCore4 = Math.round((fig12_env_cooccurrence.core4_together / summary.n_experiments) * 1000) / 10
 
   return (
     <div>
       <ChapterHeader
-        eyebrow="Chapter 4 of 7"
+        eyebrow="Chapter 4 of 8"
         title="Measuring the environment"
         framing={
           <>
             <p>
-              Alongside the body, every study describes the room it happened in. This chapter looks
+              The coded record also describes environmental measurements and sensor placement. This chapter looks
               at which environmental variables are measured, which ones tend to be measured together,
               and at what height sensors are placed — a detail that materially changes what “air
-              temperature” actually means in a given study.
+              temperature” actually means in a given experiment.
             </p>
             <p>
-              We looked for these fields because thermal comfort and heat-balance models depend on a
-              specific quartet of variables (air temperature, humidity, air velocity, globe temperature);
-              whether a study reports all four, and at a standard height, determines whether its
-              environment can be reconstructed and compared at all.
+              Air temperature, humidity and air velocity describe important thermal-exposure components; globe temperature can help characterise radiant conditions. Recording these variables and their placement supports interpretation, but does not by itself establish a complete exposure record or compliance with a measurement standard.
             </p>
           </>
         }
         headline={[
           { value: `${pctMeasure}%`, label: 'measure air temperature', color: '#FB3640' },
-          { value: `${pctHeight}%`, label: 'of those report sensor height', color: '#5B5BFF' },
+          { value: `${pctHeight}%`, label: 'of air-temperature experiments code a numeric sensor height', color: '#5B5BFF' },
           { value: `${pctCore4}%`, label: 'measure temp., humidity, air velocity & globe temp. together', color: '#FB3640' },
-          { value: `${pctIso}%`, label: 'of reported heights (all 4 variables) sit at a standard ISO 7726 position (0.1/0.6/1.1/1.7 m)', color: '#5B5BFF' },
+          { value: `${pctIso}%`, label: 'of plotted height values match the 0.1/0.6/1.1/1.7 m reference levels', color: '#5B5BFF' },
         ]}
       />
 
@@ -193,9 +190,9 @@ export default function ChapterEnvironment({ data }) {
 
       <ChapterSection
         title="Where sensors are placed"
-        intro={`Most reported heights sit at one of the standard ankle, abdomen, seated-head, or standing-head levels, but a substantial minority do not. A further ${fig13_sensor_heights.non_numeric_counts?.['Air temperature'] ?? 0} studies described sensor position using a non-numeric label such as "desk" rather than a specific height, and aren't shown in the chart below. The scatter view keeps every remaining reported value visible while showing the distribution for each core variable.`}
+        intro={`The chart compares recorded heights with four conventional reference levels. Individual height values, rather than experiments, form the plotted distribution; an experiment with a vertical profile contributes several values. A further ${fig13_sensor_heights.non_numeric_counts?.['Air temperature'] ?? 0} experiments described sensor position using a non-numeric label such as "desk" rather than a specific height, and aren't shown in the chart below. The scatter view keeps every remaining reported value visible while showing the distribution for each core variable.`}
       >
-        <FigureCard figNumber={figNum('sensor-heights')} title="Sensor heights for the core four variables" plotWidth={980} commentary="The four rows show the full distribution of reported heights for air temperature, relative humidity, air velocity, and globe temperature. Dots are individual reported values; the boxplot in each row summarizes the same distribution. Standard reference heights are marked with dotted vertical lines.">
+        <FigureCard figNumber={figNum('sensor-heights')} title="Sensor heights for the core four variables" plotWidth={980} commentary="The four columns show parsed numeric heights for air temperature, relative humidity, air velocity, and globe temperature within the displayed 0–3.5 m range. Dots are individual reported values; the boxplot in each row summarizes the same distribution. Reference heights are marked with dotted horizontal lines. Matching one level alone does not establish compliance with a measurement standard.">
           <SensorHeightOverallChart heightData={fig13_sensor_heights.data} variables={fig13_sensor_heights.variables} />
         </FigureCard>
       </ChapterSection>

@@ -1,6 +1,6 @@
 import { useTooltip, TooltipPortal, fmtCountPct } from './Tooltip.jsx'
 
-export default function InteractiveBarChart({ data, total, color = '#0A0A0A', maxBars = null, height = 22, unitLabel = 'studies' }) {
+export default function InteractiveBarChart({ data, total, color = '#0A0A0A', maxBars = null, height = 22, unitLabel = 'experiments' }) {
   const { tip, showTip, moveTip, hideTip } = useTooltip()
   const rows = maxBars ? data.slice(0, maxBars) : data
   const fallbackMax = rows.reduce((m, r) => (r.count > m ? r.count : m), 1)

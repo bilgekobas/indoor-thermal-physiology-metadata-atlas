@@ -163,8 +163,8 @@
       },
       {
         "field": "MST formula used",
-        "count": 111,
-        "pct": 37.6
+        "count": 110,
+        "pct": 37.3
       },
       {
         "field": "Full formula text",
@@ -337,7 +337,7 @@
         "pct": 71.2
       },
       {
-        "field": "Observed metabolic rate",
+        "field": "Observed / estimated metabolic activity",
         "count": 11,
         "pct": 3.7
       },

@@ -59,7 +59,7 @@ export default function SampleSizeByCountry({ stats, studies, minCountThreshold,
               strokeDasharray={r.dashed ? '4 3' : undefined}
               opacity={0.95}
               className="cursor-default"
-              onMouseEnter={(e) => showTip(e, r.key === 'n-equals-1' ? 'n = 1' : `${r.label}: n=${r.value.toFixed(1)} across ${overall.n} studies`)}
+              onMouseEnter={(e) => showTip(e, r.key === 'n-equals-1' ? 'n = 1' : `${r.label}: n=${r.value.toFixed(1)} across ${overall.n} experiments`)}
               onMouseMove={moveTip}
               onMouseLeave={hideTip}
             />
@@ -108,7 +108,7 @@ export default function SampleSizeByCountry({ stats, studies, minCountThreshold,
                 fill="#5B5BFF"
                 transform={`rotate(45, ${xScale(s.median) + AXIS_X}, ${y})`}
                 className="cursor-default"
-                onMouseEnter={(e) => showTip(e, `${s.country}: median n=${s.median} (across ${s.count} studies)`)}
+                onMouseEnter={(e) => showTip(e, `${s.country}: median n=${s.median} (across ${s.count} experiments)`)}
                 onMouseMove={moveTip}
                 onMouseLeave={hideTip}
               />
@@ -120,7 +120,7 @@ export default function SampleSizeByCountry({ stats, studies, minCountThreshold,
                 stroke="#FB3640"
                 strokeWidth={1.6}
                 className="cursor-default"
-                onMouseEnter={(e) => showTip(e, `${s.country}: mean n=${s.mean.toFixed(1)} (across ${s.count} studies, max ${s.max})`)}
+                onMouseEnter={(e) => showTip(e, `${s.country}: mean n=${s.mean.toFixed(1)} (across ${s.count} experiments, max ${s.max})`)}
                 onMouseMove={moveTip}
                 onMouseLeave={hideTip}
               />
@@ -131,10 +131,10 @@ export default function SampleSizeByCountry({ stats, studies, minCountThreshold,
         })}
       </svg>
       <div className="font-data text-[10px] text-inkfaint mt-2 mb-2 max-w-4xl">
-        Countries shown by rule: {selectionRule || `≥${minCountThreshold} studies or ≥${sampleShareThreshold}% of the total participant sample`}. x-axis: sample size per study (log scale, 1 to 10,000). Right columns show the total participant sample contributed by that country and its share of the corpus-wide participant sample.
+        Countries shown by rule: {selectionRule || `≥${minCountThreshold} experiments or ≥${sampleShareThreshold}% of the total participant sample`}. x-axis: sample size per experiment (log scale, 1 to 10,000). Right columns show the total participant sample contributed by that country and its share of the corpus-wide participant sample.
       </div>
       <div className="flex flex-wrap gap-x-4 gap-y-1 mt-2 text-[11px] text-inkmid">
-        <span className="flex items-center gap-1.5"><span className="w-2 h-2 rounded-full inline-block" style={{ background: '#8A8A8A', opacity: 0.55 }} /> individual study</span>
+        <span className="flex items-center gap-1.5"><span className="w-2 h-2 rounded-full inline-block" style={{ background: '#8A8A8A', opacity: 0.55 }} /> individual experiment</span>
         <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 inline-block" style={{ background: '#5B5BFF', transform: 'rotate(45deg)' }} /> country median</span>
         <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full inline-block border-2" style={{ borderColor: '#FB3640' }} /> country mean</span>
         <span className="flex items-center gap-1.5"><span className="w-5 h-0 border-t" style={{ borderColor: '#5B5BFF', borderTopStyle: 'dotted' }} /> overall median</span>

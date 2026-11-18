@@ -157,14 +157,14 @@
         "rule": "general"
       },
       {
-        "field": "Sagittal location",
+        "field": "Side / dominance",
         "count": 168,
         "denominator": 295,
         "pct": 56.9,
         "rule": "general"
       },
       {
-        "field": "Surface location",
+        "field": "Surface / orientation",
         "count": 228,
         "denominator": 295,
         "pct": 77.3,
@@ -179,9 +179,9 @@
       },
       {
         "field": "MST formula used",
-        "count": 132,
+        "count": 131,
         "denominator": 144,
-        "pct": 91.7,
+        "pct": 91.0,
         "rule": "mst"
       },
       {
@@ -203,98 +203,98 @@
   "Environment": {
     "fields": [
       {
-        "field": "Air temperature",
+        "field": "Air temperature \u2014 placement detail",
         "count": 167,
         "denominator": 292,
         "pct": 57.2,
         "rule": "optional_binary"
       },
       {
-        "field": "Relative humidity",
+        "field": "Relative humidity \u2014 placement detail",
         "count": 139,
         "denominator": 263,
         "pct": 52.9,
         "rule": "optional_binary"
       },
       {
-        "field": "Air velocity",
+        "field": "Air velocity \u2014 placement detail",
         "count": 117,
         "denominator": 202,
         "pct": 57.9,
         "rule": "optional_binary"
       },
       {
-        "field": "Globe temperature",
+        "field": "Globe temperature \u2014 placement detail",
         "count": 90,
         "denominator": 157,
         "pct": 57.3,
         "rule": "optional_binary"
       },
       {
-        "field": "Surface temperatures",
+        "field": "Surface temperatures \u2014 placement detail",
         "count": 6,
         "denominator": 28,
         "pct": 21.4,
         "rule": "optional_binary"
       },
       {
-        "field": "Wet-bulb temperature",
+        "field": "Wet-bulb temperature \u2014 placement detail",
         "count": 9,
         "denominator": 11,
         "pct": 81.8,
         "rule": "optional_binary"
       },
       {
-        "field": "Outdoor temperature",
+        "field": "Outdoor temperature \u2014 placement detail",
         "count": 2,
         "denominator": 18,
         "pct": 11.1,
         "rule": "optional_binary"
       },
       {
-        "field": "Outdoor RH",
+        "field": "Outdoor RH \u2014 placement detail",
         "count": 1,
         "denominator": 8,
         "pct": 12.5,
         "rule": "optional_binary"
       },
       {
-        "field": "CO\u2082 concentration",
+        "field": "CO\u2082 concentration \u2014 placement detail",
         "count": 31,
         "denominator": 66,
         "pct": 47.0,
         "rule": "optional_binary"
       },
       {
-        "field": "VOC concentration",
+        "field": "VOC concentration \u2014 placement detail",
         "count": 3,
         "denominator": 8,
         "pct": 37.5,
         "rule": "optional_binary"
       },
       {
-        "field": "Illuminance",
-        "count": 32,
+        "field": "Illuminance \u2014 placement detail",
+        "count": 31,
         "denominator": 51,
-        "pct": 62.7,
+        "pct": 60.8,
         "rule": "optional_binary"
       },
       {
-        "field": "Light colour/CCT",
-        "count": 3,
+        "field": "Light colour/CCT \u2014 placement detail",
+        "count": 2,
         "denominator": 5,
-        "pct": 60.0,
+        "pct": 40.0,
         "rule": "optional_binary"
       },
       {
-        "field": "Solar radiation",
+        "field": "Solar radiation \u2014 placement detail",
         "count": 3,
         "denominator": 10,
         "pct": 30.0,
         "rule": "optional_binary"
       },
       {
-        "field": "Sound level",
+        "field": "Sound level \u2014 placement detail",
         "count": 5,
         "denominator": 17,
         "pct": 29.4,
@@ -306,16 +306,16 @@
     "fields": [
       {
         "field": "Thermal sensation",
-        "count": 258,
+        "count": 257,
         "denominator": 259,
-        "pct": 99.6,
+        "pct": 99.2,
         "rule": "optional_binary"
       },
       {
         "field": "Thermal comfort",
-        "count": 161,
+        "count": 159,
         "denominator": 168,
-        "pct": 95.8,
+        "pct": 94.6,
         "rule": "optional_binary"
       },
       {
@@ -327,9 +327,9 @@
       },
       {
         "field": "Thermal acceptability",
-        "count": 88,
+        "count": 87,
         "denominator": 92,
-        "pct": 95.7,
+        "pct": 94.6,
         "rule": "optional_binary"
       },
       {

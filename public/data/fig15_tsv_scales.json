@@ -3061,33 +3061,6 @@
       "id": "1052_1"
     },
     {
-      "points": null,
-      "scale_type": "vas",
-      "range": [
-        0.0,
-        10.0
-      ],
-      "labels": [
-        "lowest sensation",
-        "highest sensation"
-      ],
-      "grid": [
-        {
-          "value": 0.0,
-          "label": "lowest sensation",
-          "is_anchor": true,
-          "is_neutral": true
-        },
-        {
-          "value": 10.0,
-          "label": "highest sensation",
-          "is_anchor": true,
-          "is_neutral": false
-        }
-      ],
-      "id": "1053_1"
-    },
-    {
       "points": 7,
       "scale_type": "discrete",
       "range": [
@@ -3236,73 +3209,6 @@
         }
       ],
       "id": "1058_1"
-    },
-    {
-      "points": null,
-      "scale_type": "vas",
-      "range": [
-        -3.0,
-        -2.0,
-        -1.0,
-        0.0,
-        1.0,
-        2.0,
-        3.0
-      ],
-      "labels": [
-        "cold",
-        "cool",
-        "slightly cool",
-        "neutral",
-        "slightly warm",
-        "warm",
-        "hot"
-      ],
-      "grid": [
-        {
-          "value": -3.0,
-          "label": "cold",
-          "is_anchor": true,
-          "is_neutral": false
-        },
-        {
-          "value": -2.0,
-          "label": "cool",
-          "is_anchor": true,
-          "is_neutral": false
-        },
-        {
-          "value": -1.0,
-          "label": "slightly cool",
-          "is_anchor": true,
-          "is_neutral": false
-        },
-        {
-          "value": 0.0,
-          "label": "neutral",
-          "is_anchor": true,
-          "is_neutral": true
-        },
-        {
-          "value": 1.0,
-          "label": "slightly warm",
-          "is_anchor": true,
-          "is_neutral": false
-        },
-        {
-          "value": 2.0,
-          "label": "warm",
-          "is_anchor": true,
-          "is_neutral": false
-        },
-        {
-          "value": 3.0,
-          "label": "hot",
-          "is_anchor": true,
-          "is_neutral": false
-        }
-      ],
-      "id": "1062_1"
     },
     {
       "points": 7,
@@ -10915,33 +10821,6 @@
       "id": "1201_1"
     },
     {
-      "points": null,
-      "scale_type": "continuous",
-      "range": [
-        -50.0,
-        50.0
-      ],
-      "labels": [
-        "cold",
-        "hot"
-      ],
-      "grid": [
-        {
-          "value": -50.0,
-          "label": "cold",
-          "is_anchor": true,
-          "is_neutral": false
-        },
-        {
-          "value": 50.0,
-          "label": "hot",
-          "is_anchor": true,
-          "is_neutral": false
-        }
-      ],
-      "id": "1203_1"
-    },
-    {
       "points": 7,
       "scale_type": "discrete",
       "range": [
@@ -13750,73 +13629,6 @@
       "id": "1253_1"
     },
     {
-      "points": null,
-      "scale_type": "continuous",
-      "range": [
-        -3.0,
-        -2.0,
-        -1.0,
-        0.0,
-        1.0,
-        2.0,
-        3.0
-      ],
-      "labels": [
-        "very cold",
-        "cold",
-        "cool",
-        "neutral",
-        "warm",
-        "hot",
-        "very hot"
-      ],
-      "grid": [
-        {
-          "value": -3.0,
-          "label": "very cold",
-          "is_anchor": true,
-          "is_neutral": false
-        },
-        {
-          "value": -2.0,
-          "label": "cold",
-          "is_anchor": true,
-          "is_neutral": false
-        },
-        {
-          "value": -1.0,
-          "label": "cool",
-          "is_anchor": true,
-          "is_neutral": false
-        },
-        {
-          "value": 0.0,
-          "label": "neutral",
-          "is_anchor": true,
-          "is_neutral": true
-        },
-        {
-          "value": 1.0,
-          "label": "warm",
-          "is_anchor": true,
-          "is_neutral": false
-        },
-        {
-          "value": 2.0,
-          "label": "hot",
-          "is_anchor": true,
-          "is_neutral": false
-        },
-        {
-          "value": 3.0,
-          "label": "very hot",
-          "is_anchor": true,
-          "is_neutral": false
-        }
-      ],
-      "id": "1256_1"
-    },
-    {
       "points": 9,
       "scale_type": "discrete",
       "range": [
@@ -15907,14 +15719,28 @@
       "id": "1271_1"
     }
   ],
+  "n_reported": 257,
+  "n_discrete": 253,
+  "n_continuous": 4,
+  "n_grid": 226,
+  "n_not_on_grid": 31,
+  "n_distinct_scale_descriptions": 30,
   "points_distribution": [
     {
+      "points": 2,
+      "count": 1
+    },
+    {
+      "points": 3,
+      "count": 1
+    },
+    {
       "points": 5,
-      "count": 6
+      "count": 9
     },
     {
       "points": 7,
-      "count": 180
+      "count": 202
     },
     {
       "points": 9,
@@ -15925,7 +15751,6 @@
       "count": 1
     }
   ],
-  "n_total": 230,
   "code_breakdown": {
     "mnr": 1,
     "nr": 36,

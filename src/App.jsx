@@ -13,6 +13,7 @@ import ChapterEnvironment from './pages/ChapterEnvironment.jsx'
 import ChapterQuestionnaires from './pages/ChapterQuestionnaires.jsx'
 import ChapterCognitive from './pages/ChapterCognitive.jsx'
 import ChapterReporting from './pages/ChapterReporting.jsx'
+import ChapterCombinations from './pages/ChapterCombinations.jsx'
 import About from './pages/About.jsx'
 import Methodology from './pages/Methodology.jsx'
 import VariableDictionary from './pages/VariableDictionary.jsx'
@@ -60,6 +61,7 @@ function RoutedPages({ data }) {
         <Route path="/environment" element={<ChapterEnvironment data={data} />} />
         <Route path="/questionnaires" element={<ChapterQuestionnaires data={data} />} />
         <Route path="/cognitive" element={<ChapterCognitive data={data} />} />
+        <Route path="/combinations" element={<ChapterCombinations data={data} />} />
         <Route path="/reporting" element={<ChapterReporting data={data} />} />
         <Route path="/about" element={<About data={data} />} />
         <Route path="/methodology" element={<Methodology data={data} />} />

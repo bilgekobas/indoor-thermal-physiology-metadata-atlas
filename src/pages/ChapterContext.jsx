@@ -72,15 +72,15 @@ function TimeOfDayChart({ sessions }) {
   const TOTAL_HOURS = 24
   const SLOT_MINS = 15
   const N_SLOTS = (TOTAL_HOURS * 60) / SLOT_MINS
-  const nSessions = sessions.length
+  const nSessions = new Set(sessions.map(r => r.id)).size
   const occupancy = useMemo(() => {
-    const slots = new Array(N_SLOTS).fill(0)
-    sessions.forEach(({ start, end }) => {
+    const slots = Array.from({ length: N_SLOTS }, () => new Set())
+    sessions.forEach(({ id, start, end }) => {
       const s0 = Math.floor(start * (60 / SLOT_MINS))
-      const s1 = Math.min(Math.ceil(end * (60 / SLOT_MINS)), N_SLOTS - 1)
-      for (let i = s0; i <= s1; i++) slots[i]++
+      const s1 = Math.min(Math.ceil(end * (60 / SLOT_MINS)), N_SLOTS)
+      for (let i = s0; i < s1; i++) slots[i].add(id)
     })
-    return slots.map((v) => v / Math.max(nSessions, 1))
+    return slots.map((v) => v.size / Math.max(nSessions, 1))
   }, [sessions, nSessions])
   const maxOcc = occupancy.reduce((m, v) => (v > m ? v : m), 0.001)
   const W = 920
@@ -115,7 +115,7 @@ function TimeOfDayChart({ sessions }) {
                 fill="#5B5BFF"
                 opacity={0.75}
                 className="cursor-default"
-                onMouseEnter={(e) => showTip(e, `${hourLabel(Math.floor(hour))}: ${(v * 100).toFixed(1)}% of reported sessions active`)}
+                onMouseEnter={(e) => showTip(e, `${String(Math.floor(hour)).padStart(2, '0')}:${String(Math.round((hour % 1) * 60)).padStart(2, '0')}: ${(v * 100).toFixed(1)}% of ${nSessions} experiments have a reported window overlapping this interval`)}
                 onMouseMove={moveTip}
                 onMouseLeave={hideTip}
               />
@@ -233,7 +233,7 @@ function ClimateTempChart({ studies, climateCounts, tempRanges }) {
             <g key={row.climate}>
               <line x1={LABEL_W} x2={LABEL_W + W} y1={yCenter} y2={yCenter} stroke="#F2F2F2" strokeWidth={1} />
               <text x={LABEL_W - 8} y={yCenter - 4} fontSize={11.5} fill="#0A0A0A" textAnchor="end">{row.climate}</text>
-              <text x={LABEL_W - 8} y={yCenter + 10} fontSize={9} fill="#8A8A8A" textAnchor="end">n={row.nStudies} studies</text>
+              <text x={LABEL_W - 8} y={yCenter + 10} fontSize={9} fill="#8A8A8A" textAnchor="end">n={row.nStudies} experiments</text>
               {vals.length > 1 && <path d={violinPath(vals, yCenter)} fill="#5B5BFF" opacity={0.14} stroke="#5B5BFF" strokeWidth={0.8} />}
               {vals.map((temp, i) => (
                 <circle
@@ -569,7 +569,7 @@ export default function ChapterContext({ data }) {
   const peakYear = fig01_pubs_by_year.data.reduce((best, d) => (d.count > best.count ? d : best))
   const growthMultiple = (peakYear.count / Math.max(earliestYear.count, 1)).toFixed(0)
   const topCountry = [...geo_choropleth.data].sort((a, b) => b.count - a.count)[0]
-  const topCountryShare = ((topCountry.count / summary.n_publications) * 100).toFixed(0)
+  const topCountryShare = ((topCountry.count / summary.n_experiments) * 100).toFixed(1)
   // Share of total corpus SAMPLE SIZE (participants), not study count, that
   // comes from the top country -- a distinct claim from topCountryShare
   // above (which is a share of studies). Uses total_corpus_participants
@@ -607,39 +607,35 @@ export default function ChapterContext({ data }) {
   const labCount = fig06_setting_typology.data
     .filter((d) => d['exp-type'] === 'Lab')
     .reduce((a, d) => a + d.count, 0)
-  const settingTotal = fig06_setting_typology.data.reduce((a, d) => a + d.count, 0)
+  const settingTotal = summary.n_experiments
   const labPct = Math.round((labCount / settingTotal) * 100)
 
   return (
     <div>
       <ChapterHeader
-        eyebrow="Chapter 1 of 7"
+        eyebrow="Chapter 1 of 8"
         title="When, where & how"
         framing={
           <>
             <p>
-              Before looking at who's studied or what's measured, this chapter covers the experiment
-              as an institution: when it was published, where it was run, what climate that location
-              sits in, what kind of setting it used, and how a session was timed.
+              This chapter describes publication dates, experimental locations and host climates, experiment settings, exposure domains and session timing. Publication-level and experiment-level counts are identified separately.
             </p>
             <p>
-              We looked for these fields because they're the minimum context needed to judge whether
-              two studies are even comparable — a result from a lab study in Singapore summer doesn't
-              transfer to a field study in Danish winter without knowing both of these things first.
+              These descriptors provide context for comparing experiments. A host climate describes the experiment location; it does not establish the participants’ prior thermal exposure or whether findings transfer to another setting.
             </p>
           </>
         }
         headline={[
           { value: summary.n_publications, label: 'Publications, ' + summary.year_min + '–' + summary.year_max },
-          { value: peakYear.year, label: `Peak year (${peakYear.count} studies)`, color: '#0A0A0A' },
-          { value: `${topCountryShare}%`, label: `of studies from ${topCountry.atlas_name}`, color: '#5B5BFF' },
-          { value: `${topCountrySamplePct}%`, label: `of the corpus's total sample size is from ${topCountry.atlas_name}`, color: '#5B5BFF' },
+          { value: peakYear.year, label: `Peak year (${peakYear.count} publications)`, color: '#0A0A0A' },
+          { value: `${topCountryShare}%`, label: `of experiments from ${topCountry.atlas_name}`, color: '#5B5BFF' },
+          { value: `${topCountrySamplePct}%`, label: `of summed experiment-level sample sizes are from ${topCountry.atlas_name}`, color: '#5B5BFF' },
         ]}
       />
 
       <ChapterSection
         title="Authorship as field structure"
-        intro="Before treating the corpus as a neutral pool of studies, it is useful to inspect the social structure behind it. Co-authorship does not measure scientific quality, but it does reveal repeated research lineages, dominant collaboration clusters, and the extent to which the evidence base is produced by a small number of connected groups."
+        intro="Before treating the corpus as a neutral pool of experiments, it is useful to inspect the social structure behind it. Co-authorship does not measure scientific quality, but it does reveal repeated research lineages, dominant collaboration clusters, and the extent to which the evidence base is produced by a small number of connected groups."
       >
         <FigureCard
           figNumber={figNum('author-network')}
@@ -647,7 +643,7 @@ export default function ChapterContext({ data }) {
           size="wide"
           commentary={author_network_summary ? [
             `${author_network_summary.n_authors} authors across ${author_network_summary.n_studies_resolved} publications resolve into ${author_network_summary.n_components} connected components. One dominates: its largest holds ${author_network_summary.largest_component_size} authors — ${((author_network_summary.largest_component_size / author_network_summary.n_authors) * 100).toFixed(0)}% of everyone in the corpus — while the remaining ${author_network_summary.n_components - 1} components are small, mostly separate collaboration groups.`,
-            'Nodes are authors and links are co-authorship pairs. The default grouped view collapses this into connected components; the threshold controls expose either stable core groups or weaker one-study links. Colours identify collaboration clusters, not national origin.',
+            'Nodes are authors and links are co-authorship pairs. The default grouped view collapses this into connected components; the threshold controls expose either repeated co-authorship links or links supported by one publication. Colours identify collaboration clusters, not national origin.',
           ] : 'Nodes are authors and links are co-authorship pairs. Colours identify collaboration clusters, not national origin.'}
         >
           <AuthorNetworkEmbed />
@@ -656,9 +652,9 @@ export default function ChapterContext({ data }) {
 
       <ChapterSection
         title="When and where research happens"
-        intro="Publication volume has risen steadily, with a dip during 2020–21. Research is geographically concentrated, and that concentration shapes more than just where studies happen — sample size patterns differ by country too, and the climate a study is conducted in often doesn't match the temperature values it tests."
+        intro="Publication output is higher in later years, with year-to-year variation. Geographic concentration, sample-size distributions and tested temperatures describe different aspects of this evidence base and are shown separately below."
       >
-        <FigureCard figNumber={figNum('pubs-by-year')} title="Publications by year" size="wide" commentary={`Output grew from ${earliestYear.count} studies in ${earliestYear.year} to a peak of ${peakYear.count} in ${peakYear.year} — roughly a ${growthMultiple}× increase over the review window. That growth isn't a straight line: year-to-year counts dip and rebound (note 2020–21), so a single year's count is noisier than the overall trend.`}>
+        <FigureCard figNumber={figNum('pubs-by-year')} title="Publications by year" size="wide" commentary={`Output increased from ${earliestYear.count} publications in ${earliestYear.year} to a peak of ${peakYear.count} in ${peakYear.year}, a ${growthMultiple}× difference between those years. Counts describe publication output, rather than the dates when experiments were conducted.`}>
           <PublicationsByYearChart
             data={fig01_pubs_by_year.data}
             totalPubs={totalPubs}
@@ -667,11 +663,11 @@ export default function ChapterContext({ data }) {
           />
         </FigureCard>
 
-        <FigureCard figNumber={figNum('geography')} title="Geographical distribution" size="wide" commentary={`${geo_cities.n_studies_mapped} of ${geo_cities.n_studies_total} studies (${cityResolvedPct}%) resolve to a specific city; the rest report only a country or province. Research concentrates in a small number of cities — ${topTwoCities[0].city} and ${topTwoCities[1].city} alone account for ${topTwoCitiesTotal} studies. China's share has also grown over time, from ${chinaShareEarliest}% of studies in ${geoPeriods[0].period} to ${chinaShareLatest}% in ${geoPeriods[geoPeriods.length - 1].period}. The country map uses a log-scaled color ramp so China's count does not wash out every other country.`}>
+        <FigureCard figNumber={figNum('geography')} title="Geographical distribution" size="wide" commentary={`${geo_cities.n_studies_mapped} of ${geo_cities.n_studies_total} experiments (${cityResolvedPct}%) resolve to a specific mapped city; other records lack a resolvable city or report only broader geographic information. Research concentrates in a small number of cities — ${topTwoCities[0].city} and ${topTwoCities[1].city} alone account for ${topTwoCitiesTotal} experiments. China's share has also grown over time, from ${chinaShareEarliest}% of experiments in ${geoPeriods[0].period} to ${chinaShareLatest}% in ${geoPeriods[geoPeriods.length - 1].period}. The country map uses a log-scaled color ramp so China's count does not wash out every other country.`}>
           <GeographyToggle cityData={geo_cities.data} countryData={geo_choropleth.data} />
         </FigureCard>
 
-        <FigureCard figNumber={figNum('sample-size-by-country')} title="Sample size by country" size="wide" commentary={`China's median study (${chinaStat.median} participants) looks like everywhere else — but its mean (${Math.round(chinaStat.mean)}) is pulled up by a handful of large field studies, including one with ${chinaStat.max.toLocaleString()} participants. Brazil and Switzerland show the opposite pattern: few studies, but typically large ones (medians of ${brazilStat.median} and ${switzerlandStat.median}). Mean and median diverge enough here that either one alone would mislead.`}>
+        <FigureCard figNumber={figNum('sample-size-by-country')} title="Sample size by country" size="wide" commentary={`Experiments in China have a median sample size of ${chinaStat.median} and a mean of ${Math.round(chinaStat.mean)}; the maximum is ${chinaStat.max.toLocaleString()}. Brazil and Switzerland have fewer experiments and medians of ${brazilStat.median} and ${switzerlandStat.median}. Country summaries are sensitive to the number and sizes of included experiments.`}>
           <SampleSizeByCountry
             stats={sample_size_by_country.stats}
             studies={sample_size_by_country.studies}
@@ -683,7 +679,7 @@ export default function ChapterContext({ data }) {
           />
         </FigureCard>
 
-        <FigureCard figNumber={figNum('temp-by-climate')} title="Tested temperature values by host climate" size="wide" commentary="Humid subtropical and continental climate classifications account for the largest shares of studies with known climate information. The chart also shows the temperatures tested within these climate groups.">
+        <FigureCard figNumber={figNum('temp-by-climate')} title="Tested temperature values by host climate" size="wide" commentary="Humid subtropical and continental climate classifications account for the largest shares of experiments with known climate information. The chart shows coded target temperatures by host climate. A target value is not a measurement of achieved exposure, and host climate is not a proxy for participant thermal history. Experiments testing more temperature values contribute more points to the distribution.">
           <ClimateTempChart
             studies={climate_vs_temp.studies}
             climateCounts={climate_vs_temp.climate_counts}
@@ -694,17 +690,17 @@ export default function ChapterContext({ data }) {
 
       <ChapterSection
         title="Setting and timing"
-        intro="Lab studies dominate; office-like spaces are the most common spatial typology. Sessions cluster under 3 hours, normalization periods are often short, and almost all testing happens in daytime hours."
+        intro="Laboratory experiments predominate, and office-like typologies are common. The following figures describe coded testing windows, session lengths and pre-session normalisation periods; their reporting coverage differs."
       >
-        <FigureCard figNumber={figNum('setting-type')} title="Experimental setting type" plotWidth={760} commentary={`${labCount} of ${settingTotal} experiments (${labPct}%) are run in a lab; Field and Living Lab split the remainder almost evenly. The flows distinguish the reported spatial typologies.`}>
+        <FigureCard figNumber={figNum('setting-type')} title="Experimental setting type" plotWidth={760} commentary={`${labCount} of ${settingTotal} experiments (${labPct}%) are classified as laboratory experiments. Field, living-lab, mixed-setting and unspecified records account for the remainder. The flows distinguish coded spatial typologies among experiments with a specified setting.`}>
           <SettingSankey data={fig06_setting_typology.data} total={summary.n_experiments} />
         </FigureCard>
 
-        <FigureCard figNumber={figNum('time-of-day')} title="Time of day distribution" size="wide" commentary={`Reported testing times are concentrated in the daytime, with the highest frequency in the afternoon.`}>
+        <FigureCard figNumber={figNum('time-of-day')} title="Time of day distribution" size="wide" commentary={`The chart counts distinct experiments whose reported testing windows overlap each 15-minute interval. It includes parseable, non-zero clock-time ranges; a testing window does not establish continuous measurement throughout that interval.`}>
           <TimeOfDayChart sessions={fig05_time_of_day.sessions} />
         </FigureCard>
 
-        <FigureCard figNumber={figNum('session-length')} title="Session length" size="wide" commentary={sessionStats ? `Minutes per session, capped at 600. ${sessionUnder180Pct}% of the ${sessionStats.n} studies with known session length run under 180 minutes. Median ${sessionStats.median} min (IQR ${sessionStats.q25}–${sessionStats.q75}), range ${sessionStats.min}–${sessionStats.max} min.` : 'Minutes per session, capped at 600.'}>
+        <FigureCard figNumber={figNum('session-length')} title="Session length" size="wide" commentary={sessionStats ? `The plot includes coded session lengths of at most 600 minutes; ${fig03_session_length.values_minutes.length - sessionValuesCapped.length} longer records are omitted from this display. ${sessionUnder180Pct}% of the ${sessionStats.n} displayed experiments have coded session lengths under 180 minutes. Median ${sessionStats.median} min (IQR ${sessionStats.q25}–${sessionStats.q75}), range ${sessionStats.min}–${sessionStats.max} min.` : 'The plot includes coded session lengths of at most 600 minutes; ${fig03_session_length.values_minutes.length - sessionValuesCapped.length} longer records are omitted from this display.'}>
           <HistogramECDF
             values={sessionValuesCapped}
             binWidth={15}
@@ -715,7 +711,7 @@ export default function ChapterContext({ data }) {
           />
         </FigureCard>
 
-        <FigureCard figNumber={figNum('normalization-length')} title="Normalization length" size="wide" commentary={normStats ? `Minutes spent in normalization / stabilization before testing, capped at 600. ${normUnder60Pct}% of the ${normStats.n} studies with reported normalization time stay at or below 60 minutes. Median ${normStats.median} min (IQR ${normStats.q25}–${normStats.q75}), range ${normStats.min}–${normStats.max} min.` : 'Minutes spent in normalization / stabilization before testing, capped at 600.'}>
+        <FigureCard figNumber={figNum('normalization-length')} title="Normalization length" size="wide" commentary={normStats ? `Coded pre-session normalisation/stabilisation periods of at most 600 minutes are shown. ${normUnder60Pct}% of the ${normStats.n} experiments with reported normalization time stay at or below 60 minutes. Median ${normStats.median} min (IQR ${normStats.q25}–${normStats.q75}), range ${normStats.min}–${normStats.max} min.` : 'Coded pre-session normalisation/stabilisation periods of at most 600 minutes are shown.'}>
           <HistogramECDF
             values={normValuesCapped}
             binWidth={10}
@@ -729,9 +725,9 @@ export default function ChapterContext({ data }) {
 
       <ChapterSection
         title="How many variables are manipulated at once"
-        intro={`${domain_comanipulation.n_domains_distribution.filter((d) => d.n_domains >= 2).reduce((a, d) => a + d.count, 0)} of ${domain_comanipulation.n_studies} studies manipulate more than one environmental domain simultaneously (e.g. air temperature crossed with humidity, or with air movement). The remaining studies manipulate one domain.`}
+        intro={`${domain_comanipulation.n_domains_distribution.filter((d) => d.n_domains >= 2).reduce((a, d) => a + d.count, 0)} of ${domain_comanipulation.n_studies} experiments have more than one coded manipulation domain. This is an experiment-level co-occurrence count; it does not establish that every manipulation was simultaneous or fully crossed. ${domain_comanipulation.n_excluded_no_domain_data} experiments lack domain information.`}
       >
-        <FigureCard figNumber={figNum('domains-manipulated-count')} title="Number of domains manipulated per study" plotWidth={560} commentary="Most studies manipulate one environmental domain. Simultaneous manipulation of two or more domains is less frequent.">
+        <FigureCard figNumber={figNum('domains-manipulated-count')} title="Number of domains manipulated per experiment" plotWidth={560} commentary="Most experiments with domain information have one coded manipulation domain. Thermal variables may share a domain, and behaviour is retained as its own coded category.">
           <InteractiveBarChart
             data={domain_comanipulation.n_domains_distribution.map((d) => ({ label: `${d.n_domains} domain${d.n_domains === 1 ? '' : 's'}`, count: d.count }))}
             total={domain_comanipulation.n_studies}
@@ -739,14 +735,14 @@ export default function ChapterContext({ data }) {
           />
         </FigureCard>
 
-        <FigureCard figNumber={figNum('domains-manipulated-together')} title="Which domains are manipulated together" plotWidth={620} commentary="Diagonal cells count studies manipulating each domain; off-diagonal cells count studies manipulating each pair together.">
+        <FigureCard figNumber={figNum('domains-manipulated-together')} title="Which domains are manipulated together" plotWidth={620} commentary="Diagonal cells count experiments with each coded manipulation domain; off-diagonal cells count experiments with both domains. Joint coding does not establish a factorial design or simultaneous exposure.">
           <CooccurrenceMatrix labels={domain_cooccurrence.labels} matrix={domain_cooccurrence.matrix} cellSize={38} corpusN={295} />
         </FigureCard>
       </ChapterSection>
 
       <ChapterSection
         title="Open data, in practice"
-        intro={`A data-availability statement is not equivalent to usable data access. Of ${open_data.n_total} studies, only ${open_data.n_with_real_data_link} provided an accessible resource: four archival data repositories, one GitHub repository, and one publisher-hosted supplementary file.`}
+        intro={`A data-availability statement is not equivalent to usable data access. Of ${open_data.n_total} experiments, only ${open_data.n_with_real_data_link} provided an accessible resource: four archival data repositories, one GitHub repository, and one publisher-hosted supplementary file.`}
       >
         <FigureCard figNumber={figNum('data-availability')} title="Data availability statement, as reported" plotWidth={620}>
           <PeriodHeatmap
@@ -764,7 +760,7 @@ export default function ChapterContext({ data }) {
 
       <ChapterSection
         title="Protocol & standardisation controls"
-        intro="Protocol reporting belongs to the general experimental setup: clothing, activity, pre-session instructions, blinding, randomisation, and timing controls define how the study was run before any physiological signal is interpreted."
+        intro="These fields record reported protocol specifications and controls. Their presence does not establish how fully a procedure was described or whether adherence was verified; missing reporting does not establish that a procedure was absent."
       >
         <FigureCard figNumber={figNum('protocol-standardisation')} title="Protocol & standardisation controls" plotWidth={980} commentary="Rows identify reported controls; columns show 2-year periods; the bar at right gives the overall count per control.">
           <PeriodHeatmap

@@ -44,7 +44,7 @@ for prefix in ('env-', 'ques-'):
 # companion if each built its labels independently.
 FIELD_PRETTY_NAMES = {
     'protocol-fixed-clo': 'Fixed clothing insulation', 'protocol-observed-clo': 'Observed clothing',
-    'protocol-defined-activity': 'Defined activity protocol', 'protocol-observed-met': 'Observed metabolic rate',
+    'protocol-defined-activity': 'Defined activity protocol', 'protocol-observed-met': 'Observed / estimated metabolic activity',
     'protocol-avoid-stimulant': 'Avoid stimulants', 'protocol-avoid-activity': 'Avoid physical activity',
     'protocol-avoid-heavy-food': 'Avoid heavy meals',
     'protocol-rest-sleep': 'Pre-experiment rest/sleep', 'protocol-maintain-routine': 'Maintain routine',
@@ -694,7 +694,8 @@ def parse_time_ranges(v):
     for sh, sm, eh, em in matches:
         start = int(sh) + int(sm) / 60
         end = int(eh) + int(em) / 60
-        ranges.append((round(start, 2), round(end, 2)))
+        if 0 <= start < end <= 24:
+            ranges.append((round(start, 2), round(end, 2)))
     return ranges
 
 studies_u['time_ranges'] = studies_u['exp-hours'].apply(parse_time_ranges)
@@ -1580,7 +1581,7 @@ CHAPTER_FIELD_GROUPS = {
     },
     'protocol': {
         'protocol-fixed-clo': 'Fixed clothing insulation', 'protocol-observed-clo': 'Observed clothing',
-        'protocol-defined-activity': 'Defined activity protocol', 'protocol-observed-met': 'Observed metabolic rate',
+        'protocol-defined-activity': 'Defined activity protocol', 'protocol-observed-met': 'Observed / estimated metabolic activity',
         'protocol-avoid-stimulant': 'Avoid stimulants', 'protocol-avoid-activity': 'Avoid physical activity',
         'protocol-rest-sleep': 'Pre-experiment rest/sleep', 'protocol-maintain-routine': 'Maintain routine',
         'protocol-circadian': 'Circadian control', 'protocol-mens-timing': 'Menstrual timing control',
@@ -1641,7 +1642,7 @@ def _valid_optional_binary(col):
     # Optional Y/N or free-text fields: NR means the study explicitly did not use/report this item
     # and is excluded from the applicability denominator. MNR/NAN/blank remain missing.
     applicable_per_id = _any_row_bool(col, lambda v: v is not None and str(v).strip() not in ('NR', 'NAN', ''))
-    valid_per_id = _any_row_bool(col, lambda v: v is not None and str(v).strip() not in ('NR', 'NAN', 'MNR', ''))
+    valid_per_id = _any_row_bool(col, lambda v: v is not None and str(v).strip() not in ('NR', 'NAN', 'MNR', 'NC', ''))
     applicable = studies_u['id'].map(applicable_per_id).fillna(False)
     valid = studies_u['id'].map(valid_per_id).fillna(False)
     return valid, applicable
@@ -1662,7 +1663,7 @@ FULL_COMPLETENESS_GROUPS = {
     'Physiological': [
         ('physio-sensing-method', 'Sensor type', 'general'), ('physio-sensor-brand', 'Sensor brand', 'general'),
         ('physio-sensor-model', 'Sensor model', 'general'), ('physio-body-site', 'Body site', 'general'),
-        ('physio-body-site-sagittal', 'Sagittal location', 'general'), ('physio-body-site-surface', 'Surface location', 'general'),
+        ('physio-body-site-sagittal', 'Side / dominance', 'general'), ('physio-body-site-surface', 'Surface / orientation', 'general'),
         ('physio-mst-points', 'Number of MST points', 'mst'), ('physio-mst-formula', 'MST formula used', 'mst'),
         ('physio-formulas', 'Full formula text', 'mst'), ('physio-mst-weighting', 'Weighting factors per region', 'mst'),
     ],
@@ -1704,7 +1705,7 @@ for group_name, specs in FULL_COMPLETENESS_GROUPS.items():
             valid = _valid_general(col)
         count = int(valid.sum())
         rows.append({
-            'field': label,
+            'field': (label + ' — placement detail') if group_name == 'Environment' else label,
             'count': count,
             'denominator': int(denom),
             'pct': round(100 * count / denom, 1) if denom else 0,
@@ -2198,7 +2199,7 @@ ss_country = ss_country[~ss_country['id-country'].astype(str).isin(CODES) & ss_c
 # frontend summed only the filtered per-country `studies` array here, which understated
 # the denominator and inflated every country's displayed "% of corpus" share -- e.g.
 # China showed 74.4% against this partial sum instead of 69.9% against the true total.)
-total_corpus_participants = float(ss_country['pop-no-tot'].sum())
+total_corpus_participants = float(studies_u['pop-no-tot'].apply(clean_num).dropna().sum())
 
 country_stats = ss_country.groupby('id-country')['pop-no-tot'].agg(
     count='count', median='median', mean='mean', min='min', max='max'
@@ -2397,6 +2398,9 @@ with open(OUT_DIR / 'brand_model_reference.json', 'w') as f:
     json.dump({'data': bm_grouped.to_dict('records'), 'n_models': bm_grouped['model'].nunique()}, f, indent=2, default=str)
 print(f'brand_model_reference.json: {len(bm_grouped)} signal-method-brand-model rows, {bm_grouped["model"].nunique()} distinct models')
 
+
+from build_combination_views import write_views
+write_views(df, OUT_DIR)
 
 # ── D6. Runtime bundle for the React frontend ─────────────────────────────
 # The site fetches public/data/bundle.json at runtime rather than fetching each

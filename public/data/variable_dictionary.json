@@ -88,7 +88,7 @@
       "data_type": "categorical",
       "unit": "-",
       "allowed_values": "NR, any value",
-      "description": "K\u00f6ppen\u2013Geiger climate classification assigned based on city and country information."
+      "description": "Köppen–Geiger climate classification assigned based on city and country information."
     },
     {
       "col_id": 10,
@@ -286,7 +286,7 @@
       "col_pretty_name": "Minimum tested temperature",
       "category_pretty_names": "Experiment",
       "data_type": "float",
-      "unit": "\u00b0C, or \u00b0F",
+      "unit": "°C, or °F",
       "allowed_values": "NR, NAN, NC, any value",
       "description": "Minimum temperature that was tested in the experiment. If reported I take operative temperature, if not, air temperature. Stored as Celsius. "
     },
@@ -296,7 +296,7 @@
       "col_pretty_name": "Maximum tested temperature",
       "category_pretty_names": "Experiment",
       "data_type": "float",
-      "unit": "\u00b0C, or \u00b0F",
+      "unit": "°C, or °F",
       "allowed_values": "NR, NAN, NC, any value",
       "description": "Maximum temperature that was tested in the experiment. If reported I take operative temperature, if not, air temperature. Stored as Celsius. "
     },
@@ -306,7 +306,7 @@
       "col_pretty_name": "Tested temperatures",
       "category_pretty_names": "Experiment",
       "data_type": "float",
-      "unit": "\u00b0C, or \u00b0F",
+      "unit": "°C, or °F",
       "allowed_values": "NR, NAN, NC, Free running, any value",
       "description": "Target temperatures of all tested scenarios, comma separated. Can be any number, any number range, or Free running.\n\nIf the test scenario was a ramp, then stated with a dash in between. ie. 28, 28-16, 16 would mean there were two static conditions tested seoarately, at 16 and 28C, and a third scenario where the temperature started from 28 and decreased to 16 was tested.\n\nFree running is when there were no target temperatures."
     },
@@ -613,22 +613,22 @@
     {
       "col_id": 62,
       "col_name": "physio-body-site-sagittal",
-      "col_pretty_name": "Body site of measurement (coronal)",
+      "col_pretty_name": "Body-site side / dominance",
       "category_pretty_names": "Physiological",
       "data_type": "categorical",
       "unit": "-",
       "allowed_values": "NR, NAN, NC, Left, Right, Middle, Non-dominant, Dominant",
-      "description": "Left, Right or Middle side of the body. Can be NAN; ie. For Cortisol measurements from saliva, or blood, etc. Non-dominant or Dominant hands/limbs are sometimes specified without left or right directions."
+      "description": "Left, right, middle or dominant/non-dominant placement, as reported. Not applicable to measurements without a lateralised anatomical site."
     },
     {
       "col_id": 63,
       "col_name": "physio-body-site-surface",
-      "col_pretty_name": "Body site of measurement (sagittal)",
+      "col_pretty_name": "Body-site surface / orientation",
       "category_pretty_names": "Physiological",
       "data_type": "categorical",
       "unit": "-",
       "allowed_values": "NR, NAN, NC, Anterior, Posterior, Lateral, Dorsal, Palmar/Plantar",
-      "description": "Front, Back or the outer part of the body. "
+      "description": "Anterior, posterior, lateral, dorsal, palmar or plantar placement, as reported. Retained separately from left/right or dominant/non-dominant side."
     },
     {
       "col_id": 64,
@@ -706,9 +706,9 @@
       "col_pretty_name": "Dry bulb temperature (tdb)",
       "category_pretty_names": "Environment",
       "data_type": "string",
-      "unit": "\u00b0C, or \u00b0F",
+      "unit": "m (sensor height)",
       "allowed_values": "NR, MNR, NC, any value",
-      "description": "If it was measured = vertical height/s separate by comma when multiple, if measured heights are not reported = MNR, if not reported = NR, if reported but data unclear = NC"
+      "description": "Sensor placement height(s) in metres, comma separated when multiple. A non-numeric placement description may be retained as reported. MNR = variable measured but placement detail not reported; NR = measurement not reported; NC = unclear. The cell stores placement metadata, not measured environmental values."
     },
     {
       "col_id": 72,
@@ -716,9 +716,9 @@
       "col_pretty_name": "Relative humidity (rh)",
       "category_pretty_names": "Environment",
       "data_type": "string",
-      "unit": "%",
+      "unit": "m (sensor height)",
       "allowed_values": "NR, MNR, NC, any value",
-      "description": "Same as tdb"
+      "description": "Sensor placement height(s) in metres, comma separated when multiple. A non-numeric placement description may be retained as reported. MNR = variable measured but placement detail not reported; NR = measurement not reported; NC = unclear. The cell stores placement metadata, not measured environmental values."
     },
     {
       "col_id": 73,
@@ -726,9 +726,9 @@
       "col_pretty_name": "Air velocity (v)",
       "category_pretty_names": "Environment",
       "data_type": "string",
-      "unit": "m\u00b7s\u207b\u00b9",
+      "unit": "m (sensor height)",
       "allowed_values": "NR, MNR, NC, any value",
-      "description": "Same as tdb"
+      "description": "Sensor placement height(s) in metres, comma separated when multiple. A non-numeric placement description may be retained as reported. MNR = variable measured but placement detail not reported; NR = measurement not reported; NC = unclear. The cell stores placement metadata, not measured environmental values."
     },
     {
       "col_id": 74,
@@ -736,19 +736,19 @@
       "col_pretty_name": "Globe temperature (tg)",
       "category_pretty_names": "Environment",
       "data_type": "string",
-      "unit": "\u00b0C, or \u00b0F",
+      "unit": "m (sensor height)",
       "allowed_values": "NR, MNR, NC, any value",
-      "description": "Same as tdb"
+      "description": "Sensor placement height(s) in metres, comma separated when multiple. A non-numeric placement description may be retained as reported. MNR = variable measured but placement detail not reported; NR = measurement not reported; NC = unclear. The cell stores placement metadata, not measured environmental values."
     },
     {
       "col_id": 75,
       "col_name": "env-tsurface",
-      "col_pretty_name": "Surface temperature (\u00b0C)",
+      "col_pretty_name": "Surface temperature (°C)",
       "category_pretty_names": "Environment",
       "data_type": "string",
-      "unit": "\u00b0C, or \u00b0F",
+      "unit": "m (sensor height)",
       "allowed_values": "NR, MNR, NC, any value",
-      "description": "Same as tdb"
+      "description": "Sensor placement height(s) in metres, comma separated when multiple. A non-numeric placement description may be retained as reported. MNR = variable measured but placement detail not reported; NR = measurement not reported; NC = unclear. The cell stores placement metadata, not measured environmental values."
     },
     {
       "col_id": 76,
@@ -756,9 +756,9 @@
       "col_pretty_name": "Wetbulb temperature (twb)",
       "category_pretty_names": "Environment",
       "data_type": "string",
-      "unit": "\u00b0C, or \u00b0F",
+      "unit": "m (sensor height)",
       "allowed_values": "NR, MNR, NC, any value",
-      "description": "Same as tdb"
+      "description": "Sensor placement height(s) in metres, comma separated when multiple. A non-numeric placement description may be retained as reported. MNR = variable measured but placement detail not reported; NR = measurement not reported; NC = unclear. The cell stores placement metadata, not measured environmental values."
     },
     {
       "col_id": 77,
@@ -766,9 +766,9 @@
       "col_pretty_name": "CO2",
       "category_pretty_names": "Environment",
       "data_type": "string",
-      "unit": "ppm",
+      "unit": "m (sensor height)",
       "allowed_values": "NR, MNR, NC, any value",
-      "description": "Same as tdb"
+      "description": "Sensor placement height(s) in metres, comma separated when multiple. A non-numeric placement description may be retained as reported. MNR = variable measured but placement detail not reported; NR = measurement not reported; NC = unclear. The cell stores placement metadata, not measured environmental values."
     },
     {
       "col_id": 78,
@@ -776,9 +776,9 @@
       "col_pretty_name": "Illuminance",
       "category_pretty_names": "Environment",
       "data_type": "string",
-      "unit": "lx",
+      "unit": "m (sensor height)",
       "allowed_values": "NR, MNR, NC, any value",
-      "description": "Height(s) at which the illuminance sensor was placed. If measured = vertical height(s) in meters, comma separated when multiple; if measured but heights not reported = MNR; if not measured = NR; if reported but data unclear = NC."
+      "description": "Sensor placement height(s) in metres, comma separated when multiple. A non-numeric placement description may be retained as reported. MNR = variable measured but placement detail not reported; NR = measurement not reported; NC = unclear. The cell stores placement metadata, not measured environmental values."
     },
     {
       "col_id": 79,
@@ -786,9 +786,9 @@
       "col_pretty_name": "Noise",
       "category_pretty_names": "Environment",
       "data_type": "string",
-      "unit": "dB(A)",
+      "unit": "m (sensor height)",
       "allowed_values": "NR, MNR, NC, any value",
-      "description": "Same as tdb"
+      "description": "Sensor placement height(s) in metres, comma separated when multiple. A non-numeric placement description may be retained as reported. MNR = variable measured but placement detail not reported; NR = measurement not reported; NC = unclear. The cell stores placement metadata, not measured environmental values."
     },
     {
       "col_id": 80,
@@ -796,9 +796,9 @@
       "col_pretty_name": "Outdoor  temperature",
       "category_pretty_names": "Environment",
       "data_type": "string",
-      "unit": "\u00b0C, or \u00b0F",
+      "unit": "m (sensor height)",
       "allowed_values": "NR, MNR, NC, any value",
-      "description": "Same as tdb"
+      "description": "Sensor placement height(s) in metres, comma separated when multiple. A non-numeric placement description may be retained as reported. MNR = variable measured but placement detail not reported; NR = measurement not reported; NC = unclear. The cell stores placement metadata, not measured environmental values."
     },
     {
       "col_id": 81,
@@ -806,9 +806,9 @@
       "col_pretty_name": "Outdoor relative humidity",
       "category_pretty_names": "Environment",
       "data_type": "string",
-      "unit": "%",
+      "unit": "m (sensor height)",
       "allowed_values": "NR, MNR, NC, any value",
-      "description": "Same as tdb"
+      "description": "Sensor placement height(s) in metres, comma separated when multiple. A non-numeric placement description may be retained as reported. MNR = variable measured but placement detail not reported; NR = measurement not reported; NC = unclear. The cell stores placement metadata, not measured environmental values."
     },
     {
       "col_id": 82,
@@ -816,9 +816,9 @@
       "col_pretty_name": "VOC",
       "category_pretty_names": "Environment",
       "data_type": "string",
-      "unit": "ppb, or \u00b5g\u00b7m\u207b\u00b3",
+      "unit": "m (sensor height)",
       "allowed_values": "NR, MNR, NC, any value",
-      "description": "Same as tdb"
+      "description": "Sensor placement height(s) in metres, comma separated when multiple. A non-numeric placement description may be retained as reported. MNR = variable measured but placement detail not reported; NR = measurement not reported; NC = unclear. The cell stores placement metadata, not measured environmental values."
     },
     {
       "col_id": 83,
@@ -826,9 +826,9 @@
       "col_pretty_name": "Light colour",
       "category_pretty_names": "Environment",
       "data_type": "string",
-      "unit": "K",
+      "unit": "m (sensor height)",
       "allowed_values": "NR, MNR, NC, any value",
-      "description": "Same as tdb"
+      "description": "Sensor placement height(s) in metres, comma separated when multiple. A non-numeric placement description may be retained as reported. MNR = variable measured but placement detail not reported; NR = measurement not reported; NC = unclear. The cell stores placement metadata, not measured environmental values."
     },
     {
       "col_id": 84,
@@ -836,9 +836,9 @@
       "col_pretty_name": "Solar radiation",
       "category_pretty_names": "Environment",
       "data_type": "string",
-      "unit": "W\u00b7m\u207b\u00b2",
+      "unit": "m (sensor height)",
       "allowed_values": "NR, MNR, NC, any value",
-      "description": "Same as tdb"
+      "description": "Sensor placement height(s) in metres, comma separated when multiple. A non-numeric placement description may be retained as reported. MNR = variable measured but placement detail not reported; NR = measurement not reported; NC = unclear. The cell stores placement metadata, not measured environmental values."
     },
     {
       "col_id": 85,
@@ -1648,7 +1648,7 @@
       "data_type": "boolean",
       "unit": "-",
       "allowed_values": "Y, NR, NC",
-      "description": "Also known as Corpulence Index. Different than BMI, calculated with PI = weight / height\u00b3"
+      "description": "Also known as Corpulence Index. Different than BMI, calculated with PI = weight / height³"
     },
     {
       "col_id": 166,

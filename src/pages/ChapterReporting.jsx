@@ -1,6 +1,7 @@
 import { ChapterHeader, ChapterSection } from '../components/Chapter.jsx'
 import FigureCard from '../components/FigureCard.jsx'
 import { figNum } from '../figureRegistry.js'
+import { JointReporting } from '../components/CombinationViews.jsx'
 import { useTooltip, TooltipPortal } from '../components/Tooltip.jsx'
 
 function FieldCompletenessGroup({ title, rows, maxDenominator }) {
@@ -43,20 +44,15 @@ export default function ChapterReporting({ data }) {
   return (
     <div>
       <ChapterHeader
-        eyebrow="Chapter 7 of 7 · Synthesis"
+        eyebrow="Chapter 8 of 8 · Synthesis"
         title="Data completeness"
         framing={
           <>
             <p>
-              The landing page already gives the category-level summary. This closing chapter instead
-              shows the full field-level completeness list for the fields we treat as corpus-wide
-              reporting requirements.
+              This chapter describes the availability of individual metadata fields and their joint availability within experiments. Applicability depends on the field: environmental placement details are assessed among experiments measuring that variable, and MST details among experiments explicitly calculating MST.
             </p>
             <p>
-              A field counts as “complete” if it holds a substantive value rather than a missing code.
-              For environment and questionnaire fields, NR is treated as a legitimate non-use code and is excluded from the denominator; MNR is treated as missing among fields that should have been resolved. MST-specific fields are evaluated only among studies where MST was
-              actually calculated. Participant metadata, inclusion criteria, and protocol-rigor fields
-              are excluded here because they are not required across all studies.
+              A field counts as documented when it contains a substantive coded value. For physiological fields, this first view requires a value on at least one measurement row in the experiment; it does not establish that every signal or site is documented. Environmental rows evaluate placement detail, and questionnaire rows evaluate scale descriptions. Measured-but-unspecified and unclear details remain incomplete. Participant-state and protocol fields are presented in their relevant chapters.
             </p>
           </>
         }
@@ -66,8 +62,8 @@ export default function ChapterReporting({ data }) {
         ]}
       />
 
-      <ChapterSection title="Full field-level completeness list" intro="Tracks are scaled to each field’s applicable denominator, then filled by reported count. This means one study has the same visual width everywhere, while denominator changes remain visible.">
-        <FigureCard figNumber={figNum('reporting-fields')} title="Evaluated reporting fields" plotWidth={980} commentary="Rows identify coded reporting fields; the display preserves their order in the dataset.">
+      <ChapterSection title="Full field-level completeness list" intro="Tracks are scaled to each field’s applicable denominator and filled by documented count. Environmental rows refer to placement descriptions, which may be numeric heights or descriptions such as “desk”. Ratios at right make the denominator explicit.">
+        <FigureCard figNumber={figNum('reporting-fields', 'a')} title="Evaluated reporting fields" plotWidth={980} commentary="Rows identify coded reporting fields; the display preserves their order in the dataset.">
           <div className="space-y-8 max-w-5xl">
             {groups.map(([group, obj]) => (
               <FieldCompletenessGroup key={group} title={group} rows={obj.fields} maxDenominator={maxDenominator} />
@@ -76,12 +72,17 @@ export default function ChapterReporting({ data }) {
         </FigureCard>
       </ChapterSection>
 
+      <ChapterSection title="Which details are documented together?"
+        intro="High reporting for individual fields does not establish that the information is available together in the same experiments. Select a set of requirements to count their intersection; each experiment contributes once.">
+        <FigureCard figNumber={figNum('reporting-fields', 'b')} title="Joint availability of reporting fields" plotWidth={1060}
+          commentary="The environmental preset starts with the four commonly measured variables. Add the height requirement to see how many experiments also code numeric sensor heights for all four. Physiological presets restrict the denominator to experiments measuring the selected signal.">
+          <JointReporting presets={data.combination_views.joint_reporting} studies={data.studies} />
+        </FigureCard>
+      </ChapterSection>
+
       <div className="px-10 py-6 border-t border-line bg-white/30">
         <p className="text-[12px] text-inkmid leading-relaxed max-w-3xl">
-          The point of this page is not to punish optional richness; it is to separate genuinely
-          missing reporting from fields that are only applicable in some studies. Once those cases are
-          treated correctly, the major completeness gaps concentrate in a smaller set of fields rather
-          than being spread artificially across every optional item in the schema.
+          These counts describe the metadata available in the coded record. They do not provide an overall quality score, establish standards compliance, or show that experiments with the same reported fields can be pooled without further checks.
         </p>
       </div>
     </div>

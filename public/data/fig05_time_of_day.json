@@ -349,12 +349,6 @@
       "circadian_considered": true
     },
     {
-      "id": "1154_1",
-      "start": 0.0,
-      "end": 0.0,
-      "circadian_considered": false
-    },
-    {
       "id": "1155_1",
       "start": 10.0,
       "end": 13.0,
@@ -455,12 +449,6 @@
       "start": 19.0,
       "end": 21.0,
       "circadian_considered": true
-    },
-    {
-      "id": "1188_1",
-      "start": 0.0,
-      "end": 0.0,
-      "circadian_considered": false
     },
     {
       "id": "1190_1",
@@ -793,6 +781,6 @@
       "circadian_considered": true
     }
   ],
-  "n_reporting": 83,
+  "n_reporting": 81,
   "n_circadian_considered": 41
 }

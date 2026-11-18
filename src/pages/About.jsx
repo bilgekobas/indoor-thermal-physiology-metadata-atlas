@@ -131,7 +131,7 @@ export default function About({ data }) {
             >
               LIMITATIONS.md
             </a>{' '}
-            in the repository. Start there before asking "how exactly did you handle X."
+            in the repository. The definitions and analysis scripts provide the corresponding implementation details.
           </p>
         </section>
 

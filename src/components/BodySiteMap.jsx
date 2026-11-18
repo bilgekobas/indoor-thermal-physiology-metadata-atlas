@@ -251,7 +251,7 @@ export default function BodySiteMap({ siteData, totalLabel, color = '#5B5BFF', h
               const r = 18 + Math.sqrt(s.count / allSensorsMaxCount) * 46
               const pct = totalLabel?.n ? ((s.count / totalLabel.n) * 100).toFixed(0) : '0'
               const sensorDetail = activeSensor !== 'all' ? ` — ${activeSensor}` : ''
-              const tipText = `${s.site}: ${s.count} studies (${pct}% of ${totalLabel?.n ?? 0})${sensorDetail}${s.estimated ? ' — position estimated, not a labelled point on the taxonomy' : ''}`
+              const tipText = `${s.site}: ${s.count} experiments (${pct}% of ${totalLabel?.n ?? 0})${sensorDetail}${s.estimated ? ' — position estimated, not a labelled point on the taxonomy' : ''}`
               return (
                 <g
                   key={s.site}
@@ -278,7 +278,7 @@ export default function BodySiteMap({ siteData, totalLabel, color = '#5B5BFF', h
 
         <div className="w-64 shrink-0 pt-2">
           <div className="font-data text-[10px] text-inkfaint mb-3">
-            Marker area ∝ study count. Table values use count (% of parent signal).
+            Marker size increases with experiment count. Table values use count (% of parent signal).
           </div>
           {placeable.some((s) => s.estimated) && (
             <div className="font-data text-[10px] text-inkfaint mb-3 flex items-center gap-1.5">
@@ -300,7 +300,7 @@ export default function BodySiteMap({ siteData, totalLabel, color = '#5B5BFF', h
               {unplaceable.map((s) => (
                 <div key={s.site} className="text-[11.5px] text-inkmid mb-1">
                   <span className="font-medium">{s.site}</span>
-                  <span className="text-inkfaint"> ({s.count} studies) — {NON_PLACEABLE_NOTE[s.site] || 'not a placeable body location'}</span>
+                  <span className="text-inkfaint"> ({s.count} experiments) — {NON_PLACEABLE_NOTE[s.site] || 'not a placeable body location'}</span>
                 </div>
               ))}
             </div>

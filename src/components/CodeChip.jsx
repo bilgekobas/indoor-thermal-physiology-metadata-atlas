@@ -2,7 +2,8 @@ const labels = {
   Y: 'Yes, explicitly reported',
   N: 'No, explicitly reported',
   NR: 'Not reported',
-  MNR: 'Measured, but the value is not reported',
+  MNR: 'Measured or administered, but the requested detail is not reported',
+  NAN: 'Not applicable (subject to field-specific coding rules)',
   NC: 'Not clear / conflicting',
 }
 
@@ -19,7 +20,7 @@ export function CodeChip({ code, size = 'sm' }) {
 }
 
 export function CodeLegend() {
-  const codes = ['Y', 'N', 'NR', 'MNR', 'NC']
+  const codes = ['Y', 'N', 'NR', 'MNR', 'NAN', 'NC']
   return (
     <div className="space-y-2">
       {codes.map((code) => (

@@ -76,7 +76,7 @@ function ScaleAxisPlot({ studies, domain, lowColor, highColor, poleColors, title
   return (
     <div className="no-horizontal-scroll">
       <div className="font-data text-[10px] text-inkfaint mb-1.5">
-        Studies are ordered by their minimum scale value. Each row shows every coded point on that study's scale; black marks neutral points where present.
+        Experiments are ordered by their minimum scale value. Each row shows every coded point on that experiment's scale; black marks neutral points where present.
       </div>
       <svg width={width} height={height + 30} className="font-data block" style={{ overflow: 'hidden' }}>
         {ticks.map((v) => (
@@ -181,7 +181,7 @@ function MostUsedScaleLabels({ studies, nDistinctDescriptions, title = 'Scale de
         <span className="text-[11px] text-inkmid">Normalised combinations (all coded scales)</span>
         <span className="font-data text-[11px] text-ink">{nDistinctDescriptions ?? scaleSummary.length}</span>
       </div>
-      <div className="font-data text-[10px] text-inkfaint mt-2">Most frequent fully specified label sets shown below.</div>
+      <div className="font-data text-[10px] text-inkfaint mt-2">Most frequent label sets among the plotted scales are shown below.</div>
       <ScaleBlock item={scaleSummary[0]} label="Most frequent label set" />
       {scaleSummary[1] && <ScaleBlock item={scaleSummary[1]} label="Second-most frequent label set" />}
     </div>
@@ -197,24 +197,24 @@ export default function ChapterQuestionnaires({ data }) {
   return (
     <div>
       <ChapterHeader
-        eyebrow="Chapter 5 of 7"
+        eyebrow="Chapter 5 of 8"
         title="Measuring the perception"
         framing={
           <>
             <p>
-              Subjective questionnaires sit alongside physiological measurement in most studies.
+              Subjective questionnaires sit alongside physiological measurement in most experiments.
               This chapter looks at which questionnaire domains are used, and — for the two most common,
               thermal sensation and thermal comfort — exactly how their scales are worded and structured.
             </p>
             <p>
-              We looked at scale structure specifically because two studies both reporting “TSV = +2” are
+              We looked at scale structure specifically because two experiments both reporting “TSV = +2” are
               not necessarily reporting the same thing if their underlying scales differ in point count,
               labels, or polarity. That heterogeneity is invisible unless the scales are laid side by side.
             </p>
           </>
         }
         headline={[
-          { value: `${tsvPct}%`, label: 'of studies report a thermal sensation scale', color: '#5B5BFF' },
+          { value: `${tsvPct}%`, label: 'of experiments have a coded thermal-sensation scale description', color: '#5B5BFF' },
           { value: `${sevenPointTSVPct}%`, label: 'of discrete TSV scales are seven-point', color: '#FB3640' },
           { value: fig16_tcv_scales.n_distinct_scale_descriptions, label: 'normalised TCV scale-and-label combinations', color: '#FB3640' },
         ]}
@@ -222,7 +222,7 @@ export default function ChapterQuestionnaires({ data }) {
 
       <ChapterSection
         title="Questionnaire usage by domain"
-        intro="Thermal sensation, comfort, preference, and acceptability dominate, but the full dataset includes a broader tail of domain-specific questionnaire types. Counts and percentages are shown within each questionnaire domain."
+        intro="Bars count substantive questionnaire descriptions. The denominator within each domain is the number of experiments with at least one such description in that domain; administered-but-underspecified items are not counted as complete descriptions here."
       >
         <div className="grid grid-cols-2 gap-x-10 gap-y-8 max-w-5xl">
           {Object.entries(fig14_questionnaire_domains).map(([domain, d], i) => (
@@ -235,16 +235,16 @@ export default function ChapterQuestionnaires({ data }) {
 
       <ChapterSection
         title="Scale heterogeneity: sensation vs. comfort"
-        intro={`TSV has a dominant standard format, but the precise point sets still vary. TCV is much more heterogeneous: point count, verbal anchors, and comfort polarity all shift between studies. The point-count bars use every discrete scale with a stated point count: ${fig15_tsv_scales.n_discrete} TSV and ${fig16_tcv_scales.n_discrete} TCV scales. The adjacent grids have a narrower technical inclusion rule: they show only scales with enough numeric positions and anchor labels to be placed without inference — ${fig15_tsv_scales.n_grid} TSV and ${fig16_tcv_scales.n_grid} TCV scales. Continuous formats (${fig15_tsv_scales.n_continuous} TSV; ${fig16_tcv_scales.n_continuous} TCV) are not treated as discrete point scales.`}
+        intro={`TSV has a dominant standard format, but the precise point sets still vary. TCV is much more heterogeneous: point count, verbal anchors, and comfort polarity all shift between experiments. The point-count bars describe experiments using discrete scales with a stated point count: ${fig15_tsv_scales.n_discrete} TSV and ${fig16_tcv_scales.n_discrete} TCV scales. The adjacent grids have a narrower technical inclusion rule: they show only scales with enough numeric positions and anchor labels to be placed without inference — ${fig15_tsv_scales.n_grid} TSV and ${fig16_tcv_scales.n_grid} TCV scales. Continuous formats (${fig15_tsv_scales.n_continuous} TSV; ${fig16_tcv_scales.n_continuous} TCV) are not treated as discrete point scales.`}
       >
-        <FigureCard figNumber={figNum('tsv-scales')} title="Thermal Sensation Vote (TSV)" plotWidth={1120} commentary={`${fig15_tsv_scales.n_grid} fully specified discrete TSV scales are mapped onto a common cold → hot axis. Each row shows the coded points entered in the dataset, ordered by the row's minimum value.`}>
+        <FigureCard figNumber={figNum('tsv-scales')} title="Thermal Sensation Vote (TSV)" plotWidth={1120} commentary={`${fig15_tsv_scales.n_grid} discrete TSV scales with enough numeric and anchor information for plotting are mapped onto a common cold → hot axis. Each row shows recorded response positions, ordered by the minimum value. Intermediate anchors may remain unspecified; numeric alignment alone does not establish equivalence of meaning.`}>
           <div className="flex gap-10 items-start">
             <div className="shrink-0 w-[700px]"><ScaleAxisPlot studies={fig15_tsv_scales.studies} domain={[-4, 8]} lowColor="#5B5BFF" highColor="#FB3640" titleSuffix="TSV" treatComfortAsNeutral /></div>
             <div className="w-72 shrink-0"><h4 className="text-[11.5px] font-medium mb-2 text-inkmid">Points per discrete scale</h4><PointsBar distribution={fig15_tsv_scales.points_distribution} total={fig15_tsv_scales.n_discrete} color="#0A0A0A" /><MostUsedScaleLabels studies={fig15_tsv_scales.studies} nDistinctDescriptions={fig15_tsv_scales.n_distinct_scale_descriptions} title="TSV scale descriptions" /></div>
           </div>
         </FigureCard>
 
-        <FigureCard figNumber={figNum('tcv-scales')} title="Thermal Comfort Vote (TCV)" plotWidth={1120} commentary={`${fig16_tcv_scales.n_grid} fully specified discrete TCV scales are mapped onto a common axis. Endpoint colours follow meaning rather than raw number; neutral or near-neutral points are black.`}>
+        <FigureCard figNumber={figNum('tcv-scales')} title="Thermal Comfort Vote (TCV)" plotWidth={1120} commentary={`${fig16_tcv_scales.n_grid} discrete TCV scales with enough numeric and anchor information for plotting are mapped onto a common axis. Endpoint colours follow meaning rather than raw number; neutral or near-neutral points are black.`}>
           <div className="flex gap-10 items-start">
             <div className="shrink-0 w-[700px]"><ScaleAxisPlot studies={fig16_tcv_scales.studies} domain={[-4, 6]} poleColors={{ comfort: '#5B5BFF', discomfort: '#FB3640' }} titleSuffix="TCV" /></div>
             <div className="w-72 shrink-0"><h4 className="text-[11.5px] font-medium mb-2 text-inkmid">Points per discrete scale</h4><PointsBar distribution={fig16_tcv_scales.points_distribution} total={fig16_tcv_scales.n_discrete} color="#0A0A0A" /><MostUsedScaleLabels studies={fig16_tcv_scales.studies} nDistinctDescriptions={fig16_tcv_scales.n_distinct_scale_descriptions} title="TCV scale descriptions" /></div>

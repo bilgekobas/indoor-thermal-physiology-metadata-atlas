@@ -1027,15 +1027,12 @@
       }
     },
     {
-      "site": "Hand (palmar)",
+      "site": "Nose",
       "total": 12,
       "sensingMethods": {
-        "Heat flux/Heat flow": 1,
-        "Hygrochron": 1,
-        "Infrared camera": 1,
-        "RTD": 2,
-        "Thermochron": 3,
-        "Thermocouple": 5
+        "Infrared camera": 6,
+        "Infrared thermometer": 3,
+        "Thermochron": 3
       }
     },
     {
@@ -1051,12 +1048,15 @@
       }
     },
     {
-      "site": "Nose",
+      "site": "Hand (palmar)",
       "total": 12,
       "sensingMethods": {
-        "Infrared camera": 6,
-        "Infrared thermometer": 3,
-        "Thermochron": 3
+        "Heat flux/Heat flow": 1,
+        "Hygrochron": 1,
+        "Infrared camera": 1,
+        "RTD": 2,
+        "Thermochron": 3,
+        "Thermocouple": 5
       }
     },
     {
@@ -1065,17 +1065,6 @@
       "sensingMethods": {
         "Hygrochron": 1,
         "Thermochron": 11
-      }
-    },
-    {
-      "site": "Arm",
-      "total": 11,
-      "sensingMethods": {
-        "Heat flux/Heat flow": 2,
-        "Hygrochron": 2,
-        "Thermistor": 1,
-        "Thermochron": 1,
-        "Thermocouple": 4
       }
     },
     {
@@ -1090,13 +1079,14 @@
       }
     },
     {
-      "site": "Earlobe",
-      "total": 9,
+      "site": "Arm",
+      "total": 11,
       "sensingMethods": {
-        "Infrared camera": 3,
-        "Infrared thermometer": 3,
-        "Thermochron": 2,
-        "Thermocouple": 1
+        "Heat flux/Heat flow": 2,
+        "Hygrochron": 2,
+        "Thermistor": 1,
+        "Thermochron": 1,
+        "Thermocouple": 4
       }
     },
     {
@@ -1106,6 +1096,16 @@
         "Hygrochron": 1,
         "Infrared camera": 7,
         "Infrared thermometer": 1
+      }
+    },
+    {
+      "site": "Earlobe",
+      "total": 9,
+      "sensingMethods": {
+        "Infrared camera": 3,
+        "Infrared thermometer": 3,
+        "Thermochron": 2,
+        "Thermocouple": 1
       }
     },
     {

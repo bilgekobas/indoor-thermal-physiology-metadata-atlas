@@ -93,7 +93,7 @@ export default function Browse({ data }) {
     <div>
       <PageHeader
         eyebrow="Explore"
-        title="Browse studies"
+        title="Browse experiments"
         description="Filter the corpus by experiment type, country, signal, or publication year. Each row is one publication-experiment unit."
       >
         <a
