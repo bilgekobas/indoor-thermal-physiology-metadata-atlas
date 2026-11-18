@@ -7,33 +7,23 @@ import StudyIntervalPlot from '../components/StudyIntervalPlot.jsx'
 import InteractiveBarChart from '../components/InteractiveBarChart.jsx'
 import { PeriodHeatmap } from '../components/OverallByPeriod.jsx'
 import { useTooltip, TooltipPortal } from '../components/Tooltip.jsx'
+import { buildHistogram, binInterval, cumulativeDescription } from '../utils/distributions.js'
 
 function SampleSizeHistogramLinear({ studies, maxDisplay = 100, binWidth = 5, color = '#5B5BFF', width = 960 }) {
   const { tip, showTip, moveTip, hideTip } = useTooltip()
   const values = studies.map((s) => Number(s.n)).filter((n) => Number.isFinite(n) && n > 0).sort((a, b) => a - b)
   if (!values.length) return <div className="text-[12px] text-inkfaint">No data available.</div>
 
-  const bins = []
-  for (let start = 0; start < maxDisplay; start += binWidth) bins.push({ start, end: start + binWidth, count: 0, overflow: false })
-  bins.push({ start: maxDisplay, end: Infinity, count: 0, overflow: true })
-  values.forEach((v) => {
-    const idx = v >= maxDisplay ? bins.length - 1 : Math.min(Math.floor(v / binWidth), bins.length - 2)
-    bins[idx].count += 1
-  })
+  const { bins, stats } = buildHistogram(values, { binWidth, overflowAt: maxDisplay })
 
   const total = values.length
   const maxCount = Math.max(...bins.map((b) => b.count), 1)
-  let cum = 0
-  const ecdf = bins.map((b) => {
-    cum += b.count
-    return cum / total
-  })
+  const ecdf = bins.map((b) => b.cumulativeFraction)
 
   const chartHeight = 180
   const yAxisW = 34
   const binW = width / bins.length
-  const mid = Math.floor(values.length / 2)
-  const median = values.length % 2 ? values[mid] : (values[mid - 1] + values[mid]) / 2
+  const median = stats.median
 
   return (
     <div>
@@ -52,7 +42,7 @@ function SampleSizeHistogramLinear({ studies, maxDisplay = 100, binWidth = 5, co
             const barH = (b.count / maxCount) * chartHeight
             const x = i * binW
             const w = Math.max(1, binW - 2)
-            const label = b.overflow ? `${maxDisplay}+` : `${b.start}–${b.end}`
+            const label = binInterval(b)
             return (
               <rect
                 key={i}
@@ -78,7 +68,7 @@ function SampleSizeHistogramLinear({ studies, maxDisplay = 100, binWidth = 5, co
               r={2.6}
               fill={color}
               className="cursor-default"
-              onMouseEnter={(e) => showTip(e, `Cumulative through this bin: ${(y * 100).toFixed(1)}% of experiments ${bins[i].overflow ? `≥ ${maxDisplay}` : `≤ ${bins[i].end}`} participants`)}
+              onMouseEnter={(e) => showTip(e, `Cumulative through this bin: ${(y * 100).toFixed(1)}% — ${cumulativeDescription(bins[i], v => `${v} participants`)}`)}
               onMouseMove={moveTip}
               onMouseLeave={hideTip}
             />
@@ -96,7 +86,7 @@ function SampleSizeHistogramLinear({ studies, maxDisplay = 100, binWidth = 5, co
       </svg>
       <div className="flex items-center gap-4 mt-1 text-[11px] text-inkmid flex-wrap">
         <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 inline-block rounded-sm bg-ink/85" /> count</span>
-        <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 inline-block rounded-full" style={{ background: color }} /> cumulative %</span>
+        <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 inline-block rounded-full" style={{ background: color }} /> binned cumulative %</span>
         <span className="text-inkfaint">· x-axis: participants per experiment, linear bins of {binWidth}; final bin = {maxDisplay}+.</span>
       </div>
       <div className="font-data text-[10.5px] text-inkfaint mt-1">Median sample size = {median.toFixed(0)} participants.</div>

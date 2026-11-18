@@ -1,4 +1,5 @@
 import { useMemo, useState } from 'react'
+import { Link } from 'react-router-dom'
 import { ChapterHeader, ChapterSection } from '../components/Chapter.jsx'
 import FigureCard from '../components/FigureCard.jsx'
 import { figNum } from '../figureRegistry.js'
@@ -905,6 +906,9 @@ export default function ChapterBody({ data }) {
           commentary="For example, a row with filled dots for skin temperature and heart/pulse rate counts experiments measuring precisely those two coded parameters. Experiments also measuring blood pressure appear in a different row. Select a row to inspect its experiment IDs.">
           <ExactSignalCombinations views={data.combination_views} studies={data.studies} />
         </FigureCard>
+        <p className="text-[12px] text-inkmid max-w-3xl">
+          To examine where these signals are measured, <Link to="/combinations" className="text-coreaccent hover:underline">compare measurements across experimental settings</Link>.
+        </p>
       </ChapterSection>
 
       <ChapterSection

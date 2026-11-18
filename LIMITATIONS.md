@@ -222,6 +222,16 @@ plot omits values longer than 600 minutes and reports that omission; its
 statistics refer to the displayed observations. The source convention retains
 the minimum where only a lower bound or duration range was reported.
 
+Duration and sample-size medians and quartiles use linear interpolation at
+zero-based positions (n − 1)p in the sorted observations (Hyndman–Fan type 7). For even
+sample sizes, the median is the mean of the two central observations.
+The cumulative curves aggregate histogram bins, rather than showing each
+observation's empirical distribution step. Internal bins include their lower
+boundary and exclude their upper boundary; the last finite duration bin
+includes its upper boundary. Sample sizes of 100 or more form an overflow bin.
+The cumulative total at that bin is 100% because it includes all preceding bins,
+not because every experiment has at least 100 participants.
+
 ## 15. Scope of interpretation
 
 The inclusion criteria are described in Methodology and constrain the

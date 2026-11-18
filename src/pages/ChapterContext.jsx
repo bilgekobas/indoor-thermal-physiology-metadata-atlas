@@ -9,6 +9,7 @@ import { PeriodHeatmap } from '../components/OverallByPeriod.jsx'
 import WorldMapExplorer from '../components/WorldMapExplorer.jsx'
 import SampleSizeByCountry from '../components/SampleSizeByCountry.jsx'
 import { useTooltip, TooltipPortal } from '../components/Tooltip.jsx'
+import { describeValues } from '../utils/distributions.js'
 
 
 function AuthorNetworkEmbed() {
@@ -548,11 +549,10 @@ export default function ChapterContext({ data }) {
   const totalPubs = fig01_pubs_by_year.data.reduce((a, d) => a + d.count, 0)
   const pubYearSorted = [...fig01_pubs_by_year.data].sort((a, b) => a.year - b.year)
   const earliestYear = pubYearSorted[0]
-  const [sessionStats, setSessionStats] = useState(null)
-  const [normStats, setNormStats] = useState(null)
-
   const sessionValuesCapped = fig03_session_length.values_minutes.filter((v) => v <= 600)
   const normValuesCapped = fig04_normalisation_length.values_minutes.filter((v) => v <= 600)
+  const sessionStats = describeValues(sessionValuesCapped)
+  const normStats = describeValues(normValuesCapped)
   const sessionUnder180Pct = sessionValuesCapped.length
     ? ((sessionValuesCapped.filter((v) => v < 180).length / sessionValuesCapped.length) * 100).toFixed(1)
     : '0'
@@ -701,25 +701,23 @@ export default function ChapterContext({ data }) {
           <TimeOfDayChart sessions={fig05_time_of_day.sessions} />
         </FigureCard>
 
-        <FigureCard figNumber={figNum('session-length')} title="Session length" size="wide" commentary={sessionStats ? `The plot includes coded session lengths of at most 600 minutes; ${fig03_session_length.values_minutes.length - sessionValuesCapped.length} longer records are omitted from this display. ${sessionUnder180Pct}% of the ${sessionStats.n} displayed experiments have coded session lengths under 180 minutes. Median ${sessionStats.median} min (IQR ${sessionStats.q25}–${sessionStats.q75}), range ${sessionStats.min}–${sessionStats.max} min.` : 'The plot includes coded session lengths of at most 600 minutes; ${fig03_session_length.values_minutes.length - sessionValuesCapped.length} longer records are omitted from this display.'}>
+        <FigureCard figNumber={figNum('session-length')} title="Session length" size="wide" commentary={sessionStats ? `The plot includes coded session lengths of at most 600 minutes; ${fig03_session_length.values_minutes.length - sessionValuesCapped.length} longer records are omitted from this display. ${sessionUnder180Pct}% of the ${sessionStats.n} displayed experiments have coded session lengths under 180 minutes. Median ${sessionStats.median} min (IQR ${sessionStats.q25}–${sessionStats.q75}), range ${sessionStats.min}–${sessionStats.max} min.` : 'No coded session lengths of at most 600 minutes are available for this display.'}>
           <HistogramECDF
             values={sessionValuesCapped}
             binWidth={15}
             unit=" min"
             xLabel="minutes per session"
             width={1080}
-            onStats={setSessionStats}
           />
         </FigureCard>
 
-        <FigureCard figNumber={figNum('normalization-length')} title="Normalization length" size="wide" commentary={normStats ? `Coded pre-session normalisation/stabilisation periods of at most 600 minutes are shown. ${normUnder60Pct}% of the ${normStats.n} experiments with reported normalization time stay at or below 60 minutes. Median ${normStats.median} min (IQR ${normStats.q25}–${normStats.q75}), range ${normStats.min}–${normStats.max} min.` : 'Coded pre-session normalisation/stabilisation periods of at most 600 minutes are shown.'}>
+        <FigureCard figNumber={figNum('normalization-length')} title="Normalization length" size="wide" commentary={normStats ? `Coded pre-session normalisation/stabilisation periods of at most 600 minutes are shown. ${normUnder60Pct}% of the ${normStats.n} displayed experiments have coded periods of 60 minutes or less. Median ${normStats.median} min (IQR ${normStats.q25}–${normStats.q75}), range ${normStats.min}–${normStats.max} min.` : 'No coded pre-session normalisation/stabilisation periods of at most 600 minutes are available for this display.'}>
           <HistogramECDF
             values={normValuesCapped}
             binWidth={10}
             unit=" min"
             xLabel="normalization / stabilization time (minutes)"
             width={1080}
-            onStats={setNormStats}
           />
         </FigureCard>
       </ChapterSection>

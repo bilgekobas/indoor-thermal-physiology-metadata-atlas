@@ -1,4 +1,5 @@
 import { ChapterHeader, ChapterSection } from '../components/Chapter.jsx'
+import { Link } from 'react-router-dom'
 import FigureCard from '../components/FigureCard.jsx'
 import { SignalSettingMatrix } from '../components/CombinationViews.jsx'
 import { figNum } from '../figureRegistry.js'
@@ -20,6 +21,9 @@ export default function ChapterCombinations({ data }) {
         commentary="Switch the denominator to distinguish a common measurement within a small setting category from a large share of the evidence for that signal. Select a cell to inspect the contributing experiments.">
         <SignalSettingMatrix matrix={matrix} studies={data.studies} />
       </FigureCard>
+      <p className="text-[12px] text-inkmid max-w-3xl">
+        These combinations describe measurement choices. To check whether the metadata needed for a comparison are available together, <Link to="/reporting#which-details-are-documented-together" className="text-coreaccent hover:underline">inspect joint reporting completeness</Link>.
+      </p>
     </ChapterSection>
   </div>
 }

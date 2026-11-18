@@ -1,44 +1,17 @@
-import { useEffect } from 'react'
 import { useTooltip, TooltipPortal } from './Tooltip.jsx'
+import { buildHistogram, binInterval, cumulativeDescription } from '../utils/distributions.js'
 
 // Histogram + ECDF, shared across the duration/count figures.
-export default function HistogramECDF({ values, binWidth = 1, xLabel = '', unit = '', tickFormatter = null, onStats = null, width = 960, barColor = '#0A0A0A', lineColor = '#5B5BFF' }) {
+export default function HistogramECDF({ values, binWidth = 1, xLabel = '', unit = '', tickFormatter = null, width = 960, barColor = '#0A0A0A', lineColor = '#5B5BFF' }) {
   const { tip, showTip, moveTip, hideTip } = useTooltip()
-  if (!values.length) return <div className="text-[12px] text-inkfaint">No data available.</div>
+  const { stats, bins } = buildHistogram(values, { binWidth })
+  if (!stats) return <div className="text-[12px] text-inkfaint">No data available.</div>
 
   const fmt = tickFormatter || ((v) => `${v}${unit}`)
 
-  const sorted = [...values].sort((a, b) => a - b)
-  const min = Math.floor(sorted[0] / binWidth) * binWidth
-  const max = Math.ceil(sorted[sorted.length - 1] / binWidth) * binWidth
-  const nBins = Math.max(1, Math.round((max - min) / binWidth))
-
-  const q = (p) => sorted[Math.min(sorted.length - 1, Math.floor(p * sorted.length))]
-  const stats = {
-    n: sorted.length, min: sorted[0], max: sorted[sorted.length - 1],
-    q25: q(0.25), median: q(0.5), q75: q(0.75),
-  }
-  useEffect(() => { if (onStats) onStats(stats) })
-
-  const bins = Array.from({ length: nBins }, (_, i) => ({
-    start: min + i * binWidth,
-    end: min + (i + 1) * binWidth,
-    count: 0,
-  }))
-  sorted.forEach((v) => {
-    let idx = Math.floor((v - min) / binWidth)
-    if (idx >= nBins) idx = nBins - 1
-    if (idx < 0) idx = 0
-    bins[idx].count++
-  })
-
   const maxCount = Math.max(...bins.map((b) => b.count), 1)
-  const total = sorted.length
-  let cum = 0
-  const ecdf = bins.map((b) => {
-    cum += b.count
-    return cum / total
-  })
+  const total = stats.n
+  const ecdf = bins.map((b) => b.cumulativeFraction)
 
   const chartHeight = 180
   // Keep the assigned atlas plot width fixed. Previously the number of bins could
@@ -80,7 +53,7 @@ export default function HistogramECDF({ values, binWidth = 1, xLabel = '', unit 
                 onMouseEnter={(e) =>
                   showTip(
                     e,
-                    `${fmt(b.start)} to ${fmt(b.end)}: ${b.count} experiments in this bin · ${((b.count / total) * 100).toFixed(1)}%`
+                    `${binInterval(b, fmt)}: ${b.count} experiments in this bin · ${((b.count / total) * 100).toFixed(1)}%`
                   )
                 }
                 onMouseMove={moveTip}
@@ -107,7 +80,7 @@ export default function HistogramECDF({ values, binWidth = 1, xLabel = '', unit 
                 r={2.6}
                 fill={lineColor}
                 className="cursor-default"
-                onMouseEnter={(e) => showTip(e, `Cumulative through this bin: ${(y * 100).toFixed(1)}% of experiments ≤ ${fmt(bins[i].end)}`)}
+                onMouseEnter={(e) => showTip(e, `Cumulative through this bin: ${(y * 100).toFixed(1)}% — ${cumulativeDescription(bins[i], fmt)}`)}
                 onMouseMove={moveTip}
                 onMouseLeave={hideTip}
               />
@@ -129,7 +102,7 @@ export default function HistogramECDF({ values, binWidth = 1, xLabel = '', unit 
           <span className="w-2.5 h-2.5 inline-block rounded-sm" style={{ background: barColor, opacity: 0.85 }} /> count
         </span>
         <span className="flex items-center gap-1.5">
-          <span className="w-2.5 h-2.5 inline-block rounded-full" style={{ background: lineColor }} /> cumulative %
+          <span className="w-2.5 h-2.5 inline-block rounded-full" style={{ background: lineColor }} /> binned cumulative %
         </span>
         {xLabel && <span className="text-inkfaint">· x-axis: {xLabel}</span>}
       </div>

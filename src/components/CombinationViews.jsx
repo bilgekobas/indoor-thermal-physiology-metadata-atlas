@@ -57,7 +57,8 @@ export function ExactSignalCombinations({ views, studies }) {
   const totals = {}
   views.signal_bundles.forEach(r => r.signals.forEach(s => { totals[s] = (totals[s] || 0) + r.count }))
   const columns = [...new Set(visible.flatMap(r => r.signals))].sort((a, b) => totals[b] - totals[a] || a.localeCompare(b))
-  const colWidth = 74, left = 28, top = 140, rowHeight = 34
+  const colWidth = 74, left = 28, rowHeight = 34
+  const top = Math.max(140, Math.ceil(Math.max(0, ...columns.map(s => s.length)) * 6.4 * Math.sin(40 * Math.PI / 180)) + 30)
   const barX = left + columns.length * colWidth + 24
   const max = Math.max(...visible.map(r => r.count), 1)
   const width = Math.max(920, barX + 340)
@@ -78,9 +79,10 @@ export function ExactSignalCombinations({ views, studies }) {
           const y = top + i * rowHeight
           const positions = columns.map((s, j) => r.signals.includes(s) ? left + j * colWidth : null).filter(x => x !== null)
           const active = selected?.signals.join('|') === r.signals.join('|')
-          return <g key={r.signals.join('|')} role="button" tabIndex={0} aria-label={`${r.signals.join(' and ')} only: ${r.count} experiments`}
+          const countLabel = `${r.count} experiment${r.count === 1 ? '' : 's'}`
+          return <g key={r.signals.join('|')} role="button" tabIndex={0} aria-label={`${r.signals.join(' and ')} only: ${countLabel}`}
             onClick={() => setSelected(active ? null : r)} onKeyDown={e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); setSelected(active ? null : r) } }} className="cursor-pointer">
-            <title>{r.signals.join(' + ')} only: {r.count} experiments ({(r.count / views.n * 100).toFixed(1)}% of the full corpus). Select to inspect experiment IDs.</title>
+            <title>{r.signals.join(' + ')} only: {countLabel} ({(r.count / views.n * 100).toFixed(1)}% of the full corpus). Select to inspect experiment IDs.</title>
             <rect x={0} y={y - 13} width={width} height={30} fill={active ? '#FFF0F7' : i % 2 ? '#F3F3F3' : '#FFFFFF'} />
             {positions.length > 1 && <line x1={Math.min(...positions)} x2={Math.max(...positions)} y1={y} y2={y} stroke="#0A0A0A" strokeWidth={2} />}
             {columns.map((s, j) => <circle key={s} cx={left + j * colWidth} cy={y} r={4.5} fill={r.signals.includes(s) ? '#0A0A0A' : '#DEDEDE'} />)}

@@ -74,7 +74,7 @@ function CityMarkers({ cityData }) {
           : ''
         return (
           <CircleMarker
-            key={`${c.city}-${c.lat}-${c.lon}`}
+            key={`${c.city}-${c.lat}-${c.lon}-${c.country}-${c.precision}-${c.climate_class}`}
             center={[c.lat, c.lon]}
             radius={baseRadiusFor(c.count) * zoomScale}
             pathOptions={{
