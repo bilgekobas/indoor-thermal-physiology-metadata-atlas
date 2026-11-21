@@ -118,8 +118,10 @@ export default function Overview({ data }) {
             <li>
               <strong>Compare reporting practices.</strong> See which details teams document consistently and
               where missing information or differences in terminology make experiments difficult to compare.
-              For a common approach to documenting physiological measurements, see{' '}
-              <a href="https://bilgekobas.github.io/WhyWeMeasureWhat/" className={textLink}>Why We Measure What, How and Where</a>.
+              The <a href="https://doi.org/10.1016/j.buildenv.2026.115269" className={textLink}>methods paper by Kobas (2026)</a>{' '}
+              proposes a framework for reporting physiological measurements. Its companion wiki,{' '}
+              <a href="https://bilgekobas.github.io/WhyWeMeasureWhat/" className={textLink}>Why We Measure What, How and Where</a>,
+              provides signal-specific guidance and reporting checklists.
             </li>
             <li>
               <strong>Plan a new experiment.</strong> Find earlier studies in a relevant setting and compare
