@@ -71,28 +71,64 @@ export default function Overview({ data }) {
     <div>
       <PageHeader
         eyebrow="Overview"
-        title="How do we study the body’s response to indoor temperatures?"
+        title="How do researchers design and report experiments in indoor thermal physiology?"
         description={
-          <span id="what-the-atlas-records">
-            The Indoor Thermal Physiology Metadata Atlas describes how researchers studied people’s responses
-            to indoor thermal environments in publications from {summary.year_min} to {summary.year_max}.
-            Each record brings together what the paper reports about the participants, exposures, measurements
-            and protocol. A detail coded as unreported could not be recovered from the publication. Deciding
-            whether two experiments can be compared still requires reading their methods.
-          </span>
+          <>
+            An overview of {n} experiments described in {summary.n_publications} peer-reviewed papers
+            published between {summary.year_min} and {summary.year_max}.
+          </>
         }
       />
 
-      <section id="why-we-built-it" className="max-w-3xl px-5 pt-8 text-[15px] leading-relaxed text-inkmid sm:px-10">
-        <h2 className="mb-2 text-lg font-semibold text-ink">Why we built it</h2>
-        <p>
-          Planning a study often starts with a practical question. Where have other teams placed their sensors?
-          How long did participants spend at each temperature? Answering those questions usually means
-          reconstructing protocols paper by paper. We extracted those details in a common format so that
-          researchers can find relevant experiments, compare methods and see which information is available
-          for reuse.
-        </p>
-      </section>
+      <div className="max-w-3xl space-y-6 px-5 pt-8 text-[15px] leading-relaxed text-inkmid sm:px-10">
+        <section id="what-the-atlas-records">
+          <h2 className="mb-2 text-lg font-semibold text-ink">What the Atlas records</h2>
+          <p>
+            The Indoor Thermal Physiology Metadata Atlas lets readers explore the dataset we built for our
+            systematic review. The review covered predominantly daytime experiments in which participants
+            experienced whole-body indoor thermal exposure during sedentary or low-activity tasks.
+            Each experiment included at least one group of healthy adults aged 18–64 and at least one
+            physiological measurement.
+          </p>
+          <p className="mt-2">
+            For each experiment, we manually extracted details from the paper and its supplementary materials.
+            We recorded the setting, participants and exposure protocol alongside the physiological signals,
+            sensors and body sites the authors described. We also recorded environmental measurements, thermal
+            perception questionnaires, cognitive and performance tests, protocol controls and links to study
+            data or related research materials. We marked details that could not be recovered from the publication.
+          </p>
+        </section>
+
+        <section id="why-we-built-it">
+          <h2 className="mb-2 text-lg font-semibold text-ink">Why we built it</h2>
+          <p>
+            As the literature grew, many experiments continued to draw on similar settings and participant
+            groups. Within those studies, researchers often measured the same physiological signal in different
+            ways. Two teams reporting mean skin temperature, for example, could take measurements at different
+            body sites or give the same sites different weights in the calculation. We built the Atlas to show
+            whose data shape the evidence, how measurement and reporting practices have changed over time, and
+            which details researchers need to judge whether findings can be compared across studies.
+          </p>
+          <ul className="mt-3 list-disc space-y-2 pl-5">
+            <li>
+              <strong>Identify gaps in representation.</strong> Compare study locations, climates and participant
+              groups across publication years to see where coverage has broadened, which settings and groups
+              appear rarely in the reviewed literature, and where new studies could extend the evidence.
+            </li>
+            <li>
+              <strong>Compare reporting practices.</strong> See which details teams document consistently and
+              where missing information or differences in terminology make experiments difficult to compare.
+              For a common approach to documenting physiological measurements, see{' '}
+              <a href="https://bilgekobas.github.io/WhyWeMeasureWhat/" className={textLink}>Why We Measure What, How and Where</a>.
+            </li>
+            <li>
+              <strong>Plan a new experiment.</strong> Find earlier studies in a relevant setting and compare
+              practical decisions, such as how long participants spent at each temperature or how researchers
+              controlled clothing and activity.
+            </li>
+          </ul>
+        </section>
+      </div>
 
       <section id="what-we-found" className="scroll-mt-4 px-5 pt-8 sm:px-10">
         <h2 className="mb-5 text-xl font-semibold">What we found</h2>
@@ -100,8 +136,8 @@ export default function Overview({ data }) {
           <FindingCard value={lastGeo ? percent(lastGeo.top_count, lastGeo.total) : '—'} to="/context#when-and-where-research-happens">
             {lastGeo ? <>of {lastGeo.period} experiments with a recorded country were from {lastGeo.top_country}. In {firstGeo.period} the share was {percent(firstGeo.top_count, firstGeo.total)}.</> : 'Country information by publication period.'}
           </FindingCard>
-          <FindingCard value={percent(open_data.n_with_real_data_link, open_data.n_total)} to="/context#open-data-in-practice">
-            of experiments link to an accessible data or code resource ({open_data.n_with_real_data_link} of {open_data.n_total}).
+          <FindingCard value={percent(open_data.n_with_real_data_link, open_data.n_total, 1)} to="/context#open-data-in-practice">
+            of experiments provided a link to data or related research materials ({open_data.n_with_real_data_link} of {open_data.n_total}).
           </FindingCard>
           <FindingCard value={percent(skinCount, n)} to="/body#whats-measured-and-how">
             of experiments measured skin temperature. Heart or pulse rate was measured in {percent(signalCount('Heart/Pulse rate'), n)}.
