@@ -1,11 +1,11 @@
 import { Link } from 'react-router-dom'
+import PageHeader from '../components/PageHeader.jsx'
 import { percent, referenceHeightList, referenceHeightShare } from '../utils/atlasStatistics.js'
 
 const resourceLinks = [
   { to: '/methodology', label: 'How the review was conducted' },
   { to: '/dictionary', label: 'Variable dictionary' },
   { to: '/browse', label: 'Browse the metadata' },
-  { to: '/#team', label: 'Meet the team' },
 ]
 
 const team = [
@@ -69,31 +69,34 @@ export default function Overview({ data }) {
 
   return (
     <div>
-      <header className="border-b border-line bg-white/30 px-5 py-8 sm:px-10">
-        <h1 className="max-w-3xl text-[34px] font-semibold leading-[1.15] tracking-tight">
-          How do we study the body’s response to indoor temperatures?
-        </h1>
-        <div className="mt-6 max-w-3xl space-y-5 text-base leading-relaxed text-inkmid">
-          <section id="what-the-atlas-records">
-            <h2 className="mb-1 font-semibold text-ink">What the Atlas records</h2>
-            <p>
-              The Indoor Thermal Physiology Atlas documents the methods used in {n} experiments on human
-              responses to indoor thermal environments, reported in {summary.n_publications} publications
-              from {summary.year_min} to {summary.year_max}. For each experiment, it brings together the
-              participant characteristics, exposure conditions and measurement methods described by the authors.
-            </p>
-          </section>
-          <section id="why-we-built-it">
-            <h2 className="mb-1 font-semibold text-ink">Why we built it</h2>
-            <p>
-              Which body sites did researchers use to calculate mean skin temperature? How long did participants
-              spend at each temperature? Answering these questions usually means reconstructing protocols paper
-              by paper. We extracted these details in a common format so researchers can compare protocols,
-              identify gaps in reporting and plan new experiments.
-            </p>
-          </section>
-        </div>
-      </header>
+      <PageHeader
+        eyebrow="Overview"
+        title="How do we study the body’s response to indoor temperatures?"
+        description={<>
+          The Indoor Thermal Physiology Atlas documents the methods used in {n} experiments on human
+          responses to indoor thermal environments, reported in {summary.n_publications} publications
+          from {summary.year_min} to {summary.year_max}.
+        </>}
+      />
+
+      <div className="max-w-3xl space-y-6 px-5 pt-8 text-[15px] leading-relaxed text-inkmid sm:px-10">
+        <section id="what-the-atlas-records">
+          <h2 className="mb-2 text-lg font-semibold text-ink">What the Atlas records</h2>
+          <p>
+            For each experiment, the Atlas brings together the participant characteristics, exposure
+            conditions and measurement methods described by the authors.
+          </p>
+        </section>
+        <section id="why-we-built-it">
+          <h2 className="mb-2 text-lg font-semibold text-ink">Why we built it</h2>
+          <p>
+            Which body sites did researchers use to calculate mean skin temperature? How long did participants
+            spend at each temperature? Answering these questions usually means reconstructing protocols paper
+            by paper. We extracted these details in a common format so researchers can compare protocols,
+            identify gaps in reporting and plan new experiments.
+          </p>
+        </section>
+      </div>
 
       <section id="what-we-found" className="scroll-mt-4 px-5 pt-8 sm:px-10">
         <h2 className="mb-5 text-xl font-semibold">What we found</h2>
@@ -125,16 +128,7 @@ export default function Overview({ data }) {
         </div>
       </section>
 
-      <nav aria-label="Atlas resources" className="flex flex-wrap gap-3 px-5 pb-8 pt-6 sm:px-10">
-        {resourceLinks.map(({ to, label }) => (
-          <Link key={to} to={to}
-            className="inline-flex min-h-11 items-center rounded-md border border-ink bg-paper px-4 py-2 text-sm font-medium text-ink transition-colors hover:bg-ink hover:text-paper focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2">
-            {label}
-          </Link>
-        ))}
-      </nav>
-
-      <div className="space-y-8 border-t border-line px-5 py-8 text-sm leading-relaxed text-inkmid sm:px-10">
+      <div className="mt-8 space-y-8 border-t border-line px-5 pt-8 text-sm leading-relaxed text-inkmid sm:px-10">
         <section id="team" className="max-w-3xl scroll-mt-4">
           <h2 className="mb-2 text-xl font-semibold text-ink">Research team</h2>
           <p>Bilge Kobas led the review and primary extraction.</p>
@@ -164,6 +158,18 @@ export default function Overview({ data }) {
           </p>
         </section>
       </div>
+
+      <nav aria-label="Atlas resources" className="flex flex-wrap gap-3 px-5 pb-8 pt-6 sm:px-10">
+        {resourceLinks.map(({ to, label }) => (
+          <Link
+            key={to}
+            to={to}
+            className="inline-flex min-h-11 items-center rounded-md bg-black px-4 py-2 text-sm font-medium text-white hover:bg-neutral-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink"
+          >
+            {label}
+          </Link>
+        ))}
+      </nav>
     </div>
   )
 }
