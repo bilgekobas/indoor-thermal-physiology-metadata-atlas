@@ -1,4 +1,4 @@
-import { Routes, Route, useLocation } from 'react-router-dom'
+import { Navigate, Routes, Route, useLocation } from 'react-router-dom'
 import { useEffect } from 'react'
 import Sidebar from './components/Sidebar.jsx'
 import ErrorBoundary from './components/ErrorBoundary.jsx'
@@ -14,35 +14,16 @@ import ChapterQuestionnaires from './pages/ChapterQuestionnaires.jsx'
 import ChapterCognitive from './pages/ChapterCognitive.jsx'
 import ChapterReporting from './pages/ChapterReporting.jsx'
 import ChapterCombinations from './pages/ChapterCombinations.jsx'
-import About from './pages/About.jsx'
 import Methodology from './pages/Methodology.jsx'
 import VariableDictionary from './pages/VariableDictionary.jsx'
 
-// React Router doesn't scroll to a #hash on navigation by itself, and the
-// chapter content this hash points into loads asynchronously (the bundle
-// fetch in useCorpusData), so the target section's DOM node may not exist
-// yet at the instant this effect first runs. Retries briefly rather than
-// giving up after one failed lookup, since "the data hasn't arrived yet"
-// is the common case on a fresh page load via a sidebar subtitle link.
+// Mount with the routed content so anchors also work on a slow first load.
 function ScrollToHash() {
   const location = useLocation()
   useEffect(() => {
-    if (!location.hash) {
-      window.scrollTo({ top: 0, behavior: 'auto' })
-      return
-    }
-    const id = location.hash.slice(1)
-    let attempts = 0
-    const tryScroll = () => {
-      const el = document.getElementById(id)
-      if (el) {
-        el.scrollIntoView({ behavior: 'smooth', block: 'start' })
-      } else if (attempts < 20) {
-        attempts += 1
-        setTimeout(tryScroll, 100)
-      }
-    }
-    tryScroll()
+    const section = document.getElementById(location.hash.slice(1))
+    if (section) section.scrollIntoView({ behavior: 'smooth', block: 'start' })
+    else window.scrollTo({ top: 0, behavior: 'auto' })
   }, [location.pathname, location.hash])
   return null
 }
@@ -53,8 +34,9 @@ function RoutedPages({ data }) {
     <ErrorBoundary key={location.pathname}>
       <Routes>
         <Route path="/" element={<Overview data={data} />} />
-        <Route path="/browse" element={<Browse data={data} />} />
+        <Route path="/methodology" element={<Methodology data={data} />} />
         <Route path="/dictionary" element={<VariableDictionary data={data} />} />
+        <Route path="/browse" element={<Browse data={data} />} />
         <Route path="/context" element={<ChapterContext data={data} />} />
         <Route path="/population" element={<ChapterPopulation data={data} />} />
         <Route path="/body" element={<ChapterBody data={data} />} />
@@ -63,8 +45,7 @@ function RoutedPages({ data }) {
         <Route path="/cognitive" element={<ChapterCognitive data={data} />} />
         <Route path="/combinations" element={<ChapterCombinations data={data} />} />
         <Route path="/reporting" element={<ChapterReporting data={data} />} />
-        <Route path="/about" element={<About data={data} />} />
-        <Route path="/methodology" element={<Methodology data={data} />} />
+        <Route path="/about" element={<Navigate replace to={{ pathname: '/', search: location.search, hash: location.hash }} />} />
       </Routes>
     </ErrorBoundary>
   )
@@ -72,10 +53,11 @@ function RoutedPages({ data }) {
 
 export default function App() {
   const { data, error, loading } = useCorpusData()
+  const updatedOn = import.meta.env.VITE_ATLAS_UPDATED_ON || data?.summary?.generated_at?.slice(0, 10)
 
   return (
     <div className="flex min-h-screen flex-col bg-paper text-ink md:flex-row">
-      <ScrollToHash />
+      {data && <ScrollToHash />}
       <Sidebar summary={data?.summary} />
       <main className="flex-1 min-w-0">
         {loading && (
@@ -87,9 +69,9 @@ export default function App() {
           </div>
         )}
         {data && <RoutedPages data={data} />}
-        {data && (
+        {updatedOn && (
           <footer className="border-t border-line px-5 py-6 font-data text-[11px] leading-relaxed text-inkmid sm:px-10">
-            Kobas, B., et al. (2026).
+            Last updated: <time dateTime={updatedOn}>{updatedOn.split('-').reverse().join('.')}</time>
           </footer>
         )}
       </main>

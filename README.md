@@ -39,5 +39,5 @@ There are two separate archives — cite the one relevant to what you used:
 Machine-readable citation metadata for the code is in [`CITATION.cff`](./CITATION.cff)
 (GitHub renders a "Cite this repository" button from it automatically). If you use
 the corpus in analysis, cite the dataset DOI; if you reference or reuse the site
-itself, cite the code DOI. See `About` on the live site for author details and the
-accompanying manuscript.
+itself, cite the code DOI. The [Atlas homepage](https://bilgekobas.github.io/indoor-thermal-physiology-metadata-atlas/#team)
+lists the research team and links to both archives.

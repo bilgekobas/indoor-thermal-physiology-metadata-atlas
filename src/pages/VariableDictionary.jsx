@@ -82,17 +82,17 @@ export default function VariableDictionary({ data }) {
         </span>
       </div>
 
-      <div className="no-horizontal-scroll">
-        <table className="w-full text-[13px] table-fixed">
+      <div className="max-w-full overflow-x-auto" role="region" aria-label="Metadata fields" tabIndex={0}>
+        <table className="w-full min-w-[48rem] table-fixed text-[13px] [overflow-wrap:anywhere]">
           <thead>
             <tr className="border-b border-line text-left text-inkfaint font-data text-[11px] uppercase tracking-wide">
-              <th className="px-4 py-2.5 font-medium w-[8%]">ID</th>
-              <th className="px-4 py-2.5 font-medium w-[18%]">Variable</th>
-              <th className="px-4 py-2.5 font-medium w-[20%]">Field name</th>
-              <th className="px-4 py-2.5 font-medium w-[14%]">Category</th>
-              <th className="px-4 py-2.5 font-medium w-[11%]">Type</th>
-              <th className="px-4 py-2.5 font-medium w-[11%]">Unit</th>
-              <th className="px-4 py-2.5 font-medium w-[18%]">Allowed values</th>
+              <th scope="col" className="w-[4%] px-1 py-2.5 text-center font-medium">ID</th>
+              <th scope="col" className="w-[15%] px-2 py-2.5 font-medium">Variable</th>
+              <th scope="col" className="w-[40%] px-3 py-2.5 font-medium">Field name</th>
+              <th scope="col" className="w-[12%] px-2 py-2.5 font-medium">Category</th>
+              <th scope="col" className="w-[8%] px-2 py-2.5 font-medium">Type</th>
+              <th scope="col" className="w-[5%] px-1 py-2.5 font-medium">Unit</th>
+              <th scope="col" className="w-[16%] px-2 py-2.5 font-medium">Allowed values</th>
             </tr>
           </thead>
           <tbody>
@@ -104,15 +104,17 @@ export default function VariableDictionary({ data }) {
                   className="border-b border-line/60 hover:bg-white/60 transition-colors align-top cursor-pointer"
                   onClick={() => setExpanded(isExpanded ? null : field.col_id)}
                 >
-                  <td className="px-4 py-3 font-data text-inkfaint">{field.col_id}</td>
-                  <td className="px-4 py-3 font-data text-[11.5px] break-words text-coreaccent">{field.col_name}</td>
-                  <td className="px-4 py-3">
+                  <td className="px-1 py-3 text-center font-data text-inkfaint">{field.col_id}</td>
+                  <td className="px-2 py-3 font-data text-[11.5px] text-coreaccent">{field.col_name}</td>
+                  <td className="px-3 py-3">
                     <div className="font-medium">{field.col_pretty_name}</div>
-                    <div className={`${isExpanded ? '' : 'line-clamp-2'} text-[12px] leading-relaxed text-inkmid mt-1`}>
+                    <div id={`field-definition-${field.col_id}`} className={`${isExpanded ? '' : 'line-clamp-2'} text-[12px] leading-relaxed text-inkmid mt-1`}>
                       {field.description}
                     </div>
                     <button
                       type="button"
+                      aria-expanded={isExpanded}
+                      aria-controls={`field-definition-${field.col_id}`}
                       className="font-data text-[10.5px] text-inkfaint hover:text-coreaccent mt-1"
                       onClick={(event) => {
                         event.stopPropagation()
@@ -122,10 +124,10 @@ export default function VariableDictionary({ data }) {
                       {isExpanded ? 'Collapse definition ↑' : 'Expand definition ↓'}
                     </button>
                   </td>
-                  <td className="px-4 py-3">{field.category_pretty_names}</td>
-                  <td className="px-4 py-3 font-data text-[11.5px]">{field.data_type}</td>
-                  <td className="px-4 py-3 font-data text-[11.5px]">{displayValue(field.unit)}</td>
-                  <td className="px-4 py-3 text-[11.5px] text-inkmid break-words">{displayValue(field.allowed_values)}</td>
+                  <td className="px-2 py-3">{field.category_pretty_names}</td>
+                  <td className="px-2 py-3 font-data text-[11.5px]">{field.data_type}</td>
+                  <td className="px-1 py-3 font-data text-[11.5px]">{displayValue(field.unit)}</td>
+                  <td className="px-2 py-3 text-[11.5px] text-inkmid">{displayValue(field.allowed_values)}</td>
                 </tr>
               )
             })}

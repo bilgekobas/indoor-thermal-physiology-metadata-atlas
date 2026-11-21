@@ -1,10 +1,16 @@
 import { useState } from 'react'
-import { Link, NavLink, useLocation } from 'react-router-dom'
+import { Link, NavLink } from 'react-router-dom'
 import { chapters } from '../chapters.js'
 import { slugify } from './Chapter.jsx'
 
+const pages = [
+  { to: '/', label: 'Overview' },
+  { to: '/methodology', label: 'Methodology' },
+  { to: '/dictionary', label: 'Variable Dictionary' },
+  { to: '/browse', label: 'Browse & Download' },
+]
+
 export default function Sidebar({ summary }) {
-  const location = useLocation()
   const [mobileOpen, setMobileOpen] = useState(false)
   const [expanded, setExpanded] = useState(() => new Set(chapters.map((c) => c.to)))
 
@@ -38,27 +44,17 @@ export default function Sidebar({ summary }) {
         className={`${mobileOpen ? 'block' : 'hidden'} max-h-[60vh] flex-1 overflow-y-auto px-3 py-4 md:block md:max-h-none`}
         onClick={(event) => { if (event.target.closest('a')) setMobileOpen(false) }}>
         <div className="mb-5">
-          <NavLink to="/" end className={({ isActive }) => `block px-2 py-1.5 rounded text-[13.5px] mb-0.5 transition-colors leading-snug ${isActive ? 'bg-ink text-paper font-medium' : 'text-ink hover:bg-line/60'}`}>
-            Overview
-          </NavLink>
-          <NavLink to="/browse" className={({ isActive }) => `block px-2 py-1.5 rounded text-[13.5px] mb-0.5 transition-colors leading-snug ${isActive ? 'bg-ink text-paper font-medium' : 'text-ink hover:bg-line/60'}`}>
-            Browse & Download
-          </NavLink>
-          <NavLink to="/dictionary" className={({ isActive }) => `block px-2 py-1.5 rounded text-[13.5px] mb-0.5 transition-colors leading-snug ${isActive ? 'bg-ink text-paper font-medium' : 'text-ink hover:bg-line/60'}`}>
-            Variable dictionary
-          </NavLink>
-          <NavLink to="/about" className={({ isActive }) => `block px-2 py-1.5 rounded text-[13.5px] mb-0.5 transition-colors leading-snug ${isActive ? 'bg-ink text-paper font-medium' : 'text-ink hover:bg-line/60'}`}>
-            About
-          </NavLink>
-          <NavLink to="/methodology" className={({ isActive }) => `block px-2 py-1.5 rounded text-[13.5px] mb-0.5 transition-colors leading-snug ${isActive ? 'bg-ink text-paper font-medium' : 'text-ink hover:bg-line/60'}`}>
-            Methodology
-          </NavLink>
+          {pages.map(({ to, label }) => (
+            <NavLink key={to} to={to} end={to === '/'}
+              className={({ isActive }) => `block px-2 py-1.5 rounded text-[13.5px] mb-0.5 transition-colors leading-snug ${isActive ? 'bg-ink text-paper font-medium' : 'text-ink hover:bg-line/60'}`}>
+              {label}
+            </NavLink>
+          ))}
         </div>
 
         <div className="mb-5">
           <div className="font-data text-[10px] uppercase tracking-wider text-inkfaint px-2 mb-1.5">Chapters</div>
           {chapters.map((chapter) => {
-            const isCurrent = location.pathname === chapter.to
             const isExpanded = expanded.has(chapter.to)
             return (
               <div key={chapter.to} className="mb-0.5">

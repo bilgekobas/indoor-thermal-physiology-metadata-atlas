@@ -2,11 +2,36 @@ import { Link } from 'react-router-dom'
 import { percent, referenceHeightList, referenceHeightShare } from '../utils/atlasStatistics.js'
 
 const resourceLinks = [
-  { to: '/browse', label: 'Browse the metadata' },
-  { to: '/dictionary', label: 'Variable dictionary' },
   { to: '/methodology', label: 'How the review was conducted' },
-  { to: '/about#team', label: 'Meet the team' },
+  { to: '/dictionary', label: 'Variable dictionary' },
+  { to: '/browse', label: 'Browse the metadata' },
+  { to: '/#team', label: 'Meet the team' },
 ]
+
+const team = [
+  {
+    name: 'Bilge Kobas', href: 'https://www.arc.ed.tum.de/klima/team/bilge-kobas/',
+    affiliation: 'Technical University of Munich, Chair of Building Technology and Climate Responsive Design',
+  },
+  {
+    name: 'Tobias Kramer', href: 'https://cbe.berkeley.edu/about-us/people/tobias-kramer/',
+    affiliation: 'UC Berkeley, Center for the Built Environment',
+  },
+  {
+    name: 'Jian Pan', href: 'https://orcid.org/0009-0007-2605-0515',
+    affiliation: 'RWTH Aachen, Healthy Living Spaces Research Group',
+  },
+  {
+    name: 'Cynthia Ly', href: 'https://cris.maastrichtuniversity.nl/en/persons/cynthia-ly/',
+    affiliation: 'Maastricht University, Faculty of Health, Medicine and Life Sciences',
+  },
+  {
+    name: 'Matteo Favero', href: 'https://people.epfl.ch/matteo.favero',
+    affiliation: 'EPFL, Human-Oriented Built Environment Lab',
+  },
+]
+
+const textLink = 'text-coreaccent hover:underline'
 
 function FindingCard({ value, children, to }) {
   return (
@@ -48,17 +73,25 @@ export default function Overview({ data }) {
         <h1 className="max-w-3xl text-[34px] font-semibold leading-[1.15] tracking-tight">
           How do we study the body’s response to indoor temperatures?
         </h1>
-        <div className="mt-4 max-w-3xl space-y-3 text-base leading-relaxed text-inkmid">
-          <p>
-            Physiological measurements such as skin temperature and heart rate complement subjective
-            assessments of thermal sensation and comfort. Comparing measurements across studies requires
-            information on participant characteristics, exposure conditions, sensor types and anatomical sites.
-          </p>
-          <p>
-            The Atlas draws on a systematic review of {n} indoor thermal-physiology experiments reported in{' '}
-            {summary.n_publications} peer-reviewed publications ({summary.year_min}–{summary.year_max}).
-            It documents how experimental methods and reporting practices vary across studies and over time.
-          </p>
+        <div className="mt-6 max-w-3xl space-y-5 text-base leading-relaxed text-inkmid">
+          <section id="what-the-atlas-records">
+            <h2 className="mb-1 font-semibold text-ink">What the Atlas records</h2>
+            <p>
+              The Indoor Thermal Physiology Atlas documents the methods used in {n} experiments on human
+              responses to indoor thermal environments, reported in {summary.n_publications} publications
+              from {summary.year_min} to {summary.year_max}. For each experiment, it brings together the
+              participant characteristics, exposure conditions and measurement methods described by the authors.
+            </p>
+          </section>
+          <section id="why-we-built-it">
+            <h2 className="mb-1 font-semibold text-ink">Why we built it</h2>
+            <p>
+              Which body sites did researchers use to calculate mean skin temperature? How long did participants
+              spend at each temperature? Answering these questions usually means reconstructing protocols paper
+              by paper. We extracted these details in a common format so researchers can compare protocols,
+              identify gaps in reporting and plan new experiments.
+            </p>
+          </section>
         </div>
       </header>
 
@@ -100,6 +133,37 @@ export default function Overview({ data }) {
           </Link>
         ))}
       </nav>
+
+      <div className="space-y-8 border-t border-line px-5 py-8 text-sm leading-relaxed text-inkmid sm:px-10">
+        <section id="team" className="max-w-3xl scroll-mt-4">
+          <h2 className="mb-2 text-xl font-semibold text-ink">Research team</h2>
+          <p>Bilge Kobas led the review and primary extraction.</p>
+          <ul className="mt-3 space-y-1.5">
+            {team.map(({ name, href, affiliation }) => (
+              <li key={name}>
+                <a href={href} className={textLink} target="_blank" rel="noopener noreferrer">{name}</a>
+                {' · '}{affiliation}
+              </li>
+            ))}
+          </ul>
+        </section>
+
+        <section id="citing-and-reusing-this-work" className="max-w-3xl scroll-mt-4">
+          <h2 className="mb-2 text-xl font-semibold text-ink">Citing and reusing this work</h2>
+          <p>
+            Cite the archive corresponding to the material you used. The{' '}
+            <a href="https://doi.org/10.5281/zenodo.21511034" className={textLink}>coded dataset</a> and the{' '}
+            <a href="https://doi.org/10.5281/zenodo.21516763" className={textLink}>Atlas software</a> have
+            separate Zenodo records with citation details.
+          </p>
+          <p className="mt-2">
+            To report an error or suggest a study for inclusion,{' '}
+            <a href="https://github.com/bilgekobas/indoor-thermal-physiology-metadata-atlas/issues" className={textLink}>
+              open an issue on GitHub
+            </a>.
+          </p>
+        </section>
+      </div>
     </div>
   )
 }
