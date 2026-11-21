@@ -71,7 +71,8 @@ export default function App() {
         {data && <RoutedPages data={data} />}
         <footer className="border-t border-line px-5 py-6 text-inkmid sm:px-10">
           <p className="max-w-4xl text-[13px] leading-relaxed">
-            Kobas, B. (2026). <cite>Indoor Thermal-Physiology Metadata Atlas</cite> (v1.0.0) [Software]. Zenodo.{' '}
+            Kobas, B., Kramer, T., Pan, J., Ly, C., &amp; Favero, M. (2026).{' '}
+            <cite>Indoor Thermal-Physiology Metadata Atlas</cite> (v1.0.0) [Software]. Zenodo.{' '}
             <a className="break-words underline underline-offset-2 hover:text-ink" href="https://doi.org/10.5281/zenodo.21516763">
               https://doi.org/10.5281/zenodo.21516763
             </a>

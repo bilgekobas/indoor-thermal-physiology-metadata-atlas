@@ -163,7 +163,11 @@ export default function Overview({ data }) {
       <div className="mt-8 space-y-8 border-t border-line px-5 pt-8 text-sm leading-relaxed text-inkmid sm:px-10">
         <section id="team" className="max-w-3xl scroll-mt-4">
           <h2 className="mb-2 text-xl font-semibold text-ink">Research team</h2>
-          <p>Bilge Kobas led the review and primary extraction.</p>
+          <p>
+            Bilge Kobas led the review and carried out the primary data extraction. Tobias Kramer,
+            Jian Pan, Cynthia Ly and Matteo Favero contributed to developing the review methods,
+            checking selected records and preparing the manuscript.
+          </p>
           <ul className="mt-3 space-y-1.5">
             {team.map(({ name, href, affiliation }) => (
               <li key={name}>
