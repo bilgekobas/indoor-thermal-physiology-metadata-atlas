@@ -100066,7 +100066,7 @@
     "n_continuous": 7,
     "n_grid": 128,
     "n_not_on_grid": 31,
-    "n_distinct_scale_descriptions": 82,
+    "n_distinct_scale_descriptions": 81,
     "points_distribution": [
       {
         "points": 3,
@@ -152188,7 +152188,7 @@
     "n_variables": 206,
     "year_min": 2013,
     "year_max": 2024,
-    "generated_at": "2026-11-21T11:19:38.407295"
+    "generated_at": "2026-11-21T11:40:40.537896"
   },
   "variable_dictionary": {
     "data": [

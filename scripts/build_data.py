@@ -1149,11 +1149,17 @@ def scale_population_summary(col, kind, parsed):
             'points=7;scale=("cold","cool","slightlycool","neutral",'
             '"slightlywarm","warm","hot")'
         ):
-            return (
+            definition = (
                 'points=7;range=(-3,-2,-1,0,+1,+2,+3);'
                 'scale=("cold","cool","slightlycool","neutral",'
                 '"slightlywarm","warm","hot")'
             )
+        # Quotation marks delimit the verbal anchors. An omitted closing quote
+        # in the transcription does not change the anchor or its numeric value.
+        prefix, marker, anchors = definition.partition('scale=(')
+        if marker and anchors.endswith(')'):
+            labels = [label.strip('"') for label in anchors[:-1].split(',')]
+            return f"{prefix}{marker}{','.join(labels)})"
         return definition
 
     grid_studies = [p for p in parsed if p['scale_type'] == 'discrete']

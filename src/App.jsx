@@ -88,8 +88,8 @@ export default function App() {
         )}
         {data && <RoutedPages data={data} />}
         {data && (
-          <footer className="px-10 pt-8 pb-16 border-t border-line text-[11px] font-data text-inkfaint leading-relaxed">
-            Indoor Thermal Physiology Atlas · Counts update from the current corpus bundle.
+          <footer className="border-t border-line px-5 py-6 font-data text-[11px] leading-relaxed text-inkmid sm:px-10">
+            Kobas, B., et al. (2026).
           </footer>
         )}
       </main>

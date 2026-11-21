@@ -21,10 +21,7 @@ export default function Sidebar({ summary }) {
     <aside className="flex shrink-0 flex-col border-b border-line md:sticky md:top-0 md:h-screen md:w-64 md:border-b-0 md:border-r">
       <div className="flex items-center justify-between md:block md:border-b md:border-line">
         <Link to="/" onClick={() => setMobileOpen(false)} className="block px-5 py-3 transition-colors hover:bg-white/50 md:pb-5 md:pt-6">
-          <div className="font-data text-[11px] text-inkmid tracking-wide uppercase">Living Metadata Atlas</div>
-          <span className="mt-1 hidden text-[14px] font-semibold leading-snug md:block">
-            How indoor thermal-physiology research is structured
-          </span>
+          <span className="block text-base font-semibold leading-snug">Indoor Thermal Physiology Atlas</span>
           {summary && (
             <div className="mt-2 hidden font-data text-[11px] text-inkfaint md:block">
               {summary.n_publications} publications · {summary.year_min}–{summary.year_max}
