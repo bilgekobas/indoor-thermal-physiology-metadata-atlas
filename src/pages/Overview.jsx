@@ -72,31 +72,27 @@ export default function Overview({ data }) {
       <PageHeader
         eyebrow="Overview"
         title="How do we study the body’s response to indoor temperatures?"
-        description={<>
-          The Indoor Thermal Physiology Atlas documents the methods used in {n} experiments on human
-          responses to indoor thermal environments, reported in {summary.n_publications} publications
-          from {summary.year_min} to {summary.year_max}.
-        </>}
+        description={
+          <span id="what-the-atlas-records">
+            The Indoor Thermal Physiology Metadata Atlas describes how researchers studied people’s responses
+            to indoor thermal environments in publications from {summary.year_min} to {summary.year_max}.
+            Each record brings together what the paper reports about the participants, exposures, measurements
+            and protocol. A detail coded as unreported could not be recovered from the publication. Deciding
+            whether two experiments can be compared still requires reading their methods.
+          </span>
+        }
       />
 
-      <div className="max-w-3xl space-y-6 px-5 pt-8 text-[15px] leading-relaxed text-inkmid sm:px-10">
-        <section id="what-the-atlas-records">
-          <h2 className="mb-2 text-lg font-semibold text-ink">What the Atlas records</h2>
-          <p>
-            For each experiment, the Atlas brings together the participant characteristics, exposure
-            conditions and measurement methods described by the authors.
-          </p>
-        </section>
-        <section id="why-we-built-it">
-          <h2 className="mb-2 text-lg font-semibold text-ink">Why we built it</h2>
-          <p>
-            Which body sites did researchers use to calculate mean skin temperature? How long did participants
-            spend at each temperature? Answering these questions usually means reconstructing protocols paper
-            by paper. We extracted these details in a common format so researchers can compare protocols,
-            identify gaps in reporting and plan new experiments.
-          </p>
-        </section>
-      </div>
+      <section id="why-we-built-it" className="max-w-3xl px-5 pt-8 text-[15px] leading-relaxed text-inkmid sm:px-10">
+        <h2 className="mb-2 text-lg font-semibold text-ink">Why we built it</h2>
+        <p>
+          Planning a study often starts with a practical question. Where have other teams placed their sensors?
+          How long did participants spend at each temperature? Answering those questions usually means
+          reconstructing protocols paper by paper. We extracted those details in a common format so that
+          researchers can find relevant experiments, compare methods and see which information is available
+          for reuse.
+        </p>
+      </section>
 
       <section id="what-we-found" className="scroll-mt-4 px-5 pt-8 sm:px-10">
         <h2 className="mb-5 text-xl font-semibold">What we found</h2>
