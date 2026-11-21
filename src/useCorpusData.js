@@ -13,8 +13,8 @@ export function useCorpusData() {
     // context chapter, so it is loaded independently rather than reducing it
     // to the compact copy embedded in bundle.json.
     Promise.all([
-      fetch(`${base}data/bundle.json`),
-      fetch(`${base}data/open_data.json`),
+      fetch(`${base}data/bundle.json`, { cache: 'no-cache' }),
+      fetch(`${base}data/open_data.json`, { cache: 'no-cache' }),
     ])
       .then(async ([bundleResponse, openDataResponse]) => {
         if (!bundleResponse.ok) throw new Error(`Failed to load corpus data (${bundleResponse.status})`)

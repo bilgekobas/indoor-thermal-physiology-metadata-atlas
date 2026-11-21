@@ -1,3 +1,4 @@
+import { referenceHeights, referenceHeightList, referenceHeightShare } from '../utils/atlasStatistics.js'
 import { useMemo } from 'react'
 import { ChapterHeader, ChapterSection } from '../components/Chapter.jsx'
 import FigureCard from '../components/FigureCard.jsx'
@@ -64,7 +65,6 @@ function SensorHeightOverallChart({ heightData, variables }) {
     return map
   }, [heightData, variables])
 
-  const refHeights = [0.1, 0.6, 1.1, 1.7]
   const ticks = Array.from({ length: 8 }, (_, i) => i * 0.5)
 
   return (
@@ -76,7 +76,7 @@ function SensorHeightOverallChart({ heightData, variables }) {
             <text x={left - 14} y={y(t) + 3} fontSize={9.5} fill="#8A8A8A" textAnchor="end">{t.toFixed(1)}</text>
           </g>
         ))}
-        {refHeights.map((h) => (
+        {referenceHeights.map((h) => (
           <line key={`ref-${h}`} x1={left - 8} x2={left + W} y1={y(h)} y2={y(h)} stroke="#BBBBBB" strokeWidth={1} strokeDasharray="3 3" />
         ))}
         {variables.map((v, vi) => {
@@ -122,7 +122,7 @@ function SensorHeightOverallChart({ heightData, variables }) {
         <text x={20} y={top + Hplot / 2} fontSize={10.5} fill="#8A8A8A" textAnchor="middle" transform={`rotate(-90 20 ${top + Hplot / 2})`}>Sensor height (m)</text>
       </svg>
       <div className="font-data text-[10px] text-inkfaint mt-1">
-        Dots are individual reported heights; the blue violin estimates their distribution. Unfilled vertical boxplots show IQR, median, and non-outlier range. Dotted horizontal lines mark 0.1, 0.6, 1.1, and 1.7 m.
+        Dots are individual reported heights; the blue violin estimates their distribution. Unfilled vertical boxplots show IQR, median, and non-outlier range. Each dotted horizontal line marks a reference height ({referenceHeights.join(', ')} m).
       </div>
       <TooltipPortal tip={tip} />
     </div>
@@ -137,26 +137,11 @@ export default function ChapterEnvironment({ data }) {
   const nWithHeight = new Set(fig13_sensor_heights.data.filter(r => r.variable === 'Air temperature').map(r => r.id)).size
   const pctHeight = Math.round((nWithHeight / coreTotal) * 1000) / 10
 
-  // Matches the same stat already shown on the Overview page: % of
-  // individual reported height OBSERVATIONS (not studies) that fall at a
-  // standard position, pooled across all four core variables -- a study
-  // reporting a 3-height profile (e.g. 0.1/0.6/1.1) for one variable
-  // contributes 3 observations, not 1. Previously this card computed a
-  // different thing (% of air-temperature studies with >=1 standard
-  // height, using only 3 of the 4 reference heights), which produced a
-  // different, inconsistent-looking number for what read as the same
-  // claim. Now uses the same method and the same 4 reference heights
-  // (0.1/0.6/1.1/1.7 m) as the rest of the site.
-  const STANDARD_HEIGHTS = new Set([0.1, 0.6, 1.1, 1.7])
-  const nIsoObs = fig13_sensor_heights.data.filter(d => STANDARD_HEIGHTS.has(d.height)).length
-  const pctIso = Math.round((nIsoObs / fig13_sensor_heights.data.length) * 1000) / 10
-
   const pctCore4 = Math.round((fig12_env_cooccurrence.core4_together / summary.n_experiments) * 1000) / 10
 
   return (
     <div>
       <ChapterHeader
-        eyebrow="Chapter 4 of 8"
         title="Measuring the environment"
         framing={
           <>
@@ -175,7 +160,7 @@ export default function ChapterEnvironment({ data }) {
           { value: `${pctMeasure}%`, label: 'measure air temperature', color: '#FB3640' },
           { value: `${pctHeight}%`, label: 'of air-temperature experiments code a numeric sensor height', color: '#5B5BFF' },
           { value: `${pctCore4}%`, label: 'measure temp., humidity, air velocity & globe temp. together', color: '#FB3640' },
-          { value: `${pctIso}%`, label: 'of plotted height values match the 0.1/0.6/1.1/1.7 m reference levels', color: '#5B5BFF' },
+          { value: referenceHeightShare(fig13_sensor_heights.data, 1), label: `of recorded heights match a reference level of ${referenceHeightList} m`, color: '#5B5BFF' },
         ]}
       />
 
@@ -184,7 +169,7 @@ export default function ChapterEnvironment({ data }) {
         intro="Air temperature, relative humidity, air velocity, and globe temperature form the field's standard environmental core. Other variables — surface temperature, CO₂, light, sound — appear much more selectively."
       >
         <FigureCard figNumber={figNum('env-cooccurrence')} title="Environmental variable co-occurrence" plotWidth={760} commentary="Air temperature is the most frequently documented environmental measurement. Relative humidity, air velocity, and globe temperature are also commonly reported; other environmental variables appear less frequently.">
-          <CooccurrenceMatrix labels={fig12_env_cooccurrence.labels} matrix={fig12_env_cooccurrence.matrix} cellSize={38} corpusN={295} />
+          <CooccurrenceMatrix labels={fig12_env_cooccurrence.labels} matrix={fig12_env_cooccurrence.matrix} cellSize={38} corpusN={summary.n_experiments} />
         </FigureCard>
       </ChapterSection>
 

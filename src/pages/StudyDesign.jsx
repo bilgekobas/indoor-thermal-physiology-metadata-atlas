@@ -1,3 +1,4 @@
+import { describeValues } from '../utils/distributions.js'
 import { useMemo } from 'react'
 import PageHeader from '../components/PageHeader.jsx'
 import InteractiveBarChart from '../components/InteractiveBarChart.jsx'
@@ -72,6 +73,10 @@ export default function StudyDesign({ data }) {
     return [...fig06_setting_typology.data].sort((a, b) => b.count - a.count).slice(0, 12)
   }, [fig06_setting_typology])
 
+  const displayedSessions = fig03_session_length.values_minutes.filter((minutes) => minutes <= 600)
+  const underThreeHours = displayedSessions.filter((minutes) => minutes < 180).length
+  const sampleSizes = fig11_sample_size.studies.map((study) => study.n)
+  const sampleStats = describeValues(sampleSizes)
   const sexSummary = fig10_sex_distribution.summary
 
   return (
@@ -113,7 +118,7 @@ export default function StudyDesign({ data }) {
         </p>
         <InteractiveBarChart
           data={fig02_geography.data.map((d) => ({ label: d.country, count: d.count }))}
-          total={summary.n_publications}
+          total={summary.n_experiments}
           color="#D94F6E"
           maxBars={15}
         />
@@ -124,10 +129,10 @@ export default function StudyDesign({ data }) {
         <div>
           <h2 className="text-[16px] font-semibold mb-1">Session length</h2>
           <p className="text-[12.5px] text-inkmid mb-4">
-            Minutes per experimental session (capped at 600 min; 88% fall under 180 min).
+            Of {displayedSessions.length} sessions lasting at most 600 minutes, {underThreeHours} lasted under 180 minutes.
           </p>
           <HistogramECDF
-            values={fig03_session_length.values_minutes.filter((v) => v <= 600)}
+            values={displayedSessions}
             binWidth={15}
             unit=" min"
           />
@@ -216,8 +221,8 @@ export default function StudyDesign({ data }) {
           {sexSummary.female_gt} skew female. Hover any bar for the exact split.
         </p>
         <SexDistributionChart studies={fig10_sex_distribution.studies} />
-        <p className="text-[12.5px] text-inkfaint mt-8 mb-2">Sample size per study (log scale), median n=22 highlighted.</p>
-        <HistogramECDF values={fig11_sample_size.studies.map((s) => Math.log10(s.n))} binWidth={0.15} xLabel="log₁₀(n)" />
+        <p className="text-[12.5px] text-inkfaint mt-8 mb-2">Sample size per experiment on a logarithmic scale. Median sample size {sampleStats?.median ?? '—'}.</p>
+        <HistogramECDF values={sampleSizes.map((n) => Math.log10(n))} binWidth={0.15} xLabel="log₁₀(n)" />
       </div>
     </div>
   )

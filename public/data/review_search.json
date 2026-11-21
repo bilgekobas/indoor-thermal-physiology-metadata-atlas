@@ -1,0 +1,9 @@
+{
+  "source": "Original systematic review, Methods §§2.1.1 and 2.1.4 and Figure 1 (screening flow)",
+  "databases": ["Web of Science Core Collection", "Scopus", "PubMed", "ScienceDirect"],
+  "publication_year_min": 2013,
+  "publication_year_max": 2024,
+  "records_identified": 6592,
+  "reports_sought": 358,
+  "reports_assessed": 357
+}

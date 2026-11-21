@@ -9,6 +9,9 @@ import json
 import re
 from pathlib import Path
 
+from publication_periods import publication_period, publication_periods
+from build_author_network import write_author_network
+
 SRC = str(Path(__file__).resolve().parents[1] / 'public' / 'data' / 'corpus_main_dataset.csv')
 OUT_DIR = Path(__file__).resolve().parents[1] / 'public' / 'data'
 OUT_DIR.mkdir(parents=True, exist_ok=True)
@@ -111,17 +114,15 @@ with open(OUT_DIR / 'summary.json', 'w') as f:
     json.dump(summary, f, indent=2)
 print('summary.json written:', summary)
 
+dictionary = pd.read_csv(OUT_DIR / 'variable_dictionary.csv', encoding='utf-8-sig', keep_default_na=False)
+with open(OUT_DIR / 'variable_dictionary.json', 'w', encoding='utf-8') as f:
+    json.dump({'data': dictionary.to_dict('records'), 'n_fields': len(dictionary)}, f, indent=2, ensure_ascii=False)
+    f.write('\n')
+write_author_network(df)
+
 # ── 2. Two-year period bins (used across multiple figures) ────────────────
-BINS = [(2013,2014,'2013–14'),(2015,2016,'2015–16'),(2017,2018,'2017–18'),
-        (2019,2020,'2019–20'),(2021,2022,'2021–22'),(2023,2024,'2023–24')]
-
-def bin_for_year(y):
-    for s,e,label in BINS:
-        if s <= y <= e:
-            return label
-    return None
-
-df['period'] = df['pub-year'].apply(lambda y: bin_for_year(int(y)) if y is not None else None)
+periods = publication_periods(df['pub-year'].unique())
+df['period'] = df['pub-year'].map(publication_period)
 
 # ── 3. Quick lookup table (one row per study) for the explore/browse table ─
 study_cols = ['id-pub-id','id','id-title','id-authors','id-city','id-country',
@@ -206,7 +207,7 @@ with open(OUT_DIR / 'physio_signal_sensor.json', 'w') as f:
         'signal_totals': signal_totals.to_dict('records'),
         'signal_instance_totals': signal_instance_totals.to_dict('records'),
         'signal_method_brand': signal_method_brand.to_dict('records'),
-        'periods': [b[2] for b in BINS],
+        'periods': periods,
     }, f, indent=2, default=str)
 print(f'physio_signal_sensor.json written: {len(signal_sensor_counts)} signal-sensor pairs')
 
@@ -306,7 +307,7 @@ with open(OUT_DIR / 'skintemp_sites.json', 'w') as f:
         'site_totals': site_totals.to_dict('records'),
         'n_studies_with_site': int(skin_dedup['id'].nunique()),
         'period_n': period_study_n.to_dict('records'),
-        'periods': [b[2] for b in BINS],
+        'periods': periods,
     }, f, indent=2, default=str)
 print(f'skintemp_sites.json written: {len(site_totals)} sites')
 
@@ -459,7 +460,7 @@ with open(OUT_DIR / 'mst.json', 'w') as f:
         'point_order': point_order,
         'points_by_period': points_by_period.to_dict('records'),
         'period_n_mst': period_n_mst,
-        'periods': [b[2] for b in BINS],
+        'periods': periods,
         'n_mst_studies': int(len(mst_only)),
     }, f, indent=2, default=str)
 print(f'mst.json written: {len(mst_only)} studies calculating MST, {len(formula_totals)} distinct formulas')
@@ -1396,8 +1397,17 @@ for sig in TRACK_SIGNALS:
         'multi_response': True,
     }
 
+# These cards count distinct experiments. A logger outside the plot's top methods
+# still counts, and an experiment using both button-logger types counts once.
+skin_methods = physio_dedup[physio_dedup['signal'] == 'Skin temperature']
+headline_methods = {}
+for key, labels in {'thermocouple': ['Thermocouple'], 'button_logger': ['Thermochron', 'Hygrochron']}.items():
+    selected = skin_methods[skin_methods['physio-sensing-method'].isin(labels)]
+    headline_methods[key] = selected.groupby('period')['id'].nunique().to_dict()
+signal_sensor_evolution['Skin temperature']['headline_methods'] = headline_methods
+
 with open(OUT_DIR / 'evo_signal_sensor.json', 'w') as f:
-    json.dump({'signals': signal_sensor_evolution, 'periods': [b[2] for b in BINS]}, f, indent=2, default=str)
+    json.dump({'signals': signal_sensor_evolution, 'periods': periods}, f, indent=2, default=str)
 print('evo_signal_sensor.json written for', list(signal_sensor_evolution.keys()))
 
 # ── A2. (Removed) Protocol rigor over time was previously computed here as
@@ -1468,7 +1478,7 @@ with open(OUT_DIR / 'evo_size_setting.json', 'w') as f:
     json.dump({
         'sample_sizes': size_evo_rows,
         'setting_by_period': setting_counts.to_dict('records'),
-        'periods': [b[2] for b in BINS],
+        'periods': periods,
     }, f, indent=2, default=str)
 print(f'evo_size_setting.json: {len(size_evo_rows)} sample-size points, {len(setting_counts)} setting-period pairs')
 
@@ -1870,7 +1880,7 @@ with open(OUT_DIR / 'signal_freq_by_period.json', 'w') as f:
     json.dump({
         'data': sig_period.to_dict('records'),
         'period_n': {k: int(v) for k, v in period_n_studies.items()},
-        'periods': [b[2] for b in BINS],
+        'periods': periods,
     }, f, indent=2, default=str)
 print(f'signal_freq_by_period.json: {len(sig_period)} signal-period rows')
 
@@ -1882,7 +1892,7 @@ for col, label in ENV_HEIGHT_COLS.items():
         for h in hs:
             height_rows_with_period.append({'variable': label, 'height': h, 'period': row['period']})
 with open(OUT_DIR / 'sensor_heights_by_period.json', 'w') as f:
-    json.dump({'data': height_rows_with_period, 'periods': [b[2] for b in BINS]}, f, indent=2)
+    json.dump({'data': height_rows_with_period, 'periods': periods}, f, indent=2)
 print(f'sensor_heights_by_period.json: {len(height_rows_with_period)} height observations with period')
 
 # ── B3. Protocol / participant / selection completeness by period ─────────
@@ -1905,7 +1915,7 @@ def binary_matrix_by_period(prefix, top_n=None, extra_cols=None):
             if c not in top_cols:
                 top_cols.append(c)
     rows = []
-    for period in [b[2] for b in BINS]:
+    for period in periods:
         mask = studies_u['period'] == period
         n = mask.sum()
         if n == 0:
@@ -1913,7 +1923,7 @@ def binary_matrix_by_period(prefix, top_n=None, extra_cols=None):
         for c in top_cols:
             pct = round(100 * reported.loc[mask, c].sum() / n, 1) if n else 0
             rows.append({'period': period, 'field': pretty_name(c, prefix), 'pct': pct, 'count': int(reported.loc[mask, c].sum()), 'n': int(n)})
-    return {'data': rows, 'fields': [pretty_name(c, prefix) for c in top_cols], 'periods': [b[2] for b in BINS]}
+    return {'data': rows, 'fields': [pretty_name(c, prefix) for c in top_cols], 'periods': periods}
 
 protocol_by_period = binary_matrix_by_period(
     'protocol-', top_n=None,
@@ -1922,6 +1932,20 @@ protocol_by_period = binary_matrix_by_period(
 with open(OUT_DIR / 'protocol_by_period.json', 'w') as f:
     json.dump(protocol_by_period, f, indent=2)
 print(f'protocol_by_period.json: {len(protocol_by_period["data"])} rows')
+
+# Preserve the older download format using the same counts as the protocol heatmap.
+legacy_protocol_labels = {
+    'Randomisation': 'Randomisation', 'Balanced session order': 'Balanced order', 'Blinding': 'Blinding',
+    'Circadian control': 'Circadian control', 'Menstrual timing control': 'Menstrual timing control',
+    'Time between sessions': 'Time between sessions controlled',
+}
+legacy_periods = {}
+for row in protocol_by_period['data']:
+    if row['field'] in legacy_protocol_labels:
+        period_row = legacy_periods.setdefault(row['period'], {'period': row['period'], 'n_studies': row['n']})
+        period_row[legacy_protocol_labels[row['field']]] = {'count': row['count'], 'pct': row['pct']}
+with open(OUT_DIR / 'evo_protocol_rigor.json', 'w') as f:
+    json.dump({'data': list(legacy_periods.values()), 'fields': list(legacy_protocol_labels.values())}, f, indent=2)
 
 participant_by_period = binary_matrix_by_period('part-', top_n=None)
 with open(OUT_DIR / 'participant_by_period.json', 'w') as f:
@@ -1945,9 +1969,9 @@ geo_period = geo_period.rename(columns={'id-country': 'atlas_name'})
 geo_by_period = geo_period.groupby(['period', 'atlas_name']).size().reset_index(name='count')
 # also compute the share of studies from the single top country, per period,
 # as a simple concentration metric
-top_country_overall = by_atlas.sort_values('count', ascending=False).iloc[0]['atlas_name']
+top_country_overall = geo_period['atlas_name'].value_counts().index[0] if not geo_period.empty else None
 concentration_by_period = []
-for period in [b[2] for b in BINS]:
+for period in periods:
     sub = geo_by_period[geo_by_period['period'] == period]
     total = sub['count'].sum()
     top_count = sub[sub['atlas_name'] == top_country_overall]['count'].sum()
@@ -2108,7 +2132,7 @@ with open(OUT_DIR / 'data_avail_by_period.json', 'w') as f:
     json.dump({
         'data': davail_by_period.rename(columns={'data-avail': 'status'}).to_dict('records'),
         'period_n': period_n_all,
-        'periods': [b[2] for b in BINS],
+        'periods': periods,
     }, f, indent=2)
 print('data_avail_by_period.json written:', dict(data_avail_dist))
 
@@ -2134,7 +2158,7 @@ with open(OUT_DIR / 'sample_calc_type_by_period.json', 'w') as f:
     json.dump({
         'data': calc_type_by_period.rename(columns={'pop-sample-size-calc-type': 'type'}).to_dict('records'),
         'period_n': period_n_all,
-        'periods': [b[2] for b in BINS],
+        'periods': periods,
     }, f, indent=2)
 print('sample_calc_type_by_period.json written:', dict(calc_type_dist))
 
@@ -2301,7 +2325,7 @@ hr_period_n = hr_dedup.groupby('period')['id'].nunique().to_dict()
 site_by_signal['Heart/Pulse rate']['by_period'] = {
     'data': hr_by_period.rename(columns={'physio-body-site': 'site'}).to_dict('records'),
     'period_n': {k: int(v) for k, v in hr_period_n.items()},
-    'periods': [b[2] for b in BINS],
+    'periods': periods,
 }
 
 # Combined sudomotor view: deduplicate across both signals at id × site so a

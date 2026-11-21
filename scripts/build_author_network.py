@@ -2,16 +2,8 @@
 Regenerates public/author-network.html from the corpus's own
 id-authors / id-institutes / id-country columns.
 
-Run this manually after scripts/build_data.py whenever the corpus changes.
-It is intentionally a SEPARATE script, not wired into build_data.py's
-run, because:
-  - it's a full static HTML+embedded-JSON artifact (~200KB), not a small
-    aggregate JSON, and doesn't need to be regenerated on every tweak to
-    other figures;
-  - author-name deduplication is a semi-manual judgment call (see
-    NAME_ALIASES below), not a fully automatic transform, so it deserves
-    a deliberate "yes, regenerate now" step rather than happening silently
-    as a side effect of an unrelated pipeline run.
+The regular corpus build regenerates the network and summary with the curated
+NAME_ALIASES below. Running this script directly refreshes only the network.
 
 APPROACH: author identity is resolved directly from the raw `id-authors`
 comma-separated name string as it appears in the corpus for each
@@ -99,9 +91,7 @@ def connected_component_sizes(nodes, edges):
     return sizes
 
 
-def main():
-    df = pd.read_csv(CORPUS, encoding='utf-8-sig', low_memory=False)
-    df = df.replace({np.nan: None})
+def write_author_network(df):
     pubs = df.drop_duplicates(subset=['id-pub-id'])
 
     node_studies = {}   # canonical name -> set of pub-ids
@@ -151,15 +141,7 @@ def main():
         'n_failed_dois': n_unresolved,
     }
 
-    # Small companion JSON (separate from the ~200KB embedded-HTML DATA
-    # blob above) so the React-side Fig. 1 caption in ChapterContext.jsx can
-    # cite live network stats instead of a hardcoded author count that goes
-    # stale every time the corpus grows. Picked up automatically by
-    # build_data.py's bundle.json glob -- no wiring needed there, but this
-    # script must still be re-run manually (see module docstring) whenever
-    # author-network is regenerated. n_isolated_authors reads oddly if 0;
-    # phrase around it in the caption ("all but N form connected groups")
-    # rather than treating it as a headline number.
+    # Both the chapter caption and embedded network describe this publication-level graph.
     component_sizes = connected_component_sizes(nodes, edges)
     network_summary = {
         'n_authors': len(nodes),
@@ -179,25 +161,10 @@ def main():
     # Replace the embedded DATA constant (single line, ends in ';' right
     # before 'const W = ...').
     new_data_line = 'const DATA = ' + json.dumps(data, ensure_ascii=False) + ';'
-    html, n_sub = re.subn(r'const DATA = \{.*?\};', new_data_line, html, count=1, flags=re.DOTALL)
+    html, n_sub = re.subn(r'const DATA = \{.*?\};', lambda _: new_data_line, html, count=1, flags=re.DOTALL)
     if n_sub != 1:
         raise RuntimeError('Could not find the const DATA = {...}; line to replace -- '
                             'has the template structure changed?')
-
-    # Replace the footer caption's resolved/total/failed/author/pair counts.
-    caption_re = re.compile(
-        r'\d+ of \d+ studies have a resolved author list \(\d+ DOI strings? failed to resolve\)\. '
-        r'\d+ distinct authors and \d+ co-authorship pairs are encoded in the file\.'
-    )
-    new_caption = (
-        f'{n_resolved} of {n_total} studies have a resolved author list '
-        f'({n_unresolved} DOI string{"s" if n_unresolved != 1 else ""} failed to resolve). '
-        f'{len(nodes)} distinct authors and {len(edges)} co-authorship pairs are encoded in the file.'
-    )
-    html, n_sub2 = caption_re.subn(new_caption, html, count=1)
-    if n_sub2 != 1:
-        raise RuntimeError('Could not find the footer caption sentence to replace -- '
-                            'has the wording changed?')
 
     TEMPLATE.write_text(html, encoding='utf-8')
     print(f'author-network.html regenerated: {n_resolved} of {n_total} publications resolved '
@@ -205,4 +172,5 @@ def main():
 
 
 if __name__ == '__main__':
-    main()
+    corpus = pd.read_csv(CORPUS, encoding='utf-8-sig', low_memory=False)
+    write_author_network(corpus.replace({np.nan: None}))

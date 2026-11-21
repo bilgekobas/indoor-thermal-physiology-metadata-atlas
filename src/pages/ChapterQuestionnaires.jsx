@@ -197,7 +197,6 @@ export default function ChapterQuestionnaires({ data }) {
   return (
     <div>
       <ChapterHeader
-        eyebrow="Chapter 5 of 8"
         title="Measuring the perception"
         framing={
           <>

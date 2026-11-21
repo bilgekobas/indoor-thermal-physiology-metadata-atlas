@@ -74,7 +74,7 @@ export default function App() {
   const { data, error, loading } = useCorpusData()
 
   return (
-    <div className="flex min-h-screen bg-paper text-ink">
+    <div className="flex min-h-screen flex-col bg-paper text-ink md:flex-row">
       <ScrollToHash />
       <Sidebar summary={data?.summary} />
       <main className="flex-1 min-w-0">

@@ -474,9 +474,8 @@ function SignalSensorBrandSankey({ overall, signalTotals, signalInstanceTotals, 
 
 
 
-function MstCalculationPrevalence({ mst }) {
-  const [view, setView] = useState('allExperiments')
-  const byPeriod = mst.periods.map((period) => {
+function mstPrevalenceByPeriod(mst) {
+  return mst.periods.map((period) => {
     const allStatuses = mst.calc_rate_by_period.filter((r) => r.period === period)
     // NAN denotes experiments without skin-temperature measurement and is
     // therefore outside the population at risk of calculating MST.
@@ -496,6 +495,10 @@ function MstCalculationPrevalence({ mst }) {
       calcAmongAll: allTotal ? (calculated / allTotal) * 100 : 0,
     }
   })
+}
+
+function MstCalculationPrevalence({ byPeriod }) {
+  const [view, setView] = useState('allExperiments')
 
   return (
     <div className="max-w-[760px]">
@@ -742,6 +745,11 @@ export default function ChapterBody({ data }) {
     return m
   }, [skintemp_sites])
 
+  const mstByPeriod = mstPrevalenceByPeriod(mst)
+  const coverage = mstByPeriod.filter((row) => row.allTotal > 0).map((row) => row.skinTempAmongAll)
+  const skinCoverageRange = coverage.length
+    ? [...new Set([Math.min(...coverage), Math.max(...coverage)].map((p) => p.toFixed(1)))].join('–') + '%'
+    : '—'
   const topSignal = fig17_physio_params.data[0]
   const evoSignals = Object.keys(evo_signal_sensor.signals)
   const evoPeriods = evo_signal_sensor.periods
@@ -787,14 +795,9 @@ export default function ChapterBody({ data }) {
   const topMstPoint = [...mst.points_totals].sort((a, b) => b.count - a.count)[0]
   const topMstPointPct = ((topMstPoint.count / mst.n_mst_studies) * 100).toFixed(0)
 
-  // Dynamic values for the "what's measured" intro/captions, so they track
-  // summary.n_experiments and the current corpus instead of being hand-
-  // written prose that drifts out of sync as the corpus grows. Signal
-  // totals come from signal_totals (true distinct-experiment counts), not
-  // by summing 'overall' across sensing methods -- see build_data.py.
-  const signalTotalsMap = Object.fromEntries(physio_signal_sensor.signal_totals.map((r) => [r.signal, r.count]))
-  const skinTempN = signalTotalsMap['Skin temperature']
-  const heartRateN = signalTotalsMap['Heart/Pulse rate']
+  const signalCounts = Object.fromEntries(fig17_physio_params.data.map(({ parameter, count }) => [parameter, count]))
+  const skinTempN = signalCounts['Skin temperature'] ?? 0
+  const heartRateN = signalCounts['Heart/Pulse rate'] ?? 0
   const skinTempPct = ((skinTempN / summary.n_experiments) * 100).toFixed(0)
   const heartRatePct = ((heartRateN / summary.n_experiments) * 100).toFixed(0)
   const nSensorTypesSkinTemp = new Set(
@@ -856,7 +859,6 @@ export default function ChapterBody({ data }) {
   return (
     <div>
       <ChapterHeader
-        eyebrow="Chapter 3 of 8"
         title="Measuring the human"
         framing={
           <>
@@ -881,9 +883,9 @@ export default function ChapterBody({ data }) {
 
       <ChapterSection
         title="What's measured, and how"
-        intro={`Skin temperature (${skinTempN} experiments, ${skinTempPct}%) and heart rate (${heartRateN}, ${heartRatePct}%) dominate by a wide margin over every other signal. Other signals appear far less often and are typically paired with skin temperature or heart rate rather than measured in isolation.`}
+        intro={`Skin temperature was recorded in ${skinTempN} experiments (${skinTempPct}%) and heart or pulse rate in ${heartRateN} (${heartRatePct}%). The figures show how often each signal was recorded and which signals were measured in the same experiment.`}
       >
-        <FigureCard figNumber={figNum('signals-measured-freq')} title="Most frequently measured signals" plotWidth={980} commentary={`Skin temperature dominates at ${skinTempN} of ${summary.n_experiments} experiments (${skinTempPct}%) — compared with heart/pulse rate at ${heartRateN} (${heartRatePct}%). After that the field thins out fast: core/body temperature and blood pressure each appear in well under a fifth of experiments.`}>
+        <FigureCard figNumber={figNum('signals-measured-freq')} title="Most frequently measured signals" plotWidth={980} commentary={`Of ${summary.n_experiments} experiments, ${skinTempN} recorded skin temperature, ${heartRateN} recorded heart or pulse rate, ${signalCounts['Core/Body temperature'] ?? 0} recorded core or body temperature, and ${signalCounts['Blood pressure'] ?? 0} recorded blood pressure.`}>
           <PeriodHeatmap
             rows={fig17_physio_params.data.map((d) => d.parameter)}
             periods={signal_freq_by_period.periods}
@@ -896,7 +898,7 @@ export default function ChapterBody({ data }) {
         </FigureCard>
 
         <FigureCard figNumber={figNum('signals-cooccurrence')} title="Which signals get measured together" plotWidth={680} commentary={`Skin temperature (${cooccurSkinTotal} experiments) and heart/pulse rate (${cooccurHrTotal}) are individually the most common signals, and ${skinHrCooccur} experiments measure both together — about ${hrAlsoSkinPct}% of all heart-rate experiments also track skin temperature.`}>
-          <CooccurrenceMatrix labels={fig18_physio_cooccurrence.labels} matrix={fig18_physio_cooccurrence.matrix} cellSize={38} colorScheme="blue" corpusN={295} />
+          <CooccurrenceMatrix labels={fig18_physio_cooccurrence.labels} matrix={fig18_physio_cooccurrence.matrix} cellSize={38} colorScheme="blue" corpusN={summary.n_experiments} />
         </FigureCard>
       </ChapterSection>
 
@@ -909,7 +911,7 @@ export default function ChapterBody({ data }) {
           title="Signal → sensor type → brand"
           plotWidth={1100}
           commentary={[
-            `Skin temperature is measured in ${skinTempN} of ${summary.n_experiments} experiments (${skinTempPct}%), followed by heart/pulse rate in ${heartRateN} (${heartRatePct}%). Other signals are less frequently recorded; several still occur in more than 10% of experiments. Sensing-type choice is far from standardized even within one signal: skin temperature alone is measured via ${nSensorTypesSkinTemp} distinct substantive sensing-method labels. Missing-code categories are displayed separately.`,
+            `Across the ${skinTempN} experiments that measured skin temperature, the papers identify ${nSensorTypesSkinTemp} distinct sensing methods. Missing and unclear methods are shown separately.`,
             `Flow widths count experiment–signal–sensing-method instances, so one experiment can contribute more than once. Signal labels show unique-experiment prevalence. Brand categories include missing or multiple-brand status; displayed brand paths are restricted to the leading categories in the selected view. Hover to inspect counts or select a node to highlight its connections.`,
           ]}
         >
@@ -938,7 +940,7 @@ export default function ChapterBody({ data }) {
 
       <ChapterSection
         title="Skin temperature body sites"
-        intro="Where on the body skin temperature is measured, and how that has shifted across the decade. Only near-synonymous labels are collapsed (e.g. calf/shin → lower leg); distinct face sub-sites remain separate."
+        intro="The figure shows where skin temperature was measured in each publication period. Only near-synonymous labels are collapsed (e.g. calf/shin → lower leg); distinct face sub-sites remain separate."
       >
         <FigureCard figNumber={figNum('site-prevalence-by-period')} title="Site prevalence by period" plotWidth={980} commentary={`${topSkinSite.site} is the single most-measured site (${topSkinSite.total} of ${skintemp_sites.n_studies_with_site} skin-temperature experiments, ${topSkinSitePct}%), followed closely by ${nextSkinSitesLabel} (all ${nextSkinSitesMin}–${nextSkinSitesMax} experiments). No one site is measured in every experiment — anatomical sampling varies across the included experiments.`}>
           <PeriodHeatmap
@@ -964,10 +966,10 @@ export default function ChapterBody({ data }) {
 
       <ChapterSection
         title="Mean skin temperature"
-        intro={`Skin temperature was measured in 75–100% of experiments across periods. Among those experiments, ${mst.n_mst_studies} explicitly calculated mean skin temperature. The figure distinguishes calculation from skin-temperature measurement and retains weighted and unweighted calculations as coded. The experiments that calculate MST use a wide range of point configurations and weighting formulas.`}
+        intro={`Across two-year publication periods, the share of experiments measuring skin temperature was ${skinCoverageRange}. Among those experiments, ${mst.n_mst_studies} explicitly calculated mean skin temperature. The figure distinguishes calculation from skin-temperature measurement and retains weighted and unweighted calculations as coded. The experiments that calculate MST use a wide range of point configurations and weighting formulas.`}
       >
         <FigureCard figNumber={figNum('mst-calculation-prevalence')} title="Skin-temperature measurement and MST calculation by period" plotWidth={980} commentary="In all-experiments view, each column is the full period cohort: blue shows explicit MST calculation, black skin-temperature measurement without an explicit calculation, and pale grey no skin-temperature measurement. The top percentage is MST calculation among skin-temperature experiments; the label beneath gives skin-temperature coverage of the full period. Switch to within skin temperature to normalize the same calculation choice to the eligible experiments only.">
-          <MstCalculationPrevalence mst={mst} />
+          <MstCalculationPrevalence byPeriod={mstByPeriod} />
         </FigureCard>
 
         <FigureCard figNumber={figNum('mst-calc-pathway')} title="MST calculation pathway" plotWidth={980} commentary="The flow distinguishes experiments calculating mean skin temperature (MST) and, within that group, the documented number of measurement points and calculation formulas. Formula counts are experiment–point-count–formula instances rather than unique experiments, because individual experiments may compare more than one formula.">

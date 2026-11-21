@@ -116,9 +116,7 @@ export default function Questionnaires({ data }) {
         <p className="text-[13px] text-inkmid mb-5 max-w-2xl">
           {fig15_tsv_scales.n_grid} fully specified discrete TSV scales mapped onto a common axis (cold → hot).
           The point-count distribution includes all {fig15_tsv_scales.n_discrete} discrete TSV scales with a stated
-          number of points. Most use the same
-          7 verbal anchors; higher point counts (e.g. 13, 25) are usually that same 7-point scale with extra
-          unlabelled steps interpolated in between, shown here as fine ticks rather than a wider vocabulary.
+          number of points. Labelled anchors and intermediate unlabelled positions are shown separately.
         </p>
         <div className="grid grid-cols-3 gap-8">
           <div className="col-span-2">

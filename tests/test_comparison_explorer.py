@@ -1,17 +1,23 @@
 """Check explorer extraction units and the distinction between reporting and absence."""
-import importlib.util
 from pathlib import Path
 import unittest
 
 import pandas as pd
 
+from scripts import build_comparison_explorer as explorer
+
 ROOT = Path(__file__).resolve().parents[1]
-SPEC = importlib.util.spec_from_file_location('explorer', ROOT / 'scripts/build_comparison_explorer.py')
-explorer = importlib.util.module_from_spec(SPEC)
-SPEC.loader.exec_module(explorer)
 
 
 class ExplorerExtractionTests(unittest.TestCase):
+    def test_period_order_tracks_observed_years_and_preserves_missing_years(self):
+        df = pd.DataFrame([{'id': str(year), 'pub-year': year} for year in (2024, 2025, None)])
+        result = explorer.build_explorer(df)
+        periods = next(d for d in result['dimensions'] if d['key'] == 'period')
+        self.assertEqual(periods['order'], ['2023–24', '2025–26'])
+        self.assertEqual([row['values']['period'][0] for row in result['records']],
+                         ['2023–24', '2025–26', 'Not reported'])
+
     def test_measurement_rows_keep_associations_and_remove_repetitions(self):
         skin = {'id': 'a', 'physio-parameter': 'Skin temperature', 'physio-sensing-method': 'Thermocouple',
                 'physio-body-site': 'Chest', 'physio-sensor-brand': 'NR'}

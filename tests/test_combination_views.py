@@ -1,17 +1,22 @@
 """Checks for experiment-level units, anatomical hierarchy and eligibility flags."""
-import importlib.util
 from pathlib import Path
 import unittest
 
 import pandas as pd
 
+from scripts import build_combination_views as views
+
 ROOT = Path(__file__).resolve().parents[1]
-SPEC = importlib.util.spec_from_file_location('views', ROOT / 'scripts/build_combination_views.py')
-views = importlib.util.module_from_spec(SPEC)
-SPEC.loader.exec_module(views)
 
 
 class InterpretationTests(unittest.TestCase):
+    def test_future_core_experiment_is_included_in_its_period(self):
+        rows = [{'id': str(year), 'pub-year': year, 'physio-parameter': 'Core/Body temperature',
+                 'physio-body-site': 'Rectal'} for year in (2024, 2027)]
+        core = views.build_views(pd.DataFrame(rows))['core']
+        self.assertEqual(core['periods'], ['2023–24', '2025–26', '2027–28'])
+        self.assertEqual(core['period_n'], {'2023–24': 1, '2025–26': 0, '2027–28': 1})
+
     def test_core_reference_takes_priority_over_estimate(self):
         self.assertEqual(views.classify_core(['Rectal', 'Tympanic canal']), 'Core-reference measurement')
         self.assertEqual(views.classify_core(['Mouth', 'Forehead']), 'Tympanic / oral / axillary estimate')

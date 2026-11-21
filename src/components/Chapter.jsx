@@ -1,11 +1,18 @@
+import { useLocation } from 'react-router-dom'
+import { chapters } from '../chapters.js'
+
 // Chapter shell: big title, framing copy (what we looked for / why it matters),
 // and an optional headline-stat strip. This is the top of every analysis chapter.
 export function ChapterHeader({ eyebrow, title, framing, headline }) {
+  const { pathname } = useLocation()
+  const index = chapters.findIndex((chapter) => chapter.to === pathname.replace(/\/$/, ''))
+  const heading = [index >= 0 && `Chapter ${index + 1} of ${chapters.length}`, eyebrow].filter(Boolean).join(' · ')
+
   return (
     <div className="px-10 pt-12 pb-8 border-b border-line bg-white/30">
-      {eyebrow && (
+      {heading && (
         <div className="font-data text-[11px] uppercase tracking-wider text-coreaccent mb-3">
-          {eyebrow}
+          {heading}
         </div>
       )}
       <h1 className="text-[30px] font-semibold leading-[1.15] tracking-tight max-w-3xl mb-4">

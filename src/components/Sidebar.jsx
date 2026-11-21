@@ -1,53 +1,12 @@
 import { useState } from 'react'
 import { Link, NavLink, useLocation } from 'react-router-dom'
-
-// Subtitles are each chapter's actual <ChapterSection title="..."> values —
-// kept in sync by hand here, but the anchor each one points to is generated
-// by the same slugify() function the section itself uses to set its id, so
-// a typo here would show as a dead link rather than silently pointing at
-// the wrong section.
-const CHAPTERS = [
-  {
-    to: '/context', label: 'When, where & how',
-    subtitles: ['Authorship as field structure', 'When and where research happens', 'Setting and timing', 'How many variables are manipulated at once', 'Open data, in practice', 'Protocol & standardisation controls'],
-  },
-  {
-    to: '/population', label: 'Who is studied',
-    subtitles: ['Demographics', 'Was sample size justified?', 'Who was excluded, and why', 'What else is known about participants'],
-  },
-  {
-    to: '/body', label: 'Measuring the human',
-    subtitles: ["What's measured, and how", 'Signals, sensor types, and brands', 'How sensor choice has shifted over time', 'Skin temperature body sites', 'Where other signals are measured', 'Mean skin temperature'],
-  },
-  {
-    to: '/environment', label: 'Measuring the environment',
-    subtitles: ['What gets measured together', 'Where sensors are placed'],
-  },
-  {
-    to: '/questionnaires', label: 'Measuring the perception',
-    subtitles: ['Questionnaire usage by domain', 'Scale heterogeneity: sensation vs. comfort'],
-  },
-  {
-    to: '/cognitive', label: 'Cognition and subjective state',
-    subtitles: ['What kind of measure is actually used'],
-  },
-  {
-    to: '/combinations', label: 'Explore combinations',
-    subtitles: ['Choose what to compare'],
-  },
-  {
-    to: '/reporting', label: 'Data completeness',
-    subtitles: ['Full field-level completeness list'],
-  },
-]
-
-function slugify(title) {
-  return title.toLowerCase().replace(/[^\w\s-]/g, '').trim().replace(/\s+/g, '-')
-}
+import { chapters } from '../chapters.js'
+import { slugify } from './Chapter.jsx'
 
 export default function Sidebar({ summary }) {
   const location = useLocation()
-  const [expanded, setExpanded] = useState(() => new Set(CHAPTERS.map((c) => c.to)))
+  const [mobileOpen, setMobileOpen] = useState(false)
+  const [expanded, setExpanded] = useState(() => new Set(chapters.map((c) => c.to)))
 
   function toggle(to) {
     setExpanded((prev) => {
@@ -59,22 +18,28 @@ export default function Sidebar({ summary }) {
   }
 
   return (
-    <aside className="w-64 shrink-0 border-r border-line h-screen sticky top-0 flex flex-col">
-      <Link to="/" className="block px-5 pt-6 pb-5 border-b border-line hover:bg-white/50 transition-colors">
-        <div className="font-data text-[11px] text-inkmid tracking-wide uppercase">
-          Living Metadata Atlas
-        </div>
-        <h1 className="font-semibold text-[14px] leading-snug mt-1">
-          How indoor thermal-physiology research is structured
-        </h1>
-        {summary && (
-          <div className="font-data text-[11px] text-inkfaint mt-2">
-            {summary.n_publications} publications · {summary.year_min}–{summary.year_max}
-          </div>
-        )}
-      </Link>
+    <aside className="flex shrink-0 flex-col border-b border-line md:sticky md:top-0 md:h-screen md:w-64 md:border-b-0 md:border-r">
+      <div className="flex items-center justify-between md:block md:border-b md:border-line">
+        <Link to="/" onClick={() => setMobileOpen(false)} className="block px-5 py-3 transition-colors hover:bg-white/50 md:pb-5 md:pt-6">
+          <div className="font-data text-[11px] text-inkmid tracking-wide uppercase">Living Metadata Atlas</div>
+          <span className="mt-1 hidden text-[14px] font-semibold leading-snug md:block">
+            How indoor thermal-physiology research is structured
+          </span>
+          {summary && (
+            <div className="mt-2 hidden font-data text-[11px] text-inkfaint md:block">
+              {summary.n_publications} publications · {summary.year_min}–{summary.year_max}
+            </div>
+          )}
+        </Link>
+        <button type="button" className="mr-4 px-2 py-2 text-sm font-medium md:hidden"
+          aria-expanded={mobileOpen} aria-controls="atlas-navigation" onClick={() => setMobileOpen(!mobileOpen)}>
+          Contents
+        </button>
+      </div>
 
-      <nav className="flex-1 overflow-y-auto px-3 py-4">
+      <nav id="atlas-navigation" aria-label="Atlas navigation"
+        className={`${mobileOpen ? 'block' : 'hidden'} max-h-[60vh] flex-1 overflow-y-auto px-3 py-4 md:block md:max-h-none`}
+        onClick={(event) => { if (event.target.closest('a')) setMobileOpen(false) }}>
         <div className="mb-5">
           <NavLink to="/" end className={({ isActive }) => `block px-2 py-1.5 rounded text-[13.5px] mb-0.5 transition-colors leading-snug ${isActive ? 'bg-ink text-paper font-medium' : 'text-ink hover:bg-line/60'}`}>
             Overview
@@ -95,7 +60,7 @@ export default function Sidebar({ summary }) {
 
         <div className="mb-5">
           <div className="font-data text-[10px] uppercase tracking-wider text-inkfaint px-2 mb-1.5">Chapters</div>
-          {CHAPTERS.map((chapter) => {
+          {chapters.map((chapter) => {
             const isCurrent = location.pathname === chapter.to
             const isExpanded = expanded.has(chapter.to)
             return (
@@ -139,7 +104,7 @@ export default function Sidebar({ summary }) {
 
       </nav>
 
-      <div className="px-5 py-4 border-t border-line">
+      <div className={`${mobileOpen ? 'block' : 'hidden'} border-t border-line px-5 py-4 md:block`}>
         <a
           href="https://github.com/bilgekobas/indoor-thermal-physiology-metadata-atlas"
           className="font-data text-[11px] text-inkmid hover:text-coreaccent transition-colors"

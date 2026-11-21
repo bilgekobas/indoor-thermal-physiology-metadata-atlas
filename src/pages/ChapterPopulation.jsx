@@ -184,7 +184,6 @@ export default function ChapterPopulation({ data }) {
   return (
     <div>
       <ChapterHeader
-        eyebrow="Chapter 2 of 8"
         title="Who is studied"
         framing={
           <>

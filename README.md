@@ -10,10 +10,11 @@ GitHub Pages and re-published each time the underlying corpus is updated.
 ## Project structure
 
 ```
-public/data/                       — generated JSON artifacts (do not hand-edit; see scripts/build_data.py)
-public/data/corpus_main_dataset.csv — the coded corpus (273 publications, 295 experiments)
-public/data/variable_dictionary.csv — field-level data dictionary (206 fields, 14 categories)
-scripts/build_data.py              — the only place that should read corpus_main_dataset.csv
+public/data/                       — source tables and generated figure data
+public/data/corpus_main_dataset.csv — the coded publication, experiment and measurement records
+public/data/variable_dictionary.csv — field definitions and metadata categories
+public/data/review_search.json     — original search window, databases and recorded screening counts
+scripts/build_data.py              — rebuilds the figures, variable dictionary and co-authorship network
 src/components/                    — shared UI: Sidebar, PageHeader, CodeChip (the missing-value motif)
 src/pages/                         — one file per site section
 src/useCorpusData.js               — fetches public/data/bundle.json once and caches it

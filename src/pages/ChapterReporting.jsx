@@ -43,7 +43,7 @@ export default function ChapterReporting({ data }) {
   return (
     <div>
       <ChapterHeader
-        eyebrow="Chapter 8 of 8 · Synthesis"
+        eyebrow="Synthesis"
         title="Data completeness"
         framing={
           <>

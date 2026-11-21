@@ -3,69 +3,96 @@ import PageHeader from '../components/PageHeader.jsx'
 import { CodeLegend } from '../components/CodeChip.jsx'
 
 export default function Methodology({ data }) {
-  const { summary } = data
+  const { summary, review_search: search, variable_dictionary: dictionary } = data
+  const databases = new Intl.ListFormat('en').format(search.databases)
+  const categoryCount = new Set(dictionary.data.map((field) => field.category_pretty_names).filter(Boolean)).size
+
   return (
     <div>
       <PageHeader eyebrow="Reference" title="Methodology" />
-
-      <div className="px-10 py-8 max-w-3xl space-y-8">
-        <section>
-          <h2 className="text-[15px] font-semibold mb-2">Scope and purpose</h2>
-          <p className="text-[13.5px] text-inkmid leading-relaxed">
-            The Living Metadata Atlas is a descriptive metadata analysis of indoor thermal-physiology
-            experiments in the thermal-comfort field. It documents how experiments are reported:
-            study context, time factors, thermal conditions, participants, environmental variables,
-            physiological measurements, questionnaires, cognitive measures, inclusion/exclusion
-            criteria and protocol controls. The atlas is not a reporting
-            standard by itself; it is the empirical layer used to make later standardisation and
-            reproducibility discussions more concrete.
+      <div className="max-w-3xl space-y-8 px-5 py-8 text-sm leading-relaxed text-inkmid sm:px-10">
+        <section className="rounded-md border border-line bg-white/50 px-5 py-4">
+          <h2 className="mb-2 text-base font-semibold text-ink">In short</h2>
+          <p>
+            We searched {search.databases.length} databases for studies of human physiology and indoor thermal comfort.
+            We extracted the experimental methods and reporting details from eligible papers. The current corpus
+            contains {summary.n_publications} publications describing {summary.n_experiments} experiments.
           </p>
         </section>
 
         <section>
-          <h2 className="text-[15px] font-semibold mb-2">Search and screening logic</h2>
-          <p className="text-[13.5px] text-inkmid leading-relaxed">
-            The search and screening process covered Web of Science, Scopus,
-            PubMed, and ScienceDirect for peer-reviewed English-language publications from 2013 to
-            2024. Search terms were grouped around thermal-comfort constructs, experimental context,
-            and physiological measurement. The initial search results yielded 6592 records across four databases —
-            a fixed count from the original search date, not derived from the live corpus below.
-            After duplicate removal and title/abstract screening, 358 publications remained for full-text review. 
-            Of these, {summary.n_publications} publications describing {summary.n_experiments} experiments make up the
-            current corpus, published between {summary.year_min} and {summary.year_max}.
+          <h2 className="mb-2 text-base font-semibold text-ink">Units of analysis</h2>
+          <p>
+            Publication counts describe the literature and its authors. A paper can report several experiments,
+            each with its own participants or exposure protocol. For questions about participants, exposures and
+            study design, we count each experiment once.
+          </p>
+          <p className="mt-2">
+            A single experiment can record skin temperature at several body sites or compare several formulas
+            for calculating mean skin temperature. It contributes once to the count of experiments measuring
+            skin temperature and can contribute to several site or formula categories. In the measurement data,
+            each row records an experiment, a physiological signal, a sensing method and a body site.
           </p>
         </section>
 
         <section>
-          <h2 className="text-[15px] font-semibold mb-2">Inclusion and exclusion frame</h2>
-          <p className="text-[13.5px] text-inkmid leading-relaxed">
-            Included studies were indoor studies with real human participants, at least one
-            thermophysiological parameter, healthy adult participants, laboratory/field/living-lab or
-            mixed settings, sedentary real-life contexts, daytime testing, full-body exposures,
-            peer-reviewed publication status, English language, and publication years within the
-            review window. Exclusions covered outdoor-only studies, manikins or simulations, purely
-            subjective thermal-comfort questionnaires, exclusively clinical or special populations,
-            children-only or elderly-only samples, VR/AR settings, clinical admissions or immersion
-            protocols, exercise physiology, sleep-only physiology, and localised partial-body thermal
-            treatments.
+          <h2 className="mb-2 text-base font-semibold text-ink">Search and screening</h2>
+          <p>
+            The original search covered English-language, peer-reviewed journal publications from{' '}
+            {search.publication_year_min} to {search.publication_year_max} in {databases}. Search terms covered
+            thermal comfort, experimental settings and physiological measurement. The search returned{' '}
+            {search.records_identified.toLocaleString('en')} records. After deduplication and title and abstract
+            screening, {search.reports_sought} reports were sought for retrieval and {search.reports_assessed} were
+            assessed for eligibility.
+          </p>
+          <p className="mt-2">
+            The lead author screened the records and performed the primary extraction. Co-authors and student
+            assistants checked selected records and fields. The lead author reviewed discrepancies and revisited
+            affected records when a coding rule required clarification.
           </p>
         </section>
 
         <section>
-          <h2 className="text-[15px] font-semibold mb-2">Metadata architecture</h2>
-          <p className="text-[13.5px] text-inkmid leading-relaxed mb-3">
-            The current extraction sheet contains 14 metadata categories and {summary.n_variables} fields. The fields
-            cover identifiers, timing, context, study domains, target thermal conditions, population
-            characteristics, environmental measurements, physiological measurements, questionnaires,
-            cognitive/mental-load measurements, eligibility criteria, participant metadata, protocol
-            and controls.
+          <h2 className="mb-2 text-base font-semibold text-ink">Eligibility</h2>
+          <p>
+            Eligible experiments studied healthy adults in sedentary, daytime settings with whole-body thermal
+            exposure and at least one physiological measurement. Settings included laboratories, field studies,
+            living labs and mixed designs.
+          </p>
+          <p className="mt-2">
+            Exclusions included outdoor-only studies, manikins or simulations, questionnaire-only studies,
+            exclusively clinical populations, samples limited to children or older adults, virtual or augmented
+            reality settings, clinical admission or immersion protocols, exercise physiology, sleep-only studies
+            and localised thermal treatments.
+          </p>
+        </section>
+
+        <section>
+          <h2 className="mb-2 text-base font-semibold text-ink">Metadata and missing information</h2>
+          <p className="mb-3">
+            The <Link to="/dictionary" className="text-coreaccent hover:underline">variable dictionary</Link> defines
+            the {dictionary.n_fields} fields across {categoryCount} categories, including their units and permitted
+            values. The codes below distinguish details a paper leaves unspecified from measurements it mentions
+            without providing values.
           </p>
           <CodeLegend />
-          <p className="text-[13.5px] text-inkmid leading-relaxed mt-4">
-            Definitions, permitted values, units, and field-level coding guidance are available in the{' '}
-            <Link to="/dictionary" className="text-coreaccent hover:underline">
-              searchable variable dictionary
-            </Link>.
+        </section>
+
+        <section>
+          <h2 className="mb-2 text-base font-semibold text-ink">Reading the figures</h2>
+          <p>
+            Counts and percentages are computed from the coded records. The denominator depends on the question.
+            For example, the proportion of experiments measuring skin temperature uses the entire corpus, while
+            the proportion using a particular skin-temperature sensor uses experiments that measured that signal.
+            A change in the countries or settings represented can also change a percentage across publication periods.
+          </p>
+          <p className="mt-2">
+            The Atlas describes what authors reported. Its English-language search and eligibility criteria
+            define the population of papers it covers. Details of harmonisation and other coding decisions
+            are available in the{' '}
+            <a href="https://github.com/bilgekobas/indoor-thermal-physiology-metadata-atlas/blob/main/LIMITATIONS.md"
+              className="text-coreaccent hover:underline">repository notes</a>. For releases, citations and corrections,
+            see <Link to="/about" className="text-coreaccent hover:underline">About the Atlas</Link>.
           </p>
         </section>
       </div>

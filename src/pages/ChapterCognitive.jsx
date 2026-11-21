@@ -196,7 +196,6 @@ export default function ChapterCognitive({ data }) {
   return (
     <div>
       <ChapterHeader
-        eyebrow="Chapter 6 of 8"
         title="Cognition and subjective state"
         framing={
           <>

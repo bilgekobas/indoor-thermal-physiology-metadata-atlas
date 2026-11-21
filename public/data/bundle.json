@@ -59370,6 +59370,14 @@
           "count": 4,
           "pct": 36.4
         },
+        "Circadian control": {
+          "count": 1,
+          "pct": 9.1
+        },
+        "Time between sessions controlled": {
+          "count": 4,
+          "pct": 36.4
+        },
         "Balanced order": {
           "count": 0,
           "pct": 0.0
@@ -59378,17 +59386,9 @@
           "count": 0,
           "pct": 0.0
         },
-        "Circadian control": {
-          "count": 1,
-          "pct": 9.1
-        },
         "Menstrual timing control": {
           "count": 1,
           "pct": 9.1
-        },
-        "Time between sessions controlled": {
-          "count": 4,
-          "pct": 36.4
         }
       },
       {
@@ -59398,6 +59398,14 @@
           "count": 5,
           "pct": 33.3
         },
+        "Circadian control": {
+          "count": 2,
+          "pct": 13.3
+        },
+        "Time between sessions controlled": {
+          "count": 0,
+          "pct": 0.0
+        },
         "Balanced order": {
           "count": 2,
           "pct": 13.3
@@ -59406,17 +59414,9 @@
           "count": 2,
           "pct": 13.3
         },
-        "Circadian control": {
-          "count": 2,
-          "pct": 13.3
-        },
         "Menstrual timing control": {
           "count": 1,
           "pct": 6.7
-        },
-        "Time between sessions controlled": {
-          "count": 0,
-          "pct": 0.0
         }
       },
       {
@@ -59426,6 +59426,14 @@
           "count": 12,
           "pct": 25.5
         },
+        "Circadian control": {
+          "count": 10,
+          "pct": 21.3
+        },
+        "Time between sessions controlled": {
+          "count": 10,
+          "pct": 21.3
+        },
         "Balanced order": {
           "count": 8,
           "pct": 17.0
@@ -59434,101 +59442,93 @@
           "count": 9,
           "pct": 19.1
         },
-        "Circadian control": {
-          "count": 10,
-          "pct": 21.3
-        },
         "Menstrual timing control": {
           "count": 1,
           "pct": 2.1
-        },
-        "Time between sessions controlled": {
-          "count": 10,
-          "pct": 21.3
         }
       },
       {
         "period": "2019–20",
-        "n_studies": 62,
+        "n_studies": 63,
         "Randomisation": {
           "count": 13,
-          "pct": 21.0
-        },
-        "Balanced order": {
-          "count": 10,
-          "pct": 16.1
-        },
-        "Blinding": {
-          "count": 9,
-          "pct": 14.5
+          "pct": 20.6
         },
         "Circadian control": {
           "count": 6,
-          "pct": 9.7
+          "pct": 9.5
+        },
+        "Time between sessions controlled": {
+          "count": 12,
+          "pct": 19.0
+        },
+        "Balanced order": {
+          "count": 10,
+          "pct": 15.9
+        },
+        "Blinding": {
+          "count": 9,
+          "pct": 14.3
         },
         "Menstrual timing control": {
           "count": 2,
           "pct": 3.2
-        },
-        "Time between sessions controlled": {
-          "count": 12,
-          "pct": 19.4
         }
       },
       {
         "period": "2021–22",
-        "n_studies": 79,
+        "n_studies": 81,
         "Randomisation": {
-          "count": 35,
-          "pct": 44.3
-        },
-        "Balanced order": {
-          "count": 19,
-          "pct": 24.1
-        },
-        "Blinding": {
-          "count": 16,
-          "pct": 20.3
+          "count": 36,
+          "pct": 44.4
         },
         "Circadian control": {
-          "count": 21,
-          "pct": 26.6
-        },
-        "Menstrual timing control": {
-          "count": 10,
-          "pct": 12.7
+          "count": 22,
+          "pct": 27.2
         },
         "Time between sessions controlled": {
           "count": 18,
-          "pct": 22.8
+          "pct": 22.2
+        },
+        "Balanced order": {
+          "count": 20,
+          "pct": 24.7
+        },
+        "Blinding": {
+          "count": 17,
+          "pct": 21.0
+        },
+        "Menstrual timing control": {
+          "count": 10,
+          "pct": 12.3
         }
       },
       {
         "period": "2023–24",
-        "n_studies": 55,
+        "n_studies": 78,
         "Randomisation": {
-          "count": 24,
-          "pct": 43.6
-        },
-        "Balanced order": {
-          "count": 15,
-          "pct": 27.3
-        },
-        "Blinding": {
-          "count": 16,
-          "pct": 29.1
+          "count": 33,
+          "pct": 42.3
         },
         "Circadian control": {
-          "count": 21,
-          "pct": 38.2
+          "count": 28,
+          "pct": 35.9
+        },
+        "Time between sessions controlled": {
+          "count": 24,
+          "pct": 30.8
+        },
+        "Balanced order": {
+          "count": 19,
+          "pct": 24.4
+        },
+        "Blinding": {
+          "count": 19,
+          "pct": 24.4
         },
         "Menstrual timing control": {
           "count": 7,
-          "pct": 12.7
-        },
-        "Time between sessions controlled": {
-          "count": 19,
-          "pct": 34.5
+          "pct": 9.0
         }
       }
     ],
@@ -59756,7 +59756,25 @@
           "2021–22": 81,
           "2023–24": 78
         },
-        "multi_response": true
+        "multi_response": true,
+        "headline_methods": {
+          "thermocouple": {
+            "2013–14": 6,
+            "2015–16": 4,
+            "2017–18": 9,
+            "2019–20": 14,
+            "2021–22": 10,
+            "2023–24": 14
+          },
+          "button_logger": {
+            "2013–14": 2,
+            "2015–16": 4,
+            "2017–18": 8,
+            "2019–20": 14,
+            "2021–22": 31,
+            "2023–24": 37
+          }
+        }
       },
       "Heart/Pulse rate": {
         "data": [
@@ -131518,6 +131536,20 @@
       "2023–24"
     ]
   },
+  "review_search": {
+    "source": "Original systematic review, Methods §§2.1.1 and 2.1.4 and Figure 1 (screening flow)",
+    "databases": [
+      "Web of Science Core Collection",
+      "Scopus",
+      "PubMed",
+      "ScienceDirect"
+    ],
+    "publication_year_min": 2013,
+    "publication_year_max": 2024,
+    "records_identified": 6592,
+    "reports_sought": 358,
+    "reports_assessed": 357
+  },
   "sample_calc_type_by_period": {
     "data": [
       {
@@ -152156,7 +152188,7 @@
     "n_variables": 206,
     "year_min": 2013,
     "year_max": 2024,
-    "generated_at": "2026-11-18T12:26:46.557199"
+    "generated_at": "2026-11-21T11:19:38.407295"
   },
   "variable_dictionary": {
     "data": [

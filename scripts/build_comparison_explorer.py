@@ -2,6 +2,11 @@
 import json
 import math
 
+if __package__:
+    from .publication_periods import publication_period, publication_periods
+else:
+    from publication_periods import publication_period, publication_periods
+
 CODE_LABELS = {'': 'Not reported', 'NR': 'Not reported', 'NONE': 'Not reported',
                'MNR': 'Measured, detail not reported', 'NC': 'Unclear', 'NAN': 'Not applicable'}
 NO_ITEMS = 'No listed item reported'
@@ -54,15 +59,6 @@ def composition(row):
     return 'Composition unspecified'
 
 
-def publication_period(value):
-    try:
-        year = int(float(value))
-        start = 2013 + ((year - 2013) // 2) * 2
-        return f'{start}–{str(start + 1)[-2:]}'
-    except (TypeError, ValueError, OverflowError):
-        return 'Not reported'
-
-
 def build_explorer(df, pretty_names=None):
     pretty_names = pretty_names or {}
     dimensions = [
@@ -86,7 +82,7 @@ def build_explorer(df, pretty_names=None):
     ]
     dimensions = [dict(zip(('key', 'label', 'group', 'kind', 'description'), row)) for row in dimensions]
     next(d for d in dimensions if d['key'] == 'setting')['order'] = ['Lab', 'Field', 'Living Lab', 'Mixed', 'Not reported']
-    next(d for d in dimensions if d['key'] == 'period')['order'] = [f'{y}–{str(y + 1)[-2:]}' for y in range(2013, 2025, 2)]
+    next(d for d in dimensions if d['key'] == 'period')['order'] = publication_periods(df.get('pub-year', []))
 
     def name(column, prefix):
         return pretty_names.get(column, column.removeprefix(prefix).replace('-', ' ').capitalize())
@@ -111,7 +107,7 @@ def build_explorer(df, pretty_names=None):
             'domains': [label for column, label in DOMAINS.items() if text(row.get(column)) in {'1', '1.0', 'Y'}],
             'environment': [label for column, label in ENVIRONMENT.items() if measured(row.get(column))],
             'questionnaires': [name(c, 'ques-') for c in questionnaires if measured(row.get(c))],
-            'sex': [composition(row)], 'period': [publication_period(row.get('pub-year'))],
+            'sex': [composition(row)], 'period': [publication_period(row.get('pub-year')) or 'Not reported'],
             'country': [category(row.get('id-country'))], 'climate': [category(row.get('id-climate-class'))],
             'availability': [category(row.get('data-avail'))],
         })

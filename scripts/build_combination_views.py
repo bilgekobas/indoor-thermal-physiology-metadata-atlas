@@ -4,10 +4,12 @@ import json
 import math
 import re
 
+if __package__:
+    from .publication_periods import publication_period, publication_periods
+else:
+    from publication_periods import publication_period, publication_periods
+
 MISSING = {'', 'NR', 'MNR', 'NAN', 'NC', 'NONE', 'NAN'}
-PERIODS = [(2013, 2014, '2013–14'), (2015, 2016, '2015–16'),
-           (2017, 2018, '2017–18'), (2019, 2020, '2019–20'),
-           (2021, 2022, '2021–22'), (2023, 2024, '2023–24')]
 
 
 def present(value):
@@ -22,10 +24,6 @@ def number(value):
         return result if math.isfinite(result) else None
     except (ValueError, TypeError):
         return None
-
-
-def period(year):
-    return next(label for start, end, label in PERIODS if start <= int(year) <= end)
 
 
 def classify_core(sites):
@@ -68,14 +66,17 @@ def build_views(df):
 
     core_ids = [ident for ident in all_ids if 'Core/Body temperature' in signals[ident]]
     classes = ['Core-reference measurement', 'Tympanic / oral / axillary estimate', 'Other peripheral measurement']
+    periods = publication_periods(row.get('pub-year') for row in experiments)
+    period_by_id = {ident: publication_period(row.get('pub-year')) for ident, row in by_id.items()}
     core = {'n': len(core_ids), 'classes': [], 'by_period': [], 'sites': [], 'site_by_period': [],
-            'periods': [p[2] for p in PERIODS], 'period_n': {p[2]: 0 for p in PERIODS}}
+            'periods': periods, 'period_n': dict.fromkeys(periods, 0)}
     class_ids, site_ids = {}, {}
     for ident in core_ids:
         rows = [r for r in rows_by_id[ident] if r['physio-parameter'] == 'Core/Body temperature']
         category = classify_core(r.get('physio-body-site') for r in rows)
         class_ids.setdefault(category, []).append(ident)
-        core['period_n'][period(by_id[ident]['pub-year'])] += 1
+        if period_by_id[ident] is not None:
+            core['period_n'][period_by_id[ident]] += 1
         sites = {'Oral cavity' if str(r.get('physio-body-site')).strip() == 'Mouth' else str(r.get('physio-body-site')).strip()
                  for r in rows if present(r.get('physio-body-site'))}
         for site in sites:
@@ -87,12 +88,12 @@ def build_views(df):
         core['classes'].append({'label': category, 'count': len(ids), 'ids': ids})
         for p in core['periods']:
             core['by_period'].append({'label': category, 'period': p,
-                                      'count': sum(period(by_id[i]['pub-year']) == p for i in ids)})
+                                      'count': sum(period_by_id[i] == p for i in ids)})
     for site, ids in sorted(site_ids.items(), key=lambda x: (-len(x[1]), x[0])):
         core['sites'].append({'label': site, 'count': len(ids), 'ids': ids})
         for p in core['periods']:
             core['site_by_period'].append({'label': site, 'period': p,
-                                           'count': sum(period(by_id[i]['pub-year']) == p for i in ids)})
+                                           'count': sum(period_by_id[i] == p for i in ids)})
 
     sex_fields = [
         ('single-sex', 'Single-sex sample reported', 'Sample composition', None),

@@ -12,8 +12,8 @@ import { useTooltip, TooltipPortal } from '../components/Tooltip.jsx'
 import { describeValues } from '../utils/distributions.js'
 
 
-function AuthorNetworkEmbed() {
-  const src = `${import.meta.env.BASE_URL}author-network.html?v=45`
+function AuthorNetworkEmbed({ version }) {
+  const src = `${import.meta.env.BASE_URL}author-network.html?v=${encodeURIComponent(version)}`
   return (
     <div className="bg-white overflow-hidden max-w-[1120px]">
       <iframe
@@ -32,13 +32,17 @@ function GeographyToggle({ cityData, countryData }) {
 
 function AccessibleDataResources({ resources }) {
   if (!resources?.length) return null
+  const counts = new Map()
+  for (const { resource_type } of resources) {
+    counts.set(resource_type, (counts.get(resource_type) ?? 0) + 1)
+  }
   return (
     <details open className="max-w-[760px] mt-4 group">
       <summary className="cursor-pointer select-none font-data text-[11px] text-inkmid hover:text-coreaccent marker:text-coreaccent">
         Accessible resources ({resources.length})
       </summary>
       <p className="mt-2 mb-2 text-[11px] text-inkfaint leading-relaxed">
-        Four archival data repositories, one GitHub repository, and one publisher-hosted supplementary file.
+        Links by resource type · {[...counts].map(([type, count]) => `${type} (${count})`).join(' · ')}
       </p>
       <ol className="border-t border-line">
         {resources.map((resource) => (
@@ -594,8 +598,8 @@ export default function ChapterContext({ data }) {
   const topTwoCities = [...geo_cities.data].sort((a, b) => b.count - a.count).slice(0, 2)
   const topTwoCitiesTotal = topTwoCities.reduce((a, c) => a + c.count, 0)
   const geoPeriods = geo_concentration_by_period.data
-  const chinaShareEarliest = Math.round(geoPeriods[0].pct)
-  const chinaShareLatest = Math.round(geoPeriods[geoPeriods.length - 1].pct)
+  const topCountryShareEarliest = Math.round(geoPeriods[0].pct)
+  const topCountryShareLatest = Math.round(geoPeriods[geoPeriods.length - 1].pct)
 
   // Fig 4 commentary inputs (China/Brazil/Switzerland mean & median), read
   // directly from sample_size_by_country.stats rather than hardcoded.
@@ -614,7 +618,6 @@ export default function ChapterContext({ data }) {
   return (
     <div>
       <ChapterHeader
-        eyebrow="Chapter 1 of 8"
         title="When, where & how"
         framing={
           <>
@@ -647,7 +650,7 @@ export default function ChapterContext({ data }) {
             'Nodes are authors and links are co-authorship pairs. The default grouped view collapses this into connected components; the threshold controls expose either repeated co-authorship links or links supported by one publication. Colours identify collaboration clusters, not national origin.',
           ] : 'Nodes are authors and links are co-authorship pairs. Colours identify collaboration clusters, not national origin.'}
         >
-          <AuthorNetworkEmbed />
+          <AuthorNetworkEmbed version={summary.generated_at} />
         </FigureCard>
       </ChapterSection>
 
@@ -664,7 +667,7 @@ export default function ChapterContext({ data }) {
           />
         </FigureCard>
 
-        <FigureCard figNumber={figNum('geography')} title="Geographical distribution" size="wide" commentary={`${geo_cities.n_studies_mapped} of ${geo_cities.n_studies_total} experiments (${cityResolvedPct}%) resolve to a specific mapped city; other records lack a resolvable city or report only broader geographic information. Research concentrates in a small number of cities — ${topTwoCities[0].city} and ${topTwoCities[1].city} alone account for ${topTwoCitiesTotal} experiments. China's share has also grown over time, from ${chinaShareEarliest}% of experiments in ${geoPeriods[0].period} to ${chinaShareLatest}% in ${geoPeriods[geoPeriods.length - 1].period}. The country map uses a log-scaled color ramp so China's count does not wash out every other country.`}>
+        <FigureCard figNumber={figNum('geography')} title="Geographical distribution" size="wide" commentary={`${geo_cities.n_studies_mapped} of ${geo_cities.n_studies_total} experiments (${cityResolvedPct}%) resolve to a specific mapped city; other records lack a resolvable city or report only broader geographic information. Research concentrates in a small number of cities — ${topTwoCities[0].city} and ${topTwoCities[1].city} alone account for ${topTwoCitiesTotal} experiments. Among experiments with a recorded country, ${geo_concentration_by_period.top_country} accounted for ${topCountryShareEarliest}% in ${geoPeriods[0].period} and ${topCountryShareLatest}% in ${geoPeriods.at(-1).period}. The country map uses a logarithmic colour scale so counts remain distinguishable across countries.`}>
           <GeographyToggle cityData={geo_cities.data} countryData={geo_choropleth.data} />
         </FigureCard>
 
@@ -735,13 +738,13 @@ export default function ChapterContext({ data }) {
         </FigureCard>
 
         <FigureCard figNumber={figNum('domains-manipulated-together')} title="Which domains are manipulated together" plotWidth={620} commentary="Diagonal cells count experiments with each coded manipulation domain; off-diagonal cells count experiments with both domains. Joint coding does not establish a factorial design or simultaneous exposure.">
-          <CooccurrenceMatrix labels={domain_cooccurrence.labels} matrix={domain_cooccurrence.matrix} cellSize={38} corpusN={295} />
+          <CooccurrenceMatrix labels={domain_cooccurrence.labels} matrix={domain_cooccurrence.matrix} cellSize={38} corpusN={summary.n_experiments} />
         </FigureCard>
       </ChapterSection>
 
       <ChapterSection
         title="Open data, in practice"
-        intro={`A data-availability statement is not equivalent to usable data access. Of ${open_data.n_total} experiments, only ${open_data.n_with_real_data_link} provided an accessible resource: four archival data repositories, one GitHub repository, and one publisher-hosted supplementary file.`}
+        intro={`Of ${open_data.n_total} experiments, ${open_data.n_with_real_data_link} link to an accessible data or code resource. The entries below identify the paper, the linked resource and its type.`}
       >
         <FigureCard figNumber={figNum('data-availability')} title="Data availability statement, as reported" plotWidth={620}>
           <PeriodHeatmap

@@ -1,9 +1,10 @@
+import { figNum } from '../figureRegistry.js'
 import { ChapterHeader, ChapterSection } from '../components/Chapter.jsx'
 import FigureCard from '../components/FigureCard.jsx'
 import { PeriodHeatmap } from '../components/OverallByPeriod.jsx'
 
 export default function ChapterProtocol({ data }) {
-  const { fig20_protocol, protocol_by_period, chapter_completeness } = data
+  const { fig20_protocol, protocol_by_period } = data
   const periodN = Object.fromEntries(
     protocol_by_period.data
       .filter((d, idx, arr) => arr.findIndex((x) => x.period === d.period) === idx)
@@ -13,7 +14,6 @@ export default function ChapterProtocol({ data }) {
   return (
     <div>
       <ChapterHeader
-        eyebrow="Chapter 7 of 8"
         title="How rigorous was the protocol"
         framing={
           <>
@@ -29,17 +29,16 @@ export default function ChapterProtocol({ data }) {
             </p>
           </>
         }
-        headline={[
-          { value: '77.4%', label: 'fix clothing insulation', color: '#0A0A0A' },
-          { value: '70.7%', label: 'define an activity protocol', color: '#5B5BFF' },
-        ]}
+        headline={fig20_protocol.bar
+          .filter((row) => ['Fixed clothing insulation', 'Defined activity protocol'].includes(row.field))
+          .map((row) => ({ value: `${row.pct}%`, label: row.field }))}
       />
 
       <ChapterSection
         title="Which controls are used"
-        intro="Fixed clothing insulation and a defined activity protocol are the only controls used by clear majorities of studies. Everything else drops off quickly. The heatmap shows how often each control appears within each two-year period, while the aligned bar at right gives the corpus-wide total count for the same row."
+        intro="The heatmap shows how often each control appears within each two-year period, while the aligned bar at right gives the corpus-wide total count for the same row."
       >
-        <FigureCard figNumber="20" title="Protocol & standardisation controls" plotWidth={980} commentary="Rows are controls; columns are 2-year periods; the right-hand bar gives the overall count for the same row, scaled relative to the largest row total.">
+        <FigureCard figNumber={figNum('protocol-standardisation')} title="Protocol & standardisation controls" plotWidth={980} commentary="Rows are controls; columns are 2-year periods; the right-hand bar gives the overall count for the same row, scaled relative to the largest row total.">
           <PeriodHeatmap
             rows={protocol_by_period.fields}
             periods={protocol_by_period.periods}
