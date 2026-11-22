@@ -7,6 +7,13 @@ metadata corpus. Built with Vite + React + Tailwind, designed to be hosted on
 GitHub Pages and re-published each time the underlying corpus is updated.
 
 
+## Navigation
+
+The site root opens the animated data story. “Explore the Atlas” opens
+`/overview`; the Atlas title returns to the story. Chapter URLs remain unchanged.
+The story’s scripts, illustrations and fonts are served locally from
+`public/datastory/`.
+
 ## Project structure
 
 ```
@@ -39,5 +46,5 @@ There are two separate archives — cite the one relevant to what you used:
 Machine-readable citation metadata for the code is in [`CITATION.cff`](./CITATION.cff)
 (GitHub renders a "Cite this repository" button from it automatically). If you use
 the corpus in analysis, cite the dataset DOI; if you reference or reuse the site
-itself, cite the code DOI. The [Atlas homepage](https://bilgekobas.github.io/indoor-thermal-physiology-metadata-atlas/#team)
+itself, cite the code DOI. The [Atlas homepage](https://bilgekobas.github.io/indoor-thermal-physiology-metadata-atlas/overview#team)
 lists the research team and links to both archives.

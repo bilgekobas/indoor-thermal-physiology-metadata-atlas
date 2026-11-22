@@ -1,0 +1,10 @@
+{
+  "source": "DataStory_SkinTemp.pdf",
+  "sha256": "a81de88f2d22359975bc66a35b2f910e662895725d175acc85005130cc022592",
+  "site_counts": {
+    "1210_1": 4,
+    "1232_1": 5,
+    "1003_1": 8
+  },
+  "format": "SVG paths; transparent background; body/site viewBox 100 55 465 530; tightly cropped independent sensors; no orientation labels"
+}

@@ -4,7 +4,7 @@ import { chapters } from '../chapters.js'
 import { slugify } from './Chapter.jsx'
 
 const pages = [
-  { to: '/', label: 'Overview' },
+  { to: '/overview', label: 'Overview' },
   { to: '/methodology', label: 'Methodology' },
   { to: '/dictionary', label: 'Variable Dictionary' },
   { to: '/browse', label: 'Browse & Download' },
@@ -26,7 +26,7 @@ export default function Sidebar({ summary }) {
   return (
     <aside className="flex shrink-0 flex-col border-b border-line md:sticky md:top-0 md:h-screen md:w-64 md:border-b-0 md:border-r">
       <div className="flex items-center justify-between md:block md:border-b md:border-line">
-        <Link to="/" onClick={() => setMobileOpen(false)} className="block px-5 py-3 transition-colors hover:bg-white/50 md:pb-5 md:pt-6">
+        <Link to="/" title="Return to the data story" onClick={() => setMobileOpen(false)} className="block px-5 py-3 transition-colors hover:bg-white/50 md:pb-5 md:pt-6">
           <span className="block text-base font-semibold leading-snug">Indoor Thermal Physiology Atlas</span>
           {summary && (
             <div className="mt-2 hidden font-data text-[11px] text-inkfaint md:block">
@@ -45,7 +45,7 @@ export default function Sidebar({ summary }) {
         onClick={(event) => { if (event.target.closest('a')) setMobileOpen(false) }}>
         <div className="mb-5">
           {pages.map(({ to, label }) => (
-            <NavLink key={to} to={to} end={to === '/'}
+            <NavLink key={to} to={to} end={to === '/overview'}
               className={({ isActive }) => `block px-2 py-1.5 rounded text-[13.5px] mb-0.5 transition-colors leading-snug ${isActive ? 'bg-ink text-paper font-medium' : 'text-ink hover:bg-line/60'}`}>
               {label}
             </NavLink>

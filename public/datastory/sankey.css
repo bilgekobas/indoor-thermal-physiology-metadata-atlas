@@ -1,0 +1,16 @@
+.sankey-page{overflow:hidden}
+.sankey-controls{display:flex;align-items:center;flex-wrap:wrap;gap:16px 24px;padding:8px 16px 12px}
+.sankey-controls label{font:14px/1.5 var(--sans);display:flex;align-items:center;gap:10px}
+.sankey-controls select,.sankey-controls button{font:14px/1.5 var(--sans);background:#fff;border:1px solid #d7d7d7;color:var(--ink);padding:7px 12px;max-width:100%;border-radius:0}
+.sankey-controls button{cursor:pointer}
+#sankey-summary,.sankey-note{font:13px/1.5 var(--sans);color:var(--quiet);margin:6px 16px 16px;max-width:850px}
+#sankey-figure svg{width:100%;height:auto;display:block;overflow:visible}
+.sankey-heading{font:600 13px var(--mono);fill:var(--quiet)}
+.sankey-label{font:15px var(--sans);fill:var(--ink);paint-order:stroke;stroke:var(--paper);stroke-width:5px;stroke-linejoin:round}
+.sankey-count{font-size:12px;fill:var(--quiet)}
+.sankey-node{cursor:pointer;outline:none}
+.sankey-node:focus rect{stroke:var(--ink);stroke-width:2}
+.sankey-node,.sankey-link{transition:opacity .2s ease}
+.sankey-link:hover{fill-opacity:.65}
+.sankey-note{margin-top:14px;margin-bottom:12px}
+@media(max-width:700px){.sankey-controls{gap:10px;padding:8px 6px}.sankey-controls label{font-size:13px;gap:6px}.sankey-controls select{font-size:13px;padding:6px;max-width:255px}.sankey-label{font-size:13px;stroke-width:4px}.sankey-count{font-size:11px}.sankey-heading{font-size:11px}#sankey-summary,.sankey-note{margin-left:6px;margin-right:6px;font-size:12px}}
