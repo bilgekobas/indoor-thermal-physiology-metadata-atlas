@@ -30,7 +30,7 @@ function GeographyToggle({ cityData, countryData }) {
   return <WorldMapExplorer cityData={cityData} countryData={countryData} />
 }
 
-function AccessibleDataResources({ resources }) {
+function ReportedDataResources({ resources }) {
   if (!resources?.length) return null
   const counts = new Map()
   for (const { resource_type } of resources) {
@@ -39,7 +39,7 @@ function AccessibleDataResources({ resources }) {
   return (
     <details open className="max-w-[760px] mt-4 group">
       <summary className="cursor-pointer select-none font-data text-[11px] text-inkmid hover:text-coreaccent marker:text-coreaccent">
-        Accessible resources ({resources.length})
+        Reported resource links ({resources.length})
       </summary>
       <p className="mt-2 mb-2 text-[11px] text-inkfaint leading-relaxed">
         Links by resource type · {[...counts].map(([type, count]) => `${type} (${count})`).join(' · ')}
@@ -744,7 +744,7 @@ export default function ChapterContext({ data }) {
 
       <ChapterSection
         title="Open data, in practice"
-        intro={`Of ${open_data.n_total} experiments, ${open_data.n_with_real_data_link} link to an accessible data or code resource. The entries below identify the paper, the linked resource and its type.`}
+        intro={`Of ${open_data.n_total} experiments, ${open_data.n_with_real_data_link} have a coded data or supplementary resource link. The list includes reported links whose current availability may vary.`}
       >
         <FigureCard figNumber={figNum('data-availability')} title="Data availability statement, as reported" plotWidth={620}>
           <PeriodHeatmap
@@ -757,7 +757,7 @@ export default function ChapterContext({ data }) {
             cellWidth={78}
           />
         </FigureCard>
-        <AccessibleDataResources resources={open_data.studies_with_link} />
+        <ReportedDataResources resources={open_data.studies_with_link} />
       </ChapterSection>
 
       <ChapterSection

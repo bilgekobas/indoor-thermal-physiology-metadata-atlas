@@ -55,7 +55,7 @@
   if(!flowFigure){flowFigure=document.createElement('figure');flowFigure.className='setting-flow';flowFigure.setAttribute('aria-label','Experimental setting and spatial type in '+complete.length+' experiments');pick('visual').append(flowFigure);}
   const compact=width<650,left=compact?113:245,right=width-(compact?124:275),bar=10,margin=66,gap=compact?32:29;
   const pairs=new Map();complete.forEach(r=>{const key=r.setting+'|'+r.typology;pairs.set(key,(pairs.get(key)??0)+1);});
-  const unit=(height-margin-24-gap*(typeOrder.length-1))/complete.length;
+  const unit=(height-margin-24-gap*(typeOrder.length-1))/Math.max(1,complete.length);
   const makeNodes=(order,key,x)=>{
    const totalGap=gap*(order.length-1),used=complete.length*unit+totalGap;let y=margin+(height-margin-24-used)/2;
    return order.map((name,i)=>{const count=complete.filter(r=>r[key]===name).length,node={name,count,x,y,h:count*unit,color:settingColors[i]};y+=node.h+gap;return node;});
@@ -124,10 +124,11 @@
     if(sd!==null){const a=x(mean-sd*reveal),b=x(mean+sd*reveal);ctx.strokeStyle='rgba(251,54,64,'+(reveal*.32)+')';ctx.lineWidth=.8;line(a,y,b,y);ctx.fillStyle='rgba(251,54,64,'+(reveal*.65)+')';for(const endpoint of [a,b]){ctx.beginPath();ctx.arc(endpoint,y,width<650?.7:1,0,Math.PI*2);ctx.fill();}}
     ctx.fillStyle='rgba(251,54,64,'+reveal+')';ctx.beginPath();ctx.arc(m,y,width<650?1.2:1.55,0,Math.PI*2);ctx.fill();
    });
-   summaryBox(participantSummaries[key],x,box,ease((phase-.28-j*.04)/.62),'Experiment means',left);
+   if(data.length)summaryBox(participantSummaries[key],x,box,ease((phase-.28-j*.04)/.62),'Experiment means',left);
   });ctx.restore();
  }
  function drawTemperatures(phase){
+  if(!temperatureRows.length)return;
   const left=width<650?30:34,right=width-left,min=Math.floor(Math.min(...temperatureRows.map(r=>r.low))/10)*10,max=Math.ceil(Math.max(...temperatureRows.map(r=>r.high))/10)*10;
   const x=value=>left+(value-min)/(max-min)*(right-left),top=54,bottom=height-180,axis=height-37,ticks=[];for(let tick=min;tick<=max;tick+=10)ticks.push(tick);
   ctx.save();plotAxis(x,min,max,ticks,top,axis);

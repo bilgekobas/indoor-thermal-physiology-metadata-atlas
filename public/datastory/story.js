@@ -17,15 +17,14 @@ const temperatureById=new Map(storyData.temperatureRanges.map(r=>[r.id,r]));
 const sharedRecords=audit.access.records;
 const sharedById=new Map(sharedRecords.map(r=>[r.id,r]));
 const recordById=new Map(records.map(r=>[r.id,r]));
-const sourceNames={'1083_1':'Dryad','1188_1':'GitHub','1212_1':'Figshare','1243_1':'Mendeley Data','1249_1':'Publication','1269_1':'Dryad'};
 function accessReference(record){
- const url=record.url||record.intendedPublicUrl||record.publicationDoi;
- const status=record.url?(record.status==='verified_public_repository'?'Public code and data':'Public dataset'):record.intendedPublicUrl?'Reported link · unavailable when checked':'No repository link reported';
- return '<div class="repository-reference"><a href="'+escapeHTML(url)+'">'+sourceNames[record.id]+' · '+record.id+'</a><small>'+status+'</small></div>';
+ const url=record.url||record.intendedPublicUrl||record.reportedUrl||record.publicationDoi;
+ const status=record.url?(record.status==='verified_public_repository'?'Public code and data':'Public dataset'):record.intendedPublicUrl?'Reported link · unavailable when checked':record.reportedUrl?'Reported link awaiting verification':'No repository link reported';
+ return '<div class="repository-reference"><a href="'+escapeHTML(url)+'">'+escapeHTML(record.label)+' · '+record.id+'</a><small>'+status+'</small></div>';
 }
 const atlasUrl=document.querySelector('.atlas-link').href;
 const track=pick('text-track'),narrative=pick('narrative-layer');
-track.innerHTML='<div class="opening-title"><div class="eyebrow">Indoor Thermal Physiology Metadata Atlas</div><h1>Measuring<br>the <em>human.</em></h1><p class="dek">What a growing field reveals about how we study the human response to indoor environments.</p><p class="scroll-hint">Scroll to follow 295 experiments</p></div>';
+track.innerHTML='<div class="opening-title"><div class="eyebrow">Indoor Thermal Physiology Metadata Atlas</div><h1>Measuring<br>the <em>human.</em></h1><p class="dek">What a growing field reveals about how we study the human response to indoor environments.</p><p class="scroll-hint">'+window.atlasStoryText.hint+'</p></div>';
 beats.forEach((beat,i)=>{
  const step=document.createElement('section');step.className='story-step';step.id=beat.id;step.style.setProperty('--length',beat.length??1.08);
  step.innerHTML='<div class="sr-only"><h2>'+beat.title+'</h2>'+beat.paragraphs.map(p=>'<p>'+p+'</p>').join('')+(beat.note?'<p>'+beat.note+'</p>':'')+'</div>';
@@ -37,22 +36,21 @@ beats.forEach((beat,i)=>{
  narrative.append(card);beat.card=card;
 });
 const metadataChart=pick('metadata-chart');
-metadataChart.innerHTML='<figcaption id="metadata-chart-caption"><strong>Participant information reported</strong><span>Share of all 295 experiments · fields overlap</span></figcaption><div class="metadata-scale" aria-hidden="true"><span></span><span class="metadata-axis"><span>0%</span><span>100%</span></span><span class="metadata-value-heading">n · %</span></div><ol class="metadata-rows">'+storyData.reporting.map(item=>'<li class="metadata-row" style="--share:'+(item.count/records.length*100)+'%"><span class="metadata-label">'+escapeHTML(item.label)+'</span><span class="metadata-track" aria-hidden="true"><span class="metadata-fill"></span></span><span class="metadata-values"><strong>'+item.count+'</strong><span>'+(item.count/records.length*100).toFixed(1)+'%</span></span></li>').join('')+'</ol>';
+metadataChart.innerHTML='<figcaption id="metadata-chart-caption"><strong>Participant information reported</strong><span>Share of all '+records.length+' experiments · fields overlap</span></figcaption><div class="metadata-scale" aria-hidden="true"><span></span><span class="metadata-axis"><span>0%</span><span>100%</span></span><span class="metadata-value-heading">n · %</span></div><ol class="metadata-rows">'+storyData.reporting.slice(0,8).map(item=>'<li class="metadata-row" style="--share:'+(item.count/records.length*100)+'%"><span class="metadata-label">'+escapeHTML(item.label)+'</span><span class="metadata-track" aria-hidden="true"><span class="metadata-fill"></span></span><span class="metadata-values"><strong>'+item.count+'</strong><span>'+(item.count/records.length*100).toFixed(1)+'%</span></span></li>').join('')+'</ol>';
 const metadataRows=[...metadataChart.querySelectorAll('.metadata-row')];
 const criteriaChart=document.createElement('figure');
 criteriaChart.id='criteria-chart';criteriaChart.className='metadata-chart criteria-chart';criteriaChart.hidden=true;
 criteriaChart.setAttribute('aria-label','Reported participant selection criteria');
-const criterionLabels=['Generally healthy','Thermal history','Medication / treatment','Cardiovascular / blood-pressure disease','Smoking status'];
-criteriaChart.innerHTML='<figcaption><strong>Reported selection criteria</strong><span>Share of all 295 experiments · criteria overlap</span></figcaption><div class="metadata-scale" aria-hidden="true"><span></span><span class="metadata-axis"><span>0%</span><span>100%</span></span><span class="metadata-value-heading">n · %</span></div><ol class="metadata-rows">'+criteria.map((item,i)=>'<li class="metadata-row" style="--share:'+(item.count/records.length*100)+'%"><span class="metadata-label">'+criterionLabels[i]+'</span><span class="metadata-track" aria-hidden="true"><span class="metadata-fill"></span></span><span class="metadata-values"><strong>'+item.count+'</strong><span>'+(item.count/records.length*100).toFixed(1)+'%</span></span></li>').join('')+'</ol>';
+criteriaChart.innerHTML='<figcaption><strong>Reported selection criteria</strong><span>Share of all '+records.length+' experiments · criteria overlap</span></figcaption><div class="metadata-scale" aria-hidden="true"><span></span><span class="metadata-axis"><span>0%</span><span>100%</span></span><span class="metadata-value-heading">n · %</span></div><ol class="metadata-rows">'+criteria.map(item=>'<li class="metadata-row" style="--share:'+(item.count/records.length*100)+'%"><span class="metadata-label">'+escapeHTML(item.label)+'</span><span class="metadata-track" aria-hidden="true"><span class="metadata-fill"></span></span><span class="metadata-values"><strong>'+item.count+'</strong><span>'+(item.count/records.length*100).toFixed(1)+'%</span></span></li>').join('')+'</ol>';
 metadataChart.after(criteriaChart);
 const accessChart=document.createElement('figure');
 accessChart.id='access-chart';accessChart.className='access-chart';accessChart.hidden=true;
-accessChart.setAttribute('aria-label','The six reported sharing records and their access routes');
+accessChart.setAttribute('aria-label','Reported sharing records and their access routes');
 accessChart.innerHTML='<figcaption><h3>Reported routes to data or code</h3><div class="access-summary"><span><strong>'+sharedRecords.length+'</strong> sharing records</span><span><strong>'+sharedRecords.filter(r=>r.url).length+'</strong> verified repositories</span></div></figcaption><div class="access-routes">'+sharedRecords.map(record=>{
- const verified=Boolean(record.url),url=record.url||record.intendedPublicUrl||record.publicationDoi;
- const status=verified?'Verified repository':record.intendedPublicUrl?'Reported link unavailable':'Repository URL not located';
- const action=verified?'View repository':record.intendedPublicUrl?'View reported DOI':'View publication';
- return '<article class="access-route" data-verified="'+verified+'"><p class="route-status">'+status+'</p><h3>'+sourceNames[record.id]+'</h3><p class="route-experiment">Experiment '+record.id+'</p><a href="'+escapeHTML(url)+'">'+action+'</a></article>';
+ const verified=Boolean(record.url),url=record.url||record.intendedPublicUrl||record.reportedUrl||record.publicationDoi;
+ const status=verified?'Verified repository':record.intendedPublicUrl?'Reported link unavailable':record.reportedUrl?'Reported link awaiting verification':'Repository URL not located';
+ const action=verified?'View repository':record.intendedPublicUrl?'View reported DOI':record.reportedUrl?'View reported link':'View publication';
+ return '<article class="access-route" data-verified="'+verified+'"><p class="route-status">'+status+'</p><h3>'+escapeHTML(record.label)+'</h3><p class="route-experiment">Experiment '+record.id+'</p><a href="'+escapeHTML(url)+'">'+action+'</a></article>';
 }).join('')+'</div>';
 criteriaChart.after(accessChart);
 const metrics={
@@ -65,7 +63,7 @@ const details = [
   {id:'1210_1',short:'iButtons',title:'Four-site Ramanathan mean',sensor:'DS1922 Thermochron iButtons',sites:'Chest, upper arm, thigh, calf',hours:[[9,12.5],[14,17.5]],time:'09:00–12:30 · 14:00–17:30',doi:'10.1016/j.buildenv.2023.110203'},
   {id:'1232_1',short:'Infrared camera',title:'Local skin temperatures',sensor:'A315 infrared camera',sites:'Nose, both cheeks and both hands',hours:[[15,20]],time:'15:00–20:00',doi:'10.1016/j.buildenv.2022.109811'},
   {id:'1003_1',short:'Thermocouples',title:'Eight-site ISO 9886 mean',sensor:'Thermocouples',sites:'Forehead, chest, back, upper arm, lower arm, hand, thigh, calf',hours:[],time:'Not reported',doi:'10.1177/1420326X12447614'},
-];
+].filter(item=>caseContext[item.id]?.['pub-doi']==='https://doi.org/'+item.doi);
 
 details.forEach((item,i)=>{
  const button=document.createElement('button');button.type='button';button.textContent=item.id;button.setAttribute('aria-pressed',i===selectedCase);
@@ -109,7 +107,7 @@ function updateBodyArtwork(artwork){
 function packed(w,h,exclusions=[],density=1){
   const order=records.map((r,index)=>({n:r.size??0,index})).sort((a,b)=>b.n-a.n);
   const freeArea=Math.max(w*h*.15,w*h-exclusions.reduce((sum,box)=>sum+Math.max(0,box.right-box.left)*Math.max(0,box.bottom-box.top),0));
-  let ratio=Math.min(Math.sqrt(.31*freeArea/(Math.PI*13777)),Math.min(w,h)/107)*density;
+  let ratio=Math.min(Math.sqrt(.31*freeArea/(Math.PI*Math.max(1,window.atlasStoryStats.sampleSum))),Math.min(w,h)/107)*density;
   const limit=Math.min(1.2,Math.sqrt(w*h/records.length)*.08);
   for(let attempt=0;attempt<12;attempt++){
     let seed=4282;
@@ -143,7 +141,7 @@ for(const site of geography.sites){
 }
 const sites=[...siteGroups.values()].map(site=>({...site,count:site.ids.length,sampleSum:site.ids.reduce((s,id)=>s+(recordById.get(id)?.size??0),0)}));
 const siteByExperiment=new Map(records.map(r=>[r.id,sites.flatMap((s,i)=>s.ids.includes(r.id)?[i]:[])]));
-const mapPaths=geography.paths.map(p=>({...p,path:new Path2D(p.d)}));
+const mapPaths=window.atlasMapPaths.map(p=>({...p,path:new Path2D(p.d)}));
 const hitCanvas=document.createElement('canvas');hitCanvas.width=820;hitCanvas.height=400;
 const hitCtx=hitCanvas.getContext('2d');
 let tooltipPinned=false;
@@ -315,7 +313,7 @@ function drawMembership(state,previous,motion){
   records.forEach((record,i)=>{const a=from[i],b=group.points[i];ctx.globalAlpha=j?motion:1;ctx.fillStyle=colorBlend(pink,colorFor(state,record,j),highlight);ctx.beginPath();ctx.arc(mix(a.x,b.x,motion),mix(a.y,b.y,motion),mix(a.r,b.r,motion),0,7);ctx.fill();});
   ctx.globalAlpha=motion;const item=definitions[j],criteriaNames=width<1000?['Healthy','Thermal history','Medication','CV / BP','Smoking']:['Generally healthy','Thermal history','Medication / treatment','Cardiovascular / BP','Smoking status'],name=state.scene==='criteria'?criteriaNames[j]:width<1000?(short[item.label]??item.label):item.label;
   text(name,group.cx,group.cy+group.radius+21,'center',false,width<650?9.5:width<1000?11:13);
-  text(item.count+' / 295 · '+Math.round(item.count/295*100)+'%',group.cx,group.cy+group.radius+40,'center',true,width<650?9.5:13);
+  text(item.count+' / '+records.length+' · '+Math.round(item.count/records.length*100)+'%',group.cx,group.cy+group.radius+40,'center',true,width<650?9.5:13);
  });ctx.globalAlpha=1;
 }
 function drawDepartingCopies(previous,to,motion){
@@ -346,7 +344,7 @@ function showBeat(state){
  accessChart.hidden=!(figureMode?.internal&&state.scene==='reuse');
  pick('plot-help').textContent=map?'Hover or tap the map to explore locations':'';
  const body=state.scene==='bodies';bodyReveal=state.reveal??0;
- pick('scene-label').textContent=['intro','growth','map','bodies','end','reporting'].includes(state.scene)||figureMode?.internal&&['criteria','reuse'].includes(state.scene)?'':state.scene==='participants'?'Two views of experiment-level means':membershipDefinitions[state.scene]?membershipDefinitions[state.scene].length+' overlapping views of 295 experiments':state.scene==='temperatures'?'One row = one experiment’s coded temperature range':state.scene==='reuse'?'Circle area = reported sample size':'One circle = one experiment';
+ pick('scene-label').textContent=['intro','growth','map','bodies','end','reporting'].includes(state.scene)||figureMode?.internal&&['criteria','reuse'].includes(state.scene)?'':state.scene==='participants'?'Two views of experiment-level means':membershipDefinitions[state.scene]?membershipDefinitions[state.scene].length+' overlapping views of '+records.length+' experiments':state.scene==='temperatures'?'One row = one experiment’s coded temperature range':state.scene==='reuse'?'Circle area = reported sample size':'One circle = one experiment';
  if(figureMode?.internal){pick('map-key').hidden=true;pick('plot-help').hidden=true;pick('scene-label').hidden=true;}
  updateCases();
 }

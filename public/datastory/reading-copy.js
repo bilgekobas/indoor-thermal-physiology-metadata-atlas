@@ -1,72 +1,35 @@
-window.atlasReadingCopy={
-  "hero": {
-    "dek": "295 indoor thermal-physiology experiments reported in journal articles published from 2013 to 2024."
-  },
+window.atlasReadingCopy = {
   "chapters": {
     "growth": {
       "eyebrow": "Growth",
-      "title": "295 experiments, 2013–2024.",
-      "lead": "",
-      "paragraphs": [
-        "The review included <strong>295 experiments</strong>. Annual counts increased from <strong>5 in 2013</strong> to <strong>42 in 2024</strong>.",
-        "Sample size was reported for <strong>292 experiments</strong>. Their reported sample sizes totalled <strong>13,777</strong>, with a median of <strong>22 per experiment</strong>."
-      ]
+      "lead": ""
     },
     "geography": {
-      "eyebrow": "Geography",
-      "title": "26 countries and territories. 73 cities.",
-      "paragraphs": [
-        "<strong>165 of 295 experiments (56%)</strong> were conducted in China.",
-        "Coordinates were available for <strong>275 experiments</strong>."
-      ]
+      "eyebrow": "Geography"
     },
     "participants": {
       "eyebrow": "Participants",
-      "title": "Participant age and BMI",
-      "paragraphs": [
-        "Mean age was available for <strong>240 experiments</strong>; the median of these means was <strong>23.4 years</strong>.",
-        "Mean BMI was available for <strong>165 experiments</strong>; the median of these means was <strong>21.5 kg/m²</strong>."
-      ]
+      "title": "Participant age and BMI"
     },
     "reporting": {
       "eyebrow": "Reported participant information",
-      "title": "Sex, age and BMI were reported most often.",
-      "paragraphs": [
-        "Sex was reported in <strong>284 experiments (96%)</strong>, age in <strong>269 (91%)</strong>, BMI in <strong>248 (84%)</strong>, weight in <strong>218 (74%)</strong> and height in <strong>217 (74%)</strong>.",
-        "Chronotype was reported in <strong>7 experiments (2.4%)</strong> and regular sleep timing in <strong>5 (1.7%)</strong>. Basal/resting metabolic rate, regular work time, recent chronotype shifts and ponderal index were each reported in <strong>one experiment (0.3%)</strong>."
-      ]
+      "title": "Sex, age and BMI were reported most often."
     },
     "profile": {
       "eyebrow": "Selection criteria",
-      "title": "Participant selection criteria",
-      "paragraphs": [
-        "Generally healthy participants were required in <strong>211 experiments (72%)</strong>; thermal history was an eligibility criterion in <strong>98 (33%)</strong>.",
-        "Criteria concerning medication or ongoing treatment and cardiovascular/blood-pressure disease were each reported in <strong>57 experiments (19%)</strong>. Smoking status was a criterion in <strong>47 (16%)</strong>."
-      ]
+      "title": "Participant selection criteria"
     },
     "setting": {
       "eyebrow": "Setting and space",
-      "title": "Experimental settings and spatial types",
-      "paragraphs": [
-        "<strong>216 experiments (73%)</strong> used laboratory settings, <strong>36 (12%)</strong> living-laboratory settings and <strong>35 (12%)</strong> field settings. Four used mixed settings; four did not report a setting.",
-        "Office/workstation layouts were reported in <strong>140 experiments (47%)</strong>. Among <strong>247 experiments</strong> with both descriptors, <strong>90</strong> combined a laboratory setting with an office/workstation layout."
-      ]
+      "title": "Experimental settings and spatial types"
     },
     "temperatures": {
       "eyebrow": "Thermal conditions",
-      "title": "Tested temperatures",
-      "paragraphs": [
-        "Numeric temperature bounds were available for <strong>281 experiments</strong>. The median lower bound was <strong>20 °C</strong>; the median upper bound was <strong>30 °C</strong>.",
-        "The middle 50% of lower bounds lay between <strong>18 and 24 °C</strong>; the middle 50% of upper bounds lay between <strong>27 and 32 °C</strong>."
-      ]
+      "title": "Tested temperatures"
     },
     "signals": {
       "eyebrow": "Physiological measurements",
-      "title": "Physiological signals and sensors",
-      "paragraphs": [
-        "Skin temperature was measured in <strong>239 experiments (81%)</strong>, heart/pulse rate in <strong>148 (50%)</strong> and core/body temperature in <strong>48 (16%)</strong>.",
-        "<strong>15 signals</strong> were each measured in at least five experiments. These accounted for <strong>712 experiment–signal–method records</strong> and <strong>52 sensing-method labels</strong>."
-      ]
+      "title": "Physiological signals and sensors"
     },
     "measurement": {
       "eyebrow": "Sites and devices",
@@ -75,11 +38,7 @@ window.atlasReadingCopy={
     },
     "reuse": {
       "eyebrow": "Data and code",
-      "title": "Data and code access",
-      "paragraphs": [
-        "<strong>Six of 295 experiments (2%)</strong> were coded as sharing data or code.",
-        "<strong>Four public repository links were verified.</strong> One other record had no repository URL; one reported link was unavailable."
-      ]
+      "title": "Data and code access"
     },
     "atlas": {
       "eyebrow": "",
@@ -88,9 +47,7 @@ window.atlasReadingCopy={
     }
   },
   "climate": {
-    "eyebrow": "Location climate",
-    "title": "129 experiments in humid subtropical locations.",
-    "text": "Humid subtropical locations accounted for <strong>44% of experiments</strong> and <strong>54% of the sum of reported sample sizes</strong>. Eight named climate groups were represented."
+    "eyebrow": "Location climate"
   },
   "comparisonContext": [
     {

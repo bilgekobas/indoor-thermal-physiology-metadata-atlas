@@ -26,14 +26,10 @@ jobs:
           node-version: 20
 
       - name: Install dependencies
-        run: |
-          rm -f package-lock.json
-          npm install --no-audit --no-fund
-          npm ls vite || true
-          npx --yes vite@5.4.21 --version
+        run: npm ci
 
       - name: Install Python dependencies
-        run: python3 -m pip install pandas numpy
+        run: python3 -m pip install -r requirements.txt
 
       - name: Build
         run: npm run build

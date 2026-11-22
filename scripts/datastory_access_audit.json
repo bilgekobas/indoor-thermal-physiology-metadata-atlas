@@ -1,0 +1,36 @@
+{
+  "checkedOn": "2026-11-21",
+  "records": {
+    "1083_1": {
+      "codedLink": "https://datadryad.org/dataset/doi:10.15146/R3S68S",
+      "url": "https://datadryad.org/dataset/doi:10.15146/R3S68S",
+      "status": "verified_public_dataset",
+      "verification": "Dryad landing page lists raw_data_Liu.csv and Description of variables_Liu.docx"
+    },
+    "1188_1": {
+      "codedLink": "https://github.com/FedericoTartarini/dorn-longitudinal-tc-study",
+      "url": "https://github.com/FedericoTartarini/dorn-longitudinal-tc-study",
+      "status": "verified_public_repository",
+      "verification": "Public repository with code and data directories; paper confirms full dataset and source code; removed embedded space in corpus URL"
+    },
+    "1212_1": {
+      "codedLink": "https://doi.org/10.6084/m9.fgshare.21878520.v1",
+      "url": "https://doi.org/10.6084/m9.figshare.21878520.v1",
+      "status": "verified_public_dataset",
+      "verification": "DataCite DOI metadata and Figshare API is_public=true, 6 files; corrected fgshare typo in corpus URL"
+    },
+    "1243_1": {
+      "codedLink": "https://data.mendeley.com/datasets/nx8kd33dng/4",
+      "url": "https://data.mendeley.com/datasets/nx8kd33dng/4",
+      "status": "verified_public_dataset",
+      "verification": "Mendeley Data v4 lists physiological PPG/EDA/SKT and thermal preference dataset"
+    },
+    "1269_1": {
+      "codedLink": "https://doi.org/10.5061/dryad.1vhhmgr1x",
+      "url": null,
+      "intendedPublicUrl": "https://datadryad.org/stash/dataset/doi:10.5061/dryad.1vhhmgr1x",
+      "status": "intended_public_link_currently_404",
+      "verification": "Author webpage links public Dryad URL; it returns404; DataCite DOI lookup404. Raw corpus URL is a private IP and was NOT fetched."
+    }
+  }
+}

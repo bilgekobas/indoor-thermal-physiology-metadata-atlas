@@ -4,9 +4,16 @@ const reduceMotion=matchMedia('(prefers-reduced-motion: reduce)');
 const atlasDestination=document.body.dataset.atlasUrl;
 const escapeReading=value=>String(value).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const readingText=window.atlasReadingCopy;
+const numbers=window.atlasStoryText;
+readingText.chapters.growth.title=numbers.growthTitle;
+readingText.chapters.geography.title=numbers.geoTitle;
+for(const [id,paragraphs] of Object.entries(numbers.chapters))readingText.chapters[id].paragraphs=paragraphs;
+readingText.climate.title=numbers.climateTitle;
+readingText.climate.text=numbers.climateText;
 const comparisonContext=readingText.comparisonContext;
 const overrides=readingText.chapters;
-document.querySelector('.reading-dek').textContent=readingText.hero.dek;
+document.querySelector('.reading-dek').textContent=numbers.dek;
+document.querySelector('.reading-hint').textContent=numbers.hint;
 function copyMarkup(beat){
  const text=overrides[beat.id]??beat,paragraphs=text.paragraphs,lead=text.lead??beat.lead;
  return '<div class="chapter-copy">'+((text.eyebrow??beat.eyebrow)?'<p class="eyebrow">'+(text.eyebrow??beat.eyebrow)+'</p>':'')+'<h2>'+(text.title??beat.title)+'</h2>'+(lead?'<p class="lead">'+lead+'</p>':'')+paragraphs.map(t=>'<p>'+t+'</p>').join('')+(beat.action?'<a class="reading-action" href="'+atlasDestination+'">Explore the Atlas</a>':'')+'</div>';
@@ -16,7 +23,7 @@ const articleChapters=readingOrder.map(id=>{
  const beat=beatById.get(id),element=document.createElement('section');element.className='reading-chapter';element.id=id;element.dataset.scene=beat.scene;
  if(id==='growth'){
   element.classList.add('growth-chapter');
-  element.innerHTML='<div class="growth-pin">'+copyMarkup(beat)+'<figure class="growth-field">'+frameMarkup(beat)+'</figure><div class="growth-space" aria-hidden="true"></div><p class="chapter-caption growth-caption">Circle area = sample size · n = 292</p></div>';
+  element.innerHTML='<div class="growth-pin">'+copyMarkup(beat)+'<figure class="growth-field">'+frameMarkup(beat)+'</figure><div class="growth-space" aria-hidden="true"></div><p class="chapter-caption growth-caption">'+numbers.growthCaption+'</p></div>';
  }else if(id==='geography'){
   element.classList.add('geography-chapter');
   element.innerHTML=copyMarkup(beat)+'<div class="geography-scroll"><figure class="chapter-figure geography-graphic">'+frameMarkup(beat)+'</figure><div class="geography-steps"><div class="map-overview-spacer" aria-hidden="true"></div><section class="context-step" id="climate"><div class="context-card"><p class="eyebrow">'+readingText.climate.eyebrow+'</p><h3>'+readingText.climate.title+'</h3><p>'+readingText.climate.text+'</p></div></section></div></div>';

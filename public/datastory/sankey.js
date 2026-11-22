@@ -1,12 +1,5 @@
 const sankeyData=window.atlasSankeyData;
-const domains=[
- {name:'Peripheral thermal exchange',color:'#5B5BFF',signals:['Skin temperature','Near body temperature','Heat flux','Skin blood flow']},
- {name:'Cardiovascular heat transport',color:'#FF4DA6',signals:['Heart/Pulse rate','Blood pressure','Oxygen saturation']},
- {name:'Central thermal state',color:'#F1FF71',signals:['Core/Body temperature','Exhaled breath temperature']},
- {name:'Sudomotor / electrodermal',color:'#79FFFB',signals:['Sweat indicators','Skin conductance']},
- {name:'Neuro-muscular electrophysiology',color:'#4A4A4A',signals:['EEG','EMG','EOG','Movement','Respiration']},
- {name:'Metabolic & biochemical',color:'#BBBBBB',signals:['Metabolic rate/Gas exchange','Biomarkers']}
-];
+const domains=window.atlasSignalDomains;
 const studyTotals=Object.fromEntries(sankeyData.signal_totals.map(r=>[r.signal,r.count]));
 const instanceTotals=Object.fromEntries(sankeyData.signal_instance_totals.map(r=>[r.signal,r.count]));
 const allSignals=domains.flatMap((d,index)=>d.signals.filter(s=>studyTotals[s]>=5).sort((a,b)=>studyTotals[b]-studyTotals[a]).map(name=>({name,total:instanceTotals[name],studyTotal:studyTotals[name],color:d.color,domain:index})));
@@ -88,7 +81,7 @@ function renderSankey(){
   g.append(svgElement('rect',{x:hitLeft,y:node.y,width:hitRight-hitLeft,height:node.h,fill:'transparent','pointer-events':'all',class:'sankey-hit'}));
   g.append(svgElement('rect',{x:node.x,y:node.y,width:12,height:node.h,fill:node.color,rx:1}));
   const tx=level==='brand'?node.x+19:node.x-9,anchor=level==='brand'?'start':'end';
-  const count=node.studyTotal!==undefined?node.studyTotal+' / 295 · '+Math.round(node.studyTotal/295*100)+'%':node.total+' instances';
+  const count=node.studyTotal!==undefined?node.studyTotal+' / '+window.atlasStoryStats.total+' · '+Math.round(node.studyTotal/window.atlasStoryStats.total*100)+'%':node.total+' instances';
   const label=svgElement('text',{x:tx,y:node.y+node.h/2-(node.lines.length-1)*8.5-4,'text-anchor':anchor,class:'sankey-label'});
   node.lines.forEach((line,i)=>label.append(svgElement('tspan',{x:tx,dy:i?17:0},line)));
   label.append(svgElement('tspan',{x:tx,dy:17,class:'sankey-count'},count));g.append(label);

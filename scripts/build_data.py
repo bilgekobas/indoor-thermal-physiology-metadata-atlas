@@ -11,6 +11,7 @@ from pathlib import Path
 
 from publication_periods import publication_period, publication_periods
 from build_author_network import write_author_network
+from build_datastory import write_datastory
 
 SRC = str(Path(__file__).resolve().parents[1] / 'public' / 'data' / 'corpus_main_dataset.csv')
 OUT_DIR = Path(__file__).resolve().parents[1] / 'public' / 'data'
@@ -2094,11 +2095,11 @@ real_links = studies_u[~studies_u['data-link'].astype(str).isin(CODES) & studies
 # entered), which would otherwise render as a broken link on the site.
 real_links['data-link'] = real_links['data-link'].astype(str).str.replace(' ', '', regex=False)
 # One historic local-network URL was retained during corpus import although
-# the supplement's verified link is its persistent Dryad DOI.
+# the reported public route is a Dryad DOI. Availability is assessed separately.
 real_links.loc[real_links['id'] == '1269_1', 'data-link'] = 'https://doi.org/10.5061/dryad.1vhhmgr1x'
 
 def data_resource_type(link):
-    """Human-readable type for the six directly accessible resources."""
+    """Human-readable type for a reported resource link."""
     link = str(link).lower()
     if 'datadryad.org' in link or 'dryad.' in link:
         return 'Dryad data repository'
@@ -2110,7 +2111,7 @@ def data_resource_type(link):
         return 'GitHub repository'
     if 'onlinelibrary.wiley.com' in link:
         return 'Publisher supplementary file'
-    return 'Accessible resource'
+    return 'Reported resource'
 
 data_resources = real_links[['id', 'id-title', 'pub-doi', 'data-link']].copy()
 data_resources = data_resources.rename(columns={
@@ -2127,7 +2128,7 @@ with open(OUT_DIR / 'open_data.json', 'w') as f:
         'n_total': len(studies_u),
         'studies_with_link': data_resources.to_dict('records'),
     }, f, indent=2)
-print(f'open_data.json: {len(real_links)} studies with a real open-data link of {len(studies_u)}')
+print(f'open_data.json: {len(real_links)} experiments with a coded resource link of {len(studies_u)}')
 
 # ── C3b. Data-availability status by period, for the Fig 12 heatmap ─────
 # Reuses period_n_all (total experiments per period, computed above at A1)
@@ -2475,3 +2476,6 @@ with open(OUT_DIR / 'bundle.json', 'w', encoding='utf-8') as f:
     json.dump(_sanitize_for_json(bundle), f, indent=2, ensure_ascii=False)
 
 print(f'bundle.json written with {len(bundle)} datasets')
+
+# The landing story and the Atlas chapters rebuild from the same corpus.
+write_datastory(Path(SRC), OUT_DIR, studies_u, city_rows, physio, clean_num, is_missing_code)
