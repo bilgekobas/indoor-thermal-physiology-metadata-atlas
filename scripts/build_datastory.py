@@ -100,7 +100,7 @@ def write_datastory(source, output, studies, city_rows, physiology, clean_num, i
         experiment = row['id']
         size = clean_num(row['pop-no-tot'])
         climate_group = row['climate_group']
-        if pd.isna(climate_group):
+        if pd.isna(row['id-climate-class']) or pd.isna(climate_group):
             climate_group = None
         group = CLIMATE_LABELS.get(climate_group, climate_group)
         zone = CLIMATE_GROUPS.index(group if group in CLIMATE_GROUPS else 'Other / mixed')
