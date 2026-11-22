@@ -7,6 +7,7 @@ from pathlib import Path
 from urllib.parse import urlsplit
 
 import numpy as np
+import pandas as pd
 
 CLIMATE_GROUPS = [
     'Humid subtropical', 'Continental', 'Cold semi-arid', 'Oceanic',
@@ -98,7 +99,10 @@ def write_datastory(source, output, studies, city_rows, physiology, clean_num, i
     for row in studies.to_dict('records'):
         experiment = row['id']
         size = clean_num(row['pop-no-tot'])
-        group = CLIMATE_LABELS.get(row['climate_group'], row['climate_group'])
+        climate_group = row['climate_group']
+        if pd.isna(climate_group):
+            climate_group = None
+        group = CLIMATE_LABELS.get(climate_group, climate_group)
         zone = CLIMATE_GROUPS.index(group if group in CLIMATE_GROUPS else 'Other / mixed')
         country = row['id-country']
         country = {'Great Britain': 'UK', 'Republic of Korea': 'South Korea'}.get(country, country)
