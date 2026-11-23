@@ -1,110 +1,111 @@
 {
   "data": [
     {
-      "period": "2013\u201314",
+      "period": "2013–14",
       "status": "NR",
       "count": 11
     },
     {
-      "period": "2015\u201316",
+      "period": "2015–16",
       "status": "NR",
       "count": 15
     },
     {
-      "period": "2017\u201318",
+      "period": "2017–18",
       "status": "NR",
-      "count": 47
+      "count": 41
     },
     {
-      "period": "2019\u201320",
-      "status": "Available",
-      "count": 1
-    },
-    {
-      "period": "2019\u201320",
-      "status": "NC",
-      "count": 6
-    },
-    {
-      "period": "2019\u201320",
-      "status": "NR",
-      "count": 54
-    },
-    {
-      "period": "2019\u201320",
+      "period": "2019–20",
       "status": "Not available for sharing",
       "count": 1
     },
     {
-      "period": "2019\u201320",
-      "status": "Upon request",
-      "count": 1
-    },
-    {
-      "period": "2021\u201322",
-      "status": "Available",
-      "count": 1
-    },
-    {
-      "period": "2021\u201322",
-      "status": "NC",
-      "count": 3
-    },
-    {
-      "period": "2021\u201322",
+      "period": "2019–20",
       "status": "NR",
       "count": 51
     },
     {
-      "period": "2021\u201322",
-      "status": "Not available for sharing",
-      "count": 8
-    },
-    {
-      "period": "2021\u201322",
+      "period": "2019–20",
       "status": "Upon request",
-      "count": 18
+      "count": 1
     },
     {
-      "period": "2023\u201324",
+      "period": "2019–20",
+      "status": "NC",
+      "count": 5
+    },
+    {
+      "period": "2019–20",
       "status": "Available",
-      "count": 4
+      "count": 1
     },
     {
-      "period": "2023\u201324",
+      "period": "2021–22",
       "status": "NC",
       "count": 3
     },
     {
-      "period": "2023\u201324",
+      "period": "2021–22",
       "status": "NR",
-      "count": 12
+      "count": 47
     },
     {
-      "period": "2023\u201324",
-      "status": "Not available for sharing",
-      "count": 16
-    },
-    {
-      "period": "2023\u201324",
+      "period": "2021–22",
       "status": "Upon request",
-      "count": 43
+      "count": 18
+    },
+    {
+      "period": "2021–22",
+      "status": "Not available for sharing",
+      "count": 8
+    },
+    {
+      "period": "2021–22",
+      "status": "Available",
+      "count": 1
+    },
+    {
+      "period": "2023–24",
+      "status": "Upon request",
+      "count": 38
+    },
+    {
+      "period": "2023–24",
+      "status": "NC",
+      "count": 3
+    },
+    {
+      "period": "2023–24",
+      "status": "NR",
+      "count": 11
+    },
+    {
+      "period": "2023–24",
+      "status": "Not available for sharing",
+      "count": 14
+    },
+    {
+      "period": "2023–24",
+      "status": "Available",
+      "count": 4
     }
   ],
   "period_n": {
-    "2013\u201314": 11,
-    "2015\u201316": 15,
-    "2017\u201318": 47,
-    "2019\u201320": 63,
-    "2021\u201322": 81,
-    "2023\u201324": 78
+    "2013–14": 11,
+    "2015–16": 15,
+    "2017–18": 41,
+    "2019–20": 59,
+    "2021–22": 77,
+    "2023–24": 70
   },
   "periods": [
-    "2013\u201314",
-    "2015\u201316",
-    "2017\u201318",
-    "2019\u201320",
-    "2021\u201322",
-    "2023\u201324"
-  ]
+    "2013–14",
+    "2015–16",
+    "2017–18",
+    "2019–20",
+    "2021–22",
+    "2023–24"
+  ],
+  "unit": "publications"
 }
