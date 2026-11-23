@@ -744,17 +744,18 @@ export default function ChapterContext({ data }) {
 
       <ChapterSection
         title="Open data, in practice"
-        intro={`Of ${open_data.n_total} experiments, ${open_data.n_with_real_data_link} have a coded data or supplementary resource link. The list includes reported links whose current availability may vary.`}
+        intro={`Of ${summary.n_publications} publications, ${new Set(open_data.studies_with_link.map((r) => r.id.split('_')[0])).size} report a coded data or supplementary resource link. Data-availability categories and percentages in Figure 12 are calculated once per publication, including articles reporting multiple experiments. Reported resource links may vary in current accessibility.`}
       >
         <FigureCard figNumber={figNum('data-availability')} title="Data availability statement, as reported" plotWidth={620}>
           <PeriodHeatmap
             rows={open_data.data_avail_distribution.map((d) => d.status)}
             periods={data_avail_by_period.periods}
             periodN={data_avail_by_period.period_n}
-            rowTotals={Object.fromEntries(open_data.data_avail_distribution.map((d) => [d.status, d.count]))}
+            rowTotals={Object.fromEntries(open_data.data_avail_distribution.map((d) => [d.status, data_avail_by_period.data.filter((r) => r.status === d.status).reduce((sum, r) => sum + r.count, 0)]))}
             getCount={(status, p) => data_avail_by_period.data.find((r) => r.status === status && r.period === p)?.count || 0}
             labelWidth={170}
             cellWidth={78}
+            unit="publications"
           />
         </FigureCard>
         <ReportedDataResources resources={open_data.studies_with_link} />
