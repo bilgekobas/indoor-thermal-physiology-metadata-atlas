@@ -20333,7 +20333,7 @@
       "settings": [
         {
           "label": "Lab",
-          "n": 216
+          "n": 220
         },
         {
           "label": "Field",
@@ -20345,7 +20345,7 @@
         },
         {
           "label": "Mixed",
-          "n": 4
+          "n": 0
         },
         {
           "label": "Setting unspecified",
@@ -20359,16 +20359,19 @@
           "cells": [
             {
               "setting": "Lab",
-              "count": 176,
+              "count": 180,
               "ids": [
                 "1001_1",
                 "1002_1",
                 "1003_1",
+                "1004_1",
                 "1005_1",
                 "1006_1",
                 "1007_1",
                 "1008_1",
+                "1009_1",
                 "1010_1",
+                "1011_1",
                 "1012_1",
                 "1013_1",
                 "1014_1",
@@ -20523,6 +20526,7 @@
                 "1261_1",
                 "1265_1",
                 "1236_1",
+                "1208_1",
                 "1244_1",
                 "1215_1",
                 "1218_1",
@@ -20609,13 +20613,8 @@
             },
             {
               "setting": "Mixed",
-              "count": 4,
-              "ids": [
-                "1004_1",
-                "1009_1",
-                "1011_1",
-                "1208_1"
-              ]
+              "count": 0,
+              "ids": []
             },
             {
               "setting": "Setting unspecified",
@@ -20816,11 +20815,13 @@
           "cells": [
             {
               "setting": "Lab",
-              "count": 43,
+              "count": 45,
               "ids": [
+                "1004_1",
                 "1005_1",
                 "1006_1",
                 "1008_1",
+                "1009_1",
                 "1012_1",
                 "1014_1",
                 "1022_1",
@@ -20879,11 +20880,8 @@
             },
             {
               "setting": "Mixed",
-              "count": 2,
-              "ids": [
-                "1004_1",
-                "1009_1"
-              ]
+              "count": 0,
+              "ids": []
             },
             {
               "setting": "Setting unspecified",
@@ -21049,7 +21047,7 @@
           "cells": [
             {
               "setting": "Lab",
-              "count": 31,
+              "count": 32,
               "ids": [
                 "1006_1",
                 "1024_1",
@@ -21081,7 +21079,8 @@
                 "1222_1",
                 "1248_1",
                 "1258_1",
-                "1265_1"
+                "1265_1",
+                "1208_1"
               ]
             },
             {
@@ -21102,10 +21101,8 @@
             },
             {
               "setting": "Mixed",
-              "count": 1,
-              "ids": [
-                "1208_1"
-              ]
+              "count": 0,
+              "ids": []
             },
             {
               "setting": "Setting unspecified",
@@ -23002,7 +22999,7 @@
             "Not reported"
           ],
           "setting": [
-            "Mixed"
+            "Lab"
           ],
           "typology": [
             "Office/Workstations"
@@ -23907,7 +23904,7 @@
             "Not reported"
           ],
           "setting": [
-            "Mixed"
+            "Lab"
           ],
           "typology": [
             "Seating"
@@ -24197,7 +24194,7 @@
             "BIOPAC"
           ],
           "setting": [
-            "Mixed"
+            "Lab"
           ],
           "typology": [
             "Not reported"
@@ -56089,7 +56086,7 @@
             "iButton"
           ],
           "setting": [
-            "Mixed"
+            "Lab"
           ],
           "typology": [
             "Seating"
@@ -61573,12 +61570,7 @@
       {
         "period": "2013–14",
         "exp-type": "Lab",
-        "count": 8
-      },
-      {
-        "period": "2013–14",
-        "exp-type": "Mixed",
-        "count": 3
+        "count": 11
       },
       {
         "period": "2015–16",
@@ -61648,17 +61640,12 @@
       {
         "period": "2023–24",
         "exp-type": "Lab",
-        "count": 56
+        "count": 57
       },
       {
         "period": "2023–24",
         "exp-type": "Living Lab",
         "count": 14
-      },
-      {
-        "period": "2023–24",
-        "exp-type": "Mixed",
-        "count": 1
       }
     ],
     "periods": [
@@ -63871,17 +63858,17 @@
       {
         "exp-type": "Lab",
         "exp-spatial-typology": "NR",
-        "count": 42
+        "count": 43
       },
       {
         "exp-type": "Lab",
         "exp-spatial-typology": "Office/Workstations",
-        "count": 90
+        "count": 91
       },
       {
         "exp-type": "Lab",
         "exp-spatial-typology": "Seating",
-        "count": 33
+        "count": 35
       },
       {
         "exp-type": "Living Lab",
@@ -63907,21 +63894,6 @@
         "exp-type": "Living Lab",
         "exp-spatial-typology": "Seating",
         "count": 1
-      },
-      {
-        "exp-type": "Mixed",
-        "exp-spatial-typology": "NR",
-        "count": 1
-      },
-      {
-        "exp-type": "Mixed",
-        "exp-spatial-typology": "Office/Workstations",
-        "count": 1
-      },
-      {
-        "exp-type": "Mixed",
-        "exp-spatial-typology": "Seating",
-        "count": 2
       }
     ]
   },
@@ -146060,7 +146032,7 @@
       "pub-year": 2013,
       "pub-doi": "https://doi.org/10.1016/j.buildenv.2013.08.029",
       "pub-type": "J",
-      "exp-type": "Mixed",
+      "exp-type": "Lab",
       "exp-spatial-typology": "Office/Workstations",
       "exp-domains": "Air temperature",
       "data-avail": "NR",
@@ -146165,7 +146137,7 @@
       "pub-year": 2014,
       "pub-doi": "https://doi.org/10.1016/j.ergon.2014.01.005",
       "pub-type": "J",
-      "exp-type": "Mixed",
+      "exp-type": "Lab",
       "exp-spatial-typology": "Seating",
       "exp-domains": "Air temperature: Ramp",
       "data-avail": "NR",
@@ -146207,7 +146179,7 @@
       "pub-year": 2014,
       "pub-doi": "https://doi.org/10.1371/journal.pone.0104320",
       "pub-type": "J",
-      "exp-type": "Mixed",
+      "exp-type": "Lab",
       "exp-spatial-typology": "NR",
       "exp-domains": "Air temperature: Double step change",
       "data-avail": "NR",
@@ -150638,7 +150610,7 @@
       "pub-year": 2023,
       "pub-doi": "https://doi.org/10.1016/j.jtherbio.2023.103493",
       "pub-type": "J",
-      "exp-type": "Mixed",
+      "exp-type": "Lab",
       "exp-spatial-typology": "Seating",
       "exp-domains": "Air temperature, Relative humidity",
       "data-avail": "NR",

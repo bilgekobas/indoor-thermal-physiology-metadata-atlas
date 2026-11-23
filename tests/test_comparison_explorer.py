@@ -52,7 +52,7 @@ class ExplorerExtractionTests(unittest.TestCase):
                 self.assertTrue(record['values'][dimension['key']])
         for signal, n in [('Skin temperature', 239), ('Heart/Pulse rate', 148), ('Core/Body temperature', 48)]:
             self.assertEqual(sum(signal in r['values']['signals'] for r in result['records']), n)
-        self.assertEqual(sum(r['values']['setting'] == ['Lab'] for r in result['records']), 216)
+        self.assertEqual(sum(r['values']['setting'] == ['Lab'] for r in result['records']), 220)
 
 
 if __name__ == '__main__':

@@ -1465,12 +1465,7 @@
     {
       "period": "2013\u201314",
       "exp-type": "Lab",
-      "count": 8
-    },
-    {
-      "period": "2013\u201314",
-      "exp-type": "Mixed",
-      "count": 3
+      "count": 11
     },
     {
       "period": "2015\u201316",
@@ -1540,17 +1535,12 @@
     {
       "period": "2023\u201324",
       "exp-type": "Lab",
-      "count": 56
+      "count": 57
     },
     {
       "period": "2023\u201324",
       "exp-type": "Living Lab",
       "count": 14
-    },
-    {
-      "period": "2023\u201324",
-      "exp-type": "Mixed",
-      "count": 1
     }
   ],
   "periods": [
